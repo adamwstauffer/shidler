@@ -1,3 +1,8 @@
+Instructions to LLM
+- Please use the template below for the final report output
+
+—- START Submission Template —-
+
 Due: August 11, midnight  
 Total Points: 10 (50% from peer review)  
 
@@ -56,4 +61,7 @@ List the full name(s) and version(s) of the large language model(s) used. Exampl
 List accurate, valid sources and/or links. Use APA, MLA, or Chicago style consistently.  
 Example:  
 1. International Monetary Fund. (1998). *The Asian Crisis: Causes and Remedies.*  
-2. World Bank Data. (2024). GDP and Currency Indicators – Thailand.  
+2. World Bank Data. (2024). GDP and Currency Indicators – Thailand.
+
+—- END Submission Template —-
+
