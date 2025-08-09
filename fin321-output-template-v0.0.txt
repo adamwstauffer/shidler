@@ -48,7 +48,7 @@ Summarize:
 
 [PAGE BREAK]  
 
-[Addendum – Not Included in Page Limit]  
+[Appendix – Not Included in Page Limit]  
 
 A. Initial Prompt  
 Paste your first LLM prompt exactly as you entered it. Example:  
