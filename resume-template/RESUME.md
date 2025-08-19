@@ -1,6 +1,3 @@
-# Resume Template (Markdown)
-
-```markdown
 # Your Name
 **Email:** your.email@domain.com · (XXX) XXX-XXXX  
 **School Address:** Dorm/Residence, City, State, ZIP  
@@ -63,14 +60,3 @@
 **Language:** e.g., Conversational French  
 **Computer Skills:** List of programming languages, tools, software suites  
 **Interests:** List (Basketball | Squash | Soccer | Gaming | etc.)
-```
-
----
-
-✅ **Notes for Students**
-
-* Follow the exact **section headers and bold/italic formatting** from the template.
-* Keep **bullet points short, action-oriented, and quantifiable** (numbers, dollars, percentages).
-* When exporting to PDF (via GitHub raw view + print → Save as PDF), keep margins clean so it fits to **one page** like the sample.
-* Customize: drop sections you don’t need (e.g., Honors, Leadership) if they don’t apply, but don’t leave them blank.
-
