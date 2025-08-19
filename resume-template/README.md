@@ -30,7 +30,20 @@ This guide walks you through how to **create, manage, and share your resume on G
 
 You have options depending on your comfort level:
 
-### Option A: Markdown Resume (Recommended)
+### Option A: (Markdown → GitHub → PDF) (Recommended)
+
+Welcome! This repo provides a **ready-to-edit Markdown resume** template.
+
+## Instructions
+1. **Fork this repo** (click the "Fork" button at top-right).  
+2. Open `RESUME.md` and **edit with your details**.  
+3. Commit changes when done.  
+4. To **export as PDF**:
+   - Open `RESUME.md` → click **Raw**  
+   - Use browser Print → Save as PDF  
+   - Save with a professional name: `Firstname_Lastname_Resume.pdf`
+  
+### Option B: Markdown Resume
 
 1. In your repo, click **Add file → Create new file**.
 2. Name it `RESUME.md`.
@@ -51,7 +64,7 @@ You have options depending on your comfort level:
    ```
 4. Scroll down and click **Commit changes**.
 
-### Option B: Upload a PDF/DOCX
+### Option C: Upload a PDF/DOCX
 
 1. Click **Add file → Upload files**.
 2. Drag and drop your resume PDF or Word doc.
@@ -98,6 +111,10 @@ For an extra-polished resume:
 * **Keep it updated**: Commit new changes whenever you gain experience.
 * **Use branches**: Create a `job-specific` branch for resumes tailored to specific applications.
 * **Link to it**: Add your GitHub resume link to your LinkedIn and email signature.
+* Keep it to **1 page** if possible.
+* Use **bullet points with strong verbs** (e.g., “Developed,” “Led,” “Created”).
+* Quantify results when possible.
+* Delete sections that don’t apply to you (don’t leave them blank).  
 
 ---
 
@@ -106,8 +123,6 @@ For an extra-polished resume:
 * [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/) (formatting help)
 * [GitHub Pages](https://pages.github.com/) (turn your resume into a website)
 * [Overleaf LaTeX Resume Templates](https://www.overleaf.com/gallery/tagged/cv) (for advanced users)
-
----
-
-👩‍🎓 **Assignment Suggestion**:
-Create a GitHub repo for your resume, upload or write it in Markdown, and **submit the repo link + a PDF export**.
+* [Penn Career Services: Resume Guide](https://careerservices.upenn.edu/channels/resume/)
+* [Undergraduate’s student resume samples](https://careerservices.upenn.edu/preparing-effective-resumes/undergraduates-student-resume-samples/)
+* [Sample Consulting Resume (PDF)](https://cdn.uconnectlabs.com/wp-content/uploads/sites/74/2021/09/SampleConsultingResume.pdf)  
