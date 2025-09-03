@@ -1,3 +1,5 @@
+## BUS-620 AI Project 
+```
 eco-ai-course-projects/
 ├─ README.md                          # Master overview: how to use repo, AI policy, honor code
 ├─ .gitignore                         # Node, Python, OS cruft, notebooks checkpoints
@@ -55,3 +57,5 @@ eco-ai-course-projects/
    └─ deliverables/
       ├─ risk-memo.md
       └─ prompt-log.md
+```
+
