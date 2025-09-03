@@ -1,4 +1,18 @@
 # BUS-620 AI Project 
+----
+
+This project will explore the economic effects of a **policy shock** or **geopolitical event** of your choice using microeconomic and macroeconomic models.
+E.g.:
+- Rent control in a housing market  
+- Sugar tax on consumption  
+- Expansionary monetary/fiscal policy  
+
+Apply micro- and macro- frameworks to evaluate outcomes for consumers, producers, and society.
+
+----
+
+*Workflow* (README ➜ Prompts ➜ Specs ➜ Final Output)
+
 ```
 eco-ai-course-projects/
 ├─ README.md                          # Master overview: how to use repo, AI policy, honor code
