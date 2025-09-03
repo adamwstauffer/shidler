@@ -1,10 +1,7 @@
-## BUS-620 AI Project 
+# BUS-620 AI Project 
 ```
 eco-ai-course-projects/
 ├─ README.md                          # Master overview: how to use repo, AI policy, honor code
-├─ .gitignore                         # Node, Python, OS cruft, notebooks checkpoints
-├─ .gitattributes                     # Normalize line endings; optional LFS hooks
-├─ LICENSE
 ├─ docs/
 │  ├─ ai-usage-guidelines.md          # Allowed uses, prompt logging, citation rules
 │  ├─ writing-style-guide.md          # Memo format, charts, footnotes, figures
@@ -35,27 +32,7 @@ eco-ai-course-projects/
 │  ├─ analysis/                       # XLS/CSV or notebook; formulas documented
 │  └─ deliverables/
 │     ├─ memo.md
-│     └─ prompt-log.md
-├─ intl-econ/
-│  ├─ README.md
-│  ├─ prompts.md
-│  ├─ spec.md
-│  ├─ data/
-│  ├─ figures/
-│  ├─ analysis/
-│  └─ deliverables/
-│     ├─ case-brief.md
-│     └─ prompt-log.md
-└─ intl-finance/
-   ├─ README.md
-   ├─ prompts.md
-   ├─ spec.md
-   ├─ data/
-   ├─ figures/
-   ├─ analysis/
-   │  └─ fx-hedge.xlsx                # Forward calc + scenarios (students edit/duplicate)
-   └─ deliverables/
-      ├─ risk-memo.md
-      └─ prompt-log.md
+│     ├─ prompt-log.md
+│     └─ ...
 ```
 
