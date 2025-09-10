@@ -1,7 +1,3 @@
-Perfect — here’s a **student assignment write-up** that combines both pieces: creating a **GitHub bio (main README)** and a **resume draft (RESUME.md)**. You can drop this into your LMS, email, or even as the assignment description in your syllabus.
-
----
-
 # 📘 Assignment: GitHub Bio + Resume Draft
 
 ### 🎯 Objectives
