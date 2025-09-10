@@ -1,3 +1,4 @@
+```markdown
 yourname-portfolio/
 ├─ README.md                          # Master overview: Your Bio
 ├─ RESUME.md                          # Your Resume
@@ -14,3 +15,4 @@ yourname-portfolio/
    └─ deliverables/
       ├─ risk-memo.md
       └─ prompt-log.md
+```
