@@ -1,22 +1,17 @@
-# BUS-620 Micro/Macro Economics
-
-**Theme:** Policy shock analysis (price controls, tax/subsidy, or monetary/ fiscal impulse)
-**Output style:** Executive policy memo + reproducible appendix
-
-### A.1 Workflow (README ➜ Prompts ➜ Spec)
+### A.1 Workflow Example (README ➜ Prompts ➜ Spec)
 
 * **README (student-facing brief)**
 
   * Problem choices (pick one):
-
     1. Rent control in a metro market; 2) Sugar tax; 3) Expansionary monetary policy with sticky prices.
-  * Required analyses: equilibrium shifts, elasticity, DWL, incidence, short-run vs long-run.
-  * Deliverables + due dates, grading rubric, collaboration rules.
-* **Prompts (AI use, reproducible)**
+     * Required analyses: equilibrium shifts, elasticity, DWL, incidence, short-run vs long-run.
+     * Deliverables + due dates, grading rubric, collaboration rules.
 
+* **Prompts (AI use, reproducible)**
   * “Explain the causal chain from policy → incentives → market outcomes using supply/demand.”
   * “Check my DWL calculation with step-by-step reasoning; flag any missing elasticity assumptions.”
   * “Generate a clean diagram description I can recreate (axes, intercepts, shifts, labels).”
+ 
 * **Spec (scope + criteria)**
 
   * **Models:** Partial equilibrium S/D, tax incidence, simple AS-AD, Phillips tradeoff (optional).
@@ -25,85 +20,10 @@
 
 ### A.2 Phases & Deliverables
 
-* **Phase 1 – Scoping (Week 1):** 1-page proposal + baseline diagram.
-* **Phase 2 – Analysis (Weeks 2–3):** Calculations (incidence, DWL), short-run vs long-run narrative.
-* **Phase 3 – Robustness (Week 4):** Elasticity sensitivity table; alternate assumptions.
-* **Phase 4 – Memo & Appendix (Week 5):** Final memo + reproducible steps + prompt log.
-
-### A.3 Rubric (10 pts)
-
-* Correct use of theory (3), clarity & structure (2), quantitative accuracy (2), diagrams (1), reproducibility + prompts (2).
-
----
-
-# 2) Project B — International Economics (Trade & Tariffs)
-
-**Theme:** Real dispute or policy (tariff, quota, VER, TBT/SPS) and general-equilibrium intuition
-**Output style:** Trade case brief with model-backed winner/loser analysis
-
-### B.1 Workflow (README ➜ Prompts ➜ Spec)
-
-* **README**
-
-  * Pick a case (e.g., steel tariffs, USMCA rule-of-origin, Airbus-Boeing dispute).
-  * Map factors → comparative advantage → expected trade pattern → policy shock.
-  * Deliverables + rubric + citation format.
-* **Prompts**
-
-  * “Summarize case X in 200 words with neutral language and cite primary sources.”
-  * “Given factor endowments, infer HO predictions and who gains/loses under a tariff.”
-  * “Draft a pxp trade-flow diagram narrative I can recreate.”
-* **Spec**
-
-  * **Models:** Ricardian (unit labor req), Heckscher-Ohlin (factor abundance), Specific-Factors for distribution.
-  * **Empirics:** Use at least one trade flow or tariff dataset; document sources.
-  * **Outputs:** 2–3 page brief, graphic of trade-flow shift, distributional table (consumers, producers, govt).
-
-### B.2 Phases & Deliverables
-
-* **Phase 1 – Case Selection & Background:** 1-page summary + citations.
-* **Phase 2 – Model Fit:** Which model explains the case and why?
-* **Phase 3 – Distribution & Welfare:** Winners/losers table; deadweight loss + tariff revenue bounds.
-* **Phase 4 – Policy Recommendation:** Memo with alternatives (e.g., wage insurance, phasedown).
-
-### B.3 Rubric (10 pts)
-
-* Model selection/justification (3), data use & citations (2), distribution analysis (2), clarity (2), AI prompts (1).
-
----
-
-# 3) Project C — International Finance (FX & Derivatives)
-
-**Theme:** FX risk management for a small multinational (exporter or importer)
-**Output style:** Risk memo + hedge playbook + calculation sheet
-
-### C.1 Workflow (README ➜ Prompts ➜ Spec)
-
-* **README**
-
-  * Choose a currency pair (e.g., USD/EUR). Define exposure (AR/AP, timing, size).
-  * Required: spot/forward parity check, scenario analysis, hedge alternatives (forward, option collar).
-* **Prompts**
-
-  * “Compute forward rate via CIP given S, r\_d, r\_f (show formula path).”
-  * “Stress scenarios: ±5%, ±10% FX; tabulate P\&L unhedged vs forward vs collar.”
-  * “Draft hedge rationale in manager-friendly prose; add risks & monitoring checklist.”
-* **Spec**
-
-  * **Methods:** Interest parity, forward pricing, option payoff tables (if chosen).
-  * **Artifacts:** Spreadsheet/notebook with formulas, memo, prompt log.
-  * **Governance:** Hedge objective, limits, rebalancing triggers, reporting cadence.
-
-### C.2 Phases & Deliverables
-
-* **Phase 1 – Exposure Map:** Cash-flow timing, currency, sizing (timeline).
-* **Phase 2 – Valuation & Parity:** Forward calc; sanity-check with market quotes (document date).
-* **Phase 3 – Strategy Set:** Compare hedge P\&L across scenarios; choose & justify.
-* **Phase 4 – Memo + Playbook:** Final memo + XLS/CSV + prompt log.
-
-### C.3 Rubric (10 pts)
-
-* Correct finance math (3), scenario quality (2), hedge selection logic (3), clarity (1), AI prompts (1).
+* **Phase 1 – Scoping (Weeks 1-4):** 1-page proposal + baseline diagram.
+* **Phase 2 – Analysis (Weeks 4–7):** Calculations (incidence, DWL), short-run vs long-run narrative.
+* **Phase 3 – Robustness (Weeks 7-10):** Elasticity sensitivity table; alternate assumptions.
+* **Phase 4 – Memo & Appendix (Weeks 10-13):** Final memo + reproducible steps + prompt log.
 
 ---
 
@@ -243,21 +163,6 @@ Use `prompts.md` for suggested AI queries; log them all.
 Rubric: theory (3), clarity (2), quant (2), diagrams (1), reproducibility (2).
 ```
 
-* **`intl-econ/README.md`**
-
-```md
-# Project B — International Trade & Tariffs
-Select a real dispute/policy and analyze using Ricardian/HO/Specific-Factors.
-**Deliverables:** case brief + winners/losers table + figures + prompt log.
-```
-
-* **`intl-finance/README.md`**
-
-```md
-# Project C — International Finance (FX & Derivatives)
-Map your firm’s FX exposure, compute forward via parity, compare hedges.
-**Deliverables:** risk memo, `analysis/fx-hedge.xlsx`, prompt log, figures.
-```
 
 **Course `prompts.md` seeds** (one example each)
 
