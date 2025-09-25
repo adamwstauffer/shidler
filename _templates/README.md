@@ -42,6 +42,6 @@ In research: Specs define methodology (e.g., data sources, models, reproducibili
 In policy/consulting: Specs provide consistent evaluation frameworks (e.g., for assessing monetary policy). Prompts generate scenario narratives and what-if analyses.
 
 How specs & prompts complement each other (quick explainer to include in class)
-•	Specs = blueprint/contract (objective, scope, inputs, steps, outputs, evaluation).
-•	Prompts = tactical instructions you run at each step.
-•	Together they enforce clarity, consistency, and reproducibility — exactly what employers expect.
+- Specs = blueprint/contract (objective, scope, inputs, steps, outputs, evaluation).
+- Prompts = tactical instructions you run at each step.
+- Together they enforce clarity, consistency, and reproducibility — exactly what employers expect.
