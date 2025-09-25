@@ -1,6 +1,4 @@
-:
-
-🔹 What is a “spec”?
+# What is a “spec”?
 
 In the OpenAI video Introducing Specs
 , a spec (short for specification) is a structured document that clearly defines:
