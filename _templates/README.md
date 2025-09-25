@@ -5,13 +5,13 @@
 In the OpenAI video Introducing Specs
 , a spec (short for specification) is a structured document that clearly defines:
 
-the goal of a task,
+- the goal of a task
 
-the steps required,
+- the steps required
 
-the expected inputs/outputs, and
+- the expected inputs/outputs
 
-the evaluation criteria.
+- the evaluation criteria.
 
 It acts as a contract between humans and AI systems, ensuring consistency, reproducibility, and clarity in how work is done.
 
