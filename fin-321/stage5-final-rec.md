@@ -4,9 +4,11 @@
 ## Goal
 Deliver a polished, executive-ready memo or slide deck summarizing your hedge analysis and recommending the best strategy. This combines quantitative rigor, interpretation, communication, and forward-looking perspective — exactly what senior finance leaders expect from analysts.
 
+**Hint:** Think of this as just another step ("final analysis memo prompt") and have your LLM generate the output based on your **Stage 4 - Spreadsheet**. 
+
 ---
 
-# Deliverable Requirements (2–3 pages)
+# Deliverable Requirements (1-2 page .md file uploaded to GitHub)
 
 Must include:
 
@@ -62,7 +64,7 @@ Use management-level reasoning:
 
 ---
 
-# Required: Areas for Further Study & Improvement
+# Extra Credit (2 points): Areas for Further Study & Improvement
 
 Include at least three of the following:
 
@@ -187,4 +189,4 @@ You are demonstrating:
 - Financial decision leadership  
 - Technical communication  
 
-This is a portfolio-ready artifact for internships, jobs, and graduate programs.
+## This is a portfolio-ready artifact for internships, jobs, and graduate programs!
