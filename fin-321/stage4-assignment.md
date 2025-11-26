@@ -1,0 +1,172 @@
+# Stage 4 – Prompt Engineering (4 Points)
+**Due:** December 12, 2025
+
+## Goal
+Translate your Stage 2 specification and Stage 3 Excel logic into a precise, executable AI prompt capable of generating a complete, professional spreadsheet model. Your prompt must include your scenario-specific variables, real market data, and clear modeling requirements aligned with your specification.
+
+You are now practicing the role of a **Finance Technologist / Treasury Analyst** who builds hybrid human–AI analytical pipelines.
+
+---
+
+# Deliverable 1 — Structured AI Prompt (1–2 pages)
+
+Your prompt must include:
+
+## A. Scenario-Specific Variables
+Use real values:
+- FC_AMT (EUR receivable)
+- Spot rate (looked up at time of running prompt)
+- Forward rate (provided)
+- Interest rates (looked up)
+- K_put, K_call
+- Premiums
+- T_days
+
+All values must be explicitly stated in your prompt.
+
+## B. Excel Spreadsheet Requirements
+Your prompt must instruct the AI to generate a spreadsheet with:
+
+### 1. Named Ranges  
+Use standardized names such as:
+- `FC_AMT`
+- `S0_in`
+- `F0_in`
+- `R_USD`
+- `R_FC`
+- `K_PUT`
+- `K_CALL`
+- `PREM_PUT`
+- `PREM_CALL`
+- `T_DAYS`
+- `T_YRS`
+
+### 2. Color Coding
+Your prompt must instruct the AI to use:
+- **Yellow** = Inputs / decision variables
+- **Blue** = Assumptions
+- **Green** = Formulas
+- **Gray** = Outputs / KPIs
+
+### 3. Model Components
+Your prompt must instruct the AI to include:
+- Forward hedge calculation
+- Money Market Hedge (3-step)
+- Option Hedges (premium + payoff logic)
+- Sensitivity table ±5% (0.95×S0 → 1.05×S0)
+- Clean formatting and labeled sections
+- Cross-checks (parity, formula consistency)
+
+### 4. Verification Instructions
+Your prompt must explicitly instruct the AI to:
+- Validate parity between forward and MM hedges
+- Confirm all named ranges exist
+- Return full formula mapping for auditability
+- Provide a downloadable `.xlsx` file
+
+---
+
+# Deliverable 2 — Reflection Section
+Include a short paragraph explaining:
+- Why your prompt is structured the way it is  
+- Why clarity improves reproducibility  
+- How your structure reduces model risk  
+- How this mimics modern treasury automation workflows  
+
+---
+
+# Prompt Engineering Best Practices (Required)
+
+## 1. Use Hierarchical Structure
+Use section headers such as:
+```
+# GOAL
+# CONTEXT
+# INPUT VARIABLES
+# SPREADSHEET REQUIREMENTS
+# NAMED RANGE DEFINITIONS
+# MODEL LOGIC (PSEUDOCODE)
+# FORMATTING & COLOR CODING
+# OUTPUT REQUIREMENTS
+# VERIFICATION
+# EXPORT
+```
+
+## 2. Avoid Vague Prompts
+Example of a bad prompt:
+> "Make me an FX hedging spreadsheet."
+
+## 3. Provide All Variable Values
+AI does not infer values, so include everything.
+
+## 4. Use Named Ranges Consistently
+Never allow the AI to invent its own naming system.
+
+## 5. Specify Formatting Explicitly
+Color codes, sections, layout—be explicit.
+
+## 6. Include Context Files from GitHub
+This is the most efficient way to use AI for models.
+
+### Options for providing context:
+1. **Best:** GitHub links to your spec/template  
+2. **Medium:** Upload `.md` or `.xlsx` files directly  
+3. **Least:** Copy/paste text manually  
+
+---
+
+# Sample Stage 4 Prompt (with GitHub Integration)
+
+```md
+You are a financial modeling assistant.
+
+# GOAL
+Create an Excel file modeling forward, money market, and option hedges for my EUR receivable.
+
+# CONTEXT FILES (GitHub)
+Use the logic in:
+- https://github.com/example/fin321/stage2-spec.md
+- https://github.com/example/fin321/stage3-skeleton.xlsx
+
+# INPUT VARIABLES
+FC_AMT = 2,850,000
+Spot = 1.0934
+Forward = 1.0875
+r_USD = 5.10%
+r_EUR = 2.71%
+K_put = 1.0900
+K_call = 1.0900
+Premium_put = 0.017
+Premium_call = 0.022
+T_days = 360
+
+# SPREADSHEET REQUIREMENTS
+Use named ranges.
+Color code inputs yellow, formulas green, outputs gray, assumptions blue.
+Include forward hedge, money market hedge, option hedge, and sensitivity analysis.
+
+# MODEL LOGIC
+(Insert pseudocode from Stage 2 spec)
+
+# VERIFICATION
+Validate parity and confirm all named ranges.
+
+# EXPORT
+Return a downloadable Excel file.
+```
+
+---
+
+# Evaluation
+
+| Criterion | Description | Points |
+|----------|-------------|-------:|
+| Clarity & Structure | Readable by AI and humans | 1 |
+| Completeness | All logic, inputs, and outputs included | 1 |
+| AI-Readiness | Prompt can be executed by AI | 1 |
+| Professionalism | Reflects modern finance workflows | 1 |
+
+---
+
+# Why This Matters
+You are learning how to convert domain knowledge into machine-readable instructions — a core skill for modern finance, treasury, risk, and analytics roles.
