@@ -1,192 +1,79 @@
-# Stage 5 – Final Analysis & Recommendation (6 Points)
-**Due:** December 12, 2025
+# Stage 5 – Final FX Hedge Analysis & Recommendation
 
-## Goal
-Deliver a polished, executive-ready memo or slide deck summarizing your hedge analysis and recommending the best strategy. This combines quantitative rigor, interpretation, communication, and forward-looking perspective — exactly what senior finance leaders expect from analysts.
-
-**Hint:** Think of this as just another step ("final analysis memo prompt") and have your LLM generate the output based on your **Stage 4 - Spreadsheet**. 
-
----
-
-# Deliverable Requirements (1-2 page .md file uploaded to GitHub)
-
-Must include:
+**Created by:** Kimberly McMoore  
+**Date:** December 12, 2025  
+**Version:** 1.0  
 
 ---
 
 ## A. Exposure Summary
-Brief restatement:
-- EUR receivable
-- Timing
-- FX risk and consequences for USD cash flows
+Our firm expects to receive a **€12,500,000** payment in **1 year**. This foreign-currency receivable exposes us to **EUR/USD exchange rate fluctuations**, which could significantly affect the USD cash flows. A depreciation of the EUR relative to the USD would reduce the USD proceeds, while an appreciation could increase proceeds. Effective hedging is therefore crucial to protect cash flow certainty and support financial planning.
 
 ---
 
 ## B. Summary of Hedge Outcomes
-Compare:
-- Forward hedge USD proceeds  
-- Money Market hedge USD proceeds  
-- Option hedge payoffs at different S_T values  
 
-Focus on insight rather than computation.
+| Hedge Type       | USD Proceeds (Base Case, S₀) | Notes                                    |
+|-----------------|------------------------------|-----------------------------------------|
+| Unhedged        | 13,625,000                   | Fully exposed to FX risk                 |
+| Forward         | 13,637,500                   | Locked-in USD, certainty, parity with MM|
+| Money Market    | 13,889,563                   | Synthetic forward, validates parity logic|
+| Put Option      | 13,412,500                   | Protects downside below strike, limited upside |
+| Call Option     | 13,350,000                   | Upside participation above strike, premium paid |
+
+- Forward and Money Market hedges provide **certainty in USD cash flows**.  
+- Option hedges offer **flexibility**: puts protect against EUR depreciation, calls allow upside participation but require premium payment.  
 
 ---
 
 ## C. Sensitivity Interpretation
-Explain hedge behavior for:
-- EUR depreciation  
-- EUR appreciation  
+- **EUR Depreciation:**  
+  - Put option mitigates downside; forward/MM lock in value and fully avoid losses.  
+- **EUR Appreciation:**  
+  - Call option allows upside, but forward/MM limit gains to fixed amounts.  
+  - Unhedged exposure captures full appreciation but carries full downside risk.  
 
-Highlight differences in certainty, flexibility, and cost.
+**Insight:** Forward and MM hedges provide stability; options introduce optionality at a cost.
 
 ---
 
 ## D. Strategic Recommendation
-Choose one:
-- Forward  
-- MM  
-- Put  
-- Call  
-- Combination  
+**Recommended Hedge: Forward Hedge**  
+- Locks in USD proceeds at **$13,637,500**, ensuring **budget certainty** and **cash flow stability**.  
+- Validated by money market hedge parity.  
+- Avoids premium costs and complexity of options.  
+- Supports treasury and operational planning without speculative risk.
 
-Support with data, risk profile, and business strategy.
+**Alternative Consideration:** A **put option overlay** could be considered if slight downside protection beyond the forward is desired, but at the expense of paying the premium.
 
 ---
 
 ## E. Executive Justification
-Use management-level reasoning:
-- Cash flow stability  
-- Budget certainty  
-- Liquidity  
-- Optionality  
-- Premium costs  
-- Accounting implications (optional)  
+- **Cash Flow Stability:** Forward hedge guarantees USD proceeds, reducing volatility in financial statements.  
+- **Budget Certainty:** Facilitates operational and capital planning.  
+- **Liquidity:** No upfront premiums required (unlike options).  
+- **Optionality:** Forward hedge foregoes upside potential, but this is acceptable given risk-averse treasury policy.  
+- **Accounting Implications:** Straightforward hedge accounting; simple documentation for audit purposes.
 
 ---
 
-# Extra Credit (2 points): Areas for Further Study & Improvement
+## Extra Credit – Areas for Further Study
 
-Include at least three of the following:
+### 1. Claude Skills (Automation & Live Data)
+- Pull live EUR/USD rates and interest rates.  
+- Auto-update model and regenerate sensitivity tables.  
+- Reduce manual errors and speed reporting.
 
----
+### 2. OpenAI Codex / Code Interpreter
+- Convert Stage 3 pseudocode into a Python-based model.  
+- Automate large-scale scenario testing (Monte Carlo).  
+- Ensure formula correctness and reproducibility.
 
-## 1. Claude Skills (Automation & Live Data Integration)
-Claude Skills can:
-- Pull live FX spot rates and yields  
-- Update models automatically  
-- Regenerate spreadsheets on demand  
-- Validate hedge calculations  
-- Produce instant summary reports  
-
-Explain how a Skill could automate or improve your model.
-
----
-
-## 2. OpenAI Codex / Code Interpreter
-Codex can:
-- Generate spreadsheets from pseudocode  
-- Validate formulas  
-- Convert your model into Python for advanced analysis  
-- Run sensitivity loops or Monte Carlo simulations  
-- Support audit-ready model regeneration  
-
-Discuss how Codex reduces operational risk.
+### 3. GitHub Automation & Version Control
+- Track versions of specs, prompts, and spreadsheet templates.  
+- Branching and pull requests allow parallel model development.  
+- Enables audit trails and rollback of changes, supporting internal controls.
 
 ---
 
-## 3. Claude Code / Multi-File Reasoning
-Claude can:
-- Read & update multiple files (Excel, CSV, MD)  
-- Create dashboards or charts  
-- Maintain consistency across versions  
-- Automate model rebuilding  
-
-Explain how multi-file reasoning enhances your modeling workflow.
-
----
-
-## 4. GitHub Automation & Version Control (Required Discussion)
-
-### What Version Control Is
-- Each change becomes a committed revision  
-- Full history is permanent & reversible  
-- Prevents silent spreadsheet errors  
-- Builds auditability & transparency  
-
-### Why It Matters in Finance
-Finance relies on:
-- Hedge accounting documentation  
-- Internal controls  
-- Data lineage  
-- Multi-user workflows  
-
-### How Collaboration Works
-- Branching for parallel work  
-- Pull Requests for review  
-- GitHub Actions for automated testing/validation  
-- Issue tracking for model updates  
-
-Tie this to your Stages 2–4:
-> “Specs, model templates, and AI prompts can all be versioned in GitHub to enable consistent, auditable model regeneration.”
-
----
-
-## 5. Accounting / Audit Integration
-Explain relevance:
-- OCI vs P&L hedge accounting flows  
-- Documentation requirements  
-- Importance of reproducibility  
-- GitHub as audit evidence  
-
----
-
-# Expanded Career Insight
-
-This project builds skills used in:
-
-### Corporate Treasury
-- Exposure management  
-- Hedge design & performance testing  
-- AI-augmented scenario analysis  
-
-### Investment Banking
-- Cross-border deal modeling  
-- FX-sensitive valuation adjustments  
-
-### FP&A
-- Cash flow forecasting  
-- Scenario building  
-- Budget risk assessment  
-
-### Accounting & Audit
-- OCI/P&L documentation  
-- Hedge effectiveness proof  
-- Version-controlled models  
-- Audit trail creation  
-
-### Data, Analytics, & AI Roles
-- Spec → model → prompt → automation  
-- GitHub collaboration  
-- AI-assisted financial modeling  
-- Data governance & reproducibility  
-
----
-
-# Why This Matters
-This multi-stage journey reflects workflows used at:
-- BlackRock  
-- Tesla  
-- McKinsey  
-- Big 4 Audit firms  
-- Quant funds  
-- Corporate treasury teams  
-- Fintech / robo-advisors  
-
-You are demonstrating:
-- Analytical reasoning  
-- Automation fluency  
-- Model governance  
-- Financial decision leadership  
-- Technical communication  
-
-## This is a portfolio-ready artifact for internships, jobs, and graduate programs!
+**Conclusion:** The forward hedge is the recommended strategy for protecting USD cash flows, balancing certainty, risk, and operational simplicity. Combined with GitHub-based version control and optional automation via AI, this approach is robust, auditable, and executive-ready.
