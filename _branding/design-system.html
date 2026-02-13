@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UH Mānoa Design System | University of Hawaiʻi at Mānoa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        uh: {
+                            green: '#024731',
+                            'green-hover': '#013D26',
+                            'green-light': '#026B4A',
+                            'green-focus': 'rgba(2, 71, 49, 0.15)',
+                        },
+                        bg: { primary: '#FFFFFF', secondary: '#F5F5F5', tertiary: '#E8E8E8' },
+                        surface: { card: '#FFFFFF', hover: '#FAFAFA', active: '#F0F0F0' },
+                        uhGreen: {
+                            50: '#E6F2EF', 100: '#B3D9CF', 200: '#80C0AF', 300: '#4DA78F',
+                            400: '#1A8E6F', 500: '#024731', 600: '#023D29', 700: '#012E1F',
+                            800: '#011E14', 900: '#000F0A',
+                        },
+                        silver: { DEFAULT: '#B2B2B2', light: '#D4D4D4', dark: '#737373' },
+                    },
+                    fontFamily: {
+                        heading: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+                        body: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+            background: #FFFFFF;
+            color: #000000;
+        }
+
+        .font-heading {
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #D4D4D4;
+            border-radius: 4px;
+        }
+
+        .focus-ring:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(2, 71, 49, 0.25);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-white border-r border-black/10 z-50 flex flex-col">
+        <div class="p-6 border-b border-black/10">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#024731] flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-heading text-lg font-bold text-[#024731]">UH Mānoa</h1>
+                    <p class="text-xs text-[#737373]">Design System v1.0</p>
+                </div>
+            </div>
+        </div>
+        <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+            <a href="#"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-uhGreen-50 text-[#024731] border border-uhGreen-200 text-sm font-semibold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z" />
+                </svg>
+                Overview
+            </a>
+            <a href="#colors"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#525252] hover:text-black hover:bg-black/[0.04] text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+                Colors
+            </a>
+            <a href="#typography"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#525252] hover:text-black hover:bg-black/[0.04] text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+                Typography
+            </a>
+            <a href="#components"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#525252] hover:text-black hover:bg-black/[0.04] text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+                Components
+            </a>
+            <a href="#accessibility"
+                class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#525252] hover:text-black hover:bg-black/[0.04] text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                Accessibility
+            </a>
+            <div class="pt-6">
+                <p class="px-3 text-[10px] font-semibold text-[#737373] uppercase tracking-wider mb-2">Resources</p>
+                <a href="https://manoa.hawaii.edu/brand/" target="_blank" rel="noopener"
+                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#525252] hover:text-[#024731] hover:bg-uhGreen-50/50 text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                    Brand Style Guide
+                </a>
+                <a href="https://manoa.hawaii.edu/brand/brand-foundation/index.php" target="_blank" rel="noopener"
+                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#525252] hover:text-black hover:bg-black/[0.04] text-sm">
+                    Brand Foundation
+                </a>
+                <a href="https://manoa.hawaii.edu/brand/brand-elements/index.php" target="_blank" rel="noopener"
+                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#525252] hover:text-black hover:bg-black/[0.04] text-sm">
+                    Brand Design
+                </a>
+            </div>
+        </nav>
+        <div class="p-4 border-t border-black/10">
+            <p class="text-xs text-[#737373]">Branding &amp; Marketing</p>
+            <p class="text-sm font-medium text-[#024731]">(808) 956-3598</p>
+            <a href="mailto:branding@hawaii.edu" class="text-xs text-[#024731] hover:underline">branding@hawaii.edu</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Header -->
+        <header class="mb-8">
+            <p class="text-sm text-[#737373]">Design System</p>
+            <h2 class="font-heading text-3xl font-bold text-black mt-1">University of Hawaiʻi at Mānoa</h2>
+            <p class="text-[#525252] mt-2 max-w-2xl">It is who we are, it is what we stand for, and a reason why people
+                should care. It is what we do, what we say, how we look—it's our shared identity. It creates pride in
+                place.</p>
+            <div class="flex items-center gap-3 mt-4">
+                <a href="https://manoa.hawaii.edu/brand/" target="_blank" rel="noopener"
+                    class="px-4 py-2 rounded-lg bg-[#024731] text-white text-sm font-semibold hover:bg-[#013D26] transition-colors">Brand
+                    Style Guide →</a>
+                <a href="docs/specs/05-frontend/ui/design_uh.json"
+                    class="px-4 py-2 rounded-lg border border-black/10 text-sm hover:bg-black/[0.04] transition-colors">design_uh.json</a>
+            </div>
+        </header>
+
+        <!-- Brand Principles -->
+        <section class="grid grid-cols-2 gap-6 mb-10">
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-xl bg-uhGreen-100 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-[#024731]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-black">Brand Consistency</h3>
+                </div>
+                <p class="text-sm text-[#525252]">Every element should reinforce UH Mānoa's shared identity. Use
+                    approved logos, typography, and colors.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-xl bg-uhGreen-100 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-[#024731]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-black">Accessibility</h3>
+                </div>
+                <p class="text-sm text-[#525252]">Meet ADA accessibility in contrast, type size, and layout. Never use
+                    non-compliant contrast or red body type.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-xl bg-uhGreen-100 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-[#024731]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-black">Quality &amp; Legibility</h3>
+                </div>
+                <p class="text-sm text-[#525252]">Typography and layout should reflect institutional quality. Use
+                    generous leading and readable body sizes.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-xl bg-uhGreen-100 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-[#024731]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-black">Pride of Place</h3>
+                </div>
+                <p class="text-sm text-[#525252]">Design supports the university's mission and creates pride in place
+                    across print, web, and digital.</p>
+            </div>
+        </section>
+
+        <!-- Colors -->
+        <section id="colors" class="mb-12">
+            <h2 class="font-heading text-2xl font-bold text-black mb-6 flex items-center gap-3">
+                <span
+                    class="w-8 h-8 rounded-lg bg-uhGreen-100 flex items-center justify-center text-[#024731] text-sm font-bold">1</span>
+                Brand Colors
+            </h2>
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm mb-6">
+                <h3 class="text-sm font-semibold text-[#525252] mb-4">Primary</h3>
+                <div class="flex flex-wrap gap-6">
+                    <div>
+                        <div class="w-24 h-24 rounded-xl bg-[#024731] border border-black/10"></div>
+                        <p class="mt-2 font-semibold text-sm">Green #024731</p>
+                        <p class="text-xs text-[#737373]">Pantone 3435 C</p>
+                    </div>
+                    <div>
+                        <div class="w-24 h-24 rounded-xl bg-black border border-black/10"></div>
+                        <p class="mt-2 font-semibold text-sm">Black #000000</p>
+                        <p class="text-xs text-[#737373]">Process Black</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm mb-6">
+                <h3 class="text-sm font-semibold text-[#525252] mb-4">Secondary</h3>
+                <div class="flex flex-wrap gap-6">
+                    <div>
+                        <div class="w-24 h-24 rounded-xl bg-[#B2B2B2] border border-black/10"></div>
+                        <p class="mt-2 font-semibold text-sm">Silver #B2B2B2</p>
+                        <p class="text-xs text-[#737373]">Cool Gray 5 C</p>
+                    </div>
+                    <div>
+                        <div class="w-24 h-24 rounded-xl bg-white border border-black/10"></div>
+                        <p class="mt-2 font-semibold text-sm">White #FFFFFF</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm">
+                <h3 class="text-sm font-semibold text-[#525252] mb-4">UH Green Scale</h3>
+                <div class="flex flex-wrap gap-2">
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-50" title="#E6F2EF"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-100" title="#B3D9CF"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-200" title="#80C0AF"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-300" title="#4DA78F"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-400" title="#1A8E6F"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-500 border border-black/10" title="#024731"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-600" title="#023D29"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-700" title="#012E1F"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-800" title="#011E14"></div>
+                    <div class="w-14 h-14 rounded-lg bg-uhGreen-900" title="#000F0A"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section id="typography" class="mb-12">
+            <h2 class="font-heading text-2xl font-bold text-black mb-6 flex items-center gap-3">
+                <span
+                    class="w-8 h-8 rounded-lg bg-uhGreen-100 flex items-center justify-center text-[#024731] text-sm font-bold">2</span>
+                Typography
+            </h2>
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm">
+                <p class="text-sm text-[#525252] mb-4">Web: <strong>Open Sans</strong> (Bold for H1/H2, Semibold for
+                    H3/H4, Regular for body). Print: Avenir. Fallbacks: Helvetica, Arial.</p>
+                <div class="space-y-2">
+                    <h1 class="text-3xl font-bold text-black">Heading 1 — Open Sans Bold</h1>
+                    <h2 class="text-2xl font-bold text-black">Heading 2 — Open Sans Bold</h2>
+                    <h3 class="text-xl font-semibold text-black">Heading 3 — Open Sans Semibold</h3>
+                    <h4 class="text-lg font-semibold text-black">Heading 4 — Open Sans Semibold</h4>
+                    <p class="text-base text-[#525252]">Body copy — Open Sans Regular. Never set body smaller than 10
+                        pt; use 11–12 pt for older audiences. Generous leading (3–5 pt greater than type size).</p>
+                    <p class="text-sm text-[#737373]">Small text — for captions and secondary information.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core UI Components -->
+        <section id="components" class="mb-12">
+            <h2 class="font-heading text-2xl font-bold text-black mb-6 flex items-center gap-3">
+                <span
+                    class="w-8 h-8 rounded-lg bg-uhGreen-100 flex items-center justify-center text-[#024731] text-sm font-bold">3</span>
+                Core UI Components
+            </h2>
+
+            <!-- Buttons -->
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm mb-6">
+                <h3 class="text-sm font-semibold text-[#525252] mb-4">Buttons</h3>
+                <div class="flex flex-wrap items-center gap-4">
+                    <button
+                        class="px-5 py-2.5 rounded-lg bg-[#024731] text-white font-semibold hover:bg-[#013D26] transition-colors focus-ring">Primary</button>
+                    <button
+                        class="px-5 py-2.5 rounded-lg bg-transparent border-2 border-[#024731] text-[#024731] font-semibold hover:bg-uhGreen-50 transition-colors focus-ring">Secondary</button>
+                    <button
+                        class="px-5 py-2.5 rounded-lg text-[#024731] font-semibold hover:bg-uhGreen-50 transition-colors focus-ring">Ghost</button>
+                    <button
+                        class="px-5 py-2.5 rounded-lg bg-[#8B2727]/10 border border-[#8B2727]/30 text-[#8B2727] font-semibold hover:bg-[#8B2727]/20 transition-colors focus-ring">Danger</button>
+                    <button
+                        class="px-5 py-2.5 rounded-lg bg-[#E8E8E8] text-[#A3A3A3] font-semibold cursor-not-allowed">Disabled</button>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 mt-4">
+                    <button
+                        class="px-3 py-1.5 rounded-md bg-[#024731] text-white text-sm font-semibold hover:bg-[#013D26]">Small</button>
+                    <button
+                        class="px-5 py-2.5 rounded-lg bg-[#024731] text-white font-semibold hover:bg-[#013D26]">Medium</button>
+                    <button
+                        class="px-6 py-3 rounded-xl bg-[#024731] text-white text-lg font-semibold hover:bg-[#013D26]">Large</button>
+                </div>
+            </div>
+
+            <!-- Badges -->
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm mb-6">
+                <h3 class="text-sm font-semibold text-[#525252] mb-4">Status Badges</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-uhGreen-50 text-[#024731] border border-uhGreen-200"><span
+                            class="w-1.5 h-1.5 rounded-full bg-[#024731]"></span>Success</span>
+                    <span
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-[#F5F5F5] text-[#737373] border border-[#E5E5E5]"><span
+                            class="w-1.5 h-1.5 rounded-full bg-[#B2B2B2]"></span>Warning</span>
+                    <span
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-[#8B2727]/10 text-[#8B2727] border border-[#8B2727]/30"><span
+                            class="w-1.5 h-1.5 rounded-full bg-[#8B2727]"></span>Error</span>
+                    <span
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-uhGreen-50 text-[#024731] border border-uhGreen-200"><span
+                            class="w-1.5 h-1.5 rounded-full bg-[#024731]"></span>Info</span>
+                </div>
+            </div>
+
+            <!-- Inputs -->
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm mb-6">
+                <h3 class="text-sm font-semibold text-[#525252] mb-4">Form Inputs</h3>
+                <div class="grid grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">Text Input</label>
+                        <input type="text" placeholder="Enter text..."
+                            class="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E5E5E5] text-black placeholder-[#A3A3A3] focus:border-[#024731] focus-ring transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">Select</label>
+                        <select
+                            class="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E5E5E5] text-black focus:border-[#024731] focus-ring transition-all">
+                            <option>Choose option...</option>
+                            <option>Option A</option>
+                            <option>Option B</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">Number Input</label>
+                        <input type="number" value="10"
+                            class="w-full px-4 py-2.5 rounded-lg bg-white border border-[#E5E5E5] text-black focus:border-[#024731] focus-ring transition-all">
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-6 mt-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">With unit</label>
+                        <div class="relative">
+                            <input type="text" value="75"
+                                class="w-full px-4 py-2.5 pr-12 rounded-lg bg-white border border-[#E5E5E5] text-black focus:border-[#024731] focus-ring">
+                            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-[#737373] text-sm">cm</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">Error state</label>
+                        <input type="text" value="Invalid"
+                            class="w-full px-4 py-2.5 rounded-lg bg-white border border-[#8B2727] text-black focus:ring-2 focus:ring-[#8B2727]/20">
+                        <p class="mt-1.5 text-xs text-[#8B2727]">This field is required</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">Disabled</label>
+                        <input type="text" value="Disabled" disabled
+                            class="w-full px-4 py-2.5 rounded-lg bg-[#F5F5F5] border border-[#E5E5E5] text-[#A3A3A3] cursor-not-allowed">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm">
+                <h3 class="text-sm font-semibold text-[#525252] mb-4">Tabs</h3>
+                <div class="inline-flex p-1 rounded-xl bg-[#F5F5F5]">
+                    <button
+                        class="px-4 py-2 rounded-lg bg-white text-[#024731] text-sm font-semibold shadow-sm border border-black/5">Tab
+                        One</button>
+                    <button
+                        class="px-4 py-2 rounded-lg text-[#525252] text-sm font-medium hover:text-black transition-colors">Tab
+                        Two</button>
+                    <button
+                        class="px-4 py-2 rounded-lg text-[#525252] text-sm font-medium hover:text-black transition-colors">Tab
+                        Three</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards & Table sample -->
+        <section class="mb-12">
+            <h2 class="font-heading text-2xl font-bold text-black mb-6 flex items-center gap-3">
+                <span
+                    class="w-8 h-8 rounded-lg bg-uhGreen-100 flex items-center justify-center text-[#024731] text-sm font-bold">4</span>
+                Cards &amp; Data
+            </h2>
+            <div class="grid grid-cols-3 gap-6 mb-6">
+                <div
+                    class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm hover:border-uhGreen-200 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-uhGreen-100 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-[#024731]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 14l9-5-9-5-9 5 9 5z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-black">Programs</h3>
+                    <p class="text-3xl font-bold text-[#024731] mt-1">200+</p>
+                    <p class="text-sm text-[#737373] mt-1">Degree and certificate programs</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm hover:border-uhGreen-200 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-uhGreen-100 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-[#024731]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-black">Students</h3>
+                    <p class="text-3xl font-bold text-[#024731] mt-1">20,000+</p>
+                    <p class="text-sm text-[#737373] mt-1">Enrolled at Mānoa</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm hover:border-uhGreen-200 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-uhGreen-100 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-[#024731]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-black">Research</h3>
+                    <p class="text-3xl font-bold text-[#024731] mt-1">R1</p>
+                    <p class="text-sm text-[#737373] mt-1">Doctoral university</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl border border-black/10 shadow-sm overflow-hidden">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-black/10 bg-[#F5F5F5]">
+                            <th class="text-left p-4 text-sm font-semibold text-[#525252]">Name</th>
+                            <th class="text-left p-4 text-sm font-semibold text-[#525252]">Role</th>
+                            <th class="text-left p-4 text-sm font-semibold text-[#525252]">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-black/5">
+                        <tr class="hover:bg-black/[0.02]">
+                            <td class="p-4 font-medium">Academic Affairs</td>
+                            <td class="p-4 text-[#525252]">Division</td>
+                            <td class="p-4"><span
+                                    class="px-2.5 py-1 rounded-md text-xs font-semibold bg-uhGreen-50 text-[#024731] border border-uhGreen-200">Active</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-black/[0.02]">
+                            <td class="p-4 font-medium">Student Success</td>
+                            <td class="p-4 text-[#525252]">Office</td>
+                            <td class="p-4"><span
+                                    class="px-2.5 py-1 rounded-md text-xs font-semibold bg-uhGreen-50 text-[#024731] border border-uhGreen-200">Active</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-black/[0.02]">
+                            <td class="p-4 font-medium">Communications</td>
+                            <td class="p-4 text-[#525252]">Department</td>
+                            <td class="p-4"><span
+                                    class="px-2.5 py-1 rounded-md text-xs font-semibold bg-[#F5F5F5] text-[#737373] border border-[#E5E5E5]">Pending</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Accessibility -->
+        <section id="accessibility" class="mb-12">
+            <h2 class="font-heading text-2xl font-bold text-black mb-6 flex items-center gap-3">
+                <span
+                    class="w-8 h-8 rounded-lg bg-uhGreen-100 flex items-center justify-center text-[#024731] text-sm font-bold">5</span>
+                Accessibility
+            </h2>
+            <div class="bg-white rounded-2xl p-6 border border-black/10 shadow-sm">
+                <p class="text-[#525252] mb-4">Use ADA-compliant contrast ratios for all text and UI elements. Per UH
+                    brand guidelines:</p>
+                <ul class="list-disc list-inside space-y-2 text-[#525252] text-sm">
+                    <li>Do not use non–ADA compliant contrast colors</li>
+                    <li>Do not use red type for body or primary content</li>
+                    <li>Do not make layouts too dark for readability</li>
+                    <li>Do not create custom palettes or gradients outside the official brand</li>
+                </ul>
+                <p class="mt-4 text-sm text-[#024731] font-semibold">Primary green #024731 on white meets contrast
+                    requirements for large text and UI elements; use black for body text on white.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="pt-8 border-t border-black/10">
+            <p class="text-sm text-[#737373]">Design tokens: <code
+                    class="px-1.5 py-0.5 rounded bg-[#F5F5F5] text-[#525252]">design_uh.json</code></p>
+            <p class="text-sm text-[#737373] mt-1">Source: <a href="https://manoa.hawaii.edu/brand/" target="_blank"
+                    rel="noopener" class="text-[#024731] hover:underline">University of Hawaiʻi at Mānoa Brand Style
+                    Guide</a></p>
+            <p class="text-xs text-[#A3A3A3] mt-4">© University of Hawaiʻi at Mānoa · Branding and Marketing Office</p>
+        </footer>
+    </main>
+</body>
+
+</html>
