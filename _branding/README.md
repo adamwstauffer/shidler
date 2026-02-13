@@ -35,10 +35,10 @@ This directory includes the **University of Hawaiʻi at Mānoa** design tokens a
 - **Local:** Open in a browser (no server required). Double-click the file or run:
   ```bash
   # Windows (PowerShell)
-  start docs/specs/05-frontend/ui/design-system.html
+  start _branding/design-system.html
 
   # macOS / Linux
-  open docs/specs/05-frontend/ui/design-system.html
+  open _branding/design-system.html
   ```
 - **Content:** Brand principles, primary/secondary colors, UH green scale, typography samples, buttons, badges, inputs, tabs, sample cards/table, and accessibility notes.
 
@@ -61,7 +61,7 @@ Create a dedicated skill so Claude uses UH tokens only when working on UH-brande
 2. **In `SKILL.md`**, set:
    - **name:** `brand-guidelines`
    - **description:** e.g. *"Enforces University of Hawaiʻi at Mānoa design system (design_uh.json) when creating or modifying UH-branded frontend components, styles, or interfaces."*
-   - **Design system location:** `docs/specs/05-frontend/ui/design_uh.json`
+   - **Design system location:** `_branding/design_uh.json`
    - **When to use:** Creating UH-branded pages, campus tools, or any UI that must follow UH Mānoa brand (colors, typography, accessibility).
    - **Instructions:** Tell Claude to read `design_uh.json` before implementing UH UI; use primary green `#024731`, black, silver, white; Open Sans for web; and ADA contrast/accessibility rules from the JSON.
 
@@ -73,7 +73,7 @@ If you want a single “brand guidelines” skill that can switch context:
 
 1. **Edit** `.claude/skills/brand-guidelines/SKILL.md`.
 2. **Add a section** such as “Alternate design system: UH Mānoa” that states:
-   - When the user or task specifies **UH** or **University of Hawaii** branding, use **`docs/specs/05-frontend/ui/design_uh.json`** as the SSOT instead of `design.json`.
+   - When the user or task specifies **UH** or **University of Hawaii** branding, use **`_branding/design.json`** as the SSOT instead of `design.json`.
    - List UH primary colors (#024731, #000000), secondary (silver, white), and Open Sans.
    - Link to this README and to `design-system.html` for reference.
 
@@ -94,11 +94,11 @@ Use a viewer that fetches the **raw** file URL:
 1. On GitHub, open **design-system.html** and click **Raw** (or copy the raw URL).
 2. Raw URL shape:
    ```
-   https://raw.githubusercontent.com/<owner>/<repo>/<branch>/docs/specs/05-frontend/ui/design-system.html
+   https://raw.githubusercontent.com/<owner>/<repo>/<branch>/_branding/design-system.html
    ```
 3. Use one of these (replace with your repo’s raw URL as needed):
    - **htmlpreview.github.io:**  
-     `https://htmlpreview.github.io/?https://raw.githubusercontent.com/<owner>/<repo>/<branch>/docs/specs/05-frontend/ui/design-system.html`
+     `https://htmlpreview.github.io/?https://raw.githubusercontent.com/<owner>/<repo>/<branch>/_branding/design-system.html`
    - **htmlviewer.github.io:**  
      Open [htmlviewer.github.io](https://htmlviewer.github.io/) and paste the raw URL, or try:  
      `http://htmlviewer.github.io/?<raw-url>`
