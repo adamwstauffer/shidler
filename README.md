@@ -1,4 +1,4 @@
-# GitHub for Business Document Organization – Student Guide 
+# GitHub for Business Document Organization – Student Guide
 
 ## What is GitHub?
 GitHub is an online platform that helps people store, manage, and track changes to files.  
