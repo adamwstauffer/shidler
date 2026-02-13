@@ -60,10 +60,10 @@ Create a dedicated skill so Claude uses UH tokens only when working on UH-brande
 
 2. **In `SKILL.md`**, set:
    - **name:** `brand-guidelines`
-   - **description:** e.g. *"Enforces University of Hawaiʻi at Mānoa design system (design_uh.json) when creating or modifying UH-branded frontend components, styles, or interfaces."*
-   - **Design system location:** `_branding/design_uh.json`
+   - **description:** e.g. *"Enforces University of Hawaiʻi at Mānoa design system (design.json) when creating or modifying UH-branded frontend components, styles, or interfaces."*
+   - **Design system location:** `_branding/design.json`
    - **When to use:** Creating UH-branded pages, campus tools, or any UI that must follow UH Mānoa brand (colors, typography, accessibility).
-   - **Instructions:** Tell Claude to read `design_uh.json` before implementing UH UI; use primary green `#024731`, black, silver, white; Open Sans for web; and ADA contrast/accessibility rules from the JSON.
+   - **Instructions:** Tell Claude to read `design.json` before implementing UH UI; use primary green `#024731`, black, silver, white; Open Sans for web; and ADA contrast/accessibility rules from the JSON.
 
 3. **Register the skill** in your Cursor/Claude config (e.g. in `.cursor/settings` or your agents’ skill list) so it appears in the skill list. Reference the skill by name (e.g. `brand-guidelines`) in prompts or command files when the task is UH-specific.
 
