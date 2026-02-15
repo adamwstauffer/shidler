@@ -44,4 +44,19 @@ Although it’s widely used for software development, **GitHub can also be a pow
 ## Tips
 - Keep your repository organized with clear folder names.
 - Write helpful commit messages so you remember what each change did.
-- Use Markdown (`.md`) files for text-based documentation—they’re lightweight, readable, and easy to edit in GitHub.
+- Use Markdown (`.md`) files for text-based documentation—they're lightweight, readable, and easy to edit in GitHub.
+
+---
+
+## .gitignore File
+
+A `.gitignore` file tells Git which files and folders to ignore (not track) in your repository. This repository includes a `.gitignore` that excludes:
+
+- **OS files**: macOS (.DS_Store), Windows (Thumbs.db), and Linux hidden directories
+- **Editor/IDE files**: VS Code, JetBrains, Sublime Text, and other editor configuration files
+- **Sensitive information**: Environment files (.env), API keys, and credential files
+- **Temporary files**: Backup files, logs, lock files, and temporary files
+- **Generated/compiled files**: Python bytecode, Java classes, and compiled binaries
+- **Package manager directories**: node_modules, vendor, and .bundle
+
+This ensures that personal configuration, sensitive data, and unnecessary files don't get committed to the repository. If you need to add or modify the ignore patterns, edit the `.gitignore` file in the root directory.
