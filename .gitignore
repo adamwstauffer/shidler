@@ -1,0 +1,60 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+*.swp
+*.swo
+
+# OS-specific backup files
+*~
+*.bak
+*.tmp
+
+# Sensitive information (never commit credentials)
+.env
+.env.local
+.env.*.local
+secrets.json
+credentials.json
+credentials.yml
+config/secrets.yml
+
+# Temporary files
+*.log
+*.lock
+
+# Compiled/generated files (if any)
+*.pyc
+__pycache__/
+*.class
+*.jar
+*.o
+*.so
+
+# Package managers
+node_modules/
+.bundle/
+vendor/
+
+# Build directories
+/build/
+/dist/
+/target/
