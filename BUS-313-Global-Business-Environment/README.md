@@ -29,6 +29,12 @@ By the end of the course, you will be able to apply core trade models to evaluat
 
 ---
 
+## Course Outline
+
+The course begins with foundational supply and demand analysis in open economies and comparative advantage, then progresses through more complex trade models and their real-world applications. The latter half of the course covers policy tools (tariffs, quotas), trade agreements, environmental considerations, and international factor movements (multinationals, migration). Emphasis throughout is placed on understanding winners and losers from trade and policy, with applications to contemporary geopolitical challenges.
+
+---
+
 ## Grading
 
 | Component | Weight |

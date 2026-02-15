@@ -62,7 +62,11 @@ Slides will be available on Laulima:
 * Long-term & Short-term Financial Planning
 * Options
 
-**Version:** January 2025
+---
+
+## Course Outline
+
+The course progresses through foundational concepts of corporate finance, starting with accounting and financial analysis, moving through valuation methods (bonds and stocks), and concluding with capital budgeting, cost of capital, and advanced topics in financing and risk management. Throughout, emphasis is placed on real-world applications using spreadsheet modeling and case studies.
 
 ---
 

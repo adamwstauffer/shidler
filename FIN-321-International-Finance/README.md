@@ -13,6 +13,14 @@ The world economy is increasingly integrated. This course introduces fundamental
 
 By the end of the course, you will be able to analyze currency markets, assess risk, and apply hedging tools in a multinational business context.
 
+---
+
+## Course Outline
+
+The course progresses from fundamentals of exchange rate determination and foreign exchange markets through international parity conditions and arbitrage relationships. Students develop tools for assessing and managing currency exposures using forwards, options, and other hedging instruments. The course emphasizes practical applications to multinational corporations, including exposure measurement, hedging strategy design, and risk management in volatile global markets.
+
+---
+
 ## Instructor
 
 **Adam W. Stauffer** | [adamstau@hawaii.edu](mailto:adamstau@hawaii.edu)

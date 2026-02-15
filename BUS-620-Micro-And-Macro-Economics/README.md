@@ -40,6 +40,12 @@ By the end of the course, you will be able to integrate economic frameworks with
 
 ---
 
+## Course Outline
+
+The course opens with economic fundamentals (thinking like an economist, supply and demand). It progresses through microeconomic foundations (market structures, efficiency, strategic behavior, and externalities) while integrating geopolitical case studies. The latter half covers macroeconomics (national accounting, growth, labor markets, monetary and fiscal policy) with emphasis on how economic policies affect global stability, international trade, and resource conflicts. Throughout, case studies and team projects ground theory in real-world business and policy challenges.
+
+---
+
 ## Skills Gained
 
 Through the AI + GitHub project, you will also develop practical, workplace-ready skills:
