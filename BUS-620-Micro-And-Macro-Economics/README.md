@@ -1,0 +1,122 @@
+# BUS 620: Micro- and Macro-Economic Foundations for Managers
+
+**Shidler College of Business, University of Hawaiʻi at Mānoa**
+
+## Course Overview
+
+This MBA-level course provides a comprehensive exploration of microeconomic and macroeconomic theories and their application to real-world business and policy challenges. Emphasis is placed on the intersection of economics, geopolitics, and global stability.
+
+## Instructor
+
+**Adam W. Stauffer** | [adamstau@hawaii.edu](mailto:adamstau@hawaii.edu)
+
+Please begin email subject lines with **BUS 620**. For more information about the instructor, see [BIO.md](../BIO.md).
+
+---
+
+## Learning Objectives
+
+### Foundational Principles
+
+* Elasticity, market structures, efficiency, externalities, and strategic behavior
+
+### Global Environment
+
+* Interconnectedness of economies, trade, fiscal/monetary policy, and financial markets
+
+### Geopolitics
+
+* How climate change, conflict, and resource control affect economic stability
+
+### Managerial Application
+
+* Team-based projects and case studies that apply economic reasoning to real business decisions
+
+### Global Peace & Stability
+
+* Explore how interdependence, trade, and cooperation can mitigate or exacerbate international conflict
+
+By the end of the course, you will be able to integrate economic frameworks with geopolitical awareness to support effective managerial decision-making.
+
+---
+
+## Course Outline
+
+The course opens with economic fundamentals (thinking like an economist, supply and demand). It progresses through microeconomic foundations (market structures, efficiency, strategic behavior, and externalities) while integrating geopolitical case studies. The latter half covers macroeconomics (national accounting, growth, labor markets, monetary and fiscal policy) with emphasis on how economic policies affect global stability, international trade, and resource conflicts. Throughout, case studies and team projects ground theory in real-world business and policy challenges.
+
+---
+
+## Skills Gained
+
+Through the AI + GitHub project, you will also develop practical, workplace-ready skills:
+
+* **AI Literacy & Prompt Engineering:** Design effective AI prompts for research, analysis, drafting, and critique, while evaluating limitations and biases
+* **Reproducible Research Practices:** Maintain transparent AI Prompt Logs, ensuring accountability and reproducibility in analysis
+* **GitHub Collaboration & Version Control:** Proficiency with GitHub for project management, version control, and collaborative workflows (branching, pull requests, peer review)
+* **Data Analysis & Visualization:** Use AI and economic/finance models to generate tables, figures, and scenario analyses
+* **Professional Report Writing:** Produce structured policy memos, case briefs, or risk management reports that integrate quantitative analysis with narrative clarity
+
+---
+
+## Grading
+
+| Component | Weight |
+|-----------|--------|
+| Attendance & Participation | 10% |
+| Team Case Study Presentation | 45% |
+| Individual Research Paper | 45% |
+| **Total** | **100%** |
+
+### Attendance & Participation
+
+Essential for maximizing learning outcomes.
+
+### Team Case Study Projects (45%)
+
+Students will present applied cases on AI, climate change, geopolitics, and global markets. Presentations are peer-reviewed, with 50% of the grade based on peer evaluation.
+
+### Individual Research Paper (45%)
+
+Students will select a global economic challenge, apply course frameworks, and produce a research paper. Peer evaluation also accounts for 50% of the grade.
+
+### AI + GitHub Course Project (Policy Shock Analysis)
+
+In addition to case studies and papers, students will complete a structured AI + GitHub project analyzing the effects of a policy shock (e.g., rent control, subsidies, tariffs, or monetary/fiscal interventions).
+
+Scope: Apply supply and demand, elasticity, and AS–AD models to evaluate policy outcomes for consumers, producers, and society.
+
+AI Integration: Students may use AI for drafting, critique, sensitivity analysis, and visualization. All uses must be recorded in a Prompt Log.
+
+GitHub Integration: Students will submit deliverables to GitHub (memo, appendix, figures, prompt log), practicing version control and collaborative workflows.
+
+Workflow:
+* README (Assignment Brief) – outlines goals and rubric
+* Prompts – curated + student-developed AI queries (logged)
+* Spec – project plan (models, data, acceptance criteria)
+* Analysis & Deliverables – memo, appendix, figures
+* Prompt Log & Reflection – document AI use and limitations
+
+---
+
+## AI Use Policy
+
+MBA students are encouraged to explore AI tools to enhance learning and professional decision-making. Acceptable uses include:
+
+* Knowledge Enhancement: Use AI to clarify theory or extend readings
+* Research Support: Gather data, statistics, and examples for assignments
+* Critical Thinking: Test your arguments against counterarguments generated by AI
+* Problem-Solving: Simulate case scenarios and brainstorm managerial responses
+* Professional Skills: Practice clear, concise communication in prompts and outputs
+
+Requirements:
+* Log all AI use in the Prompt Log
+* Verify outputs against trusted sources
+* Treat AI as a supplement — not a substitute — for your own analysis
+
+---
+
+## Campus Policies
+
+**Students with Disabilities:** Contact the KOKUA Program (Student Services Center, Room 13; 956-7511; http://www.hawaii.edu/kokua/).
+
+**Academic Honesty:** UH Mānoa enforces strict rules on plagiarism and cheating. See: http://www.hawaii.edu/student/conduct.
