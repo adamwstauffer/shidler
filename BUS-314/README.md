@@ -1,22 +1,18 @@
 # BUS 314: International Business Finance
 
 **Shidler College of Business, University of Hawaiʻi at Mānoa**
-Spring 2026
+
+## Course Overview
+
+This course develops students' understanding of corporate finance. It introduces financing and investment decision-making considerations and the securities available to financial managers. The course relies heavily on developing models using Microsoft Excel.
 
 ---
 
 ## Instructor
 
-**Adam Stauffer**
-📧 [adamstau@hawaii.edu](mailto:adamstau@hawaii.edu)
+**Adam W. Stauffer** | [adamstau@hawaii.edu](mailto:adamstau@hawaii.edu)
 
-* Please begin the subject line with:
-  **BUS 314 [your section: 004 or 005]**
-* Before sending an email, check whether your question is answered in the syllabus.
-
-### Office Hours
-
-Please email to schedule appointments, as the instructor may not always be in the office.
+Please begin email subject lines with **BUS 314**. For more information about the instructor, see [BIO.md](../BIO.md).
 
 ---
 
@@ -40,13 +36,6 @@ Slides will be available on Laulima:
 
 ---
 
-# Class Time and Location
-
-**Section 004:**
-Wed/Fri 9:00 – 10:15 AM
-BUSAD G102
-
----
 
 # Prerequisites
 
@@ -55,11 +44,7 @@ BUSAD G102
 
 ---
 
-# Course Objectives
-
-This course develops students’ understanding of corporate finance. It introduces financing and investment decision-making considerations and the securities available to financial managers. The course relies heavily on developing models using Microsoft Excel.
-
-### Topics Covered
+## Topics Covered
 
 * Goals & Governance of the Corporation
 * Financial Markets & Institutions
@@ -78,18 +63,6 @@ This course develops students’ understanding of corporate finance. It introduc
 * Options
 
 **Version:** January 2025
-
----
-
-# About the Instructor
-
-Adam earned an MBA in Finance from The Wharton School of the University of Pennsylvania and was a Chartered Financial Analyst from 2004 to 2011.
-
-He was Chief Investment Officer at Springline Capital, a boutique Registered Investment Advisor in the British Virgin Islands. He also founded and led Greenshoot.org, a disaster relief technology company.
-
-Previous experience includes roles as a trader and market-maker at Barclays Capital and Lehman Brothers in New York, where his desk was responsible for all US-listed Exchange Traded Funds (ETFs).
-
-Before his MBA, Adam was a Marketing Manager at Advent Software specializing in hedge funds and offshore fund administrators.
 
 ---
 
@@ -188,144 +161,6 @@ An optional discounted loose-leaf version of the textbook is available at the bo
 
 ---
 
-# Course Schedule
-
-> The schedule is subject to change. Students are expected to read relevant chapters before class.
-> Homework is due Friday by midnight.
-
----
-
-## Week 1
-
-**Jan 14** – Introductions
-**Jan 16** – Case Study: Implications of AI on Global Economics, Corporate Finance, and Business Structure
-
----
-
-## Week 2
-
-**Jan 21** – Ch. 1: Goals & Governance of the Corporation
-**Jan 23** – Ch. 2: Financial Markets & Institutions
-Homework: Ch. 1 + 2
-
----
-
-## Week 3
-
-**Jan 28** – Sidebar: 2008 Global Financial Crisis
-**Jan 30** – Ch. 14: Introduction to Corporate Financing
-Homework: Ch. 14
-
----
-
-## Week 4
-
-**Feb 4** – Ch. 15: Raising Venture Capital & Issuing Securities
-**Feb 6** – Ch. 3: Accounting & Finance
-Homework: Ch. 15 + 3
-
----
-
-## Week 5
-
-**Feb 11** – Ch. 4: Measuring Corporate Performance
-**Feb 13** – In-class Project: Excel & Ratio Analysis
-Homework: Ch. 4
-
----
-
-## Week 6
-
-**Feb 18** – Ch. 5: Time Value of Money
-**Feb 20** – TVM Continued
-Homework: Ch. 5
-
----
-
-## Week 7
-
-**Feb 25** – Ch. 6: Valuing Bonds (pp. 166–177; 180–185)
-**Feb 27** – Valuing Bonds Continued
-Homework: Ch. 6
-
----
-
-## Week 8
-
-**Mar 4** – Excel/Google Sheets Review (Optional)
-**Mar 6** – TBD
-
----
-
-## Week 9
-
-**Mar 11** – Practice Exam (Optional)
-**Mar 13** – Midterm (Ch. 1–6, 14–15)
-
----
-
-## Week 10
-
-**Mar 18–20** – Spring Recess
-
----
-
-## Week 11
-
-**Mar 27** – Holiday: Kuhio Day
-Ch. 7: Valuing Stocks
-
----
-
-## Week 12
-
-**Apr 1** – Valuing Stocks Continued
-**Apr 3** – Ch. 8: NPV & Other Investment Criteria
-Homework: Ch. 7, 8
-
----
-
-## Week 13
-
-**Apr 8** – Ch. 9: DCF Analysis
-**Apr 10** – Ch. 11: Risk, Return & Cost of Capital
-Homework: Ch. 9, 11
-
----
-
-## Week 14
-
-**Apr 15** – Ch. 12: Return, Risk & Capital Budgeting
-**Apr 17** – Holiday: Good Friday
-Homework: Ch. 12
-Project #1 Due
-
----
-
-## Week 15
-
-**Apr 22** – Ch. 13: WACC & Company Valuation
-**Apr 24** – Ch. 21: Mergers & Acquisitions
-Homework: Ch. 13 + 21
-
----
-
-## Week 16
-
-**Apr 29** – Ch. 23: Options
-**May 1** – Practice Final Review
-Homework: Ch. 23 + Project #2
-
----
-
-## Week 17–18
-
-**May 6** – Final Exam (Ch. 7–9, 11–13, 21, 23)
-
-* 24-hour completion window
-
----
-
 # Course Compliance with Campus Policies
 
 Students must follow all rules and policies of the University of Hawaiʻi at Mānoa and the Shidler College of Business.
@@ -370,6 +205,3 @@ Full code:
 
 ---
 
-**Prof. Adam Stauffer**
-Spring 2026
-BUS 314: International Business Finance
