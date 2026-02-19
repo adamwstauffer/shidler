@@ -73,35 +73,6 @@ This repository serves as a unified portfolio and course materials hub for Shidl
 
 ## 3. SUPPORTING ROOT-LEVEL DIRECTORIES
 
-### `/_branding/`
-**Purpose:** University of Hawaiʻi at Mānoa and Shidler College of Business brand guidelines and visual assets
-
-**Contents:**
-- Brand colors, typography standards, and logo files
-- Templates for using UH Mānoa institutional style across materials
-
----
-
-### `/_templates/`
-**Purpose:** Reusable templates across all courses and projects
-
-**Contents:**
-- Generic assignment brief templates
-- Rubric templates (peer review, self-assessment, instructor evaluation)
-- Memo and spec templates
-- GitHub project structure templates
-
----
-
-### `/_memos/`
-**Purpose:** Institutional and administrative documentation
-
-**Contents:**
-- `repo-hierarchy.md` – (This document) Comprehensive guide to directory structure
-- Additional memos on processes, policies, and strategic initiatives
-
----
-
 ### `/_archive/`
 **Purpose:** Historical materials, deprecated assignments, and past versions of courses
 
@@ -113,22 +84,44 @@ This repository serves as a unified portfolio and course materials hub for Shidl
 
 ---
 
-### `/bio-and-resume/`
-**Purpose:** Professional portfolio materials (legacy directory; see `BIO.md` for current bio)
-
-**Contents:**
-- Historical bio and resume drafts
-- GitHub portfolio assignment templates (used by students learning professional practices)
-
----
-
 ### `/docs/`
-**Purpose:** General documentation and guides
+**Purpose:** Centralized documentation hub containing institutional documentation, reusable templates, and brand guidelines
+
+**Key Subdirectories:**
+
+#### `docs/decisions/`
+Strategic and administrative decision memos being reviewed, discussed, and refined for organizational direction. These memos inform the development of plans, specifications, and course materials.
 
 **Contents:**
-- How-to guides for students and instructors
-- Frequently asked questions
-- GitHub workflow documentation for students
+- `2026-02-15-repo-hierarchy.md` – (This document) Comprehensive guide to directory structure
+- Additional strategic memos on pedagogical approaches, course redesign, and organizational initiatives
+
+#### `docs/templates/`
+Reusable templates for assignments, projects, and professional materials.
+
+**Contents:**
+- `memo-template.md` – Template for memo writing stage
+- `spec-template.md` – Template for specification/planning stage
+- `case-brief-template.md` – Template for case analysis briefs
+- `risk-memo-template.md` – Template for risk analysis memos
+- `prompt-log-template.md` – Template for logging AI prompts
+- Completed examples (e.g., `spec-example-interest-rate-parity.md`)
+- `bio-and-resume/` – Professional bio and resume templates
+  - `bio/` – Biography template and samples
+  - `resume/` – Resume/CV template and samples
+
+#### `docs/_branding/`
+University of Hawaiʻi at Mānoa and Shidler College of Business brand guidelines and design system.
+
+**Contents:**
+- `design.json` – Design token system (colors, typography, spacing, etc.)
+- `design-system.html` – Visual reference guide for brand standards
+- Brand colors, typography standards, and logo usage guidelines
+
+#### `docs/` (General Guides)
+- `ai-usage-guidelines.md` – Guidelines for integrating AI tools into coursework
+- `writing-style-guide.md` – Institutional writing standards
+- `reproducibility-playbook.md` – Guidelines for reproducible course materials
 
 ---
 
@@ -220,11 +213,11 @@ Within each course, project subdirectories follow a clear naming convention:
 
 ### Special Directories
 Prefixed with `_` to denote system/organizational directories:
-- `_memos/` – Administrative documentation
-- `_branding/` – Brand assets
-- `_templates/` – Reusable templates
-- `_archive/` – Historical materials
+- `_archive/` – Historical materials and deprecated courses
 - `_claude/` – IDE-specific configuration
+- `docs/_branding/` – Brand assets and design system
+- `docs/decisions/` – Strategic decision memos
+- `docs/templates/` – Reusable templates across all courses
 
 ---
 
@@ -318,8 +311,11 @@ Within projects, `archive/` contains:
 
 ### Directory Traversal
 - Course directories contain project subdirectories
-- Projects reference templates via `_templates/` subdirectories
-- All projects can reference root-level `BIO.md` and brand assets
+- Projects reference course-specific templates via `_templates/` subdirectories
+- All projects can reference root-level `BIO.md`
+- All courses can reference reusable templates in `docs/templates/`
+- All materials can reference brand guidelines in `docs/_branding/`
+- All stakeholders can reference decisions in `docs/decisions/`
 
 ---
 
@@ -351,12 +347,14 @@ Within projects, `archive/` contains:
 |------|------|
 | Instructor Bio | `/BIO.md` |
 | Course READMEs | `/[Course-Directory]/README.md` |
-| Brand Assets | `/_branding/` |
-| Reusable Templates | `/_templates/` |
-| Administrative Memos | `/_memos/` |
-| Excel Model Templates | `/[Course-Directory]/_templates/excel/` |
+| Brand Assets & Design System | `/docs/_branding/` |
+| Reusable Assignment Templates | `/docs/templates/` |
+| Professional Portfolio Templates | `/docs/templates/bio-and-resume/` |
+| Strategic Decision Memos | `/docs/decisions/` |
+| Excel Model Templates (course-specific) | `/[Course-Directory]/_templates/excel/` |
 | Project Archives | `/[Course-Directory]/archive/` |
-| University Brand | `/_branding/` |
+| Design Tokens | `/docs/_branding/design.json` |
+| Documentation Hub | `/docs/` |
 
 ---
 
@@ -368,10 +366,11 @@ This repository is organized to balance:
 - **Maintainability** – Version control and clear workflows
 - **Discoverability** – Logical hierarchy and cross-linking
 
-The use of root-level `_` directories for meta-organization, descriptive course names, and standardized project workflows ensures that the repository remains navigable and professional as it grows.
+The centralization of documentation, templates, and brand guidelines under `/docs/` creates a unified hub for all supporting materials, while course directories remain focused on course-specific content. The use of `_` prefix for system/organizational directories, descriptive course names, and standardized project workflows ensures that the repository remains navigable and professional as it grows.
 
 ---
 
-**Document Version:** 1.0
-**Last Updated:** February 15, 2026
+**Document Version:** 2.0
+**Last Updated:** February 18, 2026
 **Author:** Adam W. Stauffer
+**Update Notes:** Reorganized supporting directories (_memos → docs/decisions, _templates → docs/templates, _branding → docs/_branding, bio-and-resume → docs/templates/bio-and-resume)
