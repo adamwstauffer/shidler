@@ -8,7 +8,7 @@ license: Complete terms in LICENSE.txt
 
 ## Overview
 
-To apply UH Mānoa's official brand identity and style resources, use this skill. All materials should reflect institutional quality and create pride of place. For the full design token system, see `_branding/design.json` in the project root.
+To apply UH Mānoa's official brand identity and style resources, use this skill. All materials should reflect institutional quality and create pride of place. For the full design token system, see `docs/_branding/design.json` in the project root.
 
 **Keywords**: branding, UH Mānoa, university identity, visual identity, styling, brand colors, typography, Shidler College of Business, institutional design, ADA accessibility
 
@@ -137,4 +137,4 @@ To apply UH Mānoa's official brand identity and style resources, use this skill
 
 ### Reference
 
-For the complete design token system including spacing, shadows, responsive breakpoints, and dark/light mode specifications, see `_branding/design.json`.
+For the complete design token system including spacing, shadows, responsive breakpoints, and dark/light mode specifications, see `docs/_branding/design.json`.
