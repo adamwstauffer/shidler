@@ -2,7 +2,7 @@
   "name": "Shidler - UH Mānoa Design System",
   "description": "Claude Code configuration for Shidler project, aligned with University of Hawaiʻi at Mānoa brand guidelines and design system",
   "version": "1.0.0",
-  "brandingReference": "_branding/design.json",
+  "brandingReference": "docs/_branding/design.json",
   "brandGuidelines": {
     "name": "University of Hawaiʻi at Mānoa",
     "shortName": "UH Mānoa",
