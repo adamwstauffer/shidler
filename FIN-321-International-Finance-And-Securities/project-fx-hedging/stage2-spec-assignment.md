@@ -1,4 +1,4 @@
-## Stage 2 – Technical Specification (6 Points)
+## Stage 2 – Technical Specification (4 Points)
 
 **Goal:** Using `fin-321/stage2-spec-template.md`, produce a **2–3 page quantitative specification** describing how you will build and analyze your firm’s FX hedge model.
 
