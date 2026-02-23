@@ -1,4 +1,4 @@
-## Stage 3 – Excel Model Build (4 Points)
+## Stage 3 – Excel Model Build (6 Points)
 
 **Goal:**
 Transform your Stage 2 technical specification into a **working Excel model** that implements your hedge analysis. The model should clearly show how each hedging strategy affects your firm’s USD proceeds and risk exposure.
