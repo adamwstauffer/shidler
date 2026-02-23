@@ -1,7 +1,7 @@
 # FIN-321 Multi-Stage Project – FX Exposure and Hedging Strategies
 
 Author: Adam Stauffer  
-Last Updated: 2025-10-01 03:34 UTC
+Last Updated: 2026-02-23 03:34 UTC
 
 ## Deliverables
 - Stage 1 – Executive Memo (4 points)
