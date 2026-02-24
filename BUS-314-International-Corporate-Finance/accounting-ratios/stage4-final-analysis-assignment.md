@@ -1,16 +1,18 @@
-# Stage 5 – Final Analysis & Recommendation (6 Points)
+# Stage 4 – Final Analysis, Prompt Engineering & Recommendation (10 Points)
 
 **Due:** TBD
 
 ## Goal
 
-Deliver a polished, executive-ready memo summarizing your accounting ratio analysis and providing strategic recommendations. This combines quantitative rigor, interpretation, communication, and forward-looking perspective — exactly what senior finance leaders expect from analysts.
+Deliver a polished, executive-ready memo summarizing your accounting ratio analysis and providing strategic recommendations. As part of this deliverable, you will also write a **structured AI prompt** that could regenerate your spreadsheet model — demonstrating your ability to convert domain knowledge into machine-readable instructions.
 
-**Hint:** Think of this as another step in your workflow — have your LLM generate a draft based on your Stage 3/4 spreadsheet output, then refine it with your own analysis and judgment. If you don't have AI access, write it directly from your spreadsheet results.
+This stage combines quantitative rigor, interpretation, communication, and AI fluency — exactly what senior finance leaders expect from modern analysts.
+
+**Hint:** Have your LLM generate a draft based on your Stage 2 spreadsheet output, then refine it with your own analysis and judgment. If you don't have AI access, write the analysis directly from your spreadsheet results and submit the prompt as a standalone document.
 
 ---
 
-## Deliverable Requirements (1–2 page `.md` file uploaded to GitHub)
+## Deliverable Requirements (2–4 page `.md` file uploaded to GitHub)
 
 Must include:
 
@@ -74,7 +76,26 @@ Support each recommendation with data from your model.
 
 ---
 
-### F. Executive Justification
+### F. Structured AI Prompt (Required Component)
+
+Write a **1–2 page structured prompt** (as a separate section or appendix) that could instruct an AI to generate your complete accounting ratios spreadsheet. Your prompt must include:
+
+1. **Company-Specific Financial Data** — All Balance Sheet items (current and prior year), Income Statement items, Cash Flow items, market data (share price, shares outstanding), and analyst assumptions (cost of capital, tax rate). All values must be explicitly stated — AI does not infer missing data.
+
+2. **Named Range Conventions** — Use standardized names matching your Stage 3 spec (e.g., `BAL_cash_marketable_securities_2024`, `INC_sales`, `CASH_operating`).
+
+3. **Spreadsheet Requirements** — Instruct the AI to produce:
+   - Financial statement data tabs with named ranges
+   - Color coding: **Yellow** = Inputs, **Blue** = Assumptions, **Green** = Formulas, **Gray** = Outputs
+   - All six ratio categories with formulas in named-range notation
+   - Du Pont decomposition
+   - Verification checks (Du Pont vs. direct calculations, Balance Sheet balance)
+
+4. **Hierarchical Structure** — Use clear section headers (e.g., `# GOAL`, `# COMPANY FINANCIAL DATA`, `# RATIO FORMULAS`, `# VERIFICATION`).
+
+---
+
+### G. Executive Justification
 
 Use management-level reasoning:
 - Financial health assessment
@@ -86,6 +107,49 @@ Use management-level reasoning:
 
 ---
 
+## Prompt Engineering Best Practices
+
+### 1. Avoid Vague Prompts
+
+Example of a bad prompt:
+> "Make me an accounting ratios spreadsheet."
+
+Example of a good prompt:
+> "Create an Excel workbook computing 25+ accounting ratios for [Company] using FY2024 10-K data. Use named ranges matching the convention BAL_[item]_[year] for Balance Sheet items..."
+
+### 2. Provide All Variable Values
+
+AI does not infer values. Include every financial statement line item explicitly.
+
+### 3. Use Named Ranges Consistently
+
+Never allow the AI to invent its own naming system. Define names in your prompt.
+
+### 4. Specify Formatting Explicitly
+
+Color codes, sections, layout — be explicit.
+
+### 5. Include Context Files from GitHub
+
+This is the most efficient way to use AI for models.
+
+**Options for providing context:**
+1. **Best:** GitHub links to your spec and template files
+2. **Medium:** Upload `.md` or `.xlsx` files directly
+3. **Least:** Copy/paste text manually
+
+---
+
+## Note on AI Access
+
+If you do not have access to an AI tool capable of generating Excel files, you may:
+1. Submit your structured prompt (Section F) as written.
+2. Submit your Stage 2 model as the primary spreadsheet artifact with a brief note explaining that you would use the prompt to regenerate it.
+
+The prompt itself is the primary deliverable — it demonstrates your ability to convert domain knowledge into machine-readable instructions.
+
+---
+
 ## Evaluation
 
 | Criterion | Description | Points |
@@ -93,7 +157,9 @@ Use management-level reasoning:
 | Ratio Interpretation | Demonstrates understanding of what ratios reveal | 2 |
 | Strategic Recommendations | Actionable, data-supported recommendations | 2 |
 | Du Pont Analysis | Meaningful decomposition and discussion | 1 |
-| Professionalism & Communication | Executive-ready, clear, well-structured | 1 |
+| Structured AI Prompt | Clear, complete, reproducible prompt with all financial data | 2 |
+| Professionalism & Communication | Executive-ready, well-structured deliverable | 1 |
+| AI-Generated Output OR Manual Analysis | Working spreadsheet from prompt, or equivalent manual work | 2 |
 
 ---
 
