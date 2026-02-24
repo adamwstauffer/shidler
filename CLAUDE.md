@@ -26,15 +26,18 @@ Unified portfolio and course materials hub for Shidler College of Business (Univ
 - `_spreadsheets/` — Master financial models
 - `archive/` — Past iterations (specs, prompts, analysis, deliverables)
 
-## Five-Stage Project Workflow
+## Project Workflow
 
-Most projects follow this reusable pedagogical pattern:
+Most projects follow a reusable pedagogical pattern. The default is five stages:
 
 1. **Memo** (Stage 1) — Executive summary and problem framing
 2. **Specification** (Stage 2) — Technical planning, methodology, pseudocode
 3. **Excel Build** (Stage 3) — Quantitative/financial model in Excel
 4. **Prompt Engineering** (Stage 4) — AI integration and prompt documentation
 5. **Final Recommendations** (Stage 5) — Synthesis and actionable insights
+
+**BUS-314 uses a 4-stage variant** (build-first, prompt merged into final):
+1. Memo → 2. Excel Build → 3. Spec (post-build) → 4. Final Analysis + Prompt
 
 Stage files are named `stage[N]-[description]-assignment.md`. Templates for deliverables are `template-memo.md` and `template-spec.md`.
 
@@ -43,7 +46,7 @@ Stage files are named `stage[N]-[description]-assignment.md`. Templates for deli
 | Code | Title | Level | Key Project |
 |------|-------|-------|-------------|
 | BUS 313 | Economic & Financial Environment of Global Business | Undergrad | Trade/geopolitics case studies |
-| BUS 314 | International Business Finance | Undergrad | Accounting ratios (5-stage, 25+ ratios) |
+| BUS 314 | International Business Finance | Undergrad | Accounting ratios (4-stage, 25+ ratios) |
 | FIN 321 | International Finance & Securities | Upper undergrad | FX hedging (5-stage) |
 | BUS 620 | Micro & Macro Economics | MBA | Team cases + individual research |
 | BUS 122B | Intro Entrepreneurship/Sustainable Ag | Community college | Business plan + pitch |
@@ -71,7 +74,7 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 
 - Course directories: `[CODE]-[Descriptive-Title]` with PascalCase hyphens
 - `_`-prefixed directories (`_templates/`, `_archive/`, `_branding/`) denote system/organizational content
-- Excel named ranges for BUS-314: `BAL_`, `INC_`, `CASH_`, `RATIO_` prefixes (see `BUS-314/.../CLAUDE.md` for full spec)
+- Excel named ranges for BUS-314: `BAL_`, `INC_`, `CASH_`, `RATIO_` prefixes (see `bus314-accounting-ratios` skill for full spec)
 
 ## Key Reference Paths
 
@@ -82,9 +85,9 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Reusable Templates | `docs/templates/` |
 | Strategic Decisions | `docs/decisions/` |
 | Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` |
-| BUS-314 Ratios Context | `BUS-314-International-Corporate-Finance/accounting-ratios/CLAUDE.md` |
+| BUS-314 Ratios Skill | `.claude/skills/bus314-accounting-ratios/SKILL.md` |
 | Master Ratios Spreadsheet | `BUS-314-International-Corporate-Finance/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx` |
 
 ## Skills Available
 
-This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `docx`, `internal-comms`, `pdf`, `pptx`, `skill-creator`, `xlsx`. Use the appropriate skill when creating or editing Office documents, applying UH branding, or writing internal communications.
+This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `bus314-accounting-ratios`, `docx`, `internal-comms`, `pdf`, `pptx`, `skill-creator`, `xlsx`. Use the appropriate skill when creating or editing Office documents, applying UH branding, helping with BUS-314 ratios, or writing internal communications.

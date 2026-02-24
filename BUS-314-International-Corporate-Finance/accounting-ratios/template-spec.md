@@ -10,7 +10,7 @@
 **Role:** Financial Analyst / FP&A Analyst
 **Audience:** CFO or Director of FP&A
 
-**Purpose:** Provide a professional, quantitative specification outlining the analytical structure for computing and interpreting accounting and performance ratios from a public company's financial statements.
+**Purpose:** Provide a professional, quantitative specification documenting your Excel model's analytical structure for computing and interpreting accounting and performance ratios from a public company's financial statements. This post-build spec captures what you built, what you learned, and how the model should be refined.
 
 ---
 
@@ -148,12 +148,25 @@ Describe the logic and sequencing of your analysis — as if briefing a junior a
 
 ---
 
-## 6. Limitations & Next Steps
+## 7. Model Review — What Worked & What to Improve
+
+Reflect candidly on your Stage 2 Excel model. This section is what makes a post-build spec more valuable than a pre-build plan.
+
+- **What worked well?** Which formulas, layouts, or named ranges operated as intended?
+- **What would you change?** Were there workarounds, naming inconsistencies, or layout issues worth fixing?
+- **What would make the model more auditable?** Consider formula documentation, color coding, or structural changes.
+- **What additional analysis is worth including?** Industry comparisons, trend data, additional ratios?
+
+> *Tip:* Be honest and specific. "The Du Pont decomposition matched my direct ROA within 0.1%" is useful. "Everything worked fine" is not.
+
+---
+
+## 8. Limitations & Next Steps
 
 Briefly note any analytical limits and outline your next step.
 
 Example phrasing:
-> This specification does not incorporate industry peer comparisons, multi-year trend analysis, or off-balance-sheet items. The next phase will involve constructing an Excel model implementing this logic to compute all ratios from the company's actual financial data.
+> This specification does not incorporate industry peer comparisons, multi-year trend analysis, or off-balance-sheet items. The next phase will involve writing a structured AI prompt and final analysis interpreting the ratio results for senior management.
 
 ---
 
@@ -161,19 +174,22 @@ Example phrasing:
 
 **Your spec should:**
 - **Communicate like a professional:** clear, structured, and jargon-free.
-- **Think one stage ahead:** your spec should feed directly into your Excel build or AI prompt.
-- **Be internally consistent:** variables, labels, and steps must align.
-- **Be reproducible:** a new analyst should be able to implement your plan without your help.
-- **Be executive-relevant:** the CFO should understand *what you're doing* and *why it matters*.
+- **Think one stage ahead:** your spec should feed directly into your Stage 4 AI prompt and final analysis.
+- **Be internally consistent:** variables, labels, and steps must align with your actual model.
+- **Be reproducible:** a new analyst should be able to rebuild the model from your spec without your help.
+- **Be reflective:** the "Model Review" section should show honest assessment of what worked and what needs improvement.
+- **Be executive-relevant:** the CFO should understand *what you built* and *why it matters*.
 
 ---
 
-## How This Sets You Up for Later Stages
+## How This Sets You Up for Stage 4
 
-| Stage | What This Spec Enables |
-|-------|------------------------|
-| **Stage 3** | Each "Input" and "Output" becomes a spreadsheet cell or named range. |
-| **Stage 4** | Your "Calculation Flow" becomes an AI prompt instruction block. |
-| **Stage 5** | Your "Outputs" drive the interpretation and recommendation. |
+| What You Write in Stage 3 | What It Enables in Stage 4 |
+|----------------------------|----------------------------|
+| Named ranges with precise definitions | AI uses standardized variable names, no improvisation |
+| Step-by-step calculation flow | AI generates correct, auditable formulas |
+| Model review and improvement notes | AI builds the *improved* version, not just a replica |
+| Explicit output requirements | AI produces the exact tables, charts, and sections you need |
+| "Outputs" section | Drives your interpretation and recommendation |
 
-> *Treat your specification as the bridge between business insight and technical execution — the CFO should be confident your plan is sound even before seeing the numbers.*
+> *By completing your spec after the build, you create a machine-readable blueprint that transforms your prototype into a polished, documented model — demonstrating the reflective documentation skills valued by finance teams and auditors alike.*
