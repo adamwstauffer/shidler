@@ -4,7 +4,7 @@
 
 ## Overview
 
-Earn up to **3 extra-credit points** by demonstrating how modern tools and workflows can enhance your accounting ratios project. Choose **at least two** of the following areas and write a brief discussion (200–400 words total) as an addendum to your Stage 5 deliverable, or as a separate `.md` file.
+Earn up to **3 extra-credit points** by demonstrating how modern tools and workflows can enhance your accounting ratios project. Choose **at least two** of the following areas and write a brief discussion (200–400 words total) as an addendum to your Stage 4 deliverable, or as a separate `.md` file.
 
 **AI tools are NOT required.** Students without access to AI tools can earn full extra credit through Options 4 and 5.
 
@@ -62,7 +62,7 @@ Examples:
 - **Version Control Basics:** How commits, branches, and diffs create an audit trail for your model
 - **Why It Matters in Finance:** Hedge accounting documentation, internal controls, data lineage, SOX compliance
 - **Collaboration:** How branching and pull requests enable multi-analyst workflows
-- **Your Project:** How you used GitHub across Stages 1–5 (commits, file organization, iterative improvements)
+- **Your Project:** How you used GitHub across Stages 1–4 (commits, file organization, iterative improvements)
 
 **To earn this point:** Demonstrate that your GitHub repo has meaningful commit history showing iterative progress (not just a single "upload all" commit).
 
@@ -76,13 +76,13 @@ Examples:
 - **Industry Comparison:** Compute the same ratios for a direct competitor and compare side-by-side. Discuss what the differences reveal about business strategy.
 - **Trend Analysis:** Compute ratios for 2–3 years and discuss trends. Is profitability improving? Is leverage increasing? Is liquidity tightening?
 
-**To earn this point:** Include the additional data and analysis in your spreadsheet and discuss findings in your Stage 5 memo or a separate addendum.
+**To earn this point:** Include the additional data and analysis in your spreadsheet and discuss findings in your Stage 4 memo or a separate addendum.
 
 ---
 
 ## Submission
 
-- Include your extra credit work as a clearly labeled section in your Stage 5 deliverable, or as a separate file (e.g., `extra-credit-LASTNAME.md`).
+- Include your extra credit work as a clearly labeled section in your Stage 4 deliverable, or as a separate file (e.g., `extra-credit-LASTNAME.md`).
 - Clearly state which options you are addressing.
 - If you used AI tools, include the AI & LLM Usage attribution section.
 

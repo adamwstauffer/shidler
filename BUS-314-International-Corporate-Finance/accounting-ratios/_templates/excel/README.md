@@ -1,8 +1,8 @@
 # Excel Templates
 
-Excel templates will be provided after Stage 2 is submitted.
+Excel templates support the Stage 2 Excel Model Build.
 
-*skeleton* -> *progressive reveal* -> *guided with checks* -> ready for *AI prompt stage*.
+*skeleton* -> *progressive reveal* -> *guided with checks* -> ready for *spec and AI prompt stages*.
 
 ## Template Strategy
 
@@ -11,16 +11,16 @@ Templates use a **progressive reveal** approach — each version fills in more o
 ## Individual Files
 
 **Skeleton** (financial statement tabs + ratio headers only; all formulas blank; hints sidebar)
-- `Stage3_Skeleton.xlsx`
+- `Stage2_Skeleton.xlsx`
 
 **Partial — Financial Statements Filled** (Balance Sheet and Income Statement data entered; ratios blank; named ranges defined)
-- `Stage3_FinStatements_Partial.xlsx`
+- `Stage2_FinStatements_Partial.xlsx`
 
 **Partial — With Derived Inputs** (financial data + derived inputs computed; ratio formulas blank)
-- `Stage3_DerivedInputs_Partial.xlsx`
+- `Stage2_DerivedInputs_Partial.xlsx`
 
 **Full Guided with Checks** (all sections filled; hidden checks sheet validates Du Pont decomposition and Balance Sheet balance)
-- `Stage3_Full_Guided_with_Checks.xlsx`
+- `Stage2_Full_Guided_with_Checks.xlsx`
 
 ## Template Structure
 

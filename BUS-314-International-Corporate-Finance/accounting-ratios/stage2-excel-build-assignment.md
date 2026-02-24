@@ -1,12 +1,14 @@
-# Stage 3 – Excel Model Build (4 Points)
+# Stage 2 – Excel Model Build (6 Points)
 
-**Goal:** Transform your Stage 2 technical specification into a **working Excel model** that computes all accounting and performance ratios from your company's real financial statements.
+**Goal:** Transform your Stage 1 memo into a **working Excel model** that computes all accounting and performance ratios from your company's real financial statements.
 
 ---
 
 ## Scenario
 
-You are continuing in your role as the **Financial Analyst** supporting your CFO. Your Stage 1 memo framed the project. Your Stage 2 specification outlined the analytical plan. Now, in Stage 3, you bring it to life — turning your plan into a functioning spreadsheet that computes and compares ratios across categories.
+You are continuing in your role as the **Financial Analyst** supporting your CFO. Your Stage 1 memo framed the project — identifying the company, the six ratio categories, and the data sources. Now, in Stage 2, you bring it to life — building a functioning spreadsheet that computes and compares ratios across categories.
+
+**Why build before writing the spec?** You learn the most by doing. Building the model first gives you hands-on experience with the data, the formulas, and the judgment calls involved. When you write your Stage 3 specification afterward, you'll be documenting what you *actually built* — not guessing at what you *might* build. This produces a more precise, reflective, and useful spec.
 
 ---
 
@@ -31,7 +33,7 @@ Pull all raw data into a single **Inputs** section on your Ratios tab:
 - **Current-Year Items:** After-tax operating income, daily sales, book equity, cash, current assets/liabilities, long-term debt, NWC, total assets, total capitalization, total liabilities.
 - **Mixed-Year Items:** Average equity, average total assets, average total capitalization, long-term debt + equity.
 
-Use **named ranges** matching your Stage 2 spec (e.g., `startYear_equity`, `currentYear_assets_total`, `avg_total_assets`).
+Use **named ranges** following the course convention (e.g., `startYear_equity`, `currentYear_assets_total`, `avg_total_assets`). See the class spreadsheet and `_templates/excel/README.md` for the full naming guide.
 
 ### 3. Ratios Tab — Ratio Calculations
 
@@ -69,8 +71,7 @@ A clean summary section showing:
 
 ## Instructions & Hints
 
-- **Start from the provided template** (see `_templates/excel/README.md`) or build from scratch following your Stage 2 spec.
-- **Follow your Stage 2 spec closely.** Every variable and step in your plan should appear in your spreadsheet.
+- **Start from the provided template** (see `_templates/excel/README.md`) or build from scratch using the class spreadsheet as a guide.
 - **Keep formulas transparent.** Use readable named ranges. Annotate with brief comments where logic may not be obvious.
 - **Check reasonableness.**
   - ROA (start-of-year) and ROA (average) should be close but not identical.
@@ -83,10 +84,10 @@ A clean summary section showing:
 
 ## Deliverable
 
-- File name: `stage3-model-LASTNAME.xlsx`
+- File name: `stage2-model-LASTNAME.xlsx`
 - Tabs: Financial statements + Ratios tab + optional Notes sheet
 - **Due Date:** TBD
-- **Points:** 4
+- **Points:** 6
 
 ---
 
@@ -94,8 +95,8 @@ A clean summary section showing:
 
 | Criterion | Description | Points |
 |-----------|-------------|-------:|
-| Structure & Clarity | Logical layout, consistent formatting, labeled inputs | 1 |
-| Accuracy | Correct ratio calculations and internal consistency | 1 |
+| Structure & Clarity | Logical layout, consistent formatting, labeled inputs | 2 |
+| Accuracy | Correct ratio calculations and internal consistency | 2 |
 | Named Ranges & Auditability | Named ranges used; formula logic documented | 1 |
 | Professionalism | Clear presentation, color coding, business-ready | 1 |
 
@@ -105,7 +106,7 @@ A clean summary section showing:
 
 | Stage | What You'll Use |
 |-------|-----------------|
-| **Stage 4 – Prompt Engineering** | You'll use your model logic to design a prompt that generates this spreadsheet automatically. |
-| **Stage 5 – Final Analysis** | You'll interpret the ratios and recommend actions to your CFO. |
+| **Stage 3 – Technical Specification** | You'll document your model's structure, formulas, and lessons learned — writing a spec is easier after you've built the thing. |
+| **Stage 4 – Final Analysis** | You'll interpret the ratios, write a structured AI prompt, and recommend actions to your CFO. |
 
-> *By completing Stage 3, you bridge the gap between your written specification and a functioning analytical tool — exactly what financial analysts do before presenting to senior management.*
+> *By completing Stage 2, you gain the hands-on experience that makes your Stage 3 specification precise and reflective — exactly what financial analysts do when documenting models for their teams.*
