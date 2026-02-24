@@ -2,7 +2,7 @@
 **Due:** December 12, 2025
 
 ## Goal
-Translate your Stage 2 specification and Stage 3 Excel logic into a precise, executable AI prompt capable of generating a complete, professional spreadsheet model. Your prompt must include your scenario-specific variables, real market data, and clear modeling requirements aligned with your specification.
+Translate your Stage 3 specification and Stage 2 Excel model logic into a precise, executable AI prompt capable of generating a complete, professional spreadsheet model. Your prompt must include your scenario-specific variables, real market data, and clear modeling requirements aligned with your specification.
 
 You are now practicing the role of a **Finance Technologist / Treasury Analyst** who builds hybrid human–AI analytical pipelines.
 
