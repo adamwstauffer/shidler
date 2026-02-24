@@ -1,23 +1,22 @@
 # BUS-314 Multi-Stage Project – Accounting & Performance Ratios
 
 Author: Adam Stauffer
-Last Updated: 2026-02-06
+Last Updated: 2026-02-24
 
 ## Project Overview
 
-In this five-stage project you will select a **publicly traded company**, pull data from its most recent financial statements (Balance Sheet, Income Statement, and Cash Flow Statement), and build a comprehensive **accounting ratios model** in Excel. Along the way you will write a professional memo, draft a technical specification, construct a working spreadsheet, practice prompt engineering with AI tools, and deliver a final analysis with strategic recommendations.
+In this four-stage project you will select a **publicly traded company**, pull data from its most recent financial statements (Balance Sheet, Income Statement, and Cash Flow Statement), and build a comprehensive **accounting ratios model** in Excel. Along the way you will write a professional memo, construct a working spreadsheet, draft a technical specification documenting your model, and deliver a final analysis with strategic recommendations and a structured AI prompt.
 
-Each stage builds on the last — your memo frames the problem, your spec plans the model, your Excel build implements it, your prompt teaches an AI to reproduce it, and your final analysis interprets the results for management.
+Each stage builds on the last — your memo frames the problem, your Excel build implements the model, your spec documents and reflects on what you built, and your final analysis interprets the results for management.
 
 ## Deliverable Timeline
 
 | Stage | Deliverable | Points | Due Date |
 |-------|------------|--------|----------|
 | 1 | Executive Memo | 4 | TBD |
-| 2 | Technical Specification | 6 | TBD |
-| 3 | Excel Model Build | 4 | TBD |
-| 4 | Prompt Engineering | 4 | TBD |
-| 5 | Final Analysis & Recommendation | 6 | TBD |
+| 2 | Excel Model Build | 6 | TBD |
+| 3 | Technical Specification | 4 | TBD |
+| 4 | Final Analysis, Prompt Engineering & Recommendation | 10 | TBD |
 | EC | Extra Credit | up to 3 | TBD |
 | | **Total** | **24 + 3 EC** | |
 
@@ -37,12 +36,10 @@ Your model will compute ratios across six categories taught in class:
 ```
 BUS-314/accounting-ratios/
 ├── README.md                          ← you are here
-├── CLAUDE.md                          ← Claude Code project context
 ├── stage1-memo-assignment.md          ← Stage 1 instructions
-├── stage2-spec-assignment.md          ← Stage 2 instructions
-├── stage3-excel-build-assignment.md   ← Stage 3 instructions
-├── stage4-prompt-engineering.md       ← Stage 4 instructions
-├── stage5-final-rec.md                ← Stage 5 instructions
+├── stage2-excel-build-assignment.md   ← Stage 2 instructions
+├── stage3-spec-assignment.md          ← Stage 3 instructions
+├── stage4-final-analysis-assignment.md ← Stage 4 instructions
 ├── extra-credit.md                    ← Extra credit options
 ├── company-selection.md               ← How to choose your company
 ├── template-memo.md                   ← Memo template
@@ -67,7 +64,7 @@ BUS-314/accounting-ratios/
 
 ## AI Tools (Optional, Not Required)
 
-AI tools like Claude, ChatGPT, or Copilot can accelerate your work — especially in Stages 4 and 5. However, **AI is not required for any stage.** Students without AI access can complete every deliverable using standard resources (SEC filings, Excel, class notes). If you use AI, document it per the course AI Usage Guidelines.
+AI tools like Claude, ChatGPT, or Copilot can accelerate your work — especially in Stage 4. However, **AI is not required for any stage.** Students without AI access can complete every deliverable using standard resources (SEC filings, Excel, class notes). If you use AI, document it per the course AI Usage Guidelines.
 
 ## Key Resources
 

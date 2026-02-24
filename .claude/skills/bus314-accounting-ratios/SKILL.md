@@ -1,33 +1,10 @@
-# BUS-314 Accounting Ratios Project — Claude Code Context
+# BUS-314 Accounting Ratios — Claude Skill
 
-## Project Overview
+Use this skill when helping students with the BUS-314 accounting ratios project (company selection, Excel model building, specification writing, or final analysis). Activate when working in `BUS-314-International-Corporate-Finance/accounting-ratios/`.
 
-This is a **five-stage academic project** for BUS-314 where students analyze a publicly traded company using accounting and performance ratios. Students choose their own company, pull data from SEC filings, and build an Excel model computing 25+ financial ratios.
-
-## Directory Structure
-
-- `stage[1-5]-*.md` — Assignment instructions for each stage
-- `company-selection.md` — Guide for choosing a public company
-- `template-memo.md` — Memo template for Stages 1 and 5
-- `template-spec.md` — Technical specification template for Stage 2
-- `extra-credit.md` — Extra credit options including Claude Skills, Claude Code, and Claude Cowork
-- `_templates/excel/` — Excel template files and guide
-- `archive/` — Student working files (analysis, deliverables, prompts, specs)
-
-## Ratio Categories
-
-The project covers six categories of accounting ratios:
-
-1. **Performance** — MVA, Market-to-Book, EVA
-2. **Profitability** — ROA, ROC, ROE (start-of-year and average-based)
-3. **Efficiency** — Asset Turnover, Receivables Turnover, Inventory Turnover, Profit Margin, Operating Profit Margin
-4. **Leverage** — Debt Ratios, Times Interest Earned, Cash Coverage, Debt Burden, Leverage Ratio
-5. **Liquidity** — Current Ratio, Quick Ratio, Cash Ratio, NWC-to-Assets
-6. **Du Pont System** — ROA and ROE decomposition
+---
 
 ## Named Range Conventions
-
-When working with this project, use these naming patterns:
 
 - **Balance Sheet:** `BAL_[item]_[year]` (e.g., `BAL_assets_total_2024`)
 - **Income Statement:** `INC_[item]` (e.g., `INC_sales`, `INC_ebit`, `INC_net`)
@@ -37,6 +14,8 @@ When working with this project, use these naming patterns:
 - **Derived (current year):** `currentYear_[item]`
 - **Derived (averages):** `avg_[item]`
 - **Ratios:** `RATIO_[name]` (e.g., `RATIO_asset_turnover`)
+
+---
 
 ## Key Formulas (Pseudocode)
 
@@ -75,20 +54,23 @@ When working with this project, use these naming patterns:
 - Du Pont ROA = `RATIO_asset_turnover` * `RATIO_operating_profit_margin`
 - Du Pont ROE = `RATIO_leverage` * `RATIO_asset_turnover` * `RATIO_operating_profit_margin` * `RATIO_debt_burden`
 
+---
+
 ## Reference Spreadsheet
 
-The master class spreadsheet with all ratio formulas and a worked example is at:
-`BUS-314/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx`
+Master class spreadsheet with all ratio formulas and a worked example:
+`BUS-314-International-Corporate-Finance/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx`
+
+---
 
 ## How to Help Students
 
-When assisting with this project:
+The project uses a **4-stage workflow**: Memo, Excel Build, Spec, Final Analysis.
 
 1. **Stage 1 (Memo):** Help frame the company choice and explain why ratio analysis matters. Keep it executive-friendly.
-2. **Stage 2 (Spec):** Help structure inputs, named ranges, and calculation flow. Use pseudocode, not cell references.
-3. **Stage 3 (Excel):** Help build or debug the spreadsheet. Validate Du Pont decompositions match direct calculations.
-4. **Stage 4 (Prompt):** Help write a structured prompt that could regenerate the spreadsheet. Include all financial data values.
-5. **Stage 5 (Analysis):** Help interpret ratios and formulate actionable recommendations for the CFO.
+2. **Stage 2 (Excel Build):** Help build or debug the spreadsheet. Validate Du Pont decompositions match direct calculations. Use named ranges consistently.
+3. **Stage 3 (Spec):** Help document the model with post-build reflection. Use pseudocode, not cell references. Guide the "Model Review" section — what worked, what to improve.
+4. **Stage 4 (Final Analysis):** Help interpret ratios and formulate actionable recommendations for the CFO. If the student is writing a structured AI prompt, help ensure it includes all financial data values and follows prompt engineering best practices.
 
 ## Important Notes
 

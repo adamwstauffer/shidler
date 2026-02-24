@@ -30,7 +30,7 @@ This repository serves as a unified portfolio and course materials hub for Shidl
   - `archive/` – Specs, prompts, analysis, and deliverables from past iterations
 - `_spreadsheets/` – Master financial analysis tools and templates
 
-**Project Structure:** Each project follows a 5-stage workflow (memo → spec → excel → prompt engineering → final recommendation)
+**Project Structure:** Each project follows a 4-stage workflow (memo → excel build → spec → final analysis + prompt engineering)
 
 ---
 
@@ -159,15 +159,6 @@ University of Hawaiʻi at Mānoa and Shidler College of Business brand guideline
 
 ---
 
-### `.claude.json`
-**Purpose:** Claude Code configuration file for IDE integration
-
-**Contents:**
-- Claude-specific settings and hook configurations
-- Repository rules and automation settings
-
----
-
 ### `.git/` and `.gitignore`
 **Purpose:** Git version control system files
 
@@ -228,18 +219,17 @@ Each major project follows this file structure:
 
 ```
 project-[name]/
-├── README.md                          # Assignment brief & learning objectives
-├── stage1-memo-assignment.md          # Memo writing stage
-├── stage2-spec-assignment.md          # Project specification/planning
-├── stage3-excel-build-assignment.md   # Spreadsheet/quantitative modeling
-├── stage4-prompt-engineering.md       # AI integration and prompt design
-├── stage5-final-rec.md                # Final synthesis and recommendations
-├── template-memo.md                   # Template for stage 1 deliverable
-├── template-spec.md                   # Template for stage 2 deliverable
+├── README.md                           # Assignment brief & learning objectives
+├── stage1-memo-assignment.md           # Memo writing stage
+├── stage2-excel-build-assignment.md    # Spreadsheet/quantitative modeling
+├── stage3-spec-assignment.md           # Specification/documentation (post-build)
+├── stage4-final-analysis-assignment.md # Final analysis, prompt & recommendations
+├── template-memo.md                    # Template for stage 1 deliverable
+├── template-spec.md                    # Template for stage 3 deliverable
 ├── _templates/
 │   └── excel/
-│       ├── README.md                  # Instructions for template use
-│       └── [Model].xlsx               # Skeleton Excel workbook
+│       ├── README.md                   # Instructions for template use
+│       └── [Model].xlsx                # Skeleton Excel workbook
 └── archive/
     ├── specs/
     ├── prompts/
@@ -295,8 +285,7 @@ Within projects, `archive/` contains:
 - **Purpose:** Financial models, calculations, scenario analysis
 - **Location:** `_spreadsheets/` or `_templates/excel/`
 
-### `.json` Configuration Files
-- **`.claude.json`** – Claude Code environment settings
+### Configuration Files
 - **`.gitignore`** – Git exclusion rules
 - Purpose: System configuration and tooling
 
@@ -325,7 +314,7 @@ Within projects, `archive/` contains:
 1. Create directory: `[CODE]-[Descriptive-Title]` (matching capitalization)
 2. Add `README.md` following the standard template
 3. Create project subdirectory if applicable: `project-[name]/`
-4. Include 5-stage workflow files if multi-phase project
+4. Include stage workflow files if multi-phase project (4 or 5 stages depending on course)
 5. Create `archive/` subdirectory for future versions
 
 ### When Updating Materials
