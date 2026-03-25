@@ -18,7 +18,7 @@ This memo documents several housekeeping and structural changes to the FIN-321 F
 3. **Remove stale due dates** from all stage assignment files (e.g., "October 24", "November 7")
 4. **Update file references** across stage assignments to reflect new template and directory locations
 5. **Add student guidance** on where to save deliverables (`.md` memos to `docs/decisions/`, `.xlsx` templates to `docs/templates/excel/`)
-6. **Update spreadsheet template sourcing** to reference Laulima instead of a specific skeleton file
+6. **Update spreadsheet template sourcing** to reference Lamaku instead of a specific skeleton file
 
 ---
 
@@ -117,7 +117,7 @@ New guidance added to stage files directing students on repository organization:
 
 ### 3F. Update Spreadsheet Template Sourcing
 
-Stage 2 previously referenced "the provided Stage 2 Skeleton." Updated to: "the Spreadsheet template provided in class and available in Laulima."
+Stage 2 previously referenced "the provided Stage 2 Skeleton." Updated to: "the Spreadsheet template provided in class and available in Lamaku."
 
 **Rationale:** The skeleton files are distributed via the LMS, not the repo. The instruction should point students to the authoritative source.
 
@@ -194,7 +194,7 @@ Proceed with all changes as documented. The reorganization:
 - Follows the BUS-314 precedent for merging prompt engineering into the final stage
 - Eliminates semester-specific dates from reusable assignment files
 - Gives students clear guidance on where to save deliverables in their repositories
-- Points students to the correct template source (Laulima) for spreadsheet work
+- Points students to the correct template source (Lamaku) for spreadsheet work
 
 ---
 
