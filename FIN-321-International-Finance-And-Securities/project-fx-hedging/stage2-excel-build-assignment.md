@@ -56,7 +56,7 @@ Work from your Stage 1 scenario. If anything is ambiguous (e.g., interest-rate b
 
 ### Instructions & Hints
 
-* **Start from the Spreadsheet template provided in class and available in Laulima.**
+* **Start from the Spreadsheet template provided in class and available in Lamaku.**
   Use the template to create your own Excel workbook. Work through it section by section rather than all at once.
 
 * **Let your Stage 1 memo guide you.**

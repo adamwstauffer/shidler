@@ -15,7 +15,7 @@ You will be presented with a scenario in which your firm expects to receive a fo
     - **Technical Specification (Stage 3):** Document what you built and design an improved version — precise enough for an AI to reconstruct.
     - **Final Analysis & Recommendation (Stage 5):** Choose a hedge strategy using your model results, optionally leveraging AI prompt engineering, and present the case to the CFO.
 
-**Deliverable:** One page (PDF or Markdown).
+**Deliverable:** One page Markdown file (`.md`), committed to your GitHub repository.
 **Tone:** Executive-friendly and clear.
 
 **Where to save:** Save your `.md` memo to your repository in a dedicated directory, e.g., `shidler/docs/decisions/`.
