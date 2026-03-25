@@ -1,10 +1,8 @@
 # Stage 5 – Final Analysis & Recommendation (6 Points)
-**Due:** December 12, 2025
-
 ## Goal
 Deliver a polished, executive-ready memo or slide deck summarizing your hedge analysis and recommending the best strategy. This combines quantitative rigor, interpretation, communication, and forward-looking perspective — exactly what senior finance leaders expect from analysts.
 
-**Hint:** Think of this as just another step ("final analysis memo prompt") and have your LLM generate the output based on your **Stage 4 - Spreadsheet**. 
+**Hint:** Think of this as just another step ("final analysis memo prompt") and have your LLM generate the output based on your **Stage 2 Excel model and Stage 3 specification**.
 
 ---
 

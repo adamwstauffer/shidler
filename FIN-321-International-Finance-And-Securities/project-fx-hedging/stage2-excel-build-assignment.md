@@ -56,8 +56,8 @@ Work from your Stage 1 scenario. If anything is ambiguous (e.g., interest-rate b
 
 ### Instructions & Hints
 
-* **Start from the provided Stage 2 Skeleton.**
-  Use the skeleton file corresponding to your level of progress. Work through it section by section rather than all at once.
+* **Start from the Spreadsheet template provided in class and available in Laulima.**
+  Use the template to create your own Excel workbook. Work through it section by section rather than all at once.
 
 * **Let your Stage 1 memo guide you.**
   Every variable you identified in the memo should appear as a labeled input in your spreadsheet.
@@ -94,8 +94,9 @@ Work from your Stage 1 scenario. If anything is ambiguous (e.g., interest-rate b
 
 * File name: `stage2-model-LASTNAME.xlsx`
 * Tabs: Main model + "Notes & Assumptions" tab
-* **Due Date:** **November 7**
 * **Points:** 6 (graded on structure, accuracy, and professional presentation)
+
+**Where to save:** Save your `.xlsx` template to your repository in a dedicated directory, e.g., `shidler/docs/templates/excel/`.
 
 ---
 
