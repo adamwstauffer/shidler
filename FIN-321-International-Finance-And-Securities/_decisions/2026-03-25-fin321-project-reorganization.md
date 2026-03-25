@@ -143,7 +143,7 @@ FIN-321-International-Finance-And-Securities/
     ├── stage1-memo-assignment.md                       ← updated
     ├── stage2-excel-build-assignment.md                ← updated
     ├── stage3-spec-assignment.md                       ← updated
-    └── stage5-final-rec.md                             ← updated
+    └── stage4-final-analysis-assignment.md               ← renamed from stage5, rewritten
 ```
 
 ### Active Stage Sequence
@@ -153,10 +153,8 @@ FIN-321-International-Finance-And-Securities/
 | 1 | Executive Memo | 4 |
 | 2 | Excel Model Build | 6 |
 | 3 | Technical Specification | 4 |
-| 5 | Final Analysis & Recommendation | 6 |
-| **Total** | | **20** |
-
-> Stage numbering retains "5" for the final stage to avoid renaming the file and breaking any existing student references. If a future semester starts fresh, renumbering to Stage 4 is straightforward.
+| 4 | Final Analysis, Prompt Engineering & Recommendation | 10 |
+| **Total** | | **24** |
 
 ---
 
@@ -167,9 +165,9 @@ FIN-321-International-Finance-And-Securities/
 | 1 | Memo | Memo |
 | 2 | Excel Build | Excel Build |
 | 3 | Spec (post-build) | Spec (post-build) |
-| 4 | Final Analysis + Prompt | Final Analysis + Prompt (Stage 5) |
+| 4 | Final Analysis + Prompt | Final Analysis + Prompt |
 
-Both courses now follow the same **Build → Document → Analyze** workflow. FIN-321 retains the Stage 5 numbering for continuity; the pedagogical sequence is identical.
+Both courses now follow the same **Build → Document → Analyze** workflow with identical 4-stage structure.
 
 ---
 
@@ -177,7 +175,7 @@ Both courses now follow the same **Build → Document → Analyze** workflow. FI
 
 | Item | Location | Issue | Recommended Action |
 |------|----------|-------|--------------------|
-| Stale `2025` year references | `stage5-final-rec.md` header | "December 12, 2025" removed but file still has 2025-era language | Review for any remaining date artifacts |
+| ~~Stale `2025` year references~~ | ~~`stage5-final-rec.md`~~ | Resolved — file renamed to `stage4-final-analysis-assignment.md` and fully rewritten | Complete |
 | `README-v2.md` in `_templates/excel/` | `_templates/excel/README-v2.md` | Versioned filename suggests an earlier README exists or the naming is inconsistent | Rename to `README.md` or archive the v1 |
 | Archive directory structure | `archive/` | Contains subdirectories (`analysis/`, `assignments/`, `deliverables/`, `figures/`, `prompts/`, `specs/`) with mostly placeholder READMEs | Consider consolidating or removing empty placeholder READMEs |
 | `scenarios.md` placeholder values | `project-fx-hedging/scenarios.md` | Market data fields contain placeholders ("look up current spot") | Clarify whether placeholders are intentional (students fill in) or need updating |

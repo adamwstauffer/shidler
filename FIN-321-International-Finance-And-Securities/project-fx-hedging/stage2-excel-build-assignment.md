@@ -50,7 +50,7 @@ Work from your Stage 1 scenario. If anything is ambiguous (e.g., interest-rate b
    * Forward hedge result (USD)
    * Money Market hedge result (USD)
    * Option results across key scenarios
-   * A placeholder row for your hedge recommendation (to be completed in Stage 5)
+   * A placeholder row for your hedge recommendation (to be completed in Stage 4)
 
 ---
 
