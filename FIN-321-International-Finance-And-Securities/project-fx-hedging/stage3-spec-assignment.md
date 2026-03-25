@@ -1,7 +1,7 @@
 ## Stage 3 – Technical Specification (4 Points)
 
 **Goal:**
-Using `fin-321/stage3-spec-template.md`, produce a **2–3 page quantitative specification** that documents your Stage 2 Excel model and articulates a refined, improved version. Your spec should be detailed enough that a treasury analyst—or an AI assistant—could reconstruct and enhance the model from your written description alone.
+Using `_templates/template-spec.md`, produce a **2–3 page quantitative specification** that documents your Stage 2 Excel model and articulates a refined, improved version. Your spec should be detailed enough that a treasury analyst—or an AI assistant—could reconstruct and enhance the model from your written description alone.
 
 ---
 
@@ -55,7 +55,7 @@ Your task in Stage 3 is to turn that hands-on knowledge into a **professional te
 
 ### Instructions
 
-* **Use the template:** Start from `fin-321/stage3-spec-template.md`.
+* **Use the template:** Start from `_templates/template-spec.md`.
 * **Be precise:** Every variable must have a name, value, and unit. Vague descriptions ("a reasonable interest rate") are not acceptable.
 * **Write for an AI reader:** Your Stage 4 prompt will draw heavily from this document. If an instruction is ambiguous here, the AI will guess—and probably guess wrong.
 * **Keep formulas conceptual:** Describe logic and sequence (e.g., "divide FC_AMT by (1 + R_FC × T_DAYS/360) to get the borrowing amount"), not cell equations.
@@ -69,7 +69,6 @@ Your task in Stage 3 is to turn that hands-on knowledge into a **professional te
 * File name: `stage3-spec-LASTNAME.md`
 * Length: 2–3 pages
 * Tone: Professional, quantitative, and business-ready
-* **Due Date:** **November 20**
 * **Points:** 4 (graded on clarity, completeness, analytical logic, and reproducibility)
 
 ---
@@ -85,15 +84,15 @@ Your task in Stage 3 is to turn that hands-on knowledge into a **professional te
 
 ---
 
-### How This Leads to Stage 4
+### How This Leads to Stage 5
 
-Your Stage 3 specification is the primary input to your Stage 4 AI prompt. A well-written spec means:
+Your Stage 3 specification is the primary input to your final analysis. A well-written spec means:
 
-| What You Write in Stage 3            | What It Enables in Stage 4                                   |
+| What You Write in Stage 3            | What It Enables in Stage 5                                   |
 | ------------------------------------- | ------------------------------------------------------------ |
 | Named ranges with precise definitions | AI uses standardized variable names, no improvisation        |
 | Step-by-step calculation flow         | AI generates correct, auditable formulas                     |
 | Model review and improvement notes    | AI builds the *improved* version, not just a replica         |
 | Explicit output requirements          | AI produces the exact tables, charts, and sections you need  |
 
-> *By completing Stage 3, you create the machine-readable blueprint that transforms your prototype into a polished, AI-generated financial model—demonstrating the full analyst-to-automation workflow used by modern treasury and finance teams.*
+> *By completing Stage 3, you create the machine-readable blueprint that transforms your prototype into a polished financial model — demonstrating the full analyst-to-automation workflow used by modern treasury and finance teams.*
