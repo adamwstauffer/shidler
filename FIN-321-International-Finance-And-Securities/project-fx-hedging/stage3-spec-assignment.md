@@ -84,11 +84,11 @@ Your task in Stage 3 is to turn that hands-on knowledge into a **professional te
 
 ---
 
-### How This Leads to Stage 5
+### How This Leads to Stage 4
 
 Your Stage 3 specification is the primary input to your final analysis. A well-written spec means:
 
-| What You Write in Stage 3            | What It Enables in Stage 5                                   |
+| What You Write in Stage 3            | What It Enables in Stage 4                                   |
 | ------------------------------------- | ------------------------------------------------------------ |
 | Named ranges with precise definitions | AI uses standardized variable names, no improvisation        |
 | Step-by-step calculation flow         | AI generates correct, auditable formulas                     |
