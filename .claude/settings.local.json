@@ -1,1 +1,9 @@
-
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(diff:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
