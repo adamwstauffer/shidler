@@ -11,14 +11,14 @@ Each stage builds on the last — your memo frames the problem, your Excel build
 
 ## Deliverable Timeline
 
-| Stage | Deliverable | Points | Due Date |
-|-------|------------|--------|----------|
-| 1 | Executive Memo | 4 | TBD |
-| 2 | Excel Model Build | 6 | TBD |
-| 3 | Technical Specification | 4 | TBD |
-| 4 | Final Analysis, Prompt Engineering & Recommendation | 10 | TBD |
-| EC | Extra Credit | up to 3 | TBD |
-| | **Total** | **24 + 3 EC** | |
+| Stage | Deliverable | Points |
+|-------|------------|--------|
+| 1 | Executive Memo | 4 |
+| 2 | Excel Model Build | 6 |
+| 3 | Technical Specification | 4 |
+| 4 | Final Analysis, Prompt Engineering & Recommendation | 10 |
+| EC | Extra Credit | up to 3 |
+| | **Total** | **24 + 3 EC** |
 
 ## Ratio Categories Covered
 
@@ -42,8 +42,7 @@ BUS-314/accounting-ratios/
 ├── stage4-final-analysis-assignment.md ← Stage 4 instructions
 ├── extra-credit.md                    ← Extra credit options
 ├── company-selection.md               ← How to choose your company
-├── template-memo.md                   ← Memo template
-├── template-spec.md                   ← Specification template
+├── _scenarios/                        ← Company scenario spreadsheets
 ├── _templates/
 │   └── excel/
 │       └── README.md                  ← Excel template guide
@@ -56,18 +55,37 @@ BUS-314/accounting-ratios/
 
 ## Getting Started
 
-1. Read `company-selection.md` to pick your public company.
+1. You will be assigned one of the company scenarios in `_scenarios/`.
 2. Work through the stages in order — each one feeds the next.
-3. Use `template-memo.md` and `template-spec.md` as starting points.
-4. Store your working files in the `archive/` subdirectories.
-5. Upload final deliverables to GitHub.
+3. Use `../_templates/template-decision-memo.md` and `../_templates/template-spec.md` as starting points.
+4. Use the accounting ratio spreadsheet provided in class and available in Lamaku as your Excel template.
+5. Commit all Markdown deliverables (`.md`) to your GitHub repository.
+6. Store your working files in the `archive/` subdirectories.
 
 ## AI Tools (Optional, Not Required)
 
 AI tools like Claude, ChatGPT, or Copilot can accelerate your work — especially in Stage 4. However, **AI is not required for any stage.** Students without AI access can complete every deliverable using standard resources (SEC filings, Excel, class notes). If you use AI, document it per the course AI Usage Guidelines.
 
+## Committing Your Work
+
+All Markdown deliverables (`.md` files) should be committed to your GitHub repository. Recommended locations:
+
+| Deliverable | Where to Save |
+|-------------|---------------|
+| Stage 1 memo | `docs/decisions/` |
+| Stage 2 Excel model | `docs/templates/excel/` |
+| Stage 3 spec | Root of your project directory or `docs/` |
+| Stage 4 final analysis | Root of your project directory or `docs/` |
+
+**Workflow:**
+1. Create your `.md` file using the appropriate template.
+2. Save it in the recommended directory within your repository.
+3. Stage, commit, and push: `git add <file>` → `git commit -m "Stage X deliverable"` → `git push`.
+4. Verify your file is visible on GitHub.
+
 ## Key Resources
 
 - **Financial Statements:** SEC EDGAR, Yahoo Finance, Macrotrends, company investor relations pages
 - **Class Spreadsheet:** `BUS-314/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx`
+- **Scenario Workbooks:** `_scenarios/BUS314_[TICKER]_Scenario.xlsx`
 - **Course AI Guidelines:** `docs/ai-usage-guidelines.md`

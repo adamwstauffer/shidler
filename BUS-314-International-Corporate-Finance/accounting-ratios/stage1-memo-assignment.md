@@ -2,7 +2,7 @@
 
 ## Goal
 
-Using `template-memo.md`, write a **300–400 word memo** to your company's CFO (or VP of Finance) explaining why a comprehensive **accounting ratio analysis** is valuable and what insights you expect to uncover.
+Using `../_templates/template-decision-memo.md`, write a **300–400 word memo** to your company's CFO (or VP of Finance) explaining why a comprehensive **accounting ratio analysis** is valuable and what insights you expect to uncover.
 
 ---
 
@@ -27,9 +27,10 @@ You are a **Financial Analyst** at a publicly traded company of your choice (see
 
 ### Format
 
-- **Deliverable:** One page (PDF or Markdown), file name `stage1-memo-LASTNAME.md`
+- **Deliverable:** One page Markdown file (`.md`), committed to your GitHub repository. File name: `lastname-first-stage1-memo.md`
 - **Tone:** Executive-friendly and clear — no jargon-heavy explanations.
-- **Due Date:** TBD
+
+**Where to save:** Save your `.md` memo to your repository in a dedicated directory, e.g., `docs/decisions/`.
 
 ---
 

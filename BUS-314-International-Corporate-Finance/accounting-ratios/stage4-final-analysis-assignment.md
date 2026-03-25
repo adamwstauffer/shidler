@@ -1,7 +1,5 @@
 # Stage 4 – Final Analysis, Prompt Engineering & Recommendation (10 Points)
 
-**Due:** TBD
-
 ## Goal
 
 Deliver a polished, executive-ready memo summarizing your accounting ratio analysis and providing strategic recommendations. As part of this deliverable, you will also write a **structured AI prompt** that could regenerate your spreadsheet model — demonstrating your ability to convert domain knowledge into machine-readable instructions.

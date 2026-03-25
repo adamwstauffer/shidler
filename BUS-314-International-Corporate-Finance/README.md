@@ -22,7 +22,7 @@ Brealey, Myers, and Marcus, *Fundamentals of Corporate Finance*, 11th ed., McGra
 
 * Access to **McGraw-Hill (MH) Connect** web-based course companion system.
 
-You can register for MH Connect on **Laulima** by selecting the **“MH Campus”** option from the left menu.
+You can register for MH Connect on **Lamaku** by selecting the **“MH Campus”** option from the left menu.
 
 **Optional Financial Calculator:**
 HP 12C Financial Calculator
@@ -31,8 +31,8 @@ HP 12C Financial Calculator
 
 ## Slides
 
-Slides will be available on Laulima:
-[https://laulima.hawaii.edu/portal](https://laulima.hawaii.edu/portal)
+Slides will be available on Lamaku:
+[https://lamaku.hawaii.edu/portal](https://lamaku.hawaii.edu/portal)
 
 ---
 
@@ -85,7 +85,7 @@ More information:
 
 This course participates in the Bookstore’s **Interactive Digital Access Program (IDAP)**.
 
-* Course materials will be available digitally via Laulima by the first day of class.
+* Course materials will be available digitally via Lamaku by the first day of class.
 * A charge for digital materials will be added to your MyUH account.
 * You may opt out via the Inclusive Access Student Portal (linked in your IDAP welcome email).
 * If you opt out, access will be removed and charges refunded.
@@ -99,7 +99,7 @@ More information:
 ## Communication
 
 * Email is the preferred method in emergencies.
-* Check the Laulima course website one day before each class session.
+* Check the Lamaku course website one day before each class session.
 
 ---
 
@@ -158,7 +158,7 @@ If you believe there is a grading error, notify the instructor within one week o
 
 # Accessing McGraw-Hill Connect
 
-Register via Laulima by selecting **“MH Campus.”**
+Register via Lamaku by selecting **“MH Campus.”**
 You should not need to enter payment details.
 
 An optional discounted loose-leaf version of the textbook is available at the bookstore.
