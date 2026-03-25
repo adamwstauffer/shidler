@@ -1,7 +1,5 @@
 # Extra Credit (Up to 3 Points)
 
-**Due:** TBD
-
 ## Overview
 
 Earn up to **3 extra-credit points** by demonstrating how modern tools and workflows can enhance your accounting ratios project. Choose **at least two** of the following areas and write a brief discussion (200–400 words total) as an addendum to your Stage 4 deliverable, or as a separate `.md` file.

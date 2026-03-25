@@ -84,10 +84,12 @@ A clean summary section showing:
 
 ## Deliverable
 
-- File name: `stage2-model-LASTNAME.xlsx`
+- File name: `lastname-first-stage2-model.xlsx`
+- Start from the accounting ratio spreadsheet provided in class and available in Lamaku.
 - Tabs: Financial statements + Ratios tab + optional Notes sheet
-- **Due Date:** TBD
 - **Points:** 6
+
+**Where to save:** Save your `.xlsx` file to your repository in a dedicated directory, e.g., `docs/templates/excel/`.
 
 ---
 

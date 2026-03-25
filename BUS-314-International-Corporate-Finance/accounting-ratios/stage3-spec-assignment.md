@@ -1,6 +1,6 @@
 # Stage 3 – Technical Specification (4 Points)
 
-**Goal:** Using `template-spec.md`, produce a **2–3 page quantitative specification** that documents your Stage 2 Excel model and articulates a refined, improved version. Your spec should be detailed enough that a fellow analyst — or an AI assistant — could reconstruct the model from your written description alone.
+**Goal:** Using `../_templates/template-spec.md`, produce a **2–3 page quantitative specification** that documents your Stage 2 Excel model and articulates a refined, improved version. Your spec should be detailed enough that a fellow analyst — or an AI assistant — could reconstruct the model from your written description alone.
 
 ---
 
@@ -56,7 +56,6 @@ Your task in Stage 3 is to turn that hands-on knowledge into a **professional te
 - File name: `stage3-spec-LASTNAME.md`
 - Length: 2–3 pages
 - Tone: Professional, quantitative, and business-ready
-- **Due Date:** TBD
 - **Points:** 4
 
 ---
