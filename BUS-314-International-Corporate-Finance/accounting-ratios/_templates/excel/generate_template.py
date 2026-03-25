@@ -349,7 +349,8 @@ ws_notes['B14'].fill = gray_fill
 ws_notes['A16'] = 'AI & LLM Usage:'
 ws_notes['A17'] = '[Document any AI tools used and how they were used]'
 
-output_path = r'C:\Users\adamw\.claude-worktrees\shidler\strange-swirles\BUS-314\accounting-ratios\_templates\excel\Stage3_Skeleton.xlsx'
+import os
+output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Stage3_Skeleton.xlsx')
 wb.save(output_path)
 print(f'Saved to {output_path}')
 print('Done!')
