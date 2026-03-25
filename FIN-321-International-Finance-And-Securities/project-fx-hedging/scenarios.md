@@ -10,10 +10,12 @@ When you see a placeholder like:
 
 …it means you are responsible for **determining the strike price (K) and interest rates** based on **current market data**.
 
+**Use rates, prices, and quotes as of market close on the day you begin Stage 2.**
+
 Here’s how to approach it:
 
-1. **Look up the current EURUSD spot rate** (e.g., from Bloomberg, Yahoo Finance, or your preferred data source).
-2. Use this **spot rate as the starting point** for your strike price (k). In most basic hedge setups, the strike is set **at or near the current spot**.
+1. **Look up the current EURUSD spot rate** (e.g., from Bloomberg, Yahoo Finance, or your preferred data source). Record the date and source.
+2. Use this **spot rate as the starting point** for your strike price (K). In most basic hedge setups, the strike is set **at or near the current spot**.
 
 ---
 

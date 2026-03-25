@@ -57,7 +57,7 @@ Your task in Stage 3 is to turn that hands-on knowledge into a **professional te
 
 * **Use the template:** Start from `_templates/template-spec.md`.
 * **Be precise:** Every variable must have a name, value, and unit. Vague descriptions ("a reasonable interest rate") are not acceptable.
-* **Write for an AI reader:** Your Stage 4 prompt will draw heavily from this document. If an instruction is ambiguous here, the AI will guess—and probably guess wrong.
+* **Write for an AI reader:** The structured AI prompt in your Stage 4 final deliverable will draw heavily from this document. If an instruction is ambiguous here, the AI will guess — and probably guess wrong.
 * **Keep formulas conceptual:** Describe logic and sequence (e.g., "divide FC_AMT by (1 + R_FC × T_DAYS/360) to get the borrowing amount"), not cell equations.
 * **Maintain professional tone:** You are advising the CFO or Director of Treasury, and documenting for a future model-builder.
 * **Be concise:** Clear, complete, and no filler—2 to 3 pages maximum.

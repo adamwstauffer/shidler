@@ -5,7 +5,7 @@
 **Date Created:** [date]  
 **Date Updated:** [date]  
 **Version:** [0.0]
-**LLM Used:"" [LLM] (optional if LLm used)
+**LLM Used:** [LLM name, or "None"]
 
 **Role:** Financial Analyst / Treasury Analyst  
 **Audience:** CFO or Director of Treasury  
@@ -136,8 +136,8 @@ Example phrasing:
 
 | Stage | What This Spec Enables |
 |-------|------------------------|
-| **Stage 3** | Each “Input” and “Output” becomes a spreadsheet cell or named range. |
-| **Stage 4** | Your “Calculation Flow” becomes an AI prompt instruction block. |
-| **Stage 5** | Your “Outputs” drive the interpretation and recommendation. |
+| **Stage 2** | Each “Input” and “Output” becomes a spreadsheet cell or named range. |
+| **Stage 3** | Your spec documents what you built and articulates an improved design. |
+| **Stage 4** | Your “Calculation Flow” becomes an AI prompt instruction block; your “Outputs” drive the interpretation and recommendation. |
 
 > *Treat your specification as the bridge between business insight and technical execution — the CFO should be confident your plan is sound even before seeing the numbers.*
