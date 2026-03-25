@@ -92,11 +92,11 @@ Work from your Stage 1 scenario. If anything is ambiguous (e.g., interest-rate b
 
 ### Deliverable
 
-* File name: `stage2-model-LASTNAME.xlsx`
+* File name: `lastname-first-stage2-model.xlsx`
 * Tabs: Main model + "Notes & Assumptions" tab
 * **Points:** 6 (graded on structure, accuracy, and professional presentation)
 
-**Where to save:** Save your `.xlsx` template to your repository in a dedicated directory, e.g., `shidler/docs/templates/excel/`.
+**Where to save:** Save your `.xlsx` file to your repository in a dedicated directory, e.g., `docs/templates/excel/`.
 
 ---
 
@@ -119,6 +119,6 @@ Building the model before writing a formal specification is intentional. Once yo
 * Where the model logic is straightforward vs. where judgment calls were required
 * What you would improve if building the model again from scratch
 
-You will carry all of that experience into **Stage 3**, where you will write a formal technical specification that documents what you built *and* articulates a more polished version—one precise enough to instruct an AI assistant to regenerate it in Stage 4.
+You will carry all of that experience into **Stage 3**, where you will write a formal technical specification that documents what you built *and* articulates a more polished version. That spec then feeds directly into your **Stage 4** final analysis, where you will write a structured AI prompt and deliver an executive-ready hedge recommendation.
 
-> *By completing Stage 2, you bridge the gap between a business problem and a functioning decision tool—exactly what financial analysts do before presenting to senior management.*
+> *By completing Stage 2, you bridge the gap between a business problem and a functioning decision tool — exactly what financial analysts do before presenting to senior management.*

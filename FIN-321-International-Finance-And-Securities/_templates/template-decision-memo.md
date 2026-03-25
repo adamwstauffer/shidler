@@ -5,7 +5,7 @@
 **Date Created:** [date]  
 **Date Updated:** [date]  
 **Version:** [0.0]
-**LLM Used:"" [LLM] (optional if LLm used)
+**LLM Used:** [LLM name, or "None"]
 
 ---
 

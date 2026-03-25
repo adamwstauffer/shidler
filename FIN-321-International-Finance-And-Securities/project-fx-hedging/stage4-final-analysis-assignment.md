@@ -140,46 +140,12 @@ The prompt itself is the primary deliverable — it demonstrates your ability to
 
 ## Extra Credit (2 points): Areas for Further Study & Improvement
 
-Include at least three of the following:
+In 1–2 paragraphs each, discuss **2–3** of the following topics and how they connect to your project:
 
-### 1. Claude Skills (Automation & Live Data Integration)
-- Pull live FX spot rates and yields
-- Update models automatically
-- Regenerate spreadsheets on demand
-- Validate hedge calculations
-
-Explain how a Skill could automate or improve your model.
-
-### 2. Code Interpreter / Computational AI
-- Generate spreadsheets from pseudocode
-- Convert your model into Python for advanced analysis
-- Run sensitivity loops or Monte Carlo simulations
-- Support audit-ready model regeneration
-
-Discuss how computational AI reduces operational risk.
-
-### 3. Claude Code / Multi-File Reasoning
-- Read and update multiple files (Excel, CSV, MD)
-- Create dashboards or charts
-- Maintain consistency across versions
-- Automate model rebuilding
-
-Explain how multi-file reasoning enhances your modeling workflow.
-
-### 4. GitHub Automation & Version Control
-- Each change becomes a committed revision — full history is permanent and reversible
-- Prevents silent spreadsheet errors and builds auditability
-- Branching for parallel work; Pull Requests for review
-- Issue tracking for model updates
-
-Tie this to your Stages 1–3:
-> "Specs, model templates, and AI prompts can all be versioned in GitHub to enable consistent, auditable model regeneration."
-
-### 5. Accounting / Audit Integration
-- OCI vs. P&L hedge accounting flows
-- Documentation requirements for hedge effectiveness
-- Importance of reproducibility
-- GitHub as audit evidence
+1. **AI Skills & Automation** — How could AI tools (e.g., Claude Skills, Code Interpreter) pull live market data, regenerate your model on demand, or run Monte Carlo simulations?
+2. **Multi-File Reasoning** — How could AI read your spec, model, and prompt together to maintain consistency, automate rebuilds, or create dashboards?
+3. **GitHub & Version Control** — How does committing specs, models, and prompts to GitHub enable auditable, reproducible model regeneration? Tie this to your Stages 1–3.
+4. **Accounting & Audit Integration** — How do hedge accounting flows (OCI vs. P&L), documentation requirements, and reproducibility connect to this project? How could GitHub serve as audit evidence?
 
 ---
 

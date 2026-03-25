@@ -45,49 +45,23 @@ Through the AI + GitHub project, you will also develop practical, workplace-read
 
 ---
 
-## Grading
+## AI + GitHub Course Project (25% of Course Grade)
 
-| Component | Weight |
-|-----------|--------|
-| Attendance & Participation | 10% |
-| Weekly Homework (MH Connect) | 20% |
-| AI + GitHub Project | 20% |
-| Midterm Exam | 25% |
-| Final Exam | 25% |
-| **Total** | **100%** |
+This course includes a multi-stage project on FX risk management worth **25% of your final grade** (24 points + 2 extra credit).
 
-Grades are rounded up to the nearest whole number. Grade adjustments are only made for documented scoring errors.
-
-### Attendance & Participation
-
-Attendance will be recorded and contributes to your grade. Active participation is expected.
-
-### Homework
-
-Assigned weekly via MH Connect due Fridays by midnight.
-
-### AI + GitHub Course Project
-
-This course includes a multi-phase project on FX risk management:
+| Stage | Deliverable | Points |
+|-------|------------|--------|
+| 1 | Executive Memo | 4 |
+| 2 | Excel Model Build | 6 |
+| 3 | Technical Specification | 4 |
+| 4 | Final Analysis, Prompt Engineering & Recommendation | 10 |
+| **Total** | | **24 + 2 EC** |
 
 **Scope:** Map a multinational firm's currency exposures, compute forward rates (via interest parity), and compare hedging strategies (forwards, options, collars).
 
 **AI Integration:** Students may use AI for scenario building, payoff tables, drafting memos, and critique. All use must be logged in the Prompt Log.
 
 **GitHub Integration:** Students will maintain a GitHub repo with templates, deliverables, and version control. Workflows will mirror professional consulting and finance practices.
-
-Project Workflow:
-* README (Assignment Brief) – defines goals and rubric
-* Prompts – curated list of AI uses + student adaptations
-* Spec – project plan (models, data, criteria)
-* Analysis & Deliverables – calculations, figures, memos
-* Prompt Log & Reflection – AI use documentation
-
-### Examinations
-
-Midterm & Final Exam on MH Connect
-
-Make-up exams will only be considered for legitimate, documented circumstances (serious illness, family emergency). Instructor approval must be obtained in advance. Make-up exams may be more rigorous than the original.
 
 ---
 
