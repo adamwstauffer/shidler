@@ -50,6 +50,26 @@ All ratios will be computed using both current-year and prior-year data to ident
 
 ---
 
+## Potential Improvements
+
+The following enhancements could strengthen the analysis in subsequent stages:
+
+1. **Peer Benchmarking** — Compare Apple's ratios against direct competitors (Microsoft, Alphabet, Samsung) and industry medians. Relative positioning reveals whether Apple's metrics reflect company-specific advantages or sector-wide trends.
+
+2. **Adjusted Equity Metrics** — Apple's aggressive share buyback program has driven total equity negative or near-zero in recent years, inflating ROE and distorting leverage ratios. Computing ratios on an adjusted equity basis (adding back cumulative buybacks) would provide a clearer picture of underlying capital efficiency.
+
+3. **Segment-Level Profitability** — Apple's Services segment operates at roughly 70%+ gross margins versus ~35% for Products. A blended ratio analysis masks this divergence. Breaking out segment-level margins and contribution metrics would surface the real growth and profitability drivers.
+
+4. **Multi-Year Trend Analysis (3–5 Years)** — Expanding from a 2-year comparison to a 3–5 year trend window would reveal cyclical patterns, margin trajectory, and whether current performance is an outlier or a sustained trend.
+
+5. **Cash Flow Ratios** — The current six categories omit cash-flow-based metrics. Adding free cash flow yield, operating cash flow ratio, and cash flow to debt would capture Apple's cash generation strength — arguably its most distinctive financial characteristic.
+
+6. **Scenario Sensitivity** — Stress-testing key ratios (e.g., ROE, interest coverage, current ratio) under assumptions like a 5% margin compression or a 10% revenue decline would demonstrate analytical depth and prepare for real-world volatility.
+
+7. **Qualitative Context Overlay** — Tying ratio movements to known business events (e.g., iPhone launch cycles, App Store regulatory rulings, supply chain disruptions) would move the analysis from descriptive to explanatory.
+
+---
+
 ## References
 
 - Apple Inc. FY 2025 Annual Report (10-K), SEC EDGAR.
