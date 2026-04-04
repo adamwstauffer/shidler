@@ -10,33 +10,32 @@ Everything lives in one Git-tracked repo so students, collaborators, and reviewe
 
 ```
 shidler/
-├── BIO.md                        # Instructor biography (single source of truth)
-├── CV.md                         # Curriculum vitae
-├── RESUME.md                     # One-page resume
-├── CLAUDE.md                     # AI assistant configuration for this repo
+├── BIO.md                          # Instructor biography (single source of truth)
+├── CV.md                           # Curriculum vitae
+├── RESUME.md                       # One-page resume
+├── CLAUDE.md                       # AI assistant configuration for this repo
 │
-├── GitHub_AI_Appendix.pptx       # Generic appendix: GitHub & AI setup guide
-├── Claude_Appendix.pptx          # Generic appendix: Using Claude (web, app, CLI)
-│
-├── BUS-313-Economic-And-Financial-Environment-Global-Business/
-├── BUS-314-International-Corporate-Finance/
-├── BUS-620-Micro-And-Macro-Economics/
-├── BUS-629-VEMBA-International-Corporate-Finance/
-├── FIN-321-International-Finance-And-Securities/
-├── Windward-Community-College/
-│   └── BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/
+├── courses/                        # All course directories
+│   ├── BUS-313-Economic-And-Financial-Environment-Global-Business/
+│   ├── BUS-314-International-Corporate-Finance/
+│   ├── BUS-620-Micro-And-Macro-Economics/
+│   ├── BUS-629-VEMBA-International-Corporate-Finance/
+│   ├── FIN-321-International-Finance-And-Securities/
+│   └── Windward-Community-College/
+│       └── BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/
 │
 ├── docs/
-│   ├── _branding/                # UH Manoa design system & templates
-│   ├── decisions/                # Strategic decision memos
-│   ├── templates/                # Reusable deliverable templates
+│   ├── _branding/                  # UH Manoa design system & templates
+│   ├── decisions/                  # Strategic decision memos
+│   ├── presentations/              # Course-agnostic appendix slide decks
+│   ├── templates/                  # Reusable deliverable templates
 │   ├── ai-usage-guidelines.md
 │   ├── writing-style-guide.md
 │   └── reproducibility-playbook.md
 │
-├── _archive/                     # Deprecated/historical materials
-├── notes/                        # Personal research notes
-└── scripts/                      # Utility scripts
+├── _archive/                       # Deprecated/historical materials
+├── notes/                          # Personal research notes
+└── scripts/                        # Utility scripts
 ```
 
 ---
@@ -56,9 +55,9 @@ Each course directory contains a `README.md` syllabus, project folders with stag
 
 ---
 
-## Generic Appendix Presentations
+## Appendix Presentations
 
-Two course-agnostic slide decks live at the repo root. Attach them to any course project:
+Two course-agnostic slide decks live in `docs/presentations/`. Attach them to any course project:
 
 | File | What It Covers |
 |------|---------------|
@@ -112,19 +111,19 @@ This repo includes [Claude Code](https://claude.ai/code) configuration:
 - **`.claude/skills/`** — Custom skills that extend Claude's capabilities: `brand-guidelines`, `bus314-accounting-ratios`, `docx`, `xlsx`, `pptx`, `pdf`, `internal-comms`, `skill-creator`
 - Skills activate via `/commands` (e.g., `/pptx`, `/brand-guidelines`) and require no separate installation — clone the repo and they're ready
 
-See the **Claude_Appendix.pptx** for a complete walkthrough.
+See **`docs/presentations/Claude_Appendix.pptx`** for a complete walkthrough.
 
 ---
 
 ## Getting Started
 
 1. **Clone the repo**: `git clone https://github.com/adamwstauffer/shidler.git`
-2. **Navigate to your course**: Open the appropriate `BUS-*` or `FIN-*` directory
+2. **Navigate to your course**: Open the appropriate directory under `courses/`
 3. **Read the syllabus**: Each course has a `README.md` with objectives, grading, and policies
 4. **Work on deliverables**: Follow the staged assignment files in each project folder
 5. **Commit your work**: `git add . && git commit -m "Stage 1 memo" && git push`
 
-For a visual walkthrough, see **GitHub_AI_Appendix.pptx**.
+For a visual walkthrough, see **`docs/presentations/GitHub_AI_Appendix.pptx`**.
 
 ---
 
@@ -135,6 +134,7 @@ For a visual walkthrough, see **GitHub_AI_Appendix.pptx**.
 | Instructor Bio | `BIO.md` |
 | Brand Design Tokens | `docs/_branding/design.json` |
 | Visual Design Reference | `docs/_branding/design-system.html` |
+| Appendix Presentations | `docs/presentations/` |
 | Reusable Templates | `docs/templates/` |
 | Strategic Decisions | `docs/decisions/` |
 | AI Usage Guidelines | `docs/ai-usage-guidelines.md` |

@@ -98,7 +98,7 @@ See [project design memo](docs/memos/2026-04-03-bus629-accounting-ratios-project
 This repository serves as a **living example** of the directory structure students should replicate in their own repos. Each directory contains a `README.md` explaining its purpose and conventions.
 
 ```
-BUS-629-VEMBA-International-Corporate-Finance/
+courses/BUS-629-VEMBA-International-Corporate-Finance/
 ├── README.md                  <- You are here
 ├── docs/
 │   ├── memos/                 # Executive memos and decision documents

@@ -16,7 +16,7 @@ Every stage of this project depends on having a well-organized workspace. In pro
 
 ## Deliverable
 
-A GitHub repository with the structure below. The course repository ([`BUS-629-VEMBA-International-Corporate-Finance/`](../)) serves as a **living example** — study its READMEs, then replicate the structure in your own repo.
+A GitHub repository with the structure below. The course repository ([`courses/BUS-629-VEMBA-International-Corporate-Finance/`](../)) serves as a **living example** — study its READMEs, then replicate the structure in your own repo.
 
 ### Required directory structure
 
@@ -133,7 +133,7 @@ A link to your GitHub repository. The repository must contain:
 
 ## Tips
 
-- **Start by studying the course repo.** Every directory in [`BUS-629-VEMBA-International-Corporate-Finance/`](../) has a README you can reference.
+- **Start by studying the course repo.** Every directory in [`courses/BUS-629-VEMBA-International-Corporate-Finance/`](../) has a README you can reference.
 - **Don't overthink the READMEs.** 5–10 lines per directory README is sufficient. Clarity over length.
 - **Commit early and often.** Don't build the entire structure and commit once. Commit after creating each major section.
 - **Your README.md will evolve.** Update your top-level README as you complete each stage — it becomes a living status tracker for your project.

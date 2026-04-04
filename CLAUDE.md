@@ -8,7 +8,7 @@ Unified portfolio and course materials hub for Shidler College of Business (Univ
 
 ## Repository Structure
 
-- **Course directories** follow `[CODE]-[Descriptive-Title]` naming (e.g., `BUS-314-International-Corporate-Finance/`)
+- **`courses/`** — All course directories, each following `[CODE]-[Descriptive-Title]` naming (e.g., `courses/BUS-314-International-Corporate-Finance/`)
 - **`docs/`** — Centralized documentation hub:
   - `_branding/` — UH Mānoa design tokens (`design.json`) and visual reference (`design-system.html`)
   - `templates/` — Reusable assignment templates (memo, spec, case brief, risk memo, prompt log)
@@ -72,7 +72,7 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 
 ## Naming Conventions
 
-- Course directories: `[CODE]-[Descriptive-Title]` with PascalCase hyphens
+- Course directories: `courses/[CODE]-[Descriptive-Title]` with PascalCase hyphens
 - `_`-prefixed directories (`_templates/`, `_archive/`, `_branding/`) denote system/organizational content
 - Excel named ranges for BUS-314: `BAL_`, `INC_`, `CASH_`, `RATIO_` prefixes (see `bus314-accounting-ratios` skill for full spec)
 
@@ -86,7 +86,8 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Strategic Decisions | `docs/decisions/` |
 | Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` |
 | BUS-314 Ratios Skill | `.claude/skills/bus314-accounting-ratios/SKILL.md` |
-| Master Ratios Spreadsheet | `BUS-314-International-Corporate-Finance/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx` |
+| Master Ratios Spreadsheet | `courses/BUS-314-International-Corporate-Finance/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx` |
+| Appendix Presentations | `docs/presentations/` |
 
 ## Skills Available
 

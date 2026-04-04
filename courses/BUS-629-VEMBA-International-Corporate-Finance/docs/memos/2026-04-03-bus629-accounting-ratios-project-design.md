@@ -77,7 +77,7 @@ Point values are set per class. The following weights define each stage's propor
 
 **Why first:** Every subsequent stage depends on having a well-organized workspace. In professional finance, analysts who can't find files, version documents, or maintain a clean project structure waste enormous time. This stage also removes the "I don't know how to use GitHub" barrier before any graded analytical work begins. It's a low-stakes, high-learning-density introduction.
 
-**Collaboration model:** Individual. Each student creates their own GitHub repository. The course repository (`BUS-629-VEMBA-International-Corporate-Finance/`) serves as a **living example** — students replicate this structure in their own repos.
+**Collaboration model:** Individual. Each student creates their own GitHub repository. The course repository (`courses/BUS-629-VEMBA-International-Corporate-Finance/`) serves as a **living example** — students replicate this structure in their own repos.
 
 **Deliverable:** A GitHub repository (named `[username]`, e.g., `adamwstauffer/`) with the following structure (or well-justified variation):
 
@@ -114,7 +114,7 @@ Point values are set per class. The following weights define each stage's propor
     └── README.md                      # What constitutes a "final" deliverable
 ```
 
-**A living example of this structure** — with populated READMEs in every directory — is available in the course repository at [`BUS-629-VEMBA-International-Corporate-Finance/`](../../).
+**A living example of this structure** — with populated READMEs in every directory — is available in the course repository at [`courses/BUS-629-VEMBA-International-Corporate-Finance/`](../../).
 
 **Why this structure:**
 
@@ -549,9 +549,9 @@ No formal extra credit structure for v1. The following ideas are worth developin
 
 ## References
 
-- BUS-314 Accounting Ratios Project — `BUS-314-International-Corporate-Finance/accounting-ratios/`
+- BUS-314 Accounting Ratios Project — `courses/BUS-314-International-Corporate-Finance/accounting-ratios/`
 - BUS-314 Stage Restructure Decision — `docs/decisions/2026-02-24-bus314-stage-restructure.md`
 - BUS-314 Accounting Ratios Skill — `.claude/skills/bus314-accounting-ratios/SKILL.md`
-- BUS-629 Memo Template — `BUS-629-VEMBA-International-Corporate-Finance/docs/templates/memo-template.md`
-- BUS-629 Spec Template — `BUS-629-VEMBA-International-Corporate-Finance/docs/templates/spec-template.md`
-- BUS-629 Living Example (directory structure) — `BUS-629-VEMBA-International-Corporate-Finance/`
+- BUS-629 Memo Template — `courses/BUS-629-VEMBA-International-Corporate-Finance/docs/templates/memo-template.md`
+- BUS-629 Spec Template — `courses/BUS-629-VEMBA-International-Corporate-Finance/docs/templates/spec-template.md`
+- BUS-629 Living Example (directory structure) — `courses/BUS-629-VEMBA-International-Corporate-Finance/`

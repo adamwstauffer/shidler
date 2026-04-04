@@ -1,6 +1,6 @@
 # BUS-314 Accounting Ratios — Claude Skill
 
-Use this skill when helping students with the BUS-314 accounting ratios project (company selection, Excel model building, specification writing, or final analysis). Activate when working in `BUS-314-International-Corporate-Finance/accounting-ratios/`.
+Use this skill when helping students with the BUS-314 accounting ratios project (company selection, Excel model building, specification writing, or final analysis). Activate when working in `courses/BUS-314-International-Corporate-Finance/accounting-ratios/`.
 
 ---
 
@@ -59,7 +59,7 @@ Use this skill when helping students with the BUS-314 accounting ratios project 
 ## Reference Spreadsheet
 
 Master class spreadsheet with all ratio formulas and a worked example:
-`BUS-314-International-Corporate-Finance/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx`
+`courses/BUS-314-International-Corporate-Finance/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx`
 
 ---
 

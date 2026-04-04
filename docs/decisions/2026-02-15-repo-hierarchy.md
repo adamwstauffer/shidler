@@ -20,7 +20,7 @@ This repository serves as a unified portfolio and course materials hub for Shidl
 
 ## 2. ROOT-LEVEL DIRECTORIES
 
-### `/BUS-314-International-Business-Finance/`
+### `/courses/BUS-314-International-Business-Finance/`
 **Purpose:** Materials for BUS 314 - International Business Finance (undergraduate course)
 
 **Key Contents:**
@@ -34,7 +34,7 @@ This repository serves as a unified portfolio and course materials hub for Shidl
 
 ---
 
-### `/BUS-313-Global-Business-Environment/`
+### `/courses/BUS-313-Global-Business-Environment/`
 **Purpose:** Materials for BUS 313 - The Economic and Financial Environment of Global Business (undergraduate course)
 
 **Key Contents:**
@@ -45,7 +45,7 @@ This repository serves as a unified portfolio and course materials hub for Shidl
 
 ---
 
-### `/BUS-620-Micro-And-Macro-Economics/`
+### `/courses/BUS-620-Micro-And-Macro-Economics/`
 **Purpose:** Materials for BUS 620 - Micro- and Macro-Economic Foundations for Managers (MBA course)
 
 **Key Contents:**
@@ -57,7 +57,7 @@ This repository serves as a unified portfolio and course materials hub for Shidl
 
 ---
 
-### `/FIN-321-International-Finance/`
+### `/courses/FIN-321-International-Finance/`
 **Purpose:** Materials for FIN 321 - International Business Finance (upper-level undergraduate course)
 
 **Key Contents:**
@@ -184,9 +184,9 @@ University of Hawaiʻi at Mānoa and Shidler College of Business brand guideline
 All course directories follow the pattern: `[COURSE-CODE]-[Descriptive-Title]`
 
 Examples:
-- `BUS-314-International-Business-Finance`
-- `BUS-620-Micro-And-Macro-Economics`
-- `FIN-321-International-Finance`
+- `courses/BUS-314-International-Business-Finance`
+- `courses/BUS-620-Micro-And-Macro-Economics`
+- `courses/FIN-321-International-Finance`
 
 **Rationale:**
 * Course code enables easy identification
