@@ -1188,7 +1188,7 @@ async function build() {
   // =========================================================
   // Write file
   // =========================================================
-  const outPath = path.resolve("BUS-314-International-Corporate-Finance/accounting-ratios/BUS314_GitHub_AI_Appendix.pptx");
+  const outPath = path.resolve("docs/presentations/GitHub_AI_Appendix.pptx");
   await pres.writeFile({ fileName: outPath });
   console.log("Created: " + outPath);
 }

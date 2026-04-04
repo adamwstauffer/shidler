@@ -27,7 +27,7 @@ This memo documents several housekeeping and structural changes to the FIN-321 F
 ### Directory Structure
 
 ```
-FIN-321-International-Finance-And-Securities/
+courses/FIN-321-International-Finance-And-Securities/
 ├── _templates/
 │   └── excel/
 │       └── README-v2.md
@@ -126,7 +126,7 @@ Stage 2 previously referenced "the provided Stage 2 Skeleton." Updated to: "the 
 ## 4. POST-CHANGE STRUCTURE
 
 ```
-FIN-321-International-Finance-And-Securities/
+courses/FIN-321-International-Finance-And-Securities/
 ├── _decisions/
 │   └── 2026-03-25-fin321-project-reorganization.md   ← this memo
 ├── _templates/
