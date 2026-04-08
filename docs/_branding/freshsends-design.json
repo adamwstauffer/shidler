@@ -1,0 +1,468 @@
+{
+  "meta": {
+    "name": "Fresh Sends Design System",
+    "version": "1.0.0",
+    "description": "Design tokens and brand guidelines derived from freshsends.com. Supports brand identity, typography, colors, and component styling for Fresh Sends digital products.",
+    "lastUpdated": "2026-04-01",
+    "source": "https://freshsends.com/",
+    "targetAudience": "Fresh Sends marketing, design, and development teams"
+  },
+  "brand": {
+    "name": "Fresh Sends",
+    "shortName": "FreshSends",
+    "website": "https://freshsends.com",
+    "contact": {
+      "phone": "+1-888-848-2924",
+      "email": "hello@freshsends.com"
+    },
+    "tagline": "Fresh flowers delivered to your door",
+    "social": {
+      "tiktok": "@freshsends",
+      "instagram": "@freshsends"
+    },
+    "territories": ["US", "Canada"],
+    "logo": {
+      "format": "SVG",
+      "width": "120px",
+      "mobileWidth": "100px",
+      "primaryColor": "#1A1A1A"
+    },
+    "voice": {
+      "personality": "Warm, modern, approachable. Feels like a friend who sends great flowers — not a corporate florist.",
+      "tone": "Casual-professional, upbeat, confident. Short punchy copy with playful serif italics for emphasis.",
+      "avoid": "Overly formal language; generic floral cliches; cluttered layouts"
+    }
+  },
+  "designPrinciples": {
+    "core": [
+      {
+        "name": "Warm Minimalism",
+        "description": "Clean layouts on a warm beige canvas. Let white space breathe. Every element earns its place."
+      },
+      {
+        "name": "Playful Contrast",
+        "description": "Pair bold sans-serif type with decorative serif italics. Mix pastel accents with near-black anchors."
+      },
+      {
+        "name": "Tactile & Inviting",
+        "description": "Design should feel like unwrapping a gift — soft colors, generous spacing, subtle motion."
+      },
+      {
+        "name": "Mobile-First",
+        "description": "All layouts scale gracefully. Touch targets, readable type, and single-column flows on small screens."
+      }
+    ]
+  },
+  "colors": {
+    "philosophy": "A warm, neutral base (beige) with a vibrant multicolor accent palette. Black anchors the typography. Pastels and brights are used sparingly for highlights, badges, and seasonal campaigns.",
+    "primary": {
+      "black": {
+        "hex": "#1A1A1A",
+        "rgb": "26, 26, 26",
+        "usage": "Primary text, borders, buttons, logo"
+      },
+      "beige": {
+        "hex": "#FAF7F0",
+        "rgb": "250, 247, 240",
+        "usage": "Primary background, page canvas"
+      }
+    },
+    "accent": {
+      "red": {
+        "hex": "#EF5331",
+        "rgb": "239, 83, 49",
+        "usage": "Primary call-to-action, alerts, seasonal emphasis"
+      },
+      "pink": {
+        "hex": "#F4D3D6",
+        "rgb": "244, 211, 214",
+        "usage": "Secondary accent, announcement bars, soft highlights"
+      },
+      "yellow": {
+        "hex": "#FFFF84",
+        "rgb": "255, 255, 132",
+        "usage": "Highlight, badges, attention markers"
+      },
+      "green": {
+        "hex": "#D0E52A",
+        "rgb": "208, 229, 42",
+        "usage": "Fresh/natural accent, success states, seasonal"
+      },
+      "blue": {
+        "hex": "#9DFFFF",
+        "rgb": "157, 255, 255",
+        "usage": "Cool accent, informational highlights"
+      },
+      "purple": {
+        "hex": "#C4C3FF",
+        "rgb": "196, 195, 255",
+        "usage": "Decorative accent, badges, campaign elements"
+      }
+    },
+    "announcement": {
+      "background": "#F7B8B8",
+      "marquee": "#F8BCBC",
+      "text": "#1A1A1A"
+    },
+    "utility": {
+      "white": "#FFFFFF",
+      "transparent": "transparent"
+    },
+    "light": {
+      "background": {
+        "primary": "#FAF7F0",
+        "secondary": "#FFFFFF",
+        "tertiary": "#F5F2EB",
+        "elevated": "#FFFFFF",
+        "overlay": "rgba(0, 0, 0, 0.4)"
+      },
+      "surface": {
+        "card": "#FFFFFF",
+        "cardHover": "#FDFCF9",
+        "cardActive": "#F8F5EE",
+        "input": "#FFFFFF",
+        "inputFocus": "#FDFCF9"
+      },
+      "border": {
+        "subtle": "rgba(26, 26, 26, 0.06)",
+        "default": "rgba(26, 26, 26, 0.12)",
+        "strong": "1px solid #1A1A1A",
+        "focus": "#1A1A1A"
+      },
+      "text": {
+        "primary": "#1A1A1A",
+        "secondary": "rgba(0, 0, 0, 0.75)",
+        "tertiary": "rgba(0, 0, 0, 0.5)",
+        "disabled": "rgba(0, 0, 0, 0.3)",
+        "inverse": "#FFFFFF",
+        "link": "#1A1A1A",
+        "linkHover": "#1A1A1A"
+      }
+    },
+    "dark": {
+      "background": {
+        "primary": "#1A1A1A",
+        "secondary": "#2A2A2A",
+        "tertiary": "#333333"
+      },
+      "text": {
+        "primary": "#FAF7F0",
+        "secondary": "rgba(250, 247, 240, 0.75)",
+        "link": "#FAF7F0"
+      }
+    },
+    "semantic": {
+      "beige": {
+        "50": "#FDFCFA",
+        "100": "#FAF7F0",
+        "200": "#F5F0E3",
+        "300": "#EDE6D3",
+        "400": "#DDD4BF",
+        "500": "#C8BEAA"
+      },
+      "neutral": {
+        "50": "#F9F9F9",
+        "100": "#F0F0F0",
+        "200": "#E0E0E0",
+        "300": "#C8C8C8",
+        "400": "#A0A0A0",
+        "500": "#787878",
+        "600": "#585858",
+        "700": "#404040",
+        "800": "#2A2A2A",
+        "900": "#1A1A1A"
+      }
+    },
+    "status": {
+      "success": {
+        "background": "rgba(208, 229, 42, 0.15)",
+        "border": "rgba(208, 229, 42, 0.3)",
+        "text": "#5A6600",
+        "solid": "#D0E52A"
+      },
+      "warning": {
+        "background": "rgba(255, 255, 132, 0.2)",
+        "border": "rgba(255, 255, 132, 0.4)",
+        "text": "#8A8A00",
+        "solid": "#FFFF84"
+      },
+      "error": {
+        "background": "rgba(239, 83, 49, 0.1)",
+        "border": "rgba(239, 83, 49, 0.25)",
+        "text": "#D4401F",
+        "solid": "#EF5331"
+      },
+      "info": {
+        "background": "rgba(157, 255, 255, 0.15)",
+        "border": "rgba(157, 255, 255, 0.3)",
+        "text": "#007A7A",
+        "solid": "#9DFFFF"
+      }
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "heading": {
+        "name": "Effra",
+        "fallback": "Helvetica, Arial, sans-serif",
+        "weights": [700, 800],
+        "format": "woff",
+        "notes": "Effra Bold (800) is the primary heading font. Clean geometric sans-serif."
+      },
+      "body": {
+        "name": "Helvetica",
+        "fallback": "Arial, sans-serif",
+        "weights": [400, 500, 700],
+        "notes": "Helvetica for body copy. Weight 400 for paragraphs, 500 for secondary buttons, 700 for primary buttons."
+      },
+      "display": {
+        "name": "Perfectly Nineties",
+        "fallback": "Georgia, serif",
+        "style": "italic",
+        "weights": [600],
+        "notes": "Decorative serif italic for hero emphasis, pull quotes, and brand personality moments. Use sparingly."
+      },
+      "mono": {
+        "name": "monospace",
+        "fallback": "Consolas, monospace",
+        "weights": [400],
+        "notes": "For code, technical elements, and form textareas."
+      }
+    },
+    "scale": {
+      "xs": {
+        "size": "12px",
+        "lineHeight": "16px",
+        "usage": "Captions, fine print, mobile buttons"
+      },
+      "sm": {
+        "size": "14px",
+        "lineHeight": "20px",
+        "usage": "Small body, textarea, secondary text"
+      },
+      "base": {
+        "size": "16px",
+        "lineHeight": "24px",
+        "usage": "Body copy default"
+      },
+      "lg": {
+        "size": "20px",
+        "lineHeight": "30px",
+        "usage": "Subheadings, button text, hero subtitle"
+      },
+      "xl": {
+        "size": "28px",
+        "lineHeight": "34px",
+        "usage": "Section headings"
+      },
+      "2xl": {
+        "size": "40px",
+        "lineHeight": "48px",
+        "usage": "Page titles"
+      },
+      "3xl": {
+        "size": "50px",
+        "lineHeight": "58px",
+        "usage": "Hero heading (mobile)"
+      },
+      "4xl": {
+        "size": "68px",
+        "lineHeight": "78px",
+        "usage": "Hero heading (tablet)"
+      },
+      "5xl": {
+        "size": "88px",
+        "lineHeight": "105px",
+        "usage": "Hero heading (desktop)"
+      },
+      "display": {
+        "size": "92px",
+        "lineHeight": "105px",
+        "usage": "Hero display italic (Perfectly Nineties)"
+      }
+    },
+    "typesetting": {
+      "headings": "Effra Bold (800), sentence case or uppercase for short labels. Pair with Perfectly Nineties italic for decorative emphasis.",
+      "body": "Helvetica Regular (400); generous line height (1.5x). Flush left, ragged right.",
+      "buttons": "Helvetica Bold (700) or Medium (500), uppercase, no letter spacing.",
+      "links": "Inherit parent color, underline on hover."
+    }
+  },
+  "spacing": {
+    "scale": {
+      "1": "5px",
+      "2": "10px",
+      "3": "12px",
+      "4": "16px",
+      "5": "20px",
+      "6": "26px",
+      "7": "34px",
+      "8": "36px",
+      "9": "50px",
+      "10": "106px"
+    },
+    "notes": "Spacing is generous throughout. Hero sections use large asymmetric padding (36px left, 106px right). Gaps between elements: 16px (tight), 26px (default), 34px (loose)."
+  },
+  "borderRadius": {
+    "none": "0",
+    "sm": "4px",
+    "default": "8px",
+    "md": "12px",
+    "lg": "20px",
+    "xl": "35px",
+    "full": "999px",
+    "notes": "Buttons and dots use full (999px) for pill shapes. Mobile header uses 35px on bottom corners."
+  },
+  "shadows": {
+    "none": "none",
+    "sm": "0 2px 4px rgba(0, 0, 0, 0.08)",
+    "md": "0 2px 5px rgba(0, 0, 0, 0.3)",
+    "overlay": "0 0 100vh 100vw rgba(0, 0, 0, 0.5)",
+    "notes": "Shadows are used sparingly. Buttons explicitly remove box-shadow. Modals use heavy overlay shadows."
+  },
+  "borders": {
+    "default": "1px solid #1A1A1A",
+    "buttonEmphasis": {
+      "right": "2px solid #1A1A1A",
+      "bottom": "2px solid #1A1A1A",
+      "notes": "Buttons use a distinctive 2px border on right and bottom edges only, creating a subtle offset/shadow effect."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "background": "#FFFFFF",
+        "text": "#1A1A1A",
+        "borderRight": "2px solid #1A1A1A",
+        "borderBottom": "2px solid #1A1A1A",
+        "padding": "16px 26px",
+        "fontSize": "20px",
+        "fontWeight": 700,
+        "textTransform": "uppercase",
+        "borderRadius": "0"
+      },
+      "secondary": {
+        "background": "#FFFFFF",
+        "text": "#1A1A1A",
+        "padding": "16px 22px",
+        "fontSize": "20px",
+        "fontWeight": 500,
+        "textTransform": "uppercase"
+      },
+      "small": {
+        "padding": "14px 6px",
+        "fontSize": "12px"
+      },
+      "notes": "Buttons are uppercase sans-serif with no border-radius. The signature 2px right+bottom border creates a pressed/offset look."
+    },
+    "navigation": {
+      "header": {
+        "padding": "20px 50px",
+        "mobilePadding": "10px 15px",
+        "grid": "1fr 8fr 1fr",
+        "mobileBorderRadius": "35px"
+      },
+      "menuItem": {
+        "hoverDecoration": "underline",
+        "hoverWeight": "bolder"
+      },
+      "megaMenu": {
+        "groupTitleWeight": "bolder",
+        "groupTitleMargin": "0 0 20px 0",
+        "groupTitleLineHeight": 1.2
+      }
+    },
+    "cards": {
+      "base": {
+        "background": "#FFFFFF",
+        "border": "none",
+        "borderRadius": "0",
+        "padding": "1.5rem",
+        "notes": "Clean, borderless cards on beige background. Content-focused with generous padding."
+      }
+    },
+    "slider": {
+      "dots": {
+        "size": "10px",
+        "borderRadius": "50%",
+        "inactiveBackground": "rgba(0, 0, 0, 0.15)"
+      },
+      "arrows": {
+        "size": "34px",
+        "borderRadius": "50%",
+        "border": "1px solid #1A1A1A",
+        "display": "flex"
+      },
+      "transition": "0.3s ease"
+    },
+    "announcementBar": {
+      "background": "#F7B8B8",
+      "textColor": "#1A1A1A",
+      "marquee": {
+        "background": "#F8BCBC",
+        "animation": "marquee-scroll 50s linear infinite",
+        "itemPaddingRight": "2rem"
+      }
+    },
+    "forms": {
+      "textarea": {
+        "width": "100%",
+        "background": "transparent",
+        "fontFamily": "monospace",
+        "fontSize": "14px"
+      }
+    },
+    "modal": {
+      "background": "rgba(255, 255, 255, 0.99)",
+      "overlayBackground": "rgba(0, 0, 0, 0.5)"
+    }
+  },
+  "animation": {
+    "marquee": {
+      "keyframes": "translateX(0) → translateX(-50%)",
+      "duration": "50s",
+      "timing": "linear",
+      "iteration": "infinite"
+    },
+    "transitions": {
+      "fast": "0.2s ease",
+      "default": "0.3s ease",
+      "slow": "0.6s ease"
+    },
+    "notes": "Subtle opacity transitions on hover states. Infinite marquee scroll for announcement bars. No aggressive animations."
+  },
+  "responsive": {
+    "breakpoints": {
+      "sm": "600px",
+      "md": "780px",
+      "lg": "1260px"
+    },
+    "hero": {
+      "desktop": {
+        "layout": "50/50 split (text left, image right)",
+        "height": "100vh",
+        "headingSize": "88px"
+      },
+      "tablet": {
+        "headingSize": "68px"
+      },
+      "mobile": {
+        "layout": "stacked (image top, text bottom)",
+        "headingSize": "50px",
+        "buttonFontSize": "12-14px"
+      }
+    },
+    "touchTargets": {
+      "minimum": "44px"
+    }
+  },
+  "accessibility": {
+    "contrast": "Ensure sufficient contrast for #1A1A1A text on #FAF7F0 background (ratio ~15:1, exceeds WCAG AAA). Accent colors (yellow, blue, green) should not be used for text on light backgrounds without darkened variants.",
+    "avoid": [
+      "Accent colors as text on beige background (insufficient contrast)",
+      "Small text below 12px on mobile",
+      "Animations without prefers-reduced-motion support",
+      "Missing alt text on product and hero images"
+    ]
+  }
+}
