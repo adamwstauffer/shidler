@@ -42,7 +42,7 @@ Briefly restate the company, time period, and analytical objective in profession
 <details>
 <summary><span style="color:#024731; font-weight:600;">Example phrasing</span></summary>
 
-> [Company] is a publicly traded [industry] company. This specification documents the analytical framework for computing 25 accounting and performance ratios from the company's FY[year] financial statements, with FY[year-1] as the prior-year comparator. The model supports [decision context — e.g., CFO briefing, board presentation, investor relations] and provides the input structure for the Stage 4 AI-assisted executive memo.
+> [Company] is a publicly traded [industry] company. This specification documents the analytical framework for computing the full suite of 25+ accounting and performance ratios from the company's FY[year] financial statements, with FY[year-1] as the prior-year comparator. The model supports [decision context — e.g., CFO briefing, board presentation, investor relations] and provides the input structure for the Stage 4 AI-assisted executive memo.
 </details>
 
 **Include:**
@@ -57,6 +57,8 @@ Briefly restate the company, time period, and analytical objective in profession
 
 All inputs are sourced from the company's 10-K (SEC EDGAR) unless otherwise noted. Figures are in $millions except share price (USD) and shares outstanding (millions). Market and analyst inputs are the only cells an analyst should adjust for scenario work.
 
+> <span style="color:#024731;">**Naming-convention decoder.**</span> Raw inputs use the year-suffixed form `BAL_[item]_[yr]`. The calculation flow in §4 refers to those same cells through two aliases: `startYear_[item]` ≡ `BAL_[item]_[prior]` and `currentYear_[item]` ≡ `BAL_[item]_[curr]`. Income-statement and cash-flow items (`INC_*`, `CASH_*`) have no year suffix — the model is single-year for those statements. Define both aliases as Excel named ranges pointing at the same cells so §2 and §4 stay readable.
+
 ### 2.1 Balance Sheet Items (Current and Prior Year)
 
 | Variable | Description | Named Range | Year(s) | FY[curr] | FY[prior] |
@@ -68,6 +70,7 @@ All inputs are sourced from the company's 10-K (SEC EDGAR) unless otherwise note
 | Net tangible fixed assets | PP&E less accumulated depreciation | `BAL_fixed_assets_net_[yr]` | Current | | |
 | Total assets | All assets | `BAL_assets_total_[yr]` | Both | | |
 | Total current liabilities | Short-term obligations | `BAL_liabilities_current_[yr]` | Current | | |
+| Accounts payable | Supplier balances (needed for DPO / cash-conversion-cycle extension — §6.2) | `BAL_accounts_payable_[yr]` | Both | | |
 | Long-term debt | Non-current borrowings | `BAL_debt_long_term_[yr]` | Both | | |
 | Total liabilities | All liabilities | `BAL_liabilities_total_[yr]` | Current | | |
 | Shareholders' equity | Book value of equity | `BAL_equity_shareholders_[yr]` | Both | | |
@@ -134,7 +137,7 @@ Described in named-range pseudocode so the logic is portable to Excel, Python, o
 3. `currentYear_daily_sales_average` = `INC_sales` / 365
 4. `currentYear_cost_goods_sold_daily` = `INC_cost_goods_sold` / 365
 5. `currentYear_working_capital_net` = `currentYear_assets_current` − `currentYear_liabilities_current`
-6. `startYear_total_capitalization` = `BAL_debt_long_term_[prior]` + `BAL_equity_shareholders_[prior]`
+6. `startYear_total_capitalization` = `startYear_debt_long_term` + `startYear_equity`
 7. `currentYear_total_capitalization` = `currentYear_debt_long_term` + `currentYear_equity`
 8. `avg_equity` = AVERAGE(`startYear_equity`, `currentYear_equity`)
 9. `avg_total_assets` = AVERAGE(`startYear_total_assets`, `currentYear_assets_total`)
@@ -179,7 +182,7 @@ Described in named-range pseudocode so the logic is portable to Excel, Python, o
 
 - **NWC to Assets** = `currentYear_working_capital_net` / `currentYear_assets_total`
 - **Current Ratio** = `currentYear_assets_current` / `currentYear_liabilities_current`
-- **Quick Ratio** = (`currentYear_cash_marketable_securities` + `BAL_receivables_[curr]`) / `currentYear_liabilities_current`
+- **Quick Ratio** = (`currentYear_cash_marketable_securities` + `currentYear_receivables`) / `currentYear_liabilities_current`
 - **Cash Ratio** = `currentYear_cash_marketable_securities` / `currentYear_liabilities_current`
 
 ### Step 7 — Du Pont Decomposition
@@ -198,7 +201,7 @@ Described in named-range pseudocode so the logic is portable to Excel, Python, o
 | Ratio summary table | All 25 ratios in category-grouped blocks with computed value + named-range formula | Table on `Ratios` tab | Core analytical output |
 | Du Pont panel | ROA and ROE broken into turnover, margin, leverage, debt-burden components | Sub-table | Isolates return drivers |
 | Formula-reference column | Named-range formula shown alongside every output cell | In-table column | Auditability / AI prompt fodder |
-| Color-coded input map | <span style="background:#FFFF00;">Yellow</span> = data inputs, <span style="color:#0000FF;">Blue</span> = analyst assumptions, <span style="background:#FFFFCC;">Light yellow</span> = student outputs, Green = formulas, Gray = outputs | Cell formatting | Signals what can/cannot be changed |
+| Color-coded input map | <span style="background:#FFFF00;">Yellow</span> = raw data inputs, <span style="color:#0000FF;">Blue</span> = analyst assumptions, <span style="color:#024731;">Green</span> = computed formulas, Gray = derived/intermediate values | Cell formatting | Signals what can and cannot be changed |
 | Executive summary (Stage 4) | 1–2 paragraph narrative tying ratios to CFO recommendations | Separate memo | Downstream deliverable |
 
 ### 5.1 Computed Output Values
@@ -213,20 +216,27 @@ Record each ratio's computed value here once the model is built — this block s
 | Profitability | ROA (SOY) | | |
 | Profitability | ROC (SOY) | | |
 | Profitability | ROE (SOY) | | |
+| Profitability | ROA (avg) | | |
+| Profitability | ROC (avg) | | |
+| Profitability | ROE (avg) | | |
 | Efficiency | Asset Turnover | | |
-| Efficiency | Operating Profit Margin | | |
-| Efficiency | Profit Margin | | |
-| Efficiency | Days in Inventory | | |
+| Efficiency | Receivables Turnover | | |
 | Efficiency | Avg Collection Period | | |
+| Efficiency | Inventory Turnover | | |
+| Efficiency | Days in Inventory | | |
+| Efficiency | Profit Margin | | |
+| Efficiency | Operating Profit Margin | | |
 | Leverage | Long-term Debt Ratio | | |
+| Leverage | Debt-Equity Ratio | | |
 | Leverage | Total Debt Ratio | | |
-| Leverage | Leverage Ratio | | |
 | Leverage | Times Interest Earned | | |
+| Leverage | Cash Coverage Ratio | | |
 | Leverage | Debt Burden | | |
+| Leverage | Leverage Ratio | | |
+| Liquidity | NWC to Assets | | |
 | Liquidity | Current Ratio | | |
 | Liquidity | Quick Ratio | | |
 | Liquidity | Cash Ratio | | |
-| Liquidity | NWC / Assets | | |
 | Du Pont | Du Pont ROA | | |
 | Du Pont | Du Pont ROE | | |
 
@@ -246,7 +256,7 @@ Reflect candidly on the Stage 2 model. This section is what makes a *post-build*
 ### 6.2 What to Improve
 
 - **Du Pont ROE denominator mismatch.** If leverage uses current-year equity while ROE uses start-of-year equity, the Du Pont product will diverge from direct ROE whenever equity changes materially year-over-year (common after buybacks or losses). Fix: add a parallel `RATIO_leverage_start` and a matching Du Pont ROE variant; show both.
-- **Liquidity ratios need context.** Current ratio < 1 or negative NWC is not automatically a red flag — add a **cash conversion cycle** (DIO + DSO − DPO) so the liquidity block is interpretable rather than alarming.
+- **Liquidity ratios need context.** Current ratio < 1 or negative NWC is not automatically a red flag — add a **cash conversion cycle** (DIO + DSO − DPO) so the liquidity block is interpretable rather than alarming. DPO requires `BAL_accounts_payable_[yr]` (now included in §2.1) plus `currentYear_cost_goods_sold_daily`.
 - **Sensitivity panel missing.** EVA is highly sensitive to `cost_capital`, and profitability is sensitive to `tax_rate`. Add a two-variable data table (`cost_capital` × `tax_rate`) for the performance block.
 - **Formula-documentation column should be live.** Today the "Named Range Formula" column is a static string. Use `=FORMULATEXT(<output_cell>)` so documentation stays synchronized if a formula is ever edited.
 - **Peer / trend context is absent.** Ratios without a comparator are hard to act on. Add either (a) a second comparator column for a peer, or (b) a multi-year trend strip (FY-2 through FY-0).
