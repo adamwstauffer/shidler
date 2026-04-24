@@ -58,3 +58,12 @@ vendor/
 /build/
 /dist/
 /target/
+
+# Local-only content (student submissions, grading scratch, PII)
+ignore-*/
+
+# Microsoft Office temp/lock files (e.g. ~$MyDoc.pptx while open)
+~$*
+
+# Local backup snapshots of master spreadsheets (rollback only, not source)
+docs/spreadsheets/_backups/

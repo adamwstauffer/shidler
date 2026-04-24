@@ -43,7 +43,13 @@
       "Bash(soffice:*)",
       "Bash(handle.exe:*)",
       "Bash(tasklist)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(git check-ignore *)",
+      "Bash(gh api *)",
+      "Bash(curl -sSL -o \"Abad-Kiani-stage2-model.xlsx\" \"https://raw.githubusercontent.com/kianii8/shidler/main/FIN321/stage-2/FIN%20321%20-%20Chapter%208%20Transaction%20Hedging%20-%202026%20Kiani%20Abad%20Template.xlsx\")",
+      "Bash(PYTHONIOENCODING=utf-8 python *)",
+      "Bash(curl -sSL -o \"murasaki-kyson-stage2-model.xlsx\" \"https://raw.githubusercontent.com/kyson-murasaki/shidler/main/courses/BUS-314-International-Corporate-Finance/accounting-ratios/_templates/excel/murasaki-kyson-stage2-model.xlsx\")",
+      "Bash(git fetch *)"
     ]
   }
 }
