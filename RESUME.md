@@ -16,10 +16,10 @@
 - Faculty Lecturer, Finance & Economics, Honolulu, HI
   - Teach graduate and undergraduate courses in Micro- & Macroeconomics for Managers, Economic & Financial Environment of Global Business, Corporate Finance, and International Business Finance.
 
-**Windward Community College, University of Hawai'i at Mānoa**
+**Windward Community College, University of Hawai'i**
 - Lecturer, Sustainable Agriculture Entrepreneurship, Kāneʻohe, HI
-  - Develop and teach a curriculum in sustainable agribusiness fundamentals, emphasizing both ecological stewardship and economic viability.
-  - Guide student entrepreneurs through full business plan development, including budgets, financial statements, funding strategies, and investor presentations.
+  - Developed and taught a curriculum in sustainable agribusiness fundamentals, emphasizing both ecological stewardship and economic viability.
+  - Guided student entrepreneurs through full business plan development, including budgets, financial statements, funding strategies, and investor presentations.
 
 **British Virgin Islands Financial Services Institute**
 - Instructor & Tutor, Tortola, BVI

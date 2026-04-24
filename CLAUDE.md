@@ -12,11 +12,11 @@ Unified portfolio and course materials hub for Shidler College of Business (Univ
 - **`docs/`** — Centralized documentation hub:
   - `_branding/` — UH Mānoa design tokens (`design.json`) and visual reference (`design-system.html`)
   - `templates/` — Reusable assignment templates (memo, spec, case brief, risk memo, prompt log)
-  - `decisions/` — Strategic decision memos
+  - `decisions/` — Strategic decision memos; course-specific decisions live in `decisions/<course-code>/` subdirs (e.g., `decisions/bus314/`, `decisions/fin321/`)
   - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`
 - **`BIO.md`** — Single source of truth for instructor biography; course READMEs link here
-- **`_archive/`** — Deprecated/historical materials
-- **`notes/`** — Personal research notes
+- **`_archive/`** — Deprecated/historical materials; course-specific archives live in `_archive/<course-code>/` subdirs (e.g., `_archive/fin321/`)
+- **`scripts/`** — Repo-level tooling scripts; spreadsheet cleanup pipelines live in `scripts/spreadsheets/`
 
 ### Within each course directory
 
@@ -24,7 +24,8 @@ Unified portfolio and course materials hub for Shidler College of Business (Univ
 - `project-[name]/` or `[project-name]/` — Active project with stage assignments
 - `_templates/excel/` — Skeleton Excel workbooks
 - `_spreadsheets/` — Master financial models
-- `archive/` — Past iterations (specs, prompts, analysis, deliverables)
+- `_tools/` — Course-specific scripts (e.g., grading scanners)
+- Project-level `archive/` subdirectories may exist for per-project historical iterations; full-course archives are consolidated under root `_archive/<course-code>/`
 
 ## Project Workflow
 
