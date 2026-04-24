@@ -86,6 +86,7 @@ All inputs should be exposed as workbook **named ranges** so Calculation Flow (�
 | `R_USD` | USD interest rate to settlement | Annual % | `rate_us_1y_payable` | 6.00% |
 | `R_FC` | Foreign-currency interest rate to settlement | Annual % | `rate_uk_1y_payable` | 6.50% |
 | `T_DAYS` | Days to settlement | Days | *(implicit = 365)* | 365 |
+| `BASIS` | Day-count denominator | Days | *(implicit = 360)* | 360 (USD) / 365 (GBP, EUR) |
 | `K_PUT` | Put option strike (receivables) | USD per FC | `x_put` | 1.4600 |
 | `K_CALL` | Call option strike (payables) | USD per FC | `call_strike` | 1.8000 |
 | `PREM_PUT` | Put premium, USD per 1 FC | USD | `put_price` | 0.015 |
@@ -95,12 +96,12 @@ All inputs should be exposed as workbook **named ranges** so Calculation Flow (�
 
 | Name | Description | Source |
 |------|-------------|--------|
-| `FV_PREM_PUT` | Future value of put premium at settlement | `−PREM_PUT × FC_AMT × (1 + R_USD × T_DAYS/360)` *(legacy: `fv_put_outlay`)* |
-| `FV_PREM_CALL` | Future value of call premium at settlement | `−PREM_CALL × FC_AMT × (1 + R_USD × T_DAYS/360)` |
+| `FV_PREM_PUT` | Future value of put premium at settlement | `−PREM_PUT × FC_AMT × (1 + R_USD × T_DAYS/BASIS)` *(legacy: `fv_put_outlay`)* |
+| `FV_PREM_CALL` | Future value of call premium at settlement | `−PREM_CALL × FC_AMT × (1 + R_USD × T_DAYS/BASIS)` |
 | `S_T_grid` | Sensitivity spot grid at settlement | Built from `S0_in` ± 5% in 1% steps *(legacy: `gbpusd_1y_scenario`, `future_spot_price_payable`)* |
 | `USD_NO_HEDGE` | USD proceeds / outlay under no hedge | `S_T × FC_AMT` *(legacy: `hedge_no`)* |
 
-> <span style="color:#024731;">**Tip:**</span> Keep labels short and standardized — these names become Excel named ranges *and* the AI prompt parameters in Stage 4. Typos carried forward from a student build (e.g., `recievable`) should be corrected at the start of Stage 3.
+> <span style="color:#024731;">**Tip:**</span> Keep labels short and standardized — these names become Excel named ranges *and* the AI prompt parameters in Stage 4. Typos carried forward from the legacy template (e.g., `recievable`) should be corrected at the start of Stage 3.
 
 ---
 
@@ -110,7 +111,7 @@ State every convention used. Clarity here is what makes the model reproducible.
 
 - **Quote convention:** All rates expressed as **USD per unit of foreign currency** (e.g., USD/GBP, USD/EUR). A higher quote means FC appreciation.
 - **Horizon:** Single-maturity model; `T_DAYS = 365` unless otherwise noted. Templates assume a 1-year tenor.
-- **Day-count basis:** Interest applied on a **simple-annual (ACT/360)** basis as `r × T_DAYS/360`. For the default 1-year case this collapses to `(1 + r)`; the day-count factor must be made explicit before any sub-annual tenor is introduced.
+- **Day-count basis:** The default 1-year tenor uses the textbook simplified-annual form `(1 + r)` for both USD and FC legs. The general form is `r × T_DAYS / BASIS`, with `BASIS = 360` for USD money-market quotes (ACT/360) and `BASIS = 365` for GBP / EUR legs (ACT/365). The production-grade build should expose `BASIS` as a named range so the 360 vs. 365 choice is explicit before any sub-annual tenor or mixed-currency basis is introduced.
 - **Parity:** Money-market hedge is assumed to replicate the forward hedge under covered interest-rate parity; any gap is a test of parity, not a model error.
 - **Option premium:** Paid upfront in USD, quoted per 1 unit of FC (no contract multiplier). Premia are expressed as a **negative cash flow** at t₀ and carried forward at `R_USD` to put them on the same footing as the settlement-date USD proceeds.
 - **Counterparty / credit risk:** Excluded. All derivatives assumed frictionless and creditworthy.
@@ -122,12 +123,12 @@ State every convention used. Clarity here is what makes the model reproducible.
 
 ## 4. Calculation Flow
 
-Described in named-range pseudocode so the logic is portable across Excel, Python, and AI prompts. Formulas are written for a **receivable** exposure; §4.4 shows the sign flips required for a payable.
+Described in named-range pseudocode so the logic is portable across Excel, Python, and AI prompts. Formulas are written for a **receivable** exposure; Step 7 shows the sign flips required for a payable.
 
 ### Step 1 — Derived inputs
 
-1. `DF_USD` = `1 + R_USD × T_DAYS / 360`
-2. `DF_FC` = `1 + R_FC × T_DAYS / 360`
+1. `DF_USD` = `1 + R_USD × T_DAYS / BASIS` *(accumulation / growth factor, not a fractional discount factor)*
+2. `DF_FC` = `1 + R_FC × T_DAYS / BASIS`
 3. `FV_PREM_PUT` = `−PREM_PUT × FC_AMT × DF_USD`
 4. `FV_PREM_CALL` = `−PREM_CALL × FC_AMT × DF_USD`
 
@@ -164,18 +165,20 @@ For each `S_T` in `S_T_grid`:
 | Forward | `USD_FWD` | constant across rows |
 | Money market | `USD_MM` | constant across rows |
 | Option (put) | `USD_PUT(S_T)` | `MAX(S_T, K_PUT) × FC_AMT + FV_PREM_PUT` |
-| Winner vs. no hedge | label | `ARGMAX(USD_NO_HEDGE, USD_FWD, USD_MM, USD_PUT)` |
-| Best active hedge | label | `ARGMAX(USD_FWD, USD_MM, USD_PUT)` |
+| Hedge profit | `HEDGE_PROFIT_k(S_T)` | `USD_k − USD_NO_HEDGE` for each of `k ∈ {forward, money market, option}` — one sub-column per strategy |
+| Overall winner (incl. no hedge) | label | `ARGMAX(USD_NO_HEDGE, USD_FWD, USD_MM, USD_PUT)` |
+| Best active hedge (excl. no hedge) | label | `ARGMAX(USD_FWD, USD_MM, USD_PUT)` |
 
-### Step 6 — Summary metrics
+### Step 6 — Summary metrics (scalar outputs)
 
-- `USD_FLOOR_PUT` = `MIN(USD_PUT) across S_T_grid` *(worst-case put outcome on the grid — legacy cell `F29`)*
-- `USD_BASE` = outcomes evaluated at `S_T = S0_in` *(the "baseline" row)*
-- `HEDGE_PROFIT_k` = `USD_k − USD_NO_HEDGE` for k ∈ {forward, money market, option}
+- `USD_FLOOR_PUT` = `MIN(USD_PUT)` across `S_T_grid` *(worst-case put outcome on the grid — legacy cell `F29`)*
+- `USD_BASE_k` = `USD_k` evaluated at `S_T = S0_in` for each strategy *(the "baseline" row feeds §5.1)*
 
-### 4.4 Payable variant (sign flips)
+*`HEDGE_PROFIT_k` is per-row and lives inside the Step 5 grid, not here.*
 
-For a payable of `FC_AMT` to be settled in FC at maturity, the model mirrors §4.2–§4.5 with three substitutions: (a) **buy** the forward instead of sell, (b) **borrow USD today, invest in FC** for the money-market leg, and (c) use a **call on FC** with strike `K_CALL` and premium `PREM_CALL`. The sensitivity winner is the strategy that **minimizes** USD outlay at each `S_T`, not the one that maximizes it.
+### Step 7 — Payable variant (sign flips)
+
+For a payable of `FC_AMT` to be settled in FC at maturity, the model mirrors Steps 2–5 with three substitutions: (a) **buy** the forward instead of sell, (b) **borrow USD today, invest in FC** for the money-market leg, and (c) use a **call on FC** with strike `K_CALL` and premium `PREM_CALL`. The sensitivity winner is the strategy that **minimizes** USD outlay at each `S_T`, not the one that maximizes it.
 
 ---
 
@@ -184,7 +187,7 @@ For a payable of `FC_AMT` to be settled in FC at maturity, the model mirrors §4
 | Output | Description | Format | Purpose |
 |--------|-------------|--------|---------|
 | Input panel | All named-range inputs with units, sources, and access dates | Top of each tab | Single source of truth |
-| Strategy summary | `USD_FWD`, `USD_MM`, `USD_FLOOR_PUT`, `USD_BASE` per strategy | Table above sensitivity grid | Executive at-a-glance |
+| Strategy summary | `USD_FWD`, `USD_MM`, `USD_FLOOR_PUT`, and `USD_BASE_k` per strategy | Table above sensitivity grid | Executive at-a-glance |
 | Sensitivity table | USD proceeds / outlay for each strategy across `S_T_grid` ± 5% | Table on each tab | Core analytical evidence |
 | Hedge-profit columns | `USD_k − USD_NO_HEDGE` for each strategy per row | Sub-table | Isolates hedge value-add |
 | Winner / best-hedge labels | `ARGMAX` / `ARGMIN` labels per row | Two label columns | Quick-read decision cue |
