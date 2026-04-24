@@ -86,7 +86,9 @@ All inputs should be exposed as workbook **named ranges** so Calculation Flow (�
 | `R_USD` | USD interest rate to settlement | Annual % | `rate_us_1y_payable` | 6.00% |
 | `R_FC` | Foreign-currency interest rate to settlement | Annual % | `rate_uk_1y_payable` | 6.50% |
 | `T_DAYS` | Days to settlement | Days | *(implicit = 365)* | 365 |
-| `BASIS` | Day-count denominator | Days | *(implicit = 360)* | 360 (USD) / 365 (GBP, EUR) |
+| `BASIS` | Day-count denominator (single-value simplification) | Days | *(implicit = 360)* | 360 (USD) / 365 (GBP, EUR) |
+| `BASIS_USD` *(optional, rigorous variant)* | USD-leg day-count denominator | Days | — | 360 |
+| `BASIS_FC` *(optional, rigorous variant)* | FC-leg day-count denominator | Days | — | 360 (EUR) / 365 (GBP) |
 | `K_PUT` | Put option strike (receivables) | USD per FC | `x_put` | 1.4600 |
 | `K_CALL` | Call option strike (payables) | USD per FC | `call_strike` | 1.8000 |
 | `PREM_PUT` | Put premium, USD per 1 FC | USD | `put_price` | 0.015 |
@@ -111,7 +113,7 @@ State every convention used. Clarity here is what makes the model reproducible.
 
 - **Quote convention:** All rates expressed as **USD per unit of foreign currency** (e.g., USD/GBP, USD/EUR). A higher quote means FC appreciation.
 - **Horizon:** Single-maturity model; `T_DAYS = 365` unless otherwise noted. Templates assume a 1-year tenor.
-- **Day-count basis:** The default 1-year tenor uses the textbook simplified-annual form `(1 + r)` for both USD and FC legs. The general form is `r × T_DAYS / BASIS`, with `BASIS = 360` for USD money-market quotes (ACT/360) and `BASIS = 365` for GBP / EUR legs (ACT/365). The production-grade build should expose `BASIS` as a named range so the 360 vs. 365 choice is explicit before any sub-annual tenor or mixed-currency basis is introduced.
+- **Day-count basis:** The default 1-year tenor uses the textbook simplified-annual form `(1 + r)` for both USD and FC legs. The general form is `r × T_DAYS / BASIS`, with `BASIS = 360` for USD money-market quotes (ACT/360) and `BASIS = 365` for GBP / EUR money-market quotes (ACT/365). The template exposes a **single `BASIS`** named range (simplification). A rigorous build should split it into `BASIS_USD` and `BASIS_FC` so each leg applies its own convention — flagged in §6.2.
 - **Parity:** Money-market hedge is assumed to replicate the forward hedge under covered interest-rate parity; any gap is a test of parity, not a model error.
 - **Option premium:** Paid upfront in USD, quoted per 1 unit of FC (no contract multiplier). Premia are expressed as a **negative cash flow** at t₀ and carried forward at `R_USD` to put them on the same footing as the settlement-date USD proceeds.
 - **Counterparty / credit risk:** Excluded. All derivatives assumed frictionless and creditworthy.
@@ -171,7 +173,7 @@ For each `S_T` in `S_T_grid`:
 
 ### Step 6 — Summary metrics (scalar outputs)
 
-- `USD_FLOOR_PUT` = `MIN(USD_PUT)` across `S_T_grid` *(worst-case put outcome on the grid — legacy cell `F29`)*
+- `USD_FLOOR_PUT` = `MIN(USD_PUT)` across `S_T_grid` *(worst-case put outcome on the grid — legacy cell `F29`; payable tab uses `USD_CEILING_CALL = MAX(USD_CALL)` instead)*
 - `USD_BASE_k` = `USD_k` evaluated at `S_T = S0_in` for each strategy *(the "baseline" row feeds §5.1)*
 
 *`HEDGE_PROFIT_k` is per-row and lives inside the Step 5 grid, not here.*
@@ -187,7 +189,7 @@ For a payable of `FC_AMT` to be settled in FC at maturity, the model mirrors Ste
 | Output | Description | Format | Purpose |
 |--------|-------------|--------|---------|
 | Input panel | All named-range inputs with units, sources, and access dates | Top of each tab | Single source of truth |
-| Strategy summary | `USD_FWD`, `USD_MM`, `USD_FLOOR_PUT`, and `USD_BASE_k` per strategy | Table above sensitivity grid | Executive at-a-glance |
+| Strategy summary | `USD_FWD`, `USD_MM`, `USD_BASE_k` per strategy, plus `USD_FLOOR_PUT` (receivable) / `USD_CEILING_CALL` (payable) | Table above sensitivity grid | Executive at-a-glance |
 | Sensitivity table | USD proceeds / outlay for each strategy across `S_T_grid` ± 5% | Table on each tab | Core analytical evidence |
 | Hedge-profit columns | `USD_k − USD_NO_HEDGE` for each strategy per row | Sub-table | Isolates hedge value-add |
 | Winner / best-hedge labels | `ARGMAX` / `ARGMIN` labels per row | Two label columns | Quick-read decision cue |
