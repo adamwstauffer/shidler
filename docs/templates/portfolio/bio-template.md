@@ -1,4 +1,13 @@
-# 🌱 Assignment: Create Your Professional Bio
+---
+template: portfolio-bio
+purpose: "Bio assignment for student GitHub portfolios — includes a 150–200 word structure and a library of LLM revision prompts"
+audience: student
+fields_required: [introduction, focus_areas, achievements, goals]
+naming_convention: "README.md (lives at the root of the student's portfolio repo)"
+courses: [BUS-629, BUS-122B]
+---
+
+# Assignment: Create Your Professional Bio
 
 ## 🎯 Objective
 

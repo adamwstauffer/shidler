@@ -1,5 +1,6 @@
 # ADAM W. STAUFFER
 **adamstau@hawaii.edu**
+**LinkedIn:** [linkedin.com/in/adamwstauffer](https://linkedin.com/in/adamwstauffer) • **GitHub:** [@adamwstauffer](https://github.com/adamwstauffer)
 
 ## EDUCATION
 

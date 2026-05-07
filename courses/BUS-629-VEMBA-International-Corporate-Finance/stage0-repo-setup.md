@@ -1,122 +1,102 @@
-# Stage 0: Repository Setup & Infrastructure
+# Stage 0: Personal Portfolio Repository
 
 **Weight:** 5% of project score
+**Format:** Upload-only — no presentation component
+**Deliverable:** Public GitHub repository URL submitted via Lamaku
 
 ---
 
 ## Overview
 
-Set up a professional-grade GitHub repository for your accounting ratios project. The directory structure is modeled on how analytical teams at investment banks, Big 4 firms, and corporate finance departments organize their work. You'll learn Git fundamentals, Markdown documentation, and professional file management — skills that underpin every subsequent stage.
+Create your own public GitHub repository — your **portfolio repo** — that will hold every artifact you produce in this course and serve as a discoverable record of your work for employers and collaborators.
 
-## Why this matters
+A polished public repo is one of the highest-leverage career artifacts you can build. Every subsequent stage adds to it.
 
-Every stage of this project depends on having a well-organized workspace. In professional finance, analysts who can't find files, version documents, or maintain a clean project structure waste enormous time. This stage removes the tooling barrier before any graded analytical work begins.
+## Why this is Stage 0
 
----
-
-## Deliverable
-
-A GitHub repository with the structure below. The course repository ([`courses/BUS-629-VEMBA-International-Corporate-Finance/`](../)) serves as a **living example** — study its READMEs, then replicate the structure in your own repo.
-
-### Required directory structure
-
-```
-[your-github-username]/
-├── README.md                  # Project charter: your name, company (TBD), timeline
-├── docs/
-│   ├── memos/                 # Executive memos (Stage 2, decision docs)
-│   │   └── README.md
-│   ├── specs/                 # Technical specifications (Stage 4)
-│   │   └── README.md
-│   ├── plans/                 # Project plans, timelines, status
-│   │   └── README.md
-│   └── templates/             # Reusable templates
-│       ├── README.md
-│       ├── memo-template.md   # Copy from course repo
-│       └── spec-template.md   # Copy from course repo
-├── models/
-│   ├── templates/             # Stage 1: blank ratio template
-│   │   └── README.md
-│   └── builds/                # Stage 3: populated model
-│       └── README.md
-├── data/                      # Source financial data
-│   └── README.md
-├── analysis/
-│   └── validation/            # Stage 3: self-audit reports
-│       └── README.md
-└── deliverables/              # Stage 5: final outputs
-    └── README.md
-```
+Every later stage delivers into *your* repo. Standing it up now removes a tooling barrier before any analytical work begins, and it forces an early decision: this work will be public-facing and version-controlled, not buried on a personal hard drive.
 
 ---
 
-## What you'll learn
+## What you must create
 
-### 1. README.md files
+A public repository named **`Corporate Finance`** (or `corporate-finance` — your choice) with these files at the root:
 
-Each directory gets a README explaining:
-- What belongs in this directory
-- Naming conventions for files
-- Any relevant context or instructions
+| File | What it is |
+|------|------------|
+| `README.md` | Your professional bio (the first thing visitors see) |
+| `RESUME.md` | Markdown resume |
+| `BIO.md` | Optional longer-form bio if you want to keep your resume separate from your README narrative |
 
-A README is the "front door" to any directory. If someone new opened your repo, they should be able to navigate it from READMEs alone. Your top-level `README.md` serves as a **project charter** — your name, the project scope, and a status tracker you'll update as you complete each stage.
+The repo will grow throughout the semester to add `docs/`, `models/`, `data/`, `analysis/`, and `deliverables/` directories. You don't need to create those today — just the repo and the three root files.
 
-### 2. Markdown fundamentals
+### Templates to start from
 
-Through writing READMEs, you'll practice:
-- **Headings** (`#`, `##`, `###`)
-- **Lists** (bulleted and numbered)
-- **Tables** (for structured data)
-- **Links** (to other files in the repo)
-- **Code blocks** (for naming conventions and examples)
+The course repo already contains polished templates you should copy:
 
-These are the same formatting tools you'll use for memos (Stage 2), validation reports (Stage 3), specs (Stage 4), and final analysis (Stage 5).
-
-### 3. Git basics
-
-At minimum, you should be comfortable with:
-- **Clone** — copy the repo to your local machine
-- **Add & Commit** — save changes with descriptive messages
-- **Push** — upload commits to GitHub
-- **Pull** — sync changes from GitHub
-
-Commit messages should be descriptive. Not "update" or "fix" — instead: "Add Stage 1 ratio template with named ranges" or "Complete Du Pont validation in Stage 3 audit."
-
-### 4. Separation of concerns
-
-Notice how the structure separates:
-- **Raw data** (`data/`) from **analysis** (`analysis/`)
-- **Blank templates** (`models/templates/`) from **populated models** (`models/builds/`)
-- **Working documents** (`docs/`) from **final deliverables** (`deliverables/`)
-
-This mirrors how professional teams prevent errors and maintain auditability. A model reviewer should be able to trace any number back to its source.
+- **Bio template** (with LLM revision prompts): [`../../docs/templates/portfolio/bio-template.md`](../../docs/templates/portfolio/bio-template.md)
+- **Resume template** (Penn-style): [`../../docs/templates/portfolio/resume-template.md`](../../docs/templates/portfolio/resume-template.md)
+- **Portfolio README** (workflow guide): [`../../docs/templates/portfolio/README.md`](../../docs/templates/portfolio/README.md)
 
 ---
 
-## Professional context
+## Three ways to do it
 
-| Directory | IB / Professional Analogue |
-|-----------|---------------------------|
-| `docs/memos/` | Deal memos, investment committee briefs |
-| `docs/specs/` | Model specification documents, methodology papers |
-| `docs/plans/` | Project plans, pitch timelines |
-| `docs/templates/` | Firm-wide memo and spec formats |
-| `models/templates/` | Blank model frameworks (LBO template, DCF skeleton) |
-| `models/builds/` | Working models with live data |
-| `data/` | Data room, source documents |
-| `analysis/validation/` | Working papers, model review documentation |
-| `deliverables/` | Client-ready pitchbooks, final reports |
+You can use any of these workflows — pick the one you're most comfortable with. The deliverable is the same.
+
+### Option A — GitHub web UI (no installs needed)
+
+1. Go to **github.com** → sign in or create an account.
+2. Click **+** (top right) → **New repository**.
+3. Name it `Corporate Finance`. Set visibility to **Public**. Check **Add a README file**. Click **Create repository**.
+4. In the repo, click **Add file → Create new file** to add `RESUME.md` and `BIO.md`.
+5. Paste content from the templates above and edit with your details.
+6. Each save is a "commit" — write a short message explaining the change.
+
+### Option B — Claude desktop app (chat interface, file uploads)
+
+1. Open the [Claude desktop app](https://claude.ai/download).
+2. Upload the bio and resume templates (drag-and-drop the `.md` files).
+3. Ask Claude to help you draft your bio and resume against the template structure.
+4. Copy the output into GitHub via Option A's workflow.
+
+### Option C — Claude Code CLI (terminal)
+
+1. Install [Claude Code](https://claude.ai/code).
+2. From your terminal: `git clone https://github.com/[your-username]/Corporate-Finance.git` then `cd Corporate-Finance`.
+3. Launch `claude` and ask it to populate your `README.md`, `RESUME.md`, and `BIO.md` from the templates at:
+   - `https://github.com/adamwstauffer/shidler/blob/main/docs/templates/portfolio/bio-template.md`
+   - `https://github.com/adamwstauffer/shidler/blob/main/docs/templates/portfolio/resume-template.md`
+4. Use `git add . && git commit -m "Add bio and resume" && git push` to publish.
+
+---
+
+## Git basics — what `commit`, `push`, and `pull` mean
+
+Don't worry about mastering Git in Stage 0. You only need to understand what these three commands do conceptually:
+
+| Command | Plain English |
+|---------|---------------|
+| `git add` | "Stage this change to be saved." Like marking which files go into the next save-point. |
+| `git commit` | "Save this set of changes locally with a description." Creates a snapshot. |
+| `git push` | "Send my saved changes from my computer up to GitHub so others can see them." |
+| `git pull` | "Bring down any changes from GitHub that I don't have locally yet." |
+
+In the GitHub web UI, every "Commit changes" button does **add + commit + push** in one click.
+
+**Commit messages should be descriptive.** Not `update` or `fix` — instead: `Add bio with focus on FX and emerging markets` or `Polish resume formatting for first draft`.
 
 ---
 
 ## What to submit
 
-A link to your GitHub repository. The repository must contain:
-- [ ] Full directory structure as shown above
-- [ ] `README.md` files in every directory
-- [ ] Top-level `README.md` with your name and project scope
-- [ ] Templates copied from the course repo (`memo-template.md`, `spec-template.md`)
-- [ ] At least 3 meaningful commits with descriptive messages
+Submit the URL of your public GitHub repo via Lamaku. The repo must contain:
+
+- [ ] Public visibility (anyone can view without logging in)
+- [ ] `README.md` with your bio
+- [ ] `RESUME.md` with your resume
+- [ ] `BIO.md` (optional but recommended)
+- [ ] At least 2 meaningful commits with descriptive messages
 
 ---
 
@@ -124,16 +104,16 @@ A link to your GitHub repository. The repository must contain:
 
 | Criterion | % | What distinguishes strong work |
 |-----------|---|-------------------------------|
-| Directory Structure | 30% | All required directories present; logical organization; no orphan files |
-| README Quality | 30% | Every directory has a README; READMEs explain purpose and conventions; top-level README serves as project charter |
-| Markdown & Formatting | 20% | Correct use of headings, lists, tables, links; consistent formatting |
-| Git Fundamentals | 20% | Meaningful commits; descriptive commit messages; clean history |
+| Repo public + accessible | 20% | URL works without login; correctly named |
+| Bio quality | 30% | 150–200 words; structured; iteratively revised |
+| Resume quality | 30% | Penn-style format; quantified achievements; concise |
+| Commit hygiene | 20% | At least 2 commits; descriptive messages; clean history |
 
 ---
 
 ## Tips
 
-- **Start by studying the course repo.** Every directory in [`courses/BUS-629-VEMBA-International-Corporate-Finance/`](../) has a README you can reference.
-- **Don't overthink the READMEs.** 5–10 lines per directory README is sufficient. Clarity over length.
-- **Commit early and often.** Don't build the entire structure and commit once. Commit after creating each major section.
-- **Your README.md will evolve.** Update your top-level README as you complete each stage — it becomes a living status tracker for your project.
+- **Don't aim for perfection on day one.** Your bio and resume will evolve all semester. Stage 0 is about getting the repo live.
+- **Use the bio template's prompt library.** It includes 30+ LLM prompts for iterative revision — pick 2–3 angles and run them.
+- **Keep it public.** A public repo is the entire point — recruiters and collaborators need to be able to find it.
+- **The course repo is your reference.** When you're not sure what a directory should look like, study how this course repo is organized.

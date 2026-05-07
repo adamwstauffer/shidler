@@ -120,7 +120,7 @@ Point values are set per class. The following weights define each stage's propor
 
 | Directory | IB/Professional Analogue | Purpose |
 |-----------|-------------------------|---------|
-| `docs/memos/` | Deal memos, investment committee briefs | Analytical framing and decision documentation |
+| `docs/decisions/` | Deal memos, investment committee briefs | Analytical framing and decision documentation |
 | `docs/specs/` | Model specification documents, methodology papers | Technical blueprints that define analytical work |
 | `docs/plans/` | Project plans, pitch timelines | Coordination and scheduling |
 | `docs/templates/` | Firm-wide memo and spec formats | Standardized starting points that ensure consistency |
@@ -201,7 +201,7 @@ Point values are set per class. The following weights define each stage's propor
 
 **Why Stage 2:** With the template already built, the student knows exactly what data points they need. The memo becomes more precise — "I need prior-year total assets because my template computes start-of-year ROA" — rather than abstract hand-waving.
 
-**Collaboration model:** Individual. Each student selects a different company. Memos are saved to `docs/memos/`.
+**Collaboration model:** Individual. Each student selects a different company. Memos are saved to `docs/decisions/`.
 
 **Deliverable:** 400–600 word Markdown memo (`.md`) addressed to a CFO or VP of Finance.
 
