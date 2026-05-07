@@ -1,3 +1,14 @@
+<!--
+---
+template: portfolio-resume
+purpose: "Resume skeleton (Penn-style) for student GitHub portfolios — Markdown source that exports cleanly to PDF via browser print"
+audience: student
+fields_required: [name, contact, education, professional_experience, leadership, honors, skills]
+naming_convention: "RESUME.md (lives at the root of the student's portfolio repo)"
+courses: [BUS-629, BUS-122B]
+---
+-->
+
 # Your Name
 **Email:** your.email@domain.com · (XXX) XXX-XXXX  
 **School Address:** Dorm/Residence, City, State, ZIP  

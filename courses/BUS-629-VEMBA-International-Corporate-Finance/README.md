@@ -72,16 +72,18 @@ Through the AI + GitHub project, students gain practical, workplace-ready skills
 
 ### Project: Accounting Ratios Analysis
 
-A 6-stage spec-driven design project. Students build ratio templates from scratch, select their own companies (including non-U.S. and ASEAN-listed firms), and write technical specifications that an LLM can execute — then critically evaluate the output.
+A 6-stage spec-driven design project. Students stand up their own public GitHub portfolio repo, populate the provided ratios template with financials for a company of their choice (non-U.S. and ASEAN-listed firms encouraged), and use an LLM to draft technical specifications and produce the final analysis — which they then critically evaluate.
 
-| Stage | Deliverable | Weight |
-|-------|------------|--------|
-| 0 | Repository Setup & Infrastructure | 5% |
-| 1 | Template Architecture | 20% |
-| 2 | Company Selection Memo | 10% |
-| 3 | Model Population & Validation | 25% |
-| 4 | Technical Specification | 20% |
-| 5 | LLM Analysis & Executive Evaluation | 20% |
+| Stage | Deliverable | Weight | Format |
+|-------|-------------|-------:|--------|
+| 0 | Personal GitHub repo with README, RESUME, BIO | 5% | Repo URL |
+| 1 | Provided ratios Excel template uploaded to your repo | 20% | `.xlsx` |
+| 2 | Company selection memo | 10% | `.md` (70% deliverable / 30% presentation) |
+| 3 | Populated financials spreadsheet for selected company | 20% | `.xlsx` |
+| 4 | LLM-drafted technical specification | 20% | `.md` (70% deliverable / 30% presentation) |
+| 5 | Full analysis + LLM evaluation + repo polish | 25% | Repo URL (70% deliverable / 30% presentation) |
+
+**Presentation rubric:** Stages 2, 4, and 5 are graded **70% deliverable / 30% presentation**. Stages 0, 1, and 3 are upload-only — no presentation component. Total project weight: 100%.
 
 **Stage assignments:**
 [Stage 0](stage0-repo-setup.md) |
@@ -91,7 +93,7 @@ A 6-stage spec-driven design project. Students build ratio templates from scratc
 [Stage 4](stage4-technical-specification.md) |
 [Stage 5](stage5-llm-analysis-evaluation.md)
 
-See [project design memo](docs/memos/2026-04-03-bus629-accounting-ratios-project-design.md) for full rationale and pedagogical design.
+See [project design memo](docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md) for full rationale and pedagogical design.
 
 ### Repository Structure
 
@@ -101,10 +103,10 @@ This repository serves as a **living example** of the directory structure studen
 courses/BUS-629-VEMBA-International-Corporate-Finance/
 ├── README.md                  <- You are here
 ├── docs/
-│   ├── memos/                 # Executive memos and decision documents
+│   ├── decisions/             # Executive memos and decision documents
 │   ├── specs/                 # Technical specifications
 │   ├── plans/                 # Project plans and timelines
-│   └── templates/             # Reusable templates (memo, spec)
+│   └── templates/             # Stub README pointing at canonical repo-level templates
 ├── models/
 │   ├── templates/             # Blank model frameworks (Stage 1)
 │   └── builds/                # Populated, working models (Stage 3)
@@ -219,8 +221,10 @@ Cheating and plagiarism will not be tolerated and will be handled under the UH S
 
 | Resource | Location |
 |----------|----------|
-| Project Design Memo | [`docs/memos/2026-04-03-bus629-accounting-ratios-project-design.md`](docs/memos/2026-04-03-bus629-accounting-ratios-project-design.md) |
+| Project Design Memo | [`docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md`](docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md) |
 | Project Presentation | [`BUS629_AI_Ratios_Project.pptx`](BUS629_AI_Ratios_Project.pptx) |
-| Memo Template | [`docs/templates/memo-template.md`](docs/templates/memo-template.md) |
-| Spec Template | [`docs/templates/spec-template.md`](docs/templates/spec-template.md) |
-| Brand Guidelines | [`../docs/_branding/design.json`](../docs/_branding/design.json) |
+| Provided Excel Template (Stage 1) | [`../../docs/templates/spreadsheets/performance-ratios-template.xlsx`](../../docs/templates/spreadsheets/performance-ratios-template.xlsx) |
+| Memo Template | [`../../docs/templates/memo-template.md`](../../docs/templates/memo-template.md) |
+| Spec Template | [`../../docs/templates/spec-template.md`](../../docs/templates/spec-template.md) |
+| Templates README (frontmatter, naming) | [`../../docs/templates/README.md`](../../docs/templates/README.md) |
+| Brand Guidelines | [`../../docs/_branding/design.json`](../../docs/_branding/design.json) |

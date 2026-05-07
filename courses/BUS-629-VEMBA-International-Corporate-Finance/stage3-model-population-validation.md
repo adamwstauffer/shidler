@@ -1,58 +1,82 @@
-# Stage 3: Model Population & Validation
+# Stage 3: Populated Financials
 
-**Weight:** 25% of project score
+**Weight:** 20% of project score
+**Format:** Upload-only — no presentation component
+**Deliverable:** Populated `.xlsx` with company financials
 
 ---
 
 ## Overview
 
-Populate your Stage 1 template with real financial data for your chosen company. Compute all ratios. Self-audit the model for internal consistency. This is the most heavily weighted analytical stage because it produces the quantitative foundation for everything that follows.
+Populate the provided ratios template with real financial data for the company you selected at Stage 2. Income Statement, Balance Sheet, and Cash Flow only — full ratio interpretation and analysis come at Stage 5.
 
-## Why a dedicated stage
+The Ratios tab will auto-populate from the pre-filled formulas as soon as the financial-statement tabs are filled. Your job at this stage is to verify the numbers tie to the source 10-K (or VAS / IFRS equivalent), not to interpret what they mean.
 
-In BUS-314 (undergrad), building and populating happen simultaneously. Separating them forces deliberate validation — a skill that distinguishes senior analysts from juniors. The self-audit checklist mirrors what a Big 4 review process looks like. This stage also builds the deep model familiarity required for writing a credible spec in Stage 4.
+## Why this stage is financials-only
+
+Splitting "get the data in" from "interpret what it says" produces two cleaner stages and forces a discipline you'll need in any analyst seat: be sure the numbers are right *before* you start telling stories about them. It also keeps Stage 5 substantive — the full analysis there is driven by your Stage 4 spec, not pre-baked.
 
 ---
 
-## Deliverables
+## Deliverable
 
-1. **Completed workbook** (`.xlsx`) saved to `models/builds/`
-2. **Validation report** (`.md`, 200–300 words) saved to `analysis/validation/`
+A populated workbook saved to `models/builds/` in your repository.
+
+**Filename:** `YYYY-MM-DD-{company-slug}-financials.xlsx`
+Example: `2026-06-04-vinamilk-financials.xlsx`
 
 ---
 
 ## Workbook requirements
 
 - All financial statement data entered from 10-K / annual report / audited financials
-- All 25+ ratios computed with working formulas
-- Named ranges populated and functional
-- Market/analyst assumptions sourced and documented (share price, shares outstanding, cost of capital, tax rate)
-- For non-U.S. companies: reporting currency and any IFRS/VAS adjustments noted in the Notes tab
+  - Income Statement: current year + prior year
+  - Balance Sheet: current year + prior year (prior year populates `startYear_*` named ranges)
+  - Cash Flow: current year + prior year
+- Market/analyst assumptions sourced and entered (share price as of fiscal year-end, shares outstanding, cost of capital, tax rate)
+- For non-U.S. companies: reporting currency and any IFRS / VAS adjustments noted in the Cover & Instructions tab
+- Ratios tab auto-populates — do not modify formulas, only verify they compute
 
 ---
 
-## Self-audit checklist
-
-Your validation report must address **each** of the following checks. For each, state the result and explain any discrepancies.
+## Self-check before submission
 
 | Check | What to verify |
 |-------|---------------|
 | **Balance Sheet balances** | Assets = Liabilities + Equity (both years) |
-| **Du Pont ROA consistency** | Du Pont ROA (Margin x Turnover) ≈ Direct ROA |
-| **Du Pont ROE consistency** | Du Pont ROE ≈ Direct ROE |
-| **Sign checks** | No negative ratios where impossible (e.g., negative current ratio) |
-| **Reasonableness** | Ratios fall within plausible industry ranges |
-| **Named range audit** | Spot-check 5 named ranges to confirm they point to correct cells |
-| **Formula audit** | Spot-check 5 formulas to confirm they reference correct inputs |
-| **Start-of-year vs. average** | Compare start-of-year and average-based profitability ratios; explain any divergence |
+| **No `#REF!` or `#DIV/0!` cells** | Every formula resolves to a number |
+| **Prior-year cells populated** | `startYear_*` named ranges have values, otherwise start-of-year ratios will fail |
+| **Sign sanity** | No negative values where impossible (e.g., negative inventory) |
+| **Source documentation** | Cover & Instructions tab notes the reporting standard, currency, fiscal year end, and source 10-K URL |
+
+This is a self-check, not a deliverable — your Stage 3 grade is on the workbook itself. The deeper validation work happens at Stage 5 when the spec-driven analysis is produced and evaluated.
+
+---
+
+## What to submit
+
+Just commit the populated workbook to your repo. Stage 3 is graded by inspection of the file in `models/builds/`.
+
+- [ ] `models/builds/YYYY-MM-DD-{company-slug}-financials.xlsx`
+- [ ] Cover & Instructions tab updated with source URL, reporting standard, currency, fiscal year end
+- [ ] Commit message describes what was populated (e.g., "Populate Vinamilk FY2024 + FY2023 financials")
 
 ---
 
 ## Rubric (% of Stage 3 score)
 
-| Criterion | % |
-|-----------|---|
-| Data Accuracy | 25% |
-| Formula Correctness | 25% |
-| Internal Consistency (Du Pont checks) | 25% |
-| Validation Report & Self-Audit | 25% |
+| Criterion | % | What distinguishes strong work |
+|-----------|---|-------------------------------|
+| Data accuracy (ties to source 10-K) | 40% | Spot-checks from Cover tab match audited financials line-for-line |
+| Completeness (both years populated) | 25% | All `INC_*`, `BAL_*`, `CASH_*`, `startYear_*` cells filled |
+| Source documentation | 20% | Cover tab cites source, standard, currency, FYE; non-US adjustments noted |
+| Auto-computed ratios resolve cleanly | 15% | No `#REF!`, `#DIV/0!`, or `#NAME?` errors anywhere on Ratios tab |
+
+---
+
+## Tips
+
+- **Tie out, don't transcribe.** Open the source 10-K and the template side-by-side. Cross-check totals (e.g., Total Assets, Total Revenue) before trusting line-item entries.
+- **Currency and units matter.** Companies report in millions, billions, thousands, or units depending on the country. The Cover tab has a unit field — fill it in and stay consistent across tabs.
+- **Don't interpret yet.** If a ratio looks weird, write it in your notes and bring it up in Stage 4 — but don't try to "fix" the data to make ratios behave.
+- **Commit incrementally.** Don't populate the entire workbook and commit once. Commit after each statement (one for IS, one for BS, one for CF). Your Stage 4 spec retrospective will benefit from a clean history.

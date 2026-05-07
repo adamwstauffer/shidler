@@ -1,116 +1,155 @@
-# Stage 4: Technical Specification — Spec-Driven Design
+# Stage 4: LLM-Drafted Technical Specification
 
-**Weight:** 20% of project score
+**Weight:** 20% of project score (70% deliverable / 30% presentation)
+**Deliverable:** Technical specification (`.md`) drafted with an LLM, plus a prompt log entry
 
 ---
 
 ## Overview
 
-Write a formal technical specification that fully defines both the Excel ratio model and the accounting ratio analysis for your company. The spec must be precise and complete enough that an LLM — with no prior context — can take the spec as its sole input and produce a correct, comprehensive ratio analysis with strategic recommendations.
+Use an LLM (Claude or another capable model) to draft a formal technical specification that fully defines both the Excel ratio model and the analytical work to be done on your selected company. The spec must be precise enough that an LLM with no prior context — given only the spec as input — can produce a correct, comprehensive ratio analysis with strategic recommendations.
+
+You are not writing the spec from a blank page. You are using an LLM to **draft** it, conditioned on the project instructions and your Stage 1 template. Your job is to direct the drafting, evaluate the output, and ship a spec that *you* would sign your name to.
 
 **This is the central artifact of the project.**
 
-It is not a "prompt" in the casual sense. It is a technical specification — the same kind of document a finance director would hand to a new analyst, an offshore team, or an automation system. The fact that the executor happens to be an LLM is incidental; the spec should work for any competent executor.
+## Why spec-driven design + LLM drafting
 
-## Why spec-driven design matters
+Two pedagogical moves stack here:
 
-In professional practice, the ability to specify analytical work precisely is more valuable than the ability to execute it. Execution scales (via teams, tools, AI); specification requires domain expertise that cannot be delegated. A spec that produces wrong output reveals a gap in your understanding — and that feedback loop is where the deepest learning happens.
+1. **Spec-driven design.** The ability to specify analytical work precisely is more valuable than the ability to execute it. Execution scales (via teams, tools, AI); specification requires domain expertise that cannot be delegated.
+2. **LLM as drafter, you as editor.** The future of finance work is not "write everything from scratch" or "let AI write everything." It's specify the work, evaluate the output, and take responsibility for the final product.
 
-## Connection to earlier stages
-
-- **Stage 1** taught you *what* a ratio model needs — structure, tabs, named ranges, color coding, formula flow
-- **Stage 2** taught you *why* this company and *what* to look for
-- **Stage 3** taught you *how* the numbers behave and where errors hide
-- **Stage 4** synthesizes all of this: "I understand this well enough to specify it unambiguously for someone who has never seen it before"
+A spec that produces wrong output at Stage 5 reveals a gap in your spec — and that feedback loop is where the deepest learning happens.
 
 ---
 
 ## Deliverable
 
-Technical specification document (`.md`, 3–5 pages) saved to `docs/specs/`. Use [`docs/templates/spec-template.md`](docs/templates/spec-template.md) as your starting point.
+A technical specification (`.md`, 3–5 pages) saved to `docs/specs/` in your repository, plus a corresponding prompt log entry.
+
+**Spec filename:** `YYYY-MM-DD-{lastname}-{company-slug}-spec.md`
+Example: `2026-06-18-nguyen-vinamilk-spec.md`
+
+**Spec template:** [`../../docs/templates/spec-template.md`](../../docs/templates/spec-template.md) — copy, rename per the convention above, fill in the sections, keep the YAML frontmatter intact.
+
+**Prompt log:** Add a row to your `deliverables/prompt-log.md` for each meaningful prompt session used to draft the spec. Use [`../../docs/templates/prompt-log-template.md`](../../docs/templates/prompt-log-template.md) if you don't already have one.
 
 ---
 
-## Required specification components
+## Two LLM workflows — pick one
+
+### Workflow A — Claude desktop / ChatGPT (file uploads)
+
+Best if you don't yet have a CLI workflow. Works in any browser.
+
+1. Open [Claude](https://claude.ai) (or ChatGPT, or another capable model).
+2. Upload these files into the chat:
+   - The Stage 4 brief (this document, exported as PDF or pasted as text)
+   - Your Stage 1 template: `models/templates/performance-ratios-template.xlsx`
+   - The repo-level [`spec-template.md`](../../docs/templates/spec-template.md)
+   - Your Stage 3 populated workbook (gives the LLM real numbers to populate the Data Inputs section)
+3. Prompt: *"Using the spec template structure, draft a technical specification for [company] ratios analysis. Populate every section. Use named-range notation throughout. Where data values appear in my Stage 3 workbook, include them numerically in the Data Inputs table."*
+4. Iterate. Ask the LLM to expand sparse sections, tighten verbose ones, and verify formulas tie to your template's named ranges.
+5. Copy the final output into `docs/specs/YYYY-MM-DD-{lastname}-{company-slug}-spec.md` in your repo.
+
+### Workflow B — Claude Code CLI (terminal)
+
+Best if you already cloned your repo locally and want the LLM to read repo files directly.
+
+1. Install [Claude Code](https://claude.ai/code) and `cd` into your portfolio repo.
+2. Launch `claude`.
+3. Prompt:
+   ```
+   Read these files:
+   - https://raw.githubusercontent.com/adamwstauffer/shidler/main/courses/BUS-629-VEMBA-International-Corporate-Finance/stage4-technical-specification.md
+   - https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md
+   - models/templates/performance-ratios-template.xlsx (in this repo)
+   - models/builds/<your Stage 3 file>.xlsx (in this repo)
+
+   Draft a technical specification for {company} accounting ratios analysis,
+   following the spec-template structure. Save it to
+   docs/specs/<YYYY-MM-DD>-<lastname>-<company-slug>-spec.md.
+   ```
+4. Iterate inside Claude Code, asking it to refine specific sections.
+5. Commit and push when done.
+
+---
+
+## Required spec components
 
 ### Part A — Model Specification
 
-Defines the Excel ratio model: structure, data, formulas, and validation. Part A must be detailed enough that the executor could reconstruct your Stage 1 template and Stage 3 populated model from this document alone.
+Defines the Excel ratio model: structure, data, formulas, and validation. Detailed enough that the executor could reconstruct your Stage 1 template and Stage 3 populated model from this document alone.
 
-**1. Scope & Objective** — Company name, fiscal period, reporting standard (GAAP/IFRS/VAS), reporting currency, analytical objective, intended audience.
-
-**2. Model Architecture** — Specify the spreadsheet structure:
-   - Tab layout (which tabs, what each contains, how data flows between them)
-   - Color coding conventions and their meaning
-   - Input/calculation/output separation
-   - Formatting requirements (number formats, decimal places, header styles)
-
-**3. Data Inputs** — Complete, explicit table of every financial data point required. Organized by source:
-   - Balance Sheet items (current year and prior year)
-   - Income Statement items
-   - Cash Flow Statement items
-   - Market/Analyst inputs (share price, shares outstanding, cost of capital, tax rate)
-   - **All values stated numerically** — the executor does not look up, infer, or estimate any data
-
-**4. Named Range Conventions** — Full map of named ranges to values:
-
-| Named Range | Source | Value | Unit |
-|-------------|--------|-------|------|
-| `BAL_assets_total_2025` | Balance Sheet | 394,328 | USD millions |
-| `INC_sales` | Income Statement | 285,610 | USD millions |
-| ... | ... | ... | ... |
-
-**5. Derived Inputs** — Computed intermediate values (averages, start-of-year figures, daily rates, after-tax operating income) with explicit formulas in named-range notation.
-
-**6. Ratio Definitions & Formulas** — Every ratio, organized by category (Performance, Profitability, Efficiency, Leverage, Liquidity, Du Pont), with:
-   - Formula in named-range notation (e.g., `RATIO_ROA = INC_net / startYear_assets_total`)
-   - Expected unit (%, x, days, currency)
-   - Brief interpretation guide (what does "high" or "low" mean for this ratio?)
-
-**7. Validation Rules** — Internal consistency checks the executor must verify:
-   - Du Pont ROA ≈ Direct ROA
-   - Du Pont ROE ≈ Direct ROE
-   - Balance Sheet balance (both years)
-   - Any company-specific checks
+1. **Scope & Objective** — Company, fiscal period, reporting standard (GAAP/IFRS/VAS), reporting currency, analytical objective, intended audience.
+2. **Model Architecture** — Tab layout, color coding, input/calculation/output separation, formatting requirements.
+3. **Data Inputs** — Complete table of every financial data point required, with values stated numerically (sourced from your Stage 3 workbook).
+4. **Named Range Conventions** — Full map of named ranges (`BAL_*`, `INC_*`, `CASH_*`, `RATIO_*`) to values.
+5. **Derived Inputs** — Computed intermediate values (averages, start-of-year figures, after-tax operating income) with explicit formulas in named-range notation.
+6. **Ratio Definitions & Formulas** — Every ratio organized by category (Performance, Profitability, Efficiency, Leverage, Liquidity, Du Pont) with formula in named-range notation, expected unit, and brief interpretation guide.
+7. **Validation Rules** — Internal consistency checks (Du Pont vs. direct, Balance Sheet balance, etc.).
 
 ### Part B — Analysis Specification
 
-Defines what to do with the computed ratios. This is what transforms raw numbers into insight.
+Defines what to do with the computed ratios.
 
-**8. Analysis Requirements** — For each ratio category, specify:
-   - What to interpret and why it matters for this company
-   - Benchmarks or comparison targets (industry averages, competitor values, or general expectations — provide actual numbers where available)
-   - Cross-category connections to examine (e.g., "Assess whether leverage is amplifying ROE sustainably by examining debt ratios alongside profitability trends")
-
-**9. Du Pont Decomposition** — Specific instructions for ROE breakdown: which component is the primary driver? Is the balance sustainable?
-
-**10. Strategic Recommendation Requirements** — Number of recommendations (3–5), evidence standard (each must cite specific ratio values), actionable specificity (who does what by when).
-
-**11. Output Format Specification** — Exact structure of the deliverable:
-   - Document format (executive memo)
-   - Required sections and their order
-   - Length targets per section
-   - Tone and audience (e.g., "addressed to the Board of Directors; executive-level language; no unexplained jargon")
-   - How to present ratio results (tables, narrative, or both)
+8. **Analysis Requirements** — For each ratio category: what to interpret, benchmarks or comparison targets, cross-category connections to examine.
+9. **Du Pont Decomposition** — Specific instructions for ROE breakdown analysis.
+10. **Strategic Recommendation Requirements** — Number of recommendations (3–5), evidence standard, actionable specificity.
+11. **Output Format** — Exact structure of the deliverable: sections, order, length targets, tone, audience.
 
 ---
 
 ## Quality test
 
-A well-written spec is **self-contained**. If you hand Part A + Part B to an LLM with zero additional context, it should be able to:
+A well-written spec is **self-contained**. If you hand Part A + Part B to an LLM with zero additional context (which is exactly what Stage 5 will do), it should be able to:
 
-1. Reconstruct the ratio model (or verify the provided ratios against the formulas)
+1. Reconstruct the ratio model — or verify the provided ratios against the formulas
 2. Produce a substantially correct analysis with meaningful strategic recommendations
 
-If it can't, the spec has gaps — and identifying those gaps is the learning.
+If it can't, the spec has gaps. Identifying those gaps is the learning.
 
 ---
 
-## Rubric (% of Stage 4 score)
+## In-class presentation (30% of stage grade)
 
-| Criterion | % | What distinguishes strong work |
-|-----------|---|-------------------------------|
-| Model Specification — Data & Structure (Part A, items 1–5) | 25% | Every input value present; model architecture fully defined; no gaps the executor must fill |
-| Model Specification — Ratios & Validation (Part A, items 6–7) | 25% | All 25+ ratios specified with correct formulas in named-range notation; validation rules complete |
-| Analysis Specification (Part B, items 8–11) | 25% | Clear interpretive guidance; meaningful benchmarks; actionable recommendation criteria; output format fully defined |
-| Spec Craft & Clarity | 25% | Unambiguous language; logical organization; a competent executor could follow this without asking questions |
+A 5–7 minute presentation walking through your spec.
+
+**Suggested structure:**
+- Which workflow you used (desktop vs. CLI) and why (1 minute)
+- One section of your spec that took the most iteration to get right (2–3 minutes)
+- One section the LLM drafted well on the first pass (1 minute)
+- The "spec quality test": what would you change if you re-ran (1 minute)
+- Q&A (1–2 minutes)
+
+---
+
+## Rubric (Stage 4 = 20% of project)
+
+### Deliverable — 70% of stage grade
+
+| Criterion | % of deliverable | What distinguishes strong work |
+|-----------|-----------------:|--------------------------------|
+| Model spec — Data & Structure (Part A, items 1–5) | 25% | Every input value present numerically; architecture fully defined |
+| Model spec — Ratios & Validation (Part A, items 6–7) | 25% | All 25+ ratios specified with correct formulas in named-range notation |
+| Analysis spec (Part B, items 8–11) | 25% | Clear interpretive guidance; meaningful benchmarks; actionable recommendation criteria |
+| Spec craft + prompt log quality | 25% | Unambiguous spec language; prompt log captures meaningful iterations, not single-shot copy-paste |
+
+### Presentation — 30% of stage grade
+
+| Criterion | % of presentation |
+|-----------|------------------:|
+| Walkthrough clarity | 40% |
+| Quality of self-critique (what to change) | 30% |
+| Response to Q&A | 20% |
+| Professionalism (timing, presence) | 10% |
+
+---
+
+## Tips
+
+- **Spec the model, not just the analysis.** The most common failure mode is jumping to Part B before Part A is airtight. The LLM at Stage 5 needs both.
+- **Cite numerically.** "Total assets" is not a spec. "`BAL_assets_total_2025` = 394,328 USD millions" is.
+- **Iterate the prompt, not just the output.** If the LLM keeps producing weak Part A sections, your prompt is the problem — fix the prompt and re-run, rather than hand-editing the output.
+- **Log meaningfully.** "Asked Claude to write the spec" is not a useful log entry. "Iterated three times on the Du Pont section because the first two drafts confused decomposition with attribution" is.
