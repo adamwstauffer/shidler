@@ -1,0 +1,14 @@
+{
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "financial-analysis@claude-for-financial-services": true,
+    "pitch-agent@claude-for-financial-services": true,
+    "gl-reconciler@claude-for-financial-services": true,
+    "market-researcher@claude-for-financial-services": true,
+    "investment-banking@claude-for-financial-services": true,
+    "equity-research@claude-for-financial-services": true
+  }
+}
