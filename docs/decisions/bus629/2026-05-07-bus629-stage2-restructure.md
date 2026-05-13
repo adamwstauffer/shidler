@@ -1,7 +1,7 @@
 ---
 title: "BUS-629 Restructure — Stage 2: Course-Specific Changes"
 date: 2026-05-07
-status: proposed
+status: accepted
 owner: Adam W. Stauffer
 course: BUS-629-VEMBA-International-Corporate-Finance
 scope: course
@@ -9,7 +9,11 @@ depends_on:
   - ../2026-05-07-repo-cleanup-stage1-generic.md
 related:
   - 2026-04-03-bus629-accounting-ratios-project-design.md  # currently in courses/.../docs/memos/, will move
+refined_by:
+  - 2026-05-12-bus629-stage2-5-followup-revisions.md  # Spring 2026 cohort overlay (Stage 2 memo-only this cohort; Stage 4 HIL requirement; Stage 5 verification + retrospective + feedback-incorporation lines)
 ---
+
+> **Status note (added 2026-05-13):** This memo is the durable structural blueprint for BUS-629 stages 0–5 and is in effect. The Spring 2026 cohort runs against a narrower scope captured in [`2026-05-12-bus629-stage2-5-followup-revisions.md`](2026-05-12-bus629-stage2-5-followup-revisions.md) — most notably, Stage 2 is memo-only for this cohort (the 70/30 deliverable/presentation split documented in §3 below resumes in AY 2026–27). See the May 12 memo for the full Spring 2026 deviations.
 
 # BUS-629 Restructure — Stage 2: Course-Specific Changes
 
