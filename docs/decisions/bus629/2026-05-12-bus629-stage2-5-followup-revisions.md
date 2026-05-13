@@ -10,6 +10,8 @@ related:
   - 2026-05-07-bus629-stage2-restructure.md
   - 2026-05-12-bus629-stage1-excel-literacy-gap.md
   - ../2026-05-10-claude-plugins-student-rollout.md
+  - ../../guides/student-ai-enhancements.md
+  - ../../templates/spec-retrospective-template.md
 supersedes_draft: this file previously held a longer set of speculative proposals; the decisions below are the simplified actual scope
 ---
 
@@ -117,8 +119,38 @@ Polish drops 25% → 15%; the freed 10% funds the manual verification artifact. 
 
 ### Implementation TODO before cohort start
 
-- `stage5-llm-analysis-evaluation.md`: add the manual verification artifact requirement, link the new retrospective template, expand the repo polish checklist, add the Stage 2 feedback incorporation rubric line, swap in the revised rubric table.
-- Create `docs/templates/spec-retrospective-template.md` at the repo level.
+- `stage5-llm-analysis-evaluation.md`: add the manual verification artifact requirement, link the new retrospective template at [`docs/templates/spec-retrospective-template.md`](../../templates/spec-retrospective-template.md) (created 2026-05-12, commit `ec8fa60`), expand the repo polish checklist, add the Stage 2 feedback incorporation rubric line, swap in the revised rubric table.
+
+---
+
+## Operational notes
+
+### Submission fallback — Lamaku upload
+
+GitHub remains the primary and required submission channel: the Stage 5 deliverable is the repo URL itself, and the rubric explicitly grades repo polish. But students who hit a hard wall with GitHub setup at Stages 0–4 (auth issues, no SSH keys, institutional firewalls, unfamiliarity that's eating into their analytical time) may submit interim-stage artifacts directly to Lamaku as a fallback while they sort the Git workflow out.
+
+- Each Stage 2–5 doc carries a **top-of-document callout** stating the fallback is available and pointing to the filename convention to use on Lamaku.
+- The fallback applies to **interim stages (2, 3, 4)**. Stage 5 still requires a working public GitHub repo — that is the portfolio artifact and cannot be replaced by a Lamaku upload.
+- Using the Lamaku fallback **does not reduce a stage's grade**. The rubric remains the same; only the file-transport path changes.
+- A student who used Lamaku for Stage 2 or Stage 3 is expected to consolidate those artifacts into their GitHub repo by Stage 5 polish time. The Stage 5 rubric line on "repo polish" assumes the full project history lives in the repo by submission.
+
+This is a **safety valve, not an alternate track.** The fallback exists because the goal is finance literacy and AI-spec craft, not Git literacy as a gating skill. Course goals still include GitHub fluency, so the path to the public repo at Stage 5 stays mandatory.
+
+### Above-and-beyond — Claude Skills and Claude-for-Financial-Services plugins
+
+Stages 4 and 5 already nudge curious students toward the LLM-as-collaborator framing. For students who want to push further (typically EMBA students with employer-paid AI access), two optional, ungraded enhancements are worth signposting:
+
+- **Authoring a Claude Skill** — encode the student's own opinionated approach to a finance task (ratio analysis, memo drafting, spec writing) as a reusable `SKILL.md` they can invoke in any future Claude session. Industry-relevant: this is the artifact format Anthropic itself ships and that professional teams author.
+- **Trying a Claude-for-Financial-Services plugin** — install one plugin (e.g., `financial-analysis:audit-xls`) at project scope and run a single skill against an artifact already in the student's repo. Constructive use (audit a model the student built) is encouraged; generative use (have the plugin build the deliverable) is not, and falls under existing AI-disclosure policy. Full rationale: [`docs/decisions/2026-05-10-claude-plugins-student-rollout.md`](../2026-05-10-claude-plugins-student-rollout.md).
+
+The student-facing prompts (paste-into-Claude walkthroughs for skill authoring, plugin install, and Claude Code setup) live in [`docs/guides/student-ai-enhancements.md`](../../guides/student-ai-enhancements.md). The Stage 4 doc carries a short inline sidebar pointing students there.
+
+**These do not affect any rubric.** No bonus points; no penalty for not doing them. The educational logic is that the gap between rubric-floor work and what's possible with these tools is wider than the rubric can grade, and motivated students should see the ceiling.
+
+#### Quick-reference prompts (full versions in `docs/guides/student-ai-enhancements.md`)
+
+- **Author a skill:** "I'm a finance student. Walk me through authoring a Claude Skill that captures how I approach [ratio analysis / DCF / memo drafting]. Ask me three clarifying questions before drafting. Keep the SKILL.md under 100 lines for v1."
+- **Try a plugin:** "I'm in my portfolio repo. Walk me through adding the claude-for-financial-services marketplace via HTTPS, installing ONE plugin at project scope, and running ONE constructive skill against an artifact I already have. Do not run any skill that would generate a deliverable my course grades me on."
 
 ---
 

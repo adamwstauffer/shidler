@@ -1,7 +1,19 @@
 # Stage 4: LLM-Drafted Technical Specification
 
-**Weight:** 20% of project score (70% deliverable / 30% presentation)
-**Deliverable:** Technical specification (`.md`) drafted with an LLM, plus a prompt log entry
+**Weight:** 20% of project score
+**Format:** Deliverable-only — no in-class presentation
+**Deliverable:** Technical specification (`.md`) drafted with an LLM, plus a prompt log entry and evidence of human-in-the-loop (HIL) iteration
+
+> **Where this fits in the project.**
+> **Input:** Stage 1 ratios template (the model architecture) + Stage 3 populated workbook (the data values) + project instructions.
+> **Output (this stage):** A technical specification at `docs/specs/YYYY-MM-DD-{lastname}-{company-slug}-spec.md`, plus visible evidence of at least one HIL iteration (in your prompt log, or as a standalone iteration file in `analysis/validation/`).
+> **Used by:** Stage 5 (you feed *only* this spec to an LLM to produce the full analysis — the spec must stand alone).
+
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{lastname}-{company-slug}-spec.md`). Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 5, the spec must also live in `docs/specs/` in your GitHub repo — the Stage 5 polish rubric assumes the full project history is in the repo.
+
+> **Heads up — instructor write access.** If you haven't yet granted the instructor Write access on your repo, do it now (Stage 2 submission checklist item). Stage 5 grades 5% on how you incorporated the instructor's PR feedback on your Stage 2 memo — that 5% is unearnable without write access.
+
+> **Unfamiliar terms?** "HIL," "spec," "diff," "named-range notation," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
 
 ---
 
@@ -31,7 +43,13 @@ A technical specification (`.md`, 3–5 pages) saved to `docs/specs/` in your re
 **Spec filename:** `YYYY-MM-DD-{lastname}-{company-slug}-spec.md`
 Example: `2026-06-18-nguyen-vinamilk-spec.md`
 
-**Spec template:** [`../../docs/templates/spec-template.md`](../../docs/templates/spec-template.md) — copy, rename per the convention above, fill in the sections, keep the YAML frontmatter intact.
+**Spec template — available three ways:**
+
+- In this repo: [`docs/templates/spec-template.md`](../../docs/templates/spec-template.md)
+- Public GitHub link: [`https://github.com/adamwstauffer/shidler/blob/main/docs/templates/spec-template.md`](https://github.com/adamwstauffer/shidler/blob/main/docs/templates/spec-template.md)
+- Raw URL (for direct LLM upload — paste this URL into Claude.ai or ChatGPT and ask it to read): [`https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md`](https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md)
+
+Copy, rename per the convention above, fill in the sections, keep the YAML frontmatter intact.
 
 **Prompt log:** Add a row to your `deliverables/prompt-log.md` for each meaningful prompt session used to draft the spec. Use [`../../docs/templates/prompt-log-template.md`](../../docs/templates/prompt-log-template.md) if you don't already have one.
 
@@ -39,19 +57,40 @@ Example: `2026-06-18-nguyen-vinamilk-spec.md`
 
 ## Two LLM workflows — pick one
 
-### Workflow A — Claude desktop / ChatGPT (file uploads)
+> **Never used a command line?** Choose **Workflow A**. It works in any browser, requires no install, and lets you focus on the spec instead of the tooling. Workflow B is faster once you're set up but adds an install/troubleshooting step. For Claude Code setup as a follow-on (optional), see [`docs/guides/claude-code-install-for-non-technical-users.md`](../../docs/guides/claude-code-install-for-non-technical-users.md).
 
-Best if you don't yet have a CLI workflow. Works in any browser.
+### Workflow A — Claude desktop / ChatGPT (file uploads + URLs)
+
+Best if you don't yet have a CLI workflow. Works in any browser. **No install required.**
 
 1. Open [Claude](https://claude.ai) (or ChatGPT, or another capable model).
-2. Upload these files into the chat:
-   - The Stage 4 brief (this document, exported as PDF or pasted as text)
-   - Your Stage 1 template: `models/templates/performance-ratios-template.xlsx`
-   - The repo-level [`spec-template.md`](../../docs/templates/spec-template.md)
-   - Your Stage 3 populated workbook (gives the LLM real numbers to populate the Data Inputs section)
-3. Prompt: *"Using the spec template structure, draft a technical specification for [company] ratios analysis. Populate every section. Use named-range notation throughout. Where data values appear in my Stage 3 workbook, include them numerically in the Data Inputs table."*
+2. Give the LLM these inputs (combine file uploads and URLs — whichever is easier per item):
+   - **This Stage 4 brief** — easiest is to paste the raw URL: `https://raw.githubusercontent.com/adamwstauffer/shidler/main/courses/BUS-629-VEMBA-International-Corporate-Finance/stage4-technical-specification.md`
+   - **Spec template (raw URL)** — `https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md`
+   - **Your Stage 1 template** (`.xlsx`) — upload via the paperclip icon
+   - **Your Stage 3 populated workbook** (`.xlsx`) — upload via the paperclip icon; this gives the LLM real numbers to populate the Data Inputs section
+3. Prompt:
+
+   ```
+   Read the Stage 4 brief and spec template at the URLs above. Then, using the
+   spec template's structure, draft a technical specification for [COMPANY]
+   accounting ratios analysis.
+
+   Requirements:
+   - Populate every section (Part A items 1–7, Part B items 8–11)
+   - Use named-range notation (BAL_*, INC_*, CASH_*, RATIO_*) throughout
+   - Where data values appear in my uploaded Stage 3 workbook, include them
+     numerically in the Data Inputs table
+   - Keep the YAML frontmatter from the template intact
+
+   Before drafting, list the three or four assumptions you'll need from me
+   (e.g., reporting standard, fiscal year, intended audience for the analysis).
+   ```
+
 4. Iterate. Ask the LLM to expand sparse sections, tighten verbose ones, and verify formulas tie to your template's named ranges.
 5. Copy the final output into `docs/specs/YYYY-MM-DD-{lastname}-{company-slug}-spec.md` in your repo.
+
+> **Why give the LLM URLs instead of just uploading files?** Two reasons. (1) The raw URL points at the *current* version of the template — if the instructor updates the template mid-semester, your LLM session reads the latest version automatically. (2) URLs are easier to share with classmates and easier to reproduce later. Files in a chat session evaporate; URLs do not.
 
 ### Workflow B — Claude Code CLI (terminal)
 
@@ -112,38 +151,32 @@ If it can't, the spec has gaps. Identifying those gaps is the learning.
 
 ---
 
-## In-class presentation (30% of stage grade)
+## Human-in-the-loop (HIL) review requirement
 
-A 5–7 minute presentation walking through your spec.
+A single-shot LLM dump with no visible iteration is below standard for this stage. You must submit **evidence of at least one HIL review pass** — a round of work in which you identified a gap in the LLM's draft and revised either the prompt or the spec to address it.
 
-**Suggested structure:**
-- Which workflow you used (desktop vs. CLI) and why (1 minute)
-- One section of your spec that took the most iteration to get right (2–3 minutes)
-- One section the LLM drafted well on the first pass (1 minute)
-- The "spec quality test": what would you change if you re-ran (1 minute)
-- Q&A (1–2 minutes)
+Acceptable evidence (pick one — all three count equally; presented easiest-first):
+
+1. **Before/after note** *(easiest — recommended for most students).* A 150–250 word commentary inside your prompt log describing the most consequential gap you found in the LLM's first draft, why your spec caused it, and what you changed. **Best for:** every student. No new file needed; you write it into your existing prompt log.
+2. **Round-2 prompt** *(natural if you iterate as you go).* A second prompt-log entry (or a clearly-labeled second block within the same entry) showing how you re-prompted the LLM after reviewing round-1 output. Must include the specific gap you identified in round 1. **Best for:** students who naturally re-prompt the LLM rather than hand-edit its output.
+3. **Annotated diff** *(most thorough).* A short before/after comparison file at `analysis/validation/YYYY-MM-DD-{lastname}-{company-slug}-stage4-iteration.md` showing excerpts of one or more spec sections side-by-side, with a one-line note per change explaining what gap each revision addressed. **Best for:** students comfortable with side-by-side comparison tables, or whose spec saw substantial rework.
+
+A useful HIL pass is **specific.** "I asked it to expand the section" does not earn this credit. "I noticed Part A.4 listed `BAL_assets_total` without the year suffix, so the Stage 5 LLM would not know which year to pull — I added the year-suffix convention to the Named Range Conventions section and re-ran" does.
+
+**Natural place to catch weird Stage 3 ratios.** If a ratio looked odd when you populated Stage 3, the HIL iteration is the right place to surface it. A strange ratio is often a spec gap the Stage 5 LLM will inherit. Walking the LLM through the weird ratio in your HIL pass — and revising your spec so the issue is addressed — is high-value HIL work.
+
+This requirement is part of the "Spec craft + prompt log quality" rubric criterion (see below). You do not get a separate score for it.
 
 ---
 
 ## Rubric (Stage 4 = 20% of project)
 
-### Deliverable — 70% of stage grade
-
-| Criterion | % of deliverable | What distinguishes strong work |
-|-----------|-----------------:|--------------------------------|
+| Criterion | % of Stage 4 | What distinguishes strong work |
+|-----------|-------------:|--------------------------------|
 | Model spec — Data & Structure (Part A, items 1–5) | 25% | Every input value present numerically; architecture fully defined |
 | Model spec — Ratios & Validation (Part A, items 6–7) | 25% | All 25+ ratios specified with correct formulas in named-range notation |
 | Analysis spec (Part B, items 8–11) | 25% | Clear interpretive guidance; meaningful benchmarks; actionable recommendation criteria |
-| Spec craft + prompt log quality | 25% | Unambiguous spec language; prompt log captures meaningful iterations, not single-shot copy-paste |
-
-### Presentation — 30% of stage grade
-
-| Criterion | % of presentation |
-|-----------|------------------:|
-| Walkthrough clarity | 40% |
-| Quality of self-critique (what to change) | 30% |
-| Response to Q&A | 20% |
-| Professionalism (timing, presence) | 10% |
+| Spec craft + prompt log quality | 25% | Unambiguous spec language; **at least one visible HIL iteration** (before/after note, round-2 prompt, or annotated diff) in which the student identified a gap in the LLM's draft and revised either the prompt or the spec. A prompt log of a single one-shot dump does not earn this credit. |
 
 ---
 
@@ -153,3 +186,16 @@ A 5–7 minute presentation walking through your spec.
 - **Cite numerically.** "Total assets" is not a spec. "`BAL_assets_total_2025` = 394,328 USD millions" is.
 - **Iterate the prompt, not just the output.** If the LLM keeps producing weak Part A sections, your prompt is the problem — fix the prompt and re-run, rather than hand-editing the output.
 - **Log meaningfully.** "Asked Claude to write the spec" is not a useful log entry. "Iterated three times on the Du Pont section because the first two drafts confused decomposition with attribution" is.
+
+---
+
+## If you're curious — Claude Skills and Claude-for-Financial-Services plugins
+
+**Not graded. Optional. Finish the core spec first.**
+
+Two above-and-beyond extensions for students with time and a Claude Pro account:
+
+- **Author a Claude Skill** that reshapes your spec into the `SKILL.md` format Anthropic uses for production prompts.
+- **Try one Claude-for-Financial-Services plugin** (e.g., `audit-xls`, `ib-check-deck`) against your Stage 3 workbook or this Stage 4 spec.
+
+Full walkthrough prompts, the constructive-vs-generative-use policy, and a setup guide live in [`docs/guides/student-ai-enhancements.md`](../../docs/guides/student-ai-enhancements.md).
