@@ -34,6 +34,7 @@ The Stage 1 follow-up memo (`2026-05-12-bus629-stage1-excel-literacy-gap.md`) re
 - **Memo only this semester.** No in-class presentation / pitch for the current cohort. The 70/30 deliverable/presentation split from the 2026-05-07 restructure is suspended for Stage 2 in Spring 2026; the memo carries the full 10%.
 - **Audience: Adam Stauffer (course instructor) for review and approval.** Not a hypothetical CFO; not other students. Memo framing should match how a junior analyst writes to a managing director — concise, decision-oriented, evidence-tight.
 - **No peer-review component.** The memo is reviewed only by the instructor.
+- **Instructor write access to the student's portfolio repo is required at Stage 2.** Each student must add Adam Stauffer's GitHub handle as a collaborator with write (push) permission on their personal portfolio repository. This enables feedback as **pull requests opened against the student's repo** — concrete suggested edits the student reviews, comments on, and merges — rather than markdown comments on an external document. The PR-driven feedback loop mirrors real code-review workflows and is the operational complement to the "review and approval" framing above.
 - **Instructor feedback is expected and will be returned.** Students should anticipate revising the memo (or carrying revisions forward into later stages) based on that feedback. See Stage 5 below for how feedback incorporation is graded.
 
 ### Rubric implication
@@ -49,8 +50,9 @@ Falsifiability moves into the rubric criterion text — a hypothesis must state 
 
 ### Implementation TODO before cohort start
 
-- `stage2-company-selection-memo.md`: remove the "In-class presentation" section, remove the presentation rubric block, restore full 100% to the deliverable rubric, change "Audience: A CFO or VP of Finance" → "Audience: Adam Stauffer (course instructor) for review and approval," update the hypothesis criterion text.
+- `stage2-company-selection-memo.md`: remove the "In-class presentation" section, remove the presentation rubric block, restore full 100% to the deliverable rubric, change "Audience: A CFO or VP of Finance" → "Audience: Adam Stauffer (course instructor) for review and approval," update the hypothesis criterion text, **add a "Grant instructor write access" subsection** with step-by-step GitHub instructions (Settings → Collaborators → Add people → Adam's GitHub handle → Write role) and call out that the access grant is part of the Stage 2 submission checklist.
 - README stage table: note that Stage 2 is memo-only for Spring 2026.
+- `stage0-repo-setup.md` (or wherever onboarding lives): forward-flag the upcoming write-access requirement so students aren't surprised at Stage 2.
 
 ---
 
@@ -155,3 +157,5 @@ Items raised in the earlier draft that are not adopted this semester but worth r
 1. Should Stage 4's HIL-review evidence be submitted as a separate file (e.g., `analysis/validation/stage4-iteration.md`) or embedded inside the prompt log? Cleaner-as-separate; lower-friction-as-embedded.
 2. Stage 2 feedback turnaround — what's the instructor commitment? "Feedback within X days of submission" lets students plan; no commitment risks Stage 5 starting without it.
 3. Is the Stage 2 audience change from "CFO/VP Finance" → "Adam Stauffer" purely framing, or does the memo's *tone* also shift (e.g., shorter, less formal preamble)? Worth one line of guidance in the stage doc.
+4. Write-access scope: collaborator with Write role (push to any branch, merge PRs) vs. Triage role (review, label, comment but not push). Write is the cleaner default for the PR-feedback workflow; Triage is the safer fallback if students worry about direct-push surprises. Recommend Write.
+5. Privacy: students' portfolio repos are public by Stage 5. While their work is in progress between Stage 2 and Stage 5, who else can see the instructor's PR comments? Consider whether early stages should be on a private branch with the repo flipped to public at Stage 5 polish time.
