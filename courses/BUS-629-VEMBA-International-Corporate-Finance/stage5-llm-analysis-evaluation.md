@@ -124,6 +124,8 @@ The spec retrospective lives in its own file (per the template) rather than as a
 
 **Weight:** 5% of the deliverable rubric.
 
+> **Step-by-step guide:** The full rubric-shaped walkthrough — how to read a PR, the three response patterns (accept / modify / reject), and a worked example — lives at [`docs/guides/responding-to-pr-feedback.md`](../../docs/guides/responding-to-pr-feedback.md). Read it the week before Stage 5 is due, not the night before.
+
 The instructor reviewed your Stage 2 memo and returned PR-style suggestions on your repo. Stage 5 grades how you incorporated that feedback. Two acceptable forms (either counts):
 
 - **Revised memo committed alongside your final analysis** — your `docs/decisions/YYYY-MM-DD-{lastname}-{company-slug}-selection.md` shows commits that respond to the instructor's PR comments, OR you ship a follow-up memo at `docs/decisions/YYYY-MM-DD-{lastname}-stage2-feedback-response.md` describing what changed.
@@ -309,4 +311,4 @@ The lightest-weight experiment: install `financial-analysis:audit-xls` and run i
 
 That single experiment is worth more than reading another article on "AI in finance." You will see the gap between what general-purpose LLMs do well and what purpose-built finance tooling does — and you'll be ahead of every peer who only used ChatGPT.
 
-**This is portfolio-shaping work, not coursework.** Adding a `docs/decisions/YYYY-MM-DD-{lastname}-claude-fs-experiment.md` memo (100–300 words: what you tried, what it did well, what it got wrong, whether you'd use it on a real engagement) is a stronger LinkedIn-pitchable artifact than another polish pass on the rubric checklist.
+**This is portfolio-shaping work, not coursework.** Adding a `docs/decisions/YYYY-MM-DD-{lastname}-ai-tooling-experiment.md` memo (100–300 words: what you tried, what it did well, what it got wrong, whether you'd use it on a real engagement) is a stronger LinkedIn-pitchable artifact than another polish pass on the rubric checklist.

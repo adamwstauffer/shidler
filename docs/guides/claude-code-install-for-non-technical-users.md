@@ -56,9 +56,8 @@ PowerShell is Windows' built-in terminal. You don't need to install it.
 
 1. Click the **Start** button (Windows logo, bottom-left).
 2. Type `PowerShell`.
-3. Right-click **Windows PowerShell** in the results.
-4. Click **Run as administrator**.
-5. A black-and-blue window opens. You'll see something like `PS C:\Users\YourName>` — that's the **prompt**. It means PowerShell is waiting for you to type a command.
+3. Click **Windows PowerShell** in the results — a **normal click**. Do **not** "Run as administrator." Modern Node.js installs put `npm` global packages under your user profile (`%APPDATA%\npm`); an elevated PowerShell can install to a different location that your normal shell can't see later — exactly the "command not found" symptom this guide troubleshoots below. Run everything in a normal PowerShell window unless a step explicitly tells you otherwise.
+4. A black-and-blue window opens. You'll see something like `PS C:\Users\YourName>` — that's the **prompt**. It means PowerShell is waiting for you to type a command.
 
 **Success looks like:** A dark window with text. The cursor blinks after a `>` symbol.
 
@@ -273,8 +272,13 @@ Done.
 
 ### "Permission denied" during install
 
-**Cause (Windows):** PowerShell was not opened as administrator.
-**Fix:** Close the window. Open PowerShell again, this time right-click → **Run as administrator**.
+**Cause (Windows):** Your global `npm` directory is in a system-protected location (this happens with some older Node.js installs, or if Node was installed via a non-default method). Modern Node.js LTS installs *should* put npm-global under `%APPDATA%\npm` and not need elevation — if you're hitting this, that's the exception, not the rule.
+**Fix (in order):**
+
+1. **Don't reach for "Run as administrator" first.** Elevated installs frequently install packages to a different path your normal PowerShell can't see, which causes the "command not found" symptom right after a "successful" install.
+2. **First try:** close all PowerShell windows, open a fresh **normal** one, and re-run the install. The original error sometimes goes away on retry.
+3. **If it still fails:** copy the full error text, paste it into [claude.ai](https://claude.ai), and ask: *"I'm installing Claude Code on Windows and getting this Permission denied error. What is the safest way to fix this without breaking my npm configuration?"* Claude will walk you through reconfiguring the npm global directory (`npm config set prefix`).
+4. **Last resort:** run PowerShell as administrator (right-click → Run as administrator), run `npm install -g @anthropic-ai/claude-code`, **close that elevated window**, and open a fresh normal PowerShell to test `claude --version`. If the normal shell can't find `claude` after this, the elevated install went to the wrong directory — use option 3 to clean up.
 
 **Cause (Mac):** Homebrew or `npm` doesn't have permission to write to the install directory.
 **Fix:** Prefix the install command with `sudo`:
