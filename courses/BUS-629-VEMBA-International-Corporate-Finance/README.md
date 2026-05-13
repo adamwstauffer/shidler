@@ -89,8 +89,9 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 
 **Student guides** (read as needed — none are required cover-to-cover):
 
-- [`docs/guides/github_mba_guide.md`](../../docs/guides/github_mba_guide.md) — GitHub fundamentals, first commit, instructor write access, PR mechanics. **Read Sections 4–7 before Stage 2.**
+- [`docs/guides/github-mba-guide.md`](../../docs/guides/github-mba-guide.md) — GitHub fundamentals, first commit, instructor write access, PR mechanics. **Read Sections 4–7 before Stage 2.**
 - [`docs/guides/responding-to-pr-feedback.md`](../../docs/guides/responding-to-pr-feedback.md) — Rubric-shaped checklist for the Stage 5 PR-feedback line (5% of project). **Read the week before Stage 5.**
+- [`docs/guides/vas-ifrs-gaap-ratio-quickref.md`](../../docs/guides/vas-ifrs-gaap-ratio-quickref.md) — Cross-standard reference for ratio interpretation (lease accounting, LIFO, goodwill amortization, R&D capitalization). **Read during Stage 3 if your company reports under VAS or IFRS; revisit at Stage 5 when interpreting ratios.**
 - [`docs/guides/claude-code-install-for-non-technical-users.md`](../../docs/guides/claude-code-install-for-non-technical-users.md) — Optional. Windows/Mac walkthrough if you want to try Claude Code in a terminal.
 - [`docs/guides/student-ai-enhancements.md`](../../docs/guides/student-ai-enhancements.md) — Optional / ungraded. Above-and-beyond paths (author a Claude Skill, try a Claude-for-Financial-Services plugin).
 

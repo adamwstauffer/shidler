@@ -60,7 +60,7 @@ You can verify by reloading the Collaborators page — the instructor should app
 
 **Choose Write.** Write is the right answer for this project — it enables the instructor to open pull requests directly on your repo without waiting for merge approvals. If you have a specific reason for being more cautious (corporate-policy concern about granting Write on a personal repo), Triage is an acceptable fallback that still lets the instructor review and comment, just not push directly. If you are unsure, pick Write.
 
-> **Never done this before?** A step-by-step walkthrough of GitHub account setup, your first commit (GitHub Desktop recommended), and the Collaborators panel lives in [`docs/guides/github_mba_guide.md`](../../docs/guides/github_mba_guide.md). Read Sections 4–7 if any of this is new to you.
+> **Never done this before?** A step-by-step walkthrough of GitHub account setup, your first commit (GitHub Desktop recommended), and the Collaborators panel lives in [`docs/guides/github-mba-guide.md`](../../docs/guides/github-mba-guide.md). Read Sections 4–7 if any of this is new to you.
 
 ---
 
