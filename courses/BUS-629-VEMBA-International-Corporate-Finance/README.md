@@ -87,6 +87,13 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 
 **Submission paths.** GitHub is the required submission channel — your Stage 5 deliverable is the public repo URL itself. Stages 2, 3, and 4 carry a **Lamaku-upload fallback** for students who hit hard blockers with Git setup; see the top of each stage doc for details. The fallback is a safety valve, not an alternate track — by Stage 5, all prior-stage artifacts must be consolidated into your GitHub repo.
 
+**Student guides** (read as needed — none are required cover-to-cover):
+
+- [`docs/guides/github_mba_guide.md`](../../docs/guides/github_mba_guide.md) — GitHub fundamentals, first commit, instructor write access, PR mechanics. **Read Sections 4–7 before Stage 2.**
+- [`docs/guides/responding-to-pr-feedback.md`](../../docs/guides/responding-to-pr-feedback.md) — Rubric-shaped checklist for the Stage 5 PR-feedback line (5% of project). **Read the week before Stage 5.**
+- [`docs/guides/claude-code-install-for-non-technical-users.md`](../../docs/guides/claude-code-install-for-non-technical-users.md) — Optional. Windows/Mac walkthrough if you want to try Claude Code in a terminal.
+- [`docs/guides/student-ai-enhancements.md`](../../docs/guides/student-ai-enhancements.md) — Optional / ungraded. Above-and-beyond paths (author a Claude Skill, try a Claude-for-Financial-Services plugin).
+
 **Stage assignments:**
 [Stage 0](stage0-repo-setup.md) |
 [Stage 1](stage1-template-architecture.md) |
