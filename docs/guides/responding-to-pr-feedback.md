@@ -4,7 +4,7 @@ audience: Students with portfolio repos receiving instructor PR feedback
 status: required reading before Stage 5 submission
 last_updated: 2026-05-13
 related:
-  - github_mba_guide.md
+  - github-mba-guide.md
   - claude-code-install-for-non-technical-users.md
 ---
 
@@ -12,7 +12,7 @@ related:
 
 A short, focused guide for the moment that matters most: the instructor opened a pull request on your portfolio repo and you need to respond to it before Stage 5. The Stage 5 rubric grades **5% of your project score** on how visibly you responded — silence is the failure mode this guide is designed to prevent.
 
-If this is the first time you've encountered a pull request, read **Section 8 of [`github_mba_guide.md`](github_mba_guide.md#8-reading-and-responding-to-a-pull-request-pr) first** — it covers the mechanics (where to click, what each tab means). This guide is the rubric-shaped checklist that goes on top of those mechanics.
+If this is the first time you've encountered a pull request, read **Section 8 of [`github-mba-guide.md`](github-mba-guide.md#8-reading-and-responding-to-a-pull-request-pr) first** — it covers the mechanics (where to click, what each tab means). This guide is the rubric-shaped checklist that goes on top of those mechanics.
 
 ---
 
@@ -131,12 +131,12 @@ This earns full 5%. Total time investment: ~30 minutes for the comment review + 
 
 Two possibilities:
 
-1. **Instructor write access isn't set up.** Check Settings → Collaborators on your repo. If `adamwstauffer` is **Pending** or absent, no PRs can be opened. Fix this immediately — see [Section 7 of `github_mba_guide.md`](github_mba_guide.md#7-adding-a-collaborator-granting-the-instructor-write-access).
+1. **Instructor write access isn't set up.** Check Settings → Collaborators on your repo. If `adamwstauffer` is **Pending** or absent, no PRs can be opened. Fix this immediately — see [Section 7 of `github-mba-guide.md`](github-mba-guide.md#7-adding-a-collaborator-granting-the-instructor-write-access).
 2. **Your Stage 2 memo had little to flag.** It happens. In that case, write a one-line acknowledgement in your final analysis: *"Stage 2 received light PR feedback — the instructor's review affirmed scope and framing; no commits needed in response. Reviewed PR at {URL}."* That demonstrates awareness and earns most of the 5% line.
 
 ---
 
 ## Where to go next
 
-- **Need the underlying GitHub mechanics?** [`github_mba_guide.md`](github_mba_guide.md) covers commits, branches, GitHub Desktop, and the PR mechanics this guide assumes.
+- **Need the underlying GitHub mechanics?** [`github-mba-guide.md`](github-mba-guide.md) covers commits, branches, GitHub Desktop, and the PR mechanics this guide assumes.
 - **Stuck on a specific PR action?** Paste the situation into [claude.ai](https://claude.ai): *"I'm responding to a PR on my GitHub repo. The instructor left a comment that {summary}. What's the cleanest way to {accept / modify / reject} it visibly so a grader can see my response?"* Claude is a competent PR-mechanics tutor.

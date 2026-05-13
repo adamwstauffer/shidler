@@ -12,6 +12,8 @@ Create your own public GitHub repository — your **portfolio repo** — that wi
 
 A polished public repo is one of the highest-leverage career artifacts you can build. Every subsequent stage adds to it.
 
+> **Never used GitHub before?** This Stage 0 doc is the on-ramp. If you want deeper coverage of any topic below (first commit using GitHub Desktop, the Collaborators panel, pushing larger files), the full reference is at [`docs/guides/github-mba-guide.md`](../../docs/guides/github-mba-guide.md). You don't need to read it cover-to-cover — treat it as the dictionary you keep open in another tab while you follow these five steps.
+
 ## Why this is Stage 0
 
 Every later stage delivers into *your* repo. Standing it up now removes a tooling barrier before any analytical work begins, and it forces an early decision: this work will be public-facing and version-controlled, not buried on a personal hard drive.
@@ -118,7 +120,34 @@ Corporate-Finance/
 
 The course repo (`courses/BUS-629-VEMBA-International-Corporate-Finance/`) is a **living example** — copy and adapt its READMEs.
 
-### 3d. Save your skeleton back to GitHub
+### 3d. Add a `.gitignore` so junk files stay out
+
+Excel and your OS both create hidden temp files that you do **not** want in your commit history. The fix is a one-time `.gitignore` file at the root of your repo. **Add it now**, before your first Stage 3 workbook commit — once junk files land in the history, getting them back out is painful.
+
+1. In the root of your repo (next to `README.md`), create a new file named **`.gitignore`** (the leading dot is required — on Windows, your file explorer may try to strip it; if so, save the file from a text editor like VS Code or Notepad with quotes around the name: `".gitignore"`).
+2. Paste in:
+
+    ```
+    # Excel and Office temp files
+    ~$*.xlsx
+    ~$*.xls
+    ~$*.docx
+    ~$*.pptx
+
+    # OS junk
+    .DS_Store
+    Thumbs.db
+
+    # Editor backups
+    *.tmp
+    *.bak
+    ```
+
+3. Save the file.
+
+GitHub Desktop will now silently filter these files out of the **Changes** panel — they won't appear as pending changes the next time you open the workbook in Excel. **If you ever see `~$your-workbook.xlsx` in the Changes panel**, your `.gitignore` is missing or this file isn't matching. Re-check.
+
+### 3e. Save your skeleton back to GitHub
 
 In GitHub Desktop:
 1. You'll see all your new files in the **Changes** panel on the left.
