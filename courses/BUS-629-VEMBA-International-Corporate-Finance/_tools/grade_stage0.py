@@ -40,6 +40,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -263,12 +264,13 @@ def _gh(*args: str) -> str:
     try:
         proc = subprocess.run(
             ["gh", *args], check=False, capture_output=True, text=True,
+            encoding="utf-8", errors="replace",
         )
     except FileNotFoundError:
         raise SystemExit("`gh` CLI not found. Install GitHub CLI to grade Stage 0.")
     if proc.returncode != 0:
         return ""
-    return proc.stdout
+    return proc.stdout or ""
 
 
 @dataclass
@@ -700,6 +702,407 @@ def build_worksheet(grades: list[Grade], floor_pct: int, output_path: Path) -> N
 
 
 # ------------------------------------------------------------------
+# Markdown grade report (STAGE0_GRADES.md)
+# ------------------------------------------------------------------
+
+def _final_score(g: Grade, floor_pct: int) -> int:
+    info = g.inspection
+    floor_value = round(TOTAL_POINTS * floor_pct / 100)
+    if info.accessible and not info.private and g.raw_total < floor_value:
+        return floor_value
+    return g.raw_total
+
+
+def _floor_was_applied(g: Grade, floor_pct: int) -> bool:
+    info = g.inspection
+    floor_value = round(TOTAL_POINTS * floor_pct / 100)
+    return info.accessible and not info.private and g.raw_total < floor_value
+
+
+def _letter_for(score: int) -> str:
+    for letter, lo, hi in LETTER_GRADE_SCALE:
+        lo_pts = round(lo * TOTAL_POINTS / 100)
+        if score >= lo_pts and (hi is None or score < round(hi * TOTAL_POINTS / 100)):
+            return letter
+    return "F"
+
+
+def _repo_note(g: Grade) -> str:
+    info = g.inspection
+    if not info.accessible:
+        return "Repo not accessible. " + (info.error or "")
+    if info.private:
+        return "Repo is private — flip to public so graders can see it."
+    return "Public, accessible without login."
+
+
+def _summary_tagline(g: Grade) -> str:
+    """Short note for the class-summary table row."""
+    flags = set(g.flags)
+    if "REPO_INACCESSIBLE" in flags:
+        return "Repo not accessible — confirm URL and visibility."
+    if "REPO_PRIVATE" in flags:
+        return "Repo is private — flip to public."
+    if "BIO_MISSING" in flags and "RESUME_MISSING" in flags:
+        return "Floor applied — bio and resume both need real content."
+    if "BIO_MISSING" in flags or "BIO_STUB" in flags:
+        return "Floor applied — bio needs to be fleshed out."
+    if "RESUME_MISSING" in flags or "RESUME_STUB" in flags:
+        return "Floor applied — resume needs to be fleshed out."
+    if "FEW_COMMITS" in flags:
+        return "Floor applied — needs more commits."
+    if "STRONG" in flags:
+        return "Strong on merit; see suggestions for refinements."
+    return "See per-student suggestions for refinements."
+
+
+def _suggestions_for(g: Grade) -> list[str]:
+    """Kindly-worded, per-student improvement suggestions derived from flags + scores.
+
+    Auto-generated suggestions are templated and generic; instructors are expected
+    to edit/personalize them before sharing the report with students.
+    """
+    info = g.inspection
+    s: list[str] = []
+
+    if "REPO_INACCESSIBLE" in g.flags:
+        s.append(
+            "We weren't able to reach your repo. Double-check the URL on Lamaku "
+            "and confirm the repo is set to **Public** under Settings → Danger Zone → "
+            "Change visibility. If you intended to keep it private, share access with "
+            "the instructor's GitHub account."
+        )
+        return s
+
+    if "REPO_PRIVATE" in g.flags:
+        s.append(
+            "Flip the repo to **Public** in GitHub Settings → Danger Zone → Change "
+            "visibility. Right now graders (and recruiters) can't see your work."
+        )
+
+    if g.dirs_present < g.dirs_total:
+        s.append(
+            f"Add the missing required directories ({g.dirs_present}/{g.dirs_total} "
+            "present today). The Stage 0 doc lists all eleven; even creating an empty "
+            "placeholder README.md in each is enough to scaffold the layout."
+        )
+    if g.placeholder_readme_count > 0:
+        s.append(
+            f"Replace the {g.placeholder_readme_count} placeholder README(s) with a "
+            "sentence or two describing what belongs in each folder. Each directory's "
+            "README is what helps a recruiter (or future you) navigate the repo six "
+            "months from now."
+        )
+
+    if "BIO_MISSING" in g.flags:
+        s.append(
+            "Add `BIO.md` with a 150–200 word professional bio. The Stage 0 doc walks "
+            "through using Claude or ChatGPT with the bio template — 30–45 minutes "
+            "with an LLM gets you a strong first draft."
+        )
+    elif "BIO_STUB" in g.flags:
+        bio_wc = max(g.word_count_bio, g.word_count_readme)
+        s.append(
+            f"Expand your bio — currently about {bio_wc} words; aim for the 150–200 "
+            "word target. A complete bio covers role/company, expertise/achievements, "
+            "education, and a forward-looking goal."
+        )
+    elif g.word_count_bio and g.word_count_bio > 250:
+        s.append(
+            f"`BIO.md` is on the long side ({g.word_count_bio} words vs. the 150–200 "
+            "target). Trim a paragraph or merge background sections — easier to scan."
+        )
+
+    if "RESUME_MISSING" in g.flags:
+        s.append(
+            "Fill in `RESUME.md` with a Penn-style resume: Education → Experience → "
+            "Skills, with quantified bullets (%, $, headcount). The Stage 0 doc links "
+            "to a template."
+        )
+    elif "RESUME_STUB" in g.flags:
+        s.append(
+            f"Expand `RESUME.md` — currently {g.word_count_resume} words; aim for 250+ "
+            "in Penn-style format with quantified bullets."
+        )
+
+    if "FEW_COMMITS" in g.flags:
+        s.append(
+            "Try committing in smaller steps as you work, rather than one big upload. "
+            "Even 3–4 commits for Stage 0 (skeleton, README, BIO, RESUME) shows "
+            "iterative work to anyone reading the history."
+        )
+    elif g.commit_count and (g.descriptive_commit_count / g.commit_count) < 0.75:
+        s.append(
+            f"A few commit messages could be tighter — {g.descriptive_commit_count}/"
+            f"{g.commit_count} are descriptive. Rule of thumb: lead with a verb, name "
+            "the file or area, and add the *why* if it's not obvious. Avoid `wip`, "
+            "`update`, `fix typo`, or repeated `Update README.md`."
+        )
+
+    if info.accessible and not info.has_license:
+        s.append(
+            "Optional: add a `LICENSE` (MIT or CC-BY-4.0 are both fine). GitHub "
+            "displays the license prominently on the repo landing page — a small "
+            "recruiter-friendly touch."
+        )
+
+    if "STRONG" in g.flags and not s:
+        s.append(
+            "Strong submission across all five criteria — no specific suggestions "
+            "from the rubric scan. Keep up the iterative habits (descriptive commits, "
+            "meaningful READMEs) as the project gets more substantive."
+        )
+
+    return s
+
+
+def _student_section(n: int, g: Grade, floor_pct: int) -> str:
+    sub = g.submission
+    info = g.inspection
+    submitted = (
+        sub.submitted_at.strftime("%Y-%m-%d %I:%M %p")
+        if sub.submitted_at else "—"
+    )
+    raw = g.raw_total
+    floor_applied = _floor_was_applied(g, floor_pct)
+    final = _final_score(g, floor_pct)
+    letter = _letter_for(final)
+
+    bio_used = "BIO.md" if info.bio else "README.md"
+    bio_wc_shown = g.word_count_bio if info.bio else g.word_count_readme
+
+    lines: list[str] = []
+    suffix = ", floor applied" if floor_applied else ""
+    lines.append(f"## {n}. {sub.student_name} — **{final} / 100** ({letter}{suffix})")
+    lines.append("")
+    lines.append(f"**Repo:** {sub.repo_url}")
+    lines.append(f"**Submitted:** {submitted}")
+    lines.append("")
+    lines.append("| Criterion | Earned | Notes |")
+    lines.append("|-----------|--------|-------|")
+    lines.append(
+        f"| Repo public + accessible | {g.score_public} / 15 | {_repo_note(g)} |"
+    )
+    lines.append(
+        f"| Directory skeleton + READMEs | {g.score_skeleton} / 20 | "
+        f"{g.dirs_present}/{g.dirs_total} directories present; "
+        f"{g.meaningful_readme_count}/"
+        f"{g.meaningful_readme_count + g.placeholder_readme_count} READMEs meaningful. |"
+    )
+    lines.append(
+        f"| Bio quality | {g.score_bio} / 25 | "
+        f"`{bio_used}` is {bio_wc_shown} words. |"
+    )
+    lines.append(
+        f"| Resume quality | {g.score_resume} / 25 | "
+        f"`RESUME.md` is {g.word_count_resume} words. |"
+    )
+    lines.append(
+        f"| Commit hygiene | {g.score_commits} / 15 | "
+        f"{g.commit_count} commits, {g.descriptive_commit_count} descriptive. |"
+    )
+    if floor_applied:
+        floor_value = round(TOTAL_POINTS * floor_pct / 100)
+        lines.append(f"| **Raw total** | **{raw} / 100** | |")
+        lines.append(
+            f"| **Floor adjustment** | **+{floor_value - raw}** | "
+            f"Working public repo present — floor of {floor_pct} applied per "
+            "course policy. |"
+        )
+        lines.append(f"| **Final** | **{final} / 100** | |")
+    else:
+        merit_note = " Above the floor — earned on merit." if raw >= round(
+            TOTAL_POINTS * floor_pct / 100
+        ) else ""
+        lines.append(f"| **Total** | **{final} / 100** |{merit_note} |")
+    lines.append("")
+
+    suggestions = _suggestions_for(g)
+    if suggestions:
+        lines.append("### Kindly-worded suggestions for improvement")
+        lines.append("")
+        for tip in suggestions:
+            lines.append(f"- {tip}")
+        lines.append("")
+
+    lines.append("---")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _build_full_report(grades: list[Grade], floor_pct: int, today: datetime) -> str:
+    lines = [
+        "# BUS-629 Stage 0 — Grade Report",
+        "",
+        "**Stage:** Stage 0 — Personal Portfolio Repository (5% of project score)",
+        f"**Graded:** {today.strftime('%Y-%m-%d')}",
+        f"**Submissions reviewed:** {len(grades)}",
+        f"**Floor policy:** Any submission with a working public GitHub repo "
+        f"receives a floor of {floor_pct}%.",
+        "",
+        "---",
+        "",
+        "## Rubric (recap)",
+        "",
+        "| Criterion | Weight |",
+        "|-----------|--------|",
+        "| Repo public + accessible | 15% |",
+        "| Directory skeleton + READMEs | 20% |",
+        "| Bio quality (150–200 words; structured; iteratively revised) | 25% |",
+        "| Resume quality (Penn-style; quantified; concise) | 25% |",
+        "| Commit hygiene (≥2 commits; descriptive messages) | 15% |",
+        "",
+        "---",
+        "",
+    ]
+    for i, g in enumerate(grades, 1):
+        lines.append(_student_section(i, g, floor_pct))
+    lines.append("## Class summary")
+    lines.append("")
+    lines.append("| Student | Score | Notes |")
+    lines.append("|---------|-------|-------|")
+    for g in grades:
+        lines.append(
+            f"| {g.submission.student_name} | "
+            f"{_final_score(g, floor_pct)} / 100 | "
+            f"{_summary_tagline(g)} |"
+        )
+    lines.append("")
+    finals = [_final_score(g, floor_pct) for g in grades]
+    mean = sum(finals) / len(finals) if finals else 0.0
+    floors = sum(1 for g in grades if _floor_was_applied(g, floor_pct))
+    lines.append(f"**Mean:** {mean:.1f}  ")
+    lines.append(f"**Floor applied:** {floors} of {len(grades)} submissions")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def write_or_update_grade_report(
+    grades: list[Grade], floor_pct: int, report_path: Path,
+    today: datetime | None = None,
+) -> list[Grade]:
+    """Write STAGE0_GRADES.md, appending new entries if the file already exists.
+
+    Existing entries are detected by repo URL; we never overwrite them, so
+    instructor-personalized suggestions are preserved across re-runs.
+
+    Returns the list of newly-added grades.
+    """
+    today = today or datetime.now()
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if not report_path.exists():
+        report_path.write_text(
+            _build_full_report(grades, floor_pct, today), encoding="utf-8"
+        )
+        return list(grades)
+
+    text = report_path.read_text(encoding="utf-8")
+    existing_urls = {
+        u.lower().rstrip("/")
+        for u in re.findall(r"https?://github\.com/[A-Za-z0-9_./-]+", text)
+    }
+    new_grades = [
+        g for g in grades
+        if g.submission.repo_url.lower().rstrip("/") not in existing_urls
+    ]
+    if not new_grades:
+        return []
+
+    nums = [int(n) for n in re.findall(r"^## (\d+)\.", text, re.MULTILINE)]
+    next_n = (max(nums) + 1) if nums else 1
+
+    chunks = []
+    for g in new_grades:
+        chunks.append(_student_section(next_n, g, floor_pct))
+        next_n += 1
+    new_block = "\n".join(chunks)
+
+    if "## Class summary" in text:
+        text = text.replace(
+            "## Class summary", new_block + "\n## Class summary", 1
+        )
+    else:
+        text = text.rstrip() + "\n\n" + new_block
+
+    # Append rows to the class-summary table (between the header separator and
+    # the blank line that precedes **Mean:**).
+    table_re = re.compile(
+        r"(## Class summary\s*\n+"
+        r"\| Student \| Score \| Notes \|\n"
+        r"\| ?-+ ?\| ?-+ ?\| ?-+ ?\|\n"
+        r"(?:\|[^\n]*\|\n)+)"
+    )
+    m = table_re.search(text)
+    if m:
+        new_rows = "".join(
+            f"| {g.submission.student_name} | "
+            f"{_final_score(g, floor_pct)} / 100 | "
+            f"{_summary_tagline(g)} |\n"
+            for g in new_grades
+        )
+        text = text[: m.end()] + new_rows + text[m.end():]
+
+    # Recompute Mean and Floor-applied counts by parsing the (now-updated) file.
+    finals = [
+        int(s) for s in re.findall(
+            r"^## \d+\.[^—]*— \*\*(\d+) / 100\*\*", text, re.MULTILINE
+        )
+    ]
+    floor_count = len(re.findall(r"floor applied", text, re.IGNORECASE))
+    mean = sum(finals) / len(finals) if finals else 0.0
+
+    text = re.sub(
+        r"\*\*Mean:\*\* [^\n]*",
+        f"**Mean:** {mean:.1f}  ",
+        text, count=1,
+    )
+    text = re.sub(
+        r"\*\*Floor applied:\*\* \d+ of \d+ submissions",
+        f"**Floor applied:** {floor_count} of {len(finals)} submissions",
+        text, count=1,
+    )
+    text = re.sub(
+        r"\*\*Submissions reviewed:\*\* \d+",
+        f"**Submissions reviewed:** {len(finals)}",
+        text, count=1,
+    )
+    text = re.sub(
+        r"\*\*Graded:\*\* [^\n]*",
+        f"**Graded:** {today.strftime('%Y-%m-%d')} "
+        f"({', '.join(g.submission.student_name for g in new_grades)} added)",
+        text, count=1,
+    )
+
+    report_path.write_text(text, encoding="utf-8")
+    return new_grades
+
+
+# ------------------------------------------------------------------
+# Workflow helpers (ungraded/ → graded/ move)
+# ------------------------------------------------------------------
+
+def _detect_workflow(export_path: Path) -> tuple[Path, Path] | None:
+    """Detect the ungraded/graded workflow.
+
+    Returns (graded_dir, scratch_extract_dir) when:
+      - export_path is a zip file
+      - export_path's immediate parent folder is named ``ungraded`` (any case)
+      - a sibling ``graded`` folder exists or can be created
+
+    Returns None otherwise (fall back to the legacy _grading/ output path).
+    """
+    if not (export_path.is_file() and export_path.suffix.lower() == ".zip"):
+        return None
+    parent = export_path.parent
+    if parent.name.lower() != "ungraded":
+        return None
+    graded = parent.parent / "graded"
+    scratch = parent / f"_{export_path.stem}_extracted"
+    return graded, scratch
+
+
+# ------------------------------------------------------------------
 # CLI
 # ------------------------------------------------------------------
 
@@ -710,7 +1113,12 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--floor", type=int, default=DEFAULT_FLOOR_PCT,
                    help="Floor percentage for working-repo submissions (default 90)")
     p.add_argument("--out", type=Path, default=None,
-                   help="Output xlsx path (default: <export-dir>/_grading/stage0-grading-worksheet.xlsx)")
+                   help="Override worksheet output path. Default in workflow mode: "
+                        "<root>/graded/_worksheets/stage0-<zipstem>.xlsx. Default "
+                        "otherwise: <export-dir>/_grading/stage0-grading-worksheet.xlsx.")
+    p.add_argument("--no-move", action="store_true",
+                   help="Skip moving the source zip from ungraded/ to graded/ "
+                        "(workflow mode only).")
     args = p.parse_args(argv)
 
     subs = discover_submissions(args.export)
@@ -730,12 +1138,47 @@ def main(argv: list[str] | None = None) -> int:
         else:
             print(f"raw={g.raw_total}/100 flags={','.join(g.flags) or '-'}")
 
-    out = args.out or (
-        (args.export.parent if args.export.is_file() else args.export)
-        / "_grading" / "stage0-grading-worksheet.xlsx"
-    )
-    build_worksheet(grades, args.floor, out)
-    print(f"\nWrote {out}")
+    workflow = _detect_workflow(args.export)
+
+    if args.out is not None:
+        worksheet_path = args.out
+    elif workflow is not None:
+        graded_dir, _scratch = workflow
+        graded_dir.mkdir(parents=True, exist_ok=True)
+        ws_dir = graded_dir / "_worksheets"
+        ws_dir.mkdir(exist_ok=True)
+        worksheet_path = ws_dir / f"stage0-{args.export.stem}.xlsx"
+    else:
+        worksheet_path = (
+            (args.export.parent if args.export.is_file() else args.export)
+            / "_grading" / "stage0-grading-worksheet.xlsx"
+        )
+
+    build_worksheet(grades, args.floor, worksheet_path)
+    print(f"\nWrote worksheet: {worksheet_path}")
+
+    if workflow is not None:
+        graded_dir, scratch = workflow
+        report_path = graded_dir / "STAGE0_GRADES.md"
+        new_entries = write_or_update_grade_report(grades, args.floor, report_path)
+        if new_entries:
+            names = ", ".join(g.submission.student_name for g in new_entries)
+            print(f"Updated report: {report_path} (+{len(new_entries)} new: {names})")
+        else:
+            print(f"Report already up to date: {report_path} "
+                  f"(all {len(grades)} submission(s) already recorded)")
+
+        if not args.no_move:
+            dest = graded_dir / args.export.name
+            if dest.exists():
+                print(f"Source zip already exists at {dest} — leaving original in place.")
+            else:
+                shutil.move(str(args.export), str(dest))
+                print(f"Moved source zip → {dest}")
+            if scratch.exists():
+                shutil.rmtree(scratch, ignore_errors=True)
+                print(f"Cleaned up scratch extract at {scratch}")
+
     return 0
 
 
