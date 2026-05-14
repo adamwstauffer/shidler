@@ -4,14 +4,20 @@
 **Format:** Deliverable-only — no in-class presentation
 **Deliverable:** Markdown memo (`.md`) committed to your portfolio repo
 
+> ## ⚠ Do this first — required for grading
+>
+> **Add `adamwstauffer` as a Write collaborator on your portfolio repo before you submit.** This is the single most important Stage 2 setup step. Without it I cannot leave tracked feedback on your work, and a **−5 point penalty applies to your Stage 2 raw score** (and every subsequent stage until it is fixed).
+>
+> Steps: Repo → **Settings** → **Collaborators** → **Add people** → search `adamwstauffer` → choose **Write** → **Add to this repository**. 60 seconds. Full walkthrough is in [§ Grant instructor write access to your repo](#grant-instructor-write-access-to-your-repo-required) below.
+
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template (you already have a copy in your repo).
 > **Output (this stage):** A memo at `docs/decisions/YYYY-MM-DD-{lastname}-{company-slug}-selection.md` selecting the company you'll analyze for the rest of the semester.
-> **Used by:** Stage 3 (you populate the template with this company's financials) and Stage 5 (graded on how you incorporated the instructor's PR feedback on this memo).
+> **Used by:** Stage 3 (you populate the template with this company's financials) and Stage 5 (graded on how you incorporated the instructor's tracked feedback on this memo).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall with Git setup or pushing your work, you may upload this memo directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{lastname}-{company-slug}-selection.md`). Using the Lamaku fallback does **not** reduce your Stage 2 grade. By Stage 5, the memo must also live in your repo at `docs/decisions/` — your Stage 5 polish rubric assumes the full project history is in the repo.
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall with Git setup or pushing your work, you may upload this memo directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{lastname}-{company-slug}-selection.md`). Using the Lamaku fallback does **not** reduce your Stage 2 grade. By Stage 5, the memo must also live in your repo at `docs/decisions/` — your Stage 5 polish rubric assumes the full project history is in the repo. **The Lamaku fallback does not waive the collaborator requirement above — add `adamwstauffer` either way.**
 
-> **Unfamiliar terms?** "PR" (pull request), "YAML frontmatter," "10-K," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
+> **Unfamiliar terms?** "PR" (pull request — the mechanism GitHub uses to deliver tracked feedback documents), "YAML frontmatter," "10-K," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
 
 ---
 
@@ -42,11 +48,13 @@ Copy, rename per the convention above, fill in the sections, keep the YAML front
 
 ---
 
-## Grant instructor write access to your repo
+## Grant instructor write access to your repo (required)
 
-**Required as part of the Stage 2 submission checklist.** The instructor reviews your work as **pull requests opened against your repo** — concrete suggested edits you can read, comment on, and merge — rather than as comments on an external document. The PR-driven feedback loop mirrors real code-review workflows used across software, finance technology, and quantitative research teams.
+**This is a required Stage 2 setup step. A −5 point penalty applies to your raw score if it isn't done by the submission deadline, and the penalty carries forward into every subsequent stage until it is fixed.**
 
-Steps (GitHub web UI):
+The instructor delivers feedback as a tracked review document opened directly on your repo — the same idea as a manager handing back a marked-up draft memo, an auditor's review note on a working paper, or an analyst peer-review on a deal memo. You read the suggestions inline, accept or push back on each one, and the back-and-forth becomes the historical record graded by the Stage 5 *feedback-incorporation* rubric line. The mechanism GitHub uses for this is called a **Pull Request (PR)** — concrete, traceable, and either accepted or revised — but the workflow itself is the same one used in finance, accounting, audit, and consulting practices to mark up draft work.
+
+**Steps (GitHub web UI, 60 seconds):**
 
 1. Open your portfolio repo on GitHub.
 2. Click **Settings** (top-right of repo nav).
@@ -56,9 +64,11 @@ Steps (GitHub web UI):
 6. Choose the **Write** role.
 7. Click **Add to this repository**.
 
-You can verify by reloading the Collaborators page — the instructor should appear with the Write role.
+You can verify by reloading the Collaborators page — `adamwstauffer` should appear with the Write role.
 
-**Choose Write.** Write is the right answer for this project — it enables the instructor to open pull requests directly on your repo without waiting for merge approvals. If you have a specific reason for being more cautious (corporate-policy concern about granting Write on a personal repo), Triage is an acceptable fallback that still lets the instructor review and comment, just not push directly. If you are unsure, pick Write.
+**Choose Write.** Write is the right answer for this project — it lets me open feedback documents directly on your repo without waiting for merge approvals. If you have a specific reason for being more cautious (corporate policy concern about granting Write on a personal repo), Triage is an acceptable fallback that still lets me review and comment, just not propose direct edits. If you are unsure, pick Write.
+
+**Why this is graded.** Stage 2 is the first stage with tracked feedback, and Stage 5 explicitly grades how you incorporated that feedback. If I cannot leave feedback on your work, Stage 5's incorporation rubric line is hard to satisfy and the project loses one of its core learning loops (revising work in response to a supervisor's review — a routine professional skill in every finance/accounting/audit/consulting setting).
 
 > **Never done this before?** A step-by-step walkthrough of GitHub account setup, your first commit (GitHub Desktop recommended), and the Collaborators panel lives in [`docs/guides/github-mba-guide.md`](../../docs/guides/github-mba-guide.md). Read Sections 4–7 if any of this is new to you.
 
@@ -150,11 +160,11 @@ For Stage 2, the simplest path is to **paste the raw template URL into Claude.ai
 
 ## Submission checklist
 
+- [ ] **`adamwstauffer` added as a Write collaborator on the repo** — required; −5 raw points until fixed (see [§ Grant instructor write access](#grant-instructor-write-access-to-your-repo-required))
 - [ ] Memo committed to `docs/decisions/` with the correct filename
 - [ ] YAML frontmatter intact from the template
 - [ ] All six required sections present
 - [ ] Hypotheses written in "I expect X because Y" form
-- [ ] Instructor added as a **Write** collaborator on the repo
 - [ ] (If using fallback) memo uploaded to Lamaku with the same filename convention
 
 ---
@@ -168,7 +178,7 @@ For Stage 2, the simplest path is to **paste the raw template URL into Claude.ai
 | Data Source Identification | 25% |
 | Professionalism & Communication | 25% |
 
-Granting instructor write access is part of the submission checklist, not a separate rubric line — but a memo submitted without write access cannot be reviewed via PR and may be returned for setup before it is graded.
+**Collaborator-status penalty: −5 raw points** if `adamwstauffer` is not a Write collaborator on your repo by the submission deadline. The penalty carries forward into every subsequent stage until fixed — and once fixed before a stage's deadline, it lifts retroactively. Without Write access I cannot leave tracked feedback on your work, which means the Stage 5 *feedback-incorporation* rubric line has nothing to grade against.
 
 ---
 
@@ -178,4 +188,4 @@ Granting instructor write access is part of the submission checklist, not a sepa
 - **Hypotheses must be falsifiable and directional.** "I expect X because Y" is a hypothesis. "I'll see what the ratios show" is not.
 - **Cite specific data sources.** "SEC EDGAR" is good. "The internet" is not.
 - **Use the memo template's frontmatter.** It encodes the fields the rubric expects — leave it intact when you customize.
-- **Expect feedback and plan for it.** The instructor will return PR-style suggestions on your repo. Stage 5 grades how you incorporated that feedback — track it from the start (a `docs/decisions/{date}-stage2-feedback-response.md` follow-up memo is a clean way to do this).
+- **Expect feedback and plan for it.** The instructor will leave tracked review suggestions directly on your work — the way a manager or auditor marks up a draft. Stage 5 grades how you incorporated that feedback — track it from the start (a `docs/decisions/{date}-stage2-feedback-response.md` follow-up memo is a clean way to do this).
