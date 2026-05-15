@@ -261,6 +261,8 @@ class SweepResult:
     new_raw: int
     breakdown: list[tuple[str, int, int]]   # (label, prior_score, new_score)
     prior_effective: int                     # the current effective score
+    prior_collab_penalty: int = 0            # collab penalty in original entry (Stage 2)
+    new_collab_penalty: int = 0              # collab penalty in current rescore (Stage 2)
     skipped_reason: str = ""                 # if non-empty, no diff applied
 
 
@@ -319,9 +321,23 @@ def run_sweep_for_student(
 
     prior_effective = entry.last_regrade_score if entry.last_regrade_score is not None else entry.header_score
 
+    # Collaborator penalty — Stage 2 only. Parse 'Collaborator-status penalty | **−N**'
+    # (or '−N' / '-N' variants) from the section text for the 'before' value; pull
+    # the 'after' value off the Grade object.
+    new_collab_penalty = int(getattr(grade, "collab_penalty", 0) or 0)
+    prior_collab_penalty = 0
+    m = re.search(
+        r"Collaborator[- ]status penalty[^|]*\|\s*\**\s*[−\-]?\s*(\d+)\s*\**\s*\|",
+        section_text, re.IGNORECASE,
+    )
+    if m:
+        prior_collab_penalty = int(m.group(1))
+
     return SweepResult(
         student=entry, new_raw=new_raw,
         breakdown=breakdown, prior_effective=prior_effective,
+        prior_collab_penalty=prior_collab_penalty,
+        new_collab_penalty=new_collab_penalty,
     )
 
 
@@ -353,8 +369,8 @@ def build_regrade_block(
     lines.append("| Criterion | Before | After | Δ |")
     lines.append("|---|---|---|---|")
 
-    raw_before = 0
-    raw_after = 0
+    sub_before = 0
+    sub_after = 0
     for label, max_pts in [(c[0], c[2]) for c in cfg.criterion_columns]:
         row = next((r for r in result.breakdown if r[0] == label), None)
         if row is None:
@@ -366,24 +382,49 @@ def build_regrade_block(
             f"| {label} | {before} / {max_pts} | {after} / {max_pts} | "
             f"{sign}{delta} |"
         )
-        raw_before += before
-        raw_after += after
+        sub_before += before
+        sub_after += after
 
-    eff_before = result.prior_effective
-    eff_after = _effective_for(raw_after, cfg.floor_pct)
-
-    # Raw subtotal row.
-    raw_delta = raw_after - raw_before
-    raw_sign = "+" if raw_delta > 0 else ("±" if raw_delta == 0 else "")
+    # Rubric subtotal row (sum of criterion scores — pre-penalty).
+    sub_delta = sub_after - sub_before
+    sub_sign = "+" if sub_delta > 0 else ("±" if sub_delta == 0 else "")
     lines.append(
-        f"| **Raw subtotal** | **{raw_before} / 100** | **{raw_after} / 100** | "
-        f"**{raw_sign}{raw_delta}** |"
+        f"| **Rubric subtotal** | **{sub_before} / 100** | **{sub_after} / 100** | "
+        f"**{sub_sign}{sub_delta}** |"
     )
 
-    # Floor adjustment row — only when the floor was/is doing work.
+    # Collaborator penalty row (Stage 2) — only when relevant.
+    pen_before = result.prior_collab_penalty
+    pen_after = result.new_collab_penalty
+    if pen_before or pen_after:
+        # Δ for penalty: a *reduced* penalty improves the score, so the
+        # visible delta should be positive when the penalty drops.
+        pen_delta = pen_before - pen_after
+        pen_sign = "+" if pen_delta > 0 else ("±" if pen_delta == 0 else "")
+        before_cell = f"−{pen_before}" if pen_before > 0 else "0"
+        after_cell = f"−{pen_after}" if pen_after > 0 else "0"
+        lines.append(
+            f"| Collaborator penalty | {before_cell} | {after_cell} | "
+            f"{pen_sign}{pen_delta} |"
+        )
+
+    # Raw total row (subtotal − penalties; this is what the floor compares against).
+    raw_before = max(0, sub_before - pen_before)
+    raw_after = max(0, sub_after - pen_after)
+    eff_before = result.prior_effective
+    eff_after = _effective_for(raw_after, cfg.floor_pct)
+    if pen_before or pen_after:
+        raw_delta = raw_after - raw_before
+        raw_sign = "+" if raw_delta > 0 else ("±" if raw_delta == 0 else "")
+        lines.append(
+            f"| **Raw total** | **{raw_before} / 100** | **{raw_after} / 100** | "
+            f"**{raw_sign}{raw_delta}** |"
+        )
+
+    # Floor adjustment row — only when the floor was/is doing work (raw < floor).
     floor_before = eff_before - raw_before
     floor_after = eff_after - raw_after
-    if floor_before or floor_after:
+    if floor_before > 0 or floor_after > 0:
         before_cell = f"+{floor_before}" if floor_before > 0 else "—"
         after_cell = f"+{floor_after}" if floor_after > 0 else "—"
         f_delta = floor_after - floor_before

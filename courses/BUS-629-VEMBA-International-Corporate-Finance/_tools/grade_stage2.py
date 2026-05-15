@@ -89,9 +89,12 @@ STAGE_TARGET_DIR = "docs/decisions"
 INSTRUCTOR_GITHUB_HANDLE = "adamwstauffer"
 
 REQUIRED_FRONTMATTER_FIELDS = [
-    "template", "purpose", "audience", "stage", "author", "date",
+    "template", "stage", "author", "date",
     "company", "ticker", "exchange",
 ]
+# `purpose` and `audience` describe the *template* (per docs/templates/memo-template.md
+# frontmatter convention), not an individual memo — they're metadata about the template
+# itself. Memos written from the template don't need to carry them.
 REQUIRED_SECTIONS = [
     ("Company Overview", re.compile(r"^#+\s*\d?\.?\s*Company Overview", re.MULTILINE | re.IGNORECASE)),
     ("Selection Rationale", re.compile(r"^#+\s*\d?\.?\s*Selection Rationale", re.MULTILINE | re.IGNORECASE)),
@@ -586,10 +589,10 @@ def score(sub: Submission, memo: MemoInspection, repo: RepoInspection,
         )
         rationale_text = rationale_match.group(1) if rationale_match else ""
         rationale_wc = len(re.findall(r"\b\w+\b", rationale_text))
-        if rationale_wc < 60:
+        if rationale_wc < 40:
             g.score_selection = 18
             g.flags.append("RATIONALE_THIN")
-        elif rationale_wc < 120:
+        elif rationale_wc < 80:
             g.score_selection = 22
         else:
             g.score_selection = 25
@@ -740,10 +743,9 @@ def _suggestions_for(g: Grade) -> list[Suggestion]:
     if "FRONTMATTER_INCOMPLETE" in g.flags and memo.frontmatter_missing_fields:
         missing = ", ".join(f"`{f}`" for f in memo.frontmatter_missing_fields)
         s.append(core(
-            f"YAML frontmatter is missing {missing}. The template encodes the "
-            "fields the rubric expects — keep all of `template`, `purpose`, "
-            "`audience`, `stage`, `author`, `date`, `company`, `ticker`, `exchange` "
-            "filled in."
+            f"YAML frontmatter is missing {missing}. Keep all of `template`, "
+            "`stage`, `author`, `date`, `company`, `ticker`, `exchange` filled in "
+            "(memo routing fields `to`/`from`/`re` are optional but encouraged)."
         ))
 
     if "SECTIONS_MISSING" in g.flags:
@@ -757,10 +759,11 @@ def _suggestions_for(g: Grade) -> list[Suggestion]:
     if "RATIONALE_THIN" in g.flags:
         s.append(core(
             "The **Selection Rationale** section is light on prose. The rubric "
-            "weights this 25% — aim for 100–150 words explaining *why this company* "
+            "weights this 25% — aim for 80+ words explaining *why this company* "
             "(industry relevance, your career angle, what makes its ratios "
             "analytically interesting). Specificity is the dimension that earns "
-            "full marks."
+            "full marks; you can be terse if every sentence carries a distinct "
+            "rationale point."
         ))
 
     h = memo.hypothesis_count
@@ -1433,7 +1436,15 @@ def rescore_from_repo(
 
     import tempfile
     tmp = Path(tempfile.mkdtemp(prefix=f"sweep_s2_{owner}_"))
-    memo_dest = tmp / "memo.md"
+    # Write the temp file under the actual repo filename so inspect_memo()'s
+    # filename validation sees the real name (not a generic "memo.md" placeholder).
+    # If the repo doesn't have the file, fall back to "memo.md" so inspect_memo
+    # still runs (and reports memo_not_found).
+    real_filename = (
+        Path(repo_info.memo_repo_path).name
+        if repo_info.memo_repo_path else "memo.md"
+    )
+    memo_dest = tmp / real_filename
     if repo_info.memo_in_repo and repo_info.memo_repo_path and repo_info.accessible:
         text = _download_text(
             owner, repo, repo_info.memo_repo_path, repo_info.default_branch
@@ -1442,9 +1453,6 @@ def rescore_from_repo(
             memo_dest.write_text(text, encoding="utf-8")
 
     memo_info = inspect_memo(memo_dest)
-    # Preserve the actual repo filename for the report.
-    if repo_info.memo_repo_path:
-        memo_info.filename = Path(repo_info.memo_repo_path).name
 
     sub = Submission(
         student_id=student_id,

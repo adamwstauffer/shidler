@@ -1419,15 +1419,19 @@ def rescore_from_repo(
 
     import tempfile
     tmp = Path(tempfile.mkdtemp(prefix=f"sweep_s3_{owner}_"))
-    wb_dest = tmp / "financials.xlsx"
+    # Write the temp file under the actual repo filename so inspect_workbook()'s
+    # filename validation sees the real name (not a generic "financials.xlsx" placeholder).
+    real_filename = (
+        Path(repo_info.file_repo_path).name
+        if repo_info.file_repo_path else "financials.xlsx"
+    )
+    wb_dest = tmp / real_filename
     if repo_info.file_in_repo and repo_info.file_repo_path and repo_info.accessible:
         _download_blob(
             owner, repo, repo_info.file_repo_path, repo_info.default_branch, wb_dest
         )
 
     wb_info = inspect_workbook(wb_dest)
-    if repo_info.file_repo_path:
-        wb_info.filename = Path(repo_info.file_repo_path).name
 
     sub = Submission(
         student_id=student_id,
