@@ -777,7 +777,7 @@ def _suggestions_for(g: Grade) -> list[str]:
     if "REPO_PRIVATE" in g.flags:
         s.append(
             "Flip the repo to **Public** in GitHub Settings → Danger Zone → Change "
-            "visibility. Right now graders (and recruiters) can't see your work."
+            "visibility. Right now graders (and anyone you'd want to show the work to) can't see it."
         )
 
     if g.dirs_present < g.dirs_total:
@@ -790,8 +790,8 @@ def _suggestions_for(g: Grade) -> list[str]:
         s.append(
             f"Replace the {g.placeholder_readme_count} placeholder README(s) with a "
             "sentence or two describing what belongs in each folder. Each directory's "
-            "README is what helps a recruiter (or future you) navigate the repo six "
-            "months from now."
+            "README is what helps a manager, auditor, or future-you navigate the repo "
+            "six months from now without opening every file."
         )
 
     if "BIO_MISSING" in g.flags:
@@ -843,7 +843,7 @@ def _suggestions_for(g: Grade) -> list[str]:
         s.append(
             "Optional: add a `LICENSE` (MIT or CC-BY-4.0 are both fine). GitHub "
             "displays the license prominently on the repo landing page — a small "
-            "recruiter-friendly touch."
+            "professional-polish touch."
         )
 
     if "STRONG" in g.flags and not s:

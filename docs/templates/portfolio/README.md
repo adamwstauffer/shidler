@@ -9,7 +9,7 @@ Professional bio and resume templates for student GitHub portfolios. These are t
 - **Public or private:** Share with a link or keep private until ready.
 - **Easy export:** Print or save to PDF anytime.
 
-A polished public repo (`yourname-portfolio` or similar) is a discoverable artifact recruiters can find — much harder to do with a Word file on your laptop.
+A polished public repo (`yourname-portfolio` or similar) is a discoverable artifact managers, peers, and reviewers can find — much harder to do with a Word file on your laptop.
 
 ---
 

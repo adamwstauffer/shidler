@@ -225,7 +225,7 @@ Each row notes which course project most naturally leads into the extension.
 2. **Adapt it** to the specific extension (e.g., add an LBO debt schedule tab, or restructure the memo for an IC audience).
 3. **Use it on a real example.** A blank template is worth less than a populated one. Pick a real company or scenario and run it end-to-end.
 4. **Commit it to your portfolio repo** with a clear README explaining what the template is for and when to use it.
-5. **Link it from your bio.** A recruiter who lands on your repo should be able to find your extensions in two clicks.
+5. **Link it from your bio.** A manager, peer, or reviewer who lands on your repo should be able to find your extensions in two clicks.
 
 A portfolio with three thoughtful, well-executed extensions beats one with twenty half-finished templates. Pick deliberately, build well.
 

@@ -136,7 +136,7 @@ From your GitHub home page:
 1. Click the **+** icon (top-right) → **New repository**.
 2. **Repository name:** `Corporate-Finance` (or another professional name appropriate to the course).
 3. **Description:** one sentence — e.g., *"AI-assisted ratio analysis and corporate-finance portfolio for Shidler BUS 629."*
-4. **Visibility:** **Public.** Your repo is a portfolio piece you'll share with recruiters and on LinkedIn.
+4. **Visibility:** **Public.** Your repo is a portfolio piece you'll share with managers, professional peers, and on LinkedIn.
 5. **Initialize with:** check `README`, `.gitignore` (pick any template from the dropdown — `Node` is a safe default), and `LICENSE` (MIT recommended).
 6. Click **Create repository**.
 

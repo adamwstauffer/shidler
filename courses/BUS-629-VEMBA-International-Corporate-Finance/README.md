@@ -163,7 +163,7 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 |---|---|
 | **Repository (repo)** | A folder of files tracked by Git and hosted on GitHub. Your portfolio repo holds everything you produce in this project. |
 | **Commit** | A saved snapshot of your repo at a moment in time, with a short message describing what changed. You will commit dozens of times across the semester. |
-| **Commit history** | The chronological list of all commits in your repo. Reviewers (recruiters, the instructor) can see it. |
+| **Commit history** | The chronological list of all commits in your repo. Reviewers (the instructor, managers, audit reviewers) can see it. |
 | **Commit hash** | The unique ID (e.g., `ec8fa60`) of one commit. Used to point at a specific saved state. |
 | **Pull request (PR)** | A proposed change to your repo, opened by you or a collaborator (the instructor). You read the suggested edits, comment on them, and either merge or reject. The instructor uses PRs to give you feedback on your memo, spec, and final analysis. |
 | **YAML frontmatter** | The block of metadata at the top of a Markdown file, between two `---` lines. Looks like `title:`, `date:`, `author:`. The repo's templates use frontmatter to encode required fields — leave it intact when you customize a template. |

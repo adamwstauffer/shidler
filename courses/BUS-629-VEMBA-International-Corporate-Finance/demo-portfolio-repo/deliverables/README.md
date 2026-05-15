@@ -1,6 +1,6 @@
 # `deliverables/`
 
-Final, presentation-ready outputs (Stage 5). This is the polished layer — what you'd hand to a recruiter, professor, or client.
+Final, presentation-ready outputs (Stage 5). This is the polished layer — what you'd hand to a manager, professor, audit partner, or client.
 
 ## What belongs here
 
