@@ -53,6 +53,15 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
+from _grading_comments import (
+    Suggestion,
+    core,
+    forward,
+    next_stage_pointer,
+    render_suggestions,
+)
+
+STAGE_N = 0
 DEFAULT_FLOOR_PCT = 90
 TOTAL_POINTS = 100
 
@@ -756,102 +765,113 @@ def _summary_tagline(g: Grade) -> str:
     return "See per-student suggestions for refinements."
 
 
-def _suggestions_for(g: Grade) -> list[str]:
+def _suggestions_for(g: Grade) -> list[Suggestion]:
     """Kindly-worded, per-student improvement suggestions derived from flags + scores.
+
+    Returns a list of `Suggestion` objects tagged by bucket (CORE / FORWARD).
+    Stage 0 has no prior stage, so the BACKWARD bucket is unused here.
 
     Auto-generated suggestions are templated and generic; instructors are expected
     to edit/personalize them before sharing the report with students.
     """
     info = g.inspection
-    s: list[str] = []
+    s: list[Suggestion] = []
 
     if "REPO_INACCESSIBLE" in g.flags:
-        s.append(
+        s.append(core(
             "We weren't able to reach your repo. Double-check the URL on Lamaku "
             "and confirm the repo is set to **Public** under Settings → Danger Zone → "
             "Change visibility. If you intended to keep it private, share access with "
             "the instructor's GitHub account."
-        )
+        ))
         return s
 
     if "REPO_PRIVATE" in g.flags:
-        s.append(
+        s.append(core(
             "Flip the repo to **Public** in GitHub Settings → Danger Zone → Change "
             "visibility. Right now graders (and anyone you'd want to show the work to) can't see it."
-        )
+        ))
 
     if g.dirs_present < g.dirs_total:
-        s.append(
+        s.append(core(
             f"Add the missing required directories ({g.dirs_present}/{g.dirs_total} "
             "present today). The Stage 0 doc lists all eleven; even creating an empty "
             "placeholder README.md in each is enough to scaffold the layout."
-        )
+        ))
     if g.placeholder_readme_count > 0:
-        s.append(
+        s.append(core(
             f"Replace the {g.placeholder_readme_count} placeholder README(s) with a "
             "sentence or two describing what belongs in each folder. Each directory's "
             "README is what helps a manager, auditor, or future-you navigate the repo "
             "six months from now without opening every file."
-        )
+        ))
 
     if "BIO_MISSING" in g.flags:
-        s.append(
+        s.append(core(
             "Add `BIO.md` with a 150–200 word professional bio. The Stage 0 doc walks "
             "through using Claude or ChatGPT with the bio template — 30–45 minutes "
             "with an LLM gets you a strong first draft."
-        )
+        ))
     elif "BIO_STUB" in g.flags:
         bio_wc = max(g.word_count_bio, g.word_count_readme)
-        s.append(
+        s.append(core(
             f"Expand your bio — currently about {bio_wc} words; aim for the 150–200 "
             "word target. A complete bio covers role/company, expertise/achievements, "
             "education, and a forward-looking goal."
-        )
+        ))
     elif g.word_count_bio and g.word_count_bio > 250:
-        s.append(
+        s.append(core(
             f"`BIO.md` is on the long side ({g.word_count_bio} words vs. the 150–200 "
             "target). Trim a paragraph or merge background sections — easier to scan."
-        )
+        ))
 
     if "RESUME_MISSING" in g.flags:
-        s.append(
+        s.append(core(
             "Fill in `RESUME.md` with a Penn-style resume: Education → Experience → "
             "Skills, with quantified bullets (%, $, headcount). The Stage 0 doc links "
             "to a template."
-        )
+        ))
     elif "RESUME_STUB" in g.flags:
-        s.append(
+        s.append(core(
             f"Expand `RESUME.md` — currently {g.word_count_resume} words; aim for 250+ "
             "in Penn-style format with quantified bullets."
-        )
+        ))
 
     if "FEW_COMMITS" in g.flags:
-        s.append(
+        s.append(core(
             "Try committing in smaller steps as you work, rather than one big upload. "
             "Even 3–4 commits for Stage 0 (skeleton, README, BIO, RESUME) shows "
             "iterative work to anyone reading the history."
-        )
+        ))
     elif g.commit_count and (g.descriptive_commit_count / g.commit_count) < 0.75:
-        s.append(
+        s.append(core(
             f"A few commit messages could be tighter — {g.descriptive_commit_count}/"
             f"{g.commit_count} are descriptive. Rule of thumb: lead with a verb, name "
             "the file or area, and add the *why* if it's not obvious. Avoid `wip`, "
             "`update`, `fix typo`, or repeated `Update README.md`."
-        )
+        ))
 
     if info.accessible and not info.has_license:
-        s.append(
+        s.append(core(
             "Optional: add a `LICENSE` (MIT or CC-BY-4.0 are both fine). GitHub "
             "displays the license prominently on the repo landing page — a small "
             "professional-polish touch."
-        )
+        ))
 
-    if "STRONG" in g.flags and not s:
-        s.append(
+    core_count = sum(1 for x in s if x.bucket == "core")
+    if "STRONG" in g.flags and core_count == 0:
+        s.append(core(
             "Strong submission across all five criteria — no specific suggestions "
             "from the rubric scan. Keep up the iterative habits (descriptive commits, "
             "meaningful READMEs) as the project gets more substantive."
-        )
+        ))
+
+    # Always end with forward guidance — keeps every block ending on what
+    # comes next, not what's broken. Skip for repo-inaccessible cases (the
+    # early-return above already handled them).
+    fwd = next_stage_pointer(STAGE_N)
+    if fwd is not None:
+        s.append(fwd)
 
     return s
 
@@ -918,12 +938,7 @@ def _student_section(n: int, g: Grade, floor_pct: int) -> str:
     lines.append("")
 
     suggestions = _suggestions_for(g)
-    if suggestions:
-        lines.append("### Kindly-worded suggestions for improvement")
-        lines.append("")
-        for tip in suggestions:
-            lines.append(f"- {tip}")
-        lines.append("")
+    lines.extend(render_suggestions(suggestions, stage_n=STAGE_N))
 
     lines.append("---")
     lines.append("")
@@ -1076,6 +1091,39 @@ def write_or_update_grade_report(
 
     report_path.write_text(text, encoding="utf-8")
     return new_grades
+
+
+# ------------------------------------------------------------------
+# Sweep entry point — rescore a student against current repo state
+# ------------------------------------------------------------------
+
+def rescore_from_repo(
+    student_name: str,
+    repo_url: str,
+    submitted_at: datetime | None = None,
+    student_id: str = "",
+) -> Grade | None:
+    """Sweep entry point: rescore a student against current repo state.
+
+    No zip, no Lamaku submission file — pulls everything from `gh`. Used by
+    `sweep_stage.py` to apply the post-deadline revision sweep.
+
+    Returns None if the repo URL is unparseable (treat as unrecoverable
+    grading error; the sweep driver will skip the student and log).
+    """
+    m = GITHUB_URL_RE.search(repo_url)
+    if not m:
+        return None
+    sub = Submission(
+        student_id=student_id,
+        student_name=student_name,
+        submitted_at=submitted_at,
+        repo_url=repo_url,
+        owner=m.group("owner"),
+        repo=m.group("repo"),
+    )
+    info = inspect_repo(sub)
+    return score(sub, info)
 
 
 # ------------------------------------------------------------------

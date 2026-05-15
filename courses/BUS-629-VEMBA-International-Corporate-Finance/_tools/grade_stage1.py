@@ -62,6 +62,16 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
+from _grading_comments import (
+    Suggestion,
+    backward,
+    core,
+    forward,
+    next_stage_pointer,
+    render_suggestions,
+)
+
+STAGE_N = 1
 DEFAULT_FLOOR_PCT = 80
 TOTAL_POINTS = 100
 STAGE_LABEL = "Stage 1 — Provided Ratios Template"
@@ -782,123 +792,138 @@ def _letter_for(score: int) -> str:
     return "F"
 
 
-def _suggestions_for(g: Grade) -> list[str]:
+def _suggestions_for(g: Grade) -> list[Suggestion]:
     """Auto-generated, kind-worded suggestions for Stage 1.
 
+    Returns a list of `Suggestion` objects tagged by bucket:
+      - CORE     — observations about Stage 1's rubric performance
+      - BACKWARD — carry-forwards from Stage 0 (no points lost; can bump the
+                   Stage 0 score at the post-deadline revision sweep)
+      - FORWARD  — looking ahead to Stage 2
+
     Generic by design — instructors should edit/personalize before sharing
-    with students. Carry-over issues from prior stages appear as forward-
-    looking tips and never as point deductions (see `_carry`).
+    with students. Carry-over issues from prior stages appear as backward-
+    bucket tips and never as point deductions (see `_carry`).
     """
-    s: list[str] = []
+    s: list[Suggestion] = []
 
     if "TEMPLATE_NOT_SUBMITTED" in g.flags:
-        s.append(
+        s.append(core(
             "Stage 1 file (`performance-ratios-template.xlsx`) wasn't included "
             "in your Lamaku submission. Download the master from "
             "`docs/templates/spreadsheets/performance-ratios-template.xlsx`, "
             "place it under `models/templates/` in your repo, commit, and re-submit."
-        )
+        ))
         return s
 
     if "TEMPLATE_UNREADABLE" in g.flags:
-        s.append(
+        s.append(core(
             "The submitted file couldn't be opened as a valid Excel workbook. "
             "Re-download the master template, save your enhancements under "
             "`models/templates/performance-ratios-template.xlsx`, and re-submit."
-        )
+        ))
 
     if "TEMPLATE_SHEETS_DIFFER" in g.flags:
-        s.append(
+        s.append(core(
             "Your template is missing one or more of the six required sheets "
             "(`Cover`, `Balance Sheet`, `Income Statement`, `Cash Flow Statement`, "
             "`Ratios`, `Notes`). Re-download the master and start from a clean copy."
-        )
+        ))
 
     if "TEMPLATE_NAMED_RANGES_DIFFER" in g.flags:
-        s.append(
+        s.append(core(
             "The template should preserve all 87 named ranges (`BAL_*`, `INC_*`, "
             "`CASH_*`, `RATIO_*`, etc.). Stage 3's ratio formulas depend on them — "
             "if any were renamed or deleted, the Stage 3 build will break."
-        )
+        ))
 
     if "ENHANCED" in g.flags:
-        s.append(
+        s.append(core(
             f"You went past a passive upload — submitted file has "
             f"{g.xlsx.submitted_formula_count} formulas vs. the master's "
             f"{g.xlsx.master_formula_count}. Enhancements are welcome under course "
             "policy. Document them in `models/templates/README.md` (one sentence "
             "per formula you added or refined) so the Stage 4 spec writes itself."
-        )
+        ))
 
     if "TEMPLATE_WRONG_PATH" in g.flags and g.repo.template_path_found:
-        s.append(
+        s.append(core(
             f"The template was uploaded to `{g.repo.template_path_found}` rather "
             f"than the expected `{STAGE_TARGET_DIR}/{STAGE_FILENAME}`. Move it to "
             "the standard path so Stage 3 tooling can find it automatically."
-        )
+        ))
 
     if "TEMPLATE_NOT_IN_REPO" in g.flags:
-        s.append(
+        s.append(core(
             "Lamaku has your file, but the repo does not — make sure to also "
             f"commit `{STAGE_FILENAME}` to `{STAGE_TARGET_DIR}/` and push. The "
             "repo is the canonical artifact at every stage."
-        )
+        ))
 
     if "DIRS_INCOMPLETE" in g.flags and not _carry(g, "DIRS_INCOMPLETE"):
-        s.append(
+        s.append(core(
             f"Directory skeleton is incomplete ({g.dirs_present}/"
             f"{len(REQUIRED_DIRS)} required dirs present). The Stage 0 doc lists "
             "all eleven; even an empty README.md in each is enough to scaffold."
-        )
+        ))
     elif "CARRY_OVER_DIRS" in g.flags:
-        s.append(
-            f"Carry-over from Stage 0: the directory skeleton is still "
+        s.append(backward(
+            f"**Still open from Stage 0:** the directory skeleton is still "
             f"incomplete ({g.dirs_present}/{len(REQUIRED_DIRS)} present). Not "
-            "re-deducted here; please fill in the remaining directories before Stage 3."
-        )
+            "re-deducted here; please fill in the remaining directories before "
+            "Stage 3 — closing this before the deadline can also bump your "
+            "Stage 0 score at the post-deadline revision sweep."
+        ))
 
     if "CARRY_OVER_READMES" in g.flags:
-        s.append(
-            "Carry-over from Stage 0: placeholder README(s) remain in directory "
-            "subfolders. Not re-deducted here; please fill them in with a "
-            "sentence or two of purpose before Stage 3 — that's the dimension "
-            "this repo is judged on in the rubric."
-        )
+        s.append(backward(
+            "**Still open from Stage 0:** placeholder README(s) remain in "
+            "directory subfolders. Not re-deducted here; a sentence or two of "
+            "purpose in each is what the rubric is asking for. Closing this "
+            "before the deadline can also bump your Stage 0 score at the "
+            "post-deadline revision sweep."
+        ))
 
     if "NO_NEW_COMMITS_SINCE_STAGE0" in g.flags:
-        s.append(
+        s.append(core(
             "No new commits since Stage 0 — the template was already in the repo "
             "by Stage 0 submission time. That's fine for Stage 1, but try to "
             "commit Stage 2 / Stage 3 work in incremental chunks so the history "
             "shows progression."
-        )
+        ))
     elif "FEW_NEW_COMMITS" in g.flags:
-        s.append(
+        s.append(core(
             "Only one new commit since Stage 0 — try committing in smaller "
             "steps as you work (e.g., one commit per logical change). Iterative "
             "history makes the repo more useful as a portfolio artifact."
-        )
+        ))
     elif "COMMIT_HYGIENE" in g.flags and not _carry(g, "COMMIT_HYGIENE"):
-        s.append(
+        s.append(core(
             f"Commit messages could be a touch tighter — only "
             f"{g.new_descriptive}/{g.new_commits} are descriptive. Lead with a "
             "verb, name the file or area, and add the *why* if it's not obvious."
-        )
+        ))
     elif "CARRY_OVER_COMMITS" in g.flags:
-        s.append(
-            f"Carry-over from Stage 0: commit-message hygiene still uneven "
+        s.append(backward(
+            f"**Still open from Stage 0:** commit-message hygiene still uneven "
             f"({g.new_descriptive}/{g.new_commits} descriptive in the new "
             "batch). Not re-deducted here; tightening this is a 5-minute habit "
-            "change that compounds across stages."
-        )
+            "change that compounds across stages, and closing the original "
+            "Stage 0 gap before the deadline can bump that score at the sweep."
+        ))
 
-    if "STRONG" in g.flags and not s:
-        s.append(
-            "Strong submission across all four criteria. Keep the same habits "
-            "going into Stage 2 — the company-selection memo is largely a "
-            "writing exercise, so the disciplined repo hygiene already in place "
-            "will carry the technical side."
-        )
+    core_count = sum(1 for x in s if x.bucket == "core")
+    if "STRONG" in g.flags and core_count == 0:
+        s.append(core(
+            "Strong submission across all four criteria. The disciplined repo "
+            "hygiene already in place will carry you through Stage 2's "
+            "writing-heavy memo and Stage 3's data-entry pass."
+        ))
+
+    # Always end with forward guidance.
+    fwd = next_stage_pointer(STAGE_N)
+    if fwd is not None:
+        s.append(fwd)
 
     return s
 
@@ -1000,12 +1025,7 @@ def _student_section(n: int, g: Grade, floor_pct: int) -> str:
     lines.append("")
 
     suggestions = _suggestions_for(g)
-    if suggestions:
-        lines.append("### Kindly-worded suggestions for improvement")
-        lines.append("")
-        for tip in suggestions:
-            lines.append(f"- {tip}")
-        lines.append("")
+    lines.extend(render_suggestions(suggestions, stage_n=STAGE_N))
 
     lines.append("---")
     lines.append("")
@@ -1182,6 +1202,83 @@ def write_or_update_grade_report(
 
     report_path.write_text(text, encoding="utf-8")
     return new_grades
+
+
+# ------------------------------------------------------------------
+# Sweep entry point — rescore a student against current repo state
+# ------------------------------------------------------------------
+
+GITHUB_URL_RE = re.compile(
+    r"https?://github\.com/(?P<owner>[A-Za-z0-9_.-]+)/(?P<repo>[A-Za-z0-9_.-]+)"
+)
+
+
+def _download_blob(owner: str, repo: str, path: str, branch: str, dest: Path) -> bool:
+    """Fetch a binary blob from a repo to `dest`. Returns True on success."""
+    import base64
+    raw = _gh(
+        "api", f"repos/{owner}/{repo}/contents/{path}",
+        "-X", "GET", "-f", f"ref={branch}",
+    )
+    if not raw:
+        return False
+    try:
+        meta = json.loads(raw)
+    except json.JSONDecodeError:
+        return False
+    content = meta.get("content")
+    if not content:
+        return False
+    try:
+        dest.write_bytes(base64.b64decode(content))
+    except Exception:
+        return False
+    return True
+
+
+def rescore_from_repo(
+    student_name: str,
+    repo_url: str,
+    submitted_at: datetime | None = None,
+    prior: "PriorGrade | None" = None,
+    master_path: Path | None = None,
+    student_id: str = "",
+) -> Grade | None:
+    """Sweep entry point: rescore Stage 1 against current repo state.
+
+    Fetches the template from the student's repo (canonical path first,
+    then any *.xlsx matching the filename). Falls back to a not-found
+    inspection if the file isn't in the repo at all.
+
+    Returns None if the repo URL is unparseable.
+    """
+    m = GITHUB_URL_RE.search(repo_url)
+    if not m:
+        return None
+    owner, repo = m.group("owner"), m.group("repo")
+    repo_info = inspect_repo(owner, repo)
+
+    import tempfile
+    tmp = Path(tempfile.mkdtemp(prefix=f"sweep_s1_{owner}_"))
+    xlsx_dest = tmp / STAGE_FILENAME
+    found_path = None
+    if repo_info.template_path_found and repo_info.accessible:
+        found_path = repo_info.template_path_found
+        _download_blob(owner, repo, found_path, repo_info.default_branch, xlsx_dest)
+    # If file missing, inspect_xlsx will mark it not-found.
+
+    xlsx_info = inspect_xlsx(xlsx_dest, master_path)
+
+    sub = Submission(
+        student_id=student_id,
+        student_name=student_name,
+        submitted_at=submitted_at,
+        xlsx_path=xlsx_dest,
+        repo_url=repo_url,
+        owner=owner,
+        repo=repo,
+    )
+    return score(sub, xlsx_info, repo_info, prior)
 
 
 # ------------------------------------------------------------------

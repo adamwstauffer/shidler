@@ -72,6 +72,16 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
+from _grading_comments import (
+    Suggestion,
+    backward,
+    core,
+    forward,
+    next_stage_pointer,
+    render_suggestions,
+)
+
+STAGE_N = 2
 DEFAULT_FLOOR_PCT = 80
 TOTAL_POINTS = 100
 STAGE_LABEL = "Stage 2 — Company Selection Memo"
@@ -696,57 +706,66 @@ def _letter_for(score: int) -> str:
     return "F"
 
 
-def _suggestions_for(g: Grade) -> list[str]:
-    s: list[str] = []
+def _suggestions_for(g: Grade) -> list[Suggestion]:
+    """Auto-generated, kind-worded suggestions for Stage 2.
+
+    Returns a list of `Suggestion` objects tagged by bucket:
+      - CORE     — observations about Stage 2's rubric performance
+      - BACKWARD — carry-forwards from Stage 0 / Stage 1 (no points lost;
+                   can bump the prior stage's score at the post-deadline
+                   revision sweep)
+      - FORWARD  — looking ahead to Stage 3
+    """
+    s: list[Suggestion] = []
     memo = g.memo
 
     if "MEMO_NOT_SUBMITTED" in g.flags:
-        s.append(
+        s.append(core(
             "No Stage 2 memo was included in your Lamaku submission. The "
             "deliverable is a Markdown memo named "
             "`YYYY-MM-DD-{lastname}-{company-slug}-selection.md` saved to "
             "`docs/decisions/` in your repo. The course memo template under "
             "`docs/templates/memo-template.md` is a good starting point."
-        )
+        ))
         return s
 
     if "FILENAME_NONSTANDARD" in g.flags:
-        s.append(
+        s.append(core(
             f"The filename `{memo.filename}` doesn't match the convention "
             "`YYYY-MM-DD-{lastname}-{company-slug}-selection.md` (all lowercase, "
             "hyphen-separated, ISO date prefix). Rename in-repo and re-commit; "
             "Stage 4/5 tooling indexes files by this convention."
-        )
+        ))
 
     if "FRONTMATTER_INCOMPLETE" in g.flags and memo.frontmatter_missing_fields:
         missing = ", ".join(f"`{f}`" for f in memo.frontmatter_missing_fields)
-        s.append(
+        s.append(core(
             f"YAML frontmatter is missing {missing}. The template encodes the "
             "fields the rubric expects — keep all of `template`, `purpose`, "
             "`audience`, `stage`, `author`, `date`, `company`, `ticker`, `exchange` "
             "filled in."
-        )
+        ))
 
     if "SECTIONS_MISSING" in g.flags:
-        s.append(
+        s.append(core(
             "Required section(s) appear to be missing: "
             + ", ".join(memo.sections_missing) + ". The Stage 2 brief lists all "
             "six numbered sections — each should be a separate `## N. Title` "
             "heading the grader can locate without searching."
-        )
+        ))
 
     if "RATIONALE_THIN" in g.flags:
-        s.append(
+        s.append(core(
             "The **Selection Rationale** section is light on prose. The rubric "
             "weights this 25% — aim for 100–150 words explaining *why this company* "
             "(industry relevance, your career angle, what makes its ratios "
             "analytically interesting). Specificity is the dimension that earns "
             "full marks."
-        )
+        ))
 
     h = memo.hypothesis_count
     if "NO_FALSIFIABLE_HYPOTHESES" in g.flags:
-        s.append(
+        s.append(core(
             "**Preliminary Observations** should contain 2–3 falsifiable, "
             "directional hypotheses in the form *\"I expect X because Y\"* — "
             "this is the rubric's bright-line test for full credit on the "
@@ -754,62 +773,62 @@ def _suggestions_for(g: Grade) -> list[str]:
             "ratios from FY2023→FY2024 because Vinamilk financed its Indochina "
             "expansion with USD debt issued in early 2024.\"* Open-ended framings "
             "(*\"we'll see what the ratios show\"*) do not earn full credit."
-        )
+        ))
     elif "HYPOTHESES_UNDER_TARGET" in g.flags:
-        s.append(
+        s.append(core(
             f"You have {h} clean *\"I expect X because Y\"* hypothesis(es); the "
             "target is 2–3. Add another in the same falsifiable, directional "
             "form — pick a different ratio category from the one(s) you've "
             "already covered."
-        )
+        ))
     elif "HYPOTHESES_SOME_HEDGED" in g.flags:
-        s.append(
+        s.append(core(
             "One or more of your hypotheses hedges with *\"may\"* or *\"might\"* "
             "rather than the bright *\"I expect X because Y\"* form. Tighten the "
             "verb — *\"I expect X because Y\"* is a falsifiable claim; "
             "*\"X may happen because Y\"* isn't. Same idea, sharper voice."
-        )
+        ))
 
     if "SOURCES_MISSING" in g.flags or "SOURCES_VAGUE" in g.flags:
-        s.append(
+        s.append(core(
             "The **Data Availability & Sources** section needs named, specific "
             "sources — SEC EDGAR, the company's IR page URL, the relevant "
             "exchange's disclosure portal, and any commercial database you'll "
             "use (Mergent / FactSet / Capital IQ). *\"The internet\"* and "
             "*\"Google\"* are not sources."
-        )
+        ))
     elif "SOURCES_THIN" in g.flags:
-        s.append(
+        s.append(core(
             "Only one named source detected in your **Data Availability** "
             "section. Strong submissions name 3+ — typically the primary filing "
             "venue (SEC EDGAR / exchange portal), the company's IR page, and a "
             "secondary database for market data (Yahoo Finance, Mergent, etc.)."
-        )
+        ))
 
     if "WORD_COUNT_LOW" in g.flags or "WORD_COUNT_BELOW_TARGET" in g.flags:
-        s.append(
+        s.append(core(
             f"Prose word count is around {memo.word_count_prose}; target is "
             "400–600. The brief is a tight format but it shouldn't read as "
             "skeletal — expand the Selection Rationale and Preliminary "
             "Observations sections in particular."
-        )
+        ))
     elif "WORD_COUNT_HIGH" in g.flags:
-        s.append(
+        s.append(core(
             f"Prose word count is around {memo.word_count_prose}; target is "
             "400–600. Tighten any sections that read as repetitive — a senior "
             "analyst memo is short."
-        )
+        ))
 
     if "MEMO_NOT_IN_REPO" in g.flags:
-        s.append(
+        s.append(core(
             f"The memo was submitted via Lamaku but doesn't appear at "
             f"`{STAGE_TARGET_DIR}/` in your repo. By Stage 5 the memo must live "
             "in the repo (the Lamaku fallback is a one-off, not the canonical "
             "path) — commit it now and you'll save yourself the cleanup later."
-        )
+        ))
 
     if "INSTRUCTOR_NOT_COLLABORATOR" in g.flags:
-        s.append(
+        s.append(core(
             f"Stage 2's submission checklist asks you to add **`{INSTRUCTOR_GITHUB_HANDLE}`** "
             "as a Write collaborator on your repo so I can leave feedback "
             "directly on the document — concrete, tracked suggestions you can "
@@ -818,14 +837,48 @@ def _suggestions_for(g: Grade) -> list[str]:
             "Add people → choose **Write**. Without this I can't open a "
             "feedback document against your work, and Stage 5's "
             "feedback-incorporation rubric line gets harder."
-        )
+        ))
 
-    if "STRONG" in g.flags and not s:
-        s.append(
+    # Backward-bucket carry-forwards from Stage 0 / Stage 1.
+    if "CARRY_OVER_DIRS" in g.flags:
+        s.append(backward(
+            "**Still open from Stage 0:** directory skeleton is still "
+            "incomplete. Not re-deducted here; closing it before the deadline "
+            "can bump your Stage 0 score at the post-deadline revision sweep."
+        ))
+    if "CARRY_OVER_READMES" in g.flags:
+        s.append(backward(
+            "**Still open from Stage 0:** placeholder README(s) remain in "
+            "directory subfolders. Not re-deducted here; closing this before "
+            "the deadline can bump your Stage 0 score at the post-deadline "
+            "revision sweep."
+        ))
+    if "CARRY_OVER_COMMITS" in g.flags:
+        s.append(backward(
+            "**Still open from Stage 0:** commit-message hygiene still uneven. "
+            "Not re-deducted here; tightening verb-lead messages (and closing "
+            "the original Stage 0 gap) can bump that score at the sweep."
+        ))
+    if "CARRY_OVER_TEMPLATE_PATH" in g.flags:
+        s.append(backward(
+            "**Still open from Stage 1:** template not at the canonical "
+            f"`{STAGE_TARGET_DIR}/{getattr(memo, 'template_filename', 'performance-ratios-template.xlsx')}` "
+            "path. Not re-deducted; moving the file before Stage 3 unblocks "
+            "the tooling and can bump your Stage 1 score at the sweep."
+        ))
+
+    core_count = sum(1 for x in s if x.bucket == "core")
+    if "STRONG" in g.flags and core_count == 0:
+        s.append(core(
             "Strong submission across all four criteria — falsifiable hypotheses, "
             "specific sources, on-spec structure. Keep the same voice for Stage 3's "
-            "validation report."
-        )
+            "data-population pass."
+        ))
+
+    # Always end with forward guidance.
+    fwd = next_stage_pointer(STAGE_N)
+    if fwd is not None:
+        s.append(fwd)
 
     return s
 
@@ -935,12 +988,7 @@ def _student_section(n: int, g: Grade, floor_pct: int) -> str:
     lines.append("")
 
     suggestions = _suggestions_for(g)
-    if suggestions:
-        lines.append("### Kindly-worded suggestions for improvement")
-        lines.append("")
-        for tip in suggestions:
-            lines.append(f"- {tip}")
-        lines.append("")
+    lines.extend(render_suggestions(suggestions, stage_n=STAGE_N))
     lines.append("---")
     lines.append("")
     return "\n".join(lines)
@@ -1144,16 +1192,23 @@ def _build_feedback_md(g: Grade, floor_pct: int, today: datetime) -> str:
         f"| Professionalism & Communication | {g.score_professionalism} / 25 |",
         f"| **Total** | **{g.raw_total} / 100** |",
         "",
-        "## Suggestions for improvement",
-        "",
     ]
     if suggestions:
-        for tip in suggestions:
-            lines.append(f"- {tip}")
+        lines.extend(
+            render_suggestions(
+                suggestions,
+                stage_n=STAGE_N,
+                heading="## Suggestions for improvement",
+            )
+        )
     else:
-        lines.append("- _No specific suggestions — this is a strong submission as-is._")
+        lines.extend([
+            "## Suggestions for improvement",
+            "",
+            "- _No specific suggestions — this is a strong submission as-is._",
+            "",
+        ])
     lines.extend([
-        "",
         "## How this feedback workflow works",
         "",
         "Stage 2 feedback is delivered as a tracked feedback document (a "
@@ -1324,6 +1379,83 @@ def build_worksheet(grades: list[Grade], floor_pct: int, output_path: Path) -> N
     ws.freeze_panes = "E2"
     ws.auto_filter.ref = f"A1:{get_column_letter(len(headers))}{ws.max_row}"
     wb.save(output_path)
+
+
+# ------------------------------------------------------------------
+# Sweep entry point — rescore a student against current repo state
+# ------------------------------------------------------------------
+
+GITHUB_URL_RE = re.compile(
+    r"https?://github\.com/(?P<owner>[A-Za-z0-9_.-]+)/(?P<repo>[A-Za-z0-9_.-]+)"
+)
+
+
+def _download_text(owner: str, repo: str, path: str, branch: str) -> str | None:
+    """Fetch a text file from a repo. Returns content or None on failure."""
+    import base64
+    raw = _gh(
+        "api", f"repos/{owner}/{repo}/contents/{path}",
+        "-X", "GET", "-f", f"ref={branch}",
+    )
+    if not raw:
+        return None
+    try:
+        meta = json.loads(raw)
+    except json.JSONDecodeError:
+        return None
+    content = meta.get("content")
+    if not content:
+        return None
+    try:
+        return base64.b64decode(content).decode("utf-8", errors="replace")
+    except Exception:
+        return None
+
+
+def rescore_from_repo(
+    student_name: str,
+    repo_url: str,
+    submitted_at: datetime | None = None,
+    prior: "PriorGrade | None" = None,
+    student_id: str = "",
+) -> Grade | None:
+    """Sweep entry point: rescore Stage 2 against current repo state.
+
+    Scans `docs/decisions/` for any `*-selection.md`. If found, fetches and
+    inspects it. If multiple exist, takes the one whose filename sorts last
+    (i.e., latest date prefix wins).
+    """
+    m = GITHUB_URL_RE.search(repo_url)
+    if not m:
+        return None
+    owner, repo = m.group("owner"), m.group("repo")
+    repo_info = inspect_repo(owner, repo, "selection.md")
+
+    import tempfile
+    tmp = Path(tempfile.mkdtemp(prefix=f"sweep_s2_{owner}_"))
+    memo_dest = tmp / "memo.md"
+    if repo_info.memo_in_repo and repo_info.memo_repo_path and repo_info.accessible:
+        text = _download_text(
+            owner, repo, repo_info.memo_repo_path, repo_info.default_branch
+        )
+        if text is not None:
+            memo_dest.write_text(text, encoding="utf-8")
+
+    memo_info = inspect_memo(memo_dest)
+    # Preserve the actual repo filename for the report.
+    if repo_info.memo_repo_path:
+        memo_info.filename = Path(repo_info.memo_repo_path).name
+
+    sub = Submission(
+        student_id=student_id,
+        student_name=student_name,
+        submitted_at=submitted_at,
+        memo_path=memo_dest,
+        repo_url=repo_url,
+        owner=owner,
+        repo=repo,
+    )
+    return score(sub, memo_info, repo_info, prior)
 
 
 # ------------------------------------------------------------------

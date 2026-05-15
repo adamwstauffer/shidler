@@ -68,6 +68,16 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
+from _grading_comments import (
+    Suggestion,
+    backward,
+    core,
+    forward,
+    next_stage_pointer,
+    render_suggestions,
+)
+
+STAGE_N = 3
 DEFAULT_FLOOR_PCT = 75
 TOTAL_POINTS = 100
 STAGE_LABEL = "Stage 3 — Populated Financials Workbook"
@@ -788,31 +798,40 @@ def score(sub: Submission, wb: WorkbookInspection, repo: RepoInspection,
 # Suggestions
 # ------------------------------------------------------------------
 
-def _suggestions_for(g: Grade) -> list[str]:
-    s: list[str] = []
+def _suggestions_for(g: Grade) -> list[Suggestion]:
+    """Auto-generated, kind-worded suggestions for Stage 3.
+
+    Returns a list of `Suggestion` objects tagged by bucket:
+      - CORE     — observations about Stage 3's rubric performance
+      - BACKWARD — carry-forwards from Stage 0 / 1 / 2 (no points lost;
+                   can bump the prior stage's score at the post-deadline
+                   revision sweep)
+      - FORWARD  — looking ahead to Stage 4
+    """
+    s: list[Suggestion] = []
     wb = g.wb
 
     if "WORKBOOK_NOT_SUBMITTED" in g.flags:
-        s.append(
+        s.append(core(
             "No populated workbook was found in the Lamaku submission. The Stage 3 "
             "deliverable is an `.xlsx` at "
             "`models/builds/YYYY-MM-DD-{lastname}-{company-slug}-financials.xlsx` "
             "with Income Statement, Balance Sheet, and Cash Flow filled in from "
             "the 10-K (or VAS/IFRS equivalent) of the company you selected at Stage 2."
-        )
+        ))
         return s
 
     if "FILENAME_NONSTANDARD" in g.flags:
-        s.append(
+        s.append(core(
             f"The filename `{wb.filename}` doesn't quite match the convention "
             "`YYYY-MM-DD-{lastname}-{company-slug}-financials.xlsx` "
             "(all lowercase, hyphen-separated, ISO date prefix, no extra suffix). "
             "Stage 4/5 tooling indexes the workbook by this name — please rename "
             "in-repo and re-commit."
-        )
+        ))
 
     if "BS_UNBALANCED_CURR" in g.flags:
-        s.append(
+        s.append(core(
             f"**Balance Sheet doesn't balance for the current year.** "
             f"`BAL_assets_total_curr − (BAL_liabilities_total_curr + BAL_equity_shareholders_curr)` "
             f"= {wb.bs_diff_curr:,.0f}. Most common cause: a missing line item "
@@ -821,24 +840,24 @@ def _suggestions_for(g: Grade) -> list[str]:
             "current assets / fixed assets / other assets on the left vs current "
             "liabilities / long-term debt / equity on the right — and the gap "
             "usually points at one line."
-        )
+        ))
     if "BS_UNBALANCED_PRIOR" in g.flags:
-        s.append(
+        s.append(core(
             f"**Balance Sheet doesn't balance for the prior year.** "
             f"Gap = {wb.bs_diff_prior:,.0f}. Prior-year balances feed every "
             "start-of-year ratio (ROA, asset turnover, inventory turnover); "
             "if these don't tie, the Stage 5 ratio analysis inherits the gap. "
             "Tie the prior-year column to the *prior* fiscal year column in "
             "the 10-K — many filings show 2-year comparatives on the same page."
-        )
+        ))
     if "BS_PRIOR_BLANK" in g.flags:
-        s.append(
+        s.append(core(
             "Prior-year balance-sheet column appears blank or sparsely populated. "
             "Every `startYear_*` named range pulls from the BAL_*_prior cells, so "
             "without these, ROA/ROE/asset-turnover ratios cannot compute correctly. "
             "Most 10-Ks present two years side-by-side on each financial statement — "
             "fill in the prior-year column from the same filing."
-        )
+        ))
 
     if "ERROR_CELLS_MANY" in g.flags or "ERROR_CELLS_FEW" in g.flags:
         outside_ratios = [
@@ -846,115 +865,138 @@ def _suggestions_for(g: Grade) -> list[str]:
             if "ratio" not in sn.lower()
         ][:5]
         if outside_ratios:
-            s.append(
+            s.append(core(
                 "Error cells detected outside the Ratios tab — likely caused by "
                 "broken formulas or missing inputs. Examples: "
                 + "; ".join(outside_ratios)
                 + ". Resolve these first — they usually cascade into the Ratios tab."
-            )
+            ))
 
     if "REVENUE_MISSING" in g.flags or "REVENUE_NONPOSITIVE" in g.flags:
-        s.append(
+        s.append(core(
             "`INC_sales` looks empty or non-positive. Double-check that Net Sales / "
             "Revenue is entered on the Income Statement at the line bound to "
             "`INC_sales`. (Right-click the cell → *Define Name* to confirm.)"
-        )
+        ))
     if "TOTAL_ASSETS_MISSING" in g.flags:
-        s.append(
+        s.append(core(
             "`BAL_assets_total_curr` looks empty. Total Assets should be at the "
             "bottom of the Assets column on the Balance Sheet — confirm the cell "
             "is named `BAL_assets_total_curr` and contains the sum."
-        )
+        ))
     if "SIGN_ANOMALY" in g.flags:
-        s.append(
+        s.append(core(
             "One or more cells where a non-negative value is expected (inventory, "
             "cash) appears to be negative. Cross-check the source 10-K — the most "
             "common cause is entering a contra-account from a different section."
-        )
+        ))
 
     if "PRIOR_YEAR_THIN" in g.flags:
-        s.append(
+        s.append(core(
             f"Only {wb.bal_prior_filled}/{len(REQUIRED_BAL_PRIOR)} prior-year "
             "balance-sheet line items are populated. The 10-K's comparative balance "
             "sheet shows current + prior in the same statement — they're free data "
             "and they unlock start-of-year ratios."
-        )
+        ))
     if "INC_THIN" in g.flags:
-        s.append(
+        s.append(core(
             f"Only {wb.inc_filled}/{len(REQUIRED_INC)} income-statement line items "
             "are populated. Each one (Sales, COGS, SG&A, EBIT, Interest, Tax, Net "
             "Income) drives at least one ratio — the rubric expects all of them filled."
-        )
+        ))
 
     if "DOC_FIELDS_THIN" in g.flags:
         missing_doc = [
             f for f in DOC_FIELDS if f not in wb.doc_fields_filled
         ]
-        s.append(
+        s.append(core(
             "Cover / Notes tab needs more company-context detail. Missing fields "
             "detected: " + ", ".join(missing_doc) + ". The Stage 3 spec asks for "
             "source URL, reporting standard (US GAAP / IFRS / VAS), currency and "
             "units, fiscal year-end, and the tax-rate basis. Even a one-line "
             "answer per field counts."
-        )
+        ))
 
     if "RATIOS_MANY_ERRORS" in g.flags:
         ratios_errs = [
             f"{coord} = {val}" for sn, coord, val in wb.error_cells
             if "ratio" in sn.lower()
         ][:5]
-        s.append(
+        s.append(core(
             f"The Ratios tab has {wb.error_cells_on_ratios} error cell(s) "
             f"({', '.join(ratios_errs)}). A `#DIV/0!` usually means a denominator "
             "is empty (often a `startYear_*` value); `#NAME?` means a named range "
             "isn't defined; `#REF!` means a referenced cell was deleted. The "
             "Legend / Cover tab lists every named range — cross-check each errored "
             "row against it."
-        )
+        ))
     elif "RATIOS_FEW_ERRORS" in g.flags:
         ratios_errs = [
             f"{coord} = {val}" for sn, coord, val in wb.error_cells
             if "ratio" in sn.lower()
         ][:3]
-        s.append(
+        s.append(core(
             f"The Ratios tab has a small number of error cells "
             f"({', '.join(ratios_errs)}). Each one usually traces back to a single "
             "empty input cell — fixing the input clears the dependent ratio."
-        )
+        ))
     elif "RATIOS_SPARSE" in g.flags:
-        s.append(
+        s.append(core(
             "The Ratios tab is populated but sparse — fewer than ~10 ratios "
             "resolved to numeric values. The full template computes 20+ ratios "
             "across Performance, Profitability, Efficiency, Leverage, Liquidity, "
             "and Du Pont — most of them should populate once the statement tabs "
             "are complete."
-        )
+        ))
 
     if "FILE_NOT_IN_REPO" in g.flags:
-        s.append(
+        s.append(core(
             f"The workbook was submitted via Lamaku but doesn't appear at "
             f"`{STAGE_TARGET_DIR}/` in your repo. The Stage 3 spec accepts the "
             "Lamaku fallback, but by Stage 5 the file must live in the repo — "
             "commit it now and you'll save yourself the cleanup later."
-        )
+        ))
 
     if "INSTRUCTOR_NOT_COLLABORATOR" in g.flags:
-        s.append(
-            f"`@{INSTRUCTOR_GITHUB_HANDLE}` is still not a Write collaborator on "
-            "your repo — this was flagged at Stage 2 and continues to block "
-            "the tracked-feedback workflow (the way an auditor or supervising "
+        # This was first flagged at Stage 2 — treat as backward carry-forward.
+        s.append(backward(
+            f"**Still open from Stage 2:** `@{INSTRUCTOR_GITHUB_HANDLE}` is not a "
+            "Write collaborator on your repo, which continues to block the "
+            "tracked-feedback workflow (the way an auditor or supervising "
             "analyst would mark up a draft for you to revise). Repo → Settings "
-            "→ Collaborators → Add people → **Write**. Without it, Stage 5's "
-            "feedback-incorporation rubric line is hard to satisfy."
-        )
+            "→ Collaborators → Add people → **Write**. Not re-deducted here, "
+            "but closing this before the deadline can bump your Stage 2 score "
+            "at the sweep — and Stage 5's feedback-incorporation rubric line "
+            "depends on it."
+        ))
 
-    if "STRONG" in g.flags and not s:
-        s.append(
+    # Generic backward bucket — any other CARRY_OVER_* flags.
+    if "CARRY_OVER_DIRS" in g.flags:
+        s.append(backward(
+            "**Still open from Stage 0:** directory skeleton still incomplete. "
+            "Not re-deducted here; closing it before the deadline can bump your "
+            "Stage 0 score at the post-deadline revision sweep."
+        ))
+    if "CARRY_OVER_READMES" in g.flags:
+        s.append(backward(
+            "**Still open from Stage 0:** placeholder README(s) in directory "
+            "subfolders. Not re-deducted here; a sentence of purpose in each "
+            "closes the carry-forward and can bump your Stage 0 score at the sweep."
+        ))
+
+    core_count = sum(1 for x in s if x.bucket == "core")
+    if "STRONG" in g.flags and core_count == 0:
+        s.append(core(
             "Strong submission across all four criteria — balance sheet balances "
             "both years, named ranges populated, documentation complete, and "
             "ratios resolve cleanly. Stage 4 (the spec) is largely a writing task "
             "on top of what you've already built — keep the same discipline."
-        )
+        ))
+
+    fwd = next_stage_pointer(STAGE_N)
+    if fwd is not None:
+        s.append(fwd)
+
     return s
 
 
@@ -1088,12 +1130,7 @@ def _student_section(n: int, g: Grade, floor_pct: int) -> str:
     lines.append("")
 
     suggestions = _suggestions_for(g)
-    if suggestions:
-        lines.append("### Kindly-worded suggestions for improvement")
-        lines.append("")
-        for tip in suggestions:
-            lines.append(f"- {tip}")
-        lines.append("")
+    lines.extend(render_suggestions(suggestions, stage_n=STAGE_N))
     lines.append("---")
     lines.append("")
     return "\n".join(lines)
@@ -1327,6 +1364,81 @@ def build_worksheet(grades: list[Grade], floor_pct: int, output_path: Path) -> N
     ws.freeze_panes = "F2"
     ws.auto_filter.ref = f"A1:{get_column_letter(len(headers))}{ws.max_row}"
     wb.save(output_path)
+
+
+# ------------------------------------------------------------------
+# Sweep entry point — rescore a student against current repo state
+# ------------------------------------------------------------------
+
+GITHUB_URL_RE = re.compile(
+    r"https?://github\.com/(?P<owner>[A-Za-z0-9_.-]+)/(?P<repo>[A-Za-z0-9_.-]+)"
+)
+
+
+def _download_blob(owner: str, repo: str, path: str, branch: str, dest: Path) -> bool:
+    """Fetch a binary blob from a repo to `dest`. Returns True on success."""
+    import base64
+    raw = _gh(
+        "api", f"repos/{owner}/{repo}/contents/{path}",
+        "-X", "GET", "-f", f"ref={branch}",
+    )
+    if not raw:
+        return False
+    try:
+        meta = json.loads(raw)
+    except json.JSONDecodeError:
+        return False
+    content = meta.get("content")
+    if not content:
+        return False
+    try:
+        dest.write_bytes(base64.b64decode(content))
+    except Exception:
+        return False
+    return True
+
+
+def rescore_from_repo(
+    student_name: str,
+    repo_url: str,
+    submitted_at: datetime | None = None,
+    prior: "PriorGrade | None" = None,
+    student_id: str = "",
+) -> Grade | None:
+    """Sweep entry point: rescore Stage 3 against current repo state.
+
+    Scans `models/builds/` for any `*-financials.xlsx`. If found, downloads
+    and inspects it. If multiple exist, takes the lexicographically last
+    match (latest ISO-date prefix wins).
+    """
+    m = GITHUB_URL_RE.search(repo_url)
+    if not m:
+        return None
+    owner, repo = m.group("owner"), m.group("repo")
+    repo_info = inspect_repo(owner, repo, "financials.xlsx")
+
+    import tempfile
+    tmp = Path(tempfile.mkdtemp(prefix=f"sweep_s3_{owner}_"))
+    wb_dest = tmp / "financials.xlsx"
+    if repo_info.file_in_repo and repo_info.file_repo_path and repo_info.accessible:
+        _download_blob(
+            owner, repo, repo_info.file_repo_path, repo_info.default_branch, wb_dest
+        )
+
+    wb_info = inspect_workbook(wb_dest)
+    if repo_info.file_repo_path:
+        wb_info.filename = Path(repo_info.file_repo_path).name
+
+    sub = Submission(
+        student_id=student_id,
+        student_name=student_name,
+        submitted_at=submitted_at,
+        workbook_path=wb_dest,
+        repo_url=repo_url,
+        owner=owner,
+        repo=repo,
+    )
+    return score(sub, wb_info, repo_info, prior)
 
 
 # ------------------------------------------------------------------
