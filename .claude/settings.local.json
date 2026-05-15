@@ -141,7 +141,8 @@
       "PowerShell(gh api *)",
       "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; python C:\\\\Users\\\\adamw\\\\AppData\\\\Local\\\\Temp\\\\fetch_linh.py > $env:TEMP\\\\linh_dump.txt 2>&1; \"wrote $env:TEMP\\\\linh_dump.txt\")",
       "PowerShell(python -c \"from openpyxl import load_workbook; wb=load_workbook\\(r'C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage0\\\\ungraded\\\\_grading\\\\stage0-grading-worksheet.xlsx'\\); ws=wb['Grading']; [print\\(' | '.join\\(str\\(c.value\\) for c in r\\)\\) for r in ws.iter_rows\\(\\)]\")",
-      "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; python \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\_tools\\\\grade_stage2.py\" \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage2\\\\ungraded\\\\Stage 2 - Draft Decision Memo Linh Nguyen - Submissions May 13, 2026 932 PM.zip\")"
+      "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; python \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\_tools\\\\grade_stage2.py\" \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage2\\\\ungraded\\\\Stage 2 - Draft Decision Memo Linh Nguyen - Submissions May 13, 2026 932 PM.zip\")",
+      "Skill(xlsx)"
     ]
   }
 }

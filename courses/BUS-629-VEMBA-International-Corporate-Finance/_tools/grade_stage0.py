@@ -45,6 +45,12 @@ import subprocess
 import sys
 import zipfile
 from dataclasses import dataclass, field
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except (AttributeError, OSError):
+    pass
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
@@ -482,9 +488,10 @@ def score(sub: Submission, info: RepoInspection) -> Grade:
 
     # Criterion 3: Bio quality /25
     # Use BIO.md when present and substantive, else README.md.
+    # Word-count gradation removed: any real bio earns full credit. Only a
+    # missing bio (0) or a near-empty stub (<50 words → 5) are penalized.
     g.word_count_readme = _word_count(info.readme)
     g.word_count_bio = _word_count(info.bio)
-    bio_text = info.bio if g.word_count_bio >= 80 else info.readme
     bio_wc = max(g.word_count_bio, g.word_count_readme) if not info.bio else g.word_count_bio
     if _is_placeholder(info.readme, sub.repo) and not info.bio:
         g.score_bio = 0
@@ -492,14 +499,8 @@ def score(sub: Submission, info: RepoInspection) -> Grade:
     elif bio_wc < 50:
         g.score_bio = 5
         g.flags.append("BIO_STUB")
-    elif bio_wc < 100:
-        g.score_bio = 12
-    elif bio_wc < 150:
-        g.score_bio = 18
-    elif bio_wc <= 250:
-        g.score_bio = 25
     else:
-        g.score_bio = 22  # over the 200-word ceiling but still substantive
+        g.score_bio = 25
 
     # Criterion 4: Resume quality /25
     g.word_count_resume = _word_count(info.resume)
@@ -808,21 +809,15 @@ def _suggestions_for(g: Grade) -> list[Suggestion]:
 
     if "BIO_MISSING" in g.flags:
         s.append(core(
-            "Add `BIO.md` with a 150–200 word professional bio. The Stage 0 doc walks "
+            "Add `BIO.md` with a professional bio. The Stage 0 doc walks "
             "through using Claude or ChatGPT with the bio template — 30–45 minutes "
             "with an LLM gets you a strong first draft."
         ))
     elif "BIO_STUB" in g.flags:
-        bio_wc = max(g.word_count_bio, g.word_count_readme)
         s.append(core(
-            f"Expand your bio — currently about {bio_wc} words; aim for the 150–200 "
-            "word target. A complete bio covers role/company, expertise/achievements, "
-            "education, and a forward-looking goal."
-        ))
-    elif g.word_count_bio and g.word_count_bio > 250:
-        s.append(core(
-            f"`BIO.md` is on the long side ({g.word_count_bio} words vs. the 150–200 "
-            "target). Trim a paragraph or merge background sections — easier to scan."
+            "Your bio is very short — flesh it out into a real bio that covers "
+            "role/company, expertise/achievements, education, and a forward-looking "
+            "goal. The Stage 0 doc has a template if you want a starting point."
         ))
 
     if "RESUME_MISSING" in g.flags:
@@ -963,7 +958,7 @@ def _build_full_report(grades: list[Grade], floor_pct: int, today: datetime) -> 
         "|-----------|--------|",
         "| Repo public + accessible | 15% |",
         "| Directory skeleton + READMEs | 20% |",
-        "| Bio quality (150–200 words; structured; iteratively revised) | 25% |",
+        "| Bio quality (structured; iteratively revised) | 25% |",
         "| Resume quality (Penn-style; quantified; concise) | 25% |",
         "| Commit hygiene (≥2 commits; descriptive messages) | 15% |",
         "",
