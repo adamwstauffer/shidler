@@ -29,7 +29,7 @@ Stage 5's deliverable is the repo URL itself — its final state *is* the work p
 
 The future of finance work is not "do the analysis" or "make the AI do the analysis." It's **specify the work, evaluate the output, and take responsibility for the final product**. This stage tests judgment — and closes the spec-driven design feedback loop. Where the LLM output diverges from your Stage 3 numbers or your domain knowledge, either the spec had a gap or one of your earlier stages had an error. Either way, you learn.
 
-The repo polish component recognizes a separate truth: a portfolio artifact a recruiter can find is worth more than a perfect analysis stuck in a personal Dropbox.
+The repo polish component recognizes a separate truth: a portfolio artifact a manager, audit reviewer, or future collaborator can find is worth more than a perfect analysis stuck in a personal Dropbox.
 
 ---
 
@@ -190,7 +190,7 @@ Corporate-Finance/                          (your portfolio repo root)
 Before submitting:
 
 - [ ] Top-level `README.md` updated with project status section listing all five stages and their commit hashes
-- [ ] Top-of-README "what you'll find here" block — one paragraph orienting a recruiter who just clicked the repo link
+- [ ] Top-of-README "what you'll find here" block — one paragraph orienting a manager, reviewer, or peer who just clicked the repo link
 - [ ] **One-line repo description** set in the GitHub repo page header (the field at the top of the repo page, not in the README) — summarizes the project in one sentence
 - [ ] **`LICENSE` file** at repo root (MIT or Apache-2.0 recommended — pick one, both signal "this is a portfolio piece you may reference")
 - [ ] **`.gitignore`** excluding common scratch files (`.DS_Store`, `~$*.xlsx`, `*.tmp`, etc.) — keeps the repo clean
@@ -255,6 +255,10 @@ Be specific. Do not say "rename inconsistent files" — list the exact files.
 **What the LLM should NOT do at Stage 5:** Generate the actual analysis content for you, or rewrite your final analysis to "improve" it. The polish pass is about file organization and presentation, not about the analytical substance — that substance is what the rubric is grading.
 
 **Log the prompt** in `deliverables/prompt-log.md`. The repo-cleanup conversation is just as logged-worthy as the analytical ones.
+
+---
+
+> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline — expanding the verification table, tightening the final-analysis edits, completing the spec retrospective, finishing the repo polish — can move your score up. The full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
 
 ---
 

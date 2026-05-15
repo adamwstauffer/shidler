@@ -38,7 +38,7 @@ The deck walks through these on one summary slide. This document is the detailed
 
 1. Go to **[github.com](https://github.com)** and click **Sign up**.
 2. **Use your `@hawaii.edu` email.** This makes you eligible for [GitHub Education](https://education.github.com) — free GitHub Pro (private repos, more storage), free Copilot access, and discounts on developer tools.
-3. **Choose a professional username.** Recruiters will see this. Good: `firstname-lastname`, `flastname`, `firstinitiallastname`. Avoid gamer tags, joke names, or anything you wouldn't put on a resume.
+3. **Choose a professional username.** Managers, peers, and reviewers will see this — it's effectively a second business card. Good: `firstname-lastname`, `flastname`, `firstinitiallastname`. Avoid gamer tags, joke names, or anything you wouldn't put on a resume.
 4. **Verify your email** (check your inbox for the confirmation link).
 5. Optional but recommended: upload a **profile photo** (headshot or avatar). It helps your instructor recognize you on the platform.
 6. **Share your GitHub username with the instructor** so we can find your repo.
@@ -69,7 +69,7 @@ That's it. You're done with installation.
 
 1. On [github.com](https://github.com), click the **+** in the top-right corner → **New repository**.
 2. **Repository name:** `Corporate-Finance` (or `corporate-finance` — your choice; hyphens are conventional).
-3. **Visibility:** **Public**. This is non-negotiable — the whole point is that recruiters and collaborators can find it.
+3. **Visibility:** **Public**. This is non-negotiable — the whole point is that managers, collaborators, and reviewers can find it.
 4. **Initialize this repository with:** check **Add a README file** (otherwise the repo is empty and you can't clone it).
 5. **License:** optional. Pick **MIT** if you want one — it's the most permissive.
 6. Click **Create repository**.
@@ -182,7 +182,7 @@ The course repo contains polished templates — read them first to understand th
 
 Copy the bio template's full text. In your LLM, paste the template and add a prompt like:
 
-> Here is a bio template. Help me draft a 150–200 word professional bio for my GitHub profile README. Background: [paste from your LinkedIn or describe yourself]. Use the structure of the template. The audience is recruiters and graduate program admissions. Make it specific and quantified, not generic.
+> Here is a bio template. Help me draft a 150–200 word professional bio for my GitHub profile README. Background: [paste from your LinkedIn or describe yourself]. Use the structure of the template. The audience is senior managers, graduate program admissions, and professional collaborators. Make it specific and quantified, not generic.
 
 Iterate. The bio template's prompt library has 30+ angles — try 2 or 3 and pick the strongest output.
 
@@ -224,6 +224,10 @@ Submit the URL of your public GitHub repo via Lamaku. The repo must contain:
 
 ---
 
+> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline can move your score up — the full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
+
+---
+
 ## Rubric (% of Stage 0 score)
 
 | Criterion | % | What distinguishes strong work |
@@ -240,7 +244,7 @@ Submit the URL of your public GitHub repo via Lamaku. The repo must contain:
 
 - **Don't aim for perfection on day one.** Your bio and resume will evolve all semester. Stage 0 is about getting the repo live with a usable skeleton.
 - **Use the bio template's prompt library.** It includes 30+ LLM prompts for iterative revision — pick 2–3 angles and run them before settling on the version you commit.
-- **Keep it public.** A public repo is the entire point — recruiters and collaborators need to be able to find it.
+- **Keep it public.** A public repo is the entire point — managers, collaborators, and reviewers need to be able to find it.
 - **The course repo is your reference.** When you're not sure what a directory should look like, study how this course repo is organized.
 - **Don't commit secrets.** No API keys, no passwords, no personally sensitive financial data. The provided `.gitignore` template handles common cases — see the deck's appendix for more.
 

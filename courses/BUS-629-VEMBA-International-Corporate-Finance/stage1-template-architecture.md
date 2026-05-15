@@ -83,6 +83,10 @@ The repo must contain:
 
 ---
 
+> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline can move your score up — the full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
+
+---
+
 ## Rubric (% of Stage 1 score)
 
 | Criterion | % | What distinguishes strong work |
