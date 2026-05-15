@@ -1,6 +1,6 @@
 # [Your Name]
 
-> **Demo placeholder.** Replace this file's contents with your bio (Step 4 of `stage0-repo-setup.md`). The README is the first thing visitors to your repo see — it should be a 150–200 word professional bio aimed at recruiters and graduate program admissions.
+> **Demo placeholder.** Replace this file's contents with your bio (Step 4 of `stage0-repo-setup.md`). The README is the first thing visitors to your repo see — it should be a 150–200 word professional bio aimed at senior managers, graduate program admissions, and professional collaborators.
 
 ## Quick links
 

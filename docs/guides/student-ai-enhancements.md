@@ -73,7 +73,7 @@ submitted it for code review.
 
 Two options, both legitimate:
 
-- **In your portfolio repo** at `.claude/skills/{your-skill-name}/SKILL.md`. This makes the skill visible to anyone who clones your repo (and to recruiters who browse it).
+- **In your portfolio repo** at `.claude/skills/{your-skill-name}/SKILL.md`. This makes the skill visible to anyone who clones your repo (and to managers, peers, or reviewers who browse it).
 - **In your user-level Claude config** at `~/.claude/skills/{your-skill-name}/SKILL.md`. This makes the skill available in every Claude Code session on your machine but invisible to others.
 
 For portfolio purposes, putting it in the repo is the move.
@@ -209,7 +209,7 @@ This is the part that turns the exercise into a portfolio artifact:
   - One thing the tool got wrong that your finance training caught.
   - Whether you would do it again.
 
-A 400-word honest reflection on what an AI tool got wrong is more impressive on a portfolio than a 4,000-word claim that AI "transformed your workflow." Recruiters can tell the difference.
+A 400-word honest reflection on what an AI tool got wrong is more impressive on a portfolio than a 4,000-word claim that AI "transformed your workflow." Experienced managers and senior reviewers can tell the difference.
 
 ---
 
