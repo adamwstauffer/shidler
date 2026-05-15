@@ -49,9 +49,7 @@ The trade-off is that you can't ping me mid-week asking *"can you check now?"* �
 - Read the feedback I left on your Stage N (in the rubric comments I sent you).
 - Decide which items are worth fixing before the deliverable deadline.
 - Commit those fixes to your repo. Use clear commit messages so I can see your iteration history.
-- On the date of the sweep, I'll run it and email you back with any score change.
-
-That's it. No forms, no email requests, no PRs to merge — just normal repo work.
+- On the date of the sweep, I'll run it and update your Lamaku grades.
 
 One small ask: when you make a revision in response to feedback, write a clear commit message describing what changed (`Expand BIO to 175 words; add long-term governance goal` is much more useful than `update bio`). This is the same audit-trail discipline you'd want on any real-world deliverable — and it's the second-best teaching artifact in this project after the analysis itself.
 
