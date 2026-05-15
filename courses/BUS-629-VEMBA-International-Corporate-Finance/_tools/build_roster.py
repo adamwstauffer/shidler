@@ -52,6 +52,8 @@ class StageRecord:
     submitted_at: str = ""
     floor_applied: bool = False
     workbook_or_memo: str = ""
+    original_score: int | None = None
+    regrade_date: str = ""
 
 
 @dataclass
@@ -124,11 +126,27 @@ def parse_stage_report(path: Path, stage: int) -> dict[str, StageRecord]:
         )
         artifact = artifact_match.group(1).strip() if artifact_match else ""
 
+        regrade_matches = list(re.finditer(
+            r"\*\*Re-graded final:\*\*\s*(?P<rg_score>\d+)\s*/\s*100"
+            r"[^\n]*?effective\s*(?P<rg_date>\d{4}-\d{2}-\d{2})",
+            section,
+        ))
+        regrade_score = None
+        regrade_date = ""
+        if regrade_matches:
+            latest = max(regrade_matches, key=lambda m: m.group("rg_date"))
+            regrade_score = int(latest.group("rg_score"))
+            regrade_date = latest.group("rg_date")
+
         key = _normalize_name(name)
+        effective_score = regrade_score if regrade_score is not None else score
         rec = StageRecord(
-            stage=stage, score=score, submitted_at=submitted_at,
-            floor_applied=floor, workbook_or_memo=artifact,
+            stage=stage, score=effective_score, submitted_at=submitted_at,
+            floor_applied=floor if regrade_score is None else False,
+            workbook_or_memo=artifact,
         )
+        rec.original_score = score
+        rec.regrade_date = regrade_date
         parsed[key] = rec
         if repo_url:
             repo_by_key[key] = repo_url
@@ -280,6 +298,8 @@ def enrich_with_gh(row: StudentRow) -> None:
 def _fmt_score_cell(rec: StageRecord | None) -> str:
     if not rec or rec.score is None:
         return "—"
+    if rec.regrade_date:
+        return f"{rec.score}†"
     suffix = "*" if rec.floor_applied else ""
     return f"{rec.score}{suffix}"
 
@@ -345,6 +365,7 @@ def write_markdown(rows: list[StudentRow], out_path: Path, *, used_gh: bool) -> 
          "_Offline mode — GitHub state not refreshed; only data from grade reports._"),
         "",
         "Scores marked with `*` indicate the floor was applied at that stage.  ",
+        "Scores marked with `†` indicate a re-grade (see `STAGE{N}_GRADES.md` for the `### Updated` block).  ",
         "**Collab ✓** = instructor `@" + INSTRUCTOR_GITHUB_HANDLE + "` is a "
         "Write collaborator on the repo.  ",
         "**Current stage** = highest stage the student has been graded on.  ",

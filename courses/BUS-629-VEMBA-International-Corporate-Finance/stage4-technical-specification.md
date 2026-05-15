@@ -169,6 +169,10 @@ This requirement is part of the "Spec craft + prompt log quality" rubric criteri
 
 ---
 
+> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline — sharpening the spec, iterating against the LLM output for completeness, expanding the prompt log — can move your score up. The full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
+
+---
+
 ## Rubric (Stage 4 = 20% of project)
 
 | Criterion | % of Stage 4 | What distinguishes strong work |
