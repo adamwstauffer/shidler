@@ -76,6 +76,7 @@ from _grading_comments import (
     next_stage_pointer,
     render_suggestions,
 )
+from _safe_zip import safe_extractall
 
 STAGE_N = 1
 DEFAULT_FLOOR_PCT = 80
@@ -164,7 +165,7 @@ def discover_submissions(export_path: Path) -> list[Submission]:
         scratch = export_path.parent / f"_{export_path.stem}_extracted"
         scratch.mkdir(exist_ok=True)
         with zipfile.ZipFile(export_path) as zf:
-            zf.extractall(scratch)
+            safe_extractall(zf, scratch)
         root = scratch
     elif export_path.is_dir():
         root = export_path

@@ -86,6 +86,7 @@ from _grading_comments import (
     next_stage_pointer,
     render_suggestions,
 )
+from _safe_zip import safe_extractall
 
 STAGE_N = 2
 DEFAULT_FLOOR_PCT = 80
@@ -215,7 +216,7 @@ def discover_submissions(export_path: Path) -> list[Submission]:
         scratch = export_path.parent / f"_{export_path.stem}_extracted"
         scratch.mkdir(exist_ok=True)
         with zipfile.ZipFile(export_path) as zf:
-            zf.extractall(scratch)
+            safe_extractall(zf, scratch)
         root = scratch
     elif export_path.is_dir():
         root = export_path
@@ -477,6 +478,8 @@ class RepoInspection:
     memo_in_repo: bool = False
     memo_repo_path: str = ""
     instructor_is_collaborator: bool = False
+    collaborator_permission: str = ""  # raw permission value; "" if unknown
+    collaborator_check_ran: bool = False  # False if gh missing or API didn't respond
     error: str = ""
 
 
@@ -523,10 +526,12 @@ def inspect_repo(owner: str, repo: str, expected_filename: str) -> RepoInspectio
         f"repos/{owner}/{repo}/collaborators/{INSTRUCTOR_GITHUB_HANDLE}/permission",
     )
     if perm_raw:
+        info.collaborator_check_ran = True
         try:
             perm = json.loads(perm_raw).get("permission", "")
         except json.JSONDecodeError:
             perm = ""
+        info.collaborator_permission = perm
         info.instructor_is_collaborator = perm in {"admin", "write", "maintain"}
 
     return info
@@ -679,7 +684,10 @@ def score(sub: Submission, memo: MemoInspection, repo: RepoInspection,
     if repo.queried and repo.accessible:
         if not repo.memo_in_repo:
             g.flags.append("MEMO_NOT_IN_REPO")
-        if not repo.instructor_is_collaborator:
+        # Only flag (and penalize) when the collaborator check actually ran.
+        # If `gh` is missing or the API didn't respond, we can't tell — don't
+        # dock a student for an environment issue on the grader's side.
+        if repo.collaborator_check_ran and not repo.instructor_is_collaborator:
             g.flags.append("INSTRUCTOR_NOT_COLLABORATOR")
             g.collab_penalty = COLLAB_PENALTY
 
@@ -1241,15 +1249,34 @@ def _build_feedback_md(g: Grade, floor_pct: int, today: datetime) -> str:
     return "\n".join(lines)
 
 
+_SAFE_OWNER_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9_.-]{0,38})$")
+_SAFE_REPO_RE = re.compile(r"^[A-Za-z0-9_.][A-Za-z0-9_.-]{0,99}$")
+_SAFE_LASTNAME_RE = re.compile(r"^[a-z][a-z0-9-]{0,39}$")
+_SAFE_BRANCH_RE = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9._/-]{0,99}$")
+
+
 def push_feedback_pr(g: Grade, floor_pct: int, today: datetime) -> tuple[bool, str]:
     repo = g.repo
     sub = g.submission
     if not (repo.queried and repo.accessible):
         return False, f"repo not accessible ({repo.error or 'no metadata'})"
-    if not repo.instructor_is_collaborator:
+    if not (repo.collaborator_check_ran and repo.instructor_is_collaborator):
         return False, f"instructor `@{INSTRUCTOR_GITHUB_HANDLE}` is not a Write collaborator"
 
+    # Validate every student-controlled value that's about to flow into
+    # `gh`/`git` argv. argv (not shell=True) blocks classic command injection,
+    # but `gh` and `git` parse leading-`-` values as flags, so a hostile owner
+    # like `--upload-pack=evil` would otherwise reach the subprocess as a flag.
+    if not _SAFE_OWNER_RE.fullmatch(sub.owner or ""):
+        return False, f"refusing unsafe owner value: {sub.owner!r}"
+    if not _SAFE_REPO_RE.fullmatch(sub.repo or ""):
+        return False, f"refusing unsafe repo value: {sub.repo!r}"
+    if not _SAFE_BRANCH_RE.fullmatch(repo.default_branch or ""):
+        return False, f"refusing unsafe base-branch value: {repo.default_branch!r}"
+
     lastname = sub.student_name.split()[-1].lower()
+    if not _SAFE_LASTNAME_RE.fullmatch(lastname):
+        return False, f"refusing unsafe lastname value: {lastname!r}"
     branch = f"instructor/stage2-feedback-{today.strftime('%Y-%m-%d')}-{lastname}"
     fb_filename = (
         f"{today.strftime('%Y-%m-%d')}-instructor-stage2-feedback-{lastname}.md"
@@ -1545,11 +1572,23 @@ def main(argv: list[str] | None = None) -> int:
         pg = lookup_prior(prior, s.student_name)
         g = score(s, memo, repo, pg)
         grades.append(g)
+        if repo.queried and repo.accessible and repo.collaborator_check_ran:
+            collab_str = (
+                f"Y({repo.collaborator_permission})"
+                if repo.instructor_is_collaborator
+                else f"N({repo.collaborator_permission or 'none'})"
+            )
+        elif repo.queried and not repo.accessible:
+            collab_str = "?(repo not accessible)"
+        elif repo.queried:
+            collab_str = "?(gh missing/failed)"
+        else:
+            collab_str = "?(no repo URL)"
         print(
             f"raw={g.raw_total}/100 "
             f"(hyp={memo.hypothesis_count}/{memo.hypothesis_count + memo.soft_hypothesis_count}, "
             f"src={len(memo.sources_named)}, words={memo.word_count_prose}, "
-            f"collab={repo.instructor_is_collaborator}, "
+            f"collab={collab_str}, "
             f"flags={','.join(g.flags) or '-'})"
         )
 

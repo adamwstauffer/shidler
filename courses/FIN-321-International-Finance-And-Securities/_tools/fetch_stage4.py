@@ -104,19 +104,37 @@ def github_to_raw(url: str) -> tuple[str, str]:
 STAGE4_KEYWORDS = ("stage4", "stage-4", "stage_4", "final", "memo", "recommend",
                    "executive")
 
+# Hostnames that are allowed to receive the GitHub PAT. The regex at the top of
+# the file constrains inputs to github.com URLs, but URL parsing/transformation
+# downstream is non-trivial — gate the Authorization header at request time so
+# a future regression in URL handling can't exfiltrate the token to an
+# attacker-controlled host.
+_GITHUB_HOSTS = frozenset({"api.github.com", "raw.githubusercontent.com"})
+
+
+def _auth_headers_for(url: str, token: str) -> dict[str, str]:
+    if not token:
+        return {}
+    host = (urlparse(url).hostname or "").lower()
+    if host in _GITHUB_HOSTS:
+        return {"Authorization": f"Bearer {token}"}
+    return {}
+
 
 def list_repo_tree(user: str, repo: str, branch: str,
-                   sess: requests.Session) -> list[str]:
+                   sess: requests.Session, token: str) -> list[str]:
     """Recursively list all file paths in a repo via the git-tree API."""
     api = f"https://api.github.com/repos/{user}/{repo}/git/trees/{branch}?recursive=1"
-    r = sess.get(api, headers={"Accept": "application/vnd.github+json"})
+    headers = {"Accept": "application/vnd.github+json", **_auth_headers_for(api, token)}
+    r = sess.get(api, headers=headers)
     if r.status_code != 200:
         return []
     return [t["path"] for t in r.json().get("tree", []) if t.get("type") == "blob"]
 
 
-def pick_best_file(api_url: str, sess: requests.Session) -> str:
-    r = sess.get(api_url, headers={"Accept": "application/vnd.github+json"})
+def pick_best_file(api_url: str, sess: requests.Session, token: str) -> str:
+    headers = {"Accept": "application/vnd.github+json", **_auth_headers_for(api_url, token)}
+    r = sess.get(api_url, headers=headers)
     if r.status_code != 200:
         return ""
     data = r.json()
@@ -139,9 +157,9 @@ def _rank_candidates(paths: list[str]) -> str:
     return md[0] if md else ""
 
 
-def fetch(url: str, dest: Path, sess: requests.Session) -> tuple[bool, str]:
+def fetch(url: str, dest: Path, sess: requests.Session, token: str) -> tuple[bool, str]:
     try:
-        r = sess.get(url, timeout=30)
+        r = sess.get(url, timeout=30, headers=_auth_headers_for(url, token))
     except Exception as e:
         return False, f"error:{e}"
     if r.status_code != 200:
@@ -154,9 +172,10 @@ def main() -> int:
     items = list_submissions()
     print(f"Found {len(items)} submissions")
     sess = requests.Session()
+    token = ""
     token_path = Path.home() / ".gh-token.txt"
     if token_path.exists():
-        sess.headers["Authorization"] = f"Bearer {token_path.read_text().strip()}"
+        token = token_path.read_text().strip()
 
     for it in items:
         html = find_html(it.folder)
@@ -180,7 +199,7 @@ def main() -> int:
         if kind == "file":
             ext = Path(unquote(urlparse(raw).path)).suffix or ".md"
             local = OUT_DIR / f"{it.sid}_{safe}{ext}"
-            ok, msg = fetch(raw, local, sess)
+            ok, msg = fetch(raw, local, sess, token)
             if ok:
                 it.local = local
                 it.status = "ok"
@@ -189,7 +208,7 @@ def main() -> int:
                 it.status = "fetch_failed"
                 it.notes = msg
         else:
-            best = pick_best_file(raw, sess)
+            best = pick_best_file(raw, sess, token)
             if not best and kind in ("repo", "tree"):
                 # Fall back: list the whole tree recursively
                 p = urlparse(url)
@@ -200,19 +219,21 @@ def main() -> int:
                 user2 = parts[0]
                 repo2 = repo_part
                 # Find default branch
-                rmeta = sess.get(f"https://api.github.com/repos/{user2}/{repo2}",
-                                 headers={"Accept": "application/vnd.github+json"})
+                meta_url = f"https://api.github.com/repos/{user2}/{repo2}"
+                rmeta = sess.get(meta_url,
+                                 headers={"Accept": "application/vnd.github+json",
+                                          **_auth_headers_for(meta_url, token)})
                 branch2 = "main"
                 if rmeta.status_code == 200:
                     branch2 = rmeta.json().get("default_branch") or "main"
-                tree_paths = list_repo_tree(user2, repo2, branch2, sess)
+                tree_paths = list_repo_tree(user2, repo2, branch2, sess, token)
                 best = _rank_candidates(tree_paths)
                 if best:
                     raw_path = (f"https://raw.githubusercontent.com/"
                                 f"{user2}/{repo2}/{branch2}/{quote(best)}")
                     ext = Path(best).suffix or ".md"
                     local = OUT_DIR / f"{it.sid}_{safe}{ext}"
-                    ok, msg = fetch(raw_path, local, sess)
+                    ok, msg = fetch(raw_path, local, sess, token)
                     if ok:
                         it.local = local
                         it.status = "ok_via_tree"
@@ -238,7 +259,7 @@ def main() -> int:
                 raw_path = f"https://raw.githubusercontent.com/{user}/{repo}/{branch}/{quote(best)}"
             ext = Path(best).suffix or ".md"
             local = OUT_DIR / f"{it.sid}_{safe}{ext}"
-            ok, msg = fetch(raw_path, local, sess)
+            ok, msg = fetch(raw_path, local, sess, token)
             if ok:
                 it.local = local
                 it.status = "ok_via_api"

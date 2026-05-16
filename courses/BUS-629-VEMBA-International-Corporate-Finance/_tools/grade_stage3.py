@@ -76,6 +76,7 @@ from _grading_comments import (
     next_stage_pointer,
     render_suggestions,
 )
+from _safe_zip import safe_extractall
 
 STAGE_N = 3
 DEFAULT_FLOOR_PCT = 75
@@ -188,7 +189,7 @@ def discover_submissions(export_path: Path) -> list[Submission]:
         scratch = export_path.parent / f"_{export_path.stem}_extracted"
         scratch.mkdir(exist_ok=True)
         with zipfile.ZipFile(export_path) as zf:
-            zf.extractall(scratch)
+            safe_extractall(zf, scratch)
         root = scratch
     elif export_path.is_dir():
         root = export_path
@@ -593,6 +594,8 @@ class RepoInspection:
     file_in_repo: bool = False
     file_repo_path: str = ""
     instructor_is_collaborator: bool = False
+    collaborator_permission: str = ""  # raw value: admin/write/maintain/triage/read/none/""
+    collaborator_check_ran: bool = False  # False if gh missing or API didn't respond
     error: str = ""
 
 
@@ -637,10 +640,12 @@ def inspect_repo(owner: str, repo: str, expected_filename: str) -> RepoInspectio
         f"repos/{owner}/{repo}/collaborators/{INSTRUCTOR_GITHUB_HANDLE}/permission",
     )
     if perm_raw:
+        info.collaborator_check_ran = True
         try:
             perm = json.loads(perm_raw).get("permission", "")
         except json.JSONDecodeError:
             perm = ""
+        info.collaborator_permission = perm
         info.instructor_is_collaborator = perm in {"admin", "write", "maintain"}
     return info
 
@@ -779,11 +784,13 @@ def score(sub: Submission, wb: WorkbookInspection, repo: RepoInspection,
         g.flags.append("RATIOS_MANY_ERRORS")
 
     # Repo presence + collaborator state (informational; do not deduct here
-    # beyond the carry-over from Stage 2).
+    # beyond the carry-over from Stage 2). Only flag NOT_COLLABORATOR when
+    # the check actually ran — otherwise we'd false-positive on environments
+    # without `gh` or when the API returned nothing.
     if repo.queried and repo.accessible:
         if not repo.file_in_repo:
             g.flags.append("FILE_NOT_IN_REPO")
-        if not repo.instructor_is_collaborator:
+        if repo.collaborator_check_ran and not repo.instructor_is_collaborator:
             g.flags.append("INSTRUCTOR_NOT_COLLABORATOR")
 
     if not wb.filename_valid:
@@ -1519,11 +1526,23 @@ def main(argv: list[str] | None = None) -> int:
         if wbi.error:
             print(f"ERROR: {wbi.error}")
         else:
+            if repo.queried and repo.accessible and repo.collaborator_check_ran:
+                if repo.instructor_is_collaborator:
+                    collab = f"collab=Y({repo.collaborator_permission})"
+                else:
+                    collab = f"collab=N({repo.collaborator_permission or 'none'})"
+            elif repo.queried and not repo.accessible:
+                collab = "collab=?(repo not accessible)"
+            elif repo.queried:
+                collab = "collab=?(gh missing/failed)"
+            else:
+                collab = "collab=?(no repo URL)"
             print(
                 f"raw={g.raw_total}/100 acc={g.score_accuracy} comp={g.score_completeness} "
                 f"src={g.score_sources} rat={g.score_ratios} "
                 f"BS=({'Y' if wbi.bs_balances_curr else 'N'}/"
                 f"{'Y' if wbi.bs_balances_prior else 'N'}) "
+                f"{collab} "
                 f"flags={','.join(g.flags) or '-'}"
             )
 

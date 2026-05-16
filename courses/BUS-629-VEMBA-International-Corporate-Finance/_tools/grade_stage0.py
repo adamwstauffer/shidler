@@ -17,7 +17,7 @@ public GitHub repo via Lamaku. The instructor exports a zip containing one
 
 The five-criterion rubric (per `stage0-repo-setup.md`):
 
-    Repo public + accessible                  /15
+    Repo accessible to graders                /15
     Directory skeleton + READMEs              /20
     Bio quality (150–200 words; structured)   /25
     Resume quality (Penn-style; quantified)   /25
@@ -25,8 +25,9 @@ The five-criterion rubric (per `stage0-repo-setup.md`):
                                               = /100
 
 Floor policy is configurable: pass --floor=90 (default), --floor=80, or any
-other percentage. The floor applies only to submissions with a *working*
-public repo.
+other percentage. The floor applies to any submission with a *working* repo
+the instructor can read — public, or private with instructor added as a Write
+collaborator.
 
 USAGE:
     python grade_stage0.py <export.zip> [--floor=90] [--out=path.xlsx]
@@ -66,6 +67,7 @@ from _grading_comments import (
     next_stage_pointer,
     render_suggestions,
 )
+from _safe_zip import safe_extractall
 
 STAGE_N = 0
 DEFAULT_FLOOR_PCT = 90
@@ -164,7 +166,7 @@ def discover_submissions(export_path: Path) -> list[Submission]:
         scratch = export_path.parent / f"_{export_path.stem}_extracted"
         scratch.mkdir(exist_ok=True)
         with zipfile.ZipFile(export_path) as zf:
-            zf.extractall(scratch)
+            safe_extractall(zf, scratch)
         root = scratch
     elif export_path.is_dir():
         root = export_path
@@ -437,15 +439,19 @@ def _is_descriptive(msg: str) -> bool:
 def score(sub: Submission, info: RepoInspection) -> Grade:
     g = Grade(submission=sub, inspection=info)
 
-    # Criterion 1: Repo public + accessible /15
+    # Criterion 1: Repo accessible to graders /15
+    # "Accessible" means the instructor's authenticated `gh` CLI can read the
+    # repo — either because the repo is public, OR because the instructor was
+    # added as a collaborator on a private repo. Both satisfy the rubric: the
+    # Stage 2 brief asks for collaborator access anyway, so a private repo with
+    # the instructor already invited gets full credit (no penalty for private
+    # visibility). Inaccessible repos still score 0 on this criterion.
     if not info.accessible:
         g.flags.append("REPO_INACCESSIBLE")
         return g
+    g.score_public = 15
     if info.private:
-        g.flags.append("REPO_PRIVATE")
-        g.score_public = 5
-    else:
-        g.score_public = 15
+        g.flags.append("PRIVATE_COLLAB_ACCESSIBLE")
 
     # Build path index
     blob_paths = {
@@ -579,7 +585,7 @@ def build_worksheet(grades: list[Grade], floor_pct: int, output_path: Path) -> N
 
     headers = [
         "Student", "Submitted", "Repo URL",
-        "Public /15", "Skeleton /20", "Bio /25", "Resume /25", "Commits /15",
+        "Access /15", "Skeleton /20", "Bio /25", "Resume /25", "Commits /15",
         "Raw /100", "Final /100", "Floored /100",
         "Bio WC", "Resume WC", "Dirs Present", "Meaningful READMEs",
         "Commits", "Descriptive Commits",
@@ -672,7 +678,8 @@ def build_worksheet(grades: list[Grade], floor_pct: int, output_path: Path) -> N
     sm.append([])
     sm.append(["Floor rule",
                "Curved = MAX(Final, floor). Never reduces raw score; "
-               "only lifts working-repo submissions to the floor."])
+               "only lifts submissions with a readable repo (public, or "
+               "private + instructor collaborator) to the floor."])
     sm.append(["Non-submissions", "Final stays at 0 (floor not applied)."])
 
     cv_col_letter = get_column_letter(floor_col)
@@ -718,7 +725,7 @@ def build_worksheet(grades: list[Grade], floor_pct: int, output_path: Path) -> N
 def _final_score(g: Grade, floor_pct: int) -> int:
     info = g.inspection
     floor_value = round(TOTAL_POINTS * floor_pct / 100)
-    if info.accessible and not info.private and g.raw_total < floor_value:
+    if info.accessible and g.raw_total < floor_value:
         return floor_value
     return g.raw_total
 
@@ -726,7 +733,7 @@ def _final_score(g: Grade, floor_pct: int) -> int:
 def _floor_was_applied(g: Grade, floor_pct: int) -> bool:
     info = g.inspection
     floor_value = round(TOTAL_POINTS * floor_pct / 100)
-    return info.accessible and not info.private and g.raw_total < floor_value
+    return info.accessible and g.raw_total < floor_value
 
 
 def _letter_for(score: int) -> str:
@@ -742,7 +749,11 @@ def _repo_note(g: Grade) -> str:
     if not info.accessible:
         return "Repo not accessible. " + (info.error or "")
     if info.private:
-        return "Repo is private — flip to public so graders can see it."
+        return (
+            "Private repo, but instructor has Write-collaborator access — "
+            "satisfies the accessibility requirement. Public visibility still "
+            "recommended for portfolio value (future employers, peers)."
+        )
     return "Public, accessible without login."
 
 
@@ -751,8 +762,6 @@ def _summary_tagline(g: Grade) -> str:
     flags = set(g.flags)
     if "REPO_INACCESSIBLE" in flags:
         return "Repo not accessible — confirm URL and visibility."
-    if "REPO_PRIVATE" in flags:
-        return "Repo is private — flip to public."
     if "BIO_MISSING" in flags and "RESUME_MISSING" in flags:
         return "Floor applied — bio and resume both need real content."
     if "BIO_MISSING" in flags or "BIO_STUB" in flags:
@@ -787,10 +796,16 @@ def _suggestions_for(g: Grade) -> list[Suggestion]:
         ))
         return s
 
-    if "REPO_PRIVATE" in g.flags:
+    if "PRIVATE_COLLAB_ACCESSIBLE" in g.flags:
         s.append(core(
-            "Flip the repo to **Public** in GitHub Settings → Danger Zone → Change "
-            "visibility. Right now graders (and anyone you'd want to show the work to) can't see it."
+            "Your repo is currently **private**, but the instructor has access "
+            "as a Write collaborator — that's enough to satisfy the Stage 0 "
+            "accessibility requirement (and you've already handled the Stage 2 "
+            "collaborator ask — nice). Optional, not required: flipping to "
+            "**Public** in Settings → Danger Zone → Change visibility unlocks "
+            "the portfolio value of this repo — future employers, peers, and "
+            "anyone you'd want to share the work with can then see it without "
+            "an invite."
         ))
 
     if g.dirs_present < g.dirs_total:
@@ -896,7 +911,7 @@ def _student_section(n: int, g: Grade, floor_pct: int) -> str:
     lines.append("| Criterion | Earned | Notes |")
     lines.append("|-----------|--------|-------|")
     lines.append(
-        f"| Repo public + accessible | {g.score_public} / 15 | {_repo_note(g)} |"
+        f"| Repo accessible to graders | {g.score_public} / 15 | {_repo_note(g)} |"
     )
     lines.append(
         f"| Directory skeleton + READMEs | {g.score_skeleton} / 20 | "
@@ -921,7 +936,7 @@ def _student_section(n: int, g: Grade, floor_pct: int) -> str:
         lines.append(f"| **Raw total** | **{raw} / 100** | |")
         lines.append(
             f"| **Floor adjustment** | **+{floor_value - raw}** | "
-            f"Working public repo present — floor of {floor_pct} applied per "
+            f"Working repo present — floor of {floor_pct} applied per "
             "course policy. |"
         )
         lines.append(f"| **Final** | **{final} / 100** | |")
@@ -947,7 +962,8 @@ def _build_full_report(grades: list[Grade], floor_pct: int, today: datetime) -> 
         "**Stage:** Stage 0 — Personal Portfolio Repository (5% of project score)",
         f"**Graded:** {today.strftime('%Y-%m-%d')}",
         f"**Submissions reviewed:** {len(grades)}",
-        f"**Floor policy:** Any submission with a working public GitHub repo "
+        f"**Floor policy:** Any submission with a working GitHub repo "
+        f"(public, or private with instructor as Write collaborator) "
         f"receives a floor of {floor_pct}%.",
         "",
         "---",
@@ -956,7 +972,7 @@ def _build_full_report(grades: list[Grade], floor_pct: int, today: datetime) -> 
         "",
         "| Criterion | Weight |",
         "|-----------|--------|",
-        "| Repo public + accessible | 15% |",
+        "| Repo accessible to graders (public, or instructor as Write collaborator) | 15% |",
         "| Directory skeleton + READMEs | 20% |",
         "| Bio quality (structured; iteratively revised) | 25% |",
         "| Resume quality (Penn-style; quantified; concise) | 25% |",
