@@ -49,6 +49,14 @@ __pycache__/
 *.o
 *.so
 
+# Python virtualenvs and tool caches
+.venv/
+venv/
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
 # Package managers
 node_modules/
 .bundle/
@@ -69,6 +77,7 @@ ignore-ai-professor/**
 
 # Microsoft Office temp/lock files (e.g. ~$MyDoc.pptx while open)
 ~$*
+**/~$*
 
 # Local backup snapshots of master spreadsheets (rollback only, not source)
 docs/spreadsheets/_backups/
