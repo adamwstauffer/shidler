@@ -95,21 +95,54 @@ STAGE_LABEL = "Stage 2 — Company Selection Memo"
 STAGE_TARGET_DIR = "docs/decisions"
 INSTRUCTOR_GITHUB_HANDLE = "adamwstauffer"
 
-REQUIRED_FRONTMATTER_FIELDS = [
+REQUIRED_FRONTMATTER_FIELDS_STAGE2 = [
     "template", "stage", "author", "date",
     "company", "ticker", "exchange",
 ]
+# Generic memo template (docs/templates/memo-template.md) only marks itself as
+# a memo — students using it identify company/ticker in the title/`re:` field.
+REQUIRED_FRONTMATTER_FIELDS_GENERIC = ["template"]
 # `purpose` and `audience` describe the *template* (per docs/templates/memo-template.md
 # frontmatter convention), not an individual memo — they're metadata about the template
 # itself. Memos written from the template don't need to carry them.
+#
+# Each Stage 2 section is satisfied by either the Stage 2 spec's canonical
+# heading OR the generic memo-template equivalent — the Stage 2 brief tells
+# students to use either template. Content quality is judged by the rubric
+# criteria; this list just confirms structural coverage.
 REQUIRED_SECTIONS = [
-    ("Company Overview", re.compile(r"^#+\s*\d?\.?\s*Company Overview", re.MULTILINE | re.IGNORECASE)),
-    ("Selection Rationale", re.compile(r"^#+\s*\d?\.?\s*Selection Rationale", re.MULTILINE | re.IGNORECASE)),
-    ("Data Availability & Sources", re.compile(r"^#+\s*\d?\.?\s*Data Availability", re.MULTILINE | re.IGNORECASE)),
-    ("Preliminary Observations", re.compile(r"^#+\s*\d?\.?\s*Preliminary Observations", re.MULTILINE | re.IGNORECASE)),
-    ("Ratio Categories Preview", re.compile(r"^#+\s*\d?\.?\s*Ratio Categories", re.MULTILINE | re.IGNORECASE)),
-    ("Data Collection Plan", re.compile(r"^#+\s*\d?\.?\s*Data Collection Plan", re.MULTILINE | re.IGNORECASE)),
+    ("Company Overview", [
+        re.compile(r"^#+\s*\d?\.?\s*Company Overview", re.MULTILINE | re.IGNORECASE),
+        re.compile(r"^#+\s*\d?\.?\s*Background", re.MULTILINE | re.IGNORECASE),
+    ]),
+    ("Selection Rationale", [
+        re.compile(r"^#+\s*\d?\.?\s*Selection Rationale", re.MULTILINE | re.IGNORECASE),
+        re.compile(r"^#+\s*\d?\.?\s*Executive Summary", re.MULTILINE | re.IGNORECASE),
+    ]),
+    ("Data Availability & Sources", [
+        re.compile(r"^#+\s*\d?\.?\s*Data Availability", re.MULTILINE | re.IGNORECASE),
+        re.compile(r"^#+\s*\d?\.?\s*Method", re.MULTILINE | re.IGNORECASE),
+        re.compile(r"^#+\s*\d?\.?\s*References", re.MULTILINE | re.IGNORECASE),
+    ]),
+    ("Preliminary Observations", [
+        re.compile(r"^#+\s*\d?\.?\s*Preliminary Observations", re.MULTILINE | re.IGNORECASE),
+        re.compile(r"^#+\s*\d?\.?\s*Findings", re.MULTILINE | re.IGNORECASE),
+    ]),
+    ("Ratio Categories Preview", [
+        re.compile(r"^#+\s*\d?\.?\s*Ratio Categories", re.MULTILINE | re.IGNORECASE),
+        re.compile(r"^#+\s*\d?\.?\s*Implications", re.MULTILINE | re.IGNORECASE),
+    ]),
+    ("Data Collection Plan", [
+        re.compile(r"^#+\s*\d?\.?\s*Data Collection Plan", re.MULTILINE | re.IGNORECASE),
+        re.compile(r"^#+\s*\d?\.?\s*Limitations", re.MULTILINE | re.IGNORECASE),
+        re.compile(r"^#+\s*\d?\.?\s*Next Steps", re.MULTILINE | re.IGNORECASE),
+    ]),
 ]
+# `(TICKER: Exchange)`, `(TICKER, Exchange)`, or `(Exchange: TICKER)` pattern
+# in title / `re:` field — used to detect company identification for memos
+# that put the ticker in the memo header rather than in dedicated frontmatter
+# fields. Either side may be numeric (e.g., HKEX:1929 for Hong Kong tickers).
+TITLE_TICKER_RE = re.compile(r"\(\s*[A-Z][A-Z0-9.\-]+\s*[:,]\s*[A-Za-z0-9][A-Za-z0-9 \-]+\)")
 FILENAME_RE = re.compile(
     r"^(?P<date>\d{4}-\d{2}-\d{2})-"
     r"(?P<lastname>[a-z]+(?:-[a-z]+)*)-"
@@ -361,7 +394,25 @@ class MemoInspection:
     sources_named: list[str] = field(default_factory=list)
     sources_vague: list[str] = field(default_factory=list)
     body_text: str = ""
+    template_kind: str = "unknown"  # 'stage2', 'generic', or 'unknown'
+    title_ticker_present: bool = False  # company/ticker named in title or `re:` field
     error: str = ""
+
+
+def _detect_template_kind(fm: dict) -> str:
+    """Classify the memo's template per its frontmatter `template:` field.
+
+    Stage 2 explicitly permits either the Stage-2-specific template (with
+    dedicated company/ticker/exchange fields) or the generic memo template
+    (where the company is named in title/`re:`/H1 instead).
+    """
+    t = (fm.get("template") or "").lower().strip()
+    if t in {"company-selection-memo", "stage2-company-selection",
+             "selection-memo"}:
+        return "stage2"
+    if t in {"memo", "memo-template"}:
+        return "generic"
+    return "unknown"
 
 
 def _parse_frontmatter(text: str) -> tuple[dict, str]:
@@ -413,27 +464,51 @@ def inspect_memo(memo_path: Path) -> MemoInspection:
     fm, body = _parse_frontmatter(text)
     info.frontmatter = fm
     info.body_text = body
+    # Required frontmatter depends on which template the student used.
+    # The Stage 2 brief points students to either the Stage 2 specific template
+    # (which has dedicated company/ticker/exchange fields) or the generic memo
+    # template (which puts those in title/re instead).
+    template_kind = _detect_template_kind(fm)
+    info.template_kind = template_kind
+    required_fm = (
+        REQUIRED_FRONTMATTER_FIELDS_GENERIC
+        if template_kind == "generic"
+        else REQUIRED_FRONTMATTER_FIELDS_STAGE2
+    )
+    # Accept `from` as a synonym for `author` (memo-routing convention).
+    fm_with_synonyms = dict(fm)
+    if fm.get("from") and not fm.get("author"):
+        fm_with_synonyms["author"] = fm["from"]
     info.frontmatter_missing_fields = [
-        k for k in REQUIRED_FRONTMATTER_FIELDS if not fm.get(k)
+        k for k in required_fm if not fm_with_synonyms.get(k)
     ]
 
-    for label, pat in REQUIRED_SECTIONS:
-        if pat.search(body):
+    for label, patterns in REQUIRED_SECTIONS:
+        if any(pat.search(body) for pat in patterns):
             info.sections_present.append(label)
         else:
             info.sections_missing.append(label)
 
     info.word_count_prose = _word_count(body)
 
-    # Restrict hypothesis detection to the Preliminary Observations section
-    # if we can find it — otherwise scan the whole body.
-    prelim_match = re.search(
-        r"#+\s*\d?\.?\s*Preliminary Observations(.+?)(?=^#+\s|\Z)",
+    # Hypotheses can land in any of three sections depending on which template
+    # the student followed: Preliminary Observations (Stage 2 spec), Findings
+    # (generic memo template), or Implications (some students put the
+    # falsifiable predictions under "what this means"). Concatenate all three
+    # candidate sections; fall back to whole body if none match.
+    hyp_sections = re.findall(
+        r"#+\s*\d?\.?\s*(?:Preliminary Observations|Findings|Implications)"
+        r"[^\n]*\n(.+?)(?=^#+\s|\Z)",
         body, re.MULTILINE | re.DOTALL,
     )
-    target_text = prelim_match.group(1) if prelim_match else body
-    # Split on numbered items / blank lines to count distinct claims.
-    items = re.split(r"\n\s*\n|^\d+\.\s+", target_text, flags=re.MULTILINE)
+    target_text = "\n\n".join(hyp_sections) if hyp_sections else body
+    # Split on numbered list items (`1. `, `2. `), bulleted list items
+    # (`* `, `- `, `• `), bolded "Hypothesis N" labels, or blank lines, to
+    # count distinct claims. Students use a mix of conventions.
+    items = re.split(
+        r"\n\s*\n|^\s*\d+\.\s+|^\s*[*\-•]\s+|\*\*Hypothesis\s+\d+\b",
+        target_text, flags=re.MULTILINE | re.IGNORECASE,
+    )
     items = [it for it in items if it and len(it.strip()) > 20]
 
     hyp = 0
@@ -449,6 +524,17 @@ def inspect_memo(memo_path: Path) -> MemoInspection:
     body_lower = body.lower()
     info.sources_named = [s for s in NAMED_SOURCES if s in body_lower]
     info.sources_vague = [s for s in VAGUE_SOURCES if s in body_lower]
+
+    # Title/`re:` ticker detection — e.g., "(MWG, HOSE)" or "(KO: NYSE)".
+    # Memos using the generic template put company/ticker here rather than
+    # in dedicated frontmatter fields.
+    title_blob = " ".join([
+        str(fm.get("title") or ""),
+        str(fm.get("re") or ""),
+        body[:600],  # first ~half a page also catches H1
+    ])
+    info.title_ticker_present = bool(TITLE_TICKER_RE.search(title_blob))
+
     return info
 
 
@@ -591,11 +677,17 @@ def score(sub: Submission, memo: MemoInspection, repo: RepoInspection,
     # Criterion 1: Company Selection & Rationale /25
     has_overview = "Company Overview" in memo.sections_present
     has_rationale = "Selection Rationale" in memo.sections_present
-    company_named = bool(memo.frontmatter.get("company") and memo.frontmatter.get("ticker"))
+    company_named = bool(
+        (memo.frontmatter.get("company") and memo.frontmatter.get("ticker"))
+        or memo.title_ticker_present
+    )
     if has_overview and has_rationale and company_named:
-        # Rationale richness: word count of the section is a proxy
+        # Rationale richness: word count of the section is a proxy. Accept
+        # either the Stage 2 heading or the generic template's equivalent
+        # (Executive Summary / Background carries the rationale narrative).
         rationale_match = re.search(
-            r"#+\s*\d?\.?\s*Selection Rationale(.+?)(?=^#+\s|\Z)",
+            r"#+\s*\d?\.?\s*(?:Selection Rationale|Executive Summary|Background)"
+            r"(.+?)(?=^#+\s|\Z)",
             memo.body_text, re.MULTILINE | re.DOTALL,
         )
         rationale_text = rationale_match.group(1) if rationale_match else ""
@@ -756,11 +848,19 @@ def _suggestions_for(g: Grade) -> list[Suggestion]:
 
     if "FRONTMATTER_INCOMPLETE" in g.flags and memo.frontmatter_missing_fields:
         missing = ", ".join(f"`{f}`" for f in memo.frontmatter_missing_fields)
-        s.append(core(
-            f"YAML frontmatter is missing {missing}. Keep all of `template`, "
-            "`stage`, `author`, `date`, `company`, `ticker`, `exchange` filled in "
-            "(memo routing fields `to`/`from`/`re` are optional but encouraged)."
-        ))
+        if memo.template_kind == "generic":
+            s.append(core(
+                f"YAML frontmatter is missing {missing}. You're using the "
+                "generic memo template, which is fine — but Stage 4 / Stage 5 "
+                "tooling indexes by `template`, `date`, and the memo-routing "
+                "fields (`to`/`from`/`re`). Add those if not already present."
+            ))
+        else:
+            s.append(core(
+                f"YAML frontmatter is missing {missing}. Keep all of `template`, "
+                "`stage`, `author`, `date`, `company`, `ticker`, `exchange` filled in "
+                "(memo routing fields `to`/`from`/`re` are optional but encouraged)."
+            ))
 
     if "SECTIONS_MISSING" in g.flags:
         s.append(core(
