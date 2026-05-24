@@ -50,6 +50,33 @@ Score-privacy: scores live ONLY in the internal `STAGE5_GRADES.md` and
 instructor email. The per-student feedback files written under
 `_pr_feedback/` omit scores so they can be pushed to public student repos.
 
+ACCOUNTING STANDARDS POLICY (2026-05-24):
+    At Stage 5, accounting-standard differences surface in three places:
+
+    1. LLM OUTPUT: The LLM may apply US-GAAP conventions even when the
+       student's data is VAS/IFRS. A student who catches this and
+       documents it in the LLM Evaluation section is demonstrating
+       judgment — grade POSITIVELY.
+
+    2. MANUAL VERIFICATION: Discrepancies between the LLM's ratios and
+       the student's manual recomputation may stem from standard
+       differences (e.g., depreciation definition, average vs. period-
+       end denominators, 360 vs. 365 day conventions). These are NOT
+       calculation errors — they are the most informative rows in the
+       verification table.
+
+    3. SPEC RETROSPECTIVE: A student who identifies standard-related
+       spec gaps (e.g., "my spec didn't tell the LLM that VAS bundles
+       depreciation into COGS") is doing exemplary retrospective work.
+
+    Do NOT penalize students for:
+    - Standard-related ratio discrepancies in the verification table
+    - LLM outputs that apply US GAAP conventions to non-US data
+      (penalize only if the student failed to catch and document it)
+    - Different benchmark ranges for non-US markets
+
+    Reference: docs/decisions/2026-05-24-accounting-standards-conversion-framework.md
+
 USAGE:
     python grade_stage5.py <export.zip> [--floor=70] [--no-move]
         [--prior-stage0=path] [--prior-stage2=path] [--prior-stage3=path]

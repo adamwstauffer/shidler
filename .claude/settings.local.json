@@ -147,7 +147,12 @@
       "Bash(gh auth *)",
       "Bash(git -C 'C:\\\\GitHub\\\\shidler' commit -m ' *)",
       "Bash(git *)",
-      "PowerShell(python \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\_tools\\\\grade_stage2.py\" \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage2\\\\ungraded\\\\Stage 2 - Draft Decision Memo Ngoc Cao - Submissions May 21, 2026 722 PM.zip\")"
+      "PowerShell(python \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\_tools\\\\grade_stage2.py\" \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage2\\\\ungraded\\\\Stage 2 - Draft Decision Memo Ngoc Cao - Submissions May 21, 2026 722 PM.zip\")",
+      "Bash(ls \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage2\\\\graded\")",
+      "Bash(ls \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage1\\\\graded\")",
+      "Bash(ls \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage0\\\\graded\")",
+      "WebSearch",
+      "Bash(powershell *)"
     ]
   }
 }

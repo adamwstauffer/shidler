@@ -40,6 +40,29 @@ Floor policy: 75% for working-repo submissions with a populated workbook
 Double-deduction policy: issues already flagged in Stage 0/1/2 are not
 re-deducted here. They appear as forward-looking tips with no point loss.
 
+ACCOUNTING STANDARDS POLICY (2026-05-24):
+    Students may analyze companies reporting under VAS, IFRS, K-IFRS,
+    SFRS(I), CAS, or other non-US-GAAP frameworks. The BAL_/INC_/CASH_
+    named ranges use economic line-item names that are standard-agnostic.
+    Do NOT flag standard-specific behaviors as errors:
+
+    - VAS: INC_depreciation = 0 is correct (depreciation bundled in
+      COGS/SGA; true figure is CASH_depreciation on the Cash Flow tab).
+    - VAS: no IFRS 16 lease liabilities → missing BAL_lease_liability
+      is correct, not an omission.
+    - IFRS: capitalized development costs inflate intangibles — correct
+      under IAS 38, not an error.
+    - IFRS: impairment reversals are permitted (IAS 36) — gains in
+      P&L are valid, not fabricated.
+    - LIFO reserve is irrelevant for IFRS/VAS companies (LIFO is
+      prohibited under both frameworks).
+
+    Grade students on whether they identified the framework and
+    documented material differences (Tier 2 disclosure), not on
+    whether their line items match US GAAP expectations.
+
+    Reference: docs/decisions/2026-05-24-accounting-standards-conversion-framework.md
+
 USAGE:
     python grade_stage3.py <export.zip> [--floor=75] [--no-move]
         [--prior-stage0=path/to/STAGE0_GRADES.md]

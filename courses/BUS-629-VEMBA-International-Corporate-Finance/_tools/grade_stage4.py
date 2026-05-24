@@ -45,6 +45,27 @@ Score-privacy: per course policy, score numbers live ONLY in the internal
 written under `_pr_feedback/` deliberately omit scores so they can be
 pushed to public student repos as PRs.
 
+ACCOUNTING STANDARDS POLICY (2026-05-24):
+    Students analyzing non-US-GAAP companies (VAS, IFRS, K-IFRS, SFRS(I),
+    CAS, etc.) should document standard-specific behaviors in their spec.
+    A spec that correctly reflects VAS or IFRS conventions is NOT
+    deficient — it is demonstrating accounting-standard literacy.
+
+    POSITIVELY CREDIT students who:
+    - Identify the reporting framework in Section 1 (Scope & Objective)
+    - Add standard-aware validation rules (e.g., "INC_depreciation must
+      be zero under VAS — use CASH_depreciation for cash coverage")
+    - Note where template-default formulas need adaptation for their
+      framework
+
+    Do NOT deduct for:
+    - INC_depreciation = 0 under VAS (correct; bundled in COGS/SGA)
+    - Capitalized development costs under IFRS (correct; IAS 38)
+    - Absent LIFO reserve for IFRS/VAS companies (LIFO prohibited)
+    - Different revenue recognition timing under VAS (no IFRS 15 equiv)
+
+    Reference: docs/decisions/2026-05-24-accounting-standards-conversion-framework.md
+
 USAGE:
     python grade_stage4.py <export.zip> [--floor=70] [--no-move]
         [--prior-stage0=path/to/STAGE0_GRADES.md]
