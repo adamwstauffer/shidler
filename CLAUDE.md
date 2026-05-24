@@ -89,6 +89,19 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | BUS-314 Ratios Skill | `.claude/skills/bus314-accounting-ratios/SKILL.md` |
 | Master Ratios Spreadsheet | `courses/BUS-314-International-Corporate-Finance/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx` |
 | Appendix Presentations | `docs/presentations/` |
+| **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
+
+## Financial Model Assumptions (mandatory for valuation work)
+
+Whenever building or modifying a financial model — DCF, comparable companies, LBO, merger model, three-statement build, or any valuation exercise — Claude **must read [`docs/financial-model-assumptions.md`](docs/financial-model-assumptions.md) first** and use the values stored there for any cross-company assumption (risk-free rate, equity risk premium, US tax rate default, terminal growth rate convention, color palette, number formats, etc.).
+
+These values are institutional house-view assumptions and must be identical across every model regardless of which company is being analyzed. Company-specific inputs (beta, revenue, margins, capital structure) are still derived per company, but the **methodology and shared inputs** come from this file.
+
+- If a value in the spec is older than its update cadence, refresh it in the file and add an Update Log entry — do not quietly use a fresher value.
+- If the analysis requires deviating from the spec (e.g., a non-USD DCF), document the deviation in the model's notes section.
+- Every hardcoded cell drawing from this spec should cite it in the cell comment: `Source: docs/financial-model-assumptions.md §[section]`.
+
+This applies to the `financial-analysis:*`, `investment-banking:*`, `equity-research:*`, `pitch-agent:*`, and `market-researcher:*` plugin skills as well — they live in the plugin cache and shouldn't be edited directly, so this CLAUDE.md directive is the binding override.
 
 ## Skills Available
 
