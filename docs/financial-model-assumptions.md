@@ -38,16 +38,40 @@ Every financial model must state the **accounting standard** under which the sub
 
 > **Update cadence:** Risk-free rate refreshed monthly (first business day). ERP refreshed quarterly. Tax rates only on tax law change.
 
+### Refresh Mechanism
+
+Update is **instructor-triggered, not automated**. Two trigger paths:
+
+1. **Calendar-driven (primary).** First business day of each month, instructor runs the refresh — pull current 10Y UST yield from the Fed H.15 daily series and update the value, "Last Updated" date, and the Update Log entry. For non-USD currencies, refresh the table in §1.1 from the corresponding central-bank source.
+2. **Session-driven (opportunistic).** When starting a valuation session, if the "Last Updated" date is more than one cadence period stale, refresh in-session before building the model. Do not build a model on stale Rf and hope to update later — the cell comments will then point to a date that doesn't match the value.
+
+Every refresh adds one row to the Update Log (§6). Stale-but-undocumented values are worse than fresh-but-uncited ones because they break the audit trail. If you cannot determine the as-of date of a value in this file, treat the value as untrusted.
+
 ---
 
 ## 1. Cost of Capital Inputs
 
 ### 1.1 Risk-Free Rate
 
-- **Value:** 4.55%
+- **Value (USD):** 4.55%
 - **Definition:** Daily 10-year U.S. Treasury constant-maturity yield, as of close on 2026-05-22.
-- **Use this value in every DCF/WACC calculation** unless analyzing a non-USD-denominated company (in which case use the equivalent local sovereign 10Y yield and note the deviation).
 - **Source URL:** https://www.federalreserve.gov/releases/h15/ (series DGS10)
+
+**Non-USD risk-free rates** (use when valuing a company whose reporting and trading currency is not USD; document the currency on the model cover sheet):
+
+| Currency | Instrument | Value | Source | Last Updated |
+|---|---|---|---|---|
+| **VND** | Vietnam 10Y Government Bond | **3.10%** | Bloomberg / Vietstock; used for BUS-629 Vietnamese-firm DCFs | 2026-05-22 |
+| **EUR** | Germany 10Y Bund | **2.65%** | ECB; default Eurozone benchmark | 2026-05-22 |
+| **GBP** | UK 10Y Gilt | **4.30%** | Bank of England | 2026-05-22 |
+| **JPY** | Japan 10Y JGB | **1.45%** | BOJ | 2026-05-22 |
+| **SGD** | Singapore 10Y SGS | **2.80%** | MAS | 2026-05-22 |
+| **CNY** | China 10Y CGB | **2.20%** | PBOC; note state-influenced yield curve | 2026-05-22 |
+| **INR** | India 10Y G-Sec | **6.85%** | RBI | 2026-05-22 |
+
+For currencies not listed, use the local 10Y sovereign yield from the central bank or Bloomberg ticker, document the source, and add the new currency to this table during the next monthly refresh.
+
+> **Country risk premium overlay:** For emerging markets, the local sovereign Rf already captures most country risk. For purely cross-border DCFs (e.g., a US-headquartered acquirer valuing a Vietnamese target), apply a country risk premium (CRP) on top of the US-USD discount rate instead of switching the Rf. Default CRPs follow Damodaran's country risk database; document the choice.
 
 ### 1.2 Equity Risk Premium
 
@@ -58,12 +82,17 @@ Every financial model must state the **accounting standard** under which the sub
 
 ### 1.3 Beta
 
-Beta is **company-specific** — but the **methodology must be uniform**:
+**Default beta = 1.00 (market).** Every model in this repo uses β = 1.00 unless the analyst explicitly opts into a company-specific beta and documents the override in the model's notes section.
+
+- **Why uniform:** Cross-model comparability across courses and research outputs requires that all CAPM-derived costs of equity differ only by Rf and ERP, both of which are also pegged in this spec. A student DCF on Apple and an instructor DCF on Toyota should produce comparable Ke values, and a per-company beta defeats that.
+- **Documented override (opt-in):** For institutional research, transaction-grade models, or any work where an analyst wants company-specific beta, use the methodology hierarchy below. The override must be noted on the model's cover sheet or WACC sheet with a one-line justification.
+
+**Override methodology (when opted in):**
 
 - **Default source:** 5-year monthly raw beta vs. S&P 500 (or local index for non-US equities).
 - **Acceptable proxies (in order):** Bloomberg → Yahoo Finance → Finbox → 24/7 Wall St → industry-average beta from comps if individual ticker unavailable.
 - **If company is pre-IPO or has <2 years of trading history:** use unlevered industry beta + re-lever using target capital structure. Document the proxy.
-- **Override:** If a company has just been acquired, restructured, or has materially changed business mix, prefer fundamental beta (industry comp average) over raw historical beta.
+- **Special case:** If a company has just been acquired, restructured, or has materially changed business mix, prefer fundamental beta (industry comp average) over raw historical beta.
 
 ### 1.4 Cost of Debt
 
@@ -213,6 +242,9 @@ Every DCF must include three scenarios with Bear / Base / Bull labels:
 
 | Date | Change | Reason |
 |---|---|---|
+| 2026-05-26 | Default beta set to 1.00 (override = company-specific, documented opt-in) | Resolution of 2026-05-26 memo §5 item 1: cross-model comparability requires uniform beta |
+| 2026-05-26 | Added non-USD Rf table (VND, EUR, GBP, JPY, SGD, CNY, INR) + CRP guidance | Resolution of 2026-05-26 memo §5 item 2: BUS-629 needs Vietnam Rf in spec |
+| 2026-05-26 | Added "Refresh Mechanism" subsection under Effective Dates | Resolution of 2026-05-26 memo §5 item 3: cadence needed an explicit trigger |
 | 2026-05-24 | Add "Accounting Basis" mandatory disclosure section | Cross-standard comparability per 2026-05-24 conversion framework decision |
 | 2026-05-23 | Initial version | Establish institutional house view for cross-model consistency |
 

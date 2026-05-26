@@ -4,7 +4,7 @@
 
 **Prepared by:** Adam W. Stauffer (draft by Claude Code)
 **Date:** May 26, 2026
-**Status:** Draft — Pending Review
+**Status:** Approved — §5 items resolved 2026-05-26
 **Scope:** Cross-cutting — applies to every DCF, comps, LBO, merger model, 3-statement build, and valuation exercise produced in this repo. Affects FIN-321, BUS-314, BUS-629, and any future course or research output that touches valuation.
 
 ---
@@ -57,21 +57,58 @@ Plumbing is via `CLAUDE.md`, which is loaded at the start of every Claude Code s
 
 ---
 
-## 5. OPEN QUESTIONS — TO REVISIT
+## 5. RESOLUTIONS
 
-These items were deferred and need a decision before the spec is treated as final rather than draft:
+All open items addressed on 2026-05-26. Decisions and the implementation locations are below.
 
-1. **Beta value vs. beta methodology.** The current spec treats beta as company-specific with a uniform methodology. The original ask (2026-05-23) was for "risk free rate, beta, market risk premiums to always be the same regardless of which company." Need to confirm whether the intent is genuinely a single beta (e.g., 1.0 or market-average) for pedagogical comparability, or whether the methodology-uniform approach as currently codified is the right call. The former simplifies grading; the latter is more institutionally defensible.
+### 5.1 Beta value vs. beta methodology — RESOLVED
 
-2. **Non-USD DCFs.** The spec instructs analysts to use a local sovereign 10Y yield and document the deviation. For BUS-629 (Vietnam EMBA), we should decide whether to pre-populate Vietnam government bond yields in the spec, or keep this purely as a per-model override.
+**Decision:** **Default beta = 1.00** (market). Company-specific beta is a **documented opt-in override** with a one-line justification on the model's cover sheet.
 
-3. **Update mechanism.** Rf is "refreshed monthly (first business day)." Need an actual workflow — a scheduled prompt, a slash command (`/refresh-rf`), or a recurring calendar reminder. Without a binding mechanism, the value will go stale and the spec's authority erodes.
+**Rationale:** The original 2026-05-23 ask was unambiguous — "risk free rate, beta, market risk premiums to always be the same regardless of which company." Cross-model comparability requires uniform beta. The override path preserves analyst judgment for transaction-grade or research work where company-specific beta is justified, but the default behavior is consistent.
 
-4. **Hardening beyond CLAUDE.md.** Today's setup relies on CLAUDE.md being loaded and Claude actually reading the linked spec. Stronger options were sketched (custom `/load-assumptions` slash command, project-local wrapper skill, UserPromptSubmit hook, self-validation script). Decide whether the CLAUDE.md directive is sufficient or whether to escalate to step 2 (slash command) once we see drift in practice.
+**Implemented at:** [`docs/financial-model-assumptions.md`](../financial-model-assumptions.md) §1.3, rewritten to lead with the β = 1.00 default and demote the per-company methodology to override territory.
 
-5. **Student-facing version.** The spec is currently written for instructor/Claude consumption. For BUS-629 Stage 2+ students, decide whether to publish a simplified student-facing version (one-page assumption sheet) that captures only the values they need without the full methodology and update-cadence machinery.
+### 5.2 Non-USD DCFs — RESOLVED
 
-6. **Integration with existing course rubrics.** BUS-314, FIN-321, and BUS-629 rubrics do not currently cite this spec. Need to decide when and how to retrofit (next course refresh? immediate addendum?).
+**Decision:** Pre-populate a non-USD risk-free rate table in §1.1 of the spec, anchored on currencies the repo's courses actually touch (VND for BUS-629) plus the obvious major-market peers (EUR, GBP, JPY, SGD, CNY, INR). Currencies not listed are filled in opportunistically during monthly refresh. Country risk premium (CRP) overlay guidance added for cross-border cases where the analyst wants to keep a USD discount rate.
+
+**Implemented at:** [`docs/financial-model-assumptions.md`](../financial-model-assumptions.md) §1.1, with the 7-currency table and a CRP guidance paragraph.
+
+### 5.3 Update mechanism — RESOLVED
+
+**Decision:** Manual refresh, instructor-triggered, with two trigger paths:
+1. **Calendar-driven (primary):** First business day of each month — instructor refreshes Rf from Fed H.15 daily series and the non-USD table from corresponding central-bank sources. Updates the value, the "Last Updated" date, and adds an Update Log row.
+2. **Session-driven (opportunistic):** If at session start the "Last Updated" date is more than one cadence period stale, refresh in-session before building the model.
+
+No scheduled-agent or cron infrastructure required. A `/refresh-market-rates` slash command can be scaffolded later if friction becomes apparent, but the manual approach is sufficient for now.
+
+**Implemented at:** [`docs/financial-model-assumptions.md`](../financial-model-assumptions.md) Effective Dates section, new "Refresh Mechanism" subsection.
+
+### 5.4 Hardening beyond CLAUDE.md — RESOLVED (deferred)
+
+**Decision:** **Stay at the CLAUDE.md directive level until drift is observed in a built model.** If a future model is found hardcoding Rf ≠ spec value or β ≠ 1.00 without a documented override, escalate to a project-local wrapper skill (`.claude/skills/load-house-assumptions/`) or a UserPromptSubmit hook. Specifically:
+
+- **Trigger to escalate:** Any model produced by Claude in this repo that uses an Rf, ERP, beta, or tax-rate default different from the spec, without a deviation note in the model's notes section.
+- **Escalation step:** Project-local wrapper skill is the next move (lower friction than a hook, more durable than spec-reading dependency on CLAUDE.md).
+
+This deferral is intentional: we have one data point (the NVDA DCF) where the spec was followed cleanly because the spec was created during the build. Real test is whether subsequent unrelated valuation work follows the spec on first attempt.
+
+### 5.5 Student-facing version — RESOLVED
+
+**Decision:** Create a one-page simplified version covering only the values students need (Rf, ERP, β, tax rate, terminal g, projection period, formatting basics) without the methodology, update-cadence, and override apparatus.
+
+**Implemented at:** [`docs/financial-model-assumptions-student.md`](../financial-model-assumptions-student.md). Linked from the full spec via §7 and from course READMEs (see §5.6).
+
+### 5.6 Integration with existing course rubrics — RESOLVED
+
+**Decision:** Add a one-line reference (pointing to the student one-pager) to the READMEs of valuation-relevant courses. Do NOT modify the rubrics themselves — the spec is cross-cutting and rubric edits should be deferred to the next planned course refresh.
+
+**Implemented at:**
+- [`courses/BUS-629-VEMBA-International-Corporate-Finance/README.md`](../../courses/BUS-629-VEMBA-International-Corporate-Finance/README.md) — added two rows to the Key Links table (student one-pager + full spec).
+- [`courses/FIN-321-International-Finance-And-Securities/README.md`](../../courses/FIN-321-International-Finance-And-Securities/README.md) — added a "Required Reference" paragraph to the AI + GitHub Course Project section.
+
+**Excluded:** BUS-314 (ratios course; cost-of-capital spec is not load-bearing for the existing ratios project). Reassess when BUS-314 adds a valuation module.
 
 ---
 
@@ -86,4 +123,4 @@ These items were deferred and need a decision before the spec is treated as fina
 
 ## 7. STATUS
 
-Draft. Pending decisions on §5 items 1–6. Spec file and CLAUDE.md plumbing are live in the repo as of 2026-05-26.
+Approved. All §5 items resolved on 2026-05-26. Spec file, student one-pager, CLAUDE.md plumbing, and course README references are live in the repo. Single deferred item is §5.4 (hardening beyond CLAUDE.md), which is intentionally on a "wait-for-evidence-of-drift" trigger rather than pre-emptively built.
