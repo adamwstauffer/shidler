@@ -59,6 +59,8 @@ This course includes a multi-stage project on FX risk management worth **25% of 
 
 **Scope:** Map a multinational firm's currency exposures, compute forward rates (via interest parity), and compare hedging strategies (forwards, options, collars).
 
+**Required Reference:** For any discount rate, forward rate, or valuation calculation in this project, use the values in the [Financial Model Assumptions — Student One-Pager](../../docs/financial-model-assumptions-student.md). The risk-free rate, equity risk premium, beta, and tax rate values there are course-standard and consistent across all student deliverables. Deviations must be documented in your model's notes section.
+
 **AI Integration:** Students may use AI for scenario building, payoff tables, drafting memos, and critique. All use must be logged in the Prompt Log.
 
 **GitHub Integration:** Students will maintain a GitHub repo with templates, deliverables, and version control. Workflows will mirror professional consulting and finance practices.

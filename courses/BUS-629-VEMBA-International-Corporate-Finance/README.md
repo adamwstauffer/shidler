@@ -311,3 +311,5 @@ Cheating and plagiarism will not be tolerated and will be handled under the UH S
 | Spec Template | [`../../docs/templates/spec-template.md`](../../docs/templates/spec-template.md) |
 | Templates README (frontmatter, naming) | [`../../docs/templates/README.md`](../../docs/templates/README.md) |
 | Brand Guidelines | [`../../docs/_branding/design.json`](../../docs/_branding/design.json) |
+| Financial Model Assumptions (Student) | [`../../docs/financial-model-assumptions-student.md`](../../docs/financial-model-assumptions-student.md) |
+| Financial Model Assumptions (Full Spec) | [`../../docs/financial-model-assumptions.md`](../../docs/financial-model-assumptions.md) |
