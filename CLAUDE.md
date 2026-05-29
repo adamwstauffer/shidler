@@ -2,6 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Working Principles
+
+Adapted from [Andrej Karpathy's coding guidelines](https://github.com/multica-ai/andrej-karpathy-skills) for this docs/Markdown repository:
+
+- **Think before editing** — state assumptions and surface ambiguity instead of guessing silently; offer the simpler option when one exists.
+- **Simplicity first** — do the task that was asked; no speculative restructuring of courses, templates, or decision memos.
+- **Surgical changes** — touch only what the request needs, and preserve each file's existing style and formatting (existing template conventions always win). Flag stray issues you notice rather than fixing them unasked; when records *document* a past change (e.g. a decision memo), update live materials, not the record.
+- **Goal-driven** — define what "done" looks like, then verify it: `recalc.py` returns 0 errors, generated Office files validate, referenced paths resolve, no broken links.
+
 ## Repository Purpose
 
 Unified portfolio and course materials hub for Shidler College of Business (University of Hawaiʻi at Mānoa) courses taught by Adam W. Stauffer. Contains syllabi, assignment frameworks, project templates, branded materials, and professional portfolio documents — all managed via Git/Markdown.
@@ -50,8 +59,9 @@ Stage files are named `stage[N]-[description]-assignment.md`. Templates for deli
 | BUS 314 | International Business Finance | Undergrad | Accounting ratios (4-stage, 25+ ratios) |
 | FIN 321 | International Finance & Securities | Upper undergrad | FX hedging (5-stage) |
 | BUS 620 | Micro & Macro Economics | MBA | Team cases + individual research |
+| BUS 620 (DLEMBA) | Micro & Macro Economics | Distance EMBA | In setup |
 | BUS 122B | Intro Entrepreneurship/Sustainable Ag | Community college | Business plan + pitch |
-| BUS 629 | International Corporate Finance | Vietnam EMBA | In development |
+| BUS 629 | International Corporate Finance | Vietnam EMBA | GAAP conversion + DCF (active) |
 
 ## UH Mānoa Brand System
 
@@ -102,6 +112,10 @@ These values are institutional house-view assumptions and must be identical acro
 - Every hardcoded cell drawing from this spec should cite it in the cell comment: `Source: docs/financial-model-assumptions.md §[section]`.
 
 This applies to the `financial-analysis:*`, `investment-banking:*`, `equity-research:*`, `pitch-agent:*`, and `market-researcher:*` plugin skills as well — they live in the plugin cache and shouldn't be edited directly, so this CLAUDE.md directive is the binding override.
+
+## Excel Conventions
+
+When building or editing any `.xlsx` workbook, **always use formulas instead of hardcoded values** for calculated cells. Only raw source data (e.g., a company's reported revenue typed from a filing) may be entered as a literal number. Every intermediate calculation, subtotal, ratio, and output cell must be a formula referencing its inputs. This applies to all spreadsheet-producing skills (`xlsx`, `financial-analysis:*`, `investment-banking:*`, `equity-research:*`, `pitch-agent:*`, `gl-reconciler:*`, `market-researcher:*`).
 
 ## Skills Available
 
