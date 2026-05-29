@@ -26,7 +26,7 @@ Equip you with the knowledge and skills to develop sustainable agricultural busi
 
 **Online, asynchronous**
 
-Class recordings and slides will be made available on Laulima every Thursday.
+Class recordings and slides will be made available on Lamaku every Thursday.
 
 ---
 
@@ -122,7 +122,7 @@ Grades are rounded up to the nearest whole number to ensure that anyone on the c
 
 ## Communication
 
-Email is the preferred communication method in an emergency. You should check the course Laulima website one day before each class session.
+Email is the preferred communication method in an emergency. You should check the course Lamaku website one day before each class session.
 
 ---
 
