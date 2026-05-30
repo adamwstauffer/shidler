@@ -71,10 +71,6 @@ vendor/
 ignore-*/
 **/ignore/
 
-# Private R&D — AI professor brainstorm/prototype (NEVER commit)
-/ignore-ai-professor/
-ignore-ai-professor/**
-
 # Microsoft Office temp/lock files (e.g. ~$MyDoc.pptx while open)
 ~$*
 **/~$*
