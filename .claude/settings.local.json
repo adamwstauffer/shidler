@@ -152,7 +152,8 @@
       "Bash(ls \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage1\\\\graded\")",
       "Bash(ls \"C:\\\\GitHub\\\\shidler\\\\courses\\\\BUS-629-VEMBA-International-Corporate-Finance\\\\ignore\\\\stage0\\\\graded\")",
       "WebSearch",
-      "Bash(powershell *)"
+      "Bash(powershell *)",
+      "WebFetch(domain:www.citriniresearch.com)"
     ]
   }
 }

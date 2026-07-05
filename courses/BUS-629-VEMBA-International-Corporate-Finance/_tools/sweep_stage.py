@@ -61,6 +61,8 @@ import grade_stage0
 import grade_stage1
 import grade_stage2
 import grade_stage3
+import grade_stage4
+import grade_stage5
 
 
 COURSE_ROOT = Path(__file__).resolve().parent.parent
@@ -139,6 +141,42 @@ def stage_config(n: int) -> StageConfig:
                 COURSE_ROOT / "ignore" / "stage2" / "graded" / "STAGE2_GRADES.md",
             ],
         )
+    if n == 4:
+        return StageConfig(
+            n=4, module=grade_stage4, floor_pct=70,
+            report_path=COURSE_ROOT / "ignore" / "stage4" / "graded" / "STAGE4_GRADES.md",
+            criterion_columns=[
+                ("Data & Structure", "score_data_structure", 25),
+                ("Ratios & Validation", "score_ratios_validation", 25),
+                ("Analysis spec", "score_analysis", 25),
+                ("Spec craft", "score_craft_hil", 25),
+            ],
+            extra_priors=[
+                COURSE_ROOT / "ignore" / "stage0" / "graded" / "STAGE0_GRADES.md",
+                COURSE_ROOT / "ignore" / "stage1" / "graded" / "STAGE1_GRADES.md",
+                COURSE_ROOT / "ignore" / "stage2" / "graded" / "STAGE2_GRADES.md",
+                COURSE_ROOT / "ignore" / "stage3" / "graded" / "STAGE3_GRADES.md",
+            ],
+        )
+    if n == 5:
+        return StageConfig(
+            n=5, module=grade_stage5, floor_pct=70,
+            report_path=COURSE_ROOT / "ignore" / "stage5" / "graded" / "STAGE5_GRADES.md",
+            criterion_columns=[
+                ("Analytical correctness", "score_analytical", 25),
+                ("Manual verification", "score_verification", 10),
+                ("LLM eval", "score_evaluation", 25),
+                ("Strategic recs", "score_strategic", 20),
+                ("Stage 2 feedback", "score_s2_feedback", 5),
+                ("Repo polish", "score_polish", 15),
+            ],
+            extra_priors=[
+                COURSE_ROOT / "ignore" / "stage0" / "graded" / "STAGE0_GRADES.md",
+                COURSE_ROOT / "ignore" / "stage2" / "graded" / "STAGE2_GRADES.md",
+                COURSE_ROOT / "ignore" / "stage3" / "graded" / "STAGE3_GRADES.md",
+                COURSE_ROOT / "ignore" / "stage4" / "graded" / "STAGE4_GRADES.md",
+            ],
+        )
     raise ValueError(f"unknown stage {n}")
 
 
@@ -159,8 +197,15 @@ class StudentEntry:
     last_regrade_date: str = ""
 
 
+# Matches both a fresh header (`## N. Name — **NN / 100**`) and a re-graded
+# header carrying a struck original score (`## N. Name — ~~XX / 100~~ →
+# **YY / 100**`). In the re-graded case `score` captures the post-arrow
+# *effective* score (YY), so a student who was bumped in an earlier sweep is
+# still parsed and re-considered here.
 STUDENT_HEADER_RE = re.compile(
-    r"^## \d+\.\s*(?P<name>[^—\n]+?)\s*—\s*\*\*(?P<score>\d+)\s*/\s*100\*\*"
+    r"^## \d+\.\s*(?P<name>[^—\n]+?)\s*—\s*"
+    r"(?:~~[^~]*~~\s*(?:→|->)\s*)?"
+    r"\*\*(?P<score>\d+)\s*/\s*100\*\*"
     r"(?P<rest>[^\n]*)$",
     re.MULTILINE,
 )
@@ -182,7 +227,9 @@ def parse_report(text: str) -> tuple[list[StudentEntry], list[str]]:
     starts: list[tuple[int, str, int, str]] = []   # (line_idx, name, score, rest)
     for i, line in enumerate(lines):
         m = re.match(
-            r"## \d+\.\s*(?P<name>[^—\n]+?)\s*—\s*\*\*(?P<score>\d+)\s*/\s*100\*\*"
+            r"## \d+\.\s*(?P<name>[^—\n]+?)\s*—\s*"
+            r"(?:~~[^~]*~~\s*(?:→|->)\s*)?"
+            r"\*\*(?P<score>\d+)\s*/\s*100\*\*"
             r"(?P<rest>[^\n]*)$",
             line,
         )
@@ -619,7 +666,7 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(
         description="Post-deadline revision sweep for BUS-629 stages."
     )
-    p.add_argument("--stage", type=int, required=True, choices=[0, 1, 2, 3])
+    p.add_argument("--stage", type=int, required=True, choices=[0, 1, 2, 3, 4, 5])
     p.add_argument("--dry-run", action="store_true",
                    help="Print what would change; don't write.")
     p.add_argument("--force", action="store_true",
