@@ -77,3 +77,6 @@ ignore-*/
 
 # Local backup snapshots of master spreadsheets (rollback only, not source)
 docs/spreadsheets/_backups/
+
+# Shidler emails and personal/student correspondence (never on the public repo)
+docs/emails/
