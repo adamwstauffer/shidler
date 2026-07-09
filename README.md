@@ -15,12 +15,11 @@ shidler/
 ├── RESUME.md                       # One-page resume
 ├── CLAUDE.md                       # AI assistant configuration for this repo
 │
-├── courses/                        # All course directories
-│   ├── BUS-313-Economic-And-Financial-Environment-Global-Business/
-│   ├── BUS-314-International-Corporate-Finance/
-│   ├── BUS-620-Micro-And-Macro-Economics/
-│   ├── BUS-629-VEMBA-International-Corporate-Finance/
-│   ├── FIN-321-International-Finance-And-Securities/
+├── courses/                        # Subject-first directories (see courses/README.md for the code map)
+│   ├── International-Corporate-Finance/    # BUS 314 (archived), BUS 629
+│   ├── International-Finance-And-Securities/  # FIN 321
+│   ├── International-Economics-And-Trade/  # BUS 313
+│   ├── Micro-And-Macro-Economics/          # BUS 620, BUS 620 DLEMBA
 │   └── Windward-Community-College/
 │       └── BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/
 │
@@ -33,7 +32,7 @@ shidler/
 │   ├── writing-style-guide.md
 │   └── reproducibility-playbook.md
 │
-├── _archive/                       # Deprecated/historical materials
+├── _archive/                       # Deprecated/historical materials (incl. bus314/, the archived BUS-314 project)
 ├── notes/                          # Personal research notes
 └── scripts/                        # Utility scripts
 ```
@@ -42,16 +41,17 @@ shidler/
 
 ## Active Courses
 
-| Code | Title | Level | Key Project |
+| Code | Subject | Level | Key Project |
 |------|-------|-------|-------------|
-| BUS 313 | Economic & Financial Environment of Global Business | Undergrad | Trade/geopolitics case studies |
-| BUS 314 | International Business Finance | Undergrad | Accounting ratios (4-stage, 25+ ratios) |
-| FIN 321 | International Finance & Securities | Upper undergrad | FX hedging (5-stage) |
-| BUS 620 | Micro & Macro Economics | MBA | Team cases + individual research |
+| BUS 313 | International Economics and Trade | Undergrad | Trade/geopolitics case studies |
+| BUS 314 | International Corporate Finance | Undergrad (archived) | Performance ratios — superseded by BUS 629's project design |
+| FIN 321 | International Finance and Securities | Upper undergrad | FX hedging (5-stage) |
+| BUS 620 | Micro- and Macro-Economics | MBA | Team cases + individual research |
+| BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | In setup |
 | BUS 122B | Intro Entrepreneurship / Sustainable Ag | Community college | Business plan + pitch |
-| BUS 629 | International Corporate Finance | Vietnam EMBA | Accounting ratios (5-stage, living example) |
+| BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (6-stage, spec-driven) |
 
-Each course directory contains a `README.md` syllabus, project folders with staged assignments, and any course-specific templates or decision memos.
+See [`courses/README.md`](courses/README.md) for the full code-to-directory map. Each subject directory contains a `projects/` folder with shared curriculum and one subfolder per offering with its syllabus, roster, and course-specific decision memos.
 
 ### Vietnam EMBA Campus Locations
 
@@ -106,7 +106,7 @@ Most projects follow a staged pedagogical pattern:
 4. **Prompt Engineering** — AI integration and prompt documentation
 5. **Final Recommendations** — Synthesis and actionable insights
 
-BUS-314 uses a 4-stage variant (build-first, prompt merged into final). See each course README for details.
+The archived BUS-314 project used a 4-stage variant (build-first, prompt merged into final); the current Performance Ratios project (BUS 629) uses a 6-stage variant (Stage 0–5). See each subject's `projects/` folder for exact stage docs.
 
 ---
 
@@ -117,7 +117,7 @@ AI use is **optional, not required** for student projects. When used, meaningful
 This repo includes [Claude Code](https://claude.ai/code) configuration:
 
 - **`CLAUDE.md`** — Project-level instructions that Claude reads automatically
-- **`.claude/skills/`** — Custom skills that extend Claude's capabilities: `brand-guidelines`, `bus314-accounting-ratios`, `docx`, `xlsx`, `pptx`, `pdf`, `internal-comms`, `skill-creator`
+- **`.claude/skills/`** — Custom skills that extend Claude's capabilities: `brand-guidelines`, `accounting-ratios`, `docx`, `xlsx`, `pptx`, `pdf`, `internal-comms`, `skill-creator`
 - Skills activate via `/commands` (e.g., `/pptx`, `/brand-guidelines`) and require no separate installation — clone the repo and they're ready
 
 See **`docs/presentations/Claude_Appendix.pptx`** for a complete walkthrough.
@@ -126,9 +126,9 @@ See **`docs/presentations/Claude_Appendix.pptx`** for a complete walkthrough.
 
 ## Getting Started
 
-1. **Navigate to your course**: Open the appropriate directory under `courses/`
-2. **Read the syllabus**: Each course has a `README.md` with objectives, grading, and policies
-3. **Work on deliverables**: Follow the staged assignment files in each project folder
+1. **Navigate to your course**: Look up your course code in [`courses/README.md`](courses/README.md), then open your offering's subfolder (e.g., `courses/International-Corporate-Finance/BUS-629-VEMBA/`)
+2. **Read the syllabus**: Each offering has a `README.md` with objectives, grading, and policies
+3. **Work on deliverables**: Follow the staged assignment files in the subject's `projects/` folder
 4. **Commit your work**: `git add . && git commit -m "Stage 1 memo" && git push`
 
 For a visual walkthrough, see **`docs/presentations/GitHub_AI_Appendix.pptx`**.

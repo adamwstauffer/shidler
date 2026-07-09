@@ -67,7 +67,7 @@ submitted it for code review.
 
 - Anthropic's own `superpowers:writing-skills` skill is the authoritative reference. If you have Claude Code, you can invoke it directly with `/superpowers:writing-skills`.
 - The `skill-creator` skill (`/skill-creator:skill-creator` in Claude Code) generates skills interactively.
-- Look at the skills already in this repo (`.claude/skills/bus314-accounting-ratios/SKILL.md`) for a working example of the format.
+- Look at the skills already in this repo (`.claude/skills/accounting-ratios/SKILL.md`) for a working example of the format.
 
 ### Where to put your skill
 
