@@ -46,7 +46,7 @@ Decision Memo → Discussion → Refinement → Plans & Specifications → Imple
 
 **To propose a new decision:**
 1. Create a memo using the template: `../templates/memo-template.md`
-2. Name it with a date prefix: `YYYY-MM-DD-decision-title.md`
+2. Name it with a date prefix: `YYYY-MM-DD-decision-title.md` for repo-wide decisions, or `YYYY-MM-DD-<course-code>-decision-title.md` for a single course/subject (e.g., `2026-05-07-bus629-stage2-restructure.md`). All decision memos live flat in this directory — no `<course-code>/` subdirectories.
 3. Document the decision, rationale, and implications
 4. Share for discussion and feedback
 5. Refine and finalize
@@ -58,8 +58,10 @@ Decision Memo → Discussion → Refinement → Plans & Specifications → Imple
 ## Current Decisions
 
 - **2026-02-15**: [Repository Hierarchy & Structure](./2026-02-15-repo-hierarchy.md)
-  - Documents the logical organization of the repository, directory naming conventions, and rationale for structure
+  - Documents the logical organization of the repository as of Feb 2026; superseded by the 2026-07-08 memo below on course directory naming specifically
+- **2026-07-08**: [Generic Course Directory Naming — Subject-First Structure](./2026-07-08-generic-course-directory-naming.md)
+  - Documents the move to subject-first `courses/` naming, the `projects/` + offering-folder shape, and the flattened decision-memo convention used in this section
 
 ---
 
-**Last Updated:** February 18, 2026
+**Last Updated:** July 9, 2026
