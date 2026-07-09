@@ -56,12 +56,12 @@ Stage files are named `stage[N]-[description]-assignment.md`. Templates for deli
 | Code | Subject | Level | Key Project |
 |------|-------|-------|-------------|
 | BUS 313 | International Economics and Trade | Undergrad | Trade/geopolitics case studies |
-| BUS 314 | International Corporate Finance | Undergrad (archived) | Performance ratios — superseded, see `_archive/bus314/` |
+| BUS 314 | International Corporate Finance | Undergrad (inactive) | Performance ratios — superseded, see `courses/International-Corporate-Finance/BUS-314/` (materials at `_archive/bus314/`) |
 | FIN 321 | International Finance and Securities | Upper undergrad | FX hedging (5-stage) |
-| BUS 620 | Micro- and Macro-Economics | MBA | Team cases + individual research |
-| BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | In setup |
+| BUS 620 | Micro- and Macro-Economics | Masters — MBA | Team cases + individual research |
+| BUS 620 DLEMBA | Micro- and Macro-Economics | Masters — DLEMBA | In setup |
 | BUS 122B | Intro Entrepreneurship/Sustainable Ag | Community college | Business plan + pitch |
-| BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (6-stage, spec-driven) |
+| BUS 629 | International Corporate Finance | Masters — VEMBA | Performance ratios (6-stage, spec-driven) |
 
 Note: there is no separate "DCF" project — confirmed via repo-wide search, no such materials exist. The GAAP-conversion methodology (`docs/decisions/2026-05-24-accounting-standards-conversion-framework.md`) is implemented as one supporting artifact (`models/templates/gaap-bridge-template.xlsx`) inside the Performance Ratios project, not a standalone project.
 

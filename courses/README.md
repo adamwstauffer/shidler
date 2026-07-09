@@ -1,16 +1,38 @@
 # Courses
 
-Directories here are named by subject, not by Shidler course code, since some subjects are taught under more than one code to different populations. This table maps every active Shidler course code to its directory.
+Directories here are named by subject, not by Shidler course code, since some subjects are taught under more than one code to different populations. This maps every active Shidler course code to its directory, grouped by subject.
 
-| Shidler Code | Level / Population | Subject Directory |
+### [International Corporate Finance](International-Corporate-Finance/)
+
+| Shidler Code | Level / Population | Offering |
 |---|---|---|
-| BUS 313 | Undergrad | [`International-Economics-And-Trade/`](International-Economics-And-Trade/) → [`BUS-313/`](International-Economics-And-Trade/BUS-313/) |
-| BUS 314 | Undergrad (archived — see `_archive/bus314/`) | [`International-Corporate-Finance/`](International-Corporate-Finance/) |
-| BUS 620 | MBA | [`Micro-And-Macro-Economics/`](Micro-And-Macro-Economics/) → [`BUS-620/`](Micro-And-Macro-Economics/BUS-620/) |
-| BUS 620 DLEMBA | Distance EMBA (in setup) | [`Micro-And-Macro-Economics/`](Micro-And-Macro-Economics/) → [`BUS-620-DLEMBA/`](Micro-And-Macro-Economics/BUS-620-DLEMBA/) |
-| BUS 629 | Vietnam EMBA | [`International-Corporate-Finance/`](International-Corporate-Finance/) → [`BUS-629-VEMBA/`](International-Corporate-Finance/BUS-629-VEMBA/) |
-| FIN 321 | Upper undergrad | [`International-Finance-And-Securities/`](International-Finance-And-Securities/) → [`FIN-321/`](International-Finance-And-Securities/FIN-321/) |
-| BUS 122B | Community college | [`Windward-Community-College/`](Windward-Community-College/) |
+| BUS 629 | Masters — VEMBA | [`BUS-629-VEMBA/`](International-Corporate-Finance/BUS-629-VEMBA/) |
+| BUS 314 | Undergrad (inactive) | [`BUS-314/`](International-Corporate-Finance/BUS-314/) |
+
+### [International Economics and Trade](International-Economics-And-Trade/)
+
+| Shidler Code | Level / Population | Offering |
+|---|---|---|
+| BUS 313 | Undergrad | [`BUS-313/`](International-Economics-And-Trade/BUS-313/) |
+
+### [International Finance and Securities](International-Finance-And-Securities/)
+
+| Shidler Code | Level / Population | Offering |
+|---|---|---|
+| FIN 321 | Upper undergrad | [`FIN-321/`](International-Finance-And-Securities/FIN-321/) |
+
+### [Micro- and Macro-Economics](Micro-And-Macro-Economics/)
+
+| Shidler Code | Level / Population | Offering |
+|---|---|---|
+| BUS 620 | Masters — MBA | [`BUS-620/`](Micro-And-Macro-Economics/BUS-620/) |
+| BUS 620 DLEMBA | Masters — DLEMBA (in setup) | [`BUS-620-DLEMBA/`](Micro-And-Macro-Economics/BUS-620-DLEMBA/) |
+
+### [Windward Community College](Windward-Community-College/)
+
+| Shidler Code | Level / Population | Offering |
+|---|---|---|
+| BUS 122B | Community college | [`BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/`](Windward-Community-College/BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/) |
 
 Every subject directory shares the same shape:
 
@@ -27,7 +49,8 @@ See `docs/decisions/2026-07-08-generic-course-directory-naming.md` for the ratio
 
 ```
 courses/
-├── International-Corporate-Finance/       BUS 314 (archived), BUS 629
+├── International-Corporate-Finance/       BUS 314 (inactive), BUS 629
+│   ├── BUS-314/                             offering: syllabus (inactive; materials at _archive/bus314/)
 │   ├── BUS-629-VEMBA/                      offering: syllabus, roster
 │   ├── projects/performance-ratios/        shared curriculum (6-stage)
 │   └── README.md

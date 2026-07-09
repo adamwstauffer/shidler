@@ -16,7 +16,7 @@ shidler/
 ├── CLAUDE.md                       # AI assistant configuration for this repo
 │
 ├── courses/                        # Subject-first directories (see courses/README.md for the code map)
-│   ├── International-Corporate-Finance/    # BUS 314 (archived), BUS 629
+│   ├── International-Corporate-Finance/    # BUS 314 (inactive), BUS 629
 │   ├── International-Finance-And-Securities/  # FIN 321
 │   ├── International-Economics-And-Trade/  # BUS 313
 │   ├── Micro-And-Macro-Economics/          # BUS 620, BUS 620 DLEMBA
@@ -44,12 +44,12 @@ shidler/
 | Code | Subject | Level | Key Project |
 |------|-------|-------|-------------|
 | BUS 313 | International Economics and Trade | Undergrad | Trade/geopolitics case studies |
-| BUS 314 | International Corporate Finance | Undergrad (archived) | Performance ratios — superseded by BUS 629's project design |
+| BUS 314 | International Corporate Finance | Undergrad (inactive) | Performance ratios — superseded by BUS 629's project design; see `courses/International-Corporate-Finance/BUS-314/` |
 | FIN 321 | International Finance and Securities | Upper undergrad | FX hedging (5-stage) |
-| BUS 620 | Micro- and Macro-Economics | MBA | Team cases + individual research |
-| BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | In setup |
+| BUS 620 | Micro- and Macro-Economics | Masters — MBA | Team cases + individual research |
+| BUS 620 DLEMBA | Micro- and Macro-Economics | Masters — DLEMBA | In setup |
 | BUS 122B | Intro Entrepreneurship / Sustainable Ag | Community college | Business plan + pitch |
-| BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (6-stage, spec-driven) |
+| BUS 629 | International Corporate Finance | Masters — VEMBA | Performance ratios (6-stage, spec-driven) |
 
 See [`courses/README.md`](courses/README.md) for the full code-to-directory map. Each subject directory contains a `projects/` folder with shared curriculum and one subfolder per offering with its syllabus, roster, and course-specific decision memos.
 

@@ -6,8 +6,8 @@ Corporate finance fundamentals — financing and investment decisions, securitie
 
 | Shidler Code | Population | Status | Details |
 |---|---|---|---|
-| BUS 629 | Vietnam EMBA | Active | [`BUS-629-VEMBA/README.md`](BUS-629-VEMBA/README.md) |
-| BUS 314 | Undergrad | Archived — superseded by BUS 629's project design | [`_archive/bus314/`](../../_archive/bus314/) |
+| BUS 629 | Masters — VEMBA | Active | [`BUS-629-VEMBA/README.md`](BUS-629-VEMBA/README.md) |
+| BUS 314 | Undergrad | Inactive — superseded by BUS 629's project design | [`BUS-314/README.md`](BUS-314/README.md) |
 
 ## Shared Curriculum
 
@@ -17,6 +17,8 @@ Corporate finance fundamentals — financing and investment decisions, securitie
 
 ```
 International-Corporate-Finance/
+├── BUS-314/                                 offering: syllabus (inactive)
+│   └── README.md                            points to _archive/bus314/ for historical project materials
 ├── BUS-629-VEMBA/                          offering: syllabus, roster, ignore/ (gitignored)
 │   ├── BUS-629 Danh sách Nhóm.xlsx          cohort roster
 │   └── README.md                            syllabus: course code, campus locations, textbook
@@ -34,4 +36,4 @@ International-Corporate-Finance/
 └── README.md                                you are here
 ```
 
-See `_archive/bus314/` for the archived BUS-314 iteration (its own README documents that directory's contents).
+See `_archive/bus314/` for the archived BUS-314 project materials (its own README documents that directory's contents).
