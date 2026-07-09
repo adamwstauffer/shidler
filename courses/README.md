@@ -28,11 +28,11 @@ Directories here are named by subject, not by Shidler course code, since some su
 | BUS 620 | Masters — MBA | [`BUS-620/`](Micro-And-Macro-Economics/BUS-620/) |
 | BUS 620 DLEMBA | Masters — DLEMBA (in setup) | [`BUS-620-DLEMBA/`](Micro-And-Macro-Economics/BUS-620-DLEMBA/) |
 
-### [Windward Community College](Windward-Community-College/)
+### [Sustainable Agriculture Entrepreneurship](Sustainable-Agriculture-Entrepreneurship/)
 
 | Shidler Code | Level / Population | Offering |
 |---|---|---|
-| BUS 122B | Community college | [`BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/`](Windward-Community-College/BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/) |
+| BUS 122B | Community college | [`BUS-122B/`](Sustainable-Agriculture-Entrepreneurship/BUS-122B/) |
 
 Every subject directory shares the same shape:
 
@@ -67,8 +67,9 @@ courses/
 │   ├── BUS-620-DLEMBA/                     offering: syllabus (in setup)
 │   ├── projects/                           individual-research/, team-research/, in-progress/
 │   └── README.md
-├── Windward-Community-College/             BUS 122B
-│   └── BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/
+├── Sustainable-Agriculture-Entrepreneurship/  BUS 122B
+│   ├── BUS-122B/                            offering: syllabus
+│   └── README.md
 └── README.md                               you are here
 ```
 

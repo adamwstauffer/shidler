@@ -37,6 +37,7 @@ courses/<Subject-Name>/
 9. **BUS-314's `accounting-ratios/`** (and `_templates/`, `_tools/`, `_spreadsheets/`) → superseded by `projects/performance-ratios/`, archived wholesale to `_archive/bus314/`. **Amended 2026-07-10:** a lightweight `BUS-314/README.md` offering folder is restored under `International-Corporate-Finance/`, matching the `BUS-629-VEMBA/` naming pattern for consistency — the *project content* stays archived, but the offering itself should be discoverable in the live `courses/` tree rather than only in `_archive/`. The README is marked inactive and points to `_archive/bus314/` for the full historical project.
 10. **Consistency pattern applied repo-wide**, including to FIN-321 and BUS-313 which weren't explicitly detailed before — see hierarchy below. **This is my extrapolation of your consistency instruction, flagging it explicitly since it wasn't spelled out per-subject**: FIN-321 gets a `projects/fx-hedging/` + `FIN-321/` split; BUS-313 gets a `projects/github-portfolio-extra-credit/` + `BUS-313/` split (its only concrete project artifact is the GitHub-portfolio extra-credit assignment — the team case-study project referenced in the syllabus has no dedicated files on disk beyond what's already in `ignore/`, so there's nothing else to move into `projects/`).
 11. **BUS-620 / BUS-620-DLEMBA** — `dlemba/` renamed to `BUS-620-DLEMBA/`; new `BUS-620/` folder added for the MBA-specific README, matching the `BUS-629-VEMBA/` naming pattern.
+12. **Added 2026-07-09:** `courses/Windward-Community-College/BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/` → `courses/Sustainable-Agriculture-Entrepreneurship/BUS-122B/`. "Windward Community College" was a campus/institution label, not a subject — renamed to match the subject-first convention applied everywhere else. No `projects/` split: the course has no dedicated project artifacts on disk beyond the syllabus README.
 
 ## Target Directory Hierarchy (final)
 
@@ -93,7 +94,9 @@ courses/
 │   └── BUS-620-DLEMBA/
 │       └── README.md                                        renamed from dlemba/README.md
 │
-└── Windward-Community-College/                              unchanged
+└── Sustainable-Agriculture-Entrepreneurship/                 renamed from Windward-Community-College/, per Amendment 12
+    ├── README.md
+    └── BUS-122B/                                              renamed from BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/
 
 _archive/
 └── bus314/                                                  entire old BUS-314 dir (README, accounting-ratios/, _templates/, _tools/, ignore-term/, and _spreadsheets/ pending item 5)
@@ -118,7 +121,7 @@ No `dcf/` folder or DCF stage docs exist anywhere in the repo. BUS-629's actual 
 
 ## Out of Scope
 
-- BUS 122B / Windward Community College — unchanged.
+- BUS 122B / Windward Community College — renamed per Amendment 12 (2026-07-09); campus affiliation prose ("Windward Community College") stays in the course README, only the directory name changed.
 - `docs/decisions/2026-02-15-repo-hierarchy.md` — left as historical record, not rewritten.
 - `.claude/settings.local.json` — will have stale path strings in old permission entries; harmless, not worth a mass edit.
 

@@ -61,7 +61,7 @@ Each week, students will add components to these deliverables, culminating in a 
 
 ## Instructor Background
 
-For more information about the instructor, see [BIO.md](../../BIO.md).
+For more information about the instructor, see [BIO.md](../../../BIO.md).
 
 Adam currently teaches Finance & Economics at Shidler Business School, University of Hawaiʻi at Mānoa and Windward Community College.
 
