@@ -38,6 +38,8 @@ The project follows a **Build → Document → Analyze** workflow:
 | `../_templates/template-decision-memo.md` | Starter template for Stage 1 memo |
 | `../_templates/template-spec.md` | Starter template for Stage 3 spec |
 
+**Starter workbook:** Use `docs/spreadsheets/International Finance Spreadsheets.xlsx` (Chapter 8 "Transaction Hedging (Receivable)" and "Transaction Hedging (Payables)" tabs). Duplicate those two tabs into your own workbook before you start — the Receivable tab has demo numbers filled in as a worked example; clear cells `F6, F7, F9, F10, F12, F14` and enter your own scenario data.
+
 ## Committing Your Work
 
 All Markdown deliverables (`.md` files) should be committed to your GitHub repository. Recommended locations:
@@ -73,7 +75,6 @@ fx-hedging/
 │   ├── grade_stage2.py
 │   ├── grade_stage3.py
 │   └── grade_stage4.py
-├── excel-template/                          class-provided starter workbook
 ├── FX-Hedging-Project.pptx                  project overview slide deck
 ├── README.md                                this file
 ├── scenarios.md

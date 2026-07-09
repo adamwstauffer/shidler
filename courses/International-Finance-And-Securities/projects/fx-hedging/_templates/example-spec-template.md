@@ -48,7 +48,7 @@ BRAND FORMATTING — applied per docs/_branding/design.json (v1.0.0)
 | **LLM Used** (optional) | [LLM name and how it was used] |
 | **Role** | Treasury Analyst / FP&A Analyst |
 | **Audience** | CFO / Director of Treasury |
-| **Companion Workbook** | `excel-template/FIN 321 - Chapter 8 Transaction Hedging_2026_Stauffer_template.xlsx` (or student build) |
+| **Companion Workbook** | `docs/spreadsheets/International Finance Spreadsheets.xlsx` (Chapter 8 Transaction Hedging tabs — duplicate and clear before use) or student build |
 
 ---
 

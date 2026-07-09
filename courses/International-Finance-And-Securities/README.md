@@ -22,7 +22,6 @@ International-Finance-And-Securities/
 │   └── fx-hedging/                 shared curriculum — see its own README for full contents
 │       ├── _templates/              excel/, example-spec-template.md, template-decision-memo.md, template-spec.md
 │       ├── _tools/                  grading scripts (fetch_stage4.py, grade_stage2–4.py)
-│       ├── excel-template/          class-provided starter workbook
 │       ├── FX-Hedging-Project.pptx  project overview slide deck
 │       ├── README.md
 │       ├── scenarios.md
