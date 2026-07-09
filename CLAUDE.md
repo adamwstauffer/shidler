@@ -17,24 +17,22 @@ Unified portfolio and course materials hub for Shidler College of Business (Univ
 
 ## Repository Structure
 
-- **`courses/`** — All course directories, each following `[CODE]-[Descriptive-Title]` naming (e.g., `courses/BUS-314-International-Corporate-Finance/`)
+- **`courses/`** — Subject-first directories (e.g., `courses/International-Corporate-Finance/`), not course-code-first. See `courses/README.md` for the Shidler-code-to-directory map. Each subject directory shares one shape: `projects/<slug>/` (shared curriculum) + one `<CODE[-POPULATION]>/` subfolder per offering (e.g., `BUS-629-VEMBA/`, `FIN-321/`). See `docs/decisions/2026-07-08-generic-course-directory-naming.md` for the full rationale.
 - **`docs/`** — Centralized documentation hub:
   - `_branding/` — UH Mānoa design tokens (`design.json`) and visual reference (`design-system.html`)
   - `templates/` — Reusable assignment templates (memo, spec, case brief, risk memo, prompt log)
-  - `decisions/` — Strategic decision memos; course-specific decisions live in `decisions/<course-code>/` subdirs (e.g., `decisions/bus314/`, `decisions/fin321/`)
+  - `decisions/` — Strategic decision memos, flat (`YYYY-MM-DD-<slug>.md`; course-specific ones are `YYYY-MM-DD-<course-code>-<slug>.md`, e.g. `2026-05-07-bus629-stage2-restructure.md`)
   - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`
 - **`BIO.md`** — Single source of truth for instructor biography; course READMEs link here
-- **`_archive/`** — Deprecated/historical materials; course-specific archives live in `_archive/<course-code>/` subdirs (e.g., `_archive/fin321/`)
+- **`_archive/`** — Deprecated/historical materials; course-specific archives live in `_archive/<course-code>/` subdirs (e.g., `_archive/fin321/`, `_archive/bus314/` — the archived BUS-314 project, superseded by the shared `performance-ratios` project under `courses/International-Corporate-Finance/projects/`)
 - **`scripts/`** — Repo-level tooling scripts; spreadsheet cleanup pipelines live in `scripts/spreadsheets/`
 
-### Within each course directory
+### Within each subject directory
 
-- `README.md` — Standardized syllabus (overview, objectives, grading, AI policy, campus policies)
-- `project-[name]/` or `[project-name]/` — Active project with stage assignments
-- `_templates/excel/` — Skeleton Excel workbooks
-- `_spreadsheets/` — Master financial models
-- `_tools/` — Course-specific scripts (e.g., grading scanners)
-- Project-level `archive/` subdirectories may exist for per-project historical iterations; full-course archives are consolidated under root `_archive/<course-code>/`
+- `README.md` — Subject hub: overview, course-code table, links to `projects/` and offering folders
+- `projects/<slug>/` — Shared curriculum: stage assignment docs, `_templates/`, `_tools/` (grading scripts), analysis/deliverables/models as applicable
+- `<CODE[-POPULATION]>/README.md` — Per-offering syllabus (overview, objectives, grading, AI policy, campus policies)
+- `<CODE[-POPULATION]>/ignore/` — Gitignored student submissions and grading records for that offering
 
 ## Project Workflow
 
@@ -46,22 +44,26 @@ Most projects follow a reusable pedagogical pattern. The default is five stages:
 4. **Prompt Engineering** (Stage 4) — AI integration and prompt documentation
 5. **Final Recommendations** (Stage 5) — Synthesis and actionable insights
 
-**BUS-314 uses a 4-stage variant** (build-first, prompt merged into final):
+**The archived BUS-314 project used a 4-stage variant** (build-first, prompt merged into final):
 1. Memo → 2. Excel Build → 3. Spec (post-build) → 4. Final Analysis + Prompt
+
+**The current Performance Ratios project (BUS 629) uses a 6-stage variant** (Stage 0–5: repo setup, template architecture, company selection, model population/validation, technical specification, LLM analysis evaluation).
 
 Stage files are named `stage[N]-[description]-assignment.md`. Templates for deliverables are `template-memo.md` and `template-spec.md`.
 
 ## Active Courses
 
-| Code | Title | Level | Key Project |
+| Code | Subject | Level | Key Project |
 |------|-------|-------|-------------|
-| BUS 313 | Economic & Financial Environment of Global Business | Undergrad | Trade/geopolitics case studies |
-| BUS 314 | International Business Finance | Undergrad | Accounting ratios (4-stage, 25+ ratios) |
-| FIN 321 | International Finance & Securities | Upper undergrad | FX hedging (5-stage) |
-| BUS 620 | Micro & Macro Economics | MBA | Team cases + individual research |
-| BUS 620 (DLEMBA) | Micro & Macro Economics | Distance EMBA | In setup |
+| BUS 313 | International Economics and Trade | Undergrad | Trade/geopolitics case studies |
+| BUS 314 | International Corporate Finance | Undergrad (archived) | Performance ratios — superseded, see `_archive/bus314/` |
+| FIN 321 | International Finance and Securities | Upper undergrad | FX hedging (5-stage) |
+| BUS 620 | Micro- and Macro-Economics | MBA | Team cases + individual research |
+| BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | In setup |
 | BUS 122B | Intro Entrepreneurship/Sustainable Ag | Community college | Business plan + pitch |
-| BUS 629 | International Corporate Finance | Vietnam EMBA | GAAP conversion + DCF (active) |
+| BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (6-stage, spec-driven) |
+
+Note: there is no separate "DCF" project — confirmed via repo-wide search, no such materials exist. The GAAP-conversion methodology (`docs/decisions/2026-05-24-accounting-standards-conversion-framework.md`) is implemented as one supporting artifact (`models/templates/gaap-bridge-template.xlsx`) inside the Performance Ratios project, not a standalone project.
 
 ## UH Mānoa Brand System
 
@@ -83,9 +85,10 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 
 ## Naming Conventions
 
-- Course directories: `courses/[CODE]-[Descriptive-Title]` with PascalCase hyphens
+- Subject directories: `courses/[Descriptive-Subject-Name]` with PascalCase hyphens (no course code in the name)
+- Offering subfolders: `courses/<Subject>/[CODE[-POPULATION]]/` (e.g., `BUS-629-VEMBA/`, `FIN-321/`)
 - `_`-prefixed directories (`_templates/`, `_archive/`, `_branding/`) denote system/organizational content
-- Excel named ranges for BUS-314: `BAL_`, `INC_`, `CASH_`, `RATIO_` prefixes (see `bus314-accounting-ratios` skill for full spec)
+- Excel named ranges for the Performance Ratios project: `BAL_`, `INC_`, `CASH_`, `RATIO_` prefixes (see `accounting-ratios` skill for full spec)
 
 ## Key Reference Paths
 
@@ -95,9 +98,9 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Brand Design Tokens | `docs/_branding/design.json` |
 | Reusable Templates | `docs/templates/` |
 | Strategic Decisions | `docs/decisions/` |
-| Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` |
-| BUS-314 Ratios Skill | `.claude/skills/bus314-accounting-ratios/SKILL.md` |
-| Master Ratios Spreadsheet | `courses/BUS-314-International-Corporate-Finance/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx` |
+| Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` (historical; superseded by `docs/decisions/2026-07-08-generic-course-directory-naming.md`) |
+| Accounting Ratios Skill | `.claude/skills/accounting-ratios/SKILL.md` |
+| Master Ratios Spreadsheet | `docs/spreadsheets/Corporate Finance Master Spreadsheets.xlsx` (supersedes the archived `_archive/bus314/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx`) |
 | Appendix Presentations | `docs/presentations/` |
 | **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
 
@@ -119,4 +122,4 @@ When building or editing any `.xlsx` workbook, **always use formulas instead of 
 
 ## Skills Available
 
-This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `bus314-accounting-ratios`, `docx`, `internal-comms`, `pdf`, `pptx`, `skill-creator`, `xlsx`. Use the appropriate skill when creating or editing Office documents, applying UH branding, helping with BUS-314 ratios, or writing internal communications.
+This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `accounting-ratios`, `docx`, `internal-comms`, `pdf`, `pptx`, `skill-creator`, `xlsx`. Use the appropriate skill when creating or editing Office documents, applying UH branding, helping with the Performance Ratios project, or writing internal communications.

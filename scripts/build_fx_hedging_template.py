@@ -2,9 +2,9 @@
 Build FIN-321 FX Transaction Hedging Template workbook.
 
 Generates a UH-branded Excel template with Cover, Receivable, Payable, and Notes tabs,
-following the spec at courses/FIN-321-International-Finance-And-Securities/_templates/example-spec-template.md.
+following the spec at courses/International-Finance-And-Securities/projects/fx-hedging/_templates/example-spec-template.md.
 
-Output: courses/FIN-321-International-Finance-And-Securities/_templates/excel/FIN321_FX_Hedging_Template.xlsx
+Output: courses/International-Finance-And-Securities/projects/fx-hedging/_templates/excel/FIN321_FX_Hedging_Template.xlsx
 """
 
 from pathlib import Path
@@ -18,7 +18,7 @@ from openpyxl.drawing.line import LineProperties
 from openpyxl.drawing.fill import ColorChoice
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "courses" / "FIN-321-International-Finance-And-Securities" / "_templates" / "excel" / "FIN321_FX_Hedging_Template.xlsx"
+OUT = ROOT / "courses" / "International-Finance-And-Securities" / "projects" / "fx-hedging" / "_templates" / "excel" / "FIN321_FX_Hedging_Template.xlsx"
 
 # Brand tokens (from docs/_branding/design.json v1.0.0)
 UH_GREEN = "024731"

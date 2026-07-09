@@ -268,6 +268,6 @@ ws.page_setup.fitToHeight = 0
 ws.page_setup.orientation = "landscape"
 ws.freeze_panes = "A3"
 
-out_path = "courses/BUS-629-VEMBA-International-Corporate-Finance/models/templates/gaap-bridge-template.xlsx"
+out_path = "courses/International-Corporate-Finance/projects/performance-ratios/models/templates/gaap-bridge-template.xlsx"
 wb.save(out_path)
 print(f"Created: {out_path}")

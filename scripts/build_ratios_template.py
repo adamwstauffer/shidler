@@ -4,7 +4,7 @@ Generates a blank-input workbook with named ranges, color-coded cells,
 a branded cover sheet, and pre-wired ratio formulas that return "—"
 until inputs are populated (via IFERROR wrappers).
 
-Output: courses/BUS-314-International-Corporate-Finance/accounting-ratios/_templates/excel/BUS314_Ratios_Template.xlsx
+Output (legacy, archived): _archive/bus314/accounting-ratios/_templates/excel/BUS314_Ratios_Template.xlsx
 """
 
 from openpyxl import Workbook
@@ -14,7 +14,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
 OUTPUT = (
-    "courses/BUS-314-International-Corporate-Finance/"
+    "_archive/bus314/"
     "accounting-ratios/_templates/excel/BUS314_Ratios_Template.xlsx"
 )
 
@@ -224,7 +224,7 @@ cover.cell(row=r, column=2, value="See:").font = f_label(size=10)
 cover.cell(row=r, column=3, value="accounting-ratios/_templates/example-spec-template.md").font = f_mono(10)
 r += 1
 cover.cell(row=r, column=2, value="Skill:").font = f_label(size=10)
-cover.cell(row=r, column=3, value=".claude/skills/bus314-accounting-ratios/SKILL.md").font = f_mono(10)
+cover.cell(row=r, column=3, value=".claude/skills/accounting-ratios/SKILL.md").font = f_mono(10)
 
 r += 3
 cover.cell(row=r, column=2, value="Prepared per UH Mānoa brand standards (docs/_branding/design.json). Primary green #024731 · Open Sans typography · ADA-compliant contrast.").font = Font(name=FONT, size=8, italic=True, color=NEUTRAL_600)
