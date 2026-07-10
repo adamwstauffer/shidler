@@ -10,7 +10,7 @@ Practical application of forward contracts, options, and hedging strategies in m
 
 ## Shared Curriculum
 
-[`projects/fx-hedging/`](projects/fx-hedging/) — the FX risk management project (5-stage: memo through final analysis).
+[`projects/fx-hedging/`](projects/fx-hedging/) — the FX risk management project (six-stage, Design → Build → Validate: portfolio repo through LLM analysis & validation).
 
 ## Directory Contents
 
