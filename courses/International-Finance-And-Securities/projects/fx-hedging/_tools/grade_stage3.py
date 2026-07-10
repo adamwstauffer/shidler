@@ -1,695 +1,607 @@
-"""FIN-321 Stage 3 (post-build FX hedging spec) grading scanner.
+"""FIN-321 (fx-hedging v2) Stage 3 grader — AI-Assisted Build + Audit.
 
-Walks the Stage 3 submissions directory, dedupes by student ID (latest
-timestamp), inspects each spec deliverable (.md / .docx / .pdf / .txt), and
-produces a grading worksheet with rubric signals and tentative auto-scores.
+Stage 3's deliverables live in the student's GitHub repo:
+  - workbook:  models/builds/YYYY-MM-DD-{lastname}-{scenario}-model.xlsx
+  - audit note: analysis/YYYY-MM-DD-{lastname}-build-audit.md
 
-Mirrors `grade_stage2.py` in folder/dedup logic and curve-formula shape, but
-the rubric is the four-criterion spec rubric defined in
-`project-fx-hedging/stage3-spec-assignment.md`:
+The graded skill is *specifying precisely and auditing ruthlessly* — so the
+headline check here is mechanical and new to v2: **every calculated cell must
+be a formula referencing named ranges.** A pasted number where a formula
+belongs earns nothing for that element. We approximate this with a formula
+ratio over non-input numeric cells in the calculation tabs.
 
-    Clarity & Professionalism   /1
-    Analytical Logic            /1
-    Completeness                /1
-    Reproducibility             /1
-                                = /4 total
+Rubric (criterion weights = % of the stage, from _weights.CRITERIA_WEIGHTS[3]):
+    Contract compliance        50   (named ranges + formulas-only + hedges + sensitivity)
+    Structure & presentation   25   (cover, legend/key, color convention, layout)
+    Audit note                 25   (>=3 substantive findings, committed)
 
-The curve uses an 80% floor (per instructor direction): the lowest curved
-score never drops below 0.80 * 4 = 3.20.
+Scores are on a 0-100 "% of the stage" scale; the stage's project weight (17%)
+is applied later in the gradebook. Generosity-only curve floor from _curve.
+
+Outputs (all under <stage3>/graded/, mirroring BUS-629):
+  - STAGE3_GRADES.md                           internal — HAS scores
+  - _pr_feedback/{lastname}/feedback-file.md   score-free, PR-ready
+
+CLI:
+    python grade_stage3.py <export.zip|dir> [--floor N] [--prior-stage2 PATH]
+                           [--out-dir DIR] [--today YYYY-MM-DD] [--no-move]
+
+Score privacy (Adam's policy): score numbers live ONLY in STAGE3_GRADES.md and
+instructor email — never in the PR feedback pushed to a student's public repo.
 """
 from __future__ import annotations
 
+import argparse
 import re
 import sys
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, date
+from io import BytesIO
 from pathlib import Path
 
-from openpyxl import Workbook
-from openpyxl.styles import Alignment, Font, PatternFill
-from openpyxl.utils import get_column_letter
+from openpyxl import load_workbook
 
-STAGE3_DIR = Path(
-    r"C:\GitHub\shidler\courses\International-Finance-And-Securities\FIN-321"
-    r"\ignore\2026-Spring\stage3"
-)
-OUTPUT_PATH = STAGE3_DIR / "_grading" / "stage3-grading-worksheet.xlsx"
+import _repo
+from _repo import RepoState, Submission
+from _weights import CRITERIA_WEIGHTS, STAGE_FLOOR_PCT, stage_pct
+from _curve import curved_score, floor_applied
+from _grading_comments import core, backward, next_stage_pointer, render_suggestions
 
-# Folder name pattern: "<id>-<course> - <Name> - <Mon D, YYYY HHMM AM/PM>"
-FOLDER_RE = re.compile(
-    r"^(?P<sid>\d+)-\d+\s*-\s*(?P<name>.+?)\s*-\s*"
-    r"(?P<month>[A-Za-z]+)\s+(?P<day>\d+),\s*(?P<year>\d{4})\s+"
-    r"(?P<h>\d{1,4})\s*(?P<ampm>AM|PM)\s*$"
-)
+STAGE_N = 3
+STAGE_LABEL = "AI-Assisted Build + Audit"
+CRIT = CRITERIA_WEIGHTS[STAGE_N]           # {'contract_compliance':50, ...}
+DEFAULT_FLOOR_PCT = STAGE_FLOOR_PCT[STAGE_N]
 
-# Required sections from stage3-spec-assignment.md
-REQUIRED_SECTIONS = [
-    ("problem_statement", ["problem statement", "objective", "scope", "exposure"]),
-    ("inputs",            ["inputs", "known variables"]),
-    ("assumptions",       ["assumptions", "constraints"]),
-    ("calculation_flow",  ["calculation flow", "calc flow", "calculation logic",
-                           "workflow", "step-by-step", "step by step"]),
-    ("outputs",           ["outputs"]),
-    ("model_review",      ["model review", "what worked", "what to improve"]),
-    ("sensitivity_plan",  ["sensitivity plan", "sensitivity analysis", "sensitivity table"]),
-    ("limitations",       ["limitations", "next steps"]),
-]
-
-# Four core hedge strategies + sensitivity (mirrors stage2 grader's keywords)
-HEDGE_KEYWORDS = {
-    "Forward":     ["forward hedge", "forward rate", "forward contract",
-                    "locked-in", "locked in", "usd_forward"],
-    "MoneyMarket": ["money market", "mm hedge", "money-market", "borrow eur",
-                    "borrow fc", "borrow foreign", "synthetic forward",
-                    "covered interest", "parity"],
-    "Put":         ["put option", "put hedge", "put premium", "k_put",
-                    "put strike", "eur put", "premium_put", "prem_put",
-                    "usd_put"],
-    "Call":        ["call option", "call hedge", "call premium", "k_call",
-                    "call strike", "eur call", "premium_call", "prem_call",
-                    "usd_call"],
-    "Sensitivity": ["sensitivity", "scenario table", "s_t", "sₜ",
-                    "±5", "+/-5", "±5%", "scenarios"],
-}
-
-# Named-range tokens — both the canonical skeleton names and common alts.
-# We match them as case-insensitive whole-token substrings in the spec text.
-NAMED_RANGE_TOKENS = [
-    # Canonical skeleton (from assignment table)
+NAMED_RANGE_CONTRACT = [
     "FC_AMT", "S0_in", "F0_in", "R_USD", "R_FC",
     "K_PUT", "K_CALL", "PREM_PUT", "PREM_CALL", "T_DAYS",
-    # Template variants (lower-case / subscript)
-    "S0", "F0", "r_USD", "r_EUR", "K_put", "K_call",
-    "Premium_put", "Premium_call",
-    # Output ranges suggested in template
-    "USD_forward", "USD_mm", "USD_put", "USD_call",
-    # Common alt tokens observed in stage2 grader
-    "call_price", "call_strike", "put_price", "put_strike",
-    "forward_price", "current_spot_price", "future_spot_price",
-    "contract_notional", "rate_us", "rate_uk", "receivable",
-    "payable", "scenario", "notional",
 ]
-# Compile a single big alternation, case-insensitive, with word boundaries
-_NAMED_RE = re.compile(
-    r"(?<![A-Za-z0-9_])(?:" + "|".join(re.escape(t) for t in NAMED_RANGE_TOKENS)
-    + r")(?![A-Za-z0-9_])",
+
+# Tabs where a bare number is a legitimate INPUT, not a missing formula.
+INPUT_TAB_HINTS = ("input", "cover", "legend", "key", "note", "assumption",
+                   "readme", "instruction", "provenance", "source")
+
+HEDGE_KEYWORDS = {
+    "Forward": ["forward hedge", "forward rate", "forward contract", "locked-in", "locked in", "f0_in"],
+    "MoneyMarket": ["money market", "money-market", "mm hedge", "borrow", "synthetic forward", "covered interest"],
+    "Put": ["put option", "put hedge", "put premium", "k_put", "put strike", "prem_put"],
+    "Call": ["call option", "call hedge", "call premium", "k_call", "call strike", "prem_call"],
+    "Sensitivity": ["sensitivity", "±5", "+/-5", "scenario", "s_t", "ending spot", "s_t_grid"],
+}
+
+WORKBOOK_RE = re.compile(r"models/builds/.*\.xlsx?$", re.IGNORECASE)
+AUDIT_NOTE_RE = re.compile(r"analysis/.*(?:audit|build-audit).*\.md$", re.IGNORECASE)
+FINDING_LINE_RE = re.compile(r"^\s*(?:\d+\.|[-*])\s+\S")
+FINDING_VERB_RE = re.compile(
+    r"\b(found|fixed|checked|corrected|confirmed|verified|caught|missing|hardcoded|wrong)\b",
     re.IGNORECASE,
 )
 
+LETTER_SCALE = [
+    ("A", 93), ("A-", 90), ("B+", 87), ("B", 83), ("B-", 80),
+    ("C+", 77), ("C", 73), ("C-", 70), ("D+", 67), ("D", 63), ("D-", 60), ("F", 0),
+]
 
+
+def letter(pct: float) -> str:
+    for name, lo in LETTER_SCALE:
+        if pct >= lo:
+            return name
+    return "F"
+
+
+# ---------------------------------------------------------------- workbook audit
 @dataclass
-class Submission:
-    student_id: str
-    student_name: str
-    submitted_at: datetime
-    folder: Path
-    spec_file: Path | None = None
+class WorkbookAudit:
+    opened: bool = False
+    error: str = ""
+    named_ranges_present: list[str] = field(default_factory=list)
+    formula_cells: int = 0
+    hardcoded_numeric_cells: int = 0
+    formulas_using_named_ranges: int = 0
+    hedges_found: list[str] = field(default_factory=list)
+    sensitivity_detected: bool = False
+    chart_count: int = 0
+    has_cover_tab: bool = False
+    has_legend_tab: bool = False
+    distinct_fill_colors: int = 0
+    has_notes_tab: bool = False
+
+    @property
+    def formula_ratio(self) -> float:
+        denom = self.formula_cells + self.hardcoded_numeric_cells
+        return self.formula_cells / denom if denom else 0.0
 
 
+def _input_cell_coords(wb) -> set[tuple[str, str]]:
+    """Cells targeted by the contract named ranges — allowed to be constants."""
+    coords: set[tuple[str, str]] = set()
+    for name in wb.defined_names:
+        if name not in NAMED_RANGE_CONTRACT:
+            continue
+        dn = wb.defined_names[name]
+        try:
+            for title, coord in dn.destinations:
+                coords.add((title, coord.replace("$", "")))
+        except Exception:
+            pass
+    return coords
+
+
+def audit_workbook(xbytes: bytes) -> WorkbookAudit:
+    a = WorkbookAudit()
+    try:
+        wb = load_workbook(BytesIO(xbytes), data_only=False)
+    except Exception as e:  # corrupt / not a workbook
+        a.error = f"open failed: {type(e).__name__}: {e}"
+        return a
+    a.opened = True
+
+    names = list(wb.defined_names)
+    a.named_ranges_present = [n for n in NAMED_RANGE_CONTRACT if n in names]
+    input_coords = _input_cell_coords(wb)
+
+    lowered_sheets = {s: s.lower() for s in wb.sheetnames}
+    a.has_cover_tab = any("cover" in s for s in lowered_sheets.values())
+    a.has_legend_tab = any(("legend" in s or "key" in s) for s in lowered_sheets.values())
+    a.has_notes_tab = any(("note" in s or "assumption" in s) for s in lowered_sheets.values())
+
+    text_blob = ""
+    fills: set[str] = set()
+    for sname in wb.sheetnames:
+        ws = wb[sname]
+        a.chart_count += len(getattr(ws, "_charts", []))
+        is_input_tab = any(h in lowered_sheets[sname] for h in INPUT_TAB_HINTS)
+        max_r = min(ws.max_row or 1, 1500)
+        max_c = min(ws.max_column or 1, 50)
+        for row in ws.iter_rows(min_row=1, max_row=max_r, max_col=max_c):
+            for cell in row:
+                v = cell.value
+                if isinstance(v, str):
+                    text_blob += v.lower() + " "
+                try:
+                    fill = cell.fill
+                    if fill and fill.fgColor and fill.fgColor.rgb:
+                        rgb = str(fill.fgColor.rgb)
+                        if rgb not in ("00000000", "FFFFFFFF"):
+                            fills.add(rgb)
+                except Exception:
+                    pass
+                if is_input_tab:
+                    continue
+                if isinstance(v, str) and v.startswith("="):
+                    a.formula_cells += 1
+                    if any(n in v for n in NAMED_RANGE_CONTRACT):
+                        a.formulas_using_named_ranges += 1
+                elif isinstance(v, (int, float)) and not isinstance(v, bool):
+                    if (sname, cell.coordinate) not in input_coords:
+                        a.hardcoded_numeric_cells += 1
+
+    a.distinct_fill_colors = len(fills)
+    a.hedges_found = [k for k, kws in HEDGE_KEYWORDS.items()
+                      if k != "Sensitivity" and any(w in text_blob for w in kws)]
+    a.sensitivity_detected = (
+        any(w in text_blob for w in HEDGE_KEYWORDS["Sensitivity"]) or a.chart_count > 0
+    )
+    return a
+
+
+def count_audit_findings(text: str) -> int:
+    """Approximate substantive-finding count in the build-audit note."""
+    if not text:
+        return 0
+    list_items = sum(1 for ln in text.splitlines() if FINDING_LINE_RE.match(ln))
+    verbs = len(FINDING_VERB_RE.findall(text))
+    return max(min(list_items, verbs), list_items if verbs else 0)
+
+
+# ---------------------------------------------------------------- grading
 @dataclass
 class Grade:
-    student_id: str
-    student_name: str
-    submitted_at: datetime
-    spec_filename: str
-    file_format: str = ""
-    word_count: int = 0
-    table_count: int = 0
-    code_block_count: int = 0
-    sections_found: list[str] = field(default_factory=list)
-    has_metadata_header: bool = False
-    hedges_found: list[str] = field(default_factory=list)
-    distinct_named_tokens: int = 0
-    named_token_examples: list[str] = field(default_factory=list)
-    model_review_words: int = 0
-    auto_clarity: int = 0           # /1
-    auto_logic: int = 0             # /1
-    auto_completeness: int = 0      # /1
-    auto_reproducibility: int = 0   # /1
+    sid: str
+    name: str
+    submitted_at: datetime | None
+    github_url: str
+    repo: RepoState | None = None
+    workbook_path: str = ""
+    audit_path: str = ""
+    audit: WorkbookAudit | None = None
+    note_present: bool = False
+    note_findings: int = 0
+    cc: float = 0.0            # contract-compliance points earned (/50)
+    sp: float = 0.0            # structure points earned (/25)
+    an: float = 0.0            # audit-note points earned (/25)
+    prior_weak: bool = False
     flags: list[str] = field(default_factory=list)
     error: str = ""
 
-
-# ------------------------------------------------------------------
-# Folder parsing & file discovery
-# ------------------------------------------------------------------
-
-def parse_folder(folder: Path) -> Submission | None:
-    m = FOLDER_RE.match(folder.name)
-    if not m:
-        return None
-    h = m.group("h")
-    if len(h) == 3:
-        hour, minute = int(h[0]), int(h[1:])
-    elif len(h) == 4:
-        hour, minute = int(h[:2]), int(h[2:])
-    else:
-        hour, minute = int(h), 0
-    ampm = m.group("ampm").upper()
-    if ampm == "PM" and hour != 12:
-        hour += 12
-    elif ampm == "AM" and hour == 12:
-        hour = 0
-    try:
-        dt = datetime.strptime(
-            f"{m.group('month')} {m.group('day')} {m.group('year')}", "%b %d %Y"
-        ).replace(hour=hour, minute=minute)
-    except ValueError:
-        return None
-    return Submission(
-        student_id=m.group("sid"),
-        student_name=m.group("name").strip(),
-        submitted_at=dt,
-        folder=folder,
-    )
+    @property
+    def raw_pct(self) -> float:
+        return round(self.cc + self.sp + self.an, 1)
 
 
-def find_spec_file(folder: Path) -> Path | None:
-    """Pick best deliverable: prefer .md > .docx > .pdf > .txt."""
-    by_ext: dict[str, list[Path]] = {".md": [], ".docx": [], ".pdf": [], ".txt": []}
-    for p in folder.iterdir():
-        if not p.is_file():
-            continue
-        ext = p.suffix.lower()
-        if ext in by_ext:
-            by_ext[ext].append(p)
-    for ext in (".md", ".docx", ".pdf", ".txt"):
-        if by_ext[ext]:
-            by_ext[ext].sort(key=lambda p: len(p.name))
-            return by_ext[ext][0]
-    return None
-
-
-def collect_submissions() -> list[Submission]:
-    by_id: dict[str, Submission] = {}
-    skipped = []
-    for child in STAGE3_DIR.iterdir():
-        if not child.is_dir() or child.name.startswith("_"):
-            continue
-        sub = parse_folder(child)
-        if sub is None:
-            skipped.append(child.name)
-            continue
-        existing = by_id.get(sub.student_id)
-        if existing is None or sub.submitted_at > existing.submitted_at:
-            by_id[sub.student_id] = sub
-    if skipped:
-        print(f"[warn] skipped {len(skipped)} unparsable folders:", skipped)
-    subs = sorted(by_id.values(), key=lambda s: s.student_name.lower())
-    for s in subs:
-        s.spec_file = find_spec_file(s.folder)
-    return subs
-
-
-# ------------------------------------------------------------------
-# Text extraction
-# ------------------------------------------------------------------
-
-def _extract_md_or_txt(path: Path) -> str:
-    return path.read_text(encoding="utf-8", errors="ignore")
-
-
-def _extract_docx(path: Path) -> str:
-    from docx import Document
-    doc = Document(str(path))
-    parts = []
-    for p in doc.paragraphs:
-        if p.text:
-            parts.append(p.text)
-    for t in doc.tables:
-        for row in t.rows:
-            cells = [c.text for c in row.cells]
-            parts.append(" | ".join(cells))
-    return "\n".join(parts)
-
-
-def _extract_pdf(path: Path) -> str:
-    from pdfminer.high_level import extract_text
-    try:
-        return extract_text(str(path)) or ""
-    except Exception as e:
-        return f"[pdf extraction failed: {e}]"
-
-
-def extract_text(path: Path) -> tuple[str, str]:
-    ext = path.suffix.lower()
-    if ext == ".md":
-        return _extract_md_or_txt(path), "md"
-    if ext == ".txt":
-        return _extract_md_or_txt(path), "txt"
-    if ext == ".docx":
-        return _extract_docx(path), "docx"
-    if ext == ".pdf":
-        return _extract_pdf(path), "pdf"
-    return "", "unknown"
-
-
-# ------------------------------------------------------------------
-# Inspection / scoring
-# ------------------------------------------------------------------
-
-WORD_RE = re.compile(r"\b\w+\b")
-
-
-def _count_words(text: str) -> int:
-    return len(WORD_RE.findall(text))
-
-
-def _count_md_tables(text: str) -> int:
-    return len(re.findall(r"\n\s*\|[^\n]*\|\s*\n\s*\|[\s\-:|]+\|\s*\n", text))
-
-
-def _count_code_blocks(text: str) -> int:
-    return len(re.findall(r"```", text)) // 2
-
-
-def _has_metadata_header(text: str) -> bool:
-    head = text[:2000].lower()
-    hits = sum(1 for tag in (
-        "role:", "audience:", "purpose:", "version:", "created by:",
-        "updated by:", "date created:", "date updated:",
-    ) if tag in head)
-    return hits >= 2
-
-
-def _section_words_after(text: str, anchors: list[str], limit: int = 4000) -> int:
-    """Word count from anchor heading to next H1/H2 (or end)."""
-    lower = text.lower()
-    best_idx = -1
-    for a in anchors:
-        i = lower.find(a)
-        if i != -1 and (best_idx == -1 or i < best_idx):
-            best_idx = i
-    if best_idx == -1:
-        return 0
-    nl = text.find("\n", best_idx)
-    start = nl + 1 if nl != -1 else best_idx
-    tail = text[start:start + limit]
-    end = re.search(r"\n#{1,2}\s+", tail)
-    if end:
-        tail = tail[: end.start()]
-    return _count_words(tail)
-
-
-def inspect(sub: Submission) -> Grade:
-    g = Grade(
-        student_id=sub.student_id,
-        student_name=sub.student_name,
-        submitted_at=sub.submitted_at,
-        spec_filename=sub.spec_file.name if sub.spec_file else "(none)",
-    )
-    if sub.spec_file is None:
-        g.error = "no spec file in folder"
-        g.flags.append("NO_FILE")
-        return g
-
-    try:
-        text, fmt = extract_text(sub.spec_file)
-    except Exception as e:
-        g.error = f"extract failed: {e}"
-        g.flags.append("EXTRACT_FAILED")
-        return g
-    g.file_format = fmt
-
-    if not text.strip():
-        g.error = "empty spec"
-        g.flags.append("EMPTY")
-        return g
-
-    # Strip markdown backslash-escapes before underscores so e.g. K\_PUT
-    # is treated the same as K_PUT.
-    text = text.replace("\\_", "_")
-    lower = text.lower()
-    g.word_count = _count_words(text)
-    g.table_count = _count_md_tables(text)
-    g.code_block_count = _count_code_blocks(text)
-    g.has_metadata_header = _has_metadata_header(text)
-
-    # Sections
-    found_sections = []
-    for key, anchors in REQUIRED_SECTIONS:
-        if any(a in lower for a in anchors):
-            found_sections.append(key)
-    g.sections_found = found_sections
-
-    # Hedge categories
-    hedges = []
-    for cat, keywords in HEDGE_KEYWORDS.items():
-        if any(k in lower for k in keywords):
-            hedges.append(cat)
-    g.hedges_found = hedges
-
-    # Named ranges
-    matches = _NAMED_RE.findall(text)
-    distinct = sorted({m.lower() for m in matches})
-    g.distinct_named_tokens = len(distinct)
-    g.named_token_examples = distinct[:8]
-
-    # Model review depth
-    g.model_review_words = _section_words_after(
-        text, ["model review", "what worked", "what to improve"], limit=2500
-    )
-
-    # ----- Auto-scoring -----
-
-    # 1. Clarity & Professionalism /1: any 2 of 3 (metadata, length, tables/code)
-    clarity_signals = sum([
-        g.has_metadata_header,
-        g.word_count >= 800,
-        (g.table_count >= 1) or (g.code_block_count >= 1),
-    ])
-    g.auto_clarity = 1 if clarity_signals >= 2 else 0
-
-    # 2. Analytical Logic /1:
-    #    >=3 of 4 core hedges (Forward/MM/Put/Call) AND calculation_flow section
-    core_hedges = {"Forward", "MoneyMarket", "Put", "Call"}
-    core_hits = len(core_hedges & set(hedges))
-    has_calc = "calculation_flow" in found_sections
-    g.auto_logic = 1 if (core_hits >= 3 and has_calc) else 0
-
-    # 3. Completeness /1:
-    #    >=6 of 8 sections AND model review present + >=100 words
-    has_review = "model_review" in found_sections
-    g.auto_completeness = 1 if (
-        len(found_sections) >= 6 and has_review and g.model_review_words >= 100
-    ) else 0
-
-    # 4. Reproducibility /1:
-    #    >=6 distinct named-range tokens (out of ~10 canonical inputs)
-    g.auto_reproducibility = 1 if g.distinct_named_tokens >= 6 else 0
-
-    # ----- Flags -----
-    if g.word_count < 100:
-        g.flags.append("STUB")
-    missing_sections = [k for k, _ in REQUIRED_SECTIONS if k not in found_sections]
-    if missing_sections:
-        g.flags.append("MISSING_SECTION:" + ",".join(missing_sections))
-    if core_hits < 3:
-        g.flags.append("MISSING_HEDGE")
-    if g.distinct_named_tokens < 6:
+def _score_contract(a: WorkbookAudit, g: Grade) -> float:
+    nr_frac = len(a.named_ranges_present) / len(NAMED_RANGE_CONTRACT)
+    if len(a.named_ranges_present) < 8:
         g.flags.append("FEW_NAMED_RANGES")
-    if g.word_count < 800:
-        g.flags.append("SHORT")
-    if g.model_review_words < 100:
-        g.flags.append("THIN_MODEL_REVIEW")
-    if "Sensitivity" not in hedges and "sensitivity_plan" not in found_sections:
+    formula_score = min(1.0, a.formula_ratio / 0.9) if a.formula_ratio else 0.0
+    if a.formula_cells and a.formulas_using_named_ranges == 0:
+        formula_score = min(formula_score, 0.5)
+        g.flags.append("FORMULAS_NOT_USING_NAMES")
+    if a.formula_ratio < 0.8:
+        g.flags.append("HARDCODED_OUTPUTS")
+    have = set(a.hedges_found)
+    hedge_frac = (
+        0.5 * (len({"Forward", "MoneyMarket"} & have) / 2)
+        + 0.5 * (1.0 if ({"Put", "Call"} & have) else 0.0)
+    )
+    for h in ("Forward", "MoneyMarket"):
+        if h not in have:
+            g.flags.append(f"MISSING_{h.upper()}")
+    if not ({"Put", "Call"} & have):
+        g.flags.append("MISSING_OPTION")
+    sens = 1.0 if (a.sensitivity_detected and a.chart_count > 0) else (
+        0.5 if a.sensitivity_detected else 0.0)
+    if not a.sensitivity_detected:
         g.flags.append("NO_SENSITIVITY")
+    if a.chart_count == 0:
+        g.flags.append("NO_CHART")
+    frac = 0.40 * nr_frac + 0.35 * formula_score + 0.15 * hedge_frac + 0.10 * sens
+    return round(frac * CRIT["contract_compliance"], 1)
 
+
+def _score_structure(a: WorkbookAudit, g: Grade) -> float:
+    if not a.has_cover_tab:
+        g.flags.append("NO_COVER")
+    if not a.has_legend_tab:
+        g.flags.append("NO_LEGEND")
+    color_ok = a.distinct_fill_colors >= 3
+    if not color_ok:
+        g.flags.append("WEAK_COLOR_CONVENTION")
+    frac = (0.35 * a.has_cover_tab + 0.35 * a.has_legend_tab
+            + 0.20 * color_ok + 0.10 * a.has_notes_tab)
+    return round(frac * CRIT["structure_presentation"], 1)
+
+
+def _score_audit_note(g: Grade) -> float:
+    if not g.note_present:
+        g.flags.append("AUDIT_NOTE_MISSING")
+        return 0.0
+    if g.note_findings >= 3:
+        return float(CRIT["audit_note"])
+    g.flags.append("AUDIT_NOTE_THIN")
+    return round(0.5 * CRIT["audit_note"], 1)
+
+
+def grade_submission(sub: Submission) -> Grade:
+    g = Grade(sub.student_id, sub.name, sub.submitted_at, sub.github_url)
+    parsed = sub.repo
+    if not parsed:
+        g.flags.append("NO_GITHUB_LINK")
+        g.error = "no github url in submission"
+        return g
+    owner, repo = parsed
+    g.repo = _repo.repo_state(owner, repo)
+    if not g.repo.accessible:
+        g.flags.append("REPO_404")
+        g.error = "repo not accessible via gh"
+        return g
+    if not g.repo.public:
+        g.flags.append("NOT_PUBLIC")
+    if not g.repo.instructor_is_collaborator:
+        g.flags.append("INSTRUCTOR_NOT_COLLABORATOR")
+
+    branch = g.repo.default_branch
+    wb_paths = [p for p in g.repo.tree if WORKBOOK_RE.search(p)]
+    note_paths = [p for p in g.repo.tree if AUDIT_NOTE_RE.search(p)]
+
+    if wb_paths:
+        g.workbook_path = sorted(wb_paths, key=len)[0]
+        raw = _repo.download_bytes(owner, repo, g.workbook_path, branch)
+        g.audit = audit_workbook(raw) if raw else WorkbookAudit(error="download failed")
+    else:
+        g.flags.append("NO_WORKBOOK")
+        g.audit = WorkbookAudit(error="no workbook in models/builds/")
+
+    if note_paths:
+        g.audit_path = sorted(note_paths, key=len)[0]
+        text = _repo.download_text(owner, repo, g.audit_path, branch) or ""
+        g.note_present = bool(text.strip())
+        g.note_findings = count_audit_findings(text)
+
+    a = g.audit
+    if a and a.opened:
+        g.cc = _score_contract(a, g)
+        g.sp = _score_structure(a, g)
+    elif a and a.error.startswith("open failed"):
+        g.flags.append("WORKBOOK_OPEN_FAILED")
+    g.an = _score_audit_note(g)
+
+    if g.raw_pct >= 92 and not g.flags:
+        g.flags.append("STRONG")
     return g
 
 
-# ------------------------------------------------------------------
-# Worksheet builder
-# ------------------------------------------------------------------
-
-LETTER_GRADE_SCALE = [
-    ("A+", 97, None), ("A", 93, 97), ("A-", 90, 93),
-    ("B+", 87, 90),  ("B", 83, 87), ("B-", 80, 83),
-    ("C+", 77, 80),  ("C", 73, 77), ("C-", 70, 73),
-    ("D+", 67, 70),  ("D", 65, 67), ("F", 0, 65),
-]
-
-TOTAL_POINTS = 4
-
-
-def _write_curve_formulas(ws, final_col: int, rank_col: int,
-                          quart_col: int, curved_col: int, generous_col: int,
-                          first_row: int, last_row: int) -> None:
-    """Quartile-graded curve, never reduces a raw score, rounds up to 0.05.
-
-    Curved /4 (80% floor): top -> bottom
-        Q1: 4.00 -> 3.75 -> Q2: 3.50 -> Q3: 3.35 -> Q4: 3.20  (= 80% of 4)
-    Curved /4 (90% floor): generous variant
-        Q1: 4.00 -> 3.90 -> 3.80 -> 3.70 -> 3.60                (= 90% of 4)
-    """
-    fl = get_column_letter(final_col)
-    rl = get_column_letter(rank_col)
-    rng = f"${fl}${first_row}:${fl}${last_row}"
-    n_expr = f'COUNTIF({rng},">0")'
-
-    curved_fill = PatternFill("solid", fgColor="E2EFDA")
-    generous_fill = PatternFill("solid", fgColor="C6E0B4")
-    for r in range(first_row, last_row + 1):
-        final_ref = f"{fl}{r}"
-        rank_ref = f"{rl}{r}"
-
-        rank_f = (
-            f'=IF({final_ref}=0,"",'
-            f'RANK({final_ref},{rng},0)'
-            f'+SUMPRODUCT(({rng}={final_ref})*(ROW({rng})<ROW())))'
-        )
-        ws.cell(row=r, column=rank_col, value=rank_f)
-        quart_f = (
-            f'=IF({final_ref}=0,"",'
-            f'IF({rank_ref}<={n_expr}/4,1,'
-            f'IF({rank_ref}<={n_expr}/2,2,'
-            f'IF({rank_ref}<={n_expr}*3/4,3,4))))'
-        )
-        ws.cell(row=r, column=quart_col, value=quart_f)
-
-        p = f'(({rank_ref}-1)/({n_expr}-1))'
-
-        # 80% floor: 4.00 -> 3.75 -> 3.50 -> 3.35 -> 3.20
-        floor80 = (
-            f'IF({p}<=0.25,4-{p}*1,'
-            f'IF({p}<=0.5,3.75-({p}-0.25)*1,'
-            f'IF({p}<=0.75,3.5-({p}-0.5)*0.6,'
-            f'3.35-({p}-0.75)*0.6)))'
-        )
-        ws.cell(
-            row=r, column=curved_col,
-            value=f'=IF({final_ref}=0,0,CEILING(MAX({final_ref},{floor80}),0.05))'
-        ).fill = curved_fill
-
-        # 90% floor: 4.00 -> 3.90 -> 3.80 -> 3.70 -> 3.60
-        floor90 = (
-            f'IF({p}<=0.25,4-{p}*0.4,'
-            f'IF({p}<=0.5,3.9-({p}-0.25)*0.4,'
-            f'IF({p}<=0.75,3.8-({p}-0.5)*0.4,'
-            f'3.7-({p}-0.75)*0.4)))'
-        )
-        ws.cell(
-            row=r, column=generous_col,
-            value=f'=IF({final_ref}=0,0,CEILING(MAX({final_ref},{floor90}),0.05))'
-        ).fill = generous_fill
+# ---------------------------------------------------------------- suggestions
+def _suggestions_for(g: Grade):
+    s = []
+    f = set(g.flags)
+    if "NO_WORKBOOK" in f:
+        s.append(core("No workbook found under `models/builds/`. Commit the generated "
+                      "`.xlsx` there with the convention-compliant filename."))
+    if "WORKBOOK_OPEN_FAILED" in f:
+        s.append(core("The workbook couldn't be opened — re-export it as a valid .xlsx "
+                      "and re-commit."))
+    if "FEW_NAMED_RANGES" in f:
+        s.append(core("Fewer than 8 of the 10 contract named ranges were found. Attach "
+                      "every one (FC_AMT, S0_in, F0_in, R_USD, R_FC, K_PUT, K_CALL, "
+                      "PREM_PUT, PREM_CALL, T_DAYS) to its input cell."))
+    if "HARDCODED_OUTPUTS" in f:
+        s.append(core("Several calculated cells hold typed numbers rather than formulas. "
+                      "Every output must be a formula referencing named ranges — pasted "
+                      "results don't earn contract credit."))
+    if "FORMULAS_NOT_USING_NAMES" in f:
+        s.append(core("Your formulas use cell addresses (e.g. `$F$7`) instead of named "
+                      "ranges. Swap in the contract names so spec, workbook, and prompt "
+                      "share one vocabulary."))
+    for h, msg in (("MISSING_FORWARD", "forward hedge"),
+                   ("MISSING_MONEYMARKET", "money-market hedge"),
+                   ("MISSING_OPTION", "option (put/call) hedge")):
+        if h in f:
+            s.append(core(f"The {msg} isn't detectable — make sure it's built and labelled."))
+    if "NO_CHART" in f:
+        s.append(core("Add the sensitivity line chart (USD outcome vs. ending spot, one "
+                      "series per strategy)."))
+    if "NO_LEGEND" in f:
+        s.append(core("Add a Legend/Key tab documenting the color convention (yellow "
+                      "inputs, blue assumptions, green formulas, gray outputs)."))
+    if "AUDIT_NOTE_MISSING" in f:
+        s.append(core("The build-audit note is missing. Add `analysis/…-build-audit.md` "
+                      "with at least three findings you checked or fixed."))
+    if "AUDIT_NOTE_THIN" in f:
+        s.append(core("The audit note has fewer than three substantive findings. For "
+                      "each: what you checked, what you found, what you did."))
+    if "INSTRUCTOR_NOT_COLLABORATOR" in f:
+        s.append(core("I'm not a collaborator on the repo yet — add `adamwstauffer` so I "
+                      "can leave inline review comments."))
+    if "STRONG" in f:
+        s.append(core("Clean build — named ranges complete, outputs formula-driven, hedges "
+                      "and sensitivity all present. Nicely audited."))
+    if g.prior_weak:
+        s.append(backward("Your Stage 2 spec scored below the floor — the clearer the "
+                          "spec's named-range contract and calculation flow, the less the "
+                          "build has to guess. Tightening it can still lift the Stage 2 "
+                          "score at the revision sweep."))
+    nxt = next_stage_pointer(STAGE_N)
+    if nxt:
+        s.append(nxt)
+    return s
 
 
-def _write_letter_grade_summary(sm, curved_col: int, generous_col: int,
-                                first_row: int, last_row: int) -> None:
-    cv_l = get_column_letter(curved_col)
-    gn_l = get_column_letter(generous_col)
-    cv_rng = f"Grading!${cv_l}${first_row}:${cv_l}${last_row}"
-    gn_rng = f"Grading!${gn_l}${first_row}:${gn_l}${last_row}"
-
-    header_font = Font(bold=True, color="FFFFFF")
-    header_fill = PatternFill("solid", fgColor="024731")
-
-    sm.append([])
-    headers = ["Letter", "Min %", f"Min /{TOTAL_POINTS}",
-               "Count (Curved 80%)", "Count (Curved 90%)",
-               "Histogram (80%)", "Histogram (90%)"]
-    sm.append(headers)
-    hr = sm.max_row
-    for col_idx in range(1, len(headers) + 1):
-        c = sm.cell(row=hr, column=col_idx)
-        c.font = header_font
-        c.fill = header_fill
-
-    for letter, min_pct, max_pct in LETTER_GRADE_SCALE:
-        min_pts = round(min_pct * TOTAL_POINTS / 100, 4)
-        r = sm.max_row + 1
-        if letter == "F":
-            max_pts = round(max_pct * TOTAL_POINTS / 100, 4)
-            cv_f = f'=COUNTIFS({cv_rng},">0",{cv_rng},"<"&{max_pts})'
-            gn_f = f'=COUNTIFS({gn_rng},">0",{gn_rng},"<"&{max_pts})'
-        elif max_pct is None:
-            cv_f = f'=COUNTIF({cv_rng},">="&{min_pts})'
-            gn_f = f'=COUNTIF({gn_rng},">="&{min_pts})'
-        else:
-            max_pts = round(max_pct * TOTAL_POINTS / 100, 4)
-            cv_f = f'=COUNTIFS({cv_rng},">="&{min_pts},{cv_rng},"<"&{max_pts})'
-            gn_f = f'=COUNTIFS({gn_rng},">="&{min_pts},{gn_rng},"<"&{max_pts})'
-        sm.cell(row=r, column=1, value=letter)
-        sm.cell(row=r, column=2, value=min_pct)
-        sm.cell(row=r, column=3, value=min_pts)
-        sm.cell(row=r, column=4, value=cv_f)
-        sm.cell(row=r, column=5, value=gn_f)
-        sm.cell(row=r, column=6, value=f'=REPT("█",D{r})')
-        sm.cell(row=r, column=7, value=f'=REPT("█",E{r})')
-
-    r = sm.max_row + 1
-    sm.cell(row=r, column=1, value="No submission")
-    sm.cell(row=r, column=4, value=f'=COUNTIF({cv_rng},0)')
-    sm.cell(row=r, column=5, value=f'=COUNTIF({gn_rng},0)')
-    sm.cell(row=r, column=6, value=f'=REPT("█",D{r})')
-    sm.cell(row=r, column=7, value=f'=REPT("█",E{r})')
-
-    sm.column_dimensions["F"].width = 40
-    sm.column_dimensions["G"].width = 40
+# ---------------------------------------------------------------- prior lookup
+_PRIOR_HEADER_RE = re.compile(
+    r"^##\s+\d+\.\s+(?P<name>.+?)\s+—\s+.*?\*\*(?P<score>\d+(?:\.\d+)?)\s*/\s*100\*\*",
+    re.MULTILINE,
+)
 
 
-def build_worksheet(grades: list[Grade]) -> None:
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Grading"
+def parse_prior_report(path: Path | None) -> dict[str, float]:
+    """Map normalized student name -> Stage 2 final score (0-100)."""
+    out: dict[str, float] = {}
+    if not path or not Path(path).exists():
+        return out
+    text = Path(path).read_text(encoding="utf-8", errors="ignore")
+    for m in _PRIOR_HEADER_RE.finditer(text):
+        out[_repo.normalize_name(m.group("name"))] = float(m.group("score"))
+    return out
 
-    headers = [
-        "Student ID", "Student Name", "Submitted", "File", "Format",
-        "Word Count", "# Tables", "# Code Blocks", "Metadata Header",
-        "Sections Found", "# Sections",
-        "Hedges Found", "# Hedges",
-        "# Distinct Named Tokens", "Named Token Examples",
-        "Model Review Words",
-        "Auto Clarity /1", "Auto Logic /1",
-        "Auto Completeness /1", "Auto Reproducibility /1",
-        "Auto Total /4", "Final /4",
-        "Rank", "Quartile", "Curved /4 (80%)", "Curved /4 (90%)",
-        "Flags", "Comments",
+
+# ---------------------------------------------------------------- report writers
+def _criterion_rows(g: Grade) -> list[tuple[str, str, str]]:
+    a = g.audit or WorkbookAudit()
+    return [
+        ("Contract compliance", f"{g.cc:g} / {CRIT['contract_compliance']}",
+         f"{len(a.named_ranges_present)}/10 named ranges; "
+         f"{a.formula_ratio * 100:.0f}% of calc cells are formulas; "
+         f"hedges: {', '.join(a.hedges_found) or 'none'}; "
+         f"{'chart + ' if a.chart_count else 'no chart, '}sensitivity "
+         f"{'yes' if a.sensitivity_detected else 'no'}."),
+        ("Structure & presentation", f"{g.sp:g} / {CRIT['structure_presentation']}",
+         f"cover {'Y' if a.has_cover_tab else 'N'}, legend {'Y' if a.has_legend_tab else 'N'}, "
+         f"{a.distinct_fill_colors} fill colors, notes {'Y' if a.has_notes_tab else 'N'}."),
+        ("Audit note", f"{g.an:g} / {CRIT['audit_note']}",
+         f"{'present' if g.note_present else 'missing'}, ~{g.note_findings} findings."),
     ]
-    ws.append(headers)
 
-    FINAL_COL = headers.index("Final /4") + 1
-    RANK_COL = headers.index("Rank") + 1
-    QUART_COL = headers.index("Quartile") + 1
-    CURVED_COL = headers.index("Curved /4 (80%)") + 1
-    GENEROUS_COL = headers.index("Curved /4 (90%)") + 1
-    FLAGS_COL = headers.index("Flags") + 1
 
-    header_font = Font(bold=True, color="FFFFFF")
-    header_fill = PatternFill("solid", fgColor="024731")
-    for col, _ in enumerate(headers, 1):
-        c = ws.cell(row=1, column=col)
-        c.font = header_font
-        c.fill = header_fill
-        c.alignment = Alignment(vertical="center", wrap_text=True)
+def _student_section(n: int, g: Grade, floor_pct: int) -> list[str]:
+    accessible = bool(g.repo and g.repo.accessible)
+    final = curved_score(g.raw_pct, STAGE_N, accessible=accessible)
+    floored = floor_applied(g.raw_pct, STAGE_N, accessible=accessible)
 
-    flag_fill = PatternFill("solid", fgColor="FFF2CC")
-    error_fill = PatternFill("solid", fgColor="F8CBAD")
+    if final == 0:
+        tag = " (no gradable submission)"
+    elif floored:
+        tag = f" ({letter(final)}, floor applied)"
+    else:
+        tag = f" ({letter(final)})"
 
-    for g in grades:
-        auto_total = (
-            g.auto_clarity + g.auto_logic
-            + g.auto_completeness + g.auto_reproducibility
-        )
-        row = [
-            g.student_id,
-            g.student_name,
-            g.submitted_at.strftime("%Y-%m-%d %H:%M"),
-            g.spec_filename,
-            g.file_format,
-            g.word_count,
-            g.table_count,
-            g.code_block_count,
-            "Y" if g.has_metadata_header else "",
-            ", ".join(g.sections_found),
-            len(g.sections_found),
-            ", ".join(g.hedges_found),
-            len(g.hedges_found),
-            g.distinct_named_tokens,
-            ", ".join(g.named_token_examples),
-            g.model_review_words,
-            g.auto_clarity, g.auto_logic,
-            g.auto_completeness, g.auto_reproducibility,
-            auto_total, auto_total,  # Final defaults to Auto Total for editing
-            None, None, None, None,  # Rank, Quartile, Curved, Curved 90% formulas
-            ", ".join(g.flags),
-            g.error,
+    lines = [f"## {n}. {g.name} — **{final:g} / 100**{tag}", ""]
+    if g.github_url:
+        lines.append(f"**Repo:** {g.github_url}")
+    if g.workbook_path:
+        lines.append(f"**Workbook:** `{g.workbook_path}`")
+    if g.audit_path:
+        lines.append(f"**Audit note:** `{g.audit_path}`")
+    if g.submitted_at:
+        lines.append(f"**Submitted:** {g.submitted_at:%Y-%m-%d %H:%M}")
+    lines.append("")
+
+    lines.append("| Criterion | Earned | Notes |")
+    lines.append("|-----------|--------|-------|")
+    for label, earned, note in _criterion_rows(g):
+        lines.append(f"| {label} | {earned} | {note} |")
+    if floored:
+        lines.append(f"| **Raw total** | **{g.raw_pct:g} / 100** | — |")
+        lines.append(f"| **Floor adjustment** | **+{final - g.raw_pct:g}** | lifted to {floor_pct}% floor |")
+    final_note = ("no gradable submission" if final == 0
+                  else "floor applied" if floored else "earned on merit")
+    lines.append(f"| **Final** | **{final:g} / 100** | {final_note} |")
+    lines.append("")
+    if g.flags:
+        lines.append(f"*Flags: {', '.join(g.flags)}*")
+        lines.append("")
+    lines.extend(render_suggestions(_suggestions_for(g), stage_n=STAGE_N))
+    lines.append("---")
+    return lines
+
+
+def build_report(grades: list[Grade], floor_pct: int, today: date) -> str:
+    lines = [
+        "# FIN-321 Stage 3 — Grade Report",
+        "",
+        f"**Stage:** {STAGE_LABEL} ({stage_pct(STAGE_N)}% of project score)",
+        f"**Graded:** {today:%Y-%m-%d}",
+        f"**Submissions reviewed:** {len(grades)}",
+        f"**Floor policy:** {floor_pct}% floor for any accessible repo with a workbook present.",
+        "**Score privacy:** scores live in this internal file only — never in the "
+        "PR feedback pushed to student repos.",
+        "",
+        "---",
+        "## Rubric (recap)",
+        "",
+        "| Criterion | Weight |",
+        "|-----------|--------|",
+        f"| Contract compliance (named ranges, formulas-only, hedges, sensitivity) | {CRIT['contract_compliance']}% |",
+        f"| Structure & presentation (cover, legend/key, color convention) | {CRIT['structure_presentation']}% |",
+        f"| Audit note (>=3 findings) | {CRIT['audit_note']}% |",
+        "",
+        "---",
+    ]
+    ordered = sorted(grades, key=lambda g: _repo.normalize_name(g.name))
+    summary: list[tuple[str, float, str]] = []
+    for i, g in enumerate(ordered, 1):
+        lines.extend(_student_section(i, g, floor_pct))
+        accessible = bool(g.repo and g.repo.accessible)
+        final = curved_score(g.raw_pct, STAGE_N, accessible=accessible)
+        note = "no submission" if final == 0 else (
+            "floor applied" if floor_applied(g.raw_pct, STAGE_N, accessible=accessible)
+            else "earned")
+        summary.append((g.name, final, note))
+
+    lines += ["## Class summary", "", "| Student | Score | Notes |", "|---------|-------|-------|"]
+    for name, sc, note in summary:
+        lines.append(f"| {name} | {sc:g} / 100 | {note} |")
+    submitted = [s for _, s, n in summary if n != "no submission"]
+    if submitted:
+        floored_n = sum(1 for _, _, n in summary if n == "floor applied")
+        lines += [
+            "",
+            f"**Mean (submissions only):** {sum(submitted) / len(submitted):.1f}",
+            f"**Submission rate:** {len(submitted)} of {len(summary)}",
+            f"**Floor applied:** {floored_n} of {len(submitted)} submissions",
         ]
-        ws.append(row)
-        r = ws.max_row
-        if g.error:
-            for col in range(1, len(headers) + 1):
-                ws.cell(row=r, column=col).fill = error_fill
-        elif g.flags:
-            ws.cell(row=r, column=FLAGS_COL).fill = flag_fill
+    lines.append("")
+    return "\n".join(lines)
 
-    _write_curve_formulas(ws, FINAL_COL, RANK_COL, QUART_COL, CURVED_COL,
-                          GENEROUS_COL, 2, ws.max_row)
 
-    widths = [
-        11, 30, 17, 36, 8,
-        11, 9, 11, 12,
-        38, 11,
-        30, 10,
-        12, 30,
-        14,
-        12, 12, 14, 16,
-        13, 10,
-        8, 10, 14, 14,
-        38, 28,
+def build_pr_feedback(g: Grade, today: date) -> str:
+    a = g.audit or WorkbookAudit()
+    opt = "✓" if ({"Put", "Call"} & set(a.hedges_found)) else "—"
+    lines = [
+        f"# Stage 3 review — {today:%Y-%m-%d}",
+        "",
+        "## Build contract checklist",
+        "",
+        "| Check | Status |",
+        "|-------|--------|",
+        f"| Workbook committed (`models/builds/`) | {'✓' if g.workbook_path else '—'} |",
+        f"| Named ranges attached | {len(a.named_ranges_present)}/10 |",
+        f"| Calculated cells are formulas | {a.formula_ratio * 100:.0f}% |",
+        f"| Formulas use named ranges | {'✓' if a.formulas_using_named_ranges else '—'} |",
+        f"| Forward hedge | {'✓' if 'Forward' in a.hedges_found else '—'} |",
+        f"| Money-market hedge | {'✓' if 'MoneyMarket' in a.hedges_found else '—'} |",
+        f"| Option hedge (put/call) | {opt} |",
+        f"| Sensitivity table | {'✓' if a.sensitivity_detected else '—'} |",
+        f"| Sensitivity chart | {'✓' if a.chart_count else '—'} |",
+        "",
+        "## Presentation",
+        "",
+        "| Element | Status |",
+        "|---------|--------|",
+        f"| Cover tab | {'✓' if a.has_cover_tab else '—'} |",
+        f"| Legend/Key tab | {'✓' if a.has_legend_tab else '—'} |",
+        f"| Color convention (distinct fills) | {a.distinct_fill_colors} |",
+        f"| Notes/Assumptions tab | {'✓' if a.has_notes_tab else '—'} |",
+        "",
+        "## Audit note",
+        "",
+        f"- Present: **{'yes' if g.note_present else 'no'}**",
+        f"- Substantive findings counted: **{g.note_findings}** (brief asks for ≥3)",
+        "",
     ]
-    for i, w in enumerate(widths, 1):
-        ws.column_dimensions[get_column_letter(i)].width = w
-    ws.freeze_panes = "F2"
-    ws.auto_filter.ref = f"A1:{get_column_letter(len(headers))}{ws.max_row}"
-
-    # Summary sheet
-    sm = wb.create_sheet("Summary")
-    sm.append(["Metric", "Value"])
-    sm.append(["Total unique students", len(grades)])
-    sm.append(["Missing file", sum(1 for g in grades if "NO_FILE" in g.flags)])
-    sm.append(["Stub submission", sum(1 for g in grades if "STUB" in g.flags)])
-    sm.append(["Missing section(s)", sum(1 for g in grades
-                                         if any(f.startswith("MISSING_SECTION") for f in g.flags))])
-    sm.append(["Missing hedge type", sum(1 for g in grades if "MISSING_HEDGE" in g.flags)])
-    sm.append(["Few named ranges", sum(1 for g in grades if "FEW_NAMED_RANGES" in g.flags)])
-    sm.append(["Short (<800 words)", sum(1 for g in grades if "SHORT" in g.flags)])
-    sm.append(["Thin model review", sum(1 for g in grades if "THIN_MODEL_REVIEW" in g.flags)])
-    sm.append(["No sensitivity", sum(1 for g in grades if "NO_SENSITIVITY" in g.flags)])
-    if grades:
-        avg = sum(
-            g.auto_clarity + g.auto_logic + g.auto_completeness + g.auto_reproducibility
-            for g in grades
-        ) / len(grades)
-        sm.append(["Average auto-score /4", round(avg, 2)])
-
-    sm.append([])
-    sm.append(["Curve policy", ""])
-    sm.append(["Ranking basis", "Final /4 (updates live)"])
-    sm.append(["Mode",
-               "Ceiling-floor + round up: Curved = CEILING(MAX(Final, quartile floor), 0.05). "
-               "Rounds up to nearest 0.05; never reduces raw score."])
-    sm.append(["Tiebreak", "Sheet order (alphabetical by name)"])
-    sm.append(["Curved /4 (80% floor)", ""])
-    sm.append(["Q1 top 25%", "4.00 -> 3.75"])
-    sm.append(["Q2", "3.75 -> 3.50"])
-    sm.append(["Q3", "3.50 -> 3.35"])
-    sm.append(["Q4 bottom 25%", "3.35 -> 3.20  (= 80% of 4)"])
-    sm.append(["Final = 0", "Curved = 0 (non-submission)"])
-    sm.append([])
-    sm.append(["Curved /4 (90% floor) — generous option", ""])
-    sm.append(["Q1", "4.00 -> 3.90"])
-    sm.append(["Q2", "3.90 -> 3.80"])
-    sm.append(["Q3", "3.80 -> 3.70"])
-    sm.append(["Q4", "3.70 -> 3.60  (= 90% of 4)"])
-
-    for col in (1, 2):
-        sm.column_dimensions[get_column_letter(col)].width = 30
-    for cell in sm[1]:
-        cell.font = header_font
-        cell.fill = header_fill
-
-    _write_letter_grade_summary(sm, CURVED_COL, GENEROUS_COL, 2, ws.max_row)
-
-    wb.save(OUTPUT_PATH)
+    lines.extend(render_suggestions(_suggestions_for(g), stage_n=STAGE_N))
+    lines += [
+        "",
+        "*This review is feedback-only — no scores included. Score numbers live in the "
+        "internal grade report and your instructor email.*",
+    ]
+    return "\n".join(lines)
 
 
-def main() -> int:
-    subs = collect_submissions()
-    print(f"Found {len(subs)} unique students (deduped by ID).")
+# ---------------------------------------------------------------- driver
+def _resolve_out_dir(export: Path, out_dir: str | None) -> Path:
+    if out_dir:
+        return Path(out_dir)
+    if export.parent.name.lower() == "ungraded":
+        return export.parent.parent / "graded"
+    base = export.parent if export.is_file() else export
+    return base / "graded"
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description="FIN-321 Stage 3 grader (AI build + audit).")
+    ap.add_argument("export", type=Path, help="Lamaku export .zip or extracted dir")
+    ap.add_argument("--floor", type=int, default=DEFAULT_FLOOR_PCT)
+    ap.add_argument("--prior-stage2", type=Path, default=None,
+                    help="STAGE2_GRADES.md for carry-forward recognition")
+    ap.add_argument("--out-dir", default=None)
+    ap.add_argument("--today", default=None, help="YYYY-MM-DD (defaults to today)")
+    ap.add_argument("--no-move", action="store_true",
+                    help="(reserved) keep the source export in place")
+    args = ap.parse_args(argv)
+
+    if not args.export.exists():
+        print(f"error: export not found: {args.export}", file=sys.stderr)
+        return 1
+    today = (datetime.strptime(args.today, "%Y-%m-%d").date()
+             if args.today else datetime.now().date())
+
+    subs = _repo.discover_submissions(args.export)
+    print(f"Discovered {len(subs)} submissions.")
+    prior = parse_prior_report(args.prior_stage2)
+
     grades: list[Grade] = []
-    for s in subs:
-        print(f"  grading {s.student_id} {s.student_name} ...", end=" ")
-        g = inspect(s)
+    for sub in subs:
+        print(f"  grading {sub.student_id} {sub.name} ...", end=" ", flush=True)
+        g = grade_submission(sub)
+        key = _repo.normalize_name(g.name)
+        g.prior_weak = key in prior and prior[key] < STAGE_FLOOR_PCT[2]
         grades.append(g)
-        if g.error:
-            print(f"ERROR: {g.error}")
-        else:
-            total = g.auto_clarity + g.auto_logic + g.auto_completeness + g.auto_reproducibility
-            print(f"auto={total}/4 flags={','.join(g.flags) or '-'}")
-    build_worksheet(grades)
-    print(f"\nWrote {OUTPUT_PATH}")
+        print(f"raw={g.raw_pct:g}/100 flags={','.join(g.flags) or '-'}")
+
+    out_dir = _resolve_out_dir(args.export, args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    report_path = out_dir / "STAGE3_GRADES.md"
+    report_path.write_text(build_report(grades, args.floor, today), encoding="utf-8")
+    print(f"Wrote {report_path}")
+
+    fb_root = out_dir / "_pr_feedback"
+    for g in grades:
+        d = fb_root / _repo.lastname_slug(g.name)
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "feedback-file.md").write_text(build_pr_feedback(g, today), encoding="utf-8")
+    print(f"Wrote {len(grades)} PR-feedback files under {fb_root}")
     return 0
 
 

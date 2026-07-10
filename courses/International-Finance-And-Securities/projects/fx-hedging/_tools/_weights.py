@@ -29,6 +29,18 @@ STAGE_WEIGHTS: dict[int, int] = {
     5: 25,   # LLM analysis & validation (capstone)
 }
 
+# --- Generosity-only curve floors: % of the stage a working submission is
+# lifted to (never lowers a raw score). Mirrors BUS-629's descending floors
+# (easier early stages sit higher). Consumed by _curve.py.
+STAGE_FLOOR_PCT: dict[int, int] = {
+    0: 90,   # repo setup — mechanical, high floor
+    1: 80,   # executive memo
+    2: 80,   # model specification
+    3: 75,   # AI build + audit
+    4: 70,   # market data + population
+    5: 70,   # LLM validation (capstone)
+}
+
 # --- Criteria weights: % of the *stage* (each inner dict sums to 100) ------
 # Keys mirror each stage doc's Evaluation table, top to bottom.
 CRITERIA_WEIGHTS: dict[int, dict[str, int]] = {
@@ -79,6 +91,9 @@ def _validate() -> None:
             f"stage {stage} criteria must sum to 100, got {sum(crit.values())}"
         )
     assert set(STAGE_WEIGHTS) == set(CRITERIA_WEIGHTS), "stage keys must match"
+    assert set(STAGE_WEIGHTS) == set(STAGE_FLOOR_PCT), "floor keys must match stages"
+    for stage, floor in STAGE_FLOOR_PCT.items():
+        assert 0 <= floor <= 100, f"stage {stage} floor out of range: {floor}"
 
 
 def stage_pct(stage: int) -> int:
