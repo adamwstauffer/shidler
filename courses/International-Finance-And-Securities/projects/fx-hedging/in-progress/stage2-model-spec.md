@@ -1,4 +1,4 @@
-# Stage 2 – Model Specification (5 Points)
+# Stage 2 – Model Specification (21% of project)
 
 ## Goal
 
@@ -90,12 +90,12 @@ how Stage 4 will source the real one.
 
 ## Evaluation
 
-| Criterion | Description | Points |
+| Criterion | Description | Weight |
 | --------- | ----------- | -----: |
-| Named-range contract & tab architecture | Complete inputs table with units/placeholders/Stage-4 sources; every tab named with purpose | 1.5 |
-| Calculation flow | Correct, correctly ordered logic for all three hedge families in named-range notation | 1.5 |
-| Validation & sensitivity plan | Concrete check figures; sensitivity design fully specified | 1 |
-| Reproducibility & prompt log | Buildable by a context-free reader; HIL iteration evidenced in the log | 1 |
+| Named-range contract & tab architecture | Complete inputs table with units/placeholders/Stage-4 sources; every tab named with purpose | 30% |
+| Calculation flow | Correct, correctly ordered logic for all three hedge families in named-range notation | 30% |
+| Validation & sensitivity plan | Concrete check figures; sensitivity design fully specified | 20% |
+| Reproducibility & prompt log | Buildable by a context-free reader; HIL iteration evidenced in the log | 20% |
 
 ---
 

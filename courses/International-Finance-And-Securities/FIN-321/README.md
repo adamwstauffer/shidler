@@ -47,15 +47,17 @@ Through the AI + GitHub project, you will also develop practical, workplace-read
 
 ## AI + GitHub Course Project (25% of Course Grade)
 
-This course includes a multi-stage project on FX risk management worth **25% of your final grade** (24 points + 2 extra credit).
+This course includes a multi-stage project on FX risk management, worth **25% of your final grade for this offering**. That course-grade share is set here at the offering level; the stage weights below are **percentages of the project**, so they never need changing if the share does. No extra credit.
 
-| Stage | Deliverable | Points |
-|-------|------------|--------|
-| 1 | Executive Memo | 4 |
-| 2 | Excel Model Build | 6 |
-| 3 | Technical Specification | 4 |
-| 4 | Final Analysis, Prompt Engineering & Recommendation | 10 |
-| **Total** | | **24 + 2 EC** |
+| Stage | Deliverable | Weight |
+|-------|------------|-------:|
+| 0 | Portfolio repository (repo setup) | 8% |
+| 1 | Executive memo | 17% |
+| 2 | Model specification | 21% |
+| 3 | AI-assisted build + audit | 17% |
+| 4 | Market data + population | 12% |
+| 5 | LLM analysis & validation (capstone) | 25% |
+| **Total** | | **100%** |
 
 **Scope:** Map a multinational firm's currency exposures, compute forward rates (via interest parity), and compare hedging strategies (forwards, options, collars).
 

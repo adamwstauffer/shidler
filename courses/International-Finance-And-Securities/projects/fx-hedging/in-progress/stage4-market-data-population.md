@@ -1,4 +1,4 @@
-# Stage 4 – Market Data + Population (3 Points)
+# Stage 4 – Market Data + Population (12% of project)
 
 ## Goal
 
@@ -49,11 +49,11 @@ results will not match anyone else's, and they aren't supposed to.
 
 ## Evaluation
 
-| Criterion | Description | Points |
+| Criterion | Description | Weight |
 | --------- | ----------- | -----: |
-| Data quality & provenance | Every input sourced, timestamped, proxies documented; sensible rate choices | 1.5 |
-| Model resolves cleanly | Live data loads through named ranges; checks pass; fixes (if any) documented honestly | 1 |
-| Lab cross-check | Comparison performed and documented; discrepancies resolved | 0.5 |
+| Data quality & provenance | Every input sourced, timestamped, proxies documented; sensible rate choices | 50% |
+| Model resolves cleanly | Live data loads through named ranges; checks pass; fixes (if any) documented honestly | 33% |
+| Lab cross-check | Comparison performed and documented; discrepancies resolved | 17% |
 
 ---
 

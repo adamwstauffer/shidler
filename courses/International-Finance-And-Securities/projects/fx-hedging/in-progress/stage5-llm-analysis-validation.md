@@ -1,4 +1,4 @@
-# Stage 5 – LLM Analysis & Validation (6 Points + 2 EC)
+# Stage 5 – LLM Analysis & Validation (25% of project — capstone)
 
 ## Goal
 
@@ -63,17 +63,17 @@ is a production test of your documents. Log the prompt.
 
 ## Evaluation
 
-| Criterion | Description | Points |
+| Criterion | Description | Weight |
 | --------- | ----------- | -----: |
-| LLM execution & comparison | Clean two-document run; complete comparison table; discrepancies diagnosed, not just listed | 1.5 |
-| Hand verification | ≥3 outcomes recomputed with arithmetic shown; reconciled to the workbook | 1.5 |
-| Recommendation & executive voice | Data-supported, decision-ready, CFO-appropriate | 1.5 |
-| Spec retrospective | Specific, honest, ties LLM failures to spec gaps | 1 |
-| Repo polish | Checklist complete; repo is genuinely portfolio-ready | 0.5 |
+| LLM execution & comparison | Clean two-document run; complete comparison table; discrepancies diagnosed, not just listed | 25% |
+| Hand verification | ≥3 outcomes recomputed with arithmetic shown; reconciled to the workbook | 25% |
+| Recommendation & executive voice | Data-supported, decision-ready, CFO-appropriate | 25% |
+| Spec retrospective | Specific, honest, ties LLM failures to spec gaps | 17% |
+| Repo polish | Checklist complete; repo is genuinely portfolio-ready | 8% |
 
-## Extra Credit (2 points): Further study
+## Further study (optional — not graded)
 
-In 1–2 paragraphs each, discuss **2–3** of: AI skills & automation (live data pulls, on-demand
+Optional enrichment, no points attached. In 1–2 paragraphs each, discuss **2–3** of: AI skills & automation (live data pulls, on-demand
 regeneration, Monte Carlo); multi-file reasoning across spec/model/log; GitHub as audit
 evidence and reproducibility infrastructure; hedge-accounting integration (OCI vs. P&L,
 documentation requirements). Tie each to *your* project, not the abstract idea.
