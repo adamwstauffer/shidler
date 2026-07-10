@@ -25,6 +25,6 @@ International-Finance-And-Securities/
 │       ├── FX-Hedging-Project.pptx  project overview slide deck
 │       ├── README.md
 │       ├── scenarios.md
-│       └── stage1-memo-assignment.md … stage4-final-analysis-assignment.md
+│       └── stage0-repo-setup.md … stage5-llm-analysis-validation.md
 └── README.md                       you are here
 ```

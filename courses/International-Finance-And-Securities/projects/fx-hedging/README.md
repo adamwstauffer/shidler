@@ -1,80 +1,90 @@
-# FIN-321 Multi-Stage Project – FX Exposure and Hedging Strategies
+# FIN-321 FX Hedging Project — six-stage (Design → Build → Validate)
 
-Author: Adam Stauffer
-Last Updated: 2026-03-25
+**Status: live (promoted 2026-07-10).** This is the current FIN-321 fx-hedging curriculum. The
+prior four-stage version is archived at `_archive/fin321/stage-docs-v1/`, and the FIN-321
+offering README's weight table matches these stages. Design rationale and options analysis:
+`ai-lms/docs/plans/2026-07-09-fin321-fx-hedging-restructure-memo.md`.
 
-## Project Overview
+## What changed vs. v1 (Build → Document → Analyze)
 
-This project guides students through the full analyst-to-automation workflow used in corporate treasury and financial risk management. Beginning with a business-level problem, students progressively translate FX exposure into a working model, a formal specification, and a final executive recommendation with integrated prompt engineering.
+The v2 arc is **Design → Build → Validate**, aligned with the proven BUS 629 performance-ratios
+flow. Three structural moves:
 
-## Deliverables
+1. **Spec before build.** Students design the workbook (named ranges, tabs, formula plan)
+   *before* any Excel exists. The build then tests their own design.
+2. **AI generates, students audit.** Stage 3 makes AI-assisted generation explicit and graded —
+   the deliverable includes an audit note proving the student inspected and corrected the output.
+3. **Data after structure.** Live market data lands at stage 4 and doubles as a robustness test:
+   a model that breaks when fresh prices are loaded had the wrong structure.
 
-| Stage | Deliverable | Points |
-| ----- | --------------------------------- | -----: |
-| 1 | Executive Memo | 4 |
-| 2 | Excel Model Build | 6 |
-| 3 | Technical Specification | 4 |
-| 4 | Final Analysis, Prompt Engineering & Recommendation | 10 |
-| **Total** | | **24** |
+Excel understanding is proven at four checkpoints no AI can do *for* the student:
+design (2), audit (3), populate + cross-check (4), hand-verification (5).
 
-## Stage Sequence & Rationale
+## Stages & weights
 
-The project follows a **Build → Document → Analyze** workflow:
+Every weight is a **percentage** — nothing is a hardcoded point total. Stage weights are % of
+the project; each stage's rubric criteria (in the stage doc) are % of that stage. The project's
+own share of the semester course grade is variable and set in the offering README / gradebook,
+so changing it never requires touching these weights. **No extra credit.** The single source of
+truth for graders is [`_tools/_weights.py`](_tools/_weights.py).
 
-1. **Stage 1 – Executive Memo:** Define the business problem and frame the hedging decision for the CFO.
-2. **Stage 2 – Excel Model Build:** Build a working prototype from the scenario. Experiential knowledge of what the model requires in practice informs every subsequent stage.
-3. **Stage 3 – Technical Specification:** Document what was built and articulate an improved design. A spec written after building is more precise, more realistic, and more useful as an AI prompt input.
-4. **Stage 4 – Final Analysis, Prompt Engineering & Recommendation:** Interpret model results, write a structured AI prompt, and deliver an executive-ready hedge recommendation.
+| Stage | Deliverable | Weight | Suggested week (6-wk term) |
+| ----- | ----------- | -----: | ---- |
+| 0 | Portfolio repository (canonical skeleton) | 8% | 2 (paired with stage 2) |
+| 1 | Executive memo | 17% | 1 |
+| 2 | Model specification | 21% | 2 |
+| 3 | AI-assisted build + audit note | 17% | 3 |
+| 4 | Market data + population | 12% | 4 |
+| 5 | LLM analysis & validation (capstone) | 25% | 5–6 |
+| **Total** | | **100%** | |
 
-## Assignment Files
+Weeks are indicative for a 6-week summer term; the offering README sets actual dates. In a
+15-week term the same stages spread roughly biweekly. **These stage docs are term-agnostic by
+design — do not add dates to them.**
 
-| File | Description |
-| --------------------------------- | ---------------------------------------- |
-| `stage1-memo-assignment.md` | Stage 1 instructions and rubric |
-| `stage2-excel-build-assignment.md`| Stage 2 instructions and rubric |
-| `stage3-spec-assignment.md` | Stage 3 instructions and rubric |
-| `stage4-final-analysis-assignment.md` | Stage 4 instructions and rubric |
-| `scenarios.md` | Assigned firm scenarios |
-| `../_templates/template-decision-memo.md` | Starter template for Stage 1 memo |
-| `../_templates/template-spec.md` | Starter template for Stage 3 spec |
+## The stage-gating chain
 
-## Committing Your Work
-
-All Markdown deliverables (`.md` files) should be committed to your GitHub repository. Recommended locations:
-
-| Deliverable | Where to Save |
-|-------------|---------------|
-| Stage 1 memo | `docs/decisions/` |
-| Stage 2 Excel model | `docs/templates/excel/` |
-| Stage 3 spec | Root of your project directory or `docs/` |
-| Stage 4 final analysis | Root of your project directory or `docs/` |
-
-**Workflow:**
-1. Create your `.md` file using the appropriate template.
-2. Save it in the recommended directory within your repository.
-3. Stage, commit, and push: `git add <file>` → `git commit -m "Stage X deliverable"` → `git push`.
-4. Verify your file is visible on GitHub.
-
-Version control is not just a submission mechanism — it is a core professional skill practiced throughout this project.
-
----
-
-## Directory Contents
+Each stage's output is the next stage's named input:
 
 ```
-fx-hedging/
-├── _templates/
-│   ├── template-decision-memo.md
-│   └── template-spec.md
-├── _tools/                                  v2 grading toolchain
-│   ├── grade_stage0.py … grade_stage5.py    per-stage graders (repo inspection)
-│   ├── sweep_stage.py / build_roster.py / grade_one.py   drivers
-│   └── _weights, _curve, _repo, _report, _xlsx, _grading_comments, _safe_zip   shared libs
-├── FX-Hedging-Project.pptx                  project overview slide deck
-├── README.md                                this file
-├── scenarios.md
-├── stage1-memo-assignment.md
-├── stage2-excel-build-assignment.md
-├── stage3-spec-assignment.md
-└── stage4-final-analysis-assignment.md
+repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data populate (4) → LLM validation + recommendation (5)
 ```
+
+## Conventions (shared with BUS 629)
+
+- **Filenames:** `YYYY-MM-DD-{lastname}-{scenario-slug}-{kind}.{ext}`
+  (scenario slugs: `solar-importer`, `pharma-exporter`, `tech-services`, `aerospace`).
+- **Named-range contract:** `FC_AMT`, `S0_in`, `F0_in`, `R_USD`, `R_FC`, `K_PUT`, `K_CALL`,
+  `PREM_PUT`, `PREM_CALL`, `T_DAYS` — the shared vocabulary of spec, workbook, grader, and
+  LLM prompts.
+- **Color convention:** Yellow = inputs · Blue = assumptions · Green = formulas · Gray = outputs.
+- **Prompt log:** a running `prompt-log.md` at the repo root, updated at every stage that uses
+  an AI tool. LLM-as-drafter, student-as-editor.
+- **Template policy:** the instructor workbook is **withheld** during the build and used as the
+  grading key. (Open question for Adam — release it after stage 3 as a diff-against-yours
+  exercise? See memo §6.)
+
+## Stage files
+
+| File | Stage |
+| ---- | ----- |
+| `stage0-repo-setup.md` | 0 — Portfolio repository |
+| `stage1-executive-memo.md` | 1 — Executive memo |
+| `stage2-model-spec.md` | 2 — Model specification |
+| `stage3-ai-build-audit.md` | 3 — AI-assisted build + audit |
+| `stage4-market-data-population.md` | 4 — Market data + population |
+| `stage5-llm-analysis-validation.md` | 5 — LLM analysis & validation |
+
+Shared project files: `scenarios.md`, `_templates/template-decision-memo.md`,
+`_templates/template-spec.md`. Grading scripts (`_tools/`) are built for v2:
+`grade_stage0`–`grade_stage5` plus the `sweep_stage` / `build_roster` / `grade_one` drivers,
+scoring on a %-of-stage basis from `_weights.py`. The headline check is the Stage 3
+formula-presence audit (`_xlsx.py`) — every calculated cell must be a formula referencing named
+ranges; a hardcoded constant scores zero for that element.
+
+## Career framing (carried from v1, applies to the whole arc)
+
+This project mirrors the analyst-to-automation workflow used in corporate treasury, IB, FP&A,
+audit, and AI-adjacent finance roles: exposure framing → model design → AI-assisted build →
+data operations → validation and executive recommendation, all version-controlled. The finished
+repo is a portfolio artifact for internships, jobs, and graduate programs.

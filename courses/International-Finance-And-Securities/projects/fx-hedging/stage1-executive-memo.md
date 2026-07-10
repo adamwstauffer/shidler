@@ -1,8 +1,9 @@
 # Stage 1 – Executive Memo (17% of project)
 
-> Content unchanged from v1 (`../stage1-memo-assignment.md`) — this stage is typically already
-> in flight when the v2 docs go live. v2 adds the rubric table (grading transparency) and the
-> canonical save location/filename.
+> The memo content matches the prior four-stage version (archived at
+> `../../../../_archive/fin321/stage-docs-v1/stage1-memo-assignment.md`); this stage is typically
+> already in flight when the term opens. This version adds the rubric table (grading transparency)
+> and the canonical save location/filename.
 
 ## Goal
 
