@@ -76,9 +76,11 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 | `stage5-llm-analysis-validation.md` | 5 — LLM analysis & validation |
 
 Unchanged and reused from v1: `../scenarios.md`, `../_templates/template-decision-memo.md`,
-`../_templates/template-spec.md`. Grading scripts (`../_tools/`) need an update pass on
-approval — the new logic is the formula-presence audit (outputs must be formulas referencing
-named ranges; hardcoded constants score zero for that cell).
+`../_templates/template-spec.md`. Grading scripts (`../_tools/`) are built for v2:
+`grade_stage0`–`grade_stage5` plus the `sweep_stage` / `build_roster` / `grade_one` drivers,
+scoring on a %-of-stage basis from `_weights.py`. The headline check is the Stage 3
+formula-presence audit (`_xlsx.py`) — every calculated cell must be a formula referencing named
+ranges; a hardcoded constant scores zero for that element.
 
 ## Career framing (carried from v1, applies to the whole arc)
 

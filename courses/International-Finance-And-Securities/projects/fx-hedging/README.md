@@ -66,11 +66,10 @@ fx-hedging/
 ├── _templates/
 │   ├── template-decision-memo.md
 │   └── template-spec.md
-├── _tools/                                  grading scripts
-│   ├── fetch_stage4.py
-│   ├── grade_stage2.py
-│   ├── grade_stage3.py
-│   └── grade_stage4.py
+├── _tools/                                  v2 grading toolchain
+│   ├── grade_stage0.py … grade_stage5.py    per-stage graders (repo inspection)
+│   ├── sweep_stage.py / build_roster.py / grade_one.py   drivers
+│   └── _weights, _curve, _repo, _report, _xlsx, _grading_comments, _safe_zip   shared libs
 ├── FX-Hedging-Project.pptx                  project overview slide deck
 ├── README.md                                this file
 ├── scenarios.md
