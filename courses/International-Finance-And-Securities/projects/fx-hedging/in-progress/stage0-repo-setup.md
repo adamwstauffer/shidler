@@ -1,4 +1,4 @@
-# Stage 0 – Portfolio Repository (2 Points)
+# Stage 0 – Portfolio Repository (8% of project)
 
 ## Goal
 
@@ -58,12 +58,12 @@ Your repository URL, submitted via Lamaku. Graded by direct repo inspection.
 
 ## Evaluation
 
-| Criterion | Description | Points |
+| Criterion | Description | Weight |
 | --------- | ----------- | -----: |
-| Public & accessible | Repo is public, professionally named, URL submitted | 0.5 |
-| Skeleton & READMEs | Canonical structure complete; stub README in every folder; `prompt-log.md` present | 0.5 |
-| Bio & resume | Clear, professional, recruiter-ready; evidence of editing beyond raw LLM output | 0.5 |
-| Commit hygiene | ≥2 meaningful commits with descriptive messages | 0.5 |
+| Public & accessible | Repo is public, professionally named, URL submitted | 25% |
+| Skeleton & READMEs | Canonical structure complete; stub README in every folder; `prompt-log.md` present | 25% |
+| Bio & resume | Clear, professional, recruiter-ready; evidence of editing beyond raw LLM output | 25% |
+| Commit hygiene | ≥2 meaningful commits with descriptive messages | 25% |
 
 ---
 

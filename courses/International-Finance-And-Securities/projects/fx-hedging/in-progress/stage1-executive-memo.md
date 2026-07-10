@@ -1,4 +1,4 @@
-# Stage 1 – Executive Memo (4 Points)
+# Stage 1 – Executive Memo (17% of project)
 
 > Content unchanged from v1 (`../stage1-memo-assignment.md`) — this stage is typically already
 > in flight when the v2 docs go live. v2 adds the rubric table (grading transparency) and the
@@ -38,12 +38,12 @@ how much your company ultimately receives in USD.
 
 ## Evaluation
 
-| Criterion | Description | Points |
+| Criterion | Description | Weight |
 | --------- | ----------- | -----: |
-| Exposure framing | Currency, amount, timing, and business consequence stated precisely | 1 |
-| Hedge families & trade-offs | All three families, with honest pros/cons, not boilerplate | 1 |
-| Next steps | Correctly frames the Stage 2–5 arc as a plan the CFO can approve | 1 |
-| Professionalism | Executive tone, template used, correct location and filename, committed | 1 |
+| Exposure framing | Currency, amount, timing, and business consequence stated precisely | 25% |
+| Hedge families & trade-offs | All three families, with honest pros/cons, not boilerplate | 25% |
+| Next steps | Correctly frames the Stage 2–5 arc as a plan the CFO can approve | 25% |
+| Professionalism | Executive tone, template used, correct location and filename, committed | 25% |
 
 ---
 

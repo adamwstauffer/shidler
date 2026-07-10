@@ -20,17 +20,23 @@ flow. Three structural moves:
 Excel understanding is proven at four checkpoints no AI can do *for* the student:
 design (2), audit (3), populate + cross-check (4), hand-verification (5).
 
-## Stages & points (24 + 2 EC — project weight in the course unchanged at 25%)
+## Stages & weights
 
-| Stage | Deliverable | Points | Suggested week (6-wk term) |
+Every weight is a **percentage** — nothing is a hardcoded point total. Stage weights are % of
+the project; each stage's rubric criteria (in the stage doc) are % of that stage. The project's
+own share of the semester course grade is variable and set in the offering README / gradebook,
+so changing it never requires touching these weights. **No extra credit.** The single source of
+truth for graders is [`../_tools/_weights.py`](../_tools/_weights.py).
+
+| Stage | Deliverable | Weight | Suggested week (6-wk term) |
 | ----- | ----------- | -----: | ---- |
-| 0 | Portfolio repository (canonical skeleton) | 2 | 2 (paired with stage 2) |
-| 1 | Executive memo | 4 | 1 |
-| 2 | Model specification | 5 | 2 |
-| 3 | AI-assisted build + audit note | 4 | 3 |
-| 4 | Market data + population | 3 | 4 |
-| 5 | LLM analysis & validation (capstone) | 6 (+2 EC) | 5–6 |
-| **Total** | | **24 (+2 EC)** | |
+| 0 | Portfolio repository (canonical skeleton) | 8% | 2 (paired with stage 2) |
+| 1 | Executive memo | 17% | 1 |
+| 2 | Model specification | 21% | 2 |
+| 3 | AI-assisted build + audit note | 17% | 3 |
+| 4 | Market data + population | 12% | 4 |
+| 5 | LLM analysis & validation (capstone) | 25% | 5–6 |
+| **Total** | | **100%** | |
 
 Weeks are indicative for a 6-week summer term; the offering README sets actual dates. In a
 15-week term the same stages spread roughly biweekly. **These stage docs are term-agnostic by

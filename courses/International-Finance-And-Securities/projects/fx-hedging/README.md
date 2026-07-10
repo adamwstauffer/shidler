@@ -64,8 +64,6 @@ Version control is not just a submission mechanism — it is a core professional
 ```
 fx-hedging/
 ├── _templates/
-│   ├── excel/                              FIN321_FX_Hedging_Template.xlsx, README-v2.md
-│   ├── example-spec-template.md
 │   ├── template-decision-memo.md
 │   └── template-spec.md
 ├── _tools/                                  grading scripts
@@ -73,7 +71,6 @@ fx-hedging/
 │   ├── grade_stage2.py
 │   ├── grade_stage3.py
 │   └── grade_stage4.py
-├── excel-template/                          class-provided starter workbook
 ├── FX-Hedging-Project.pptx                  project overview slide deck
 ├── README.md                                this file
 ├── scenarios.md

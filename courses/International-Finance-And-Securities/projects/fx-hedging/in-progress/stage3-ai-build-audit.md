@@ -1,4 +1,4 @@
-# Stage 3 – AI-Assisted Build + Audit (4 Points)
+# Stage 3 – AI-Assisted Build + Audit (17% of project)
 
 ## Goal
 
@@ -67,11 +67,11 @@ will be auditing the same workbook.
 
 ## Evaluation
 
-| Criterion | Description | Points |
+| Criterion | Description | Weight |
 | --------- | ----------- | -----: |
-| Contract compliance | Named ranges complete and correct; formulas-only (mechanically checked); all hedges + sensitivity present and computing correctly | 2 |
-| Structure & presentation | Cover, legend/key, color convention, auditable layout | 1 |
-| Audit note | ≥3 substantive findings with evidence; fixes committed | 1 |
+| Contract compliance | Named ranges complete and correct; formulas-only (mechanically checked); all hedges + sensitivity present and computing correctly | 50% |
+| Structure & presentation | Cover, legend/key, color convention, auditable layout | 25% |
+| Audit note | ≥3 substantive findings with evidence; fixes committed | 25% |
 
 ---
 
