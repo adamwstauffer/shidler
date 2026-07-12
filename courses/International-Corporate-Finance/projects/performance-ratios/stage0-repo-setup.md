@@ -68,7 +68,7 @@ That's it. You're done with installation.
 ### 3a. Create the repo on GitHub
 
 1. On [github.com](https://github.com), click the **+** in the top-right corner → **New repository**.
-2. **Repository name:** `Corporate-Finance` (or `corporate-finance` — your choice; hyphens are conventional).
+2. **Repository name:** name it after *you*, not this course — `firstname-lastname` (or `firstname-lastname-portfolio` if the plain name is taken; hyphens are conventional). This repo outlives BUS 629: every later course and your career docs land here too, and the name is the first thing an employer reads — so name it for the person, not the subject.
 3. **Visibility:** **Public**. This is non-negotiable — the whole point is that managers, collaborators, and reviewers can find it.
 4. **Initialize this repository with:** check **Add a README file** (otherwise the repo is empty and you can't clone it).
 5. **License:** optional. Pick **MIT** if you want one — it's the most permissive.
@@ -78,7 +78,7 @@ That's it. You're done with installation.
 
 1. Open GitHub Desktop.
 2. **File → Clone repository → GitHub.com tab**.
-3. Find your `Corporate-Finance` repo in the list, choose where on your computer to save it (e.g., `Documents/GitHub/`), and click **Clone**.
+3. Find your new `firstname-lastname` repo in the list, choose where on your computer to save it (e.g., `Documents/GitHub/`), and click **Clone**.
 4. GitHub Desktop will tell you "How are you planning to use this fork?" — choose **For my own purposes**.
 
 ### 3c. Build the directory skeleton
@@ -86,7 +86,7 @@ That's it. You're done with installation.
 In your newly cloned folder, create this structure. You can do it in your file explorer (Windows Explorer / Finder), in VS Code, or in any text editor.
 
 ```
-Corporate-Finance/
+firstname-lastname/
 ├── README.md                  # ← Bio (Step 4) — first thing visitors see
 ├── RESUME.md                  # ← Resume (Step 4)
 ├── BIO.md                     # ← Optional longer-form bio (Step 4)
@@ -190,7 +190,7 @@ Repeat for the resume against the resume template.
 
 ### 4c. Save the files into your repo
 
-1. In your `Corporate-Finance/` folder, replace the auto-generated `README.md` with your bio.
+1. In your `firstname-lastname/` folder, replace the auto-generated `README.md` with your bio.
 2. Create `RESUME.md` and paste your resume.
 3. (Optional) Create `BIO.md` with a longer-form bio if you want to keep the resume separate from the README narrative.
 4. In GitHub Desktop: write a summary like `Add bio and resume`, **Commit to main**, then **Push origin**.

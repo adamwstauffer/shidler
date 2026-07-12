@@ -52,6 +52,11 @@ is a production test of your documents. Log the prompt.
   convention-compliant names, stub READMEs still accurate, `prompt-log.md` complete through
   stage 5, clean commit history, repo public.
 
+**Feedback as a pull request.** Final-stage review can still arrive as a PR pushed to your repo,
+exactly as in Stage 4 — read the diff, merge, edit on top, hand it to an LLM, or push back with
+reasons. A reasoned disagreement is as valid a close to the project as a clean merge. (Full detail
+of the five options is in the Stage 4 brief.)
+
 ## Deliverables
 
 - Validation doc (Parts 1–2 + retrospective):

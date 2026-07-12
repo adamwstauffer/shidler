@@ -17,7 +17,11 @@ restructure it to the canonical skeleton below and add anything missing. Same ru
 1. **GitHub account** — use your `hawaii.edu` email (unlocks GitHub Education benefits). If you
    have a personal account, add the .edu email to it instead of creating a second account.
 2. **Install GitHub Desktop** — no command line required for this course.
-3. **Create the repository** — public, named professionally (e.g., `lastname-finance-portfolio`).
+3. **Create the repository** — public, named professionally after *you*, not a course:
+   `firstname-lastname` (or `firstname-lastname-portfolio` if the plain name is taken). Resist a
+   course- or finance-scoped name: this repo outlives any one class — it collects your BUS 313/314,
+   FIN 321, and career docs — and its name is the first thing an employer reads, so name it for the
+   person, not the subject.
 4. **Build the canonical skeleton** — every folder gets a stub `README.md` (one or two lines
    saying what belongs there):
 

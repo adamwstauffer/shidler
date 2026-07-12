@@ -104,3 +104,10 @@ how Stage 4 will source the real one.
 In Stage 3 you hand this document to an AI and it builds your workbook. Every weakness in the
 spec becomes a defect in the build — which you will then have to find and fix in the audit. The
 better the spec, the shorter the audit.
+
+And the sharper, AI-era reason to get it right: you don't describe the workbook to the AI and
+hope — **the spec is the prompt.** A precise spec tells the model exactly what to build and exactly
+what each result must equal, so the first build comes back close and the audit is *verification,
+not archaeology.* A vague spec does the reverse: the AI confidently builds the wrong thing, and you
+discover your real requirements one frustrating tweak at a time. Every minute spent making this
+document unambiguous is a round of corrective back-and-forth you don't pay for later.
