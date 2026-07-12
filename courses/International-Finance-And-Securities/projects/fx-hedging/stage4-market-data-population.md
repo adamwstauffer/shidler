@@ -23,6 +23,23 @@ results will not match anyone else's, and they aren't supposed to.
 | `PREM_PUT`, `PREM_CALL` — premiums | Keep the scenario-given premiums (retail-accessible option quotes are unreliable); note this explicitly as an assumption. |
 | `FC_AMT`, `T_DAYS` | From your scenario. |
 
+### Where to actually get these numbers
+
+Any reputable source is acceptable — what's graded (50% of this stage) is that every number carries
+**source + timestamp + any proxy logic**, not which website you used. A short guide:
+
+- **Professional terminals — the gold standard.** Bloomberg or Refinitiv (Eikon / Workspace), if you
+  have access: the Shidler lab terminals, or a future employer's desk. Record the terminal *and* the
+  timestamp. These carry the live forwards and option quotes that free sources often don't.
+- **Free and sufficient for this project:**
+  - *Yahoo Finance* — EURUSD spot, some forwards.
+  - *investing.com* — spot, forwards, and rate instruments.
+  - *ECB reference rates* — the daily EURUSD reference fix.
+  - *FRED* (St. Louis Fed) — USD deposit / SOFR-family rates for `R_USD`.
+
+Whichever you use, pick the rate instrument deliberately and say why — the choice matters more than
+the decimals.
+
 ## Then
 
 1. **Write the market-data memo** — `data/YYYY-MM-DD-{lastname}-market-data.md`: a table of
@@ -54,6 +71,23 @@ results will not match anyone else's, and they aren't supposed to.
 | Data quality & provenance | Every input sourced, timestamped, proxies documented; sensible rate choices | 50% |
 | Model resolves cleanly | Live data loads through named ranges; checks pass; fixes (if any) documented honestly | 33% |
 | Lab cross-check | Comparison performed and documented; discrepancies resolved | 17% |
+
+---
+
+## When feedback comes as a pull request
+
+From this stage on, instructor feedback often arrives as a **pull request** pushed to your repo — a
+proposed change shown as a line-by-line diff with comments attached to specific lines. This is how
+real code and analyst review works: the reviewer shows you the edit, not just a list of notes. You
+are not obligated to merge blindly. Your options:
+
+1. **Read the diff** — the PR *is* the feedback; every changed line is a comment on your work.
+2. **Merge it** as-is if you agree.
+3. **Edit further** — merge and keep working on top, or commit your own version of the change instead.
+4. **Point an LLM at it** — hand the PR URL (or `git diff`) to Claude/ChatGPT to apply, explain, or
+   extend the revisions.
+5. **Push back** — reply on the PR with why your original is right. Disagreeing *with reasons* is a
+   professional skill and explicitly welcome.
 
 ---
 

@@ -146,7 +146,7 @@ By Stage 5, your repo should look like a professional portfolio artifact. **Budg
 Use this as your reference. A polished Stage 5 repo should look like this (filenames will reflect your own name and company):
 
 ```
-Corporate-Finance/                          (your portfolio repo root)
+firstname-lastname/                         (your portfolio repo root)
 ├── README.md                               # Project overview, status, "what you'll find here"
 ├── RESUME.md                               # Your resume (from Stage 0)
 ├── BIO.md                                  # Optional longer bio (from Stage 0)
@@ -207,7 +207,7 @@ The polish pass is exactly the kind of routine reorganization an LLM is good at.
 **Option 1 — Claude Code (in your terminal):**
 
 ```
-cd ~/path/to/your/Corporate-Finance
+cd ~/path/to/your/firstname-lastname
 claude
 ```
 
