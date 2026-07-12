@@ -80,3 +80,7 @@ docs/spreadsheets/_backups/
 
 # Shidler emails and personal/student correspondence (never on the public repo)
 docs/emails/
+
+# Session pickup prompts (/breakpoint working state; keep the README, ignore the rest)
+docs/breakpoints/*
+!docs/breakpoints/README.md
