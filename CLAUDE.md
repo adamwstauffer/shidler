@@ -122,4 +122,18 @@ When building or editing any `.xlsx` workbook, **always use formulas instead of 
 
 ## Skills Available
 
-This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `accounting-ratios`, `docx`, `internal-comms`, `pdf`, `pptx`, `skill-creator`, `xlsx`. Use the appropriate skill when creating or editing Office documents, applying UH branding, helping with the Performance Ratios project, or writing internal communications.
+This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `accounting-ratios`, `docx`, `internal-comms`, `pdf`, `pptx`, `skill-creator`, `xlsx`, plus the workflow skills paired to the slash commands below (`breakpoint`, `grill-me`, `claude-md-audit`, `memory-hygiene`, `design-critique`). Use the appropriate skill when creating or editing Office documents, applying UH branding, helping with the Performance Ratios project, or writing internal communications.
+
+## Slash Commands
+
+Repo-tailored workflow commands live in `.claude/commands/` (index + rationale in `.claude/commands/README.md` and `docs/decisions/2026-07-12-claude-workflow-commands-cherry-pick.md`):
+
+- **`/breakpoint`** — emit a session pickup prompt before a `/compact` or context break (branch/PR/grading state → `docs/breakpoints/`, gitignored).
+- **`/suggest-optimal`** — one-shot verify-then-pushback review of a converged proposal; returns the single optimal call. *Fable-pinned, Opus fallback.*
+- **`/grill-me`** — sequential one-question convergence before a memo/restructure/rubric, with a mandatory Auto-Pushback Pass and a Repo Convergence Check (enforces "no speculative restructuring"). *Fable-pinned.*
+- **`/decision-memo`** — author a `docs/decisions/` memo to house standard (grep-prior-first, pause for ratification). *Fable-pinned.*
+- **`/claude-md-audit`** — periodic drift scan of CLAUDE.md + the memory store.
+- **`/memory-hygiene`** — validate + organize the Claude auto-memory store.
+- **`/design-critique`** — brand-anchored critique of UH Mānoa-branded materials against `docs/_branding/design.json`.
+
+**Model routing (optional):** the three judgment-dense commands are pinned to Fable via `model:` frontmatter; the rest run on the session model. Remove the pins if undesired.
