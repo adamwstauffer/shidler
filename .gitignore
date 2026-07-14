@@ -84,3 +84,7 @@ docs/emails/
 # Session pickup prompts (/breakpoint working state; keep the README, ignore the rest)
 docs/breakpoints/*
 !docs/breakpoints/README.md
+
+# Rosters, attendance, approved-access lists — student PII, never public
+/rosters/**
+!/rosters/README.md
