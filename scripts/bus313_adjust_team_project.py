@@ -19,8 +19,7 @@ from math import ceil
 from pathlib import Path
 
 BASE = Path(
-    r"C:\GitHub\shidler\courses\International-Economics-And-Trade\BUS-313"
-    r"\ignore\2026 Spring"
+    r"C:\GitHub\shidler\rosters\BUS-313\2026-Spring"
 )
 FILES = [
     "BUS-313-001 S26 Team Project - Scores Master - Roster.csv",
