@@ -15,9 +15,13 @@ of truth in `_weights.py`.
     floored = floor_applied(raw_pct, stage, accessible=repo_ok) # bool
 
 Policy (Adam): "For curved grades, Curved = MAX(raw, floor); never lower a
-student's raw score." A non-submission (raw == 0) stays 0.
+student's raw score." A non-submission (raw == 0) stays 0. The final score is
+then **rounded up to the nearest whole percent** (ceiling) — same generosity
+direction as the floor: rounding never costs a student a fraction of a point.
 """
 from __future__ import annotations
+
+import math
 
 from _weights import STAGE_FLOOR_PCT
 
@@ -28,18 +32,18 @@ def stage_floor(stage: int) -> int:
 
 
 def curved_score(raw_pct: float, stage: int, *, accessible: bool = True) -> float:
-    """Effective stage score in 0-100.
+    """Effective stage score in 0-100, rounded UP to the nearest whole percent.
 
     - raw_pct <= 0 (nothing submitted / inaccessible-and-empty) -> 0.
     - accessible submission below the floor -> lifted to the floor.
     - otherwise -> the raw score, unchanged (never lowered).
+    The surviving value is then ceiling-rounded to a whole number.
     """
     if raw_pct <= 0:
         return 0.0
     floor = STAGE_FLOOR_PCT[stage]
-    if accessible and raw_pct < floor:
-        return float(floor)
-    return float(raw_pct)
+    effective = float(floor) if (accessible and raw_pct < floor) else float(raw_pct)
+    return float(math.ceil(effective))
 
 
 def floor_applied(raw_pct: float, stage: int, *, accessible: bool = True) -> bool:

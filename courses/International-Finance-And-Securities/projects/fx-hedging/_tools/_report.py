@@ -7,9 +7,12 @@ Every stage emits the same two artifacts, so the layout lives here once:
         (curved final, criterion table, floor adjustment when applied,
         flags, and the CORE/BACKWARD/FORWARD suggestion block) + class summary.
 
-  - `build_pr_feedback(...)` -> score-free _pr_feedback/{lastname}/feedback-file.md:
-        the same suggestion block wrapped around stage-specific detector
-        sections, with NO numeric scores (Adam's score-privacy policy).
+  - `build_pr_feedback(...)` -> _pr_feedback/{lastname}/feedback-file.md:
+        a Criterion / Score / Notes rubric table (per-criterion scores, so the
+        student sees exactly where points were earned or lost) wrapped around
+        the same suggestion block and stage-specific detector sections.
+        (Score visibility in student feedback is an experiment per Adam,
+        2026-07 — revert to score-free if it doesn't land well.)
 
 Each scanner builds a list of `StudentReport` (rubric-agnostic) and hands it
 here. The curve/letter/floor logic is centralized (via _curve), not repeated.
@@ -61,14 +64,43 @@ class StudentReport:
     flags: list[str] = field(default_factory=list)
     meta_lines: list[str] = field(default_factory=list)          # **Repo:** etc.
     pr_sections: list[tuple[str, list[str]]] = field(default_factory=list)  # (heading, md lines)
+    adjustment: float = 0.0          # instructor discretion, applied AFTER the curve
+    adjustment_note: str = ""        # shown in the rubric row explaining the adjustment
 
     @property
     def final(self) -> float:
-        return curved_score(self.raw_pct, self.stage_n, accessible=self.accessible)
+        base = curved_score(self.raw_pct, self.stage_n, accessible=self.accessible)
+        if not self.adjustment:
+            return base
+        return float(max(0.0, min(100.0, base + self.adjustment)))
 
     @property
     def floored(self) -> bool:
         return floor_applied(self.raw_pct, self.stage_n, accessible=self.accessible)
+
+
+def _criterion_table(s: StudentReport, floor_pct: int, score_header: str = "Earned") -> list[str]:
+    """Criterion / <score_header> / Notes table shared by the internal report and
+    the student PR feedback. Shows raw + floor adjustment rows when the floor lifts
+    the score, so the per-criterion numbers still reconcile to the final."""
+    final = s.final
+    base = curved_score(s.raw_pct, s.stage_n, accessible=s.accessible)  # curved, pre-adjustment
+    rows = [f"| Criterion | {score_header} | Notes |", "|-----------|--------|-------|"]
+    for c in s.criteria:
+        rows.append(f"| {c.label} | {c.earned:g} / {c.max:g} | {c.note} |")
+    if s.floored or base != s.raw_pct or s.adjustment:
+        rows.append(f"| **Raw total** | **{s.raw_pct:g} / 100** | — |")
+    if s.floored:
+        rows.append(f"| **Floor adjustment** | **+{base - s.raw_pct:g}** | lifted to {floor_pct}% floor, rounded up |")
+    elif base != s.raw_pct:
+        rows.append(f"| **Rounded up** | **+{base - s.raw_pct:g}** | up to the nearest whole % |")
+    if s.adjustment:
+        rows.append(f"| **Instructor adjustment** | **{s.adjustment:+g}** | {s.adjustment_note or 'instructor discretion'} |")
+    final_note = ("no gradable submission" if final == 0
+                  else "instructor-adjusted" if s.adjustment
+                  else "floor applied" if s.floored else "earned on merit")
+    rows.append(f"| **Final** | **{final:g} / 100** | {final_note} |")
+    return rows
 
 
 def _student_section(n: int, s: StudentReport, floor_pct: int) -> list[str]:
@@ -85,16 +117,7 @@ def _student_section(n: int, s: StudentReport, floor_pct: int) -> list[str]:
     if s.meta_lines:
         lines.append("")
 
-    lines.append("| Criterion | Earned | Notes |")
-    lines.append("|-----------|--------|-------|")
-    for c in s.criteria:
-        lines.append(f"| {c.label} | {c.earned:g} / {c.max:g} | {c.note} |")
-    if s.floored:
-        lines.append(f"| **Raw total** | **{s.raw_pct:g} / 100** | — |")
-        lines.append(f"| **Floor adjustment** | **+{final - s.raw_pct:g}** | lifted to {floor_pct}% floor |")
-    final_note = ("no gradable submission" if final == 0
-                  else "floor applied" if s.floored else "earned on merit")
-    lines.append(f"| **Final** | **{final:g} / 100** | {final_note} |")
+    lines.extend(_criterion_table(s, floor_pct))
     lines.append("")
     if s.flags:
         lines.append(f"*Flags: {', '.join(s.flags)}*")
@@ -119,8 +142,9 @@ def build_report(
         f"**Graded:** {today:%Y-%m-%d}",
         f"**Submissions reviewed:** {len(students)}",
         f"**Floor policy:** {floor_pct}% floor for any accessible repo with the stage deliverable present.",
-        "**Score privacy:** scores live in this internal file only — never in the "
-        "PR feedback pushed to student repos.",
+        "**Scores:** the per-criterion rubric (with scores) now also appears in the "
+        "student PR feedback, so students can see where points were earned or lost "
+        "(experiment, 2026-07 — revert to score-free feedback if it doesn't land).",
         "",
         "---",
         "## Rubric (recap)",
@@ -155,8 +179,10 @@ def build_report(
     return "\n".join(lines)
 
 
-def build_pr_feedback(stage_n: int, s: StudentReport, today: date) -> str:
-    lines = [f"# Stage {stage_n} review — {today:%Y-%m-%d}", ""]
+def build_pr_feedback(stage_n: int, s: StudentReport, today: date, floor_pct: int) -> str:
+    lines = [f"# Stage {stage_n} review — {today:%Y-%m-%d}", "", "## Rubric", ""]
+    lines.extend(_criterion_table(s, floor_pct, score_header="Score"))
+    lines.append("")
     for heading, body in s.pr_sections:
         lines.append(f"## {heading}")
         lines.append("")
@@ -165,8 +191,8 @@ def build_pr_feedback(stage_n: int, s: StudentReport, today: date) -> str:
     lines.extend(render_suggestions(s.suggestions, stage_n=s.stage_n))
     lines += [
         "",
-        "*This review is feedback-only — no scores included. Score numbers live in "
-        "the internal grade report and your instructor email.*",
+        "*The per-criterion breakdown above is shown so you can see exactly where "
+        "points were earned or lost. It mirrors your instructor's internal grade record.*",
     ]
     return "\n".join(lines)
 
@@ -257,6 +283,6 @@ def run_scanner(
     for r in reports:
         d = fb_root / _repo.lastname_slug(r.name)
         d.mkdir(parents=True, exist_ok=True)
-        (d / "feedback-file.md").write_text(build_pr_feedback(stage_n, r, today), encoding="utf-8")
+        (d / "feedback-file.md").write_text(build_pr_feedback(stage_n, r, today, args.floor), encoding="utf-8")
     print(f"Wrote {len(reports)} PR-feedback files under {fb_root}")
     return 0

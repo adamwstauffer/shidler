@@ -13,8 +13,11 @@ import importlib
 import sys
 from datetime import datetime
 
+from datetime import date
+
 from _repo import Submission
-from _report import letter
+from _report import letter, build_pr_feedback
+from _weights import STAGE_FLOOR_PCT
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -23,7 +26,16 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--name", required=True)
     ap.add_argument("--repo", required=True, help="student repo URL")
     ap.add_argument("--today", default=None)
+    ap.add_argument("--feedback", action="store_true",
+                    help="also print the student-facing PR feedback file")
     args = ap.parse_args(argv)
+
+    # Feedback/report text uses ✓ and em-dashes; force UTF-8 stdout so a
+    # Windows cp1252 console doesn't choke when printing them.
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
 
     mod = importlib.import_module(f"grade_stage{args.stage}")
     sub = Submission(student_id="", name=args.name, submitted_at=None,
@@ -38,6 +50,11 @@ def main(argv: list[str] | None = None) -> int:
     for c in r.criteria:
         print(f"    - {c.label}: {c.earned:g} / {c.max:g}  ({c.note})")
     print(f"  Flags: {', '.join(r.flags) or '-'}")
+
+    if args.feedback:
+        today = date.fromisoformat(args.today) if args.today else date.today()
+        print("\n" + "=" * 72 + "\nSTUDENT-FACING FEEDBACK FILE\n" + "=" * 72)
+        print(build_pr_feedback(args.stage, r, today, STAGE_FLOOR_PCT[args.stage]))
     return 0
 
 

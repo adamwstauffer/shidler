@@ -41,8 +41,16 @@ RUBRIC_ROWS = [
     ("Professionalism (length, frontmatter, location/filename)", f"{CRIT['professionalism']}%"),
 ]
 
-MEMO_RE = re.compile(r"docs/decisions/.*(?:hedge|framing|memo).*\.md$", re.IGNORECASE)
-FALLBACK_RE = re.compile(r"docs/decisions/.*\.md$", re.IGNORECASE)
+# Memo discovery is deliberately lenient on *filing* (extension / exact location)
+# so a real, substantive memo still gets graded on its content — the canonical
+# path is nudged via the Professionalism `correct_location` check, not a zero.
+# Preferred: a memo-named file directly under docs/decisions/ (any/no extension).
+MEMO_RE = re.compile(r"docs/decisions/[^/]*(?:hedge|framing|memo)[^/]*$", re.IGNORECASE)
+# Fallback: any single file directly in docs/decisions/ (excluding a stub README),
+# or a top-level docs/decisions.md committed in place of the folder. The
+# directly-under anchor keeps a deep stub like docs/decisions/specs/.../README.md
+# (no real memo) from being mistaken for one.
+FALLBACK_RE = re.compile(r"^docs/decisions(?:/(?!readme\b)[^/]+|\.md)$", re.IGNORECASE)
 
 # --- text-detection patterns ----------------------------------------------
 CURRENCY_WORDS = ("eur", "gbp", "jpy", "usd", "euro", "pound", "yen", "dollar")
@@ -120,6 +128,12 @@ def _suggestions_for(flags: set[str], prior_weak: bool):
     if "NO_FRONTMATTER" in flags:
         s.append(core("Keep the template's YAML frontmatter (the `---` block) intact at the "
                       "top of the memo."))
+    if "MEMO_LOCATION" in flags:
+        s.append(core("Your memo was found and graded on its content, but it isn't at the "
+                      "canonical path. Save it as "
+                      "`docs/decisions/YYYY-MM-DD-{lastname}-{scenario}-hedge-framing.md` — "
+                      "inside the `docs/decisions/` folder, with a `.md` extension. That's a "
+                      "small professionalism deduction only, no content penalty."))
     if "NOT_PUBLIC" in flags:
         s.append(core("Your repo isn't public yet — make it public so the memo can be "
                       "reviewed."))
@@ -241,7 +255,12 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
     ))
 
     has_frontmatter = text.lstrip().startswith("---")
-    correct_location = bool(re.match(r"docs/decisions/", memo_path, re.IGNORECASE))
+    # Canonical filing = a .md file inside docs/decisions/. A memo committed
+    # without the extension (docs/decisions/…-hedge-framing) or in place of the
+    # folder (docs/decisions.md) still grades on content but forfeits this slice.
+    correct_location = bool(re.match(r"docs/decisions/[^/]+\.md$", memo_path, re.IGNORECASE))
+    if not correct_location:
+        flags.append("MEMO_LOCATION")
 
     ef = _score_exposure(has_currency, has_amount, has_timing, flags)
     hf = _score_hedges(families, flags)

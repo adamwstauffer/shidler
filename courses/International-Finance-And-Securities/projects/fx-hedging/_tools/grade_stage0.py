@@ -60,8 +60,35 @@ def _has_file(tree: list[str], path: str) -> bool:
     return path in tree
 
 
+def _find_ci(tree: list[str], path: str) -> str | None:
+    """Return the actual tree path matching `path` case-insensitively, else None.
+
+    GitHub's tree/contents API is case-sensitive, so a student who commits
+    `Resume.md` won't match an exact `RESUME.md` lookup. We resolve the real
+    casing here so the file is still found and read; the *policy* on whether a
+    given casing costs points is decided by the caller.
+    """
+    low = path.lower()
+    for p in tree:
+        if p.lower() == low:
+            return p
+    return None
+
+
 def _has_dir(tree: list[str], prefix: str) -> bool:
     return any(p.startswith(prefix) for p in tree)
+
+
+def _dir_attempted(tree: list[str], prefix: str) -> bool:
+    """A folder the student *tried* to stand up but left without a stub README.
+
+    GitHub can't store an empty directory, so students often commit a bare
+    placeholder named after the folder (`docs/specs` or `docs/specs.md`)
+    instead of `docs/specs/README.md`. That's a real structural attempt worth
+    half credit — recognized here, matched case-insensitively.
+    """
+    base = prefix.rstrip("/")
+    return _find_ci(tree, base) is not None or _find_ci(tree, base + ".md") is not None
 
 
 # ---------------------------------------------------------------- scoring
@@ -73,15 +100,40 @@ def _score_public(st, flags: list[str]) -> float:
     return round(0.5 * CRIT["public_accessible"], 1)
 
 
-def _score_skeleton(tree: list[str], flags: list[str]) -> tuple[float, int, int]:
+def _score_skeleton(tree: list[str], flags: list[str]) -> tuple[float, float, int]:
     expected = len(SKELETON_FILES) + len(SKELETON_DIRS)
-    present = sum(_has_file(tree, f) for f in SKELETON_FILES)
-    present += sum(_has_dir(tree, d) for d in SKELETON_DIRS)
-    if not _has_file(tree, "prompt-log.md"):
+    present = 0.0
+    for f in SKELETON_FILES:
+        actual = _find_ci(tree, f)
+        if actual is None:
+            continue
+        # README is an industry convention: the *filename* must be canonical
+        # ALL-CAPS `README.md` to earn the point. A miscased filename
+        # (`readme.md`, `ReadMe.md`) is flagged and doesn't count. A miscased
+        # parent directory (`Docs/README.md`) is NOT a README-casing miss —
+        # the README itself is fine — so it still counts. Every other skeleton
+        # file matches case-insensitively (casing there is personal formatting).
+        if f.rsplit("/", 1)[-1] == "README.md" and actual.rsplit("/", 1)[-1] != "README.md":
+            if "README_CASING" not in flags:
+                flags.append("README_CASING")
+            continue
+        present += 1
+    # Full credit for a real folder with content; half credit for a folder the
+    # student attempted via a bare placeholder file but never gave a stub README.
+    partial = 0
+    for d in SKELETON_DIRS:
+        if _has_dir(tree, d):
+            present += 1
+        elif _dir_attempted(tree, d):
+            present += 0.5
+            partial += 1
+    if _find_ci(tree, "prompt-log.md") is None:
         flags.append("MISSING_PROMPT_LOG")
     frac = present / expected if expected else 0.0
-    if frac < 0.5:
+    if frac < 0.4:
         flags.append("NO_SKELETON")
+    elif frac < 0.9 and (partial or present < expected):
+        flags.append("THIN_SKELETON")
     return round(frac * CRIT["skeleton_readmes"], 1), present, expected
 
 
@@ -103,6 +155,7 @@ def _score_commits(st, flags: list[str]) -> float:
     if st.commit_count >= 2 and st.descriptive_commit_count >= 2:
         return float(CRIT["commit_hygiene"])
     if st.commit_count >= 2:
+        flags.append("VAGUE_COMMITS")
         return round(0.5 * CRIT["commit_hygiene"], 1)
     flags.append("FEW_COMMITS")
     return 0.0
@@ -124,10 +177,24 @@ def _suggestions_for(flags: set[str], prior_weak: bool):
         s.append(core("The canonical skeleton is mostly missing. Build the full structure "
                       "(`docs/`, `models/`, `data/`, `analysis/` with their subfolders) and "
                       "drop a one- or two-line stub `README.md` in every folder."))
+    if "THIN_SKELETON" in flags:
+        s.append(core("You've laid out most of the folder structure — nice. The gap is that "
+                      "several folders are bare placeholder files (e.g. `docs/specs`) rather "
+                      "than folders with a stub inside. Put a one- or two-line `README.md` in "
+                      "each (`docs/specs/README.md`, `models/builds/README.md`, …) so the "
+                      "structure documents itself and GitHub renders the folders."))
     if "MISSING_PROMPT_LOG" in flags:
         s.append(core("`prompt-log.md` isn't at the repo root. Add it now and log the "
                       "prompts you used to draft your bio and resume — you'll append to it "
                       "every stage."))
+    if "README_CASING" in flags:
+        s.append(core("Your README isn't named in the canonical all-caps form. Rename it to "
+                      "`README.md` — all-caps README is the universal convention GitHub and "
+                      "recruiters expect, and it's the one skeleton file where casing counts."))
+    if "RESUME_CASING" in flags:
+        s.append(core("Minor, no points off: GitHub is case-sensitive and the canonical "
+                      "filename is `RESUME.md` (all caps). Renaming yours keeps the repo "
+                      "consistent with the rest of the skeleton."))
     if "THIN_BIO" in flags:
         s.append(core("Your bio `README.md` is thin (under ~100 words). It's the first thing "
                       "a recruiter sees — expand it and edit it well beyond raw LLM output."))
@@ -138,6 +205,11 @@ def _suggestions_for(flags: set[str], prior_weak: bool):
         s.append(core("The rubric expects at least two meaningful commits with descriptive "
                       "messages (e.g. `Add repo skeleton with directory READMEs`, "
                       "`Add bio and resume`), not a single `update`."))
+    if "VAGUE_COMMITS" in flags:
+        s.append(core("You have enough commits, but the messages aren't descriptive "
+                      "(e.g. `Create README.md`, `Initial commit`). Write messages that say "
+                      "what changed — `Add bio and resume`, `Add repo skeleton with directory "
+                      "READMEs` — to earn full commit-hygiene credit."))
     if "INSTRUCTOR_NOT_COLLABORATOR" in flags:
         s.append(core("I'm not a collaborator on the repo yet — add `adamwstauffer` so I can "
                       "leave inline review comments on later stages."))
@@ -156,13 +228,13 @@ def _tick(b) -> str:
     return "✓" if b else "—"
 
 
-def _pr_sections(st, present: int, expected: int,
+def _pr_sections(st, present: float, expected: int,
                  bio_words: int, resume_words: int):
     tree = st.tree if st else []
     checklist = [
         "| Check | Status |", "|-------|--------|",
         f"| Public / accessible | {_tick(bool(st and st.public))} |",
-        f"| Skeleton dirs & READMEs | {present}/{expected} |",
+        f"| Skeleton dirs & READMEs | {present:g}/{expected} |",
         f"| `prompt-log.md` present | {_tick(_has_file(tree, 'prompt-log.md'))} |",
         f"| Bio (`README.md`) | {_tick(bio_words >= 100)} |",
         f"| Resume (`RESUME.md`) | {_tick(resume_words >= 30)} |",
@@ -199,7 +271,7 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
         )
 
     empty_crit = [
-        Criterion("Public & accessible", 0, CRIT["public_accessible"], "no reachable repo"),
+        Criterion("Public & accessible", 0, CRIT["public_accessible"], "Your repo couldn't be reached."),
         Criterion("Skeleton & READMEs", 0, CRIT["skeleton_readmes"], "—"),
         Criterion("Bio & resume", 0, CRIT["bio_resume"], "—"),
         Criterion("Commit hygiene", 0, CRIT["commit_hygiene"], "—"),
@@ -222,12 +294,16 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
     pa = _score_public(st, flags)
     sk, present, expected = _score_skeleton(st.tree, flags)
 
-    bio_words = 0
-    if _has_file(st.tree, "README.md"):
-        bio_words = _word_count(_repo.download_text(owner, repo, "README.md", branch) or "")
-    resume_words = 0
-    if _has_file(st.tree, "RESUME.md"):
-        resume_words = _word_count(_repo.download_text(owner, repo, "RESUME.md", branch) or "")
+    readme_path = _find_ci(st.tree, "README.md")
+    bio_words = (_word_count(_repo.download_text(owner, repo, readme_path, branch) or "")
+                 if readme_path else 0)
+    resume_path = _find_ci(st.tree, "RESUME.md")
+    resume_words = (_word_count(_repo.download_text(owner, repo, resume_path, branch) or "")
+                    if resume_path else 0)
+    # A resume that exists but isn't named the canonical `RESUME.md` still gets
+    # full credit — casing here is personal formatting, worth a nudge, not points.
+    if resume_path and resume_path != "RESUME.md":
+        flags.append("RESUME_CASING")
     br = _score_bio_resume(bio_words, resume_words, flags)
 
     ch = _score_commits(st, flags)
@@ -238,15 +314,15 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
 
     criteria = [
         Criterion("Public & accessible", pa, CRIT["public_accessible"],
-                  f"{'public' if st.public else 'private' if st.accessible else 'unreachable'}, "
+                  f"Your repo is {'public' if st.public else 'private' if st.accessible else 'unreachable'}; "
                   f"default branch `{st.default_branch}`."),
         Criterion("Skeleton & READMEs", sk, CRIT["skeleton_readmes"],
-                  f"{present}/{expected} canonical paths present; "
-                  f"prompt-log {'Y' if _has_file(st.tree, 'prompt-log.md') else 'N'}."),
+                  f"You have {present:g}/{expected} canonical paths (½ credit for placeholder "
+                  f"folders); prompt-log {'present' if _find_ci(st.tree, 'prompt-log.md') else 'missing'}."),
         Criterion("Bio & resume", br, CRIT["bio_resume"],
-                  f"bio ~{bio_words} words, resume ~{resume_words} words."),
+                  f"Your bio is ~{bio_words} words; your resume is ~{resume_words} words."),
         Criterion("Commit hygiene", ch, CRIT["commit_hygiene"],
-                  f"{st.commit_count} commits, {st.descriptive_commit_count} descriptive."),
+                  f"You have {st.commit_count} commits, {st.descriptive_commit_count} with descriptive messages."),
     ]
     return report(raw_pct, criteria, accessible=True, st=st,
                   present=present, expected=expected,

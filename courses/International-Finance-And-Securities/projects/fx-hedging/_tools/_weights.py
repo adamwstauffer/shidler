@@ -33,7 +33,8 @@ STAGE_WEIGHTS: dict[int, int] = {
 # lifted to (never lowers a raw score). Mirrors BUS-629's descending floors
 # (easier early stages sit higher). Consumed by _curve.py.
 STAGE_FLOOR_PCT: dict[int, int] = {
-    0: 90,   # repo setup — mechanical, high floor
+    0: 80,   # repo setup — mechanical, but a 90 floor flattened everyone to a
+             #              tie; 80 lets a full attempt score above a thin one
     1: 80,   # executive memo
     2: 80,   # model specification
     3: 75,   # AI build + audit
