@@ -165,54 +165,74 @@ def _score_commits(st, flags: list[str]) -> float:
 def _suggestions_for(flags: set[str], prior_weak: bool):
     s = []
     if "NO_GITHUB_LINK" in flags:
-        s.append(core("No GitHub URL was found in your submission. Submit the repository "
-                      "URL via Lamaku so the repo can be inspected."))
+        s.append(core("No GitHub URL was found in your submission. Paste your full "
+                      "`https://github.com/<you>/<repo>` link into Lamaku so the repo can be "
+                      "inspected — the repo itself is what's graded."))
     if "REPO_404" in flags:
-        s.append(core("The repository couldn't be reached — confirm it exists, is public, "
-                      "and the submitted URL is correct."))
+        s.append(core("The repository couldn't be reached. Confirm that: **(1)** it exists at "
+                      "the submitted URL; **(2)** the URL is spelled correctly; **(3)** it's "
+                      "public (steps below)."))
     if "NOT_PUBLIC" in flags:
-        s.append(core("The repository is private. Make it public so it reads as a portfolio "
-                      "piece a recruiter can open, and re-confirm the URL."))
+        s.append(core("Your repo is private, so it can't be opened as a portfolio piece. Make "
+                      "it public: on GitHub, **Settings → General → Danger Zone → Change "
+                      "visibility → Public**, then re-confirm the URL in Lamaku."))
     if "NO_SKELETON" in flags:
-        s.append(core("The canonical skeleton is mostly missing. Build the full structure "
-                      "(`docs/`, `models/`, `data/`, `analysis/` with their subfolders) and "
-                      "drop a one- or two-line stub `README.md` in every folder."))
+        s.append(core("The canonical folder skeleton is mostly missing. Build it now: "
+                      "**(1)** create the folders — `docs/` (with `decisions/`, `specs/`, "
+                      "`plans/`, `templates/`), `models/` (with `templates/`, `builds/`), "
+                      "`data/`, and `analysis/`; **(2)** put a one- or two-line `README.md` "
+                      "*inside each* saying what belongs there (GitHub won't keep an empty "
+                      "folder, so the README is what makes it stick); **(3)** commit. The "
+                      "Stage 0 handout has the exact tree to copy."))
     if "THIN_SKELETON" in flags:
-        s.append(core("You've laid out most of the folder structure — nice. The gap is that "
-                      "several folders are bare placeholder files (e.g. `docs/specs`) rather "
-                      "than folders with a stub inside. Put a one- or two-line `README.md` in "
-                      "each (`docs/specs/README.md`, `models/builds/README.md`, …) so the "
-                      "structure documents itself and GitHub renders the folders."))
+        s.append(core("You've laid out most of the structure — nice. The gap: several folders "
+                      "are bare placeholder files (e.g. `docs/specs`) instead of folders with "
+                      "a stub inside. For each, **(1)** add a one-line `README.md` in the "
+                      "folder (`docs/specs/README.md`, `models/builds/README.md`, …) and "
+                      "**(2)** delete the bare placeholder file. That makes the folders render "
+                      "on GitHub and documents what each holds."))
     if "MISSING_PROMPT_LOG" in flags:
-        s.append(core("`prompt-log.md` isn't at the repo root. Add it now and log the "
-                      "prompts you used to draft your bio and resume — you'll append to it "
-                      "every stage."))
+        s.append(core("Add `prompt-log.md` at the repo root: **(1)** create the file; "
+                      "**(2)** paste in the prompts you used to draft your bio and resume, each "
+                      "with a one-line note on what you kept or changed; **(3)** commit. You'll "
+                      "append to this every stage, so starting it now pays off."))
     if "README_CASING" in flags:
-        s.append(core("Your README isn't named in the canonical all-caps form. Rename it to "
-                      "`README.md` — all-caps README is the universal convention GitHub and "
-                      "recruiters expect, and it's the one skeleton file where casing counts."))
+        s.append(core("Rename your README to the canonical all-caps `README.md`. On GitHub, "
+                      "open the file → **pencil (Edit)** → change the name in the path box → "
+                      "**Commit**. All-caps README is the universal convention GitHub and "
+                      "reviewers expect, and it's the one skeleton file where casing counts."))
     if "RESUME_CASING" in flags:
         s.append(core("Minor, no points off: GitHub is case-sensitive and the canonical "
-                      "filename is `RESUME.md` (all caps). Renaming yours keeps the repo "
+                      "filename is `RESUME.md` (all caps). Rename `Resume.md` → `RESUME.md` "
+                      "(edit the file, change the name in the path box, commit) to stay "
                       "consistent with the rest of the skeleton."))
     if "THIN_BIO" in flags:
-        s.append(core("Your bio `README.md` is thin (under ~100 words). It's the first thing "
-                      "a recruiter sees — expand it and edit it well beyond raw LLM output."))
+        s.append(core("Your root `README.md` bio is thin (under ~100 words). Expand it to "
+                      "100–150: **(1)** open `README.md`; **(2)** write 2–3 short paragraphs — "
+                      "who you are (year + major at Shidler), a few skills or interests, and "
+                      "what you're working toward; **(3)** if you draft with an LLM, rewrite it "
+                      "in your own voice; **(4)** commit. It's the first thing a hiring manager "
+                      "or reviewer sees."))
     if "NO_RESUME" in flags:
-        s.append(core("`RESUME.md` is missing or empty. Add a real resume; use an LLM as the "
-                      "drafter and yourself as the editor, and log the prompts."))
+        s.append(core("`RESUME.md` is missing or empty. Add a real resume *in the file* (a "
+                      "linked `.pdf`/`.docx` attachment doesn't count): **(1)** create "
+                      "`RESUME.md`; **(2)** include a contact line, a short summary, "
+                      "experience, education, and skills; **(3)** draft with an LLM if you "
+                      "like, but edit it yourself and log the prompt; **(4)** commit."))
     if "FEW_COMMITS" in flags:
-        s.append(core("The rubric expects at least two meaningful commits with descriptive "
-                      "messages (e.g. `Add repo skeleton with directory READMEs`, "
-                      "`Add bio and resume`), not a single `update`."))
+        s.append(core("The rubric expects at least two meaningful commits. Commit in stages as "
+                      "you work — e.g. `Add repo skeleton with directory READMEs`, then "
+                      "`Add bio and resume` — rather than one bulk `update`. Separate, "
+                      "descriptive commits show your process."))
     if "VAGUE_COMMITS" in flags:
         s.append(core("You have enough commits, but the messages aren't descriptive "
-                      "(e.g. `Create README.md`, `Initial commit`). Write messages that say "
-                      "what changed — `Add bio and resume`, `Add repo skeleton with directory "
-                      "READMEs` — to earn full commit-hygiene credit."))
+                      "(e.g. `Create README.md`, `Initial commit`). Going forward, write "
+                      "messages that say *what changed* — `Add bio and resume`, `Add repo "
+                      "skeleton with directory READMEs` — to earn full commit-hygiene credit."))
     if "INSTRUCTOR_NOT_COLLABORATOR" in flags:
-        s.append(core("I'm not a collaborator on the repo yet — add `adamwstauffer` so I can "
-                      "leave inline review comments on later stages."))
+        s.append(core("Add me as a collaborator so I can leave inline comments on later "
+                      "stages: **(1)** on GitHub, open your repo's **Settings → Collaborators**; "
+                      "**(2)** click **Add people**; **(3)** enter `adamwstauffer` and confirm."))
     if "STRONG" in flags:
         s.append(core("Clean setup — public repo, full skeleton with stub READMEs, a solid "
                       "bio and resume, and descriptive commits. A strong foundation for the "
@@ -312,17 +332,20 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
     if raw_pct >= 92 and not flags:
         flags.append("STRONG")
 
+    prompt_log_ok = bool(_find_ci(st.tree, "prompt-log.md"))
+    bio_desc = f"~{bio_words} words" + ("" if bio_words >= 100 else " (thin — aim for 100–150)")
+    resume_desc = f"~{resume_words} words" if resume_words >= 30 else "missing or placeholder"
+    commit_desc = (f"{st.commit_count} commits, {st.descriptive_commit_count} with descriptive "
+                   f"messages" + ("" if st.descriptive_commit_count >= 2 else " (need ≥2)"))
     criteria = [
         Criterion("Public & accessible", pa, CRIT["public_accessible"],
-                  f"Your repo is {'public' if st.public else 'private' if st.accessible else 'unreachable'}; "
+                  f"{'Public and reachable' if st.public else 'Private' if st.accessible else 'Unreachable'}; "
                   f"default branch `{st.default_branch}`."),
         Criterion("Skeleton & READMEs", sk, CRIT["skeleton_readmes"],
-                  f"You have {present:g}/{expected} canonical paths (½ credit for placeholder "
-                  f"folders); prompt-log {'present' if _find_ci(st.tree, 'prompt-log.md') else 'missing'}."),
-        Criterion("Bio & resume", br, CRIT["bio_resume"],
-                  f"Your bio is ~{bio_words} words; your resume is ~{resume_words} words."),
-        Criterion("Commit hygiene", ch, CRIT["commit_hygiene"],
-                  f"You have {st.commit_count} commits, {st.descriptive_commit_count} with descriptive messages."),
+                  f"{present:g}/{expected} canonical paths in place (½ credit for placeholder "
+                  f"folders); prompt-log {'present' if prompt_log_ok else 'missing'}."),
+        Criterion("Bio & resume", br, CRIT["bio_resume"], f"Bio {bio_desc}; resume {resume_desc}."),
+        Criterion("Commit hygiene", ch, CRIT["commit_hygiene"], commit_desc + "."),
     ]
     return report(raw_pct, criteria, accessible=True, st=st,
                   present=present, expected=expected,

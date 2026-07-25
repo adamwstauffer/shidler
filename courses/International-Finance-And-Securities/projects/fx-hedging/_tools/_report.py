@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import shutil
 import sys
 from dataclasses import dataclass, field
 from datetime import date, datetime
@@ -70,7 +71,8 @@ class StudentReport:
     @property
     def final(self) -> float:
         base = curved_score(self.raw_pct, self.stage_n, accessible=self.accessible)
-        if not self.adjustment:
+        # An instructor bump never resurrects a non-submission (base 0).
+        if not self.adjustment or base <= 0:
             return base
         return float(max(0.0, min(100.0, base + self.adjustment)))
 
@@ -180,21 +182,20 @@ def build_report(
 
 
 def build_pr_feedback(stage_n: int, s: StudentReport, today: date, floor_pct: int) -> str:
-    lines = [f"# Stage {stage_n} review — {today:%Y-%m-%d}", "", "## Rubric", ""]
-    lines.extend(_criterion_table(s, floor_pct, score_header="Score"))
+    """Student-facing grade + feedback block (the copy handed to the student).
+
+    Leads with the name and grade — no internal labels (`floor applied`, flag
+    codes) — then a descriptive criterion table and the step-by-step
+    improvement suggestions. Mirrors `_tools/feedback-template.md`.
+    """
+    lines = [f"## {s.name} — **{s.final:g} / 100** ({letter(s.final)})", ""]
+    lines.extend(s.meta_lines)
+    if s.meta_lines:
+        lines.append("")
+    lines.extend(_criterion_table(s, floor_pct, score_header="Earned"))
     lines.append("")
-    for heading, body in s.pr_sections:
-        lines.append(f"## {heading}")
-        lines.append("")
-        lines.extend(body)
-        lines.append("")
     lines.extend(render_suggestions(s.suggestions, stage_n=s.stage_n))
-    lines += [
-        "",
-        "*The per-criterion breakdown above is shown so you can see exactly where "
-        "points were earned or lost. It mirrors your instructor's internal grade record.*",
-    ]
-    return "\n".join(lines)
+    return "\n".join(lines).rstrip() + "\n"
 
 
 # --- shared CLI driver (identical across all six scanners) -----------------
@@ -224,6 +225,33 @@ def resolve_out_dir(export: Path, out_dir: str | None) -> Path:
     return base / "graded"
 
 
+def clean_ungraded(export: Path) -> int:
+    """Tidy the ungraded directory after a successful run: remove the extracted
+    temp folders (always regenerable) and the processed zip(s) — the graded
+    export and any older ones. A *newer* zip that appeared since is preserved so
+    a later export isn't lost. Returns the count removed.
+
+    These files are gitignored and not otherwise backed up, so this only runs
+    when the caller passes --clean-ungraded.
+    """
+    ung = export.parent if export.is_file() else export
+    cutoff = export.stat().st_mtime if export.is_file() else None
+    removed = 0
+    for p in sorted(ung.iterdir()):
+        try:
+            if p.is_dir() and p.name.startswith("_") and p.name.endswith("_extracted"):
+                shutil.rmtree(p, ignore_errors=True)
+                removed += 1
+            elif (p.is_file() and p.suffix.lower() == ".zip"
+                  and (cutoff is None or p.stat().st_mtime <= cutoff)):
+                p.unlink()
+                removed += 1
+        except OSError as e:
+            print(f"  (could not remove {p.name}: {e})", file=sys.stderr)
+    print(f"Cleaned ungraded/: removed {removed} processed item(s) from {ung}")
+    return removed
+
+
 def run_scanner(
     stage_n: int,
     stage_label: str,
@@ -247,6 +275,9 @@ def run_scanner(
                     help="prior stage STAGE_GRADES.md for carry-forward recognition")
     ap.add_argument("--out-dir", default=None)
     ap.add_argument("--today", default=None, help="YYYY-MM-DD (defaults to today)")
+    ap.add_argument("--clean-ungraded", action="store_true",
+                    help="after writing grades, delete the processed zip(s) and extracted "
+                         "temp folders from the ungraded directory (keeps it organized)")
     args = ap.parse_args(argv)
 
     if not args.export.exists():
@@ -285,4 +316,7 @@ def run_scanner(
         d.mkdir(parents=True, exist_ok=True)
         (d / "feedback-file.md").write_text(build_pr_feedback(stage_n, r, today, args.floor), encoding="utf-8")
     print(f"Wrote {len(reports)} PR-feedback files under {fb_root}")
+
+    if args.clean_ungraded:
+        clean_ungraded(args.export)
     return 0

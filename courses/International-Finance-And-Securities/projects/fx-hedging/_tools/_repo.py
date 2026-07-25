@@ -55,6 +55,21 @@ def normalize_name(name: str) -> str:
     return " ".join(tokens)
 
 
+def lamaku_display_name(raw: str) -> str:
+    """Flip a Lamaku folder name from `Lastname Firstname[ Middle]` to natural
+    `Firstname[ Middle] Lastname` order.
+
+    Lamaku exports the surname first (`Gallano Clarence`), which reads backwards
+    in a student-facing header and throws off `lastname_slug`. The surname is the
+    leading token, so we move it to the end. Order-independent matching
+    (`normalize_name`) is unaffected either way; single-token names pass through.
+    """
+    toks = raw.split()
+    if len(toks) < 2:
+        return raw
+    return " ".join(toks[1:] + toks[:1])
+
+
 def lastname_slug(name: str) -> str:
     """Directory slug for _pr_feedback/, from the last name token."""
     tokens = re.findall(r"[A-Za-z]+", name)
@@ -287,7 +302,7 @@ def discover_submissions(export: Path, scratch_suffix: str = "_extracted") -> li
             continue
         sub = Submission(
             student_id=m.group("sid"),
-            name=m.group("name").strip(),
+            name=lamaku_display_name(m.group("name").strip()),
             submitted_at=_parse_folder_time(m),
             folder=child,
             github_url=_scan_html_for_url(child),

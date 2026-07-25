@@ -1,9 +1,10 @@
 """Shared student-facing feedback scaffolding for grade_stage{0..5}.py.
 
 Ported from the BUS-629 performance-ratios toolchain — same three-bucket
-model, same public API, same emitted headings (so any downstream parser that
-keys on `### Kindly-worded suggestions for improvement` keeps working). Only
-the per-stage `FORWARD_GUIDANCE` text is rewritten for the fx-hedging arc.
+model, same public API. The suggestions heading is student-facing:
+`### Improvement Suggestions (due before deliverable deadline for grade
+improvement)`. Only the per-stage `FORWARD_GUIDANCE` text is rewritten for the
+fx-hedging arc.
 
 Three buckets:
 
@@ -51,7 +52,7 @@ _BUCKET_HEADERS = {
     FORWARD: "**Looking ahead to Stage {next_n}**",
 }
 
-_HEADING = "### Kindly-worded suggestions for improvement"
+_HEADING = "### Improvement Suggestions (due before deliverable deadline for grade improvement)"
 
 
 @dataclass(frozen=True)

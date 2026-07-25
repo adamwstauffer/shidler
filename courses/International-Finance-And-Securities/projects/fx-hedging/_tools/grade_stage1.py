@@ -46,11 +46,13 @@ RUBRIC_ROWS = [
 # path is nudged via the Professionalism `correct_location` check, not a zero.
 # Preferred: a memo-named file directly under docs/decisions/ (any/no extension).
 MEMO_RE = re.compile(r"docs/decisions/[^/]*(?:hedge|framing|memo)[^/]*$", re.IGNORECASE)
-# Fallback: any single file directly in docs/decisions/ (excluding a stub README),
-# or a top-level docs/decisions.md committed in place of the folder. The
-# directly-under anchor keeps a deep stub like docs/decisions/specs/.../README.md
-# (no real memo) from being mistaken for one.
-FALLBACK_RE = re.compile(r"^docs/decisions(?:/(?!readme\b)[^/]+|\.md)$", re.IGNORECASE)
+# Fallback: any single file directly in docs/decisions/ (including a README the
+# student used as the memo file), or a top-level docs/decisions.md committed in
+# place of the folder. The directly-under anchor keeps a deep stub like
+# docs/decisions/specs/.../README.md from matching; a short stub README that
+# *does* sit here is rejected later by the word-count guard, not by name.
+FALLBACK_RE = re.compile(r"^docs/decisions(?:/[^/]+|\.md)$", re.IGNORECASE)
+MEMO_MIN_WORDS = 40  # below this a "memo" is a placeholder/stub, not a submission
 
 # --- text-detection patterns ----------------------------------------------
 CURRENCY_WORDS = ("eur", "gbp", "jpy", "usd", "euro", "pound", "yen", "dollar")
@@ -108,38 +110,55 @@ def _score_professionalism(wc: int, has_frontmatter: bool, correct_location: boo
 def _suggestions_for(flags: set[str], prior_weak: bool):
     s = []
     if "NO_MEMO" in flags:
-        s.append(core("No executive memo found under `docs/decisions/`. Commit it as "
-                      "`docs/decisions/YYYY-MM-DD-{lastname}-{scenario}-hedge-framing.md` "
-                      "using the decision-memo template."))
+        s.append(core("No executive memo was found in your repo. To submit it: "
+                      "**(1)** open the decision-memo template in the course repo; "
+                      "**(2)** fill in the exposure (currency, amount, settlement timing), "
+                      "the three hedge families, and your Stage 2–5 plan; "
+                      "**(3)** save it in your repo as "
+                      "`docs/decisions/YYYY-MM-DD-{lastname}-{scenario}-hedge-framing.md`; "
+                      "**(4)** commit and push. The committed file *is* your submission."))
     if "WEAK_EXPOSURE" in flags:
-        s.append(core("Name the exposure precisely — the currency, the amount, and the "
-                      "settlement timing. The CFO (and your Stage 2 spec) needs all three "
-                      "to size the risk."))
+        s.append(core("State the exposure precisely in your Background section — all three of: "
+                      "**the currency** (e.g. EUR), **the amount** (e.g. €20,000,000), and "
+                      "**the settlement timing** (e.g. due in 12 months). See the criterion "
+                      "note above for which you're missing. A CFO sizing this risk — and your "
+                      "own Stage 2 spec — needs each one stated outright, not implied."))
     if "MISSING_HEDGE_FAMILIES" in flags:
-        s.append(core("Cover all three hedge families — forward, money-market, and options "
-                      "(put/call) — each with an honest pro and con, not boilerplate."))
+        s.append(core("Cover all three hedge families in your Methods section, each as its own "
+                      "short paragraph with one honest pro and one honest con: "
+                      "**(1)** a forward contract, **(2)** a money-market hedge, and "
+                      "**(3)** options (a EUR put or collar). The criterion note above shows "
+                      "which you're missing. The rubric wants all three on the table even if "
+                      "you ultimately favor one."))
     if "WEAK_NEXT_STEPS" in flags:
-        s.append(core("Sketch the Stage 2–5 arc: model specification, AI-assisted build, "
-                      "market data, then validation and recommendation — a plan the CFO can "
-                      "approve."))
+        s.append(core("In your Limitations & Next Steps section, lay out the Stage 2–5 arc as "
+                      "a short plan the CFO can approve — one sentence each: "
+                      "**Stage 2** model specification, **Stage 3** AI-assisted build + audit, "
+                      "**Stage 4** live market data, **Stage 5** validation + recommendation. "
+                      "The point is to show where this memo is heading."))
     if "MEMO_LENGTH" in flags:
-        s.append(core("The memo is well outside the one-page band (target 300–400 words). "
-                      "Tighten or expand it to executive length."))
+        s.append(core("The memo is outside the one-page executive band (aim for ~300–400 words). "
+                      "Tighten or expand so it covers exposure, the three families, and next "
+                      "steps — long enough to be complete, short enough to read in one pass."))
     if "NO_FRONTMATTER" in flags:
-        s.append(core("Keep the template's YAML frontmatter (the `---` block) intact at the "
-                      "top of the memo."))
+        s.append(core("Add the template's YAML frontmatter — the `---` fenced block at the very "
+                      "top of the file (above the `#` title) holding `title`, `author`, `date`, "
+                      "and `version`. Yours jumps straight into the heading; copy that block "
+                      "back in from the decision-memo template and fill it in."))
     if "MEMO_LOCATION" in flags:
         s.append(core("Your memo was found and graded on its content, but it isn't at the "
-                      "canonical path. Save it as "
+                      "canonical path. To fix: rename/move it to "
                       "`docs/decisions/YYYY-MM-DD-{lastname}-{scenario}-hedge-framing.md` — "
-                      "inside the `docs/decisions/` folder, with a `.md` extension. That's a "
-                      "small professionalism deduction only, no content penalty."))
+                      "**inside** the `docs/decisions/` folder, dated, and ending in `.md`. "
+                      "Small professionalism deduction only, no content penalty."))
     if "NOT_PUBLIC" in flags:
-        s.append(core("Your repo isn't public yet — make it public so the memo can be "
-                      "reviewed."))
+        s.append(core("Your repo is private, so the memo can't be reviewed. Make it public: "
+                      "on GitHub, **Settings → General → Danger Zone → Change visibility → "
+                      "Public**, then re-confirm."))
     if "INSTRUCTOR_NOT_COLLABORATOR" in flags:
-        s.append(core("I'm not a collaborator on the repo yet — add `adamwstauffer` so I "
-                      "can leave inline review comments."))
+        s.append(core("Add me as a collaborator so I can leave inline comments on your memo: "
+                      "**(1)** on GitHub, open your repo's **Settings → Collaborators**; "
+                      "**(2)** click **Add people**; **(3)** enter `adamwstauffer` and confirm."))
     if "STRONG" in flags:
         s.append(core("Sharp memo — exposure named precisely, all three hedge families with "
                       "honest trade-offs, and a clear Stage 2–5 plan. Great foundation for "
@@ -230,6 +249,9 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
 
     text_lower = text.lower()
     wc = len(re.findall(r"\b\w+\b", text))
+    if wc < MEMO_MIN_WORDS:  # a stub README / placeholder sitting where a memo would be
+        flags.append("NO_MEMO")
+        return report(0, empty_crit, accessible=True, checks={"memo": True})
 
     has_currency = (any(w in text_lower for w in CURRENCY_WORDS)
                     or bool(FX_PAIR_RE.search(text_lower)))
@@ -255,10 +277,12 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
     ))
 
     has_frontmatter = text.lstrip().startswith("---")
-    # Canonical filing = a .md file inside docs/decisions/. A memo committed
-    # without the extension (docs/decisions/…-hedge-framing) or in place of the
-    # folder (docs/decisions.md) still grades on content but forfeits this slice.
-    correct_location = bool(re.match(r"docs/decisions/[^/]+\.md$", memo_path, re.IGNORECASE))
+    # Canonical filing = a dedicated .md file inside docs/decisions/. A memo
+    # committed without the extension (docs/decisions/…-hedge-framing), in place
+    # of the folder (docs/decisions.md), or stuffed into the folder's own
+    # README.md still grades on content but forfeits this slice.
+    correct_location = bool(
+        re.match(r"docs/decisions/(?!README\.md$)[^/]+\.md$", memo_path, re.IGNORECASE))
     if not correct_location:
         flags.append("MEMO_LOCATION")
 
@@ -276,17 +300,31 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
         "frontmatter": has_frontmatter, "length_ok": 200 <= wc <= 700,
     }
 
+    # --- descriptive criterion notes (brief; the suggestions expand on them) ---
+    _ex = (("currency", has_currency), ("amount", has_amount), ("settlement timing", has_timing))
+    ex_missing = [n for n, ok in _ex if not ok]
+    ex_note = ("All three named: currency, amount, settlement timing." if not ex_missing
+               else f"Named: {', '.join(n for n, ok in _ex if ok) or 'none'}; "
+                    f"missing: {', '.join(ex_missing)}.")
+    fam_missing = [f for f in ("forward", "money-market", "options")
+                   if f.replace("-", " ") not in families]
+    fam_note = (f"All three families with trade-offs: {', '.join(sorted(families))}."
+                if not fam_missing
+                else f"{len(families)}/3 families — covered: {', '.join(sorted(families)) or 'none'}; "
+                     f"missing: {', '.join(fam_missing)}.")
+    ns_note = ("Next steps map the full Stage 2–5 arc." if signals >= 3
+               else f"Next steps only partly map the Stage 2–5 plan ({signals}/4 stages referenced).")
+    prof_note = "; ".join([
+        f"{wc} words ({'in band' if 200 <= wc <= 700 else 'outside the 200–700 band'})",
+        "YAML frontmatter present" if has_frontmatter else "no YAML frontmatter",
+        "canonical path" if correct_location else "non-canonical path/filename",
+    ]) + "."
+
     criteria = [
-        Criterion("Exposure framing", ef, CRIT["exposure_framing"],
-                  f"currency {'Y' if has_currency else 'N'}, amount "
-                  f"{'Y' if has_amount else 'N'}, timing {'Y' if has_timing else 'N'}."),
-        Criterion("Hedge families & trade-offs", hf, CRIT["hedge_families"],
-                  f"{len(families)}/3 families: {', '.join(sorted(families)) or 'none'}."),
-        Criterion("Next steps", ns, CRIT["next_steps"],
-                  f"{signals}/4 Stage 2–5 signals detected."),
-        Criterion("Professionalism", pr, CRIT["professionalism"],
-                  f"{wc} words, frontmatter {'Y' if has_frontmatter else 'N'}, "
-                  f"location {'ok' if correct_location else 'off'}."),
+        Criterion("Exposure framing", ef, CRIT["exposure_framing"], ex_note),
+        Criterion("Hedge families & trade-offs", hf, CRIT["hedge_families"], fam_note),
+        Criterion("Next steps", ns, CRIT["next_steps"], ns_note),
+        Criterion("Professionalism", pr, CRIT["professionalism"], prof_note),
     ]
     return report(raw_pct, criteria, accessible=True, checks=checks)
 
