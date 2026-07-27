@@ -75,6 +75,42 @@ def _find_ci(tree: list[str], path: str) -> str | None:
     return None
 
 
+def _detect_wrapper_prefix(tree: list[str]) -> str:
+    """Detect a single wrapper folder the whole submission was committed inside.
+
+    Students sometimes drag the *extracted download folder* into the repo whole,
+    so the canonical tree lands under `<repo>-phase0/<repo>/…` instead of at the
+    root. If `README.md` already sits at the root there is no wrapper (return "").
+    Otherwise find the shortest directory that looks like the real portfolio root
+    — a `README.md` alongside a `RESUME.md`, `BIO.md`, or a `docs/` subtree — and
+    return it so the canonical lookups can rebase onto it. The student is still
+    nudged to move everything to the root (NESTED_SUBMISSION).
+    """
+    if _find_ci(tree, "README.md") is not None:
+        return ""
+    candidates = []
+    for p in tree:
+        if "/" not in p or p.rsplit("/", 1)[-1].lower() != "readme.md":
+            continue
+        d = p.rsplit("/", 1)[0]
+        siblings = {q[len(d) + 1:].lower() for q in tree if q.startswith(d + "/")}
+        if ("resume.md" in siblings or "bio.md" in siblings
+                or any(s.startswith("docs/") for s in siblings)):
+            candidates.append(d)
+    if not candidates:
+        return ""
+    return min(candidates, key=lambda d: (d.count("/"), len(d)))
+
+
+def _strip_prefix(tree: list[str], prefix: str) -> list[str]:
+    n = len(prefix) + 1
+    return [p[n:] for p in tree if p.startswith(prefix + "/")]
+
+
+def _join(prefix: str, path: str) -> str:
+    return f"{prefix}/{path}" if prefix else path
+
+
 def _has_dir(tree: list[str], prefix: str) -> bool:
     return any(p.startswith(prefix) for p in tree)
 
@@ -176,6 +212,15 @@ def _suggestions_for(flags: set[str], prior_weak: bool):
         s.append(core("Your repo is private, so it can't be opened as a portfolio piece. Make "
                       "it public: on GitHub, **Settings → General → Danger Zone → Change "
                       "visibility → Public**, then re-confirm the URL in Lamaku."))
+    if "NESTED_SUBMISSION" in flags:
+        s.append(core("Your whole portfolio is committed one folder deep — everything lives "
+                      "inside a wrapper folder (looks like you dragged the extracted download "
+                      "in whole) instead of at the repo root. Graded on content, so no penalty "
+                      "here, but move it up: **(1)** open the repo, drag the *contents* of the "
+                      "wrapper folder up to the root (or `git mv` them) so `README.md`, "
+                      "`RESUME.md`, and `docs/` sit at the top level; **(2)** delete the now-empty "
+                      "wrapper folder; **(3)** commit. A visitor should land on your bio, not on "
+                      "a single folder to click into."))
     if "NO_SKELETON" in flags:
         s.append(core("The canonical folder skeleton is mostly missing. Build it now: "
                       "**(1)** create the folders — `docs/` (with `decisions/`, `specs/`, "
@@ -213,6 +258,12 @@ def _suggestions_for(flags: set[str], prior_weak: bool):
                       "what you're working toward; **(3)** if you draft with an LLM, rewrite it "
                       "in your own voice; **(4)** commit. It's the first thing a hiring manager "
                       "or reviewer sees."))
+    if "BIO_IN_BIO_MD" in flags:
+        s.append(core("Nice bio — but it's in `BIO.md`, and the file a visitor lands on first is "
+                      "`README.md`. Make `README.md` your primary bio: **(1)** copy your bio text "
+                      "into `README.md`; **(2)** keep `BIO.md` for the optional longer-form version "
+                      "(or trim it to a short pointer); **(3)** commit. Full bio credit either way — "
+                      "this is about putting your best foot forward on the landing page."))
     if "NO_RESUME" in flags:
         s.append(core("`RESUME.md` is missing or empty. Add a real resume *in the file* (a "
                       "linked `.pdf`/`.docx` attachment doesn't count): **(1)** create "
@@ -311,15 +362,42 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
 
     branch = st.default_branch
 
-    pa = _score_public(st, flags)
-    sk, present, expected = _score_skeleton(st.tree, flags)
+    # If the whole submission was committed inside a wrapper folder, rebase the
+    # canonical lookups onto it so the real skeleton/bio/resume still resolve;
+    # the tree used for scoring becomes the wrapper-relative view, and blob
+    # downloads re-prepend the prefix. The student is nudged to move to root.
+    prefix = _detect_wrapper_prefix(st.tree)
+    tree = _strip_prefix(st.tree, prefix) if prefix else st.tree
+    if prefix:
+        flags.append("NESTED_SUBMISSION")
 
-    readme_path = _find_ci(st.tree, "README.md")
-    bio_words = (_word_count(_repo.download_text(owner, repo, readme_path, branch) or "")
-                 if readme_path else 0)
-    resume_path = _find_ci(st.tree, "RESUME.md")
-    resume_words = (_word_count(_repo.download_text(owner, repo, resume_path, branch) or "")
-                    if resume_path else 0)
+    pa = _score_public(st, flags)
+    sk, present, expected = _score_skeleton(tree, flags)
+
+    readme_path = _find_ci(tree, "README.md")
+    readme_bio_words = (_word_count(
+        _repo.download_text(owner, repo, _join(prefix, readme_path), branch) or "")
+        if readme_path else 0)
+    bio_words = readme_bio_words
+    # The handout puts the bio in README.md and reserves BIO.md for an optional
+    # longer-form version. When README.md is thin, fall back to BIO.md: a real
+    # bio filed there is the content done — just not where a visitor lands first.
+    # Grade it on merit and nudge on placement (same policy as a memo found off
+    # its canonical path), rather than reporting a "~2-word" bio the student
+    # plainly wrote.
+    if readme_bio_words < 100:
+        bio_path = _find_ci(tree, "BIO.md")
+        bio_md_words = (_word_count(
+            _repo.download_text(owner, repo, _join(prefix, bio_path), branch) or "")
+            if bio_path else 0)
+        if bio_md_words > readme_bio_words:
+            bio_words = bio_md_words
+            if bio_md_words >= 100:
+                flags.append("BIO_IN_BIO_MD")
+    resume_path = _find_ci(tree, "RESUME.md")
+    resume_words = (_word_count(
+        _repo.download_text(owner, repo, _join(prefix, resume_path), branch) or "")
+        if resume_path else 0)
     # A resume that exists but isn't named the canonical `RESUME.md` still gets
     # full credit — casing here is personal formatting, worth a nudge, not points.
     if resume_path and resume_path != "RESUME.md":
@@ -333,7 +411,10 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
         flags.append("STRONG")
 
     prompt_log_ok = bool(_find_ci(st.tree, "prompt-log.md"))
-    bio_desc = f"~{bio_words} words" + ("" if bio_words >= 100 else " (thin — aim for 100–150)")
+    if "BIO_IN_BIO_MD" in flags:
+        bio_desc = f"~{bio_words} words (in `BIO.md`; move it into `README.md`)"
+    else:
+        bio_desc = f"~{bio_words} words" + ("" if bio_words >= 100 else " (thin — aim for 100–150)")
     resume_desc = f"~{resume_words} words" if resume_words >= 30 else "missing or placeholder"
     commit_desc = (f"{st.commit_count} commits, {st.descriptive_commit_count} with descriptive "
                    f"messages" + ("" if st.descriptive_commit_count >= 2 else " (need ≥2)"))

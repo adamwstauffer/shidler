@@ -47,11 +47,13 @@ RUBRIC_ROWS = [
 # Preferred: a memo-named file directly under docs/decisions/ (any/no extension).
 MEMO_RE = re.compile(r"docs/decisions/[^/]*(?:hedge|framing|memo)[^/]*$", re.IGNORECASE)
 # Fallback: any single file directly in docs/decisions/ (including a README the
-# student used as the memo file), or a top-level docs/decisions.md committed in
-# place of the folder. The directly-under anchor keeps a deep stub like
-# docs/decisions/specs/.../README.md from matching; a short stub README that
-# *does* sit here is rejected later by the word-count guard, not by name.
-FALLBACK_RE = re.compile(r"^docs/decisions(?:/[^/]+|\.md)$", re.IGNORECASE)
+# student used as the memo file), a top-level docs/decisions.md committed in
+# place of the folder, or a bare extensionless `docs/decisions` file the student
+# wrote the memo into (in place of the folder placeholder). The directly-under
+# anchor keeps a deep stub like docs/decisions/specs/.../README.md from matching;
+# a short stub sitting at any of these paths is rejected later by the word-count
+# guard, not by name.
+FALLBACK_RE = re.compile(r"^docs/decisions(?:/[^/]+|\.md)?$", re.IGNORECASE)
 MEMO_MIN_WORDS = 40  # below this a "memo" is a placeholder/stub, not a submission
 
 # --- text-detection patterns ----------------------------------------------
