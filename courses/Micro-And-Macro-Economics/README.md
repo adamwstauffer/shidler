@@ -7,13 +7,13 @@ Microeconomic and macroeconomic theory applied to real-world business and policy
 | Shidler Code | Population | Status | Details |
 |---|---|---|---|
 | BUS 620 | MBA | Active | [`BUS-620/README.md`](BUS-620/README.md) |
-| BUS 620 DLEMBA | Distance EMBA | In setup | [`BUS-620-DLEMBA/README.md`](BUS-620-DLEMBA/README.md) |
+| BUS 620 DLEMBA | Distance EMBA | Structured (async clone; section dates pending) | [`BUS-620-DLEMBA/README.md`](BUS-620-DLEMBA/README.md) |
 
 ## Shared Curriculum
 
 - [`projects/individual-research/`](projects/individual-research/) — individual research paper with peer-review rubric
 - [`projects/team-research/`](projects/team-research/) — team case-study presentations
-- [`projects/in-progress/`](projects/in-progress/) — case studies in development (accounting/economic profit, imperfect competition, perfect competition)
+- [`projects/in-progress/`](projects/in-progress/) — the three graded mini-projects with stage briefs (Farm Profit → Monsanto → Ride-Share; 10% each, Fall 2026), pending instructor sign-off
 
 ## Directory Contents
 
