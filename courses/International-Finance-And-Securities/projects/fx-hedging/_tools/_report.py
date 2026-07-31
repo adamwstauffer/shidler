@@ -105,6 +105,29 @@ def _criterion_table(s: StudentReport, floor_pct: int, score_header: str = "Earn
     return rows
 
 
+def _pr_process_note(stage_n: int) -> list[str]:
+    """Student-facing callout (Stage 2+ only): the primary feedback is the PR
+    review on their repo; this LMS copy is the short version. Explains the how
+    and the why so a student who has never opened a Pull Request can find it."""
+    return [
+        "### 📌 How your feedback is delivered",
+        "",
+        "Your primary feedback for this stage is a **detailed review posted as a Pull "
+        "Request (PR) on your GitHub repository** — that is where the substantive, "
+        "section-by-section guidance lives. The grade and notes above are the short version.",
+        "",
+        f"**To view it:** open your repo on GitHub → the **Pull requests** tab → the review "
+        f"titled *“Stage {stage_n} review — … Treasury sign-off”*. Read it there, "
+        "**reply in the thread** with questions or push-back, and use it to revise before the "
+        "deadline (revisions can still lift this grade at the post-deadline sweep).",
+        "",
+        "*Why a PR?* It is how professional teams review work — feedback attached to the actual "
+        "files, discussed in context, and closed out once addressed. Getting fluent in that loop "
+        "is part of the skill this course builds.",
+        "",
+    ]
+
+
 def _student_section(n: int, s: StudentReport, floor_pct: int) -> list[str]:
     final = s.final
     if final == 0:
@@ -121,6 +144,8 @@ def _student_section(n: int, s: StudentReport, floor_pct: int) -> list[str]:
 
     lines.extend(_criterion_table(s, floor_pct))
     lines.append("")
+    if s.stage_n >= 2:
+        lines.extend(_pr_process_note(s.stage_n))
     if s.flags:
         lines.append(f"*Flags: {', '.join(s.flags)}*")
         lines.append("")
@@ -147,6 +172,14 @@ def build_report(
         "**Scores:** the per-criterion rubric (with scores) now also appears in the "
         "student PR feedback, so students can see where points were earned or lost "
         "(experiment, 2026-07 — revert to score-free feedback if it doesn't land).",
+    ]
+    if stage_n >= 2:
+        lines.append(
+            "**Delivery:** primary feedback for this stage is a PR review on each student's "
+            "repo; the per-student feedback file (copy/pasted into the LMS) points students "
+            "there and explains how to view and respond to it."
+        )
+    lines += [
         "",
         "---",
         "## Rubric (recap)",
@@ -194,6 +227,10 @@ def build_pr_feedback(stage_n: int, s: StudentReport, today: date, floor_pct: in
         lines.append("")
     lines.extend(_criterion_table(s, floor_pct, score_header="Earned"))
     lines.append("")
+    # Stage 2+ feedback is delivered primarily via a PR review on the student's
+    # repo; the LMS copy points there. Stages 0–1 are file-only, no PR.
+    if stage_n >= 2:
+        lines.extend(_pr_process_note(stage_n))
     lines.extend(render_suggestions(s.suggestions, stage_n=s.stage_n))
     return "\n".join(lines).rstrip() + "\n"
 

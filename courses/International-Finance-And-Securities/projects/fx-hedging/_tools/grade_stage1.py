@@ -242,9 +242,8 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
         flags.append("NO_MEMO")
         return report(0, empty_crit, accessible=True)
 
-    memo_path = sorted(memo_paths, key=len)[0]
+    memo_path, text = _repo.pick_text(owner, repo, branch, memo_paths)
     meta.append(f"**Memo:** `{memo_path}`")
-    text = _repo.download_text(owner, repo, memo_path, branch) or ""
     if not text.strip():
         flags.append("NO_MEMO")
         return report(0, empty_crit, accessible=True, checks={"memo": True})

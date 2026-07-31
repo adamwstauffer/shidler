@@ -225,6 +225,51 @@ def download_text(owner: str, repo: str, path: str, branch: str) -> str | None:
     return raw.decode("utf-8", errors="ignore")
 
 
+# --- deliverable selection ------------------------------------------------
+# Students routinely leave the assignment's unfilled template in the repo next
+# to their real work (`…-lastname-…`, `YYYY-MM-DD-…`, `scenario-slug`). Both match
+# a stage's deliverable pattern, and picking the shorter path grabs the stub — a
+# real, canonically-filed submission then scores ~0. Every stage selects through
+# the helpers below so that failure mode can't recur.
+TEMPLATE_PATH_RE = re.compile(r"lastname|yyyy-mm-dd|scenario-slug", re.IGNORECASE)
+
+
+def strip_templates(paths: list[str]) -> list[str]:
+    """Drop unfilled-template paths. If every candidate looks like a template,
+    keep them all so a lone stub still flows to the stage's own word-count guard
+    (which reports it as missing) rather than vanishing here."""
+    real = [p for p in paths if not TEMPLATE_PATH_RE.search(p)]
+    return real or list(paths)
+
+
+def pick_text(owner: str, repo: str, branch: str, paths: list[str]) -> tuple[str, str]:
+    """Choose the real text deliverable among candidate paths → (path, text).
+
+    Drops template stubs, then — if more than one plausible file remains —
+    fetches each and keeps the one with the most words (the actual submission,
+    not a short stub) instead of guessing by path length. ('', '') if no paths.
+    """
+    pool = strip_templates(paths)
+    if not pool:
+        return "", ""
+    if len(pool) == 1:
+        return pool[0], download_text(owner, repo, pool[0], branch) or ""
+    best_path, best_text, best_wc = pool[0], "", -1
+    for p in sorted(pool, key=len):
+        t = download_text(owner, repo, p, branch) or ""
+        wc = len(re.findall(r"\b\w+\b", t))
+        if wc > best_wc:
+            best_path, best_text, best_wc = p, t, wc
+    return best_path, best_text
+
+
+def pick_path(paths: list[str]) -> str | None:
+    """Pick a single non-template path (shortest) — for binary deliverables
+    (e.g. .xlsx) that can't be ranked by word count. None if no candidates."""
+    pool = strip_templates(paths)
+    return sorted(pool, key=len)[0] if pool else None
+
+
 # --- submission discovery -------------------------------------------------
 @dataclass
 class Submission:

@@ -344,17 +344,15 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
 
     vtext = ""
     if val_paths:
-        vpath = sorted(val_paths, key=len)[0]
+        vpath, vtext = _repo.pick_text(owner, repo, branch, val_paths)
         meta.append(f"**Validation doc:** `{vpath}`")
-        vtext = _repo.download_text(owner, repo, vpath, branch) or ""
     else:
         flags.append("NO_VALIDATION_DOC")
 
     rtext = ""
     if rec_paths:
-        rpath = sorted(rec_paths, key=len)[0]
+        rpath, rtext = _repo.pick_text(owner, repo, branch, rec_paths)
         meta.append(f"**Recommendation:** `{rpath}`")
-        rtext = _repo.download_text(owner, repo, rpath, branch) or ""
     else:
         flags.append("NO_RECOMMENDATION")
 

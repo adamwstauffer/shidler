@@ -228,9 +228,8 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
     note_paths = [p for p in st.tree if AUDIT_NOTE_RE.search(p)]
 
     audit = WorkbookAudit(error="no workbook in models/builds/")
-    wb_path = ""
-    if wb_paths:
-        wb_path = sorted(wb_paths, key=len)[0]
+    wb_path = _repo.pick_path(wb_paths) or ""
+    if wb_path:
         meta.append(f"**Workbook:** `{wb_path}`")
         raw = _repo.download_bytes(owner, repo, wb_path, branch)
         audit = audit_workbook(raw) if raw else WorkbookAudit(error="download failed")
@@ -239,9 +238,8 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
 
     note_present, findings = False, 0
     if note_paths:
-        note_path = sorted(note_paths, key=len)[0]
+        note_path, text = _repo.pick_text(owner, repo, branch, note_paths)
         meta.append(f"**Audit note:** `{note_path}`")
-        text = _repo.download_text(owner, repo, note_path, branch) or ""
         note_present = bool(text.strip())
         findings = count_audit_findings(text)
 

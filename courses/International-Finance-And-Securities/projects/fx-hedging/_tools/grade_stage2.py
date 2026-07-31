@@ -233,9 +233,8 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
         flags.append("NO_SPEC")
         return report(0, empty_crit, accessible=True, prompt_log=prompt_log)
 
-    spec_path = sorted(spec_paths, key=len)[0]
+    spec_path, text = _repo.pick_text(owner, repo, branch, spec_paths)
     meta.append(f"**Spec:** `{spec_path}`")
-    text = _repo.download_text(owner, repo, spec_path, branch) or ""
     lowered = text.lower()
     word_count = len(text.split())
 

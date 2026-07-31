@@ -237,15 +237,13 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
 
     memo, memo_present = "", False
     if memo_paths:
-        memo_path = sorted(memo_paths, key=len)[0]
+        memo_path, memo = _repo.pick_text(owner, repo, branch, memo_paths)
         meta.append(f"**Market-data memo:** `{memo_path}`")
-        memo = _repo.download_text(owner, repo, memo_path, branch) or ""
         memo_present = bool(memo.strip())
 
     audit = WorkbookAudit(error="no workbook in models/builds/")
-    wb_path = ""
-    if wb_paths:
-        wb_path = sorted(wb_paths, key=len)[0]
+    wb_path = _repo.pick_path(wb_paths) or ""
+    if wb_path:
         meta.append(f"**Workbook:** `{wb_path}`")
         raw = _repo.download_bytes(owner, repo, wb_path, branch)
         audit = audit_workbook(raw) if raw else WorkbookAudit(error="download failed")
