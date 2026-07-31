@@ -23,6 +23,7 @@ in-progress/
 │   ├── BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx   original (unchanged)
 │   ├── Monoplostic Supply_Marginal Revenue_Optimize Profit v9.xlsx          original (unchanged)
 │   ├── Monsanto Case Study worksheet in class.xlsx                          original (unchanged)
+│   ├── monsanto-in-class-worksheet.xlsx                    in-class worksheet, corrected rebuild
 │   ├── monsanto-seed-market-key.xlsx                       instructor
 │   ├── monsanto-seed-market-template.xlsx                  student
 │   └── README.md
