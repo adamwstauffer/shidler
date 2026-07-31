@@ -122,7 +122,7 @@ When building or editing any `.xlsx` workbook, **always use formulas instead of 
 
 ## Skills Available
 
-This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `accounting-ratios`, `docx`, `internal-comms`, `pdf`, `pptx`, `skill-creator`, `xlsx`, plus the workflow skills paired to the slash commands below (`breakpoint`, `grill-me`, `claude-md-audit`, `memory-hygiene`, `design-critique`). Use the appropriate skill when creating or editing Office documents, applying UH branding, helping with the Performance Ratios project, or writing internal communications.
+This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `accounting-ratios`, `docx`, `internal-comms`, `pdf`, `pptx`, `recommendation-letters`, `skill-creator`, `xlsx`, plus the workflow skills paired to the slash commands below (`breakpoint`, `grill-me`, `claude-md-audit`, `memory-hygiene`, `design-critique`). Use the appropriate skill when creating or editing Office documents, applying UH branding, helping with the Performance Ratios project, writing internal communications, or drafting recommendation/reference letters. **`recommendation-letters` carries a hard rule that applies everywhere: never invent facts (grades, GPAs, experience, objectives, motivations) — leave a generic placeholder or ask; never write a specific unverified value, not even as a placeholder.**
 
 ## Slash Commands
 

@@ -88,3 +88,10 @@ docs/breakpoints/*
 # Rosters, attendance, approved-access lists — student PII, never public
 /rosters/**
 !/rosters/README.md
+
+# Recommendation letters, resumes, applicant correspondence — student PII, never public
+/recommendations/**
+!/recommendations/README.md
+
+# Claude Code agent worktrees — harness state (a full nested checkout), never committed
+.claude/worktrees/
