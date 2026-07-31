@@ -19,7 +19,7 @@ Here’s how to approach it:
 
 ---
 
-### 📁 Scenario 1 – U.S. Solar Equipment Importer
+### 📁 Scenario 1 – U.S. Solar Equipment Exporter
 
 * **Receivable:** $4,500,000 receivable in 1 year
 * **Spot:** EURUSD quote
