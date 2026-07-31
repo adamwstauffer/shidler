@@ -58,43 +58,77 @@ Through the AI + GitHub project, you will also develop practical, workplace-read
 
 ---
 
-## Grading
+## Grading (Fall 2026)
+
+> **Status:** restructured 2026-07-31 for the Fall 2026 launch — three graded mini-projects added,
+> project weights rebalanced. Mini-project materials are Kumu-improved drafts pending instructor
+> sign-off before release to students.
 
 | Component | Weight |
 |-----------|--------|
 | Attendance & Participation | 10% |
-| Team Case Study Presentation | 45% |
-| Individual Research Paper | 45% |
+| Mini 1 — Farm Profit Optimizer (weeks 1–2) | 10% |
+| Mini 2 — Monsanto & Marginal Revenue (weeks 3–4) | 10% |
+| Mini 3 — Ride-Share Driver Economics (weeks 5–6) | 10% |
+| Individual Project — Policy Shock Analysis | 30% |
+| Team Case Study Presentation | 30% |
 | **Total** | **100%** |
 
-### Attendance & Participation
+### Attendance & Participation (10%)
 
-Essential for maximizing learning outcomes.
+Essential for maximizing learning outcomes. Each mini opens with an in-class working session —
+showing up and committing is participating.
 
-### Team Case Study Projects (45%)
+### Mini-Projects (3 × 10%)
 
-Students will present applied cases on AI, climate change, geopolitics, and global markets. Presentations are peer-reviewed, with 50% of the grade based on peer evaluation.
+Three 2-week Excel + AI case studies, each worth 20 points split across 2–3 graded stages. One
+personal public GitHub repo, created in Mini 1's first stage, accretes all term — each mini adds a
+project folder with the same four artifacts: brief/hypothesis, completed workbook, analysis with
+figures, prompt log + reflection. Check figures are published so you can self-verify before
+submitting. The three cases trace one arc — competition → market power → where the profits hide:
 
-### Individual Research Paper (45%)
+1. **Farm Profit Optimizer** — perfect competition, P = MC, Excel Solver
+   ([case + stage briefs](../projects/in-progress/perfect-competition-marginal-costs/))
+2. **Monsanto & the GMO Seed Market** — monopoly, MR = MC, Lerner, deadweight loss
+   ([case + stage briefs](../projects/in-progress/imperfect-competition-marginal-revenue/))
+3. **Ride-Share Driver Economics** — accounting vs economic profit, economic rent, medallion
+   capitalization ([case + stage briefs](../projects/in-progress/accounting-profit-economic-profit-economic-rent/))
 
-Students will select a global economic challenge, apply course frameworks, and produce a research paper. Peer evaluation also accounts for 50% of the grade.
+### Individual Project — Policy Shock Analysis (30%)
 
-### AI + GitHub Course Project (Policy Shock Analysis)
+Pick a **real, recent policy shock of your own choosing** — a tariff, rent cap, subsidy, minimum
+wage, rate move — and analyze who wins, who loses, by how much, and what society gives up. Fixed
+artifact structure in your portfolio repo (the same workflow the minis train):
 
-In addition to case studies and papers, students will complete a structured AI + GitHub project analyzing the effects of a policy shock (e.g., rent control, subsidies, tariffs, or monetary/fiscal interventions).
-
-Scope: Apply supply and demand, elasticity, and AS–AD models to evaluate policy outcomes for consumers, producers, and society.
-
-AI Integration: Students may use AI for drafting, critique, sensitivity analysis, and visualization. All uses must be recorded in a Prompt Log.
-
-GitHub Integration: Students will submit deliverables to GitHub (memo, appendix, figures, prompt log), practicing version control and collaborative workflows.
-
-Workflow:
-* README (Assignment Brief) – outlines goals and rubric
-* Prompts – curated + student-developed AI queries (logged)
-* Spec – project plan (models, data, acceptance criteria)
+* README (Assignment Brief) – the shock, why it matters, your hypothesis
+* Spec – models (supply & demand + elasticity, or AS–AD), data sources, acceptance criteria
 * Analysis & Deliverables – memo, appendix, figures
 * Prompt Log & Reflection – document AI use and limitations
+
+Peer evaluation accounts for 50% of the grade. The Monsanto analysis (Mini 2) is the deliberate
+on-ramp: its DWL + policy framing is exactly the muscle this project uses at full scale.
+
+### Team Case Study Presentation (30%)
+
+Students will present applied cases on AI, climate change, geopolitics, and global markets — built
+in a shared team repo (deck + supporting workbook + one-page memo; branches and pull requests, not
+email attachments). Presentations are peer-reviewed, with 50% of the grade based on peer evaluation.
+
+---
+
+## Fall 2026 Term Calendar (draft)
+
+Instruction runs **2026-08-24 → 2026-12-10**; finals week 2026-12-14–18. Stage due dates below say
+"end of week" — exact dates will be slotted to class meeting days on the syllabus.
+
+| Weeks | Dates | What's running |
+|---|---|---|
+| 1–2 | Aug 24 – Sep 4 | **Mini 1 — Farm Profit** (stage 1a repo + brief, 1b build, 1c analysis) |
+| 3–4 | Sep 8 – Sep 18 | **Mini 2 — Monsanto** (2a build, 2b analysis) · Labor Day Sep 7 |
+| 5–6 | Sep 21 – Oct 2 | **Mini 3 — Ride-Share** (3a build, 3b analysis) |
+| 7–11 | Oct 5 – Nov 6 | **Policy Shock Analysis** (brief → spec → analysis milestones) · macro units |
+| 12–15 | Nov 9 – Dec 10 | **Team case studies** (repo build → presentations) · Thanksgiving Nov 26–27 |
+| 16 | Dec 14–18 | Finals week — peer-review wrap-up |
 
 ---
 

@@ -44,9 +44,11 @@ One division reproduces both observed prices within ~10%. The rent story: app en
 | # | Artifact | Contents | Pts |
 |---|---|---|---|
 | 1 | `brief.md` | The four-person setup in your own words + hypothesis: "I expect X to have the highest economic profit because Y" | 3 |
-| 2 | `driver-economics.xlsx` | Completed template: accounting/economic/normal profit rows built (yellow cells), medallion values capitalized, one sensitivity run (22 days/mo) documented | 8 |
+| 2 | `rideshare-driver-economics.xlsx` | Completed template: accounting/economic/normal profit rows built (yellow cells), medallion values capitalized, one sensitivity run (22 days/mo) documented | 8 |
 | 3 | `analysis.md` + ≥2 figures | The verdicts explained; the medallion story told with the capitalization math; supply/demand section: which curve shifted (supply, right — massively), what happened to price, quantity, and *whose* surplus | 6 |
 | 4 | `prompt-log.md` + reflection | AI sessions logged; reflection covers an AI error you caught | 3 |
+
+Split across stages: [stage3a](stage3a-model-build.md) (model, 8) · [stage3b](stage3b-analysis.md) (hypothesis + analysis + log, 12).
 
 **AI-use boundary (course standard):** AI may explain the profit concepts, quiz you, and critique reasoning — not fill your yellow cells or write your analysis.
 

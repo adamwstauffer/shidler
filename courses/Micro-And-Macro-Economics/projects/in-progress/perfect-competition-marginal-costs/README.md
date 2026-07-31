@@ -46,6 +46,8 @@ A 1.5-acre market garden — 64 beds, one farmer, up to four temporary workers �
 | 3 | `analysis.md` + ≥2 figures | The optimal mix and *why*: P=MC evidence per crop, which constraints bind, the tomato MC dip explained, the carrot/mesclun "grow at a loss?" resolution (MC vs AVC, contribution over variable cost) | 6 |
 | 4 | `prompt-log.md` + reflection | Meaningful AI sessions logged; ≤300-word reflection on where AI helped, where it was wrong, and how you verified | 3 |
 
+Split across stages: [stage1a](stage1a-repo-and-brief.md) (brief, 3) · [stage1b](stage1b-model-build.md) (model, 8) · [stage1c](stage1c-analysis.md) (analysis + log, 9).
+
 **AI-use boundary (course standard):** AI may explain concepts, critique your reasoning, and help debug formulas. It may not write your brief, analysis, or reflection. Log the sessions that mattered.
 
 ## Instructor notes & check figures
