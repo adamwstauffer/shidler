@@ -35,7 +35,7 @@ Close with one honest paragraph against your Stage 1a hypothesis: what you predi
 
 Log the AI sessions that **mattered** — the ones where AI explained a concept, caught (or introduced) an error, or pushed your reasoning. Not a transcript dump; a curated record. For each session: date, tool, what you asked, what you got, what you did with it.
 
-Then a **reflection, ≤300 words**: where AI helped, where it was wrong, and — the part that's graded hardest — *how you verified*. "It seemed right" is not verification; "I checked its MC formula against the labor function at q = 1 and it had dropped the exponent" is.
+Then a **reflection, ≤300 words**: where AI helped, where it was wrong, and — the part that's graded hardest — *how you verified*. "It seemed right" is not verification; "I checked its MC formula against the labor function at q = 1 and it had dropped the exponent" is. If AI genuinely made no error you could catch, document the verification that convinced you it hadn't — "the AI was flawless" without evidence of checking reads as "I didn't look."
 
 ## AI-use boundary (course standard)
 
@@ -67,7 +67,7 @@ Commit both files to your repo — Stage 1c is graded by inspection. Nothing sep
 | P = MC evidence + binding constraints | 3 | Crossings shown from *your* model's numbers; carrot/mesclun caps identified as binding with ~$352/~$246 shadow-price reasoning; slack constraints named |
 | MC dip + at-a-loss resolution | 2 | Dip mechanism (perm→temp wage switch) explained, not just observed; MC-vs-AVC shutdown logic resolves the "loss-making" crops correctly |
 | Figures + hypothesis revisit | 1 | ≥2 figures referenced in text and rendering on GitHub; honest comparison against the Stage 1a hypothesis |
-| Prompt log + reflection | 3 | Sessions curated, not dumped; reflection ≤300 words with concrete instances of AI being wrong and *how you verified* |
+| Prompt log + reflection | 3 | Sessions curated, not dumped; reflection ≤300 words with concrete instances of AI being wrong and *how you verified* (or, if nothing was caught, the checks that cleared it) |
 
 ---
 
