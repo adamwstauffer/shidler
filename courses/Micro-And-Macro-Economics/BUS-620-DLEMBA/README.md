@@ -3,9 +3,10 @@
 **Distance EMBA — Shidler College of Business, University of Hawaiʻi at Mānoa**
 
 > **Status:** structured 2026-07-31 as an async clone of [BUS 620](../BUS-620/README.md) for the
-> Fall 2026 launch. **Section dates pending the DLEMBA program calendar** — the week-by-week
-> schedule is relative until those land. Mini-project materials are Kumu-improved drafts pending
-> instructor sign-off.
+> Fall 2026 launch; revised 2026-08-02 alongside the on-campus section (individual 30% is now a
+> geopolitical research paper; case artifacts follow the portfolio-repo standard).
+> **Section dates pending the DLEMBA program calendar** — the week-by-week schedule is relative
+> until those land. Case materials are Kumu-improved drafts pending instructor sign-off.
 
 ## Course Overview
 
@@ -27,7 +28,7 @@ Please begin email subject lines with **BUS 620 DLEMBA**. For more information a
 
 | On-campus element | DLEMBA equivalent |
 |---|---|
-| In-class mini kickoff / working session | **Screencast kickoff** posted at each mini's open, plus the written stage briefs (the briefs are self-contained — the screencast is orientation, not required viewing to proceed) |
+| In-class case kickoff / working session | **Screencast kickoff** posted at each case's open, plus the written stage briefs (the briefs are self-contained — the screencast is orientation, not required viewing to proceed) |
 | Attendance & participation | **Commit activity** — regular, meaningful commits across each stage window are the participation signal; a repo that lights up only on due dates reads as non-attendance |
 | Live sensitivity demos (e.g., the ride-share days/month flip) | Documented in the workbook: you run the sensitivity yourself and write it into your analysis |
 | Team presentation, live | Recorded presentation + async peer review (delivery details on the section syllabus) |
@@ -58,17 +59,22 @@ presence, and it leaves you with a public portfolio artifact no discussion-board
 | Component | Weight |
 |-----------|--------|
 | Participation (commit activity) | 10% |
-| Mini 1 — Farm Profit Optimizer (weeks 1–2) | 10% |
-| Mini 2 — Monsanto & Marginal Revenue (weeks 3–4) | 10% |
-| Mini 3 — Ride-Share Driver Economics (weeks 5–6) | 10% |
-| Individual Project — Policy Shock Analysis | 30% |
+| Case 1 — Perfect Competition: Decision Analysis (weeks 1–2) | 10% |
+| Case 2 — Imperfect Competition: Pricing Power Analysis (weeks 3–4) | 10% |
+| Case 3 — Economic Profit & Rent: Earnings Analysis (weeks 5–6) | 10% |
+| Individual Project — Geopolitical Research Paper | 30% |
 | Team Case Study Presentation | 30% |
 | **Total** | **100%** |
 
-Component details, the mini-project structure (one accreting portfolio repo, 20 points per mini
-across 2–3 stages, published check figures), and the Policy Shock artifact structure are identical
-to the on-campus section — see [BUS 620 § Grading](../BUS-620/README.md#grading-fall-2026).
-Mini case materials and stage briefs live in [`../projects/in-progress/`](../projects/in-progress/).
+Component details, the case structure (one accreting portfolio repo organized by capability and
+engagement, 20 points per case across 2–3 stages, published check figures), the shared deliverable
+path table, and the geopolitical-paper scope are identical to the on-campus section — see
+[BUS 620 § Grading](../BUS-620/README.md#grading-fall-2026). Case materials and stage briefs live in
+[`../projects/in-progress/`](../projects/in-progress/).
+
+The individual research paper is submitted through the syllabus and Lamaku, **not** through the
+Kumu website or the portfolio repo. The previously-scheduled Policy Shock Analysis is deferred, not
+cancelled — see the on-campus README for what that means.
 
 ---
 
@@ -92,4 +98,4 @@ BUS-620-DLEMBA/
 └── README.md   this file
 ```
 
-Shared curriculum (mini-project cases + stage briefs, individual research, team research) lives in [`../projects/`](../projects/).
+Shared curriculum (case studies + stage briefs, individual research, team research) lives in [`../projects/`](../projects/).
