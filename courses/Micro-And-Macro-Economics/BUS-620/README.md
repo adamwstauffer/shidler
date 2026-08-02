@@ -60,59 +60,79 @@ Through the AI + GitHub project, you will also develop practical, workplace-read
 
 ## Grading (Fall 2026)
 
-> **Status:** restructured 2026-07-31 for the Fall 2026 launch — three graded mini-projects added,
-> project weights rebalanced. Mini-project materials are Kumu-improved drafts pending instructor
-> sign-off before release to students.
+> **Status:** restructured 2026-07-31 for the Fall 2026 launch — three graded case-study projects
+> added, project weights rebalanced. Revised 2026-08-02: the individual 30% is a **geopolitical
+> research paper**, not the Policy Shock Analysis (deferred), and all case artifacts move to the
+> portfolio-repo standard. Case materials are Kumu-improved drafts pending instructor sign-off
+> before release to students.
 
 | Component | Weight |
 |-----------|--------|
 | Attendance & Participation | 10% |
-| Mini 1 — Farm Profit Optimizer (weeks 1–2) | 10% |
-| Mini 2 — Monsanto & Marginal Revenue (weeks 3–4) | 10% |
-| Mini 3 — Ride-Share Driver Economics (weeks 5–6) | 10% |
-| Individual Project — Policy Shock Analysis | 30% |
+| Case 1 — Perfect Competition: Decision Analysis (weeks 1–2) | 10% |
+| Case 2 — Imperfect Competition: Pricing Power Analysis (weeks 3–4) | 10% |
+| Case 3 — Economic Profit & Rent: Earnings Analysis (weeks 5–6) | 10% |
+| Individual Project — Geopolitical Research Paper | 30% |
 | Team Case Study Presentation | 30% |
 | **Total** | **100%** |
 
 ### Attendance & Participation (10%)
 
-Essential for maximizing learning outcomes. Each mini opens with an in-class working session —
+Essential for maximizing learning outcomes. Each case opens with an in-class working session —
 showing up and committing is participating.
 
-### Mini-Projects (3 × 10%)
+### Case-Study Projects (3 × 10%)
 
-Three 2-week Excel + AI case studies, each worth 20 points split across 2–3 graded stages. One
-personal public GitHub repo, created in Mini 1's first stage, accretes all term — each mini adds a
-project folder with the same four artifacts: brief/hypothesis, completed workbook, analysis with
-figures, prompt log + reflection. Check figures are published so you can self-verify before
-submitting. The three cases trace one arc — competition → market power → where the profits hide:
+Three 2-week Excel + AI engagements, each worth 20 points split across 2–3 graded stages. One
+**personal public GitHub portfolio repo**, created in Case 1's first stage, accretes all term. It is
+structured by **capability** and **engagement**, not by course — the full standard is in
+`ai-lms/docs/decisions/2026-08-02-website-simplification-and-portfolio-repo-standard.md` § 6. Each
+case adds a capability folder plus its evidence:
 
-1. **Farm Profit Optimizer** — perfect competition, P = MC, Excel Solver
+| Stage | Deliverable path in the student repo |
+|---|---|
+| 1 — Brief | `docs/briefs/<case-slug>-brief.md` (+ Case 1 only: repo skeleton, `AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`, collaborator `adamwstauffer`) |
+| 2 — Build | `skills/<capability>/spec.md` + `skills/<capability>/model.xlsx` + skill `README.md` |
+| 3 — Report | `analysis/<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/<case-slug>-memo.md` + prompt-log update |
+
+Check figures are published so students can self-verify before submitting. The three cases trace one
+arc — competition → market power → where the profits hide:
+
+1. **Perfect Competition — Decision Analysis** (market-garden scenario): P = MC, Excel Solver.
+   Capability `marginal-analysis`, engagement `perfect-competition`
    ([case + stage briefs](../projects/in-progress/perfect-competition-marginal-costs/))
-2. **Monsanto & the GMO Seed Market** — monopoly, MR = MC, Lerner, deadweight loss
+2. **Imperfect Competition — Pricing Power Analysis** (Monsanto GMO seed scenario): monopoly,
+   MR = MC, Lerner, deadweight loss. Capability `pricing-power`, engagement `imperfect-competition`
    ([case + stage briefs](../projects/in-progress/imperfect-competition-marginal-revenue/))
-3. **Ride-Share Driver Economics** — accounting vs economic profit, economic rent, medallion
-   capitalization ([case + stage briefs](../projects/in-progress/accounting-profit-economic-profit-economic-rent/))
+3. **Economic Profit & Rent — Earnings Analysis** (ride-share scenario): accounting vs economic
+   profit, economic rent, medallion capitalization. Capability `economic-profit`, engagement
+   `economic-profit` ([case + stage briefs](../projects/in-progress/accounting-profit-economic-profit-economic-rent/))
 
-### Individual Project — Policy Shock Analysis (30%)
+> **Sync rule.** These paths are mirrored by the Kumu website's stage pages and by its progression
+> gates (`ai-lms/website/assets/js/gates.js`). One path table, three consumers — change one, change
+> all three. Any future `grade_stage*.py` scanners read from the same table.
 
-Pick a **real, recent policy shock of your own choosing** — a tariff, rent cap, subsidy, minimum
-wage, rate move — and analyze who wins, who loses, by how much, and what society gives up. Fixed
-artifact structure in your portfolio repo (the same workflow the minis train):
+### Individual Project — Geopolitical Research Paper (30%)
 
-* README (Assignment Brief) – the shock, why it matters, your hypothesis
-* Spec – models (supply & demand + elasticity, or AS–AD), data sources, acceptance criteria
-* Analysis & Deliverables – memo, appendix, figures
-* Prompt Log & Reflection – document AI use and limitations
+An individual research paper on a geopolitical question with real economic stakes — resource
+control, trade restriction, conflict, sanctions, climate policy — of your own choosing. Analyze who
+wins, who loses, by how much, and what the economics predicts about stability. Structure,
+formatting, length, and submission are on the course syllabus and Lamaku; this project is **not**
+run through the Kumu website or the portfolio repo.
 
-Peer evaluation accounts for 50% of the grade. The Monsanto analysis (Mini 2) is the deliberate
-on-ramp: its DWL + policy framing is exactly the muscle this project uses at full scale.
+Peer evaluation accounts for 50% of the grade. The Case 2 pricing-power analysis is the deliberate
+on-ramp: its welfare-loss and policy framing is the muscle this paper uses at full scale.
+
+> **Deferred:** the *Policy Shock Analysis* previously occupying this 30% is parked, not cancelled —
+> its materials remain in [`../projects/individual-research/`](../projects/individual-research/) and
+> its Kumu page is retained but delinked. Restoring it in a future term is a one-line change.
 
 ### Team Case Study Presentation (30%)
 
 Students will present applied cases on AI, climate change, geopolitics, and global markets — built
 in a shared team repo (deck + supporting workbook + one-page memo; branches and pull requests, not
-email attachments). Presentations are peer-reviewed, with 50% of the grade based on peer evaluation.
+email attachments). The team repo uses the same hierarchy as the personal portfolio repo.
+Presentations are peer-reviewed, with 50% of the grade based on peer evaluation.
 
 ---
 
@@ -123,10 +143,10 @@ Instruction runs **2026-08-24 → 2026-12-10**; finals week 2026-12-14–18. Sta
 
 | Weeks | Dates | What's running |
 |---|---|---|
-| 1–2 | Aug 24 – Sep 4 | **Mini 1 — Farm Profit** (stage 1a repo + brief, 1b build, 1c analysis) |
-| 3–4 | Sep 8 – Sep 18 | **Mini 2 — Monsanto** (2a build, 2b analysis) · Labor Day Sep 7 |
-| 5–6 | Sep 21 – Oct 2 | **Mini 3 — Ride-Share** (3a build, 3b analysis) |
-| 7–11 | Oct 5 – Nov 6 | **Policy Shock Analysis** (brief → spec → analysis milestones) · macro units |
+| 1–2 | Aug 24 – Sep 4 | **Case 1 — Perfect Competition** (stage 1a repo + brief, 1b build, 1c analysis) |
+| 3–4 | Sep 8 – Sep 18 | **Case 2 — Imperfect Competition** (2a build, 2b analysis) · Labor Day Sep 7 |
+| 5–6 | Sep 21 – Oct 2 | **Case 3 — Economic Profit & Rent** (3a build, 3b analysis) |
+| 7–11 | Oct 5 – Nov 6 | **Geopolitical research paper** (proposal → draft → final) · macro units |
 | 12–15 | Nov 9 – Dec 10 | **Team case studies** (repo build → presentations) · Thanksgiving Nov 26–27 |
 | 16 | Dec 14–18 | Finals week — peer-review wrap-up |
 

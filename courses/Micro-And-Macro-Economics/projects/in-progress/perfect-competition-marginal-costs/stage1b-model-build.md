@@ -1,21 +1,29 @@
-# Mini 1 · Stage 1b — Model Build
+# Case 1 · Stage 1b — Model Build
 
-**Mini weight:** 10% of course grade — this stage: 8 of 20 pts
+**Case weight:** 10% of course grade — this stage: 8 of 20 pts
 **Format:** Upload-only — no presentation component
-**Deliverable:** Completed `projects/farm-profit/farm-model.xlsx` committed to your repo
-**Due:** end of Week 2 — exact dates on the course calendar (Mini 1 spans Weeks 1–2, Aug 24–Sep 4)
+**Deliverable:** `skills/marginal-analysis/model.xlsx` + `skills/marginal-analysis/spec.md` + `skills/marginal-analysis/README.md`, committed to your repo
+**Due:** end of Week 2 — exact dates on the course calendar (Case 1 spans Weeks 1–2, Aug 24–Sep 4)
 
-> **Status:** Kumu-authored draft (2026-07-31) — pending Adam's review before students see it.
+> **Status:** Kumu-authored draft (2026-07-31; paths + framing rewritten 2026-08-02 to the portfolio-repo standard) — pending Adam's review before students see it.
 
 ---
 
 ## Overview
 
-Build the model. Copy `farm-profit-optimizer-template.xlsx` (from the course repo, this folder) into your repo as `projects/farm-profit/farm-model.xlsx`, then complete it: the cost structure, each crop's marginal-cost schedule, the P = MC read per crop, and a documented Solver run that finds the profit-maximizing mix under the real constraints.
+Build the model. Copy `farm-profit-optimizer-template.xlsx` (from the course repo, this folder) into your repo as **`skills/marginal-analysis/model.xlsx`**, then complete it: the cost structure, each crop's marginal-cost schedule, the P = MC read per crop, and a documented Solver run that finds the profit-maximizing mix under the real constraints.
 
 This is the supply side of perfect competition made mechanical — the farm is a price taker, every extra bed costs more labor than the last, and the question is where rising MC meets a flat price line. Get the machinery right here; *why* the answer looks the way it does is Stage 1c's job.
 
 All scenario assumptions — prices, wages, bed caps, the labor function — are in the [case README](README.md). Do not invent numbers; the workbook's blue input cells and the README's assumptions table are the same set.
+
+### Why the model lives in `skills/`, not in a course folder
+
+`marginal-analysis` is a **capability** — the thing you can now do: take a decision with a rising cost curve and find where the next unit stops paying for itself. It is not "the farm assignment." That's why the folder is named for the method and why the spec and the workbook sit in it together: a method and the model that implements it are one object, and filing them apart is structure with no payoff.
+
+The farm is the **engagement** that exercises the capability, and its evidence lives elsewhere — the brief you wrote in `docs/briefs/`, the analysis you'll write in `analysis/`. The skill folder's `README.md` is the join between the two.
+
+That structure pays off in Case 2 (`skills/pricing-power/`) and Case 3 (`skills/economic-profit/`), and again the first time somebody who is deciding whether to hire you reads the repo.
 
 ## What to complete in the workbook
 
@@ -25,7 +33,18 @@ The template's README sheet is the authoritative walkthrough (conventions, color
 2. **MC schedules per crop** — bed-by-bed marginal cost for tomatoes, carrots, and mesclun on the MC Schedules sheet, with the MC-vs-price charts populating.
 3. **P = MC per crop** — identify where each crop's standalone MC crosses its price. Expect roughly **tomatoes ~10, carrots ~10, mesclun ~6 beds**. Note what you see in tomato MC around bed 6 — you'll explain it in Stage 1c.
 4. **Solver run** — objective: maximize profit; changing cells: the three bed-count decisions; **method: GRG Nonlinear** with **integer** decisions; constraints exactly as listed on the workbook's README sheet (bed caps, 64 total beds, temp workers ≤ 4). All constraint-check cells green.
-5. **Document the run** — in the workbook's Solver-notes area: objective, changing cells, each constraint, method, and starting point. A Solver run that isn't documented isn't reproducible, and unreproducible isn't a model.
+
+## `spec.md` — the model, written down
+
+The Solver documentation that used to live in the workbook's notes area now lives in **`skills/marginal-analysis/spec.md`**, alongside the model. Same content, better address: a spec next to the workbook is a thing you can hand someone, reuse in Case 2, and reread in a year. A note buried in a spreadsheet cell is not.
+
+Half a page, no more. Cover:
+
+- **What the model computes and how** — the labor function, the perm-then-temp costing convention, the blended-rate allocation. Name the input cells and any named ranges you rely on.
+- **The Solver run, reproducibly** — objective cell, changing cells, every constraint, method (GRG Nonlinear, integer), and the starting point you used. *A Solver run that isn't documented isn't reproducible, and unreproducible isn't a model.*
+- **How the model is validated** — which check figures you matched, and any hand calculation you used to prove a formula (q = 1 is the classic).
+
+Also create **`skills/marginal-analysis/README.md`** — three or four lines is the whole job: what the capability is, and an "exercised in:" line pointing at this engagement's brief and (after Stage 1c) its analysis and memo.
 
 ## Check figures — verify yourself before submitting
 
@@ -43,7 +62,7 @@ If Solver lands elsewhere, your model has a bug — trace it (a common one: star
 
 ## Commit hygiene
 
-At least **2 descriptive commits** for this stage — e.g., one when the cost structure and MC schedules work, one after the documented Solver run. Not `update xlsx`. If `~$farm-model.xlsx` ever shows up in your Changes panel, your Stage 1a `.gitignore` is broken — fix it before committing.
+At least **2 descriptive commits** for this stage — e.g., one when the cost structure and MC schedules work, one after the documented Solver run. Not `update xlsx`. If `~$model.xlsx` ever shows up in your Changes panel, your Stage 1a `.gitignore` is broken — fix it before committing.
 
 ## AI-use boundary (course standard)
 
@@ -53,11 +72,12 @@ AI may explain concepts, critique your reasoning, and help debug formulas. It ma
 
 ## What to submit
 
-Commit the workbook to your repo — Stage 1b is graded by inspection of the file. Nothing separate goes to Lamaku unless announced.
+Commit the files to your repo — Stage 1b is graded by inspection. Nothing separate goes to Lamaku unless announced.
 
-- [ ] `projects/farm-profit/farm-model.xlsx` — copied from the template, completed
+- [ ] `skills/marginal-analysis/model.xlsx` — copied from the template, completed
 - [ ] All constraint-check cells green; no `#REF!` / `#DIV/0!` / `#NAME?` anywhere
-- [ ] Solver run documented in-workbook: objective, changing cells, constraints, method, start point
+- [ ] `skills/marginal-analysis/spec.md` — model logic, the Solver run (objective, changing cells, constraints, method, start point), and how you validated it
+- [ ] `skills/marginal-analysis/README.md` — what the capability is + "exercised in:" pointing at this engagement
 - [ ] MC schedules + charts populated for all three crops
 - [ ] ≥2 descriptive commits for this stage
 
@@ -73,8 +93,8 @@ Commit the workbook to your repo — Stage 1b is graded by inspection of the fil
 |-----------|-----|-------------------------------|
 | Cost structure + labor function correct | 2 | Blue inputs match the case assumptions; diminishing-returns exponent working; blended-wage convention followed |
 | MC schedules + P = MC per crop | 2 | Bed-by-bed MC correct for all three crops; standalone crossings identified (~10/~10/~6); charts populated |
-| Solver run correct + documented | 3 | GRG Nonlinear, integer decisions, all constraints from the README sheet; finds 10/20/30 at $42,762; objective/cells/constraints/method written down |
-| Workbook hygiene + commit hygiene | 1 | Checks green, no error cells, no hardcoded overrides of formulas; ≥2 descriptive commits |
+| Solver run correct + documented | 3 | GRG Nonlinear, integer decisions, all constraints from the README sheet; finds 10/20/30 at $42,762; objective/cells/constraints/method/start point written down in `spec.md` |
+| Workbook hygiene + commit hygiene | 1 | Checks green, no error cells, no hardcoded overrides of formulas; skill `README.md` present; ≥2 descriptive commits |
 
 ---
 
@@ -83,5 +103,6 @@ Commit the workbook to your repo — Stage 1b is graded by inspection of the fil
 - **Build the labor function first and test it at q = 1.** One bed of tomatoes should cost `1 × 2.5 × 36 × 1.10` hours. If that's wrong, everything downstream is wrong.
 - **Perm hours first, then temp.** The farmer's 720 field hours are consumed before any temp hours — and the P&L allocates labor at the *blended* rate. Mixing those two conventions is the most common structural bug.
 - **Don't fight the dip.** If tomato MC falls around bed 6 and then rises again, your model is *right* — MC isn't guaranteed monotonic. Note it, move on, explain it in 1c.
-- **Try two Solver starts.** 0/0/0 finds the optimum; 20/0/0 may not. That path-dependence is worth one sentence in your Solver notes.
+- **Try two Solver starts.** 0/0/0 finds the optimum; 20/0/0 may not. That path-dependence is worth one sentence in your spec.
+- **Write the spec as you build, not after.** Every time you settle a convention, that's a line of `spec.md`. Reconstructing it at the end is how details get lost.
 - **The lab is faster than F9.** For "what happens if I add one more carrot bed?" questions, the [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) answers in a drag; use it to build intuition, then confirm in your own workbook.
