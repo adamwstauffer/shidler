@@ -103,6 +103,7 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Master Ratios Spreadsheet | `docs/spreadsheets/Corporate Finance Master Spreadsheets.xlsx` (supersedes the archived `_archive/bus314/_spreadsheets/BUS-314 Accounting & Performance Ratios - MASTER.xlsx`) |
 | Appendix Presentations | `docs/presentations/` |
 | **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
+| Grading Scale (SSOT) | `docs/grading-scale.md` (numeric→letter; helper `scripts/grading/letter_grade.py`) |
 
 ## Financial Model Assumptions (mandatory for valuation work)
 
