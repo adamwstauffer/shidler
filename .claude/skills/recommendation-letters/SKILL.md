@@ -36,7 +36,13 @@ When unsure whether something is verified, treat it as unverified.
 - **Finished letters + student materials:** `recommendations/<YYYY-MM>-<lastname>-<firstname>/` at
   the repo root. This tree is **gitignored** (student PII); see `recommendations/README.md`. Date =
   the letter's authored month. Multi-target applicants keep one folder with a file per school/employer.
-- **Grades** to fill `<course grade>` fields come from the gradebook, not memory.
+- **Grades** to fill `<course grade>` fields come from the gradebook, not memory. Gradebooks are
+  consolidated under each offering's `ignore/<YYYY-Season>/grades/`. The `*_FinalGrades_*.xlsx`
+  exports carry the **letter grade in column P** (and the numeric in column O); the plain
+  `*_Grades_*.csv` exports carry only the number — convert those with the SSOT scale in
+  [`docs/grading-scale.md`](../../../docs/grading-scale.md) or `scripts/grading/letter_grade.py`
+  (e.g. `python scripts/grading/letter_grade.py 92` → `A-`). **Never guess a letter from a number** —
+  read column P or apply the scale.
 
 ## Workflow
 
@@ -50,11 +56,36 @@ When unsure whether something is verified, treat it as unverified.
    clauses for combos) → write 1–2 differentiator paragraphs mapped from the student's own bullets
    and résumé → pick a Closing Line. Fill every `<field>`, including `<he/she/they>` pronouns and
    `<course grade>`. Leave any field you can't verify as a placeholder and flag it to the user.
-4. **Save** the editable `.docx` into the student's folder; keep any signed PDF alongside it.
+4. **Render onto the branded letterhead** (see below) and save the `.docx` + a `.pdf` into the
+   student's folder.
+
+## Rendering onto the UH letterhead (required for outgoing letters + PDFs)
+
+Outgoing letters and PDFs use Adam's branded base, `recommendations/recommendation-template-format.docx`
+— UH/Shidler letterhead (first-page header) + the signature block with his signature and seal images.
+**That base stays gitignored** (it embeds his signature) and is never bundled into the tracked repo.
+
+Build with `scripts/build_letter.py`, which swaps only the body (title → closing) onto the base and
+leaves the letterhead, footers, and signature block untouched:
+
+```
+python .claude/skills/recommendation-letters/scripts/build_letter.py content.json
+```
+
+`content.json` = `{base, out, title, date, recipient_lines[], salutation, body_paragraphs[],
+space_after, line_spacing, title_before}`. Then convert to PDF with LibreOffice directly
+(`"C:\Program Files\LibreOffice\program\soffice.exe" --headless --convert-to pdf --outdir <dir> <docx>`).
+
+**One page, always** — unless there is a genuine reason for more (rare). If a letter spills to a
+second page, tighten in this order before ever cutting substance: lower `space_after` (160 → ~130),
+then `line_spacing` (1.0 → ~0.90). Verify the page count from the rendered PDF (`pdfinfo`), and
+confirm the title clears the letterhead (raise `title_before`, default 560, if it crowds "MĀNOA").
+Note: if the target `.docx` is open in Word the save fails ("Device or resource busy") — build to a
+scratch path, then place it once the file is closed.
 
 ## House style (what a finished letter looks like)
 
-One page, 4–5 short paragraphs:
+**Always one page** unless there is a genuine reason for more (rare). 4–5 short paragraphs:
 
 1. **Purpose + bio.** Purpose line, then the fixed bio verbatim: *"I am a Faculty Lecturer in
    Finance and Economics at the Shidler College of Business, University of Hawaiʻi at Mānoa. Before
@@ -87,8 +118,9 @@ adamstau@hawaii.edu
   employers → "your team." Never frame the reader as "recruiters."
 - **GPA:** include only when it is a genuine strength *and* you have the verified number; otherwise
   let applied accomplishments carry the letter.
-- **Generating the .docx:** the template renders well from `docx-js` (Open Sans, US Letter, 11pt
-  body; ~236 line spacing keeps a full letter to one page). On Windows, preview by calling
+- **Generating the .docx:** render onto the branded base with `scripts/build_letter.py` (see
+  "Rendering onto the UH letterhead" above) — it keeps the letterhead Times New Roman 12pt house
+  look. On Windows, preview/convert by calling
   `"C:\Program Files\LibreOffice\program\soffice.exe" --headless --convert-to pdf` directly — the
   docx skill's `soffice.py` wrapper fails there (it assumes a Unix socket). For deeper .docx
   mechanics, use the `docx` skill.
