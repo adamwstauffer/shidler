@@ -45,6 +45,7 @@ In practice:
 
 ### Assignment & Project Templates
 
+- **[`stage-brief-template.md`](./stage-brief-template.md)** — **The stage brief.** Every stage brief in every course uses its frontmatter block and its ten sections, in order. Carries the enumerated ban list (course codes, weeks, dates, weights, LMS names, delivery mode) that keeps a brief semester-invariant, and a register table mapping conversational phrasing to its instructional replacement. Authored 2026-08-02; see `ai-lms/docs/decisions/2026-08-02-stage-brief-template-and-content-ownership.md`
 - **[`memo-template.md`](./memo-template.md)** — Executive memo (Stage 1 / Stage 2 deliverables)
 - **[`spec-template.md`](./spec-template.md)** — Technical specification (Stage 4 deliverables; originally authored for ratios analysis, adaptable to other model-driven projects)
 - **[`case-brief-template.md`](./case-brief-template.md)** — Case analysis brief (BUS-313, BUS-620)
@@ -62,7 +63,7 @@ Every Markdown template in this directory carries a YAML frontmatter block so hu
 
 ```yaml
 ---
-template: memo                    # one of: memo, spec, case-brief, prompt-log
+template: memo                    # one of: memo, spec, case-brief, prompt-log, stage-brief
 purpose: "Short description of what the template is for"
 audience: student                 # student | instructor | both
 fields_required: [list, of, fields, the, student, must, fill, in]
@@ -73,6 +74,29 @@ notes: "Optional caveats or adaptation notes"
 ```
 
 **Why frontmatter:** When a student (or an LLM in the BUS-629 Stage 4 spec-drafting workflow) is choosing which template to apply, they should not have to read the entire body to figure out what the template is for. The `purpose` and `fields_required` keys answer that question in one block.
+
+### Instantiated stage briefs
+
+A stage brief written *from* `stage-brief-template.md` carries a different block — the template's own frontmatter describes the template; an instantiated brief describes the assignment:
+
+```yaml
+---
+template: stage-brief
+project: perfect-competition-marginal-costs   # directory slug
+stage: 1                                      # INTEGER, numbered per case from 1
+title: "Repo + Brief"
+capability: marginal-analysis                 # the skills/<capability>/ folder; omit if none
+deliverables:                                 # the canonical path declaration
+  - path: docs/briefs/perfect-competition-brief.md
+    format: markdown
+    ai_boundary: human-first                  # per artifact: human-first | ai-first-verified | not-permitted
+prerequisites: [1, 2]                         # prior stages whose deliverables must exist; [] for the first
+points: 3                                     # must equal the rubric total
+estimated_time: "60-80 min"
+---
+```
+
+The `deliverables` block is the **canonical declaration** of the artifact paths. Downstream consumers — the Kumu stage page and the gate predicates in `ai-lms/website/assets/js/gates.js` — hold literal mirrors of it, each citing the brief it mirrors, and the match is verified at PR rather than resolved at runtime. Changing a path here means changing those mirrors in the same pull request.
 
 ---
 

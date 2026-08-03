@@ -1,102 +1,198 @@
+---
+template: stage-brief
+project: perfect-competition-marginal-costs
+stage: 3
+title: "Analysis + Prompt Log"
+capability: marginal-analysis
+deliverables:
+  - path: analysis/perfect-competition-analysis.md
+    format: markdown
+    ai_boundary: human-first
+  - path: analysis/figures/
+    format: images
+    ai_boundary: not-permitted
+  - path: docs/decisions/perfect-competition-memo.md
+    format: markdown
+    ai_boundary: human-first
+  - path: prompt-log.md
+    format: markdown
+    ai_boundary: human-first
+prerequisites: [1, 2]
+points: 9
+estimated_time: "3-4 hrs"
+---
+
 # Case 1 · Stage 3 — Analysis + Prompt Log
 
-**Case weight:** 10% of course grade — this stage: 9 of 20 pts (analysis 6 + prompt log 3)
-**Format:** Upload-only — no presentation component
-**Deliverable:** `analysis/perfect-competition-analysis.md` (≥2 figures in `analysis/figures/`) + `docs/decisions/perfect-competition-memo.md` + an updated root `prompt-log.md`, all committed to your repo
-**Due:** end of Week 2 — exact dates on the course calendar (Case 1 spans Weeks 1–2, Aug 24–Sep 4)
-
-> **Where this fits in the engagement.**
-> **Input:** your Stage 1 `docs/briefs/perfect-competition-brief.md` (the hypothesis you're now testing) + your Stage 2 `skills/marginal-analysis/model.xlsx` (the evidence source — every number you cite comes from it).
-> **Output (this stage):** the analysis, the client memo, and an updated prompt log — closing out Case 1.
-> **Used by:** the in-class debrief, and Cases 2–3 — the analysis-over-a-model-you-built pattern repeats all semester, as does the prompt-log habit.
+**Deliverable:** the analysis with figures, the recommendation memo, and an updated prompt log
+**Submission:** committed and pushed to your public repository; graded by inspection
+**Estimated time:** 3–4 hours
 
 ---
 
-## Overview
+## 1. Purpose
 
-Stage 2 produced a number — 10/20/30, $42,762. Stage 3 is where the points actually live: explain *why* that's the answer, in economics, with your model's own evidence, and then tell the farmer what to do about it. A Solver output you can't explain is a coincidence you happen to have committed.
+Stage 2 produced a number. This stage produces the reason: an explanation of *why* that is the
+answer, in economics, using your own model's evidence — and then a recommendation written to the
+person who has to act on it. A Solver output you cannot explain is a coincidence you happen to have
+committed.
 
-Three files, and the split between the first two is the point:
+## 2. Prerequisites
 
-| File | What it is |
+- Stage 1: `docs/briefs/perfect-competition-brief.md` — the hypothesis you are now testing.
+- Stage 2: `skills/marginal-analysis/model.xlsx` — the evidence source. Every number you cite comes
+  from it.
+
+Read before starting:
+
+- [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html) — the memo structure and the prompt-log format.
+
+## 3. Deliverables
+
+| Artifact | Path | Format |
+|---|---|---|
+| The evidence — what the model shows and why, for someone checking your work | `analysis/perfect-competition-analysis.md` | markdown |
+| At least two figures the analysis refers to | `analysis/figures/` | images |
+| The answer — what the farmer should do, for the farmer | `docs/decisions/perfect-competition-memo.md` | markdown |
+| The curated record of AI sessions, plus the reflection | `prompt-log.md` | markdown |
+
+**Briefs ask; memos answer.** You wrote the question in Stage 1; this is where you close it. The
+analysis is the file a reviewer audits; the memo is the file a decision-maker reads.
+
+## 4. Background
+
+Four things in this model are worth explaining, and together they are what the analysis has to
+cover.
+
+**Where marginal cost crosses price.** Tomatoes are the clean case — interior at 10 beds, MC $8,249
+at bed 10 against a price of $8,800, with bed 11 costing $9,391.
+
+**Which constraints bind, and what they are worth.** Carrots and mesclun stop at their bed caps with
+MC still *below* price: the constraint ends production, not the economics. One more carrot bed would
+add roughly **$352** of profit, one more mesclun bed roughly **$246**. Some constraints never bind at
+all — 64 total beds and 4 temporary workers are both slack.
+
+**The tomato MC dip at about 6 beds.** Marginal cost falls before it rises. The farmer's own field
+hours at $34.72/hr run out, marginal labor switches to temporary labor at $17.36/hr, and then
+diminishing returns push MC back up through the price line. This is the lesson that input prices bend
+the marginal-cost curve, and it is the most interesting thing in the model.
+
+**Why growing loss-making crops is correct.** Standalone, every crop loses money at every quantity,
+because fixed costs dominate. The resolution is marginal cost against average *variable* cost: price
+exceeds AVC everywhere, so every bed contributes above variable cost, and the *mix* — not any single
+crop — is what turns a loss into $42,762. This is the short-run shutdown rule in farm clothes.
+
+## 5. Procedure
+
+1. **Write the analysis** at `analysis/perfect-competition-analysis.md`. One to two pages, covering
+   all four questions above from your own workbook's numbers.
+   *Confirm:* each claim points at a cell or a figure in your model, not at a textbook generalization.
+
+2. **Export at least two figures** into `analysis/figures/` — the MC-versus-price charts are the
+   obvious pair — and reference each one in the text.
+   *Confirm:* the images render on the github.com page, not merely in your editor. Relative links
+   are easy to get wrong.
+
+3. **Close the analysis against your hypothesis.** One honest paragraph: what you predicted, what the
+   model found, what your prior got right or wrong.
+   *Confirm:* the paragraph names a specific difference. Being wrong in the brief and precise about
+   why here is full-credit work.
+
+4. **Write the memo** at `docs/decisions/perfect-competition-memo.md`. Half a page, addressed to
+   whoever signs off on the plan — a partner, a lender, or you next February — with no jargon they
+   did not ask for. Three things belong in it:
+   - **The plan.** Plant 10 / 20 / 30, and one sentence of reasoning a non-economist would accept.
+   - **The judgment call.** Both caps bind, and one is worth more to relax than the other. Which
+     ground is worth spending money to expand first, and what is one more bed worth? That number came
+     out of your shadow-price work; here it becomes advice.
+   - **What would change your answer.** One line naming the variable the recommendation is most
+     sensitive to.
+
+   *Confirm:* it takes under twenty minutes to write. If it takes longer, the analysis has not
+   finished its job — that is a signal, not a writing problem.
+
+5. **Update `prompt-log.md`** at the repository root — a dated section for this engagement, not a new
+   file. Log the sessions that *mattered*: where AI explained something, caught or introduced an
+   error, or pushed your reasoning. Date, tool, what you asked, what you got, what you did with it.
+   *Confirm:* it is a curated record, not a transcript dump.
+
+6. **Write the reflection**, 300 words or fewer, at the end of the log: where AI helped, where it was
+   wrong, and — graded hardest — *how you verified*.
+   *Confirm:* the verification is concrete. "It seemed right" is not verification; "I checked its MC
+   formula against the labor function at `q = 1` and it had dropped the exponent" is. If AI genuinely
+   made no error you could catch, document the checks that convinced you.
+
+7. **Update `skills/marginal-analysis/README.md`** so its "exercised in:" line points at the analysis
+   and the memo as well as the brief.
+   *Confirm:* the capability now links to all of its evidence.
+
+8. **Commit at least twice** with descriptive messages.
+
+## 6. AI use
+
+| Artifact | Draft order |
 |---|---|
-| `analysis/perfect-competition-analysis.md` | **The evidence.** What the model shows and why, with figures. Written for someone checking your work. |
-| `docs/decisions/perfect-competition-memo.md` | **The answer.** What the farmer should do, in half a page, written for the farmer. |
-| `prompt-log.md` (repo root) | The curated record of AI sessions + your reflection. |
+| `analysis/perfect-competition-analysis.md` | Human-first |
+| `docs/decisions/perfect-competition-memo.md` | Human-first |
+| `prompt-log.md` and the reflection | Human-first |
+| Figures | Exported from your own workbook — not generated |
 
-Briefs ask; memos answer. You wrote the question in Stage 1 — this is where you close it.
+**If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
+a means to the work rather than the work itself, AI may draft it and you verify.** The two working
+loops are described in [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html).
 
-## `analysis/perfect-competition-analysis.md` — the optimal mix and *why* (6 pts)
+**For this stage specifically:** AI may explain concepts, critique your reasoning, and help debug
+formulas. It may not write the analysis, the memo, or the reflection. The line, concretely: asking AI
+to critique your draft explanation of the MC dip is in bounds and worth logging. Pasting the case in
+and asking for an analysis is out of bounds — and it shows, because AI-written analysis explains the
+textbook rather than *your workbook's* numbers.
 
-Aim for 1–2 pages plus **at least 2 figures** — charts exported or screenshotted from your workbook into `analysis/figures/` (MC-vs-price per crop is the obvious pair). Every figure earns its place by being *referenced in the text*; a decorative chart is worth nothing. Cover four things:
+## 7. Verification
 
-1. **P = MC evidence per crop.** Where does each crop's marginal cost cross its price, and how does that show up in the optimal mix? Tomatoes are the clean case — interior at 10 beds, MC $8,249 at bed 10 vs price $8,800, bed 11 would cost $9,391. Show the reader the crossing, don't just assert it.
-2. **Which constraints bind — and what they're worth.** Carrots and mesclun stop at their bed caps with MC still *below* price — the constraint, not economics, ends production. Use the shadow-price intuition: one more carrot bed would add roughly **$352** of profit (mesclun ~$246). Note which constraints are *slack* too — 64 beds and 4 temp workers never bind.
-3. **The tomato MC dip at ~6 beds.** MC falls before it rises — explain the mechanism: the farmer's expensive field hours ($34.72/hr) run out and marginal labor switches to cheaper temp labor ($17.36/hr), then diminishing returns push MC back up through the price line. This is the "input prices bend the MC curve" lesson; an analysis that ignores the dip has ignored the most interesting thing in the model.
-4. **"Grow carrots and mesclun at a loss?"** Standalone, every crop loses money at every quantity — fixed costs dominate. So why is growing them optimal? Resolve it with MC vs AVC: price exceeds average *variable* cost everywhere, so every bed contributes over variable cost, and the *mix* — not any single crop — is what turns a loss into $42,762. This is the short-run shutdown rule wearing farm clothes.
+- [ ] P = MC evidence shown per crop, from your model's own numbers
+- [ ] Binding caps identified, with shadow-price reasoning (~$352 carrots, ~$246 mesclun)
+- [ ] Slack constraints named — 64 beds and 4 temporary workers
+- [ ] The tomato MC dip explained by mechanism, not merely observed
+- [ ] The "grow at a loss?" paradox resolved with MC versus AVC
+- [ ] At least two figures in `analysis/figures/`, each referenced in the text
+- [ ] Figures render on the GitHub page, not just in your editor
+- [ ] Honest paragraph comparing the result against your Stage 1 hypothesis
+- [ ] Memo written: the plan, the judgment call, and what would change your answer
+- [ ] Prompt log updated with curated sessions and a reflection of 300 words or fewer
+- [ ] Reflection names something concrete you verified, and how
+- [ ] `skills/marginal-analysis/README.md` "exercised in:" line updated
+- [ ] At least two descriptive commits for this stage
 
-Close with one honest paragraph against your Stage 1 hypothesis: what you predicted, what the model found, what your prior got wrong or right. Being wrong in the brief and precise about *why* here is full-credit work.
-
-## `docs/decisions/perfect-competition-memo.md` — the planting recommendation
-
-Half a page, written to whoever has to sign off on the plan — a partner, a lender, or you next February — with no jargon they didn't ask for. The recommendation that used to close the analysis lives here instead, because that's the shape of the work: the analysis is the file a reviewer audits, the memo is the file a decision-maker reads.
-
-Three things belong in it:
-
-- **The plan.** Plant 10 / 20 / 30 — and one sentence of reasoning a non-economist would accept.
-- **The judgment call.** Both the carrot and mesclun caps bind, and one is worth more to relax than the other. Which ground is worth spending money to expand first, and what is one more bed worth? That number came out of your shadow-price work in the analysis — this is where it turns into advice.
-- **What would change your answer.** One line. If tomato prices fell 20%, if a fifth temp worker were available, if the caps lifted — name the variable your recommendation is most sensitive to.
-
-This memo carries no separate points; it is read together with the analysis under the "P = MC evidence + binding constraints" criterion, which already asks what a farmer should conclude from a binding cap. What changes is where that conclusion lives — and that it's written to a person, not to a rubric.
-
-## `prompt-log.md` — sessions + reflection (3 pts)
-
-Log the AI sessions that **mattered** — the ones where AI explained a concept, caught (or introduced) an error, or pushed your reasoning. Not a transcript dump; a curated record. For each session: date, tool, what you asked, what you got, what you did with it.
-
-The log lives at the repo root and accretes across all three engagements — add a dated section for this one rather than starting a new file.
-
-Then a **reflection, ≤300 words**: where AI helped, where it was wrong, and — the part that's graded hardest — *how you verified*. "It seemed right" is not verification; "I checked its MC formula against the labor function at q = 1 and it had dropped the exponent" is. If AI genuinely made no error you could catch, document the verification that convinced you it hadn't — "the AI was flawless" without evidence of checking reads as "I didn't look."
-
-## AI-use boundary (course standard)
-
-AI may explain concepts, critique your reasoning, and help debug formulas. It may not write your brief, analysis, memo, or reflection. Log the sessions that mattered.
-
-The line for this stage, concretely: asking AI to critique your draft explanation of the MC dip is in-bounds and worth logging. Pasting the case in and asking for an analysis is out-of-bounds — and it shows, because AI-written analysis explains the textbook, not *your workbook's* numbers.
-
----
-
-## What to submit
-
-Commit all three files to your repo — Stage 3 is graded by inspection. Nothing separate goes to Lamaku unless announced.
-
-- [ ] `analysis/perfect-competition-analysis.md` — ≥2 figures, all four questions addressed, hypothesis revisited
-- [ ] Figure image files in `analysis/figures/` (relative links that render on GitHub — check the rendered page, not just your editor)
-- [ ] `docs/decisions/perfect-competition-memo.md` — the plan, the judgment call on which cap to relax, what would change your answer
-- [ ] `prompt-log.md` updated — meaningful sessions + ≤300-word reflection
-- [ ] `skills/marginal-analysis/README.md` "exercised in:" line updated to point at the analysis and memo
-- [ ] ≥2 descriptive commits for this stage
-
----
-
-> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit — a figure that actually shows the P = MC crossing, a sharper shutdown-rule paragraph, a reflection with real verification steps — can move your score up; the full rubric applies, no cap on the bump. No email needed; just revise and push. One sweep per stage; the score locks once the sweep runs.
-
----
-
-## Rubric (9 pts)
+## 8. Rubric (9 pts)
 
 | Criterion | Pts | What distinguishes strong work |
-|-----------|-----|-------------------------------|
-| P = MC evidence + binding constraints | 3 | Crossings shown from *your* model's numbers; carrot/mesclun caps identified as binding with ~$352/~$246 shadow-price reasoning; slack constraints named; the memo turns that into a recommendation the farmer could act on |
-| MC dip + at-a-loss resolution | 2 | Dip mechanism (perm→temp wage switch) explained, not just observed; MC-vs-AVC shutdown logic resolves the "loss-making" crops correctly |
-| Figures + hypothesis revisit | 1 | ≥2 figures referenced in text and rendering on GitHub; honest comparison against the Stage 1 hypothesis |
-| Prompt log + reflection | 3 | Sessions curated, not dumped; reflection ≤300 words with concrete instances of AI being wrong and *how you verified* (or, if nothing was caught, the checks that cleared it) |
+|---|---|---|
+| P = MC evidence + binding constraints | 3 | Crossings shown from *your* model's numbers; carrot and mesclun caps identified as binding with ~$352 / ~$246 shadow-price reasoning; slack constraints named; the memo turns that into a recommendation the farmer could act on |
+| MC dip + at-a-loss resolution | 2 | Dip mechanism (permanent-to-temporary wage switch) explained, not just observed; MC-versus-AVC shutdown logic resolves the loss-making crops correctly |
+| Figures + hypothesis revisit | 1 | At least two figures referenced in text and rendering on GitHub; honest comparison against the Stage 1 hypothesis |
+| Prompt log + reflection | 3 | Sessions curated, not dumped; reflection of 300 words or fewer with concrete instances of AI being wrong and *how you verified* — or, if nothing was caught, the checks that cleared it |
 
----
+The memo carries no separate points. It is read together with the analysis under the P = MC evidence
+and binding-constraints criterion, which already asks what a farmer should conclude from a binding
+cap. What changes is where that conclusion lives, and that it is written to a person rather than to a
+rubric.
 
-## Tips
+## 9. Common failure modes
 
-- **Write from your cells, not from the textbook.** "MC rises due to diminishing returns" is a lecture note; "carrot MC hits $1,742 at bed 20, still $352 under price — the cap binds" is analysis. Cite your own numbers.
-- **Write the memo last and write it fast.** If it takes more than twenty minutes, the analysis hasn't finished its job. A memo you struggle to write is a signal, not a writing problem.
-- **The dip is a gift.** It's the one place this model surprises people — the [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) makes it visible in ten seconds of dragging the tomato slider. Watch it happen, then explain it.
-- **Screenshot figures are fine.** Nobody is grading chart aesthetics; they're grading whether the figure carries evidence your text uses.
-- **Log as you go.** Reconstructing the prompt log the night before produces exactly the generic mush the rubric can smell. A two-line entry per session, written at the time, is effortless.
+| What goes wrong | The correction |
+|---|---|
+| The analysis cites the textbook instead of the workbook | "MC rises due to diminishing returns" is a lecture note. "Carrot MC hits $1,742 at bed 20, still $352 under price — the cap binds" is analysis |
+| Figures are decorative | Every figure earns its place by being referenced in the text. An unreferenced chart is worth nothing |
+| Figures do not render on GitHub | Relative paths are case-sensitive and must be repository-relative. Check the rendered page |
+| The MC dip is ignored | It is the one place this model surprises people. An analysis that skips it has skipped the most interesting result |
+| The memo restates the analysis | A memo recommends. If it summarizes, the two documents have swapped jobs |
+| The prompt log is reconstructed the night before | It produces generic mush that is obvious to a reader. Two lines per session, written at the time, is effortless |
+| The reflection claims AI made no mistakes | Without evidence of checking, that reads as not having looked. Document the verification that cleared it |
+
+## 10. References
+
+- [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html) — the memo structure and prompt-log format
+- [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) — makes the MC dip visible in ten seconds of dragging
+- [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html) · [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html)
+- [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics), including [how work is submitted, with the post-deadline revision policy](https://adamwstauffer.github.io/ai-lms/onboarding.html#submitting)
+- [Case README](README.md) — assumptions and check figures
