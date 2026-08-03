@@ -1,8 +1,8 @@
-# Mini 2 · Stage 2b — Analysis + Prompt Log
+# Case 2 · Stage 2 — Analysis + Prompt Log
 
 > **Status:** Kumu-authored draft (2026-07-31) — pending Adam's review before students see it.
 
-**Mini weight:** 10% of course grade — this stage: 12 of 20 pts (hypothesis/setup 3 · analysis 6 · prompt log + reflection 3)
+**Case weight:** 10% of course grade — this stage: 12 of 20 pts (hypothesis/setup 3 · analysis 6 · prompt log + reflection 3)
 **Format:** upload-only — no presentation component
 **Deliverable:** `projects/monsanto/analysis.md` (with ≥2 figures) and `projects/monsanto/prompt-log.md` in your portfolio repo
 **Due:** end of Week 4 — exact dates on the course calendar
@@ -11,9 +11,9 @@
 
 ## Overview
 
-Stage 2a built the machine; this stage is where you say what it means. Your completed `monsanto-model.xlsx` shows the same company earning $106.0M in one market and $8.785B in the other — same crop, same fixed costs. The analysis explains *why*, puts a dollar figure on what society pays for it, and takes a position on whether that price is worth paying.
+Stage 1 built the machine; this stage is where you say what it means. Your completed `monsanto-model.xlsx` shows the same company earning $106.0M in one market and $8.785B in the other — same crop, same fixed costs. The analysis explains *why*, puts a dollar figure on what society pays for it, and takes a position on whether that price is worth paying.
 
-One structural note: in Mini 1 the setup narrative was a standalone `brief.md`. Your repo already exists and the two-market setup is short, so the brief is **folded into this stage** — your hypothesis (already committed, top of `analysis.md`, per Stage 2a Step 0) plus a setup paragraph replace it. Same points, one fewer file.
+One structural note: in Case 1 the setup narrative was a standalone `brief.md`. Your repo already exists and the two-market setup is short, so the brief is **folded into this stage** — your hypothesis (already committed, top of `analysis.md`, per Stage 1 Step 0) plus a setup paragraph replace it. Same points, one fewer file.
 
 This analysis is also the deliberate on-ramp to your individual **Policy Shock project (30% of the course)**: markup, Lerner, deadweight loss, and the patent-tradeoff argument are exactly the toolkit you'll aim at a policy of your own choosing. Write this one well and you've drafted your own reference material.
 
@@ -23,7 +23,7 @@ The Week 4 in-class session is a working discussion of the case's four spine que
 
 ## Part 1 — Hypothesis + setup (3 pts)
 
-At the top of `analysis.md` (already committed in Stage 2a):
+At the top of `analysis.md` (already committed in Stage 1):
 
 1. **Your 3-sentence hypothesis**, unedited — leave it as committed, wrong is fine.
 2. **A setup paragraph in your own words:** the two-market structure — why Monsanto is a price taker in non-GMO seed and a price maker in GMO seed, and what the patent has to do with it. Your words, not the README's.
@@ -47,8 +47,8 @@ Use the check figures from the [case README](README.md) — don't invent numbers
 
 `projects/monsanto/prompt-log.md`:
 
-- **The log:** one row or entry per meaningful AI session across the whole mini — date, tool, what you asked, what you did with the answer. Sessions from Stage 2a (formula debugging, MR mechanics) belong here too.
-- **The reflection (≤300 words):** how you used AI on this mini, where it helped, and — required — **one AI error you caught**: a wrong formula, a confidently wrong explanation, a P\* read off the wrong curve. If you genuinely caught none, say what you *checked* and how you'd have known. "The AI was great and made no mistakes" scores as not having looked.
+- **The log:** one row or entry per meaningful AI session across the whole case — date, tool, what you asked, what you did with the answer. Sessions from Stage 1 (formula debugging, MR mechanics) belong here too.
+- **The reflection (≤300 words):** how you used AI on this case, where it helped, and — required — **one AI error you caught**: a wrong formula, a confidently wrong explanation, a P\* read off the wrong curve. If you genuinely caught none, say what you *checked* and how you'd have known. "The AI was great and made no mistakes" scores as not having looked.
 
 **AI-use boundary (course standard):** AI may explain MR/MC mechanics, critique your reasoning, and debug formulas — not write your analysis. A useful line to hold: paste the AI your *draft* and ask it to attack the argument; don't paste it the questions and ask for prose. Your reflection is where the difference shows.
 
@@ -73,7 +73,7 @@ Graded by inspection of your repo — nothing to upload beyond your repo URL.
 
 | Criterion | Pts | What distinguishes strong work |
 |-----------|-----|-------------------------------|
-| Hypothesis + setup | 3 | Hypothesis committed before model work (Stage 2a timestamp), left unedited; setup in own words; honest verdict on the miss |
+| Hypothesis + setup | 3 | Hypothesis committed before model work (Stage 1 timestamp), left unedited; setup in own words; honest verdict on the miss |
 | Perfect vs imperfect mechanics (Q1–Q3) | 3 | Twice-as-steep rule stated correctly; P\*-off-demand explained, not just asserted; markup/Lerner interpreted as market power, not recited |
 | DWL + patent tradeoff (Q4–Q5) | 3 | $2.99B/yr framed as vanished surplus; the $121 ≈ $120 benchmark "aha" landed; patent paragraph takes and defends a position using the spine |
 | Prompt log + reflection | 3 | Complete log across both stages; reflection ≤300 words, specific, includes a genuinely caught AI error |

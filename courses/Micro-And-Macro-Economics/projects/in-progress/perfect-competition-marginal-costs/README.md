@@ -53,7 +53,7 @@ Capability slug for this case: **`marginal-analysis`**. Engagement slug: **`perf
 | 3b | `docs/decisions/perfect-competition-memo.md` | The recommendation to the farmer: the plan, which cap to relax first and what it's worth, what would change the answer. No separate points — read with the analysis | — |
 | 4 | `prompt-log.md` (repo root) + reflection | Meaningful AI sessions logged; ≤300-word reflection on where AI helped, where it was wrong, and how you verified | 3 |
 
-Split across stages: [stage1a](stage1a-repo-and-brief.md) (repo + brief, 3) · [stage1b](stage1b-model-build.md) (model + spec, 8) · [stage1c](stage1c-analysis.md) (analysis + memo + log, 9).
+Split across stages: [stage1](stage1-repo-and-brief.md) (repo + brief, 3) · [stage2](stage2-model-build.md) (model + spec, 8) · [stage3](stage3-analysis.md) (analysis + memo + log, 9).
 
 Student-facing web pages for this case: [`case-perfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html) and its three stage pages. **Sync rule:** these paths, the stage pages, and `ai-lms/website/assets/js/gates.js` share one path table — change one, change all three.
 

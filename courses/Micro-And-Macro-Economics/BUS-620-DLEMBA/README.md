@@ -6,7 +6,8 @@
 > Fall 2026 launch; revised 2026-08-02 alongside the on-campus section (individual 30% is now a
 > geopolitical research paper; case artifacts follow the portfolio-repo standard).
 > **Section dates pending the DLEMBA program calendar** — the week-by-week schedule is relative
-> until those land. Case materials are Kumu-improved drafts pending instructor sign-off.
+> until those land. Case 1 materials are released; Cases 2-3 remain Kumu-improved drafts pending
+> instructor sign-off.
 
 ## Course Overview
 

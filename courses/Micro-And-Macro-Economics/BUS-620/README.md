@@ -63,8 +63,8 @@ Through the AI + GitHub project, you will also develop practical, workplace-read
 > **Status:** restructured 2026-07-31 for the Fall 2026 launch — three graded case-study projects
 > added, project weights rebalanced. Revised 2026-08-02: the individual 30% is a **geopolitical
 > research paper**, not the Policy Shock Analysis (deferred), and all case artifacts move to the
-> portfolio-repo standard. Case materials are Kumu-improved drafts pending instructor sign-off
-> before release to students.
+> portfolio-repo standard. Case 1 materials are released; Cases 2-3 remain Kumu-improved drafts
+> pending instructor sign-off before release to students.
 
 | Component | Weight |
 |-----------|--------|
@@ -143,9 +143,9 @@ Instruction runs **2026-08-24 → 2026-12-10**; finals week 2026-12-14–18. Sta
 
 | Weeks | Dates | What's running |
 |---|---|---|
-| 1–2 | Aug 24 – Sep 4 | **Case 1 — Perfect Competition** (stage 1a repo + brief, 1b build, 1c analysis) |
-| 3–4 | Sep 8 – Sep 18 | **Case 2 — Imperfect Competition** (2a build, 2b analysis) · Labor Day Sep 7 |
-| 5–6 | Sep 21 – Oct 2 | **Case 3 — Economic Profit & Rent** (3a build, 3b analysis) |
+| 1–2 | Aug 24 – Sep 4 | **Case 1 — Perfect Competition** (stage 1 repo + brief, 2 build, 3 analysis) |
+| 3–4 | Sep 8 – Sep 18 | **Case 2 — Imperfect Competition** (stage 1 build, 2 analysis) · Labor Day Sep 7 |
+| 5–6 | Sep 21 – Oct 2 | **Case 3 — Economic Profit & Rent** (stage 1 build, 2 analysis) |
 | 7–11 | Oct 5 – Nov 6 | **Geopolitical research paper** (proposal → draft → final) · macro units |
 | 12–15 | Nov 9 – Dec 10 | **Team case studies** (repo build → presentations) · Thanksgiving Nov 26–27 |
 | 16 | Dec 14–18 | Finals week — peer-review wrap-up |
