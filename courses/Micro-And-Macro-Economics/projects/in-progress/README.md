@@ -25,7 +25,6 @@ in-progress/
 │   ├── Monsanto Case Study worksheet in class.xlsx                          original (unchanged)
 │   ├── monsanto-in-class-worksheet.xlsx                    in-class worksheet, corrected rebuild
 │   ├── monsanto-seed-market-key.xlsx                       instructor
-│   ├── monsanto-seed-market-template.xlsx                  student
 │   └── README.md
 └── perfect-competition-marginal-costs/                   The Farm Profit Optimizer
     ├── BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx   original (unchanged)
