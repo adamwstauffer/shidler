@@ -1,88 +1,194 @@
-# Case 2 · Stage 2 — Analysis + Prompt Log
+---
+template: stage-brief
+project: imperfect-competition-marginal-revenue
+stage: 2
+title: "Analysis, Memo, Prompt Log"
+capability: pricing-power
+deliverables:
+  - path: analysis/imperfect-competition-analysis.md
+    format: markdown
+    ai_boundary: human-first
+  - path: analysis/figures/
+    format: images
+    ai_boundary: not-permitted
+  - path: docs/decisions/imperfect-competition-memo.md
+    format: markdown
+    ai_boundary: human-first
+  - path: prompt-log.md
+    format: markdown
+    ai_boundary: human-first
+prerequisites: [1]
+points: 12
+estimated_time: "3-4 hrs"
+---
 
-> **Status:** Kumu-authored draft (2026-07-31) — pending Adam's review before students see it.
+# Case 2 · Stage 2 — Analysis, Memo, Prompt Log
 
-**Case weight:** 10% of course grade — this stage: 12 of 20 pts (hypothesis/setup 3 · analysis 6 · prompt log + reflection 3)
-**Format:** upload-only — no presentation component
-**Deliverable:** `projects/monsanto/analysis.md` (with ≥2 figures) and `projects/monsanto/prompt-log.md` in your portfolio repo
-**Due:** end of Week 4 — exact dates on the course calendar
+**Deliverable:** the analysis with figures, the recommendation memo, and an updated prompt log
+**Submission:** committed and pushed to your public repository; graded by inspection
+**Estimated time:** 3–4 hours
 
 ---
 
-## Overview
+## 1. Purpose
 
-Stage 1 built the machine; this stage is where you say what it means. Your completed `monsanto-model.xlsx` shows the same company earning $106.0M in one market and $8.785B in the other — same crop, same fixed costs. The analysis explains *why*, puts a dollar figure on what society pays for it, and takes a position on whether that price is worth paying.
+Stage 1 built the machine; this stage says what it means. Your model shows the same company earning
+$106.0M in one market and $8.785B in the other, from the same crop and the same fixed costs. The
+analysis explains why, puts a dollar figure on what society pays for it, and takes a position on
+whether that price is worth paying. The memo turns the position into advice somebody could act on.
 
-One structural note: in Case 1 the setup narrative was a standalone `brief.md`. Your repo already exists and the two-market setup is short, so the brief is **folded into this stage** — your hypothesis (already committed, top of `analysis.md`, per Stage 1 Step 0) plus a setup paragraph replace it. Same points, one fewer file.
+## 2. Prerequisites
 
-This analysis is also the deliberate on-ramp to your individual **Policy Shock project (30% of the course)**: markup, Lerner, deadweight loss, and the patent-tradeoff argument are exactly the toolkit you'll aim at a policy of your own choosing. Write this one well and you've drafted your own reference material.
+- Stage 1: `docs/briefs/imperfect-competition-brief.md` — the hypothesis you are now testing.
+- Stage 1: `skills/pricing-power/model.xlsx` — the evidence source. Every number you cite comes from it.
 
-The Week 4 in-class session is a working discussion of the case's four spine questions — come with your model done. **DLEMBA students:** screencast instead of the live session; deliverables identical.
+Read before starting:
 
----
+- [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html) — the memo structure and the prompt-log format.
 
-## Part 1 — Hypothesis + setup (3 pts)
+## 3. Deliverables
 
-At the top of `analysis.md` (already committed in Stage 1):
-
-1. **Your 3-sentence hypothesis**, unedited — leave it as committed, wrong is fine.
-2. **A setup paragraph in your own words:** the two-market structure — why Monsanto is a price taker in non-GMO seed and a price maker in GMO seed, and what the patent has to do with it. Your words, not the README's.
-3. **A hypothesis verdict:** one or two sentences on where your prediction landed vs the model, and what you misjudged. A prediction that missed by 10× and a sharp account of why beats a lucky guess with no account.
-
-## Part 2 — The analysis (6 pts)
-
-`analysis.md` continues with the comparison, supported by **at least 2 figures** exported from your workbook (the D/MR/MC chart is the obvious first; a profit or decision-table figure is a natural second). Cover all five, in whatever structure reads best:
-
-| # | Question | What strong coverage looks like |
+| Artifact | Path | Format |
 |---|---|---|
-| 1 | **Why is MR < P for the price maker — and equal to P for the price taker?** | The twice-as-steep rule for linear demand, stated mechanically: one more bag sold lowers the price on *every* bag, so marginal revenue falls at twice the slope of demand. The price taker's extra bag changes nothing — MR = P = $120. |
-| 2 | **Why does P\* come off the demand curve, not MR?** | MR = MC picks the *quantity* (34,025,974 bags); demand tells you the *price* buyers will pay for that quantity ($297.03). Explain it as if to a classmate who just charged $69.05. |
-| 3 | **What do markup and Lerner measure?** | 4.30× and 0.768 as market-power gauges: price 4.3× marginal cost, ~77% of the price being margin over cost. Contrast with the non-GMO row (1.0×, 0). |
-| 4 | **What does the DWL ≈ $2.99B/yr mean?** | Not a transfer — surplus that *vanishes*. Monopoly withholds ~26M bags to hold price at $297; the competitive benchmark price is ~$121.46 — almost exactly the $120 non-GMO price. Strip the patent and GMO seed is just… seed. |
-| 5 | **Does the patent's innovation incentive justify the ~$3B/yr?** (one paragraph, a position, defended) | Engage the case's discussion spine: complement lock-in (Roundup sells the seed and vice versa), patent enforcement (no replanting) as what *keeps* demand downward-sloping, superweeds as a negative externality the private optimum ignores, and Bayer 2018 — where the DOJ's answer was the largest negotiated merger divestiture in U.S. history. Either side is defensible; a fence-sit is not. |
+| The evidence — what the model shows and why, for someone checking your work | `analysis/imperfect-competition-analysis.md` | markdown |
+| At least two figures the analysis refers to | `analysis/figures/` | images |
+| The answer — what a decision-maker should do about it | `docs/decisions/imperfect-competition-memo.md` | markdown |
+| The curated record of AI sessions, plus the reflection | `prompt-log.md` | markdown |
 
-Use the check figures from the [case README](README.md) — don't invent numbers, and don't cite outside statistics without a source.
+**Briefs ask; specs define; memos answer.**
 
-## Part 3 — Prompt log + reflection (3 pts)
+## 4. Background
 
-`projects/monsanto/prompt-log.md`:
+Five things the analysis has to cover, and what strong coverage looks like.
 
-- **The log:** one row or entry per meaningful AI session across the whole case — date, tool, what you asked, what you did with the answer. Sessions from Stage 1 (formula debugging, MR mechanics) belong here too.
-- **The reflection (≤300 words):** how you used AI on this case, where it helped, and — required — **one AI error you caught**: a wrong formula, a confidently wrong explanation, a P\* read off the wrong curve. If you genuinely caught none, say what you *checked* and how you'd have known. "The AI was great and made no mistakes" scores as not having looked.
+**Why MR < P for the price maker, and MR = P for the price taker.** The twice-as-steep rule for
+linear demand, stated mechanically: one more bag sold lowers the price on *every* bag, so marginal
+revenue falls at twice the slope of demand. The price taker's extra bag changes nothing, so
+MR = P = $120.
 
-**AI-use boundary (course standard):** AI may explain MR/MC mechanics, critique your reasoning, and debug formulas — not write your analysis. A useful line to hold: paste the AI your *draft* and ask it to attack the argument; don't paste it the questions and ask for prose. Your reflection is where the difference shows.
+**Why P\* comes off demand, not MR.** MR = MC picks the *quantity* — 34,025,974 bags. Demand tells
+you the *price* buyers will pay for that quantity — $297.03. Explain it as if to a classmate who
+just priced at $69.05.
 
----
+**What markup and the Lerner index measure.** 4.30× and 0.768 as gauges of market power: price at
+4.3 times marginal cost, roughly 77% of the price being margin over cost. Contrast the non-GMO row
+at 1.0× and 0.
 
-## What to submit
+**What the deadweight loss means.** Roughly **$2.99B a year**, and not a transfer — surplus that
+simply vanishes. The monopoly withholds about 26M bags to hold price at $297, and the competitive
+benchmark price is about **$121.46**, almost exactly the $120 non-GMO price. Strip the patent and
+GMO seed is just seed. That near-coincidence is the case's best result and the one most students
+walk past.
 
-Graded by inspection of your repo — nothing to upload beyond your repo URL.
+**Whether the patent's innovation incentive justifies it.** A position, defended, engaging the
+discussion spine: complement lock-in, where the herbicide sells the seed and the seed sells the
+herbicide; patent enforcement, which is what *keeps* demand downward-sloping, because without it
+farmers' saved seed is competing supply; glyphosate-resistant weeds as a negative externality the
+private optimum ignores; and the 2018 Bayer acquisition, where the price of approval was the largest
+negotiated merger divestiture in U.S. history. Either side is defensible. A fence-sit is not.
 
-- [ ] `projects/monsanto/analysis.md` — hypothesis (unedited) + setup + verdict, the five-question analysis, ≥2 figures embedded and referenced in the text
-- [ ] `projects/monsanto/prompt-log.md` — session log + ≤300-word reflection with the caught AI error
-- [ ] Figures live in the repo (e.g., `projects/monsanto/figures/`) and render on GitHub — no broken image links
-- [ ] At least **2 descriptive commits** for this stage's work
+## 5. Procedure
 
----
+1. **Write the analysis** at `analysis/imperfect-competition-analysis.md`, covering all five
+   questions above from your own model's numbers, in whatever structure reads best.
+   *Confirm:* each claim points at a cell or a figure in your model rather than at the case README.
 
-> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline — tightening the DWL explanation, replacing a generic patent paragraph with a real position, fixing broken figure links — can move your score up; the full rubric applies, no cap on the bump. No email or issue needed; just revise the files. One sweep per stage; the score locks once the sweep runs.
+2. **Export at least two figures** into `analysis/figures/` and reference each in the text. The
+   D/MR/MC chart is the obvious first; a profit or decision-table figure is a natural second.
+   *Confirm:* the images render on the github.com page, not only in your editor.
 
----
+3. **Open with your hypothesis and a verdict.** Reproduce the hypothesis from your Stage 1 brief
+   unedited, then one or two sentences on where it landed against the model and what you misjudged.
+   *Confirm:* the hypothesis text matches what was committed. A prediction that missed by ten times,
+   with a sharp account of why, beats a lucky guess with no account.
 
-## Rubric (12 pts)
+4. **Write the memo** at `docs/decisions/imperfect-competition-memo.md`. Half a page, addressed to
+   someone who has to act — a regulator weighing the patent, or an executive deciding what the
+   pricing power is worth defending. The recommendation, the reasoning that drives it, the judgment
+   call where the evidence ran out, and what would change your answer.
+   *Confirm:* it recommends rather than summarizes.
+
+5. **Update `prompt-log.md`** at the repository root — a dated section for this engagement, covering
+   both stages. Sessions from Stage 1, including formula debugging and the generation session,
+   belong here too.
+   *Confirm:* it is a curated record, not a transcript dump.
+
+6. **Write the reflection**, 300 words or fewer, including **one AI error you caught** — a wrong
+   formula, a confidently wrong explanation, a price read off the wrong curve. If you genuinely
+   caught none, say what you checked and how you would have known.
+   *Confirm:* the verification is concrete. "The AI was great and made no mistakes" reads as not
+   having looked.
+
+7. **Update `skills/pricing-power/README.md`** so its "exercised in:" line points at the analysis and
+   the memo as well as the brief.
+
+8. **Commit at least twice** with descriptive messages.
+
+## 6. AI use
+
+| Artifact | Draft order |
+|---|---|
+| `analysis/imperfect-competition-analysis.md` | Human-first |
+| `docs/decisions/imperfect-competition-memo.md` | Human-first |
+| `prompt-log.md` and the reflection | Human-first |
+| Figures | Exported from your own workbook — not generated |
+
+**If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
+a means to the work rather than the work itself, AI may draft it and you verify.** The two working
+loops are described in [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html).
+
+**For this stage specifically:** AI may explain MR and MC mechanics and critique your reasoning; it
+may not write the analysis, the memo, or the reflection. A useful line to hold: paste your *draft*
+and ask the model to attack the argument. Do not paste the questions and ask for prose — the
+reflection is where the difference shows, and so is the analysis, because a model that has not seen
+your workbook writes about the textbook instead of your numbers.
+
+## 7. Verification
+
+- [ ] Hypothesis reproduced unedited at the top, with an honest verdict against the model
+- [ ] Setup paragraph in your own words: why the firm is a price taker in one market and a price maker in the other, and what the patent has to do with it
+- [ ] The twice-as-steep rule explained mechanically, not asserted
+- [ ] P\*-off-demand explained well enough to fix someone who priced at $69.05
+- [ ] Markup 4.30× and Lerner 0.768 interpreted as market power, not recited
+- [ ] Deadweight loss framed as vanished surplus, with the ~$121.46 benchmark against the $120 non-GMO price
+- [ ] The patent paragraph takes and defends a position using the discussion spine
+- [ ] At least two figures in `analysis/figures/`, each referenced in the text
+- [ ] Figures render on the GitHub page
+- [ ] Memo written: recommendation, reasoning, the judgment call, what would change your answer
+- [ ] `prompt-log.md` updated across both stages, with a reflection of 300 words or fewer
+- [ ] The reflection names a concrete AI error caught, or the checks that cleared it
+- [ ] `skills/pricing-power/README.md` "exercised in:" line updated
+- [ ] At least two descriptive commits for this stage
+
+## 8. Rubric (12 pts)
 
 | Criterion | Pts | What distinguishes strong work |
-|-----------|-----|-------------------------------|
-| Hypothesis + setup | 3 | Hypothesis committed before model work (Stage 1 timestamp), left unedited; setup in own words; honest verdict on the miss |
-| Perfect vs imperfect mechanics (Q1–Q3) | 3 | Twice-as-steep rule stated correctly; P\*-off-demand explained, not just asserted; markup/Lerner interpreted as market power, not recited |
-| DWL + patent tradeoff (Q4–Q5) | 3 | $2.99B/yr framed as vanished surplus; the $121 ≈ $120 benchmark "aha" landed; patent paragraph takes and defends a position using the spine |
-| Prompt log + reflection | 3 | Complete log across both stages; reflection ≤300 words, specific, includes a genuinely caught AI error |
+|---|---|---|
+| Hypothesis + setup | 3 | Hypothesis committed before the model work and left unedited; setup in your own words; honest verdict on the miss |
+| Perfect versus imperfect mechanics | 3 | Twice-as-steep rule stated correctly; P\*-off-demand explained rather than asserted; markup and Lerner interpreted as market power |
+| Deadweight loss + the patent tradeoff | 3 | The ~$2.99B a year framed as vanished surplus; the ~$121 against $120 benchmark landed; the patent paragraph takes and defends a position using the spine |
+| Prompt log + reflection | 3 | Complete log across both stages; reflection of 300 words or fewer, specific, including a genuinely caught AI error or the checks that cleared it |
 
----
+The memo carries no separate points. It is read together with the analysis under the deadweight-loss
+and patent-tradeoff criterion, which already asks what a decision-maker should conclude. What changes
+is where that conclusion lives, and that it is written to a person rather than to a rubric.
 
-## Tips
+## 9. Common failure modes
 
-- **Write for the classmate who got it wrong.** The best test of Q1–Q2 prose: would it fix someone who priced at MR = MC? If it only restates definitions, it wouldn't.
-- **The verdict is the interesting part.** Nobody grades you down for a wrong hypothesis — only for pretending you didn't have one, or editing it after the fact (the commit history shows both).
-- **Take a side on the patent.** The paragraph exists to make you weigh $2.99B/yr of vanished surplus against the incentive that produced the trait at all. "There are arguments on both sides" is the one answer that earns nothing.
-- **Bank the toolkit.** Markup, Lerner, DWL, benchmark-vs-actual — your Policy Shock project will ask you to run this exact play on a policy you choose. Keep this analysis close; you'll reuse its bones.
+| What goes wrong | The correction |
+|---|---|
+| Q1 and Q2 restate definitions | The test: would your paragraph fix somebody who priced at MR = MC? If not, it is a definition, not an explanation |
+| The hypothesis was edited after the model ran | The commit history shows it, and the verdict becomes worthless. A wrong hypothesis costs nothing; a rewritten one costs the criterion |
+| The patent paragraph concludes "there are arguments on both sides" | That is the one answer that earns nothing. The paragraph exists to make you weigh vanished surplus against the incentive that produced the trait at all |
+| Deadweight loss is described as a transfer to the firm | It is neither consumer surplus nor profit — it is the surplus from trades that never happen. The firm does not receive it |
+| The memo summarizes the analysis | A memo recommends. If it restates findings, the two documents have swapped jobs |
+| Outside statistics appear without a source | Cite them or drop them. The case README's figures are already sourced |
+| The prompt log is reconstructed at the end | It produces generic mush a reader can smell. Two lines per session, written at the time |
+
+## 10. References
+
+- [Case README](README.md) — check figures, discussion spine, validated facts and sources
+- [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html) — the memo structure and prompt-log format
+- [Econ Policy Lab](https://adamwstauffer.github.io/ai-lms/econlab.html) — surplus and deadweight-loss geometry, interactively
+- [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html) · [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html)
+- [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics), including [how work is submitted, with the post-deadline revision policy](https://adamwstauffer.github.io/ai-lms/onboarding.html#submitting)
