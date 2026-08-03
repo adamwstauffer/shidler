@@ -17,7 +17,6 @@ in-progress/
 │   ├── BUS 620 Case Study_ Accounting Profit, Economic Profit, Economic Rent.docx   original (unchanged)
 │   ├── README.md
 │   ├── rideshare-driver-economics-key.xlsx               instructor
-│   ├── rideshare-driver-economics-template.xlsx           student
 │   └── Supply_Invisible Hand_Ride Sharing template.xlsx   original (unchanged)
 ├── imperfect-competition-marginal-revenue/               Monsanto and the GMO Seed Market
 │   ├── BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx   original (unchanged)

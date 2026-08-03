@@ -1,94 +1,199 @@
-# Case 3 · Stage 2 — Analysis + Prompt Log
+---
+template: stage-brief
+project: accounting-profit-economic-profit-economic-rent
+stage: 2
+title: "Analysis, Memo, Prompt Log"
+capability: economic-profit
+deliverables:
+  - path: analysis/economic-profit-analysis.md
+    format: markdown
+    ai_boundary: human-first
+  - path: analysis/figures/
+    format: images
+    ai_boundary: not-permitted
+  - path: docs/decisions/economic-profit-memo.md
+    format: markdown
+    ai_boundary: human-first
+  - path: prompt-log.md
+    format: markdown
+    ai_boundary: human-first
+prerequisites: [1]
+points: 12
+estimated_time: "3-4 hrs"
+---
 
-> **Status:** Kumu-authored draft (2026-07-31) — pending Adam's review before students see it.
+# Case 3 · Stage 2 — Analysis, Memo, Prompt Log
 
-**Case weight:** 10% of course grade — this stage: 12 of 20 pts (hypothesis/setup 3 · analysis 6 · prompt log + reflection 3)
-**Format:** upload-only
-**Deliverable:** `projects/ride-share/analysis.md` (with ≥2 figures) + `projects/ride-share/prompt-log.md` with a ≤300-word reflection
-**Due:** end of Week 6 — exact dates on the course calendar
+**Deliverable:** the analysis with figures, the recommendation memo, and an updated prompt log
+**Submission:** committed and pushed to your public repository; graded by inspection
+**Estimated time:** 3–4 hours
 
 ---
 
-## Overview
+## 1. Purpose
 
-Stage 1 got the numbers right. This stage makes them mean something. You'll write the analysis in the same `analysis.md` that already carries your pre-committed hypothesis — the hypothesis stays at the top, untouched, and the analysis reckons with it honestly: were you right, and if not, what did the model see that you didn't?
+Stage 1 established who is making money. This stage explains why the verdicts land where they do,
+follows the money to the asset that was capturing it, and shows what happened when entry arrived.
+Then it recommends something to somebody who has to act.
 
-The verdicts are counterintuitive by design — a $50K "profitable" driving job that's an economic loser, a $1M asset built out of a lease payment — and explaining *why* is the entire deliverable. An analysis that restates the workbook's numbers earns little; an analysis that explains the mechanism earns the points.
+## 2. Prerequisites
 
-The Week 6 class session workshops draft analyses live — DLEMBA students get a screencast walkthrough instead; deliverables are identical.
+- Stage 1: `docs/briefs/economic-profit-brief.md` — the hypothesis you are now testing.
+- Stage 1: `skills/economic-profit/model.xlsx` — the evidence source, including your documented
+  sensitivity run.
 
----
+Read before starting:
 
-## What `analysis.md` must contain
+- [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html) — the memo structure and the prompt-log format.
 
-### 1. Hypothesis, revisited (part of the 3 setup pts)
+## 3. Deliverables
 
-Your 3-sentence hypothesis from Stage 1, followed by a short verdict on it: right, wrong, or right-for-the-wrong-reason. The setup points also cover the Stage 1 folder scaffolding and the hypothesis commit's timestamp — committed before the model work, as specified.
+| Artifact | Path | Format |
+|---|---|---|
+| The evidence — what the model shows and why, for someone checking your work | `analysis/economic-profit-analysis.md` | markdown |
+| At least two figures the analysis refers to | `analysis/figures/` | images |
+| The answer — what a decision-maker should do about it | `docs/decisions/economic-profit-memo.md` | markdown |
+| The curated record of AI sessions, plus the reflection | `prompt-log.md` | markdown |
 
-### 2. The four verdicts (graded within the 6 analysis pts)
+**Briefs ask; specs define; memos answer.**
 
-Explain each worker's economic-profit verdict — not just the sign, the *mechanism*:
+## 4. Background
 
-- **Why the part-timer is hit hardest.** The car's costs don't scale — full payment and insurance against half the revenue. This is the sharpest single lesson in Sheet 1; treat it accordingly.
-- **The net-to-net discipline.** Show you understand why opportunity cost is the alternative's *net* earnings ($52,200, not the $57,600 gross) and why the part-timer forgoes a part-time alternative. If your Stage 1 numbers matched the check figures, you already applied this — now articulate it.
-- **The cab driver's asterisk.** He "wins" at the driver level while handing $36,000/yr to the medallion owner — the hook into the rent story.
+Five things the analysis has to establish.
 
-### 3. The medallion story — told WITH the capitalization math (graded within the 6)
+**The four verdicts, by mechanism.** Not a restatement of the table — an explanation. The part-timer
+is hit hardest because the car's costs do not scale: full payment and insurance sit on half the
+revenue. The office worker turns out to have positive economic profit, which is the same statement in
+reverse. And the cab driver "wins" at the driver level while handing $36,000 a year to somebody who
+never drives.
 
-Narrate the collapse using your Sheet 2 numbers, not alongside them. The arc: app entry (≈40K vehicles in 2010 → 120K+ by 2019) competed away fares → the lease fell ($36,000/yr → $18,000/yr) → the perpetuity shrank *and* got riskier (3.5% → 6.0% required return) → rent ÷ required return collapses from $1,028,571 to $300,000, a 70–85% wipeout that tracks observed prices within ~10%. The punchline to land: the cap blocked entry into *yellow cabs* but not into *rides* — rent survives only as long as the moat actually surrounds the market.
+**Net-to-net discipline.** Show that you understand why opportunity cost uses the alternative's *net*
+earnings — $52,200, not the $57,600 gross — and why a part-timer forgoes a part-time alternative.
+If your Stage 1 figures matched the check figures you already applied this; here you articulate it.
 
-### 4. Supply and demand (graded within the 6)
+**Where the money went.** The cab driver's lease is the hook. The medallion is a factor in fixed
+supply — 13,587 of them — so the payment is **economic rent**, and an asset earning rent indefinitely
+is worth `rent ÷ required return`. $36,000 ÷ 3.5% = $1,028,571 against an observed peak above $1M.
+$18,000 ÷ 6.0% = $300,000 against roughly $335,000 observed. One division, both eras, within about
+10% each time.
 
-Which curve shifted? **Supply — right, massively** (ridesharing collapsed the entry barrier). State what happened to price and quantity (price ↓, quantity ↑↑), and — the part most drafts skip — *whose* surplus moved where: consumers won, incumbent rent-holders lost. If you note that demand also shifted right (convenience, price transparency), say why the supply shock dominates the observed outcome.
+**Why the rent collapsed.** App vehicles went from about 40,000 to more than 120,000. Fares fell,
+so the lease fell; the income stream also got riskier, so the required return rose. Both moves shrink
+the same fraction, which is why the asset lost 70–85% of its value. The medallion cap blocked entry
+into *yellow cabs* — it never blocked entry into *rides*. Rent survives only as long as the moat
+actually surrounds the market. Be honest about the second cause too: predatory medallion lending
+inflated the peak, so entry was not the only villain.
 
-### 5. Cross-case link (graded within the 6)
+**Supply and demand, and the cross-case link.** Supply shifted right, massively; demand also shifted
+right, but the supply shock dominates — price down, quantity up, consumers better off, incumbent
+rent-holders worse off. Then connect it: the medallion's rent behind a moat is the seed patent in
+miniature. Same moat → rent → entry logic, a different legal wrapper.
 
-One paragraph connecting this case to the course arc: the medallion's rent-behind-a-moat is **Monsanto's patent in miniature** — same moat→rent→entry logic, different legal wrapper. Name what the moat was, what rent it protected, and what breached it in each case.
+## 5. Procedure
 
-### Figures — at least 2
+1. **Write the analysis** at `analysis/economic-profit-analysis.md`, covering the five things above
+   from your own model's numbers.
+   *Confirm:* each claim points at a cell or a figure in your model rather than at the case README.
 
-At least two figures embedded in `analysis.md` (exported charts from your workbook, or figures you build from its numbers). Natural candidates: accounting-vs-economic profit across the four workers; the medallion's capitalized value pre/post entry against observed prices; the 30 → 22 days/mo sensitivity from Stage 1. Figures must carry analytical weight — a screenshot of the raw sheet is not a figure.
+2. **Open with your hypothesis and a verdict.** Reproduce the Stage 1 hypothesis unedited, then one
+   or two sentences on where it landed and what you misjudged.
+   *Confirm:* the text matches what was committed. Wrong but well-reasoned scores as well as right.
 
----
+3. **Use the sensitivity run.** Your 30 → 22 days-per-month result is the gig-economy fragility point
+   in one number: every driver verdict goes deep negative one input away from the base case.
+   *Confirm:* the numbers in the analysis come from your run, not from the case notes.
 
-## `prompt-log.md` + reflection (3 pts)
+4. **Export at least two figures** into `analysis/figures/` and reference each in the text. Natural
+   candidates: accounting against economic profit across the four workers; the medallion's capitalized
+   value against observed prices in both eras; the sensitivity result.
+   *Confirm:* the figures render on the github.com page, and each carries analytical weight — a
+   screenshot of the raw sheet is not a figure.
 
-Log every meaningful AI session from both stages of this case: date, tool, what you asked, what you took from it. Then close with a **≤300-word reflection** that must cover **an AI error you caught** — a wrong number, a confidently botched concept (economic vs. normal profit is a reliable stumble), a hallucinated fact about the NYC market — and how you verified against the model or the case. If you genuinely caught nothing, say what you *checked* and how; "the AI was flawless" without evidence of checking reads as "I didn't look."
+5. **Write the memo** at `docs/decisions/economic-profit-memo.md`. Half a page to somebody who has to
+   act — a regulator deciding whether to cap app vehicles, a lender deciding what a medallion is worth
+   as collateral, or a driver deciding whether to lease one. Recommendation, the reasoning that drives
+   it, the judgment call where the evidence ran out, and what would change your answer.
+   *Confirm:* it recommends rather than summarizes.
 
-**AI-use boundary (course standard):** AI may explain the profit concepts, quiz you, and critique your reasoning — it may **not** fill your yellow cells or write your analysis. The analysis must be your prose; using AI to critique a draft you wrote is fine and belongs in the log.
+6. **Update `prompt-log.md`** at the repository root — a dated section covering both stages,
+   including the generation session — and close with a reflection of 300 words or fewer naming **one
+   AI error you caught** and how you verified it. Economic versus normal profit is a reliable place
+   for a model to stumble.
+   *Confirm:* the verification is concrete.
 
----
+7. **Update `skills/economic-profit/README.md`** so its "exercised in:" line points at the analysis
+   and the memo as well as the brief.
 
-## What to submit
+8. **Commit at least twice** with descriptive messages.
 
-Commit to your portfolio repo — Stage 2 is graded by inspection of `projects/ride-share/`:
+## 6. AI use
 
-- [ ] `analysis.md` — hypothesis at top with your verdict on it; four worker verdicts explained; medallion story with the capitalization math; supply/demand section (curve, price, quantity, surplus); Monsanto cross-case link; ≥2 figures
-- [ ] `prompt-log.md` — sessions logged, ≤300-word reflection covering an AI error you caught
-- [ ] At least 2 descriptive commits for this stage
+| Artifact | Draft order |
+|---|---|
+| `analysis/economic-profit-analysis.md` | Human-first |
+| `docs/decisions/economic-profit-memo.md` | Human-first |
+| `prompt-log.md` and the reflection | Human-first |
+| Figures | Exported from your own workbook — not generated |
 
----
+**If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
+a means to the work rather than the work itself, AI may draft it and you verify.** The two working
+loops are described in [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html).
 
-> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit — deepening a verdict explanation, adding the missing surplus discussion, upgrading a figure — can move your score up; the full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
+**For this stage specifically:** AI may explain the profit concepts and attack your draft argument;
+it may not write the analysis, the memo, or the reflection. Paste your draft and ask it to find the
+weakest claim — that is the use that improves the work.
 
----
+## 7. Verification
 
-## Rubric (12 pts)
+- [ ] Hypothesis reproduced unedited at the top, with an honest verdict against the model
+- [ ] The four verdicts explained by mechanism — the part-timer's non-scaling car costs named explicitly
+- [ ] Net-to-net discipline articulated: why $52,200 and not $57,600, and why the part-timer's alternative is halved
+- [ ] The medallion story told **with** the capitalization arithmetic, both eras
+- [ ] Both capitalized values tied to their observed prices, and the ~10% agreement noted
+- [ ] The collapse explained by both moves — lease down *and* required return up — plus the honest note that lending inflated the peak
+- [ ] The moat point landed: the cap blocked entry into yellow cabs, never into rides
+- [ ] Supply and demand: correct curve, correct direction, price, quantity, and whose surplus
+- [ ] Cross-case link drawn on the moat → rent → entry logic, not name-dropped
+- [ ] The 30 → 22 sensitivity used as the fragility argument, with your own numbers
+- [ ] At least two figures in `analysis/figures/`, each referenced and analytically load-bearing
+- [ ] Figures render on the GitHub page
+- [ ] Memo written: recommendation, reasoning, the judgment call, what would change your answer
+- [ ] `prompt-log.md` updated across both stages, with a reflection of 300 words or fewer
+- [ ] The reflection names a concrete AI error caught, or the checks that cleared it
+- [ ] `skills/economic-profit/README.md` "exercised in:" line updated
+- [ ] At least two descriptive commits for this stage
+
+## 8. Rubric (12 pts)
 
 | Criterion | Pts | What distinguishes strong work |
-|-----------|-----|-------------------------------|
-| Hypothesis & setup | 3 | 3-sentence hypothesis committed before model work (timestamp verified); honest revisit — wrong-but-well-reasoned scores as well as right |
-| The four verdicts | 2 | Mechanism, not restatement — part-timer's non-scaling car costs and net-to-net discipline explicitly articulated |
-| Medallion story with the math | 2 | Capitalization arithmetic drives the narrative; entry → lease ↓ → riskier perpetuity → 70–85% collapse, tied to observed prices |
-| Supply/demand + cross-case link | 2 | Correct curve and direction, price/quantity/surplus all addressed; Monsanto parallel drawn on the moat→rent→entry logic, not just name-dropped |
-| Figures | — | ≥2, analytically load-bearing (graded within the rows above — a missing or decorative figure costs the row it should have served) |
-| Prompt log + reflection | 3 | Sessions logged with substance; reflection ≤300 words, centered on a concrete AI error caught and how it was verified |
+|---|---|---|
+| Hypothesis + setup | 3 | Hypothesis committed before the model work and left unedited; honest revisit — wrong but well-reasoned scores as well as right |
+| The four verdicts | 2 | Mechanism, not restatement — the part-timer's non-scaling car costs and the net-to-net discipline explicitly articulated |
+| Medallion story with the math | 2 | Capitalization arithmetic drives the narrative; entry → lease down → riskier perpetuity → 70–85% collapse, tied to observed prices |
+| Supply/demand + cross-case link | 2 | Correct curve and direction; price, quantity, and surplus all addressed; the pricing-power parallel drawn on the moat → rent → entry logic rather than name-dropped |
+| Figures | — | At least two, analytically load-bearing — graded within the rows above; a missing or decorative figure costs the row it should have served |
+| Prompt log + reflection | 3 | Sessions logged with substance; reflection of 300 words or fewer centred on a concrete AI error caught and how it was verified |
 
----
+The memo carries no separate points. It is read together with the analysis under the medallion and
+supply/demand criteria, which already ask what somebody should conclude. What changes is where that
+conclusion lives, and that it is written to a person rather than to a rubric.
 
-## Tips
+## 9. Common failure modes
 
-- **Write to the wrong answer.** The most instructive structure: "You'd think X — the model says Y — here's the mechanism." The case is built on verdicts that flip; use that.
-- **Let the sensitivity run argue for you.** The 30 → 22 days/mo flip from Stage 1 *is* the gig-economy fragility point — one input away from every driver verdict going deep negative.
-- **Numbers in prose.** "The perpetuity shrank" is weaker than "$36,000 ÷ 3.5% became $18,000 ÷ 6.0%." The capitalization math is one division — show it.
-- **The reflection is not a testimonial.** The graded skill is *catching* the AI being wrong, which requires checking it against something — your workbook, the check figures, the case sources.
+| What goes wrong | The correction |
+|---|---|
+| The verdicts are restated rather than explained | Name the mechanism. "The part-timer earns less" is the table; "the car's fixed costs sit on half the revenue" is the analysis |
+| The medallion section tells the story without the arithmetic | The capitalization is the story. Rent ÷ required return, both eras, against the observed prices |
+| The collapse is attributed to entry alone | Two things moved: the rent fell and the required return rose. And lending practices inflated the peak — say so |
+| "The cap protected the taxi industry" | It protected entry into *yellow cabs*. Rides were never capped, which is exactly why the rent evaporated |
+| The cross-case link is a sentence naming the other case | Draw the logic: a legal moat creates rent, rent capitalizes into an asset price, entry that bypasses the moat destroys both |
+| Figures are decorative | A figure earns its place by carrying evidence the text uses. Here it costs the rubric row it should have served |
+| The reflection claims the AI made no mistakes | Without evidence of checking, that reads as not having looked |
+
+## 10. References
+
+- [Case README](README.md) — check figures, industry prompts, validated facts and sources
+- [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html) — the memo structure and prompt-log format
+- [Econ Policy Lab](https://adamwstauffer.github.io/ai-lms/econlab.html) — surplus areas, for the supply-and-demand section
+- [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html) · [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html)
+- [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics), including [how work is submitted, with the post-deadline revision policy](https://adamwstauffer.github.io/ai-lms/onboarding.html#submitting)

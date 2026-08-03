@@ -1,6 +1,8 @@
 # BUS 620 Project: Accounting Profit, Economic Profit & Economic Rent — Ride-Share Driver Economics
 
-> **Status:** Kumu-improved draft (2026-07-07) formalizing `BUS 620 Case Study_ Accounting Profit, Economic Profit, Economic Rent.docx`. Adam should review before students see it. The original docx and `Supply_Invisible Hand_Ride Sharing template.xlsx` are preserved unchanged; the rebuilt workbooks are `rideshare-driver-economics-template.xlsx` (student) and `rideshare-driver-economics-key.xlsx` (instructor). All real-world claims validated 2026-07-07; sources at bottom.
+> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Accounting Profit, Economic Profit, Economic Rent.docx`; the original docx and `Supply_Invisible Hand_Ride Sharing template.xlsx` are preserved unchanged. `rideshare-driver-economics-key.xlsx` is the instructor key. All real-world claims validated 2026-07-07; sources at bottom.
+>
+> **No student template.** Stage 1 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` — a provided workbook and "your spec is the template" cannot both be true. Decision: `ai-lms/docs/decisions/2026-08-03-spec-driven-artifact-builds.md`.
 
 ## The pitch
 
@@ -43,14 +45,19 @@ One division reproduces both observed prices within ~10%. The rent story: app en
 
 | # | Artifact | Contents | Pts |
 |---|---|---|---|
-| 1 | `brief.md` | The four-person setup in your own words + hypothesis: "I expect X to have the highest economic profit because Y" | 3 |
-| 2 | `rideshare-driver-economics.xlsx` | Completed template: accounting/economic/normal profit rows built (yellow cells), medallion values capitalized, one sensitivity run (22 days/mo) documented | 8 |
-| 3 | `analysis.md` + ≥2 figures | The verdicts explained; the medallion story told with the capitalization math; supply/demand section: which curve shifted (supply, right — massively), what happened to price, quantity, and *whose* surplus | 6 |
-| 4 | `prompt-log.md` + reflection | AI sessions logged; reflection covers an AI error you caught | 3 |
+| 1 | `docs/briefs/economic-profit-brief.md` | The four-person setup in your own words + hypothesis: "I expect X to have the highest economic profit because Y" — committed before any spec or model work | — |
+| 2 | `skills/economic-profit/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs including days-per-month, the net-to-net and scale-matching rules stated explicitly, both capitalization inputs per era, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec, plus the documented 30 → 22 sensitivity run | 8 |
+| 3 | `analysis/economic-profit-analysis.md` + `analysis/figures/` | The verdicts explained by mechanism; the medallion story told with the capitalization math; supply/demand: which curve shifted (supply, right — massively), what happened to price, quantity, and *whose* surplus | 6 |
+| 3b | `docs/decisions/economic-profit-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
+| 4 | `prompt-log.md` (repo root) + reflection | AI sessions logged across both stages; reflection covers an AI error you caught | 3 |
 
-Split across stages: [stage1](stage1-model-build.md) (model, 8) · [stage2](stage2-analysis.md) (hypothesis + analysis + log, 12).
+> Stage 1 carries 8 pts (spec 3 · validation rules 1 · workbook contract 2 · audit note 1 · brief-before-build and commit hygiene 1); Stage 2 carries 12 (hypothesis + setup 3 · verdicts 2 · medallion math 2 · supply/demand + cross-case 2 · prompt log 3). Case total 20, unchanged.
 
-**AI-use boundary (course standard):** AI may explain the profit concepts, quiz you, and critique reasoning — not fill your yellow cells or write your analysis.
+Split across stages: [stage1](stage1-model-build.md) (brief, spec, build, audit, 8) · [stage2](stage2-analysis.md) (analysis + memo + log, 12).
+
+Student-facing web pages: [`case-economic-profit.html`](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by `ai-lms/website/assets/js/gates.js`; change one, change all three.
+
+**AI-use boundary (course standard, unchanged):** AI may explain the profit concepts, quiz you, and critique reasoning — not write your brief, analysis, memo, or reflection, and not hand you the verdicts before you've hypothesised. The workbook was never on the prohibited list, which is why Stage 1's AI-built workbook is a sequencing change rather than a boundary change.
 
 ## Industry-analysis prompts (from the draft, kept & corrected)
 
