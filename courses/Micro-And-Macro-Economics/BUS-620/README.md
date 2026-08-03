@@ -129,17 +129,26 @@ on-ramp: its welfare-loss and policy framing is the muscle this paper uses at fu
 
 ### Team Case Study Presentation (30%)
 
-Students will present applied cases on AI, climate change, geopolitics, and global markets — built
-in a shared team repo (deck + supporting workbook + one-page memo; branches and pull requests, not
-email attachments). The team repo uses the same hierarchy as the personal portfolio repo.
+Teams are assigned by the instructor and present applied cases on geopolitical challenges — AI and
+labour markets, climate policy, trade and supply chains, global markets. The engagement is
+**presentation-first: there is no team workbook and no separate memo.** The deck carries the
+recommendation on its closing slide(s), and it is built spec-driven like every other artifact in
+this course — the team commits a ten-slide content map and a `design.json` visual spec, hands both
+to AI, and audits the result. The stated learning objective is **collaborative work in a shared
+repository**: branches and pull requests, not email attachments. The team repo is named for the
+team, hosted on one member's account with all members plus the instructor as collaborators, and
+uses the same hierarchy as the personal portfolio repo. Presentation runs about 10–15 minutes plus
+a 10-minute moderated discussion the team leads; peer review is collected through a structured
+survey.
 Presentations are peer-reviewed, with 50% of the grade based on peer evaluation.
 
 > **Relocated here 2026-08-03** from `../projects/team-research/README.md` under the standing rule
 > that calendars live only in offering-level artifacts. The prior (Fall 2025) offering ran
 > presentations on 2025-12-10 with peer-review feedback due 2025-12-12; the Fall 2026 equivalents
-> slot into weeks 12–15 on the calendar below. That draft brief also carries an older evaluation
-> split (peer 32.5% / instructor 32.5% / timing 25% / peer participation 10%) which **conflicts**
-> with the 50% peer evaluation stated above — the line above governs; the draft needs reconciling.
+> slot into weeks 12–15 on the calendar below. The older evaluation split that brief carried
+> (peer 32.5% / instructor 32.5% / timing 25% / peer participation 10%) was **stale and has been
+> removed** from the project brief — the 50/50 peer/instructor split stated above governs, and
+> percentage splits are offering-owned in any case.
 
 > **Also relocated here 2026-08-03:** the individual research paper's prior (Fall 2025) deadlines —
 > paper due 2025-12-03, peer review due 2025-12-17. Fall 2026 equivalents slot into weeks 7–11 on
