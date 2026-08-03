@@ -1,13 +1,13 @@
-# Mini-Project Case Studies (Fall 2026)
+# Case Studies (Fall 2026)
 
-The three graded **BUS 620 mini-projects** (Fall 2026 restructure, 2026-07-31): 10% of the course
+The three graded **BUS 620 case projects** (Fall 2026 restructure, 2026-07-31): 10% of the course
 grade each, 20 points split across 2–3 staged deliverables into one accreting personal portfolio
 repo. Sequence: **Farm Profit (weeks 1–2, 3 stages — doubles as repo bootstrap) → Monsanto
 (weeks 3–4) → Ride-Share (weeks 5–6)**, tracing competition → market power → where the profits
 hide. Each folder holds the case README (scenario, check figures, instructor notes), the
-`stageN*-*.md` briefs students work from, the original instructor material (docx/xlsx, preserved
-unchanged), a rebuilt student template, and an instructor answer key. All case materials and stage
-briefs remain **draft, pending instructor review** before use with students.
+`stageN-*.md` briefs students work from, the original instructor material (docx/xlsx, preserved
+unchanged), a rebuilt student template, and an instructor answer key. Case 1's stage briefs are reviewed and released; Cases 2-3 case materials and stage briefs
+remain **draft, pending instructor review** before use with students.
 
 ## Directory Contents
 

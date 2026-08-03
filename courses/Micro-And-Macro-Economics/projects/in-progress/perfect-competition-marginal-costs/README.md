@@ -1,4 +1,6 @@
-# BUS 620 Project: Perfect Competition & Marginal Cost — The Farm Profit Optimizer
+# BUS 620 Case 1: Perfect Competition — Decision Analysis
+
+*Scenario: a 1.5-acre market garden. Retitled 2026-08-02 concept-first (was "The Farm Profit Optimizer") — the scenario identity now lives inside the case, not in its name.*
 
 > **Status:** Kumu-improved draft (2026-07-07) formalizing `BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx`. Adam should review before students see it. The original docx and `Supply_Mariganl Cost_Optimize Profit v5.xlsx` are preserved unchanged; the improved workbooks are `farm-profit-optimizer-template.xlsx` (student) and `farm-profit-optimizer-key.xlsx` (instructor).
 
@@ -37,16 +39,23 @@ A 1.5-acre market garden — 64 beds, one farmer, up to four temporary workers �
 
 **Costing conventions:** the farmer's 720 field hours are used first and charged at her implied wage; temporary hours cover the remainder. In the farm P&L, labor cost is allocated to crops at the blended farm-wide rate (total labor $ ÷ total hours) — the perm/temp split is a farm-level fact, not a per-crop one.
 
-## Deliverables (AI + GitHub workflow — same 4-artifact pattern as the Policy Shock project)
+## Deliverables (AI + GitHub workflow — the portfolio-repo standard)
 
-| # | Artifact | What it must contain | Pts |
+Every artifact lands in the student's **personal public portfolio repo**, structured by capability and
+engagement rather than by course — see `ai-lms/docs/decisions/2026-08-02-website-simplification-and-portfolio-repo-standard.md` § 6.
+Capability slug for this case: **`marginal-analysis`**. Engagement slug: **`perfect-competition`**.
+
+| # | Artifact (path in the student repo) | What it must contain | Pts |
 |---|---|---|---|
-| 1 | `brief.md` | The farm problem in your own words + a hypothesis: "I expect the optimal mix to be X because Y" — *before* touching Solver | 3 |
-| 2 | `farm-model.xlsx` | Completed template: decision cells, constraint checks green, Solver run documented (objective, changing cells, constraints, method) | 8 |
-| 3 | `analysis.md` + ≥2 figures | The optimal mix and *why*: P=MC evidence per crop, which constraints bind, the tomato MC dip explained, the carrot/mesclun "grow at a loss?" resolution (MC vs AVC, contribution over variable cost) | 6 |
-| 4 | `prompt-log.md` + reflection | Meaningful AI sessions logged; ≤300-word reflection on where AI helped, where it was wrong, and how you verified | 3 |
+| 1 | `docs/briefs/perfect-competition-brief.md` | The farm problem in your own words + a hypothesis: "I expect the optimal mix to be X because Y" — *before* touching Solver | 3 |
+| 2 | `skills/marginal-analysis/model.xlsx` + `spec.md` + `README.md` | Completed template: decision cells, constraint checks green; the spec carries the model logic and the documented Solver run (objective, changing cells, constraints, method, start point) | 8 |
+| 3 | `analysis/perfect-competition-analysis.md` + `analysis/figures/` | The optimal mix and *why*: P=MC evidence per crop, which constraints bind, the tomato MC dip explained, the carrot/mesclun "grow at a loss?" resolution (MC vs AVC, contribution over variable cost) | 6 |
+| 3b | `docs/decisions/perfect-competition-memo.md` | The recommendation to the farmer: the plan, which cap to relax first and what it's worth, what would change the answer. No separate points — read with the analysis | — |
+| 4 | `prompt-log.md` (repo root) + reflection | Meaningful AI sessions logged; ≤300-word reflection on where AI helped, where it was wrong, and how you verified | 3 |
 
-Split across stages: [stage1a](stage1a-repo-and-brief.md) (brief, 3) · [stage1b](stage1b-model-build.md) (model, 8) · [stage1c](stage1c-analysis.md) (analysis + log, 9).
+Split across stages: [stage1](stage1-repo-and-brief.md) (repo + brief, 3) · [stage2](stage2-model-build.md) (model + spec, 8) · [stage3](stage3-analysis.md) (analysis + memo + log, 9).
+
+Student-facing web pages for this case: [`case-perfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html) and its three stage pages. **Sync rule:** these paths, the stage pages, and `ai-lms/website/assets/js/gates.js` share one path table — change one, change all three.
 
 **AI-use boundary (course standard):** AI may explain concepts, critique your reasoning, and help debug formulas. It may not write your brief, analysis, or reflection. Log the sessions that mattered.
 

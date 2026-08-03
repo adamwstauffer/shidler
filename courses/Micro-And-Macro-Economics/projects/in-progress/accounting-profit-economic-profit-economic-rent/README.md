@@ -48,7 +48,7 @@ One division reproduces both observed prices within ~10%. The rent story: app en
 | 3 | `analysis.md` + ≥2 figures | The verdicts explained; the medallion story told with the capitalization math; supply/demand section: which curve shifted (supply, right — massively), what happened to price, quantity, and *whose* surplus | 6 |
 | 4 | `prompt-log.md` + reflection | AI sessions logged; reflection covers an AI error you caught | 3 |
 
-Split across stages: [stage3a](stage3a-model-build.md) (model, 8) · [stage3b](stage3b-analysis.md) (hypothesis + analysis + log, 12).
+Split across stages: [stage1](stage1-model-build.md) (model, 8) · [stage2](stage2-analysis.md) (hypothesis + analysis + log, 12).
 
 **AI-use boundary (course standard):** AI may explain the profit concepts, quiz you, and critique reasoning — not fill your yellow cells or write your analysis.
 

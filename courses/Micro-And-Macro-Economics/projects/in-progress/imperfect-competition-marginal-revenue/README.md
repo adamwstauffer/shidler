@@ -44,7 +44,7 @@ Both markets share: **fixed costs $130M**, cost structure **TVC = a·Q + b·Q² 
 | 3 | `analysis.md` + ≥2 figures | Perfect vs imperfect compared: why MR < P, why P\* comes off demand, markup/Lerner, the DWL number and what it means, and one paragraph on whether the patent's innovation incentive justifies the $3B/yr | 6 |
 | 4 | `prompt-log.md` + reflection | AI sessions logged; reflection covers an AI error you caught | 3 |
 
-Split across stages: [stage2a](stage2a-model-build.md) (model, 8) · [stage2b](stage2b-analysis.md) (hypothesis + analysis + log, 12).
+Split across stages: [stage1](stage1-model-build.md) (model, 8) · [stage2](stage2-analysis.md) (hypothesis + analysis + log, 12).
 
 **AI-use boundary (course standard):** AI may explain MR/MC mechanics, critique reasoning, and debug formulas — not write your brief or analysis, and not hand you the optima before you've hypothesized.
 
