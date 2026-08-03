@@ -134,6 +134,17 @@ in a shared team repo (deck + supporting workbook + one-page memo; branches and 
 email attachments). The team repo uses the same hierarchy as the personal portfolio repo.
 Presentations are peer-reviewed, with 50% of the grade based on peer evaluation.
 
+> **Relocated here 2026-08-03** from `../projects/team-research/README.md` under the standing rule
+> that calendars live only in offering-level artifacts. The prior (Fall 2025) offering ran
+> presentations on 2025-12-10 with peer-review feedback due 2025-12-12; the Fall 2026 equivalents
+> slot into weeks 12–15 on the calendar below. That draft brief also carries an older evaluation
+> split (peer 32.5% / instructor 32.5% / timing 25% / peer participation 10%) which **conflicts**
+> with the 50% peer evaluation stated above — the line above governs; the draft needs reconciling.
+
+> **Also relocated here 2026-08-03:** the individual research paper's prior (Fall 2025) deadlines —
+> paper due 2025-12-03, peer review due 2025-12-17. Fall 2026 equivalents slot into weeks 7–11 on
+> the calendar below.
+
 ---
 
 ## Fall 2026 Term Calendar (draft)
