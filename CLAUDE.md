@@ -49,7 +49,19 @@ Most projects follow a reusable pedagogical pattern. The default is five stages:
 
 **The current Performance Ratios project (BUS 629) uses a 6-stage variant** (Stage 0–5: repo setup, template architecture, company selection, model population/validation, technical specification, LLM analysis evaluation).
 
-Stage files are named `stage[N]-[description]-assignment.md`. Templates for deliverables are `template-memo.md` and `template-spec.md`.
+Stage files are named `stage[N]-[description].md`, numbered **per case, from 1** — the containing
+folder already scopes the case, so the filename does not encode it again (decided 2026-08-02; the
+BUS 620 `stage1a/1b/1c` scheme was renamed to `stage1/stage2/stage3`). Templates for deliverables
+live in [`docs/templates/`](docs/templates/).
+
+## Release Workflow
+
+**Never push `main` directly.** Work lands on a feature branch, goes to `main` via pull request,
+and Adam's merge is the release. This is a deploy airlock, not code review: the sibling `ai-lms`
+repo auto-publishes `website/**` to the public Kumu site on every push to `main`, and this repo's
+briefs are what students read. The PR is the moment to see exactly what is about to go live.
+
+Branch naming: `launch/<term>`, `feat/<slug>`, `fix/<slug>`, `docs/<slug>`.
 
 ## Active Courses
 
