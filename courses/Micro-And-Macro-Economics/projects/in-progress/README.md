@@ -6,7 +6,7 @@ repo. Sequence: **Farm Profit (weeks 1–2, 3 stages — doubles as repo bootstr
 (weeks 3–4) → Ride-Share (weeks 5–6)**, tracing competition → market power → where the profits
 hide. Each folder holds the case README (scenario, check figures, instructor notes), the
 `stageN-*.md` briefs students work from, the original instructor material (docx/xlsx, preserved
-unchanged), a rebuilt student template, and an instructor answer key. Case 1's stage briefs are reviewed and released; Cases 2-3 case materials and stage briefs
+unchanged) and an instructor answer key. Case 1's stage briefs are reviewed and released; Cases 2-3 case materials and stage briefs
 remain **draft, pending instructor review** before use with students.
 
 ## Directory Contents
@@ -30,7 +30,6 @@ in-progress/
 └── perfect-competition-marginal-costs/                   The Farm Profit Optimizer
     ├── BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx   original (unchanged)
     ├── farm-profit-optimizer-key.xlsx                       instructor
-    ├── farm-profit-optimizer-template.xlsx                  student
     ├── README.md
     └── Supply_Mariganl Cost_Optimize Profit v5.xlsx          original (unchanged)
 ```
