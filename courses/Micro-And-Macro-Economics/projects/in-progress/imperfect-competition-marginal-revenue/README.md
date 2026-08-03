@@ -1,6 +1,8 @@
 # BUS 620 Project: Imperfect Competition & Marginal Revenue — Monsanto and the GMO Seed Market
 
-> **Status:** Kumu-improved draft (2026-07-07) formalizing `BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx`. Adam should review before students see it. Originals (`…v9.xlsx`, in-class worksheet) preserved unchanged; the rebuilt workbooks are `monsanto-seed-market-template.xlsx` (student) and `monsanto-seed-market-key.xlsx` (instructor). All narrative claims below were externally validated 2026-07-07; sources at bottom.
+> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx`; the originals (`…v9.xlsx`, in-class worksheet) are preserved unchanged. `monsanto-seed-market-key.xlsx` is the instructor key. All narrative claims below were externally validated 2026-07-07; sources at bottom.
+>
+> **No student template.** Stage 1 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` — a provided workbook and "your spec is the template" cannot both be true. Decision: `ai-lms/docs/decisions/2026-08-03-spec-driven-artifact-builds.md`.
 
 ## The pitch
 
@@ -39,14 +41,19 @@ Both markets share: **fixed costs $130M**, cost structure **TVC = a·Q + b·Q² 
 
 | # | Artifact | Contents | Pts |
 |---|---|---|---|
-| 1 | `brief.md` | The two-market setup in your own words + hypothesis: "I expect the GMO price and profit to be X because Y" — before touching the model | 3 |
-| 2 | `monsanto-model.xlsx` | Completed template: both optima (yellow cells), decision tables tracing to the marker rows, D/MR/MC chart | 8 |
-| 3 | `analysis.md` + ≥2 figures | Perfect vs imperfect compared: why MR < P, why P\* comes off demand, markup/Lerner, the DWL number and what it means, and one paragraph on whether the patent's innovation incentive justifies the $3B/yr | 6 |
-| 4 | `prompt-log.md` + reflection | AI sessions logged; reflection covers an AI error you caught | 3 |
+| 1 | `docs/briefs/imperfect-competition-brief.md` | The two-market setup in your own words + hypothesis: "I expect the GMO price and profit to be X because Y" — committed before any spec or model work | — |
+| 2 | `skills/pricing-power/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs, both markets' calculation logic in named-range notation, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec | 8 |
+| 3 | `analysis/imperfect-competition-analysis.md` + `analysis/figures/` | Perfect vs imperfect compared: why MR < P, why P\* comes off demand, markup/Lerner, the DWL number and what it means, and a defended position on the patent tradeoff | 6 |
+| 3b | `docs/decisions/imperfect-competition-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
+| 4 | `prompt-log.md` (repo root) + reflection | AI sessions logged across both stages; reflection covers an AI error you caught | 3 |
 
-Split across stages: [stage1](stage1-model-build.md) (model, 8) · [stage2](stage2-analysis.md) (hypothesis + analysis + log, 12).
+> Stage 1 carries 8 pts (spec 3 · validation rules 1 · workbook contract 2 · audit note 1 · brief-before-build and commit hygiene 1); Stage 2 carries 12 (hypothesis + setup 3 · mechanics 3 · DWL and patent tradeoff 3 · prompt log 3). Case total 20, unchanged.
 
-**AI-use boundary (course standard):** AI may explain MR/MC mechanics, critique reasoning, and debug formulas — not write your brief or analysis, and not hand you the optima before you've hypothesized.
+Split across stages: [stage1](stage1-model-build.md) (brief, spec, build, audit, 8) · [stage2](stage2-analysis.md) (analysis + memo + log, 12).
+
+Student-facing web pages: [`case-imperfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by `ai-lms/website/assets/js/gates.js`; change one, change all three.
+
+**AI-use boundary (course standard, unchanged):** AI may explain MR/MC mechanics, critique reasoning, and debug formulas — not write your brief, analysis, memo, or reflection, and not hand you the optima before you've hypothesized. The workbook was never on the prohibited list, which is why Stage 1's AI-built workbook is a sequencing change rather than a boundary change.
 
 ## Discussion spine (from the draft, kept)
 
