@@ -2,7 +2,9 @@
 
 *Scenario: a 1.5-acre market garden. Retitled 2026-08-02 concept-first (was "The Farm Profit Optimizer") — the scenario identity now lives inside the case, not in its name.*
 
-> **Status:** Kumu-improved draft (2026-07-07) formalizing `BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx`. Adam should review before students see it. The original docx and `Supply_Mariganl Cost_Optimize Profit v5.xlsx` are preserved unchanged; the improved workbooks are `farm-profit-optimizer-template.xlsx` (student) and `farm-profit-optimizer-key.xlsx` (instructor).
+> **Status:** released 2026-08-03. Formalizes `BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx`; that original and `Supply_Mariganl Cost_Optimize Profit v5.xlsx` are preserved unchanged. `farm-profit-optimizer-key.xlsx` is the instructor key.
+>
+> **No student template.** Stage 2 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` on 2026-08-03 — a provided workbook and "your spec is the template" cannot both be true. The [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) is the independent reference implementation students cross-check against. Decision: `ai-lms/docs/decisions/2026-08-03-spec-driven-artifact-builds.md`.
 
 ## The pitch
 
@@ -48,16 +50,16 @@ Capability slug for this case: **`marginal-analysis`**. Engagement slug: **`perf
 | # | Artifact (path in the student repo) | What it must contain | Pts |
 |---|---|---|---|
 | 1 | `docs/briefs/perfect-competition-brief.md` | The farm problem in your own words + a hypothesis: "I expect the optimal mix to be X because Y" — *before* touching Solver | 3 |
-| 2 | `skills/marginal-analysis/model.xlsx` + `spec.md` + `README.md` | Completed template: decision cells, constraint checks green; the spec carries the model logic and the documented Solver run (objective, changing cells, constraints, method, start point) | 8 |
+| 2 | `skills/marginal-analysis/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs with units and sources, calculation logic in named-range notation, and the published check figures written in as acceptance criteria. Then an AI builds from the spec, and the student audits the result — findings recorded in the spec | 8 |
 | 3 | `analysis/perfect-competition-analysis.md` + `analysis/figures/` | The optimal mix and *why*: P=MC evidence per crop, which constraints bind, the tomato MC dip explained, the carrot/mesclun "grow at a loss?" resolution (MC vs AVC, contribution over variable cost) | 6 |
 | 3b | `docs/decisions/perfect-competition-memo.md` | The recommendation to the farmer: the plan, which cap to relax first and what it's worth, what would change the answer. No separate points — read with the analysis | — |
 | 4 | `prompt-log.md` (repo root) + reflection | Meaningful AI sessions logged; ≤300-word reflection on where AI helped, where it was wrong, and how you verified | 3 |
 
-Split across stages: [stage1](stage1-repo-and-brief.md) (repo + brief, 3) · [stage2](stage2-model-build.md) (model + spec, 8) · [stage3](stage3-analysis.md) (analysis + memo + log, 9).
+Split across stages: [stage1](stage1-repo-and-brief.md) (repo + brief, 3) · [stage2](stage2-model-build.md) (spec, build, audit, 8) · [stage3](stage3-analysis.md) (analysis + memo + log, 9).
 
 Student-facing web pages for this case: [`case-perfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html) and its three stage pages. **Sync rule:** these paths, the stage pages, and `ai-lms/website/assets/js/gates.js` share one path table — change one, change all three.
 
-**AI-use boundary (course standard):** AI may explain concepts, critique your reasoning, and help debug formulas. It may not write your brief, analysis, or reflection. Log the sessions that mattered.
+**AI-use boundary (course standard, unchanged):** AI may explain concepts, critique your reasoning, and help debug formulas. It may not write your brief, analysis, memo, or reflection. Log the sessions that mattered. The workbook was never on the prohibited list, which is why Stage 2's AI-built workbook is a sequencing change rather than a boundary change.
 
 ## Instructor notes & check figures
 
