@@ -1,6 +1,8 @@
-# BUS 620: Individual Research Paper Assignment  
-**Micro- and Macro-Economic Foundations for Managers**  
-**Fall 2025**  
+# Individual Research Paper Assignment  
+**Micro- and Macro-Economic Foundations for Managers**
+
+> Offering-specific facts — term, dates, and weights — live in the offering README
+> (`../../BUS-620/README.md`), not here. This project runs off-Kumu: syllabus and LMS only.
 
 ---
 
@@ -70,12 +72,6 @@ This assignment is part of our **AI + GitHub course project**. You are expected 
 1. **Paper Submission:** Upload a PDF copy to the Lamaku “Assignments” tab.  
 2. **GitHub Submission:** Push your paper, figures, and prompt log to your course GitHub repo.  
 3. **Peer Review:** After submission, you will receive 5 anonymized papers to review. Submit feedback and scores by the peer review deadline.  
-
----
-
-## 📅 Important Dates  
-- **Paper Submission Deadline:** December 3, 2025  
-- **Peer Review Deadline:** December 17, 2025  
 
 ---
 
