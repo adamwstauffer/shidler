@@ -1,8 +1,8 @@
-# Mini 2 · Stage 2a — Model Build
+# Case 2 · Stage 1 — Model Build
 
 > **Status:** Kumu-authored draft (2026-07-31) — pending Adam's review before students see it.
 
-**Mini weight:** 10% of course grade — this stage: 8 of 20 pts
+**Case weight:** 10% of course grade — this stage: 8 of 20 pts
 **Format:** upload-only — no presentation component
 **Deliverable:** `projects/monsanto/monsanto-model.xlsx` in your portfolio repo, plus a committed hypothesis at the top of `projects/monsanto/analysis.md`
 **Due:** end of Week 3 — exact dates on the course calendar
@@ -11,9 +11,9 @@
 
 ## Overview
 
-Mini 2 of 3: one company, two market structures. Monsanto sells commodity (non-GMO) corn seed as a price taker at $120/bag — and patented Roundup Ready GMO seed as a price maker facing the whole market's downward-sloping demand. Same crop, same $130M of fixed costs, an ~83× difference in profit. Your job in this stage is to build both models and locate both optima; Stage 2b is where you explain what the numbers mean.
+Case 2 of 3: one company, two market structures. Monsanto sells commodity (non-GMO) corn seed as a price taker at $120/bag — and patented Roundup Ready GMO seed as a price maker facing the whole market's downward-sloping demand. Same crop, same $130M of fixed costs, an ~83× difference in profit. Your job in this stage is to build both models and locate both optima; Stage 2 is where you explain what the numbers mean.
 
-You already have a portfolio repo from Mini 1 (Farm Profit Optimizer) — no repo setup this time. This mini adds one folder: `projects/monsanto/`.
+You already have a portfolio repo from Case 1 (Farm Profit Optimizer) — no repo setup this time. This case adds one folder: `projects/monsanto/`.
 
 We kick this off in class in Week 3 — bring a laptop with Excel. **DLEMBA students:** you get a screencast kickoff instead of the live session; deliverables and deadlines are identical.
 
@@ -25,7 +25,7 @@ Full case background, model parameterization, and sources: [README.md](README.md
 
 Before you open the workbook, create `projects/monsanto/analysis.md` and put a **3-sentence hypothesis** at the top: *"I expect the GMO price and profit to be X because Y."* Commit it with a message like `Add Monsanto hypothesis before model build`.
 
-This is not busywork — it's the whole point. A hypothesis written *after* you've seen the answer is a summary, not a prediction, and the gap between what you expected and what the model says is the raw material for your Stage 2b analysis. The hypothesis itself is **graded in Stage 2b** (3 of its 12 pts), but **the commit timestamp is checked here**: it must predate your first model commit. A hypothesis committed after the model work earns zero for that criterion — no exceptions, because the timestamp is the only thing that makes it a hypothesis.
+This is not busywork — it's the whole point. A hypothesis written *after* you've seen the answer is a summary, not a prediction, and the gap between what you expected and what the model says is the raw material for your Stage 2 analysis. The hypothesis itself is **graded in Stage 2** (3 of its 12 pts), but **the commit timestamp is checked here**: it must predate your first model commit. A hypothesis committed after the model work earns zero for that criterion — no exceptions, because the timestamp is the only thing that makes it a hypothesis.
 
 ## Step 1 — Copy the template into your repo
 
@@ -62,7 +62,7 @@ If a figure is off: check that variable cost is the *area under* MC (= aQ + bQ²
 
 ## AI-use boundary (course standard)
 
-AI may **explain** MR/MC mechanics, **critique** your reasoning, and **debug** your formulas — it may not write your analysis, and it may not hand you the optima before your hypothesis is committed. Asking an LLM "what's the profit-maximizing GMO quantity?" before Step 0 defeats the stage; asking it "why is my MR column falling twice as fast as my demand column?" after Step 0 is exactly what it's for. Log every meaningful session — the prompt log is graded in Stage 2b.
+AI may **explain** MR/MC mechanics, **critique** your reasoning, and **debug** your formulas — it may not write your analysis, and it may not hand you the optima before your hypothesis is committed. Asking an LLM "what's the profit-maximizing GMO quantity?" before Step 0 defeats the stage; asking it "why is my MR column falling twice as fast as my demand column?" after Step 0 is exactly what it's for. Log every meaningful session — the prompt log is graded in Stage 2.
 
 ---
 
@@ -94,7 +94,7 @@ Everything is graded by inspection of your repo — nothing to upload beyond you
 
 ## Tips
 
-- **Predict before you peek.** Your hypothesis will probably be wrong — most are off by an order of magnitude on profit. That's the good outcome: a wrong prediction you can explain is worth more in Stage 2b than a lucky guess.
-- **Excel temp files:** your Mini 1 `.gitignore` already filters `~$*.xlsx` junk. If `~$monsanto-model.xlsx` appears in your Changes panel, the `.gitignore` is missing — fix it before committing.
+- **Predict before you peek.** Your hypothesis will probably be wrong — most are off by an order of magnitude on profit. That's the good outcome: a wrong prediction you can explain is worth more in Stage 2 than a lucky guess.
+- **Excel temp files:** your Case 1 `.gitignore` already filters `~$*.xlsx` junk. If `~$monsanto-model.xlsx` appears in your Changes panel, the `.gitignore` is missing — fix it before committing.
 - **Don't fight the template.** The marker rows and checked steps exist because they catch the two classic errors (P\* off MR; VC = MC×Q). If your number disagrees with a marker row, the marker row is right.
 - **Commit as you go.** One commit per solved market beats one giant commit at the end — and it's what the rubric's hygiene point is looking for.

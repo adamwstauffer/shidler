@@ -1,14 +1,12 @@
-# Case 1 · Stage 1c — Analysis + Prompt Log
+# Case 1 · Stage 3 — Analysis + Prompt Log
 
 **Case weight:** 10% of course grade — this stage: 9 of 20 pts (analysis 6 + prompt log 3)
 **Format:** Upload-only — no presentation component
 **Deliverable:** `analysis/perfect-competition-analysis.md` (≥2 figures in `analysis/figures/`) + `docs/decisions/perfect-competition-memo.md` + an updated root `prompt-log.md`, all committed to your repo
 **Due:** end of Week 2 — exact dates on the course calendar (Case 1 spans Weeks 1–2, Aug 24–Sep 4)
 
-> **Status:** Kumu-authored draft (2026-07-31; paths + framing rewritten 2026-08-02 to the portfolio-repo standard) — pending Adam's review before students see it.
-
 > **Where this fits in the engagement.**
-> **Input:** your Stage 1a `docs/briefs/perfect-competition-brief.md` (the hypothesis you're now testing) + your Stage 1b `skills/marginal-analysis/model.xlsx` (the evidence source — every number you cite comes from it).
+> **Input:** your Stage 1 `docs/briefs/perfect-competition-brief.md` (the hypothesis you're now testing) + your Stage 2 `skills/marginal-analysis/model.xlsx` (the evidence source — every number you cite comes from it).
 > **Output (this stage):** the analysis, the client memo, and an updated prompt log — closing out Case 1.
 > **Used by:** the in-class debrief, and Cases 2–3 — the analysis-over-a-model-you-built pattern repeats all semester, as does the prompt-log habit.
 
@@ -16,7 +14,7 @@
 
 ## Overview
 
-Stage 1b produced a number — 10/20/30, $42,762. Stage 1c is where the points actually live: explain *why* that's the answer, in economics, with your model's own evidence, and then tell the farmer what to do about it. A Solver output you can't explain is a coincidence you happen to have committed.
+Stage 2 produced a number — 10/20/30, $42,762. Stage 3 is where the points actually live: explain *why* that's the answer, in economics, with your model's own evidence, and then tell the farmer what to do about it. A Solver output you can't explain is a coincidence you happen to have committed.
 
 Three files, and the split between the first two is the point:
 
@@ -26,7 +24,7 @@ Three files, and the split between the first two is the point:
 | `docs/decisions/perfect-competition-memo.md` | **The answer.** What the farmer should do, in half a page, written for the farmer. |
 | `prompt-log.md` (repo root) | The curated record of AI sessions + your reflection. |
 
-Briefs ask; memos answer. You wrote the question in Stage 1a — this is where you close it.
+Briefs ask; memos answer. You wrote the question in Stage 1 — this is where you close it.
 
 ## `analysis/perfect-competition-analysis.md` — the optimal mix and *why* (6 pts)
 
@@ -37,7 +35,7 @@ Aim for 1–2 pages plus **at least 2 figures** — charts exported or screensho
 3. **The tomato MC dip at ~6 beds.** MC falls before it rises — explain the mechanism: the farmer's expensive field hours ($34.72/hr) run out and marginal labor switches to cheaper temp labor ($17.36/hr), then diminishing returns push MC back up through the price line. This is the "input prices bend the MC curve" lesson; an analysis that ignores the dip has ignored the most interesting thing in the model.
 4. **"Grow carrots and mesclun at a loss?"** Standalone, every crop loses money at every quantity — fixed costs dominate. So why is growing them optimal? Resolve it with MC vs AVC: price exceeds average *variable* cost everywhere, so every bed contributes over variable cost, and the *mix* — not any single crop — is what turns a loss into $42,762. This is the short-run shutdown rule wearing farm clothes.
 
-Close with one honest paragraph against your Stage 1a hypothesis: what you predicted, what the model found, what your prior got wrong or right. Being wrong in the brief and precise about *why* here is full-credit work.
+Close with one honest paragraph against your Stage 1 hypothesis: what you predicted, what the model found, what your prior got wrong or right. Being wrong in the brief and precise about *why* here is full-credit work.
 
 ## `docs/decisions/perfect-competition-memo.md` — the planting recommendation
 
@@ -69,7 +67,7 @@ The line for this stage, concretely: asking AI to critique your draft explanatio
 
 ## What to submit
 
-Commit all three files to your repo — Stage 1c is graded by inspection. Nothing separate goes to Lamaku unless announced.
+Commit all three files to your repo — Stage 3 is graded by inspection. Nothing separate goes to Lamaku unless announced.
 
 - [ ] `analysis/perfect-competition-analysis.md` — ≥2 figures, all four questions addressed, hypothesis revisited
 - [ ] Figure image files in `analysis/figures/` (relative links that render on GitHub — check the rendered page, not just your editor)
@@ -90,7 +88,7 @@ Commit all three files to your repo — Stage 1c is graded by inspection. Nothin
 |-----------|-----|-------------------------------|
 | P = MC evidence + binding constraints | 3 | Crossings shown from *your* model's numbers; carrot/mesclun caps identified as binding with ~$352/~$246 shadow-price reasoning; slack constraints named; the memo turns that into a recommendation the farmer could act on |
 | MC dip + at-a-loss resolution | 2 | Dip mechanism (perm→temp wage switch) explained, not just observed; MC-vs-AVC shutdown logic resolves the "loss-making" crops correctly |
-| Figures + hypothesis revisit | 1 | ≥2 figures referenced in text and rendering on GitHub; honest comparison against the Stage 1a hypothesis |
+| Figures + hypothesis revisit | 1 | ≥2 figures referenced in text and rendering on GitHub; honest comparison against the Stage 1 hypothesis |
 | Prompt log + reflection | 3 | Sessions curated, not dumped; reflection ≤300 words with concrete instances of AI being wrong and *how you verified* (or, if nothing was caught, the checks that cleared it) |
 
 ---

@@ -1,11 +1,9 @@
-# Case 1 · Stage 1a — Repo + Brief
+# Case 1 · Stage 1 — Repo + Brief
 
 **Case weight:** 10% of course grade — this stage: 3 of 20 pts
 **Format:** Upload-only — no presentation component
 **Deliverable:** Public GitHub repository URL (repo contains the portfolio skeleton + `docs/briefs/perfect-competition-brief.md`) submitted via Lamaku
 **Due:** end of Week 1 — exact dates on the course calendar (Case 1 spans Weeks 1–2, Aug 24–Sep 4)
-
-> **Status:** Kumu-authored draft (2026-07-31; paths + framing rewritten 2026-08-02 to the portfolio-repo standard) — pending Adam's review before students see it.
 
 ---
 
@@ -17,7 +15,7 @@ Two things happen here, and both are deliberately small: the repo goes live, and
 
 The repo is not busywork, and it is not a course folder. It is structured the way a working analyst's practice is structured — **capabilities you can do**, and **engagements that prove you did them** — so it keeps working after this class, after this degree, and into a job. Three engagements this semester land in it; so does everything you do in later courses.
 
-The brief matters for a different reason: a hypothesis written *before* Solver runs is falsifiable. One written after is a summary. Stage 1c asks you to compare what you expected against what the model found — that comparison only exists if you commit to a guess now.
+The brief matters for a different reason: a hypothesis written *before* Solver runs is falsifiable. One written after is a summary. Stage 3 asks you to compare what you expected against what the model found — that comparison only exists if you commit to a guess now.
 
 We walk through repo setup at the in-class kickoff; DLEMBA students get a screencast kickoff instead — same steps, same deliverables.
 
@@ -79,12 +77,12 @@ firstname-lastname/
 ├── CLAUDE.md                 # ← one line: "See AGENTS.md."
 ├── prompt-log.md             # ← running record of AI sessions that mattered
 ├── .gitignore                # ← Office/OS junk filter (Step 3d)
-├── skills/                   # ← THE QUIVER: one folder per capability (Stage 1b fills the first)
+├── skills/                   # ← THE QUIVER: one folder per capability (Stage 2 fills the first)
 ├── docs/
 │   ├── briefs/               # ← BEFORE the work: scope + hypothesis
 │   │   └── perfect-competition-brief.md   # ← Step 4
 │   └── decisions/            # ← AFTER the work: recommendations to an audience
-└── analysis/                 # ← findings + figures/ (Stage 1c fills these)
+└── analysis/                 # ← findings + figures/ (Stage 3 fills these)
 ```
 
 Two distinctions make the whole thing legible, and they are worth ten seconds each:
@@ -119,11 +117,11 @@ Replace the auto-generated `README.md` with a short professional bio — who you
 
 Drafting the bio, resume, or `AGENTS.md` with an LLM is fine; committing generic filler is not.
 
-> Git will not track an empty folder. To create `skills/` and `analysis/` now, drop a one-line `README.md` in each (`Capability folders live here.`) — or wait and create them in Stages 1b and 1c, when they get real contents. Either is fine.
+> Git will not track an empty folder. To create `skills/` and `analysis/` now, drop a one-line `README.md` in each (`Capability folders live here.`) — or wait and create them in Stages 2 and 3, when they get real contents. Either is fine.
 
 ### 3d. Add a `.gitignore`
 
-Excel and your OS both spawn hidden temp files you do **not** want in your history — and once junk lands in commits, getting it out is painful. Before your first workbook commit (Stage 1b), create a file named `.gitignore` at the repo root (the leading dot is required; on Windows, save it from a text editor with quotes around the name: `".gitignore"`) containing:
+Excel and your OS both spawn hidden temp files you do **not** want in your history — and once junk lands in commits, getting it out is painful. Before your first workbook commit (Stage 2), create a file named `.gitignore` at the repo root (the leading dot is required; on Windows, save it from a text editor with quotes around the name: `".gitignore"`) containing:
 
 ```
 # Excel and Office temp files
@@ -162,7 +160,7 @@ Create `docs/briefs/perfect-competition-brief.md`. Read the [case README](README
 
 Commit and push it: `Add perfect-competition brief with mix hypothesis`.
 
-**AI note for this stage:** AI may critique your reasoning or explain concepts from the case — it may not write the brief. The hypothesis has to be yours; a hypothesis you didn't generate can't be honestly compared against results in Stage 1c.
+**AI note for this stage:** AI may critique your reasoning or explain concepts from the case — it may not write the brief. The hypothesis has to be yours; a hypothesis you didn't generate can't be honestly compared against results in Stage 3.
 
 ---
 
@@ -196,8 +194,8 @@ Submit your repo URL via Lamaku. The repo must contain:
 
 ## Tips
 
-- **Don't polish the bio.** It evolves all semester — Stage 1a is about getting the repo live.
-- **A wrong hypothesis is a good hypothesis.** The gap between your guess and Solver's answer is the raw material for Stage 1c. The only bad hypothesis is a hedged one.
+- **Don't polish the bio.** It evolves all semester — Stage 1 is about getting the repo live.
+- **A wrong hypothesis is a good hypothesis.** The gap between your guess and Solver's answer is the raw material for Stage 3. The only bad hypothesis is a hedged one.
 - **Commit messages are graded habit.** Not `update` or `stuff` — say what changed: `Add brief: predicting tomato-heavy mix on price per bed`.
 - **Name files for the engagement, not the week.** `perfect-competition-brief.md` will still make sense to a stranger in three years. `week1.md` won't.
 - **Stuck on setup?** The [MBA GitHub guide](../../../../../docs/guides/github-mba-guide.md) covers every failure mode we've seen; check it before emailing.
