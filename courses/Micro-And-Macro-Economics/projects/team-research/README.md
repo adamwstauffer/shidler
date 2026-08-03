@@ -1,6 +1,9 @@
-# BUS 620: Team Project Presentation on a Selected Case Study  **DRAFT**
-**Micro- and Macro-Economic Foundations for Managers**  
-**Fall 2025**
+# Team Case Study Presentation  **DRAFT**
+**Micro- and Macro-Economic Foundations for Managers**
+
+> Offering-specific facts — term, dates, and the grade split — live in the offering README
+> (`../../BUS-620/README.md`), not here. Student-facing page:
+> [`team-case-study.html`](https://adamwstauffer.github.io/ai-lms/team-case-study.html).
 
 
 ---
@@ -64,12 +67,6 @@ This project is part of the BUS 620 **AI + GitHub course project series**. Teams
 - **Instructor Score:** 32.5%  
 - **Adherence to Time Constraints:** 25%  
 - **Participation in Peer Review:** 10%  
-
----
-
-## 📅 Important Dates  
-- **Presentation Day:** December 10, 2025  
-- **Peer Review Feedback Due:** December 12, 2025  
 
 ---
 
