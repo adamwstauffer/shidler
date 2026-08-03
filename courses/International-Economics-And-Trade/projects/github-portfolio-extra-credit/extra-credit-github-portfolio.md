@@ -1,6 +1,6 @@
 # BUS 313 Extra Credit: GitHub Portfolio Starter (3 pts)
 
-**Due:** Tuesday, July 7, 2026, 11:59 PM HST
+**Due:** see the offering README / course calendar
 **Points:** Up to **3 extra-credit points**, added to your course total
 **Submit:** Paste your public repository URL into the Lamaku assignment (or email it to me with **BUS 313** in the subject line)
 
@@ -91,7 +91,7 @@ If you didn't use AI, no disclosure is needed. AI use is encouraged, not require
 
 ## What to submit
 
-By **Tuesday, July 7, 2026, 11:59 PM HST**, submit your **repository URL** (e.g., `https://github.com/your-username/bus313-portfolio`) via Lamaku, or email it with **BUS 313** in the subject line.
+By the deadline on the course calendar, submit your **repository URL** (e.g., `https://github.com/your-username/bus313-portfolio`) via Lamaku, or email it with **BUS 313** in the subject line.
 
 Before you submit, open your repo URL in a **private/incognito browser window** to confirm it loads without logging in — that's the fastest way to catch a repo that's still set to Private.
 
