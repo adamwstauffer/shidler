@@ -28,7 +28,15 @@ INSTRUCTOR_GITHUB_HANDLE = "adamwstauffer"
 _SAFE_OWNER_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")
 _SAFE_REPO_RE = re.compile(r"^[A-Za-z0-9._-]{1,100}$")
 _SAFE_BRANCH_RE = re.compile(r"^[A-Za-z0-9._/-]{1,255}$")
-_SAFE_PATH_RE = re.compile(r"^[A-Za-z0-9 ._/-]{1,300}$")
+# Students commit real deliverables under names GitHub allows but a tight
+# allowlist doesn't — unfilled template braces (`{Badua}-{scenario-slug}`),
+# colons from a flattened path (`docs:decisions:…`), parentheses, commas. A
+# rejected path made download_bytes return None *without any request*, so the
+# deliverable read as empty and the stage scored it a non-submission. Since the
+# path is passed to `gh` as a single argv element there is no shell to inject
+# into; the property that actually matters is no traversal and no control
+# characters, which is what this enforces.
+_SAFE_PATH_RE = re.compile(r"^(?!.*(?:^|/)\.\.(?:/|$))[^\x00-\x1f\\]{1,300}$")
 _SAFE_HANDLE_RE = re.compile(r"^[A-Za-z0-9-]{1,39}$")
 
 GITHUB_URL_RE = re.compile(
