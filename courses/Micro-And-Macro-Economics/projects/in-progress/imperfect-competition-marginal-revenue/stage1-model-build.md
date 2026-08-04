@@ -59,9 +59,9 @@ Read before starting:
 
 ## 4. Background
 
-Selling **commodity non-GMO corn seed**, the firm is a price taker at $120 a bag: it produces until
-**P = MC**, and free entry will erode the profit. Selling **patented Roundup Ready GMO seed**, the
-same firm faces the whole market's downward-sloping demand. One more bag sold lowers the price on
+Selling **commodity non-GMO corn seed**, the seed company is a price taker at $120 a bag: it produces
+until **P = MC**, and free entry will erode the profit. Selling **the patented herbicide-tolerant GMO
+seed**, the same firm faces the whole market's downward-sloping demand. One more bag sold lowers the price on
 *every* bag, so marginal revenue falls at twice the slope of demand, and the rule becomes
 **MR = MC**. Same crop, same $130M of fixed costs — and roughly an 83-fold difference in profit.
 
