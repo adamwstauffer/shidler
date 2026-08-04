@@ -101,7 +101,7 @@ arc — competition → market power → where the profits hide:
 1. **Perfect Competition — Decision Analysis** (market-garden scenario): P = MC, Excel Solver.
    Capability `marginal-analysis`, engagement `perfect-competition`
    ([case + stage briefs](../projects/in-progress/perfect-competition-marginal-costs/))
-2. **Imperfect Competition — Pricing Power Analysis** (Monsanto GMO seed scenario): monopoly,
+2. **Imperfect Competition — Pricing Power Analysis** (GMO seed market scenario): monopoly,
    MR = MC, Lerner, deadweight loss. Capability `pricing-power`, engagement `imperfect-competition`
    ([case + stage briefs](../projects/in-progress/imperfect-competition-marginal-revenue/))
 3. **Economic Profit & Rent — Earnings Analysis** (ride-share scenario): accounting vs economic
