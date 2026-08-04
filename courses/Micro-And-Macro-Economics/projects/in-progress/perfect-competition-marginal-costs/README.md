@@ -49,13 +49,26 @@ Capability slug for this case: **`marginal-analysis`**. Engagement slug: **`perf
 
 | # | Artifact (path in the student repo) | What it must contain | Pts |
 |---|---|---|---|
-| 1 | `docs/briefs/perfect-competition-brief.md` | The farm problem in your own words + a hypothesis: "I expect the optimal mix to be X because Y" — *before* touching Solver | 3 |
+| 0 | The portfolio repository itself — skeleton, four root files, `.gitignore`, instructor invited | The workspace every engagement lands in, built to the portfolio-repo standard and named for the student rather than the course | 2 |
+| 1 | `docs/briefs/perfect-competition-brief.md` | The farm problem in your own words + a hypothesis: "I expect the optimal mix to be X because Y" — *before* touching Solver | 1 |
 | 2 | `skills/marginal-analysis/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs with units and sources, calculation logic in named-range notation, and the published check figures written in as acceptance criteria. Then an AI builds from the spec, and the student audits the result — findings recorded in the spec | 8 |
 | 3 | `analysis/perfect-competition-analysis.md` + `analysis/figures/` | The optimal mix and *why*: P=MC evidence per crop, which constraints bind, the tomato MC dip explained, the carrot/mesclun "grow at a loss?" resolution (MC vs AVC, contribution over variable cost) | 6 |
 | 3b | `docs/decisions/perfect-competition-memo.md` | The recommendation to the farmer: the plan, which cap to relax first and what it's worth, what would change the answer. No separate points — read with the analysis | — |
 | 4 | `prompt-log.md` (repo root) + reflection | Meaningful AI sessions logged; ≤300-word reflection on where AI helped, where it was wrong, and how you verified | 3 |
 
-Split across stages: [stage1](stage1-repo-and-brief.md) (repo + brief, 3) · [stage2](stage2-model-build.md) (spec, build, audit, 8) · [stage3](stage3-analysis.md) (analysis + memo + log, 9).
+Split across stages: [stage0](stage0-portfolio-repo.md) (the repository, 2) ·
+[stage1](stage1-engagement-brief.md) (the brief, 1) · [stage2](stage2-model-build.md) (spec, build,
+audit, 8) · [stage3](stage3-analysis.md) (analysis + memo + log, 9). **Case total 20, unchanged.**
+
+> **Stage 0 split (2026-08-03).** The former `stage1-repo-and-brief.md` carried three separately
+> priced criteria: two about the repository and one about the brief. They are now two stages along
+> the seam that was already there — **every criterion keeps its exact point value, and no criterion
+> text was rewritten**. This is a regroup, not a repricing. Standing up the workspace and forming a
+> falsifiable hypothesis are different kinds of work with different AI boundaries, and a graded gate
+> between them is what makes the repository finished *before* the brief is written rather than
+> alongside it. The commit-order rule — brief before any modeling — stays on Stage 1, where the
+> thing it orders lives. Rationale: `ai-lms/docs/decisions/2026-08-03-case-flow-and-chrome-review.md`
+> § B1. Cases 2 and 3 keep two stages; only Case 1 stands up the repository.
 
 Student-facing web pages for this case: [`case-perfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html) and its three stage pages. **Sync rule:** these paths, the stage pages, and `ai-lms/website/assets/js/gates.js` share one path table — change one, change all three.
 
