@@ -1,4 +1,4 @@
-# BUS 620 Project: Imperfect Competition & Marginal Revenue — Monsanto and the GMO Seed Market
+# BUS 620 Project: Imperfect Competition & Marginal Revenue — The GMO Seed Market
 
 > **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx`; the originals (`…v9.xlsx`, in-class worksheet) are preserved unchanged. `monsanto-seed-market-key.xlsx` is the instructor key. All narrative claims below were externally validated 2026-07-07; sources at bottom.
 >
@@ -6,7 +6,9 @@
 
 ## The pitch
 
-One company, two market structures. Selling **commodity (non-GMO) corn seed**, Monsanto is a price taker at $120/bag — produce until **P = MC**, earn a modest profit that entry will erode. Selling **patented Roundup Ready GMO seed**, Monsanto faces the whole market's downward-sloping demand — one more bag sold lowers the price on *every* bag, marginal revenue falls twice as fast as demand, and the rule becomes **MR = MC**. Same crop, same $130M of fixed costs — and an ~83× difference in profit. Students build both models, locate both optima, and put a dollar figure on what monopoly costs society.
+One company, two market structures. Selling **commodity (non-GMO) corn seed**, the seed company is a price taker at $120/bag — produce until **P = MC**, earn a modest profit that entry will erode. Selling **patented herbicide-tolerant GMO seed**, the same firm faces the whole market's downward-sloping demand — one more bag sold lowers the price on *every* bag, marginal revenue falls twice as fast as demand, and the rule becomes **MR = MC**. Same crop, same $130M of fixed costs — and an ~83× difference in profit. Students build both models, locate both optima, and put a dollar figure on what monopoly costs society.
+
+> **Naming convention (2026-08-03).** The protagonist is unnamed — **"the seed company"** — on every student-facing surface and in this README's narrative. The market stays named, quantified, and cited, and every real party survives in **Validated facts & sources** at the bottom. The identity is one click away and openly signposted; the case is anonymized, not concealed. Rule and rationale: `ai-lms/docs/decisions/2026-08-03-case-scenario-anonymization.md`.
 
 ## Learning goals
 
@@ -57,14 +59,14 @@ Student-facing web pages: [`case-imperfect-competition.html`](https://adamwstauf
 
 ## Discussion spine (from the draft, kept)
 
-- How did Roundup + Roundup Ready seeds change Monsanto's business environment and competitive landscape? (Complement lock-in: the herbicide sells the seed and vice versa.)
+- How did pairing a proprietary herbicide with a seed engineered to tolerate it change the firm's business environment and competitive landscape? (Complement lock-in: the herbicide sells the seed and vice versa.)
 - Patent enforcement (no replanting harvested seed) as the mechanism that *keeps* demand downward-sloping — without it, farmers' saved seed is competing supply.
 - Superweeds (glyphosate-resistant weeds from over-reliance) as a negative externality the private optimum ignores.
-- Bayer 2018: does merging the #1 seed company into a top agrochemical firm restore competition concerns the patent already raised? (DOJ answer: largest antitrust divestiture in U.S. history as the price of approval.)
+- The 2018 acquisition: does merging the #1 seed company into a top agrochemical firm restore competition concerns the patent already raised? (DOJ answer: largest antitrust divestiture in U.S. history as the price of approval.)
 
 ## Instructor notes & check figures
 
-- **Non-GMO:** Q\* = (120−1)/0.00003 = 3,966,667; profit $106.0M. Discussion: this is *short-run* — the docx's "long-run profits" question answers itself: free entry competes it toward zero, which is exactly why Monsanto needed the patent moat.
+- **Non-GMO:** Q\* = (120−1)/0.00003 = 3,966,667; profit $106.0M. Discussion: this is *short-run* — the docx's "long-run profits" question answers itself: free entry competes it toward zero, which is exactly why the seed company needed the patent moat.
 - **GMO:** Q\* = 524/0.0000154 = 34,025,974; P\* $297.03; MR = MC = $69.05 ✓; profit $8.785B. Markup 4.30×, Lerner 0.768 (implied demand elasticity at optimum ≈ 1.3 — students who know the markup rule can back it out).
 - **DWL:** ½ × (297.03 − 69.05) × (60.23M − 34.03M) ≈ $2.99B/yr.
 - All figures brute-force/algebra verified and match the Excel key to the dollar (zero formula errors on recalculation).
