@@ -2,6 +2,8 @@
 
 **Shidler College of Business, University of Hawaiʻi at Mānoa**
 
+**Course tutorials:** [Micro & Macro Economics on Kumu](https://adamwstauffer.github.io/ai-lms/micro-and-macro-economics.html) — the stage-by-stage tutorials, labs, and reference pages this course's projects assume. Kumu is organized by subject and carries no course codes; this README is the signpost from the code to the material.
+
 ## Course Overview
 
 This MBA-level course provides a comprehensive exploration of microeconomic and macroeconomic theories and their application to real-world business and policy challenges. Emphasis is placed on the intersection of economics, geopolitics, and global stability.

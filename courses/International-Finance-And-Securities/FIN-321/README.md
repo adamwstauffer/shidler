@@ -2,6 +2,8 @@
 
 **Shidler College of Business, University of Hawaiʻi at Mānoa**
 
+**Course tutorials:** [International Finance & Securities on Kumu](https://adamwstauffer.github.io/ai-lms/international-finance-and-securities.html) — the stage-by-stage tutorials, labs, and reference pages this course's projects assume. Kumu is organized by subject and carries no course codes; this README is the signpost from the code to the material.
+
 ## Course Overview
 
 The world economy is increasingly integrated. This course introduces fundamental concepts of international finance, including:
