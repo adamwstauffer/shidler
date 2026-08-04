@@ -1,7 +1,7 @@
 # Case Studies
 
 The three graded **BUS 620 case projects**: 20 points each, split across 2–3 staged deliverables
-into one accreting personal portfolio repo. Sequence: **Perfect Competition (3 stages — also stands
+into one accreting personal portfolio repo. Sequence: **Perfect Competition (4 stages — also stands
 up the repo) → Imperfect Competition → Economic Profit & Rent**, tracing competition → market power
 → where the profits hide. Course weights and the term calendar live in the offering README
 (`../../BUS-620/README.md`). Each folder holds the case README (scenario, check figures, instructor notes), the

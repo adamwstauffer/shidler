@@ -84,7 +84,7 @@ showing up and committing is participating.
 ### Case-Study Projects (3 × 10%)
 
 Three 2-week Excel + AI engagements, each worth 20 points split across 2–3 graded stages. One
-**personal public GitHub portfolio repo**, created in Case 1's first stage, accretes all term. It is
+**personal public GitHub portfolio repo**, created in Case 1's Stage 0, accretes all term. It is
 structured by **capability** and **engagement**, not by course — the full standard is in
 `ai-lms/docs/decisions/2026-08-02-website-simplification-and-portfolio-repo-standard.md` § 6. Each
 case adds a capability folder plus its evidence:
@@ -163,7 +163,7 @@ Instruction runs **2026-08-24 → 2026-12-10**; finals week 2026-12-14–18. Sta
 
 | Weeks | Dates | What's running |
 |---|---|---|
-| 1–2 | Aug 24 – Sep 4 | **Case 1 — Perfect Competition** (stage 1 repo + brief, 2 build, 3 analysis) |
+| 1–2 | Aug 24 – Sep 4 | **Case 1 — Perfect Competition** (stage 0 repo, 1 brief, 2 build, 3 analysis) |
 | 3–4 | Sep 8 – Sep 18 | **Case 2 — Imperfect Competition** (stage 1 build, 2 analysis) · Labor Day Sep 7 |
 | 5–6 | Sep 21 – Oct 2 | **Case 3 — Economic Profit & Rent** (stage 1 build, 2 analysis) |
 | 7–11 | Oct 5 – Nov 6 | **Geopolitical research paper** (proposal → draft → final) · macro units |
