@@ -70,7 +70,7 @@ presence, and it leaves you with a public portfolio artifact no discussion-board
 | **Total** | **100%** |
 
 Component details, the case structure (one accreting portfolio repo organized by capability and
-engagement, 20 points per case across 2–3 stages, published check figures), the shared deliverable
+engagement, 20 points per case across 2–4 stages, published check figures), the shared deliverable
 path table, and the geopolitical-paper scope are identical to the on-campus section — see
 [BUS 620 § Grading](../BUS-620/README.md#grading-fall-2026). Case materials and stage briefs live in
 [`../projects/in-progress/`](../projects/in-progress/).

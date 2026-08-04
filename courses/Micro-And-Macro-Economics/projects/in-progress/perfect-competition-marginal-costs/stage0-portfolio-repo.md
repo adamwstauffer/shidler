@@ -1,36 +1,36 @@
 ---
 template: stage-brief
 project: perfect-competition-marginal-costs
-stage: 1
-title: "Repo + Brief"
+stage: 0
+title: "Portfolio Repository"
 capability: marginal-analysis
 deliverables:
   - path: "(repository) firstname-lastname"
     format: repo
     ai_boundary: ai-first-verified
-  - path: docs/briefs/perfect-competition-brief.md
-    format: markdown
-    ai_boundary: human-first
 prerequisites: []
-points: 3
-estimated_time: "60-80 min"
+points: 2
+estimated_time: "40-50 min"
 ---
 
-# Case 1 · Stage 1 — Repo + Brief
+# Case 1 · Stage 0 — Portfolio Repository
 
-**Deliverable:** the portfolio repository, and `docs/briefs/perfect-competition-brief.md` inside it
+**Deliverable:** the public portfolio repository, built to the standard, with the instructor invited
 **Submission:** committed and pushed to your public repository; graded by inspection
-**Estimated time:** 60–80 minutes
+**Estimated time:** 40–50 minutes
 
 ---
 
 ## 1. Purpose
 
-This stage produces two things: the public portfolio repository that every engagement lands in, and
-a one-page engagement brief stating the farm's problem in your own words and ending in a hypothesis
-you can be shown wrong about. Neither is analysis. Both are the conditions that make the analysis
-worth anything — and the brief has to exist before the model does, because Stage 3 compares what you
-predicted against what the model found, and that comparison cannot be reconstructed afterwards.
+This stage produces the workspace, and nothing else. One public repository, named for you, holding
+the structure that every engagement in this course and every engagement after it lands in. No
+analysis happens here.
+
+It is a stage of its own rather than a preamble to the brief because it has to be finished before
+the brief is written, and because it is the one artifact in this course that outlives the course. A
+repository stood up properly in week one is a portfolio by December; one thrown together on the way
+to a deadline is a folder of homework.
 
 ## 2. Prerequisites
 
@@ -41,8 +41,6 @@ Read before starting:
 - [The portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html) — the structure, the four starter files, and a prompt that builds the skeleton
 - [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html) — what goes in `AGENTS.md`, and what must never be committed
 - [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics) — local versus remote, add → commit → push, `.gitignore`, and how work is submitted
-- [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html) — the shape of a brief
-- The [case README](README.md) — scenario, assumptions table, constraints
 
 ## 3. Deliverables
 
@@ -53,24 +51,23 @@ Read before starting:
 | AI conventions, and the pointer to them | `AGENTS.md`, `CLAUDE.md` | markdown |
 | Resume and prompt log, started | `RESUME.md`, `prompt-log.md` | markdown |
 | Exclusion rules | `.gitignore` | text |
-| The engagement brief | `docs/briefs/perfect-competition-brief.md` | markdown |
 
 ## 4. Background
 
-A prediction written *before* the model runs is falsifiable. The same sentence written afterwards is
-a summary of the output, and it teaches you nothing, because you can no longer distinguish "I
-understood the economics" from "I read the answer cell."
+The repository is organized by **capability** and **engagement**, never by course. A folder named
+for a class stops meaning anything the moment the class ends, and a reader who opens
+`week3/final_v2.xlsx` learns nothing about what you can do. `skills/marginal-analysis/` names a
+capability; `docs/`, `data/`, and `analysis/` hold the work that proves you exercised it.
 
-This is not a classroom convention. It is why an analyst writes an engagement brief before opening
-the data, and why "we always thought so" is the least trustworthy sentence in business. A wrong
-hypothesis, precisely reasoned, is worth as much as a correct one and considerably more than a lucky
-one.
+Two consequences worth knowing before you start rather than after:
 
-What makes a hypothesis genuine is that some outcome would refute it. *"I expect roughly 15 tomato
-beds, 20 carrot, 25 mesclun, because tomatoes earn about four times what carrots do per bed and I
-doubt the labor penalty closes that gap"* names quantities and a mechanism, and the model can
-contradict it. *"I expect a balanced mix because diversification reduces risk"* would survive any
-result, which is what disqualifies it.
+**Git tracks files, not folders.** An empty directory does not survive a push. Every directory in
+the skeleton needs at least one file in it — a one-line `README.md` saying what belongs there is
+enough, and is more useful to a reader than an empty folder anyway.
+
+**History is permanent.** A file committed once stays in the repository's history even after it is
+deleted. That is why `.gitignore` goes in *before* the first workbook, not after the first
+accidental commit of a `~$` temp file.
 
 ## 5. Procedure
 
@@ -108,21 +105,8 @@ result, which is what disqualifies it.
    your work instead of an emailed paragraph.
    *Confirm:* the invitation shows as pending. You do not need to wait for it.
 
-8. **Write the brief** at `docs/briefs/perfect-competition-brief.md`, using the structure on the
-   deliverable-templates page. Read the [case README](README.md) first, then — **before opening the
-   workbook or Solver** — write half a page to a page covering two things:
-   - **The problem in your own words.** What the farm is deciding, what is fixed, what is chosen,
-     what limits the choice. If you cannot state it without re-reading the case, you do not have it
-     yet, and that is useful information about where the next hour goes.
-   - **Your hypothesis.** *"I expect the optimal mix to be X because Y."* Real quantities — beds of
-     tomatoes, carrots, mesclun — and real reasoning: prices per bed, labor intensity, the
-     diminishing-returns percentages, the caps. Name the mechanism you think decides it.
-
-   *Confirm:* the brief is committed before any modeling begins. The commit timestamp is what makes
-   it a hypothesis rather than a summary.
-
-9. **Commit and push.** At least two commits, each with a message saying what changed —
-   `Add portfolio skeleton and gitignore`, then `Add perfect-competition brief with mix hypothesis`.
+8. **Commit and push.** At least two commits, each with a message saying what changed —
+   `Add portfolio skeleton and gitignore` rather than `update`.
    *Confirm:* the files are visible on github.com, not only on your machine.
 
 ## 6. AI use
@@ -131,17 +115,17 @@ result, which is what disqualifies it.
 |---|---|
 | Repository skeleton, `.gitignore`, the `AGENTS.md` starting point | AI-first, verified |
 | `README.md` bio, `RESUME.md` | AI-first, verified — then edited until it sounds like you |
-| `docs/briefs/perfect-competition-brief.md` | Human-first |
 
 **If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
 a means to the work rather than the work itself, AI may draft it and you verify.** The two working
 loops are described in [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html).
 
-**For this stage specifically:** AI may explain the case's economics and argue against your
-reasoning; it may not write the brief. A hypothesis you did not generate cannot be honestly compared
-against results in Stage 3, and that comparison is the point. The other failure here is committing
-generic AI-written filler as your bio — it is obvious to any reader, and it is the first thing anyone
-sees.
+**For this stage specifically:** everything here is a means to the work rather than the work itself,
+so AI may build all of it and you verify. Three things to check in what it produces: no folder is
+named after a course or a term, every directory contains something, and the placeholder files are
+actually placeholders rather than invented biography. That last one is the failure that matters —
+committing generic AI-written filler as your bio is obvious to any reader, and it is the first thing
+anyone sees.
 
 ## 7. Verification
 
@@ -151,19 +135,16 @@ sees.
 - [ ] `AGENTS.md` written in your own words; `CLAUDE.md` is the one-line pointer
 - [ ] `RESUME.md` and `prompt-log.md` exist at the root — rough is acceptable
 - [ ] `.gitignore` filters Office and OS temp files
-- [ ] `docs/briefs/perfect-competition-brief.md` restates the problem in your voice
-- [ ] The hypothesis names a specific mix **and** the mechanism behind it
-- [ ] The brief was committed **before** any modeling work started
+- [ ] Every skeleton directory holds at least one file
 - [ ] `adamwstauffer` invited as a collaborator
 - [ ] At least two commits, each with a message that says what changed
 
-## 8. Rubric (3 pts)
+## 8. Rubric (2 pts)
 
 | Criterion | Pts | What distinguishes strong work |
 |---|---|---|
 | Repo live and public, professionally named | 1 | URL works without login; `firstname-lastname` naming; the bio in `README.md` is not placeholder text |
 | Skeleton, `.gitignore`, and commit hygiene | 1 | `docs/briefs/` in place and the root files present (`AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`); junk files filtered; at least two descriptive commits |
-| Brief quality — genuine hypothesis | 1 | Problem restated accurately in your own voice; hypothesis names a specific mix with economic reasoning, written before any Solver work |
 
 ## 9. Common failure modes
 
@@ -171,15 +152,13 @@ sees.
 |---|---|
 | The repository is private, so nothing in it can be read | Settings → General → Change visibility → Public, then test the URL in a private window |
 | The repository is named after the course | Rename it now, while nothing links to it — a course-shaped repository stops meaning anything at graduation |
-| The hypothesis is hedged: "a balanced mix, because diversification" | Name quantities and a mechanism; a prediction that survives every outcome is not a prediction |
-| The brief is written after the workbook | There is no recovery — the Stage 3 comparison is gone. Write it first, even badly |
 | Empty directories disappear on push | Git tracks files, not folders; put a one-line `README.md` in each |
 | An hour spent polishing the bio on day one | It evolves all term. Get the repository live |
-| Commit messages read `update` | Say what changed: `Add brief: predicting tomato-heavy mix on price per bed` |
+| Commit messages read `update` | Say what changed: `Add portfolio skeleton and gitignore` |
+| `.gitignore` added after the first workbook commit | The junk is already in the history. Add it now anyway, and know that history is permanent |
 
 ## 10. References
 
-- [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html) · [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html) · [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html)
+- [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html) · [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html)
 - [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics), including [`.gitignore`](https://adamwstauffer.github.io/ai-lms/onboarding.html#gitignore) and [how work is submitted, with the post-deadline revision policy](https://adamwstauffer.github.io/ai-lms/onboarding.html#submitting)
 - [`docs/guides/github-mba-guide.md`](../../../../../docs/guides/github-mba-guide.md) — the long-form Git reference, for troubleshooting
-- [Case README](README.md) — scenario, assumptions, constraints

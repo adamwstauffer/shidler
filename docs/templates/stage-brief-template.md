@@ -53,7 +53,7 @@ estimated_time: "{n}–{m} min"
 
 | Field | Why it exists |
 |---|---|
-| `stage` | Integer, numbered **per case from 1** — the containing folder already scopes the case, so the filename does not encode it twice (`2026-08-02-pr-release-process-and-stage-naming.md`). |
+| `stage` | Integer, numbered **per case from 1** — the containing folder already scopes the case, so the filename does not encode it twice (`2026-08-02-pr-release-process-and-stage-naming.md`). **Exception: a case that stands up the student's portfolio repository numbers that stage `0`**, because it produces the workspace rather than a step of the analysis, and only one case per course does it (2026-08-03). |
 | `deliverables` | The canonical **declaration** of the artifact paths. Prose in the body may reference a path but never introduce one. |
 | `ai_boundary` | Sits on each deliverable, not on the stage — a repo skeleton and a falsifiable hypothesis produced in the same stage carry different boundaries. The § 6 stage-level line is derived from these values; the AI tutor consumes them per artifact. |
 | `prerequisites` | Makes the self-contained rule checkable, and names what progression gating keys on. |
