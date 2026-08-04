@@ -2,6 +2,8 @@
 
 **Vietnam Executive MBA Program** | Shidler College of Business, University of Hawai'i at Manoa
 
+**Course tutorials:** [International Corporate Finance on Kumu](https://adamwstauffer.github.io/ai-lms/international-corporate-finance.html) — the stage-by-stage tutorials, labs, and reference pages this course's projects assume. Kumu is organized by subject and carries no course codes; this README is the signpost from the code to the material.
+
 ## Course Overview
 
 This course develops students' understanding of corporate finance. It introduces financing and investment decision-making considerations and the securities available to financial managers. The course relies heavily on developing models using Microsoft Excel and applies a **spec-driven design** approach where students build financial models, write technical specifications, and critically evaluate LLM-generated analysis.

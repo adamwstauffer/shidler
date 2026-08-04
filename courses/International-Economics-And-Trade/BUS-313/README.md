@@ -2,6 +2,8 @@
 
 **Shidler College of Business, University of Hawaiʻi at Mānoa**
 
+**Course tutorials:** [International Economics & Trade on Kumu](https://adamwstauffer.github.io/ai-lms/international-economics-and-trade.html) — the stage-by-stage tutorials, labs, and reference pages this course's projects assume. Kumu is organized by subject and carries no course codes; this README is the signpost from the code to the material.
+
 ## Course Overview
 
 This course develops students' understanding of the global economic and financial environment of business. It introduces trade and international finance theory and applies it to real-world case studies across global regions.
