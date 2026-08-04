@@ -70,7 +70,7 @@ Student-facing web pages: [`case-economic-profit.html`](https://adamwstauffer.gi
 - **The draft's "141,615 licensed Yellow Cabs in NYC (2010)" is wrong** — NYC medallions numbered ~13,500 and were 13,587 from 2014–2018. Corrected everywhere; the big number likely conflated TLC-licensed *drivers/vehicles* across all classes.
 - Check figures (Excel key recalculates clean, matches hand math to the dollar): accounting $50,520 / $22,860 / $59,580 / $52,200; economic −$1,680 / −$3,240 / +$7,380 / +$1,680; medallion $1,028,571 / $300,000.
 - Sensitivity to run live in class: days/mo 30 → 22 (all verdicts flip deep negative for drivers); commission 25% → 30%; cab lease $3,000 → $1,500 (post-Uber world — watch the cab driver's economic profit and ask who the winner is *now*).
-- Cross-case links: the farmer's field time in the Perfect Competition case is the same opportunity-cost idea; the medallion's rent-behind-a-moat is Monsanto's patent in miniature (all three cases now share the moat→rent→entry arc).
+- Cross-case links: the farmer's field time in the Perfect Competition case is the same opportunity-cost idea; the medallion's rent-behind-a-moat is the seed patent in miniature (all three cases now share the moat→rent→entry arc).
 
 ## Bugs fixed vs the draft template (for Adam)
 

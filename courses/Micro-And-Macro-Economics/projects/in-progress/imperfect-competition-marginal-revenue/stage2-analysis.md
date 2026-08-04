@@ -84,7 +84,7 @@ walk past.
 discussion spine: complement lock-in, where the herbicide sells the seed and the seed sells the
 herbicide; patent enforcement, which is what *keeps* demand downward-sloping, because without it
 farmers' saved seed is competing supply; glyphosate-resistant weeds as a negative externality the
-private optimum ignores; and the 2018 Bayer acquisition, where the price of approval was the largest
+private optimum ignores; and the 2018 acquisition, where the price of approval was the largest
 negotiated merger divestiture in U.S. history. Either side is defensible. A fence-sit is not.
 
 ## 5. Procedure

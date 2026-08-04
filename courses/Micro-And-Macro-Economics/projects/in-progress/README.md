@@ -18,7 +18,7 @@ in-progress/
 │   ├── README.md
 │   ├── rideshare-driver-economics-key.xlsx               instructor
 │   └── Supply_Invisible Hand_Ride Sharing template.xlsx   original (unchanged)
-├── imperfect-competition-marginal-revenue/               Monsanto and the GMO Seed Market
+├── imperfect-competition-marginal-revenue/               The GMO Seed Market
 │   ├── BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx   original (unchanged)
 │   ├── Monoplostic Supply_Marginal Revenue_Optimize Profit v9.xlsx          original (unchanged)
 │   ├── Monsanto Case Study worksheet in class.xlsx                          original (unchanged)

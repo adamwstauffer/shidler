@@ -177,6 +177,17 @@ Each of these changes between offerings, which is what makes a brief go stale:
 | LMS names and upload paths | The submission reference, once |
 | Any sentence about how the class meets — kickoffs, live walkthroughs, screencasts, "we'll cover this in class", "bring a laptop" | Nowhere. The brief must stand without them. |
 | Instructor-specific identifiers in prose | The submission reference; `{instructor-handle}` in the brief if unavoidable |
+| **The name of the scenario's protagonist firm** — the company the student is advising | The case README's references section, with its sources |
+
+**On the protagonist rule.** *Name the market, not the protagonist.* The market stays named,
+quantified, and cited — acreage shares, prices per bag, what a patent does to a demand curve. What
+is withheld is the identity of the firm being advised, and only in the narrative: the references
+section names every party, because a citation that will not name its parties is not a citation. Hold
+one noun consistently ("the seed company"); alternating between "the firm," "the company," and "the
+producer" reads as evasion where one noun reads as convention. A live company name goes stale on a
+slower clock than a week number but in the same way — brands are retired, deals are litigated, and
+the footnote gets longer every year. Rule and rationale:
+`ai-lms/docs/decisions/2026-08-03-case-scenario-anonymization.md`.
 
 ### Register
 
