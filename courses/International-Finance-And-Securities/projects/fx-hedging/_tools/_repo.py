@@ -326,12 +326,81 @@ def _scan_html_for_url(folder: Path) -> str:
     return ""
 
 
+# --- export index.html ----------------------------------------------------
+# Lamaku writes one `index.html` at the export root listing every student, and
+# the submission *comment* — which for this project is where the repo URL
+# actually lives — appears only there. The per-student folders hold just the
+# attached file, so `_scan_html_for_url` (which looks inside a folder) finds
+# nothing for any stage where students paste a link instead of attaching a
+# pointer file. Reading the index is what lets a sweep resolve repos on its own
+# instead of needing a hand-maintained Name=URL list.
+_INDEX_NAME_RE = re.compile(
+    r"<tr[^>]*bgcolor=['\"]?#AAAAAA['\"]?[^>]*>.*?<b>(?P<name>[^<]+)</b>",
+    re.IGNORECASE | re.DOTALL,
+)
+_INDEX_TIME_RE = re.compile(
+    r"Submitted:\s*</b>\s*<br>\s*(?P<month>[A-Za-z]+)\s+(?P<day>\d+),\s*"
+    r"(?P<year>\d{4})\s+(?P<h>\d{1,4})\s*(?P<ampm>AM|PM)",
+    re.IGNORECASE,
+)
+
+
+def _index_display_name(raw: str) -> str:
+    """`Lastname, Firstname` (the index's order) -> natural `Firstname Lastname`."""
+    last, _, first = raw.partition(",")
+    last, first = last.strip(), first.strip()
+    return f"{first} {last}".strip() if first else last
+
+
+@dataclass
+class IndexEntry:
+    name: str
+    github_url: str = ""
+    submitted_at: datetime | None = None
+
+
+def scan_index(root: Path) -> dict[str, IndexEntry]:
+    """Parse the export's root `index.html` -> {normalized name: IndexEntry}.
+
+    Each student is a header row followed by their submission block; the block
+    is scanned for the first GitHub URL and the submitted timestamp. Returns an
+    empty map when there is no index (a hand-assembled export directory).
+    """
+    idx = root / "index.html"
+    if not idx.is_file():
+        return {}
+    try:
+        text = idx.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        return {}
+    out: dict[str, IndexEntry] = {}
+    marks = list(_INDEX_NAME_RE.finditer(text))
+    for i, m in enumerate(marks):
+        block = text[m.end():marks[i + 1].start() if i + 1 < len(marks) else len(text)]
+        name = _index_display_name(m.group("name").strip())
+        if not name:
+            continue
+        url_m = GITHUB_URL_RE.search(block)
+        time_m = _INDEX_TIME_RE.search(block)
+        out[normalize_name(name)] = IndexEntry(
+            name=name,
+            github_url=url_m.group(0) if url_m else "",
+            submitted_at=_parse_folder_time(time_m) if time_m else None,
+        )
+    return out
+
+
 def discover_submissions(export: Path, scratch_suffix: str = "_extracted") -> list[Submission]:
     """Discover per-student submissions from a Lamaku export (zip or dir).
 
     A `.zip` is extracted (zipslip-safe) to a sibling `_{stem}{suffix}` dir.
     Each top-level per-student folder is parsed for id/name/timestamp and
-    scanned for a GitHub URL. Deduped by student id (latest timestamp wins).
+    scanned for a GitHub URL, falling back to the URL the student pasted as
+    their submission comment (recovered from the root `index.html`). A student
+    who submitted *only* a comment has no folder at all, so index entries that
+    carry a repo URL and match no folder are added as folder-less submissions —
+    otherwise they are invisible to every stage and silently go ungraded.
+    Deduped by student id (latest timestamp wins).
     """
     import zipfile
     from _safe_zip import safe_extractall
@@ -346,6 +415,8 @@ def discover_submissions(export: Path, scratch_suffix: str = "_extracted") -> li
     else:
         root = export
 
+    index = scan_index(root)
+
     by_id: dict[str, Submission] = {}
     for child in sorted(root.iterdir()):
         if not child.is_dir() or child.name.startswith("_"):
@@ -353,15 +424,35 @@ def discover_submissions(export: Path, scratch_suffix: str = "_extracted") -> li
         m = FOLDER_NAME_RE.match(child.name)
         if not m:
             continue
+        name = lamaku_display_name(m.group("name").strip())
+        entry = index.get(normalize_name(name))
+        # The folder gives `Lastname Firstname` space-separated, so a two-token
+        # surname is unrecoverable there — `Del Rosario Achilles` flips to
+        # `Rosario Achilles Del`. The index writes `Lastname, Firstname`, whose
+        # comma makes the split unambiguous, so prefer it when present.
+        if entry and entry.name:
+            name = entry.name
         sub = Submission(
             student_id=m.group("sid"),
-            name=lamaku_display_name(m.group("name").strip()),
+            name=name,
             submitted_at=_parse_folder_time(m),
             folder=child,
-            github_url=_scan_html_for_url(child),
+            github_url=_scan_html_for_url(child) or (entry.github_url if entry else ""),
         )
         prev = by_id.get(sub.student_id)
         if (prev is None or sub.submitted_at is None or prev.submitted_at is None
                 or sub.submitted_at > prev.submitted_at):
             by_id[sub.student_id] = sub
+
+    # Comment-only submitters: listed in the index with a repo URL but with no
+    # folder of their own, because they pasted a link and attached nothing.
+    foldered = {normalize_name(s.name) for s in by_id.values()}
+    for key, entry in index.items():
+        if key in foldered or not entry.github_url:
+            continue
+        by_id[f"index:{key}"] = Submission(
+            student_id="", name=entry.name, submitted_at=entry.submitted_at,
+            folder=None, github_url=entry.github_url,
+        )
+
     return sorted(by_id.values(), key=lambda s: normalize_name(s.name))
