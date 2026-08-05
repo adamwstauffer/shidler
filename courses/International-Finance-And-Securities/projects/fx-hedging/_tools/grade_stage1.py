@@ -54,6 +54,18 @@ MEMO_RE = re.compile(r"docs/decisions/[^/]*(?:hedge|framing|memo)[^/]*$", re.IGN
 # a short stub sitting at any of these paths is rejected later by the word-count
 # guard, not by name.
 FALLBACK_RE = re.compile(r"^docs/decisions(?:/[^/]+|\.md)?$", re.IGNORECASE)
+# Last resort: a memo-named markdown file *anywhere* in the repo — a student who
+# filed the memo under `Docs/`, `memos/`, or the repo root has submitted it, and
+# the two patterns above would score that a zero on filing alone, which is the
+# opposite of this section's stated intent. Deliberately last so a canonical memo
+# always wins; `pick_text` drops template stubs and prefers the longest file, and
+# the word-count guard below still rejects a short stub that happens to match.
+ANYWHERE_RE = re.compile(r"(?:^|/)[^/]*(?:hedge|framing|memo)[^/]*\.md$", re.IGNORECASE)
+# ...but never an unfilled template. `strip_templates` only catches the
+# placeholder tokens (`lastname`, `yyyy-mm-dd`); a student who copied
+# `template-decision-memo.md` into their repo verbatim has not submitted a memo,
+# and repo-wide matching would otherwise grade them on the template's own prose.
+TEMPLATE_MEMO_RE = re.compile(r"(?:^|/)_?templates?/|(?:^|/)template[-_]", re.IGNORECASE)
 MEMO_MIN_WORDS = 40  # below this a "memo" is a placeholder/stub, not a submission
 
 # --- text-detection patterns ----------------------------------------------
@@ -237,6 +249,9 @@ def grade(sub: Submission, prior_weak: bool = False) -> StudentReport:
     memo_paths = [p for p in st.tree if MEMO_RE.search(p)]
     if not memo_paths:
         memo_paths = [p for p in st.tree if FALLBACK_RE.search(p)]
+    if not memo_paths:
+        memo_paths = [p for p in st.tree
+                      if ANYWHERE_RE.search(p) and not TEMPLATE_MEMO_RE.search(p)]
 
     if not memo_paths:
         flags.append("NO_MEMO")
