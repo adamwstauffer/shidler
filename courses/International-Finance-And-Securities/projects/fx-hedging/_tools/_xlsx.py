@@ -39,6 +39,14 @@ HEDGE_KEYWORDS = {
 }
 
 FINDING_LINE_RE = re.compile(r"^\s*(?:\d+\.|[-*])\s+\S")
+# A finding written as its own heading (`## Finding 1 — Broken cross-reference`,
+# `### Issue 2: ...`) is at least as substantive as a bullet, but matches none of
+# the list patterns above — counting only bullets scored a well-structured,
+# three-finding note as zero. Headings are counted alongside list items.
+FINDING_HEADING_RE = re.compile(
+    r"^\s{0,3}#{1,6}\s*(?:finding|issue|error|bug|defect|observation|problem)\b",
+    re.IGNORECASE,
+)
 FINDING_VERB_RE = re.compile(
     r"\b(found|fixed|checked|corrected|confirmed|verified|caught|missing|hardcoded|wrong)\b",
     re.IGNORECASE,
@@ -147,6 +155,11 @@ def count_audit_findings(text: str) -> int:
     """Approximate substantive-finding count in a build-audit / validation note."""
     if not text:
         return 0
-    list_items = sum(1 for ln in text.splitlines() if FINDING_LINE_RE.match(ln))
+    lines = text.splitlines()
+    headings = sum(1 for ln in lines if FINDING_HEADING_RE.match(ln))
+    list_items = sum(1 for ln in lines if FINDING_LINE_RE.match(ln))
+    # A heading-structured note ("## Finding 1") and a bullet-structured one are
+    # equally valid; take whichever structure the student actually used.
+    items = max(headings, list_items)
     verbs = len(FINDING_VERB_RE.findall(text))
-    return max(min(list_items, verbs), list_items if verbs else 0)
+    return max(min(items, verbs), items if verbs else 0)

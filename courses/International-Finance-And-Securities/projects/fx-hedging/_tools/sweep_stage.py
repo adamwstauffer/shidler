@@ -108,7 +108,8 @@ def main(argv: list[str] | None = None) -> int:
     for r in reports:
         d = fb_root / _repo.lastname_slug(r.name)
         d.mkdir(parents=True, exist_ok=True)
-        (d / "feedback-file.md").write_text(build_pr_feedback(args.stage, r, today), encoding="utf-8")
+        (d / "feedback-file.md").write_text(
+            build_pr_feedback(args.stage, r, today, floor), encoding="utf-8")
     print(f"Refreshed {len(reports)} PR-feedback files.")
     return 0
 
