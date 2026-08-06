@@ -6,6 +6,26 @@ Everything lives in one Git-tracked repo so students, collaborators, and reviewe
 
 ---
 
+## 📘 Start here: the Kumu tutorial site
+
+**<https://adamwstauffer.github.io/ai-lms/>** — the companion tutorial site for these courses.
+This repo holds the *source materials* (syllabi, stage briefs, templates, grading tools); **Kumu is
+where you actually work through a project**: stage-by-stage tutorials with checklists and
+self-quizzes, hands-on labs, and an AI tutor. Organized by subject, no course codes:
+
+| Subject | Kumu page | Courses |
+|---------|-----------|---------|
+| Getting set up (GitHub + AI, start here) | [Onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html) | all |
+| International Corporate Finance | [Performance ratios](https://adamwstauffer.github.io/ai-lms/international-corporate-finance.html) | BUS 629 |
+| International Finance & Securities | [FX hedging](https://adamwstauffer.github.io/ai-lms/international-finance-and-securities.html) | FIN 321 |
+| International Economics & Trade | [Trade cases](https://adamwstauffer.github.io/ai-lms/international-economics-and-trade.html) | BUS 313 |
+| Micro- & Macro-Economics | [Econ cases](https://adamwstauffer.github.io/ai-lms/micro-and-macro-economics.html) | BUS 620 / DLEMBA |
+
+Each offering's `README.md` under `courses/` signposts its own Kumu pages, point values, and due
+dates — the course README is the schedule, Kumu is the instruction.
+
+---
+
 ## Repository Structure
 
 ```
@@ -13,7 +33,8 @@ shidler/
 ├── BIO.md                          # Instructor biography (single source of truth)
 ├── CV.md                           # Curriculum vitae
 ├── RESUME.md                       # One-page resume
-├── CLAUDE.md                       # AI assistant configuration for this repo
+├── AGENTS.md                       # AI agent instructions for this repo (canonical)
+├── CLAUDE.md                       # One-line pointer to AGENTS.md
 │
 ├── courses/                        # Subject-first directories (see courses/README.md for the code map)
 │   ├── International-Corporate-Finance/    # BUS 314 (archived), BUS 629
@@ -32,8 +53,6 @@ shidler/
 │   ├── writing-style-guide.md
 │   └── reproducibility-playbook.md
 │
-├── _archive/                       # Deprecated/historical materials (incl. bus314/, the archived BUS-314 project)
-├── notes/                          # Personal research notes
 └── scripts/                        # Utility scripts
 ```
 
@@ -114,9 +133,11 @@ The archived BUS-314 project used a 4-stage variant (build-first, prompt merged 
 
 AI use is **optional, not required** for student projects. When used, meaningful interactions should be logged in a prompt log.
 
-This repo includes [Claude Code](https://claude.ai/code) configuration:
+This repo includes AI agent configuration — and models the same convention your portfolio repo
+should follow:
 
-- **`CLAUDE.md`** — Project-level instructions that Claude reads automatically
+- **`AGENTS.md`** — The canonical agent-instructions file, read by Claude Code, Codex, and other tools
+- **`CLAUDE.md`** — A one-line pointer to `AGENTS.md` (kept for tools that look for it by name)
 - **`.claude/skills/`** — Custom skills that extend Claude's capabilities: `brand-guidelines`, `accounting-ratios`, `docx`, `xlsx`, `pptx`, `pdf`, `internal-comms`, `skill-creator`
 - Skills activate via `/commands` (e.g., `/pptx`, `/brand-guidelines`) and require no separate installation — clone the repo and they're ready
 
@@ -128,7 +149,7 @@ See **`docs/presentations/Claude_Appendix.pptx`** for a complete walkthrough.
 
 1. **Navigate to your course**: Look up your course code in [`courses/README.md`](courses/README.md), then open your offering's subfolder (e.g., `courses/International-Corporate-Finance/BUS-629-VEMBA/`)
 2. **Read the syllabus**: Each offering has a `README.md` with objectives, grading, and policies
-3. **Work on deliverables**: Follow the staged assignment files in the subject's `projects/` folder
+3. **Work on deliverables**: Follow the staged assignment files in the subject's `projects/` folder, alongside the matching stage tutorials on [Kumu](https://adamwstauffer.github.io/ai-lms/)
 4. **Commit your work**: `git add . && git commit -m "Stage 1 memo" && git push`
 
 For a visual walkthrough, see **`docs/presentations/GitHub_AI_Appendix.pptx`**.
