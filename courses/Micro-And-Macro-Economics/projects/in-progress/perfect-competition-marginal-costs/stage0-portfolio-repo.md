@@ -56,7 +56,7 @@ Read before starting:
 
 The repository is organized by **capability** and **engagement**, never by course. A folder named
 for a class stops meaning anything the moment the class ends, and a reader who opens
-`week3/final_v2.xlsx` learns nothing about what you can do. `skills/marginal-analysis/` names a
+`week3/final_v2.xlsx` learns nothing about what you can do. `capabilities/marginal-analysis/` names a
 capability; `docs/`, `data/`, and `analysis/` hold the work that proves you exercised it.
 
 Two consequences worth knowing before you start rather than after:

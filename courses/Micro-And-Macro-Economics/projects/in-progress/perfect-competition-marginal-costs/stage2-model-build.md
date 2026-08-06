@@ -5,13 +5,13 @@ stage: 2
 title: "Spec, Build, Audit"
 capability: marginal-analysis
 deliverables:
-  - path: skills/marginal-analysis/spec.md
+  - path: capabilities/marginal-analysis/spec.md
     format: markdown
     ai_boundary: human-first
-  - path: skills/marginal-analysis/model.xlsx
+  - path: capabilities/marginal-analysis/model.xlsx
     format: xlsx
     ai_boundary: ai-first-verified
-  - path: skills/marginal-analysis/README.md
+  - path: capabilities/marginal-analysis/README.md
     format: markdown
     ai_boundary: human-first
 prerequisites: [1]
@@ -21,7 +21,7 @@ estimated_time: "3-4 hrs"
 
 # Case 1 · Stage 2 — Spec, Build, Audit
 
-**Deliverable:** `skills/marginal-analysis/spec.md`, `model.xlsx`, and `README.md`
+**Deliverable:** `capabilities/marginal-analysis/spec.md`, `model.xlsx`, and `README.md`
 **Submission:** committed and pushed to your public repository; graded by inspection
 **Estimated time:** 3–4 hours
 
@@ -57,9 +57,9 @@ Read before starting:
 
 | Artifact | Path | Format |
 |---|---|---|
-| The specification, written first, with the audit findings added at the end | `skills/marginal-analysis/spec.md` | markdown |
-| The workbook that satisfies it | `skills/marginal-analysis/model.xlsx` | xlsx |
-| What the capability is, and where it was exercised | `skills/marginal-analysis/README.md` | markdown |
+| The specification, written first, with the audit findings added at the end | `capabilities/marginal-analysis/spec.md` | markdown |
+| The workbook that satisfies it | `capabilities/marginal-analysis/model.xlsx` | xlsx |
+| What the capability is, and where it was exercised | `capabilities/marginal-analysis/README.md` | markdown |
 
 ## 4. Background
 
@@ -122,7 +122,7 @@ them with broken formulas fails inspection just as surely as one that misses the
 
 ### Specify
 
-1. **Write `skills/marginal-analysis/spec.md` before opening Excel.** Half a page to a page, covering
+1. **Write `capabilities/marginal-analysis/spec.md` before opening Excel.** Half a page to a page, covering
    five things:
    - **Inputs, as a named contract.** Every input with a name, its value, its unit, and its source in
      the case README. You choose the names; the requirement is that they exist and are used
@@ -187,7 +187,7 @@ them with broken formulas fails inspection just as surely as one that misses the
    work.
    *Confirm:* the observation is recorded somewhere you will find it again.
 
-9. **Write `skills/marginal-analysis/README.md`** — three or four lines. What the capability is, and
+9. **Write `capabilities/marginal-analysis/README.md`** — three or four lines. What the capability is, and
    an "exercised in:" line pointing at this engagement's brief, and after Stage 3 its analysis and
    memo.
    *Confirm:* the links resolve on github.com.
@@ -201,9 +201,9 @@ them with broken formulas fails inspection just as surely as one that misses the
 
 | Artifact | Draft order |
 |---|---|
-| `skills/marginal-analysis/spec.md` | Human-first |
-| `skills/marginal-analysis/model.xlsx` | AI-first, verified |
-| `skills/marginal-analysis/README.md` | Human-first |
+| `capabilities/marginal-analysis/spec.md` | Human-first |
+| `capabilities/marginal-analysis/model.xlsx` | AI-first, verified |
+| `capabilities/marginal-analysis/README.md` | Human-first |
 
 **If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
 a means to the work rather than the work itself, AI may draft it and you verify.** The two working
@@ -225,7 +225,7 @@ session is exactly what belongs in it.
 - [ ] Calculation logic written in named-range notation, no cell addresses
 - [ ] Validation rules stated as acceptance criteria, including the published check figures
 - [ ] Any clarification given verbally during generation now lives in the committed spec
-- [ ] `model.xlsx` committed to `skills/marginal-analysis/`
+- [ ] `model.xlsx` committed to `capabilities/marginal-analysis/`
 - [ ] Labor function verified by hand at `q = 1`
 - [ ] At least one intermediate value cross-checked against the Farm Profit Lab
 - [ ] Solver run from two starting points (0/0/0 and 20/0/0), path-dependence noted

@@ -40,7 +40,7 @@ whether that price is worth paying. The memo turns the position into advice some
 ## 2. Prerequisites
 
 - Stage 1: `docs/briefs/imperfect-competition-brief.md` — the hypothesis you are now testing.
-- Stage 1: `skills/pricing-power/model.xlsx` — the evidence source. Every number you cite comes from it.
+- Stage 1: `capabilities/pricing-power/model.xlsx` — the evidence source. Every number you cite comes from it.
 
 Read before starting:
 
@@ -119,7 +119,7 @@ negotiated merger divestiture in U.S. history. Either side is defensible. A fenc
    *Confirm:* the verification is concrete. "The AI was great and made no mistakes" reads as not
    having looked.
 
-7. **Update `skills/pricing-power/README.md`** so its "exercised in:" line points at the analysis and
+7. **Update `capabilities/pricing-power/README.md`** so its "exercised in:" line points at the analysis and
    the memo as well as the brief.
 
 8. **Commit at least twice** with descriptive messages.
@@ -157,7 +157,7 @@ your workbook writes about the textbook instead of your numbers.
 - [ ] Memo written: recommendation, reasoning, the judgment call, what would change your answer
 - [ ] `prompt-log.md` updated across both stages, with a reflection of 300 words or fewer
 - [ ] The reflection names a concrete AI error caught, or the checks that cleared it
-- [ ] `skills/pricing-power/README.md` "exercised in:" line updated
+- [ ] `capabilities/pricing-power/README.md` "exercised in:" line updated
 - [ ] At least two descriptive commits for this stage
 
 ## 8. Rubric (12 pts)
