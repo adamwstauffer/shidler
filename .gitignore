@@ -85,13 +85,17 @@ docs/emails/
 docs/breakpoints/*
 !docs/breakpoints/README.md
 
-# Rosters, attendance, approved-access lists — student PII, never public
-/rosters/**
-!/rosters/README.md
+# Rosters, attendance, approved-access lists — student PII, never public.
+# Fully local: no README whitelist, the directory should not appear on GitHub at all.
+/rosters/
 
-# Recommendation letters, resumes, applicant correspondence — student PII, never public
-/recommendations/**
-!/recommendations/README.md
+# Recommendation letters, resumes, applicant correspondence — student PII, never public.
+# Fully local: no README whitelist, the directory should not appear on GitHub at all.
+/recommendations/
+
+# Deprecated/historical materials — local-only since 2026-08-06 (untracked to declutter the
+# public tree; pre-removal contents remain in git history)
+/_archive/
 
 # Claude Code agent worktrees — harness state (a full nested checkout), never committed
 .claude/worktrees/
