@@ -21,6 +21,7 @@ import subprocess
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import quote
 
 INSTRUCTOR_GITHUB_HANDLE = "adamwstauffer"
 
@@ -28,15 +29,16 @@ INSTRUCTOR_GITHUB_HANDLE = "adamwstauffer"
 _SAFE_OWNER_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")
 _SAFE_REPO_RE = re.compile(r"^[A-Za-z0-9._-]{1,100}$")
 _SAFE_BRANCH_RE = re.compile(r"^[A-Za-z0-9._/-]{1,255}$")
-# Students commit real deliverables under names GitHub allows but a tight
-# allowlist doesn't — unfilled template braces (`{Badua}-{scenario-slug}`),
-# colons from a flattened path (`docs:decisions:…`), parentheses, commas. A
-# rejected path made download_bytes return None *without any request*, so the
-# deliverable read as empty and the stage scored it a non-submission. Since the
-# path is passed to `gh` as a single argv element there is no shell to inject
-# into; the property that actually matters is no traversal and no control
-# characters, which is what this enforces.
-_SAFE_PATH_RE = re.compile(r"^(?!.*(?:^|/)\.\.(?:/|$))[^\x00-\x1f\\]{1,300}$")
+# Repo paths are deliberately permissive: GitHub accepts almost any character in
+# a filename, and students routinely commit memos with `:`, `{}`, or parentheses
+# in the name (a mangled `docs:decisions:…md`, an unreplaced `{scenario-slug}`).
+# The old `[A-Za-z0-9 ._/-]` allow-list rejected those, so `download_text`
+# returned None and a real, substantive submission scored a silent 0. `gh` is
+# invoked with an argv list (never a shell), so the only things that actually
+# need excluding are control characters, backslashes, and a leading `-` (which
+# `gh` would parse as a flag). The path is percent-encoded in `_contents_ref`
+# before it reaches the API, which handles `#`, `?`, and `%` safely.
+_SAFE_PATH_RE = re.compile(r"^(?!-)[^\x00-\x1f\\]{1,300}$")
 _SAFE_HANDLE_RE = re.compile(r"^[A-Za-z0-9-]{1,39}$")
 
 GITHUB_URL_RE = re.compile(
@@ -210,13 +212,23 @@ def _check_collaborator(owner: str, repo: str, handle: str) -> bool:
     return data.get("permission") in ("write", "admin", "maintain")
 
 
+def _contents_ref(owner: str, repo: str, path: str) -> str:
+    """Build the `contents` API endpoint with the path percent-encoded.
+
+    Path separators stay literal; everything else (spaces, `#`, `?`, `%`, `:`)
+    is escaped so an unusual-but-legal filename resolves instead of silently
+    404-ing partway through the path.
+    """
+    return f"repos/{owner}/{repo}/contents/{quote(path, safe='/')}"
+
+
 def download_bytes(owner: str, repo: str, path: str, branch: str) -> bytes | None:
     """Fetch a file blob from the repo; None on failure. Handles base64."""
     if not (_SAFE_OWNER_RE.match(owner) and _SAFE_REPO_RE.match(repo)
             and _SAFE_PATH_RE.match(path) and _SAFE_BRANCH_RE.match(branch)):
         return None
     data = _gh_json(
-        "api", f"repos/{owner}/{repo}/contents/{path}", "-X", "GET", "-f", f"ref={branch}",
+        "api", _contents_ref(owner, repo, path), "-X", "GET", "-f", f"ref={branch}",
     )
     if not isinstance(data, dict) or data.get("encoding") != "base64":
         return None
