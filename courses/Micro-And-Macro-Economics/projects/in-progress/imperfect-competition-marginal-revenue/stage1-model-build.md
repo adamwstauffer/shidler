@@ -8,13 +8,13 @@ deliverables:
   - path: docs/briefs/imperfect-competition-brief.md
     format: markdown
     ai_boundary: human-first
-  - path: skills/pricing-power/spec.md
+  - path: capabilities/pricing-power/spec.md
     format: markdown
     ai_boundary: human-first
-  - path: skills/pricing-power/model.xlsx
+  - path: capabilities/pricing-power/model.xlsx
     format: xlsx
     ai_boundary: ai-first-verified
-  - path: skills/pricing-power/README.md
+  - path: capabilities/pricing-power/README.md
     format: markdown
     ai_boundary: human-first
 prerequisites: []
@@ -24,7 +24,7 @@ estimated_time: "3-4 hrs"
 
 # Case 2 · Stage 1 — Brief, Spec, Build, Audit
 
-**Deliverable:** the engagement brief, then `skills/pricing-power/spec.md`, `model.xlsx`, and `README.md`
+**Deliverable:** the engagement brief, then `capabilities/pricing-power/spec.md`, `model.xlsx`, and `README.md`
 **Submission:** committed and pushed to your public repository; graded by inspection
 **Estimated time:** 3–4 hours
 
@@ -39,7 +39,7 @@ workbook an AI builds from it, and your audit of what came back. What the number
 ## 2. Prerequisites
 
 Your portfolio repository already exists — it was stood up in Case 1, and this engagement adds to it
-rather than restarting it. The capability folder is new: `skills/pricing-power/`.
+rather than restarting it. The capability folder is new: `capabilities/pricing-power/`.
 
 Read before starting:
 
@@ -53,9 +53,9 @@ Read before starting:
 | Artifact | Path | Format |
 |---|---|---|
 | The engagement brief, with a hypothesis committed before any modeling | `docs/briefs/imperfect-competition-brief.md` | markdown |
-| The specification, written before the workbook exists, with audit findings appended | `skills/pricing-power/spec.md` | markdown |
-| The workbook that satisfies it | `skills/pricing-power/model.xlsx` | xlsx |
-| What the capability is, and where it was exercised | `skills/pricing-power/README.md` | markdown |
+| The specification, written before the workbook exists, with audit findings appended | `capabilities/pricing-power/spec.md` | markdown |
+| The workbook that satisfies it | `capabilities/pricing-power/model.xlsx` | xlsx |
+| What the capability is, and where it was exercised | `capabilities/pricing-power/README.md` | markdown |
 
 ## 4. Background
 
@@ -110,7 +110,7 @@ answer you are graded on.
 
 ### Specify
 
-2. **Write `skills/pricing-power/spec.md`** before opening Excel: named inputs with units and
+2. **Write `capabilities/pricing-power/spec.md`** before opening Excel: named inputs with units and
    sources, structure, calculation logic in named-range notation, validation rules including the
    check figures above, and outputs. Both markets, side by side.
    *Confirm:* the spec defines demand and marginal revenue as separate series, states variable cost
@@ -147,7 +147,7 @@ answer you are graded on.
    before you trust the number.
    *Confirm:* you can point at the triangle your model is measuring.
 
-7. **Write `skills/pricing-power/README.md`** — what the capability is, plus an "exercised in:" line
+7. **Write `capabilities/pricing-power/README.md`** — what the capability is, plus an "exercised in:" line
    pointing at this engagement's brief, and after Stage 2 its analysis and memo.
 
 8. **Commit at least twice** with descriptive messages.
@@ -157,9 +157,9 @@ answer you are graded on.
 | Artifact | Draft order |
 |---|---|
 | `docs/briefs/imperfect-competition-brief.md` | Human-first |
-| `skills/pricing-power/spec.md` | Human-first |
-| `skills/pricing-power/model.xlsx` | AI-first, verified |
-| `skills/pricing-power/README.md` | Human-first |
+| `capabilities/pricing-power/spec.md` | Human-first |
+| `capabilities/pricing-power/model.xlsx` | AI-first, verified |
+| `capabilities/pricing-power/README.md` | Human-first |
 
 **If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
 a means to the work rather than the work itself, AI may draft it and you verify.** The two working

@@ -50,7 +50,7 @@ One shared repository, named for the **team** — a professional team name, the 
 account, with **every team member plus `adamwstauffer` added as collaborators**.
 
 It uses the same hierarchy as your personal portfolio repo: the question in `docs/briefs/`, the
-capability work in `skills/`, evidence in `analysis/`, the recommendation carried by the deck.
+capability work in `capabilities/`, evidence in `analysis/`, the recommendation carried by the deck.
 Nothing new to learn about structure — that is the point of having used it three times.
 
 Each member links the team repository from their **personal repository's engagement index**, so a

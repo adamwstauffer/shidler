@@ -40,7 +40,7 @@ committed.
 ## 2. Prerequisites
 
 - Stage 1: `docs/briefs/perfect-competition-brief.md` — the hypothesis you are now testing.
-- Stage 2: `skills/marginal-analysis/model.xlsx` — the evidence source. Every number you cite comes
+- Stage 2: `capabilities/marginal-analysis/model.xlsx` — the evidence source. Every number you cite comes
   from it.
 
 Read before starting:
@@ -122,7 +122,7 @@ crop — is what turns a loss into $42,762. This is the short-run shutdown rule 
    formula against the labor function at `q = 1` and it had dropped the exponent" is. If AI genuinely
    made no error you could catch, document the checks that convinced you.
 
-7. **Update `skills/marginal-analysis/README.md`** so its "exercised in:" line points at the analysis
+7. **Update `capabilities/marginal-analysis/README.md`** so its "exercised in:" line points at the analysis
    and the memo as well as the brief.
    *Confirm:* the capability now links to all of its evidence.
 
@@ -160,7 +160,7 @@ textbook rather than *your workbook's* numbers.
 - [ ] Memo written: the plan, the judgment call, and what would change your answer
 - [ ] Prompt log updated with curated sessions and a reflection of 300 words or fewer
 - [ ] Reflection names something concrete you verified, and how
-- [ ] `skills/marginal-analysis/README.md` "exercised in:" line updated
+- [ ] `capabilities/marginal-analysis/README.md` "exercised in:" line updated
 - [ ] At least two descriptive commits for this stage
 
 ## 8. Rubric (9 pts)
