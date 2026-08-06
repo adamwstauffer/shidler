@@ -44,7 +44,7 @@ Both markets share: **fixed costs $130M**, cost structure **TVC = a·Q + b·Q² 
 | # | Artifact | Contents | Pts |
 |---|---|---|---|
 | 1 | `docs/briefs/imperfect-competition-brief.md` | The two-market setup in your own words + hypothesis: "I expect the GMO price and profit to be X because Y" — committed before any spec or model work | — |
-| 2 | `skills/pricing-power/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs, both markets' calculation logic in named-range notation, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec | 8 |
+| 2 | `capabilities/pricing-power/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs, both markets' calculation logic in named-range notation, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec | 8 |
 | 3 | `analysis/imperfect-competition-analysis.md` + `analysis/figures/` | Perfect vs imperfect compared: why MR < P, why P\* comes off demand, markup/Lerner, the DWL number and what it means, and a defended position on the patent tradeoff | 6 |
 | 3b | `docs/decisions/imperfect-competition-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
 | 4 | `prompt-log.md` (repo root) + reflection | AI sessions logged across both stages; reflection covers an AI error you caught | 3 |

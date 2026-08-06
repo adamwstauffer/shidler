@@ -39,7 +39,7 @@ Then it recommends something to somebody who has to act.
 ## 2. Prerequisites
 
 - Stage 1: `docs/briefs/economic-profit-brief.md` — the hypothesis you are now testing.
-- Stage 1: `skills/economic-profit/model.xlsx` — the evidence source, including your documented
+- Stage 1: `capabilities/economic-profit/model.xlsx` — the evidence source, including your documented
   sensitivity run.
 
 Read before starting:
@@ -121,7 +121,7 @@ miniature. Same moat → rent → entry logic, a different legal wrapper.
    for a model to stumble.
    *Confirm:* the verification is concrete.
 
-7. **Update `skills/economic-profit/README.md`** so its "exercised in:" line points at the analysis
+7. **Update `capabilities/economic-profit/README.md`** so its "exercised in:" line points at the analysis
    and the memo as well as the brief.
 
 8. **Commit at least twice** with descriptive messages.
@@ -160,7 +160,7 @@ weakest claim — that is the use that improves the work.
 - [ ] Memo written: recommendation, reasoning, the judgment call, what would change your answer
 - [ ] `prompt-log.md` updated across both stages, with a reflection of 300 words or fewer
 - [ ] The reflection names a concrete AI error caught, or the checks that cleared it
-- [ ] `skills/economic-profit/README.md` "exercised in:" line updated
+- [ ] `capabilities/economic-profit/README.md` "exercised in:" line updated
 - [ ] At least two descriptive commits for this stage
 
 ## 8. Rubric (12 pts)

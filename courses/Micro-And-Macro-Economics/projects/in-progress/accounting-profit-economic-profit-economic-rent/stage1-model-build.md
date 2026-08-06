@@ -8,13 +8,13 @@ deliverables:
   - path: docs/briefs/economic-profit-brief.md
     format: markdown
     ai_boundary: human-first
-  - path: skills/economic-profit/spec.md
+  - path: capabilities/economic-profit/spec.md
     format: markdown
     ai_boundary: human-first
-  - path: skills/economic-profit/model.xlsx
+  - path: capabilities/economic-profit/model.xlsx
     format: xlsx
     ai_boundary: ai-first-verified
-  - path: skills/economic-profit/README.md
+  - path: capabilities/economic-profit/README.md
     format: markdown
     ai_boundary: human-first
 prerequisites: []
@@ -24,7 +24,7 @@ estimated_time: "3-4 hrs"
 
 # Case 3 · Stage 1 — Brief, Spec, Build, Audit
 
-**Deliverable:** the engagement brief, then `skills/economic-profit/spec.md`, `model.xlsx`, and `README.md`
+**Deliverable:** the engagement brief, then `capabilities/economic-profit/spec.md`, `model.xlsx`, and `README.md`
 **Submission:** committed and pushed to your public repository; graded by inspection
 **Estimated time:** 3–4 hours
 
@@ -40,7 +40,7 @@ verdicts *mean*, and where the money actually went, is Stage 2.
 ## 2. Prerequisites
 
 Your portfolio repository already exists. This engagement adds one capability folder:
-`skills/economic-profit/`.
+`capabilities/economic-profit/`.
 
 Read before starting:
 
@@ -54,9 +54,9 @@ Read before starting:
 | Artifact | Path | Format |
 |---|---|---|
 | The engagement brief, with a hypothesis committed before any modeling | `docs/briefs/economic-profit-brief.md` | markdown |
-| The specification, written before the workbook exists, with audit findings appended | `skills/economic-profit/spec.md` | markdown |
-| The workbook that satisfies it | `skills/economic-profit/model.xlsx` | xlsx |
-| What the capability is, and where it was exercised | `skills/economic-profit/README.md` | markdown |
+| The specification, written before the workbook exists, with audit findings appended | `capabilities/economic-profit/spec.md` | markdown |
+| The workbook that satisfies it | `capabilities/economic-profit/model.xlsx` | xlsx |
+| What the capability is, and where it was exercised | `capabilities/economic-profit/README.md` | markdown |
 
 ## 4. Background
 
@@ -120,7 +120,7 @@ answer you are graded on.
 
 ### Specify
 
-2. **Write `skills/economic-profit/spec.md`** before opening Excel: named inputs with units and
+2. **Write `capabilities/economic-profit/spec.md`** before opening Excel: named inputs with units and
    sources, structure for both sheets, calculation logic in named-range notation, validation rules,
    and outputs.
    *Confirm:* the spec states the net-to-net rule, the scale-matching rule, days-per-month as an
@@ -155,7 +155,7 @@ answer you are graded on.
    *Confirm:* the numbers moved, which means the input is genuinely wired through rather than
    duplicated as a constant somewhere.
 
-7. **Write `skills/economic-profit/README.md`** — what the capability is, plus an "exercised in:" line
+7. **Write `capabilities/economic-profit/README.md`** — what the capability is, plus an "exercised in:" line
    pointing at this engagement's brief, and after Stage 2 its analysis and memo.
 
 8. **Commit at least twice** with descriptive messages.
@@ -165,9 +165,9 @@ answer you are graded on.
 | Artifact | Draft order |
 |---|---|
 | `docs/briefs/economic-profit-brief.md` | Human-first |
-| `skills/economic-profit/spec.md` | Human-first |
-| `skills/economic-profit/model.xlsx` | AI-first, verified |
-| `skills/economic-profit/README.md` | Human-first |
+| `capabilities/economic-profit/spec.md` | Human-first |
+| `capabilities/economic-profit/model.xlsx` | AI-first, verified |
+| `capabilities/economic-profit/README.md` | Human-first |
 
 **If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
 a means to the work rather than the work itself, AI may draft it and you verify.** The two working

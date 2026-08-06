@@ -94,7 +94,7 @@ case adds a capability folder plus its evidence:
 | Stage | Deliverable path in the student repo |
 |---|---|
 | 1 — Brief | `docs/briefs/<case-slug>-brief.md` (+ Case 1 only: repo skeleton, `AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`, collaborator `adamwstauffer`) |
-| 2 — Build | `skills/<capability>/spec.md` + `skills/<capability>/model.xlsx` + skill `README.md` |
+| 2 — Build | `capabilities/<capability>/spec.md` + `capabilities/<capability>/model.xlsx` + capability `README.md` |
 | 3 — Report | `analysis/<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/<case-slug>-memo.md` + prompt-log update |
 
 Check figures are published so students can self-verify before submitting. The three cases trace one
