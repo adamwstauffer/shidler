@@ -1,201 +1,238 @@
 # BUS 620: Micro- and Macro-Economic Foundations for Managers
 
-**Shidler College of Business, University of Hawaiʻi at Mānoa**
+**Shidler College of Business, University of Hawaiʻi at Mānoa — Fall 2026**
 
 **Course tutorials:** [Micro & Macro Economics on Kumu](https://adamwstauffer.github.io/ai-lms/micro-and-macro-economics.html) — the stage-by-stage tutorials, labs, and reference pages this course's projects assume. Kumu is organized by subject and carries no course codes; this README is the signpost from the code to the material.
 
-## Course Overview
+> **This README is the syllabus.** Updated 2026-08-14 for the Fall 2026 launch.
 
-This MBA-level course provides a comprehensive exploration of microeconomic and macroeconomic theories and their application to real-world business and policy challenges. Emphasis is placed on the intersection of economics, geopolitics, and global stability.
+**Instructor:** Adam W. Stauffer
+**Email:** adamstau@hawaii.edu (Please begin subject lines with "BUS 620")
+**Office:** BUSAD A408
+**Office Hours:** By appointment (schedule via email)
+**Email** is the primary communication channel.
+**Lamaku** should be checked regularly (especially the day before class).
 
-## Instructor
-
-**Adam W. Stauffer** | [adamstau@hawaii.edu](mailto:adamstau@hawaii.edu)
-
-Please begin email subject lines with **BUS 620**. For more information about the instructor, see [BIO.md](../../../BIO.md).
 
 ---
 
-## Learning Objectives
+## Class Time & Location
+Tuesday, 6:00 – 8:45 PM — **BUSAD D201**
 
-### Foundational Principles
+Instruction runs **August 24 – December 10, 2026**; finals week is December 14–18.
 
-* Elasticity, market structures, efficiency, externalities, and strategic behavior
+---
 
-### Global Environment
+## Textbook & Course Materials
+Frank, Bernanke, Antonovics, & Heffetz, *Principles of Economics: A Streamlined Approach*, 4th ed. (McGraw-Hill Education, 2019).
 
-* Interconnectedness of economies, trade, fiscal/monetary policy, and financial markets
+* Slides and announcements will be posted on **Lamaku**.
+* Case materials, stage briefs, templates, and check figures are published on the course tutorial site (Kumu): [Micro & Macro Economics](https://adamwstauffer.github.io/ai-lms/micro-and-macro-economics.html).
+* **AI:** A **paid Claude plan is preferred** for this course — the case work assumes sustained access to a current frontier model, and free tiers throttle exactly when you are mid-build. Other assistants are permitted; the workflow is the same either way.
 
-### Geopolitics
+---
 
-* How climate change, conflict, and resource control affect economic stability
+## How this course runs — read this before the schedule
+**The reading covers the material. The lecture poses the puzzle.**
 
-### Managerial Application
+Most economics courses teach a tool and then show you an example. This one runs the other way. Each
+session opens with a question the room cannot yet answer, you commit to a prediction in writing, and
+then the machinery arrives *because the question needs it*. The chapter fills in the rest at reading
+pace.
 
-* Team-based projects and case studies that apply economic reasoning to real business decisions
+Two consequences worth understanding on day one:
 
-### Global Peace & Stability
+* **A concept may arrive before its chapter.** Elasticity shows up in Session 1 because Session 1's
+  question cannot be answered without it. The textbook covers it in Chapter 3. That is deliberate:
+  the question pulls the concept forward, and the reading backfills it.
+* **The appendix is not the material we ran out of time for.** It is the material the week's puzzle
+  did not need. **It is still examinable.**
 
-* Explore how interdependence, trade, and cooperation can mitigate or exacerbate international conflict
+**The running case is live and unfinished.** Since 28 February 2026 the Strait of Hormuz — roughly a
+fifth of the world's seaborne crude — has been closed. Oil nearly doubled, then gave all of it back
+while the blockage stayed in place. Nobody knows how it ends, including the people trading it. Every
+session opens with **the beat**: what happened since we last met, and what it means. You will be
+asked to pull the price series yourself.
+
+**What you should expect from this:** you will be wrong in public, on purpose, early and often. That
+is the method. The gap between what a model says and what happens is where the interesting work is,
+and you cannot see that gap without first committing to the model's answer.
+
+**The course has a shape, and it is deliberate: small work first, large work second.** The three
+graded cases all run in the front half. Each is bounded — a spec, a check figure, a deadline about
+two weeks out — and each is the method **on rails**. They finish by late October. The back half
+carries the research paper and the team presentation: the same method **without rails**, on questions
+you chose. **The front half teaches you the moves. The back half is where nobody tells you which one
+to use.**
+
+---
+
+## Course Description, Objectives & Skills Gained
+This MBA-level course provides a comprehensive exploration of microeconomic and macroeconomic theories and their application to real-world business and policy challenges. Emphasis is placed on the **intersection of economics, geopolitics, and global stability**.
+
+**Key learning goals:**
+
+* **Foundational Principles:** Elasticity, market structures, efficiency, externalities, and strategic behavior.
+* **Global Environment:** Interconnectedness of economies, trade, fiscal/monetary policy, and financial markets.
+* **Geopolitics:** How climate change, conflict, and resource control affect economic stability.
+* **Managerial Application:** Team-based projects and case studies that apply economic reasoning to real business decisions.
+* **Global Peace & Stability:** Explore how interdependence, trade, and cooperation can mitigate or exacerbate international conflict.
+* **Forecast literacy:** Tell the difference between a forecast that is *directionally right* and one that is *useful* — and know which quantity a model is actually answering to. This is the skill the running case is built to teach.
 
 By the end of the course, you will be able to integrate economic frameworks with geopolitical awareness to support effective managerial decision-making.
 
----
+Through the AI + GitHub work, you will also gain **practical, workplace-ready skills** that can be highlighted on a resume:
 
-## Course Outline
+* **AI Literacy & Prompt Engineering:** Ability to design effective AI prompts for research, analysis, drafting, and critique, while evaluating limitations and biases.
+* **Reproducible Research Practices:** Experience maintaining transparent **AI Prompt Logs**, ensuring accountability and reproducibility in analysis.
+* **GitHub Collaboration & Version Control:** Proficiency with GitHub for project management, version control, and collaborative workflows (branching, pull requests, peer review).
+* **Data Analysis & Visualization:** Use of AI and economic models to generate tables, figures, and scenario analyses.
+* **Professional Report Writing:** Production of structured policy memos, case briefs, or risk management reports that integrate quantitative analysis with narrative clarity.
 
-The course opens with economic fundamentals (thinking like an economist, supply and demand). It progresses through microeconomic foundations (market structures, efficiency, strategic behavior, and externalities) while integrating geopolitical case studies. The latter half covers macroeconomics (national accounting, growth, labor markets, monetary and fiscal policy) with emphasis on how economic policies affect global stability, international trade, and resource conflicts. Throughout, case studies and team projects ground theory in real-world business and policy challenges.
-
----
-
-## Skills Gained
-
-Through the AI + GitHub project, you will also develop practical, workplace-ready skills:
-
-* **AI Literacy & Prompt Engineering:** Design effective AI prompts for research, analysis, drafting, and critique, while evaluating limitations and biases
-* **Reproducible Research Practices:** Maintain transparent AI Prompt Logs, ensuring accountability and reproducibility in analysis
-* **GitHub Collaboration & Version Control:** Proficiency with GitHub for project management, version control, and collaborative workflows (branching, pull requests, peer review)
-* **Data Analysis & Visualization:** Use AI and economic/finance models to generate tables, figures, and scenario analyses
-* **Professional Report Writing:** Produce structured policy memos, case briefs, or risk management reports that integrate quantitative analysis with narrative clarity
+**Resume/LinkedIn Keywords:** AI-assisted analysis · Prompt engineering · GitHub workflow · Reproducible research
 
 ---
 
-## Grading (Fall 2026)
+## About the Instructor
+Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania, and was a CFA charterholder (2004–2011). He served as Chief Investment Officer at Springline Capital (BVI) and founded Greenshoot.org, a disaster relief technology firm. He also worked as a trader and market-maker at Barclays Capital and Lehman Brothers in New York, overseeing all U.S.-listed ETFs. Earlier in his career, he was a Marketing Manager at Advent Software specializing in hedge funds and offshore administrators.
 
-> **Status:** restructured 2026-07-31 for the Fall 2026 launch — three graded case-study projects
-> added, project weights rebalanced. Revised 2026-08-02: the individual 30% is a **geopolitical
-> research paper**, not the Policy Shock Analysis (deferred), and all case artifacts move to the
-> portfolio-repo standard. Case 1 materials are released; Cases 2-3 remain Kumu-improved drafts
-> pending instructor sign-off before release to students.
+---
 
+## Grading
 | Component | Weight |
-|-----------|--------|
+| ----- | ----- |
 | Attendance & Participation | 10% |
-| Case 1 — Perfect Competition: Decision Analysis (weeks 1–2) | 10% |
-| Case 2 — Imperfect Competition: Pricing Power Analysis (weeks 3–4) | 10% |
-| Case 3 — Economic Profit & Rent: Earnings Analysis (weeks 5–6) | 10% |
+| Case 1 — Perfect Competition: Decision Analysis | 10% |
+| Case 2 — Imperfect Competition: Pricing Power Analysis | 10% |
+| Case 3 — Economic Profit & Rent: Earnings Analysis | 10% |
 | Individual Project — Geopolitical Research Paper | 30% |
 | Team Case Study Presentation | 30% |
 | **Total** | **100%** |
 
-### Attendance & Participation (10%)
-
-Essential for maximizing learning outcomes. Each case opens with an in-class working session —
-showing up and committing is participating.
-
-### Case-Study Projects (3 × 10%)
-
-Three 2-week Excel + AI engagements, each worth 20 points split across 2–3 graded stages. One
-**personal public GitHub portfolio repo**, created in Case 1's Stage 0, accretes all term. It is
-structured by **capability** and **engagement**, not by course — the full standard is in
-`ai-lms/docs/decisions/2026-08-02-website-simplification-and-portfolio-repo-standard.md` § 6. Each
-case adds a capability folder plus its evidence:
-
-| Stage | Deliverable path in the student repo |
-|---|---|
-| 1 — Brief | `docs/briefs/<case-slug>-brief.md` (+ Case 1 only: repo skeleton, `AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`, collaborator `adamwstauffer`) |
-| 2 — Build | `capabilities/<capability>/spec.md` + `capabilities/<capability>/model.xlsx` + capability `README.md` |
-| 3 — Report | `analysis/<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/<case-slug>-memo.md` + prompt-log update |
-
-Check figures are published so students can self-verify before submitting. The three cases trace one
-arc — competition → market power → where the profits hide:
-
-1. **Perfect Competition — Decision Analysis** (market-garden scenario): P = MC, Excel Solver.
-   Capability `marginal-analysis`, engagement `perfect-competition`
-   ([case + stage briefs](../projects/in-progress/perfect-competition-marginal-costs/))
-2. **Imperfect Competition — Pricing Power Analysis** (GMO seed market scenario): monopoly,
-   MR = MC, Lerner, deadweight loss. Capability `pricing-power`, engagement `imperfect-competition`
-   ([case + stage briefs](../projects/in-progress/imperfect-competition-marginal-revenue/))
-3. **Economic Profit & Rent — Earnings Analysis** (ride-share scenario): accounting vs economic
-   profit, economic rent, medallion capitalization. Capability `economic-profit`, engagement
-   `economic-profit` ([case + stage briefs](../projects/in-progress/accounting-profit-economic-profit-economic-rent/))
-
-> **Sync rule.** These paths are mirrored by the Kumu website's stage pages and by its progression
-> gates (`ai-lms/website/assets/js/gates.js`). One path table, three consumers — change one, change
-> all three. Any future `grade_stage*.py` scanners read from the same table.
-
-### Individual Project — Geopolitical Research Paper (30%)
-
-An individual research paper on a geopolitical question with real economic stakes — resource
-control, trade restriction, conflict, sanctions, climate policy — of your own choosing. Analyze who
-wins, who loses, by how much, and what the economics predicts about stability. Structure,
-formatting, length, and submission are on the course syllabus and Lamaku; this project is **not**
-run through the Kumu website or the portfolio repo.
-
-Peer evaluation accounts for 50% of the grade. The Case 2 pricing-power analysis is the deliberate
-on-ramp: its welfare-loss and policy framing is the muscle this paper uses at full scale.
-
-> **Deferred:** the *Policy Shock Analysis* previously occupying this 30% is parked, not cancelled —
-> its materials remain in [`../projects/individual-research/`](../projects/individual-research/) and
-> its Kumu page is retained but delinked. Restoring it in a future term is a one-line change.
-
-### Team Case Study Presentation (30%)
-
-Teams are assigned by the instructor and present applied cases on geopolitical challenges — AI and
-labour markets, climate policy, trade and supply chains, global markets. The engagement is
-**presentation-first: there is no team workbook and no separate memo.** The deck carries the
-recommendation on its closing slide(s), and it is built spec-driven like every other artifact in
-this course — the team commits a ten-slide content map and a `design.json` visual spec, hands both
-to AI, and audits the result. The stated learning objective is **collaborative work in a shared
-repository**: branches and pull requests, not email attachments. The team repo is named for the
-team, hosted on one member's account with all members plus the instructor as collaborators, and
-uses the same hierarchy as the personal portfolio repo. Presentation runs about 10–15 minutes plus
-a 10-minute moderated discussion the team leads; peer review is collected through a structured
-survey.
-Presentations are peer-reviewed, with 50% of the grade based on peer evaluation.
-
-> **Relocated here 2026-08-03** from `../projects/team-research/README.md` under the standing rule
-> that calendars live only in offering-level artifacts. The prior (Fall 2025) offering ran
-> presentations on 2025-12-10 with peer-review feedback due 2025-12-12; the Fall 2026 equivalents
-> slot into weeks 12–15 on the calendar below. The older evaluation split that brief carried
-> (peer 32.5% / instructor 32.5% / timing 25% / peer participation 10%) was **stale and has been
-> removed** from the project brief — the 50/50 peer/instructor split stated above governs, and
-> percentage splits are offering-owned in any case.
-
-> **Also relocated here 2026-08-03:** the individual research paper's prior (Fall 2025) deadlines —
-> paper due 2025-12-03, peer review due 2025-12-17. Fall 2026 equivalents slot into weeks 7–11 on
-> the calendar below.
+* **Attendance & Participation (10%):** Essential for maximizing learning outcomes. Each case opens with an in-class working session — showing up and committing is participating. **In this design, participation also means committing to a prediction before the answer is known.** Being wrong costs nothing; not answering costs the session.
+* **Case-Study Projects (3 × 10%):** Three Excel + AI engagements, each worth 20 points split across its graded stages. See below.
+* **Individual Project — Geopolitical Research Paper (30%):** Peer evaluation accounts for **50% of the grade**.
+* **Team Case Study Presentation (30%):** Peer evaluation accounts for **50% of the grade**.
 
 ---
 
-## Fall 2026 Term Calendar (draft)
+## Course Schedule (subject to change)
+| Session | Date | Topic & Activities | Case | Due (Fri by midnight) |
+| :---: | :---: | ----- | ----- | ----- |
+| **0** | 25-Aug | **ECON Tutorial** — Thinking Like an Economist · Video: How The Economic Machine Works by Ray Dalio · Discussion on Global Challenges & Geopolitical Risks · **[AI Case Study Overview](https://adamwstauffer.github.io/ai-lms/micro-and-macro-economics.html)** | Case overview | |
+| **1** | 1-Sep | **The model, and the shock.** Supply shifts, and why demand does not answer immediately.<br>**Reading:** Ch. 1–2 | **[Case 1 — Perfect Competition](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html)**<br>**1.0** portfolio repository | |
+| **2** | 8-Sep | **Magnitude.** Short-run versus long-run elasticity; why the price does the adjusting when quantity cannot.<br>**Reading:** Ch. 3–4 | **1.1** engagement brief | **[Case 1.0](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage0.html)** · 11-Sep |
+| **3** | 15-Sep | **Who gained and who paid.** Surplus, efficiency, and where a windfall actually lands.<br>**Reading:** Ch. 5 | **1.2** spec + AI build | **[Case 1.1](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage1.html)** · 18-Sep |
+| **4** | 22-Sep | **Power.** Market structure, the chokepoint as leverage, and strategic behaviour between states.<br>**Reading:** Ch. 6–7 | **1.3** analysis | **[Case 1.2](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage2.html)** · 25-Sep |
+| **5** | 29-Sep | **Why everyone stayed wrong.** Behavioural economics on a forecast that failed in public.<br>**Reading:** Ch. 8 | **[Case 2 — Imperfect Competition](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html)**<br>**2.1** model build<br>**2.2** analysis | **[Case 1.3](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage3.html)** · 2-Oct |
+| **6** | 6-Oct | **Costs nobody was billed for.** Externalities and property rights — and who owns a sea lane. Video (in-class): ***The Grab***<br>**Reading:** Ch. 9–10 | | **[Case 2.1](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition-stage1.html)** · 9-Oct |
+| **7** | 13-Oct | **Rerouting.** Trade, tariffs, and what it costs to move oil the long way. Spotlight: WTO, World Order & Climate Change<br>**Reading:** Ch. 11–12 | **[Case 3 — Economic Profit & Rent](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html)**<br>**3.1** model build<br>**3.2** analysis | **[Case 2.2](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition-stage2.html)** · 16-Oct |
+| **8** | 20-Oct | **The aggregate.** How a shock shows up in GDP, unemployment and the inflation print. **[Introduce: Individual Research Paper](https://adamwstauffer.github.io/ai-lms/team-case-study.html)**<br>**Reading:** Ch. 13 | | **[Case 3.1](https://adamwstauffer.github.io/ai-lms/case-economic-profit-stage1.html)** · 23-Oct |
+| **9** | 27-Oct | **Work.** Growth, productivity, and who loses a job to an energy shock. [Citrini, *2028 Global Intelligence Crisis*](https://www.citriniresearch.com/p/2028gic) · Video: Principles for Dealing with the Changing World Order (Dalio) · **[Team Preso introduced](https://adamwstauffer.github.io/ai-lms/team-case-study.html)**, teams assigned<br>**Reading:** Ch. 14–15 | | **[Case 3.2](https://adamwstauffer.github.io/ai-lms/case-economic-profit-stage2.html)** · 30-Oct |
+| **10** | 3-Nov | **HOLIDAY: Election Day (non-instructional day)** | | |
+| **11** | 10-Nov | **Money.** Saving, capital formation, the Fed, and global financial plumbing. **Case Study: the Global Financial Crisis** — predict from July 2007, then see March 2009 · Side discussion: Investment Management, Trading & Market Making<br>**Reading:** Ch. 16–17 | | |
+| **12** | 17-Nov | **Response.** Fluctuations, fiscal policy, and whether stabilisation helped or hurt.<br>**Reading:** Ch. 18–19 | | |
+| **13** | 24-Nov | **THANKSGIVING WEEK** · In-class exercise: Trade Wars — impact on national and global economies · Spotlight: Immigration — legal and illegal; current events · Team meeting in prep for end-of-semester presentation | Team case prep | |
+| **14** | 1-Dec | **The open economy.** Aggregate demand and supply, inflation, and the exchange rate. Discussion: analysis of current Fed policy<br>**Reading:** Ch. 20–21 | | |
+| **15** | 8-Dec | **Team Presentations:** Team Choice — any global or geopolitical issue. One point extra credit for a new topic or significant variation on our previous case studies. | Team presos | **Individual Research Paper**<br>**Team Presentation**<br>both Fri 11-Dec |
 
-Instruction runs **2026-08-24 → 2026-12-10**; finals week 2026-12-14–18. Stage due dates below say
-"end of week" — exact dates will be slotted to class meeting days on the syllabus.
+## Case-Study Projects (3 × 10%)
+Three staged Excel + AI engagements. One **personal public GitHub portfolio repository**, created in Case 1, accretes all term — structured by **capability** and **engagement**, not by course, so it outlives this class as a portfolio piece. Check figures are published so you can self-verify before submitting.
 
-| Weeks | Dates | What's running |
-|---|---|---|
-| 1–2 | Aug 24 – Sep 4 | **Case 1 — Perfect Competition** (stage 0 repo, 1 brief, 2 build, 3 analysis) |
-| 3–4 | Sep 8 – Sep 18 | **Case 2 — Imperfect Competition** (stage 1 build, 2 analysis) · Labor Day Sep 7 |
-| 5–6 | Sep 21 – Oct 2 | **Case 3 — Economic Profit & Rent** (stage 1 build, 2 analysis) |
-| 7–11 | Oct 5 – Nov 6 | **Geopolitical research paper** (proposal → draft → final) · macro units |
-| 12–15 | Nov 9 – Dec 10 | **Team case studies** (repo build → presentations) · Thanksgiving Nov 26–27 |
-| 16 | Dec 14–18 | Finals week — peer-review wrap-up |
+**Case 1 is introduced a stage at a time, across four sessions. Cases 2 and 3 are each introduced in
+a single session.** That is deliberate: Case 1 is where you learn the workflow — the repository, the
+brief, the spec, the audit — and it gets a session per stage. Once the workflow is yours, the later
+cases need the scenario and the deadline, not another walkthrough. **The deliverables stay one a week
+throughout.**
+
+**Reading the numbering:** the digit before the point is the case, the digit after it is the
+stage — so **Case 2.1** is the second case, first stage. Case 1 has four stages because it also
+sets up the repository you use all term; Cases 2 and 3 have two each. **Every due date is in the
+course schedule above.**
+
+The three cases trace one arc — **competition → market power → where the profits hide**:
+
+1. **[Perfect Competition — Decision Analysis](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html)** (market-garden scenario): P = MC, Excel Solver. Capability `marginal-analysis`, engagement `perfect-competition`. *Four stages:* [**1.0** repo](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage0.html) · [**1.1** brief](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage1.html) · [**1.2** build](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage2.html) · [**1.3** analysis](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage3.html)
+2. **[Imperfect Competition — Pricing Power Analysis](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html)** (seed market scenario): monopoly, MR = MC, Lerner index, deadweight loss. Capability `pricing-power`, engagement `imperfect-competition`. *Two stages:* [**2.1** build](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition-stage1.html) · [**2.2** analysis](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition-stage2.html)
+3. **[Economic Profit & Rent — Earnings Analysis](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html)** (ride-share scenario): accounting vs economic profit, economic rent, medallion capitalization. Capability `economic-profit`, engagement `economic-profit`. *Two stages:* [**3.1** build](https://adamwstauffer.github.io/ai-lms/case-economic-profit-stage1.html) · [**3.2** analysis](https://adamwstauffer.github.io/ai-lms/case-economic-profit-stage2.html)
+
+| Stage | Deliverable |
+| ----- | ----- |
+| **.0** — Repo *(Case 1 only)* | Repo skeleton, `AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`, collaborator `adamwstauffer` |
+| **.1** — Brief | `docs/briefs/<case-slug>-brief.md` |
+| **.2** — Build | `capabilities/<capability>/spec.md` + `capabilities/<capability>/model.xlsx` + capability `README.md` |
+| **.3** — Report | `analysis/<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/<case-slug>-memo.md` + prompt-log update |
+
+**The Global Financial Crisis (week 12, in class, ungraded).** Not a fourth engagement and nothing to
+submit. It is the same method applied to a crisis that has already resolved: predict from July 2007,
+work the mechanism, then open March 2009. **One live arc and one closed arc, running the same
+method** — the live one cannot be graded against an answer key and this one can.
 
 ---
 
-## AI Use Policy
+## The running case, and what you do with it
+Every session opens with **the beat** — ten to fifteen minutes on what the Hormuz situation did since
+we last met. Some weeks the honest beat is *"nothing much moved, and here is why that is itself
+informative."* That is a fine beat.
 
+**You can check the numbers rather than taking them from me.** The series are public and free:
+
+* **Brent daily** — FRED series `DCOILBRENTEU` ([fred.stlouisfed.org](https://fred.stlouisfed.org/series/DCOILBRENTEU))
+* **World oil supply, monthly** — [EIA Short-Term Energy Outlook](https://www.eia.gov/outlooks/steo/data/browser/)
+* **Chokepoint transit volumes, weekly** — [IMF PortWatch](https://portwatch.imf.org/)
+* **Country-level production and exports, monthly** — [JODI-Oil](https://www.jodidata.org/oil/database/data-downloads.aspx)
+
+Pulling, verifying, charting and committing these is the same workflow the graded cases use. **A
+figure quoted in class without its source is not evidence**, and that standard applies to the
+instructor as readily as to you.
+
+---
+
+## Individual Project — Geopolitical Research Paper (30%)
+Introduced week 9, due **11-Dec**. Peer evaluation accounts for 50% of the grade.
+
+The paper is the course's method at full scale on a question of your own choosing: a governing
+thought, evidence you fetched yourself, and an honest separation of what you observed from what you
+inferred. Topic approval is required.
+
+---
+
+## Team Case Study Presentation (30%)
+Teams assigned week 10, presented week 16. Peer evaluation accounts for 50% of the grade.
+
+Team Choice — any global or geopolitical issue. **One point extra credit for a new topic or a
+significant variation on our previous case studies.**
+
+---
+
+## AI Use Policy (MBA Context)
 MBA students are encouraged to explore AI tools to enhance learning and professional decision-making. Acceptable uses include:
 
-* Knowledge Enhancement: Use AI to clarify theory or extend readings
-* Research Support: Gather data, statistics, and examples for assignments
-* Critical Thinking: Test your arguments against counterarguments generated by AI
-* Problem-Solving: Simulate case scenarios and brainstorm managerial responses
-* Professional Skills: Practice clear, concise communication in prompts and outputs
+* **Knowledge Enhancement:** Use AI to clarify theory or extend readings.
+* **Research Support:** Gather data, statistics, and examples for assignments.
+* **Critical Thinking:** Test your arguments against counterarguments generated by AI.
+* **Problem-Solving:** Simulate case scenarios and brainstorm managerial responses.
+* **Professional Skills:** Practice clear, concise communication in prompts and outputs.
 
-Requirements:
-* Log all AI use in the Prompt Log
-* Verify outputs against trusted sources
-* Treat AI as a supplement — not a substitute — for your own analysis
+**Requirements:**
+
+* Log all AI use in the Prompt Log.
+* Verify outputs against trusted sources.
+* Treat AI as a supplement — not a substitute — for your own analysis.
+
+**What is graded is your judgement, not the model's output.** The specification you wrote, the audit
+you ran on what came back, and what you concluded from it. The prompt log is how that is evidenced —
+an unlogged analysis is an unverifiable one.
+
+**A number without a source is not evidence**, and a plausible number is the most dangerous kind.
+That standard applies to AI output exactly as it applies to a news headline, and it applies to the
+instructor as readily as to you.
 
 ---
 
 ## Campus Policies
-
-**Students with Disabilities:** Contact the KOKUA Program (Student Services Center, Room 13; 956-7511; http://www.hawaii.edu/kokua/).
-
-**Academic Honesty:** UH Mānoa enforces strict rules on plagiarism and cheating. See: http://www.hawaii.edu/student/conduct.
+* **Students with Disabilities:** Contact the KOKUA Program (Student Services Center, Room 13; 956-7511; [http://www.hawaii.edu/kokua/](http://www.hawaii.edu/kokua/)).
+* **Academic Honesty:** UH Mānoa enforces strict rules on plagiarism and cheating. See: [http://www.hawaii.edu/student/conduct](http://www.hawaii.edu/student/conduct).
 
 ---
 
@@ -203,7 +240,10 @@ Requirements:
 
 ```
 BUS-620/
-└── README.md   this file
+├── README.md   this file — the Fall 2026 syllabus
+└── ignore/     publisher-derived and UH-branded material (gitignored)
 ```
 
-Shared curriculum (individual research, team research, in-development case studies) lives in [`../projects/`](../projects/).
+Shared curriculum (case studies + stage briefs, individual research, team research) lives in
+[`../projects/`](../projects/). The DLEMBA section is at
+[`../BUS-620-DLEMBA/`](../BUS-620-DLEMBA/README.md).
