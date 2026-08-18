@@ -13,11 +13,20 @@ points: 2
 estimated_time: "40-50 min"
 ---
 
-# Case 1 · Stage 0 — Portfolio Repository
+# Stage 0 — Portfolio Repository
 
 **Deliverable:** the public portfolio repository, built to the standard, with the instructor invited
 **Submission:** committed and pushed to your public repository; graded by inspection
 **Estimated time:** 40–50 minutes
+
+> **Stage 0 belongs to the course, not to Case 1** (reframed 2026-08-17, matching the course site).
+> It is done once, before any engagement, and every course here reads the same result. It comes in
+> **two parts**: **part 1** — the GitHub account and the three verbs (add → commit → push), on the
+> [onboarding page](https://adamwstauffer.github.io/ai-lms/onboarding.html#github-account); **part 2**
+> — the workspace, which is this brief. Its interactive companion is
+> [github-stage0.html](https://adamwstauffer.github.io/ai-lms/github-stage0.html) *(renamed from
+> `case-perfect-competition-stage0.html`; the old URL redirects)*. Grading is unchanged: it is still
+> recorded as Case 1's item 1.0.
 
 ---
 
@@ -73,7 +82,9 @@ accidental commit of a `~$` temp file.
 
 1. **Create the GitHub account.** Use your `@hawaii.edu` address — it qualifies for
    [GitHub Education](https://education.github.com). Choose a professional username; it appears
-   beside every piece of work you publish.
+   beside every piece of work you publish. **Already have a GitHub account? Use it** — do not create
+   a second one; add your `hawaii.edu` address under *Settings → Emails* and the education benefits
+   attach to the account you keep after graduation.
    *Confirm:* you can sign in, and the email is verified.
 
 2. **Install GitHub Desktop**, or use the command line if you already prefer it. The deliverable is
