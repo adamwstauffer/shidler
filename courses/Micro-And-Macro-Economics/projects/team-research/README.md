@@ -9,7 +9,7 @@
 
 ## Objective
 
-Analyse a geopolitical challenge as a team and present the analysis to an audience that has to be
+Analyze a geopolitical challenge as a team and present the analysis to an audience that has to be
 persuaded. The economics from the three individual cases does the work; what is new is that the
 deliverable is a **presentation**, and that four people have to produce it together without
 overwriting each other.
@@ -31,7 +31,7 @@ Choose a geopolitical challenge — one covered in class or approved in advance.
 - Climate change and environmental policy
 - Global trade dynamics or supply-chain fragility
 - International debt
-- Technological disruption and labour markets
+- Technological disruption and labor markets
 - Geopolitical risk to food, water, or energy
 
 The test is the same as it was for the farm, the seed patent, and the medallion: does the analysis
@@ -69,7 +69,7 @@ Not a list of topics — a claim per slide, in the order that builds the case.
 | 2–3 | The micro and/or macro theory that explains the mechanism |
 | 4–6 | Economic implications — current impacts and plausible futures |
 | 7–8 | Proposed policy or strategy to address it |
-| 9 | At least one graph, chart, or diagram, clearly labelled, that carries evidence the text uses |
+| 9 | At least one graph, chart, or diagram, clearly labeled, that carries evidence the text uses |
 | 10 | Conclusion, key takeaways, **and the recommendation** |
 
 The recommendation lives on the closing slide (or slides). There is no separate memo for this
