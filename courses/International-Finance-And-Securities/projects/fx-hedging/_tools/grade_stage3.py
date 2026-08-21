@@ -122,7 +122,7 @@ def _suggestions_for(flags: set[str], prior_weak: bool):
                    ("MISSING_MONEYMARKET", "money-market hedge"),
                    ("MISSING_OPTION", "option (put/call) hedge")):
         if h in flags:
-            s.append(core(f"The {msg} isn't detectable — make sure it's built and labelled."))
+            s.append(core(f"The {msg} isn't detectable — make sure it's built and labeled."))
     if "NO_CHART" in flags:
         s.append(core("Add the sensitivity line chart (USD outcome vs. ending spot, one "
                       "series per strategy)."))
