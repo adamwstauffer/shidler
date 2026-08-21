@@ -2,7 +2,8 @@
 **Micro- and Macro-Economic Foundations for Managers**
 
 > Offering-specific facts — term, dates, and weights — live in the offering README
-> (`../../BUS-620/README.md`), not here. This project runs off-Kumu: syllabus and LMS only.
+> (`../../BUS-620/README.md`), not here. This project now has a Kumu page: the student workflow
+> lives on the course site, while term dates and weights stay in the offering README and syllabus.
 
 ---
 
