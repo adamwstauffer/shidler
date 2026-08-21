@@ -57,7 +57,7 @@ Split across stages: [stage1](stage1-model-build.md) (brief, spec, build, audit,
 
 Student-facing web pages: [`case-economic-profit.html`](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by `ai-lms/website/assets/js/gates.js`; change one, change all three.
 
-**AI-use boundary (course standard, unchanged):** AI may explain the profit concepts, quiz you, and critique reasoning — not write your brief, analysis, memo, or reflection, and not hand you the verdicts before you've hypothesised. The workbook was never on the prohibited list, which is why Stage 1's AI-built workbook is a sequencing change rather than a boundary change.
+**AI-use boundary (course standard, unchanged):** AI may explain the profit concepts, quiz you, and critique reasoning — not write your brief, analysis, memo, or reflection, and not hand you the verdicts before you've hypothesized. The workbook was never on the prohibited list, which is why Stage 1's AI-built workbook is a sequencing change rather than a boundary change.
 
 ## Industry-analysis prompts (from the draft, kept & corrected)
 

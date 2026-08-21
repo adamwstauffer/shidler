@@ -172,7 +172,7 @@ weakest claim — that is the use that improves the work.
 | Medallion story with the math | 2 | Capitalization arithmetic drives the narrative; entry → lease down → riskier perpetuity → 70–85% collapse, tied to observed prices |
 | Supply/demand + cross-case link | 2 | Correct curve and direction; price, quantity, and surplus all addressed; the pricing-power parallel drawn on the moat → rent → entry logic rather than name-dropped |
 | Figures | — | At least two, analytically load-bearing — graded within the rows above; a missing or decorative figure costs the row it should have served |
-| Prompt log + reflection | 3 | Sessions logged with substance; reflection of 300 words or fewer centred on a concrete AI error caught and how it was verified |
+| Prompt log + reflection | 3 | Sessions logged with substance; reflection of 300 words or fewer centered on a concrete AI error caught and how it was verified |
 
 The memo carries no separate points. It is read together with the analysis under the medallion and
 supply/demand criteria, which already ask what somebody should conclude. What changes is where that
