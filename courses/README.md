@@ -42,7 +42,7 @@ courses/
 ├── Micro-And-Macro-Economics/              BUS 620, BUS 620 DLEMBA
 │   ├── BUS-620/                            offering: syllabus
 │   ├── BUS-620-DLEMBA/                     offering: syllabus (in setup)
-│   ├── projects/                           individual-research/, team-research/, in-progress/
+│   ├── projects/                           3 graded case studies, individual-research/, team-research/
 │   └── README.md
 ├── Windward-Community-College/             BUS 122B
 │   └── BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/
