@@ -13,7 +13,7 @@ Microeconomic and macroeconomic theory applied to real-world business and policy
 
 - [`projects/individual-research/`](projects/individual-research/) — individual research paper with peer-review rubric
 - [`projects/team-research/`](projects/team-research/) — team case-study presentations
-- [`projects/in-progress/`](projects/in-progress/) — the three graded case projects with stage briefs (Perfect Competition → Imperfect Competition → Economic Rent; 10% each, Fall 2026); Case 1 released, Cases 2-3 pending instructor sign-off
+- [`projects/`](projects/) — the three graded case projects with stage briefs (Perfect Competition → Imperfect Competition → Economic Rent; 10% each, Fall 2026); Case 1 released, Cases 2-3 pending instructor sign-off
 
 ## Directory Contents
 
@@ -24,11 +24,11 @@ Micro-And-Macro-Economics/
 ├── BUS-620-DLEMBA/                                 offering: syllabus (in setup)
 │   └── README.md
 ├── projects/
+│   ├── AI-GitHub-Project.pptx                        orientation deck for the three-case set
+│   ├── accounting-profit-economic-profit-economic-rent/   graded case 3
+│   ├── imperfect-competition-marginal-revenue/           graded case 2
+│   ├── perfect-competition-marginal-costs/               graded case 1
 │   ├── individual-research/                         individual research paper + peer-review rubric
-│   ├── in-progress/                                  case studies in development
-│   │   ├── accounting-profit-economic-profit-economic-rent/
-│   │   ├── imperfect-competition-marginal-revenue/
-│   │   └── perfect-competition-marginal-costs/
 │   └── team-research/                                team case-study presentations
 └── README.md                                        you are here
 ```

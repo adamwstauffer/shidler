@@ -2,7 +2,9 @@
 
 *Scenario: a 1.5-acre market garden. Retitled 2026-08-02 concept-first (was "The Farm Profit Optimizer") — the scenario identity now lives inside the case, not in its name.*
 
-> **Status:** released 2026-08-03. Formalizes `BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx`; that original and `Supply_Mariganl Cost_Optimize Profit v5.xlsx` are preserved unchanged. `farm-profit-optimizer-key.xlsx` is the instructor key.
+> **Status:** released 2026-08-03. Formalizes `BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx`, which is preserved unchanged in this folder.
+>
+> **Instructor materials — the answer key and the original spreadsheets — are kept outside git.** This is a public repository.
 >
 > **No student template.** Stage 2 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` on 2026-08-03 — a provided workbook and "your spec is the template" cannot both be true. The [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) is the independent reference implementation students cross-check against. Decision: `ai-lms/docs/decisions/2026-08-03-spec-driven-artifact-builds.md`.
 

@@ -1,6 +1,8 @@
 # BUS 620 Project: Imperfect Competition & Marginal Revenue — The GMO Seed Market
 
-> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx`; the originals (`…v9.xlsx`, in-class worksheet) are preserved unchanged. `monsanto-seed-market-key.xlsx` is the instructor key. All narrative claims below were externally validated 2026-07-07; sources at bottom.
+> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx`, which is preserved unchanged in this folder. All narrative claims below were externally validated 2026-07-07; sources at bottom.
+>
+> **Instructor materials — the answer key, the original workbooks and the in-class worksheets — are kept outside git.** This is a public repository.
 >
 > **No student template.** Stage 1 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` — a provided workbook and "your spec is the template" cannot both be true. Decision: `ai-lms/docs/decisions/2026-08-03-spec-driven-artifact-builds.md`.
 
