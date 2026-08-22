@@ -11,6 +11,7 @@ Microeconomic and macroeconomic theory applied to real-world business and policy
 
 ## Shared Curriculum
 
+- [`sample/`](sample/) — reference skeleton of the [portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html), the structure [Stage 0](https://adamwstauffer.github.io/ai-lms/github-stage0.html) asks students to stand up under their own account
 - [`projects/individual-research/`](projects/individual-research/) — individual research paper with peer-review rubric
 - [`projects/team-research/`](projects/team-research/) — team case-study presentations
 - [`projects/`](projects/) — the three graded case projects with stage briefs (Perfect Competition → Imperfect Competition → Economic Rent; 10% each, Fall 2026); Case 1 released, Cases 2-3 pending instructor sign-off
@@ -24,11 +25,17 @@ Micro-And-Macro-Economics/
 ├── BUS-620-DLEMBA/                                 offering: syllabus (in setup)
 │   └── README.md
 ├── projects/
+│   ├── perfect-competition-marginal-costs/          Case 1 — stage briefs + workbooks
+│   ├── imperfect-competition-marginal-revenue/      Case 2 — stage briefs + workbooks
+│   ├── accounting-profit-economic-profit-economic-rent/  Case 3 — stage briefs + workbooks
 │   ├── individual-research/                         individual research paper + peer-review rubric
-│   ├── in-progress/                                  case studies in development
-│   │   ├── accounting-profit-economic-profit-economic-rent/
-│   │   ├── imperfect-competition-marginal-revenue/
-│   │   └── perfect-competition-marginal-costs/
-│   └── team-research/                                team case-study presentations
+│   └── team-research/                               team case-study presentations
+├── sample/                                          portfolio-repo skeleton students build in Stage 0
+│   ├── README.md  RESUME.md  AGENTS.md  CLAUDE.md  prompt-log.md  .gitignore
+│   ├── .claude/skills/                              personal sandbox (ungraded)
+│   ├── capabilities/marginal-analysis/              README.md + spec.md + the model file
+│   ├── docs/{briefs,decisions}/                     before the work / after the work
+│   ├── data/                                        sourced inputs, with provenance
+│   └── analysis/figures/                            the findings + their charts
 └── README.md                                        you are here
 ```

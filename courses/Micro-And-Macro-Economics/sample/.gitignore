@@ -1,0 +1,21 @@
+# Office temp and lock files
+~$*
+*.tmp
+*.xlk
+*.bak
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Credentials and secrets — never commit these, not even once.
+# History is permanent: a key committed and then deleted is still in the history.
+.env
+*.key
+*.pem
+credentials.json
+
+# Local editor state
+.vscode/
+.idea/
