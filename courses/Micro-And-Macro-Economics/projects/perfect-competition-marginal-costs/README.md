@@ -87,7 +87,7 @@ Student-facing web pages for this case: [`case-perfect-competition.html`](https:
 1. **Mesclun MIX row pulled carrot labor** (`G20` referenced `labor_carrots`) — copy-paste bug; mesclun labor costs were wrong whenever carrots ≠ mesclun.
 2. **Per-crop decision tables were coupled to the MIX** via `q_beds` (`D24/q_beds*…`) — the "standalone" MC schedules changed when the mix cells changed, and divided by zero at an empty mix.
 3. **Temp-labor cap compared hours to 1,440** (`MIN(labor_hrs_season, …)`) instead of capping at 4 workers — the 0–4 constraint was never enforced; now `temp_needed ≤ temp_max` is an explicit checked constraint (and Solver constraint).
-4. **Wages hardcoded** as `=50000/…` and `=25000/…` inside formulas — now blue salary input cells.
+4. **Wages hardcoded** as `=50000/…` and `=25000/…` inside formulas — now separate tan salary input cells.
 5. **Named-range typos** (`fert_carrotrs`, `labour_hrs` vs `labor_hrs`, "Tomotoes", "Mesculun") — cleaned; consistent `price_* / laborwk_* / fert_* / dim_* / q_*` scheme.
 6. **Missing docs** — the docx's "Assumptions & Constraints" heading was empty and wages appeared nowhere; the workbook had a blank Notes sheet. Both replaced (this README; in-workbook README sheet with Solver steps, conventions, color key).
 7. **Added:** AVC column (shutdown analysis), feasibility flags, instructor key with check figures, MC-vs-price charts rebuilt from decoupled tables.
