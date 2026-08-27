@@ -47,9 +47,9 @@ Through the AI + GitHub project, you will also develop practical, workplace-read
 
 ---
 
-## AI + GitHub Course Project (25% of Course Grade)
+## AI + GitHub Course Project (20% of Course Grade)
 
-This course includes a multi-stage project on FX risk management, worth **25% of your final grade for this offering**. That course-grade share is set here at the offering level; the stage weights below are **percentages of the project**, so they never need changing if the share does. No extra credit.
+This course includes a multi-stage project on FX risk management, worth **20% of your final grade for this offering**. That course-grade share is set here at the offering level; the stage weights below are **percentages of the project**, so they never need changing if the share does. No extra credit.
 
 | Stage | Deliverable | Weight |
 |-------|------------|-------:|
