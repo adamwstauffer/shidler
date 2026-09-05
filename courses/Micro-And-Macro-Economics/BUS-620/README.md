@@ -106,35 +106,35 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 | Component | Weight |
 | ----- | ----- |
 | Attendance & Participation | 10% |
-| Case 1 — Perfect Competition: Decision Analysis | 10% |
-| Individual Project — Geopolitical Research Paper | 40% |
-| Team Case Study Presentation | 40% |
+| Case 1 — Perfect Competition: Decision Analysis | 30% |
+| Individual Project — Geopolitical Research Paper | 30% |
+| Team Case Study Presentation | 30% |
 | **Total** | **100%** |
 
 * **Attendance & Participation (10%):** Essential for maximizing learning outcomes. Each case opens with an in-class working session — showing up and committing is participating. **In this design, participation also means committing to a prediction before the answer is known.** Being wrong costs nothing; not answering costs the session.
-* **Case-Study Project (10%):** One Excel + AI engagement worth 20 points split across its graded stages. See below.
-* **Individual Project — Geopolitical Research Paper (40%):** Peer evaluation accounts for **50% of the grade**.
-* **Team Case Study Presentation (40%):** Peer evaluation accounts for **50% of the grade**.
+* **Case-Study Project (30%):** One Excel + AI engagement worth 20 points split across its graded stages. See below.
+* **Individual Project — Geopolitical Research Paper (30%):** Peer evaluation accounts for **50% of the grade**.
+* **Team Case Study Presentation (30%):** Peer evaluation accounts for **50% of the grade**.
 
 ---
 
 ## Course Schedule (subject to change)
 | Session | Date | Topic & Activities | Case | Due (Fri by midnight) |
 | :---: | :---: | ----- | ----- | ----- |
-| **0** | 25-Aug | **ECON Tutorial** — Thinking Like an Economist · Video: How The Economic Machine Works by Ray Dalio · Discussion on Global Challenges & Geopolitical Risks · **[AI Case Study Overview](https://adamwstauffer.github.io/ai-lms/micro-and-macro-economics.html)** | Case overview | |
+| **0** | 25-Aug | **ECON Tutorial** — Thinking Like an Economist · Video: How The Economic Machine Works by Ray Dalio · Discussion on Global Challenges & Geopolitical Risks · **[AI Case Study Overview](https://adamwstauffer.github.io/ai-lms/micro-and-macro-economics.html)**<br>**Reading:** Ch. 1 — Thinking Like an Economist | Case overview | |
 | **1** | 1-Sep | **Micro 1 · Supply and demand** + **Micro 2 · Elasticity** (opening beat) · *Act I — The story*<br>**The model, and the shock.** Supply shifts, and why demand does not answer immediately.<br>**Reading:** Ch. 2 — Supply and Demand · Ch. 3 — Demand and Elasticity | **[Case 1 — Perfect Competition](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html)**<br>**1.0** portfolio repository | |
-| **2** | 8-Sep | **Micro 3 · Perfect competition** + **Micro 4 · Production and costs** · *Acts I–II*<br>**Magnitude.** Short-run versus long-run elasticity; why the price does the adjusting when quantity cannot.<br>**Reading:** Ch. 4 — Perfectly Competitive Supply · Ch. 1 — Thinking Like an Economist (opportunity cost) | **1.1** engagement brief | |
-| **3** | 15-Sep | **Micro 5 · Profit, measured two ways** + **Micro 6 · Consumer choice** · *Act II — The machinery interlude*<br>**What it earns, and what a buyer will do.** Accounting versus economic profit, economic rent, and the choice behind a demand curve.<br>**Reading:** Ch. 5 — Efficiency and Exchange · Ch. 3 — Demand and Elasticity · Ch. 1 — Thinking Like an Economist (opportunity cost) · Micro 6's indifference-curve machinery is course material and is not in the textbook | **1.2** spec + AI build | **[Case 1.0](https://adamwstauffer.github.io/ai-lms/github-stage0.html)** · 18-Sep |
+| **2** | 8-Sep | **Micro 3 · Perfect competition** + **Micro 4 · Production and costs** · *Acts I–II*<br>**Magnitude.** Short-run versus long-run elasticity; why the price does the adjusting when quantity cannot.<br>**Reading:** Ch. 4 — Perfectly Competitive Supply | **1.1** engagement brief | |
+| **3** | 15-Sep | **Micro 5 · Profit, measured two ways** + **Micro 6 · Consumer choice** · *Act II — The machinery interlude*<br>**What it earns, and what a buyer will do.** Accounting versus economic profit, economic rent, and the choice behind a demand curve.<br>**Reading:** Ch. 5 — Efficiency and Exchange · Micro 6's indifference-curve machinery is course material and is not in the textbook | **1.2** spec + AI build | **[Case 1.0](https://adamwstauffer.github.io/ai-lms/github-stage0.html)** · 18-Sep |
 | **4** | 22-Sep | **Micro 7 · Imperfect competition** · *Act III — Power, and what it costs*<br>**Power.** Market structure, the chokepoint as leverage, and strategic behavior between states.<br>**Reading:** Ch. 6 — Monopoly and Oligopoly | **1.3** analysis | |
-| **5** | 29-Sep | **Micro 8 · Market efficiency** · *Act III — Power, and what it costs*<br>**Who gained and who paid.** Surplus, efficiency, and where a windfall actually lands.<br>**Reading:** Ch. 5 — Efficiency and Exchange · surplus and the loss triangle are filed in Ch. 11 — International Trade | | **[Case 1.1](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage1.html)** · 2-Oct |
-| **6** | 6-Oct | **Micro 9 · Oligopoly, cartels and games** + **Micro 10 · Scale economies** · *Act III — Power, and what it costs*<br>**Coordination, and the cost of size.** Cartels, repeated games, and why scale leaves one firm standing.<br>**Reading:** Ch. 7 — Games and Strategic Behavior · Ch. 6 — Monopoly and Oligopoly | | **[Case 1.2](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage2.html)** · 9-Oct |
-| **7** | 13-Oct | **Micro 11 · Externalities and Coase** + **Micro 12 · Information and judgment** · *Act IV — The failures*<br>**The failures.** Costs nobody was billed for — externalities, property rights, and who owns a sea lane; then what happens when information and judgment fail. Video (in-class): ***The Grab***<br>**Reading:** Ch. 9 — Externalities and Rights · Ch. 10 — Making Policy Choices · Ch. 8 — Behavioral Economics · adverse selection is filed in Ch. 10 and the market for lemons in Ch. 15 | | |
-| **8** | 20-Oct | **Micro 13 · Why nations trade** + **Micro 14 · Tariffs, trade wars and economic warfare** · *Act V — Across the border*<br>**Across the border.** ① Comparative advantage, freight, and what it costs to move oil the long way. ② Tariffs, quotas, protection's political economy, and the arithmetic of sanctions. In-class exercise: Trade Wars — impact on national and global economies · Spotlight: WTO, World Order & Climate Change<br>**Reading:** Ch. 11 — International Trade · Ch. 10 — Making Policy Choices | | **[Case 1.3](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage3.html)** · 23-Oct |
-| **9** | 27-Oct | **Macro 1 · FX in brief** *(short)* + **Macro 2 · Measuring the economy** · *Act I — The desk*<br>**The arc opens.** An exchange rate is a price; then how a shock shows up in GDP, unemployment and the inflation print. **Case 4 (ungraded):** sealed predictions collected in class — March 2009 unemployment, house prices off peak, whether a top-ten institution fails, and what would prove you wrong · **[Introduce: Individual Research Paper](https://adamwstauffer.github.io/ai-lms/team-case-study.html)** · **[Team Preso introduced](https://adamwstauffer.github.io/ai-lms/team-case-study.html)**, teams assigned<br>**Reading:** Ch. 12 — Macro: The Bird's-Eye View · Ch. 13 — Measuring Economic Activity · Ch. 21 — Exchange Rates · most of Macro 1's FX plumbing is course material and is not in the textbook | | |
+| **5** | 29-Sep | **Micro 8 · Market efficiency** · *Act III — Power, and what it costs*<br>**Who gained and who paid.** Surplus, efficiency, and where a windfall actually lands.<br>**Reading:** none new — Ch. 5 was assigned 15 September; this session works it. *(The textbook files surplus and the loss triangle in Ch. 11, which is assigned 20 October.)* | | **[Case 1.1](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage1.html)** · 2-Oct |
+| **6** | 6-Oct | **Micro 9 · Oligopoly, cartels and games** + **Micro 10 · Scale economies** · *Act III — Power, and what it costs*<br>**Coordination, and the cost of size.** Cartels, repeated games, and why scale leaves one firm standing.<br>**Reading:** Ch. 7 — Games and Strategic Behavior *(Ch. 6 was assigned 22 September)* | | **[Case 1.2](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage2.html)** · 9-Oct |
+| **7** | 13-Oct | **Micro 11 · Externalities and Coase** + **Micro 12 · Information and judgment** · *Act IV — The failures*<br>**The failures.** Costs nobody was billed for — externalities, property rights, and who owns a sea lane; then what happens when information and judgment fail. Video (in-class): ***The Grab***<br>**Reading:** Ch. 8 — Behavioral Economics · Ch. 9 — Externalities and Rights · Ch. 10 — Making Policy Choices *(where the textbook files adverse selection; the market for lemons is in Ch. 15, which comes 10 November)* | | |
+| **8** | 20-Oct | **Micro 13 · Why nations trade** + **Micro 14 · Tariffs, trade wars and economic warfare** · *Act V — Across the border*<br>**Across the border.** ① Comparative advantage, freight, and what it costs to move oil the long way. ② Tariffs, quotas, protection's political economy, and the arithmetic of sanctions. In-class exercise: Trade Wars — impact on national and global economies · Spotlight: WTO, World Order & Climate Change<br>**Reading:** Ch. 11 — International Trade *(Ch. 10 was assigned 13 October)* | | **[Case 1.3](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage3.html)** · 23-Oct |
+| **9** | 27-Oct | **Macro 1 · FX in brief** *(short)* + **Macro 2 · Measuring the economy** · *Act I — The desk*<br>**The arc opens.** An exchange rate is a price; then how a shock shows up in GDP, unemployment and the inflation print. **Case 4 (ungraded):** sealed predictions collected in class — March 2009 unemployment, house prices off peak, whether a top-ten institution fails, and what would prove you wrong · **[Introduce: Individual Research Paper](https://adamwstauffer.github.io/ai-lms/team-case-study.html)** · **[Team Preso introduced](https://adamwstauffer.github.io/ai-lms/team-case-study.html)**, teams assigned<br>**Reading:** Ch. 12 — Macro: The Bird's-Eye View · Ch. 13 — Measuring Economic Activity *(Macro 1's own chapter, Ch. 21, is assigned 1 December with Macro 9)* · most of Macro 1's FX plumbing is course material and is not in the textbook | | |
 | **10** | 3-Nov | **HOLIDAY: Election Day (non-instructional day)** | | |
-| **11** | 10-Nov | **Macro 3 · Labor markets and unemployment** + **Macro 4 · Why economies grow** · *Act II — People and output*<br>**Work, and output.** Who loses a job to an energy shock; and whether the growth path ever comes back. [Citrini, *2028 Global Intelligence Crisis*](https://www.citriniresearch.com/p/2028gic) · Video: Principles for Dealing with the Changing World Order (Dalio)<br>**Reading:** Ch. 15 — The Labor Market · Ch. 14 — Economic Growth | | |
-| **12** | 17-Nov | **Macro 5 · Valuing equities and bonds** + **Macro 6 · Derivatives in brief** · *Act III — The instruments*<br>**The instruments.** What a share and a bond are worth, and the contracts that priced the crisis.<br>**Reading:** Ch. 17 — Money and the Fed · Ch. 16 — Saving and Capital Formation · most of Macro 6's derivatives material is course material and is not in the textbook | | |
-| **13** | 24-Nov | **Macro 7 · Money, banking, and the plumbing** + **Macro 8 · Monetary and fiscal policy: the response** · *Act IV — The plumbing and the response*<br>**THANKSGIVING WEEK** · **The envelope opens.** BNP to Bear to Lehman; then whether the response worked — where the Session 9 predictions come due. Side discussion: Investment Management, Trading & Market Making · Spotlight: Immigration — legal and illegal; current events · Team meeting in prep for end-of-semester presentation<br>**Reading:** Ch. 16 — Saving and Capital Formation · Ch. 17 — Money and the Fed · Ch. 18 — Fiscal Policy · Ch. 19 — Stabilizing the Economy | Team case prep | |
+| **11** | 10-Nov | **Macro 3 · Labor markets and unemployment** + **Macro 4 · Why economies grow** · *Act II — People and output*<br>**Work, and output.** Who loses a job to an energy shock; and whether the growth path ever comes back. [Citrini, *2028 Global Intelligence Crisis*](https://www.citriniresearch.com/p/2028gic) · Video: Principles for Dealing with the Changing World Order (Dalio)<br>**Reading:** Ch. 14 — Economic Growth · Ch. 15 — The Labor Market | | |
+| **12** | 17-Nov | **Macro 5 · Valuing equities and bonds** + **Macro 6 · Derivatives in brief** · *Act III — The instruments*<br>**The instruments.** What a share and a bond are worth, and the contracts that priced the crisis.<br>**Reading:** Ch. 16 — Saving and Capital Formation · Ch. 17 — Money and the Fed · most of Macro 6's derivatives material is course material and is not in the textbook | | |
+| **13** | 24-Nov | **Macro 7 · Money, banking, and the plumbing** + **Macro 8 · Monetary and fiscal policy: the response** · *Act IV — The plumbing and the response*<br>**THANKSGIVING WEEK** · **The envelope opens.** BNP to Bear to Lehman; then whether the response worked — where the Session 9 predictions come due. Side discussion: Investment Management, Trading & Market Making · Spotlight: Immigration — legal and illegal; current events · Team meeting in prep for end-of-semester presentation<br>**Reading:** Ch. 18 — Fiscal Policy · Ch. 19 — Stabilizing the Economy *(the plumbing's own chapters, 16 and 17, were assigned 17 November)* | Team case prep | |
 | **14** | 1-Dec | **Macro 9 · The open economy** · *Act V — The world*<br>**The capstone.** Why the dollar rose in a crisis that was American. Discussion: analysis of current Fed policy<br>**Reading:** Ch. 20 — Aggregate Demand and Supply · Ch. 21 — Exchange Rates | | |
 | **15** | 8-Dec | **Team Presentations:** Team Choice — any global or geopolitical issue. One point extra credit for a new topic or significant variation on our previous case studies. | Team presos | **Individual Research Paper**<br>**Team Presentation**<br>both Fri 11-Dec |
 
@@ -149,7 +149,15 @@ plays in book order with its acts intact: micro completes on **20 October**, mac
 same act. **Every chapter of both books, and every chapter of the textbook, is taught on this
 schedule** — nothing is reading-only.
 
-## Case-Study Project (10%)
+**How to read the Reading column.** **Each textbook chapter is assigned once, to a single
+session** — the first one whose deck teaches that chapter as its own subject. A later session that
+*cites* a chapter you already have does not assign it again; where that happens the row says so.
+**One session adds no new chapter** — 29 September works Ch. 5, assigned on the 15th. Where the
+textbook files a subject somewhere you would not look — surplus in the trade chapter, adverse
+selection in the policy chapter — the row points at it rather than assigning it twice. Everything
+assigned stays examinable, whenever it was assigned.
+
+## Case-Study Project (30%)
 One staged Excel + AI engagement. One **personal public GitHub portfolio repository**, created in Case 1, accretes all term — structured by **capability** and **engagement**, not by course, so it outlives this class as a portfolio piece. Check figures are published so you can self-verify before submitting.
 
 **Case 1 is introduced a stage at a time, across four sessions.** That is deliberate: it is where
@@ -196,7 +204,7 @@ instructor as readily as to you.
 
 ---
 
-## Individual Project — Geopolitical Research Paper (40%)
+## Individual Project — Geopolitical Research Paper (30%)
 Introduced week 9, due **11-Dec**. Peer evaluation accounts for 50% of the grade.
 
 The paper is the course's method at full scale on a question of your own choosing: a governing
@@ -205,7 +213,7 @@ inferred. Topic approval is required.
 
 ---
 
-## Team Case Study Presentation (40%)
+## Team Case Study Presentation (30%)
 Teams assigned week 10, presented week 16. Peer evaluation accounts for 50% of the grade.
 
 Team Choice — any global or geopolitical issue. **One point extra credit for a new topic or a
