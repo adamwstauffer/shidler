@@ -6,7 +6,7 @@
 
 > **This README is the syllabus.** Updated 2026-08-14 for the Fall 2026 launch; revised 2026-09-04 —
 > readings re-pointed to the textbook chapter that owns each session's subject, and Cases 2 and 3
-> removed. **Session dates are unchanged.**
+> made optional — ungraded, self-paced, off the schedule. **Session dates are unchanged.**
 
 **Instructor:** Adam W. Stauffer
 **Email:** adamstau@hawaii.edu (Please begin subject lines with "BUS 620")
@@ -175,6 +175,8 @@ be graded against an answer key and this one can.
 | **.1** — Brief | `docs/briefs/<case-slug>-brief.md` |
 | **.2** — Build | `capabilities/<capability>/spec.md` + `capabilities/<capability>/model.xlsx` + capability `README.md` |
 | **.3** — Report | `analysis/<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/<case-slug>-memo.md` + prompt-log update |
+
+**Cases 2 and 3 are optional — ungraded and self-paced.** They are not on the schedule above, they carry no launch or due dates, and there is nothing to submit. Both engagements stay published in full on the course site for anyone who wants to go further after Case 1: **[Imperfect Competition — Pricing Power Analysis](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html)** (seed-market scenario): monopoly, MR = MC, the Lerner index, deadweight loss · **[Economic Profit & Rent — Earnings Analysis](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html)** (ride-share scenario): accounting versus economic profit, and the medallion capitalized as rent divided by required return. Same stage briefs, same check figures, at your own pace.
 
 ---
 
