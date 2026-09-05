@@ -6,7 +6,7 @@
 
 > **This README is the syllabus.** Updated 2026-08-14 for the Fall 2026 launch; revised 2026-09-04 —
 > the schedule now names the Micro/Macro chapter decks each session plays and the textbook chapter
-> that owns it, and Cases 2 and 3 have been removed.
+> that owns it, and Cases 2 and 3 are optional — ungraded, self-paced, off the schedule.
 
 **Instructor:** Adam W. Stauffer
 **Email:** adamstau@hawaii.edu (Please begin subject lines with "BUS 620")
@@ -183,6 +183,8 @@ to submit. It is the same method applied to a crisis that has already resolved. 
 are sealed in Session 8** — three numbers and one sentence, written from the desk of 31 July 2007 —
 and they come due across Sessions 11 to 14 as the arc runs. **One live arc and one closed arc,
 running the same method** — the live one cannot be graded against an answer key and this one can.
+
+**Cases 2 and 3 are optional — ungraded and self-paced.** They are not on the schedule above, they carry no launch or due dates, and there is nothing to submit. Both engagements stay published in full on the course site for anyone who wants to go further after Case 1: **[Imperfect Competition — Pricing Power Analysis](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html)** (seed-market scenario): monopoly, MR = MC, the Lerner index, deadweight loss · **[Economic Profit & Rent — Earnings Analysis](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html)** (ride-share scenario): accounting versus economic profit, and the medallion capitalized as rent divided by required return. Same stage briefs, same check figures, at your own pace.
 
 ---
 
