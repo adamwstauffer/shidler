@@ -14,7 +14,7 @@ Microeconomic and macroeconomic theory applied to real-world business and policy
 - [`sample/`](sample/) — reference skeleton of the [portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html), the structure [Stage 0](https://adamwstauffer.github.io/ai-lms/github-stage0.html) asks students to stand up under their own account
 - [`projects/individual-research/`](projects/individual-research/) — individual research paper with peer-review rubric
 - [`projects/team-research/`](projects/team-research/) — team case-study presentations
-- [`projects/`](projects/) — the three graded case projects with stage briefs (Perfect Competition → Imperfect Competition → Economic Rent; 10% each, Fall 2026); Case 1 released, Cases 2-3 pending instructor sign-off
+- [`projects/`](projects/) — the case projects with stage briefs (Perfect Competition → Imperfect Competition → Economic Rent). **Fall 2026 grades one of them:** Perfect Competition, at 30% on the weekly calendar and 35% on DLEMBA. Imperfect Competition and Economic Rent are not on either syllabus this term; their materials stay here
 
 ## Directory Contents
 

@@ -116,8 +116,8 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 | **Total** | **100%** |
 
 * **Attendance & Participation (10%):** Essential for maximizing learning outcomes. Each case opens with an in-class working session — showing up and committing is participating. **Participation also means committing to a prediction before the answer is known.** Being wrong costs nothing; not answering costs the session. Between sessions it is read from **commit activity** — a repo that lights up only on due dates reads as non-attendance.
-* **Case-Study Project (35%):** One Excel + AI engagement worth 20 points split across its graded stages. See below.
-* **Individual Project — Geopolitical Research Paper (55%):** Peer evaluation accounts for **50% of the grade**.
+* **Case-Study Project (35%):** One Excel + AI engagement. **The 35% is earned as 20 points across four stages** — 2 (repo) · 1 (brief) · 8 (build) · 9 (analysis). See below.
+* **Individual Project — Geopolitical Research Paper (55%):** Peer evaluation accounts for **half of that 55%**.
 
 ---
 
@@ -197,7 +197,7 @@ instructor as readily as to you.
 
 ## Individual Project — Geopolitical Research Paper (55%)
 Introduced Session 7 (19-Sep), topic sign-off Session 8, workshopped Session 10 (8-Oct), **due Sunday
-18-Oct**. Peer evaluation accounts for 50% of the grade.
+18-Oct**. Worth **55% of the course grade**; peer evaluation accounts for half of it.
 
 **It is deliberately the last thing standing.** The case is a bounded engagement with a spec,
 a check figure and a deadline weeks out — the method on rails. The paper is the same method
