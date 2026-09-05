@@ -108,13 +108,13 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 | Attendance & Participation | 10% |
 | Case 1 — Perfect Competition: Decision Analysis | 30% |
 | Individual Project — Geopolitical Research Paper | 30% |
-| Team Case Study Presentation | 30% |
+| Team presentation | 30% |
 | **Total** | **100%** |
 
 * **Attendance & Participation (10%):** Essential for maximizing learning outcomes. Each case opens with an in-class working session — showing up and committing is participating. **In this design, participation also means committing to a prediction before the answer is known.** Being wrong costs nothing; not answering costs the session.
 * **Case-Study Project (30%):** One Excel + AI engagement. **The 30% is earned as 20 points across four stages** — 2 (repo) · 1 (brief) · 8 (build) · 9 (analysis). See below.
 * **Individual Project — Geopolitical Research Paper (30%):** Peer evaluation accounts for **half of that 30%**.
-* **Team Case Study Presentation (30%):** Peer evaluation accounts for **half of that 30%**.
+* **Team presentation (30%):** Peer evaluation accounts for **half of that 30%**.
 
 ---
 
@@ -180,7 +180,7 @@ sets up the repository you use all term. **Every due date is in the course sched
 
 **Case 4 — the Global Financial Crisis (in class, ungraded).** Not a graded engagement and nothing
 to submit. It is the same method applied to a crisis that has already resolved. **Your predictions
-are sealed in Session 8** — three numbers and one sentence, written from the desk of 31 July 2007 —
+are sealed in Session 9** — three numbers and one sentence, written from the desk of 31 July 2007 —
 and they come due across Sessions 11 to 14 as the arc runs. **One live arc and one closed arc,
 running the same method** — the live one cannot be graded against an answer key and this one can.
 
@@ -215,7 +215,7 @@ inferred. Topic approval is required.
 
 ---
 
-## Team Case Study Presentation (30%)
+## Team presentation (30%)
 Teams assigned week 10, presented week 16. Worth **30% of the course grade**; peer evaluation accounts for half of it.
 
 Team Choice — any global or geopolitical issue. **One point extra credit for a new topic or a
