@@ -180,7 +180,7 @@ sets up the repository you use all term. **Every due date is in the course sched
 
 **Case 4 — the Global Financial Crisis (in class, ungraded).** Not a graded engagement and nothing
 to submit. It is the same method applied to a crisis that has already resolved. **Your predictions
-are sealed in Session 8** — three numbers and one sentence, written from the desk of 31 July 2007 —
+are sealed in Session 9** — three numbers and one sentence, written from the desk of 31 July 2007 —
 and they come due across Sessions 11 to 14 as the arc runs. **One live arc and one closed arc,
 running the same method** — the live one cannot be graded against an answer key and this one can.
 
