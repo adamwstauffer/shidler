@@ -135,6 +135,12 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 | **10** | Thu 8-Oct | **The open economy.** Aggregate demand and supply, inflation, and the exchange rate. Discussion: analysis of current Fed policy · **Research-paper workshop** — thesis, sources, structure<br>**Reading:** Ch. 20 — Aggregate Demand and Supply · Ch. 21 — Exchange Rates | | |
 | **11** | Sat 10-Oct | **Micro 14 · Tariffs, trade wars and economic warfare** · *Act V — Across the border*<br>In-class exercise: Trade Wars — impact on national and global economies · Spotlight: Immigration — legal and illegal; current events · Course synthesis, open Q&A, and closing<br>**Reading:** Ch. 11 — International Trade · Ch. 10 — Making Policy Choices | | **Individual Research Paper**<br>Sun 18-Oct |
 
+**How to read the chapter numbers.** The Micro/Macro chapters are numbered in **book order** — the
+textbook's own logic, one subject per chapter. Sessions play them in the order **the running case**
+needs, so a session may play a later chapter before an earlier one, and this section doubles two
+into one sitting. Where a chapter is named above it is given with its act, which is where it sits in
+the book.
+
 ## Case-Study Project (15%)
 One staged Excel + AI engagement. One **personal public GitHub portfolio repository**, created in Case 1, accretes all term — structured by **capability** and **engagement**, not by course, so it outlives this class as a portfolio piece. Check figures are published so you can self-verify before submitting.
 
