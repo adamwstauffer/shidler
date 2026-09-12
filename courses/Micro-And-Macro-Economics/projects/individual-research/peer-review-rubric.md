@@ -1,5 +1,7 @@
 # BUS 620: Peer Review Rubric — Individual Research Paper
 
+> The criteria and weights below mirror the single source on Kumu: https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric. If they ever differ, Kumu wins.
+
 **Reviewer Instructions:**  
 - You are reviewing this paper **anonymously**. Do not include your name.  
 - Provide **constructive feedback** in each section. Be specific — point out strengths, weaknesses, and suggestions for improvement.  

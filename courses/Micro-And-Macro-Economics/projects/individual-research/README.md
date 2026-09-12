@@ -15,6 +15,7 @@ To integrate and apply concepts from class in analyzing a global challenge of yo
 ## 📌 Assignment Overview  
 
 ### 1. Topic Selection  
+Topic sign-off is not required if you are comfortable with your subject. If you want a read on it, commit your brief and push (see Feedback below).  
 Choose a global challenge relevant to one or more chapters covered in class. Examples include:  
 - Poverty, inflation, unemployment  
 - Climate change and environmental policy  
@@ -41,30 +42,8 @@ This assignment is part of our **AI + GitHub course project**. GitHub use is pre
 
 ---
 
-## 📄 Format  
-- Typed, double-spaced, 12-point Times New Roman font, 1-inch margins.  
-- Length: Maximum **4 pages**, not counting the title page, graphs, bibliography, or appendix.  
-- Title page with name, date, course title, and assignment title — the only page with identifying information.  
-- No identifying information on any other page (for double-anonymous peer review).  
-- Citations in **APA, MLA, or Chicago style** with a separate bibliography page.  
-
----
-
-## 📊 Evaluation Criteria  
-
-| Category | Weight | What the reviewer asks |
-|---|---|---|
-| Content and Relevance | 20% | Does the paper clearly identify and explain the global challenge? Is the challenge linked appropriately to class concepts? |
-| Analysis | 30% | Is the economic analysis detailed and insightful? Are implications and potential outcomes critically examined? |
-| Recommendation | 30% | Are the suggested economic policies/strategies logical and based on the preceding analysis? |
-| Presentation and Writing | 10% | Is the paper well-organized? Is the writing clear and free of errors? |
-| Graph/Chart/Diagram | 10% | Is the graph relevant? Is it clearly labeled and effectively supports the analysis? |
-
-**Grading:**  
-- **Double Anonymous Peer Review:** 32.5% (assigned peers anonymously review each paper; an average score is taken)  
-- **Instructor Score:** 32.5%  
-- **Timeliness and Adherence to Constraints:** 25%  
-- **Participation in Peer Review (submitting reviews for classmates):** 10%  
+## 📄 Format, Rubric and Grading  
+**Single source: the Kumu research-paper page** — https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric. The four-page limit, the five criteria and their weights, and how the peer, instructor, timeliness and participation scores combine are all there and nowhere else. This README does not repeat them, so they cannot drift.  
 
 ---
 
