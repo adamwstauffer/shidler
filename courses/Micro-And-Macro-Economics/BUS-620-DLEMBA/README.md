@@ -137,8 +137,8 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 | **7** | Sat 19-Sep | **Micro 14 · Why nations trade** + **Micro 15 · Tariffs, trade wars and economic warfare** · *Act V — Across the border*<br>**Across the border.** ① Comparative advantage, freight, and the toll. ② Tariffs, quotas, protection's political economy, and the arithmetic of sanctions. Spotlight: WTO, World Order & Climate Change · **In-Class Study: AI in the Workforce** · Video: AI — A New Paradigm · [Citrini, *2028 Global Intelligence Crisis*](https://www.citriniresearch.com/p/2028gic) · Video: Principles for Dealing with the Changing World Order (Dalio) · **[Introduce: Individual Research Paper](https://adamwstauffer.github.io/ai-lms/team-case-study.html)**<br>**Reading:** Ch. 11 — International Trade *(the chapter the residence weekend pointed at for surplus and the loss triangle)* · **No textbook chapter for the sanctions arithmetic (Micro 15); the deck is the reading.** | | |
 | **8** | Thu 24-Sep | **Macro 1 · FX in brief** + **Macro 2 · Measuring the economy** + **Macro 3 · Labor markets and unemployment** · *Acts I–II*<br>**The desk, and the people.** An exchange rate is a price; how a shock shows up in GDP, unemployment and the inflation print; and who loses a job. **Case 4 (ungraded):** sealed predictions collected in class — March 2009 unemployment, house prices off peak, whether a top-ten institution fails, and what would prove you wrong<br>**Reading:** Ch. 12 — Macro: The Bird's-Eye View · Ch. 13 — Measuring Economic Activity · Ch. 15 — The Labor Market · **No textbook chapter for the FX market itself (Macro 1); the deck is the reading.** | | |
 | **9** | Thu 1-Oct | **Macro 4 · Why economies grow** + **Macro 5 · Valuing equities and bonds** + **Macro 6 · Derivatives in brief** · *Acts II–III*<br>**Output, and the instruments.** The growth path and whether 2008 lowered it; what a share and a bond are worth; and the contracts that priced the crisis.<br>**Reading:** Ch. 14 — Economic Growth · Ch. 16 — Saving and Capital Formation · Ch. 17 — Money and the Fed · **No textbook chapter for the derivative contracts (Macro 6); the deck is the reading.** | | |
-| **10** | Thu 8-Oct | **Macro 7 · Money, banking, and the plumbing** + **Macro 8 · Monetary and fiscal policy: the response** · *Act IV — The plumbing and the response*<br>**The plumbing, and the response.** BNP to Bear to Lehman; then whether the response worked. Side discussion: Investment Management, Trading & Market Making · Discussion: analysis of current Fed policy · **Research-paper workshop** — thesis, sources, structure<br>**Reading:** Ch. 18 — Fiscal Policy · Ch. 19 — Stabilizing the Economy *(the plumbing's own chapters were assigned 1 October)* | | |
-| **11** | Sat 10-Oct | **Macro 9 · The open economy** · *Act V — The world*<br>**The world.** Why the dollar rose in a crisis that was American — where the Session 8 predictions come due. In-class exercise: Trade Wars — impact on national and global economies *(on Session 7's material)* · Spotlight: Immigration — legal and illegal; current events · Course synthesis, open Q&A, and closing<br>**Reading:** Ch. 20 — Aggregate Demand and Supply *(optional)* · Ch. 21 — Exchange Rates | | **Individual Research Paper**<br>Sun 18-Oct |
+| **10** | Thu 8-Oct | **Macro 7 · Money, banking, and the plumbing** + **Macro 8 · Monetary and fiscal policy: the response** · *Act IV — The plumbing and the response*<br>**The plumbing, and the response.** BNP to Bear to Lehman; then whether the response worked. Side discussion: Investment Management, Trading & Market Making · Discussion: analysis of current Fed policy<br>**Reading:** Ch. 18 — Fiscal Policy · Ch. 19 — Stabilizing the Economy *(the plumbing's own chapters were assigned 1 October)* | |<br>**Individual Research Paper** · Thu 8-Oct |
+| **11** | Sat 10-Oct | **Macro 9 · The open economy** · *Act V — The world*<br>**The world.** Why the dollar rose in a crisis that was American — where the Session 8 predictions come due. In-class exercise: Trade Wars — impact on national and global economies *(on Session 7's material)* · Spotlight: Immigration — legal and illegal; current events · Course synthesis, open Q&A, and closing<br>**Reading:** Ch. 20 — Aggregate Demand and Supply *(optional)* · Ch. 21 — Exchange Rates | | **Peer reviews** (two assigned papers)<br>Mon 12-Oct |
 
 **How to read the chapter numbers.** The Micro/Macro chapters are numbered in **book order** — the
 textbook's own logic, one subject per chapter. Sessions play them in the order **the running case**
@@ -202,8 +202,8 @@ instructor as readily as to you.
 ---
 
 ## Individual Project — Geopolitical Research Paper (55%)
-Introduced Session 7 (19-Sep), topic sign-off Session 8, workshopped Session 10 (8-Oct), **due Sunday
-18-Oct**. Worth **55% of the course grade**; peer evaluation accounts for half of it.
+Introduced Session 7 (19-Sep), **due Thursday 8-Oct**; peer reviews of two assigned papers due
+Monday 12-Oct. Worth **55% of the course grade**; peer evaluation accounts for half of it.
 
 **It is deliberately the last thing standing.** The case is a bounded engagement with a spec,
 a check figure and a deadline weeks out — the method on rails. The paper is the same method
@@ -212,7 +212,9 @@ the shape of the course**, and it is the same shape the on-campus section runs.
 
 The paper is the course's method at full scale on a question of your own choosing: a governing
 thought, evidence you fetched yourself, and an honest separation of what you observed from what you
-inferred. Topic approval is required.
+inferred. Topic approval is not required. If you want a read on your topic, commit your brief to
+`docs/briefs/research-brief.md`; there is no need to send a link. GitHub use is preferred, not
+required: the PDF you upload to Lamaku is the graded copy, and the repo is the evidence trail.
 
 ---
 
