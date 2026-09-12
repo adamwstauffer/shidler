@@ -1,5 +1,7 @@
 # BUS 620: Peer Review Rubric — Individual Research Paper
 
+> The criteria and weights below mirror the single source on Kumu: https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric. If they ever differ, Kumu wins.
+
 **Reviewer Instructions:**  
 - You are reviewing this paper **anonymously**. Do not include your name.  
 - Provide **constructive feedback** in each section. Be specific — point out strengths, weaknesses, and suggestions for improvement.  
@@ -11,9 +13,9 @@
 
 ---
 
-## 1. Content & Relevance (20%)  
-- Does the paper clearly identify and explain the chosen global challenge?  
-- Is the challenge connected appropriately to course concepts (micro/macro)?  
+## 1. Content and Relevance (20%)  
+- Does the paper clearly identify and explain the global challenge?  
+- Is the challenge linked appropriately to class concepts?  
 
 **Comments:**  
 ...  
@@ -22,10 +24,9 @@
 
 ---
 
-## 2. Economic Analysis (30%)  
-- Is the analysis detailed and insightful?  
-- Are both current impacts and potential future outcomes examined?  
-- Are models/theories applied correctly?  
+## 2. Analysis (30%)  
+- Is the economic analysis detailed and insightful?  
+- Are implications and potential outcomes critically examined?  
 
 **Comments:**  
 ...  
@@ -34,10 +35,8 @@
 
 ---
 
-## 3. Recommendations & Policy Logic (30%)  
-- Are the proposed policies or strategies logical and feasible?  
-- Are they well-supported by the preceding analysis?  
-- Do they address the core problem effectively?  
+## 3. Recommendation (30%)  
+- Are the suggested economic policies/strategies logical and based on the preceding analysis?  
 
 **Comments:**  
 ...  
@@ -46,9 +45,9 @@
 
 ---
 
-## 4. Writing & Organization (10%)  
-- Is the paper well-organized, concise, and professional?  
-- Is the writing clear, free of major grammar/spelling issues?  
+## 4. Presentation and Writing (10%)  
+- Is the paper well-organized?  
+- Is the writing clear and free of errors?  
 
 **Comments:**  
 ...  
@@ -57,9 +56,9 @@
 
 ---
 
-## 5. Graphs/Charts/Diagrams (10%)  
-- Is there at least one relevant figure?  
-- Is it clearly labeled and does it support the analysis?  
+## 5. Graph/Chart/Diagram (10%)  
+- Is the graph relevant?  
+- Is it clearly labeled and does it effectively support the analysis?  
 
 **Comments:**  
 ...  

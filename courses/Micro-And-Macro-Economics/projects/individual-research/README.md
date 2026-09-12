@@ -15,6 +15,7 @@ To integrate and apply concepts from class in analyzing a global challenge of yo
 ## 📌 Assignment Overview  
 
 ### 1. Topic Selection  
+Topic sign-off is not required if you are comfortable with your subject. If you want a read on it, commit your brief and push (see Feedback below).  
 Choose a global challenge relevant to one or more chapters covered in class. Examples include:  
 - Poverty, inflation, unemployment  
 - Climate change and environmental policy  
@@ -31,8 +32,8 @@ Your paper should:
 - Propose **economic policies or strategies** to address or mitigate the challenge.  
 - Include **at least one graph, chart, or diagram** (not counted in page limit) to visually support your analysis.  
 
-### 3. AI + GitHub Workflow  
-This assignment is part of our **AI + GitHub course project**. You are expected to follow the structured workflow below:  
+### 3. AI + GitHub Workflow (preferred, not required)  
+This assignment is part of our **AI + GitHub course project**. GitHub use is preferred, not required: the PDF you upload to Lamaku is the graded copy, and the repo is the evidence trail. If you use it, follow the structured workflow below:  
 1. **README (Assignment Brief):** Use the provided GitHub template to outline your chosen challenge and planned analysis.  
 2. **Prompts (AI Engagement):** Use AI to support your research (e.g., data search, scenario building, drafting). Document all prompts and outputs in your **Prompt Log**.  
 3. **Spec (Project Plan):** Write a short plan defining your models, data sources, and success criteria.  
@@ -41,38 +42,20 @@ This assignment is part of our **AI + GitHub course project**. You are expected 
 
 ---
 
-## 📄 Format  
-- Typed, double-spaced, 12-point Times New Roman font, 1-inch margins.  
-- Length: Maximum **2 pages** (excluding graphs, bibliography, or appendix).  
-- Title page with name, date, course title, and assignment title.  
-- No identifying information on subsequent pages (for double-anonymous peer review).  
-- Citations in **APA, MLA, or Chicago style** with a separate bibliography page.  
-
----
-
-## 📊 Evaluation Criteria  
-
-| Category                        | Weight |
-|---------------------------------|--------|
-| Content & Relevance             | 20%    |
-| Economic Analysis               | 25%    |
-| Recommendations & Policy Logic  | 25%    |
-| Writing & Organization          | 10%    |
-| Graphs/Charts/Diagrams          | 10%    |
-| Github Organization             | 10%    |
-
-**Overall Grading Breakdown:**  
-- **Peer Review (average of 5 reviewers):** 32.5%  
-- **Instructor Score:** 32.5%  
-- **Timeliness & Adherence to Constraints:** 25%  
-- **Participation in Peer Review (submitting reviews):** 10%  
+## 📄 Format, Rubric and Grading  
+**Single source: the Kumu research-paper page** — https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric. The four-page limit, the five criteria and their weights, and how the peer, instructor, timeliness and participation scores combine are all there and nowhere else. This README does not repeat them, so they cannot drift.  
 
 ---
 
 ## 📥 Submission & Review  
-1. **Paper Submission:** Upload a PDF copy to the Lamaku “Assignments” tab.  
-2. **GitHub Submission:** Push your paper, figures, and prompt log to your course GitHub repo.  
-3. **Peer Review:** After submission, you will receive 5 anonymized papers to review. Submit feedback and scores by the peer review deadline.  
+1. **Paper Submission:** Upload a PDF copy of the final document to the Assignment tab in Lamaku.  
+2. **Peer Review:** After the submission deadline, you will receive instructions and links to anonymously review your peers' papers.  
+3. **GitHub (preferred, not required):** Push your paper, figures, and prompt log to your portfolio repo.  
+
+---
+
+## 💬 Feedback  
+If you want my read on your topic or on a draft, use GitHub: commit the brief or the draft, then push. I periodically review whatever has been pushed and leave feedback there. A push is how you ask, so work locally until you want my input. Pushes close to the deadline may not get feedback before it; your offering's syllabus gives the cutoff date.  
 
 ---
 
