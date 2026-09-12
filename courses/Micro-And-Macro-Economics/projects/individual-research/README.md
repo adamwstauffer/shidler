@@ -31,8 +31,8 @@ Your paper should:
 - Propose **economic policies or strategies** to address or mitigate the challenge.  
 - Include **at least one graph, chart, or diagram** (not counted in page limit) to visually support your analysis.  
 
-### 3. AI + GitHub Workflow  
-This assignment is part of our **AI + GitHub course project**. You are expected to follow the structured workflow below:  
+### 3. AI + GitHub Workflow (preferred, not required)  
+This assignment is part of our **AI + GitHub course project**. GitHub use is preferred, not required: the PDF you upload to Lamaku is the graded copy, and the repo is the evidence trail. If you use it, follow the structured workflow below:  
 1. **README (Assignment Brief):** Use the provided GitHub template to outline your chosen challenge and planned analysis.  
 2. **Prompts (AI Engagement):** Use AI to support your research (e.g., data search, scenario building, drafting). Document all prompts and outputs in your **Prompt Log**.  
 3. **Spec (Project Plan):** Write a short plan defining your models, data sources, and success criteria.  
@@ -43,36 +43,35 @@ This assignment is part of our **AI + GitHub course project**. You are expected 
 
 ## 📄 Format  
 - Typed, double-spaced, 12-point Times New Roman font, 1-inch margins.  
-- Length: Maximum **2 pages** (excluding graphs, bibliography, or appendix).  
-- Title page with name, date, course title, and assignment title.  
-- No identifying information on subsequent pages (for double-anonymous peer review).  
+- Length: Maximum **4 pages**, not counting the title page, graphs, bibliography, or appendix.  
+- Title page with name, date, course title, and assignment title — the only page with identifying information.  
+- No identifying information on any other page (for double-anonymous peer review).  
 - Citations in **APA, MLA, or Chicago style** with a separate bibliography page.  
 
 ---
 
 ## 📊 Evaluation Criteria  
 
-| Category                        | Weight |
-|---------------------------------|--------|
-| Content & Relevance             | 20%    |
-| Economic Analysis               | 25%    |
-| Recommendations & Policy Logic  | 25%    |
-| Writing & Organization          | 10%    |
-| Graphs/Charts/Diagrams          | 10%    |
-| Github Organization             | 10%    |
+| Category | Weight | What the reviewer asks |
+|---|---|---|
+| Content and Relevance | 20% | Does the paper clearly identify and explain the global challenge? Is the challenge linked appropriately to class concepts? |
+| Analysis | 30% | Is the economic analysis detailed and insightful? Are implications and potential outcomes critically examined? |
+| Recommendation | 30% | Are the suggested economic policies/strategies logical and based on the preceding analysis? |
+| Presentation and Writing | 10% | Is the paper well-organized? Is the writing clear and free of errors? |
+| Graph/Chart/Diagram | 10% | Is the graph relevant? Is it clearly labeled and effectively supports the analysis? |
 
-**Overall Grading Breakdown:**  
-- **Peer Review (average of 5 reviewers):** 32.5%  
+**Grading:**  
+- **Double Anonymous Peer Review:** 32.5% (assigned peers anonymously review each paper; an average score is taken)  
 - **Instructor Score:** 32.5%  
-- **Timeliness & Adherence to Constraints:** 25%  
-- **Participation in Peer Review (submitting reviews):** 10%  
+- **Timeliness and Adherence to Constraints:** 25%  
+- **Participation in Peer Review (submitting reviews for classmates):** 10%  
 
 ---
 
 ## 📥 Submission & Review  
-1. **Paper Submission:** Upload a PDF copy to the Lamaku “Assignments” tab.  
-2. **GitHub Submission:** Push your paper, figures, and prompt log to your course GitHub repo.  
-3. **Peer Review:** After submission, you will receive 5 anonymized papers to review. Submit feedback and scores by the peer review deadline.  
+1. **Paper Submission:** Upload a PDF copy of the final document to the Assignment tab in Lamaku.  
+2. **Peer Review:** After the submission deadline, you will receive instructions and links to anonymously review your peers' papers.  
+3. **GitHub (preferred, not required):** Push your paper, figures, and prompt log to your portfolio repo.  
 
 ---
 
