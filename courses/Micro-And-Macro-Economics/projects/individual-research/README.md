@@ -75,6 +75,11 @@ This assignment is part of our **AI + GitHub course project**. GitHub use is pre
 
 ---
 
+## 💬 Feedback  
+If you want my read on your topic or on a draft, use GitHub: commit the brief or the draft, then push. I periodically review whatever has been pushed and leave feedback there. A push is how you ask, so work locally until you want my input. Pushes close to the deadline may not get feedback before it; your offering's syllabus gives the cutoff date.  
+
+---
+
 ## ⚖ Academic Integrity  
 This is an **individual assignment**. Discussion with peers is allowed, but your final paper must reflect your own analysis. Plagiarism or misuse of AI will result in a zero and may trigger further disciplinary action.  
 
