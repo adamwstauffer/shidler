@@ -219,6 +219,10 @@ inferred. Topic approval is not required. If you want a read on your topic, comm
 `docs/briefs/research-brief.md`; there is no need to send a link. GitHub use is preferred, not
 required: the PDF you upload to Lamaku is the graded copy, and the repo is the evidence trail.
 
+If you want my read on your topic or on a draft, use GitHub: commit the brief or the draft, then
+push. I periodically review whatever has been pushed and leave feedback there. A push is how you
+ask, so work locally until you want my input. Pushes by Friday 4-Dec get feedback before the deadline; later pushes get it when I get to them.
+
 ---
 
 ## Team presentation (30%)

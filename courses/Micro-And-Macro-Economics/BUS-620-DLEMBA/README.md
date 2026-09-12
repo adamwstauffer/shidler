@@ -78,7 +78,7 @@ on-campus section takes until December to finish.
 | On-campus element | DLEMBA equivalent |
 |---|---|
 | In-class case working session | The written stage briefs, which are self-contained, plus a screencast kickoff at each case's open |
-| Attendance & participation | **Commit activity** — regular, meaningful commits across each stage window are the participation signal; a repo that lights up only on due dates reads as non-attendance |
+| Attendance & participation | **Commit activity** — regular, meaningful commits across each case-stage window are the participation signal (the research paper's repo use is optional and is not counted); a repo that lights up only on due dates reads as non-attendance |
 | Live sensitivity demos | Documented in the workbook: you run the sensitivity yourself and write it into your analysis |
 | Office hours | Scheduled video calls + GitHub Issues on your repo — open an issue, tag the instructor |
 
@@ -215,6 +215,10 @@ thought, evidence you fetched yourself, and an honest separation of what you obs
 inferred. Topic approval is not required. If you want a read on your topic, commit your brief to
 `docs/briefs/research-brief.md`; there is no need to send a link. GitHub use is preferred, not
 required: the PDF you upload to Lamaku is the graded copy, and the repo is the evidence trail.
+
+If you want my read on your topic or on a draft, use GitHub: commit the brief or the draft, then
+push. I periodically review whatever has been pushed and leave feedback there. A push is how you
+ask, so work locally until you want my input. Pushes by Thursday 1-Oct get feedback before the deadline; later pushes get it when I get to them.
 
 ---
 
