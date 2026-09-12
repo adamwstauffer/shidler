@@ -212,7 +212,9 @@ the shape of the course**, and it is the same shape the on-campus section runs.
 
 The paper is the course's method at full scale on a question of your own choosing: a governing
 thought, evidence you fetched yourself, and an honest separation of what you observed from what you
-inferred. Topic approval is not required. If you want a read on your topic, commit your brief to
+inferred. Rubric, page limit and grading split: the Kumu research-paper page, the single source
+(https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric). Topic sign-off is not required if you
+are comfortable with your subject; if you want a read on it, commit your brief to
 `docs/briefs/research-brief.md`; there is no need to send a link. GitHub use is preferred, not
 required: the PDF you upload to Lamaku is the graded copy, and the repo is the evidence trail.
 
