@@ -77,10 +77,17 @@ hours at $34.72/hr run out, marginal labor switches to temporary labor at $17.36
 diminishing returns push MC back up through the price line. This is the lesson that input prices bend
 the marginal-cost curve, and it is the most interesting thing in the model.
 
-**Why growing loss-making crops is correct.** Standalone, every crop loses money at every quantity,
-because fixed costs dominate. The resolution is marginal cost against average *variable* cost: price
-exceeds AVC everywhere, so every bed contributes above variable cost, and the *mix* — not any single
-crop — is what turns a loss into $42,762. This is the short-run shutdown rule in farm clothes.
+**Why growing loss-making crops is correct.** Carrots and mesclun lose money standalone at every
+quantity — their best standalone results are losses of about $16,500 and $11,900 — because each is
+charged the whole $20,000 fixed cost on its own. The resolution is marginal cost against average
+*variable* cost: at the quantities the optimum actually plants, price covers AVC, so every bed
+contributes above variable cost, and the *mix* — not any single crop — is what turns a loss into
+$42,762. This is the short-run shutdown rule in farm clothes.
+
+Two generalizations people reach for here are worth testing rather than assuming: that *every* crop
+is loss-making standalone, and that price covers AVC at *every* quantity. Neither survives contact
+with this model. Finding where each one breaks, and saying why, is stronger work than restating the
+rule — and if your schedules disagree with anything on this page, the disagreement is the finding.
 
 ## 5. Procedure
 
