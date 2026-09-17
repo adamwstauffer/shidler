@@ -82,7 +82,7 @@ Before recommending a new course directory, project, stage, template, spreadshee
    | A new template | `docs/templates/` + the project's `_templates/` |
    | A new spreadsheet | `docs/spreadsheets/` (the master workbooks) before building a one-off |
    | A new decision pattern | `docs/decisions/` + `_archive/` for a prior/superseding memo |
-   | A grading rule | the `feedback_*` memories + `scripts/grading/` |
+   | A grading rule | the `feedback_*` memories + the ai-lms `grading` skill (`C:\GitHub\ai-lms\.claude\skills\grading\`) |
 2. **Archive check.** Grep `_archive/<course-code>/` — the concept may be a *retired* artifact, not a missing one (e.g. the archived BUS-314 project superseded by the shared `performance-ratios` project).
 3. **Extend-vs-create.** If an adjacent artifact exists, default to **extending** it and say so; only recommend a new artifact if extension would force NULL-pollution or semantic conflation. Prefer the existing template's conventions (CLAUDE.md: "existing template conventions always win").
 
