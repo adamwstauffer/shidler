@@ -40,7 +40,7 @@ When unsure whether something is verified, treat it as unverified.
   consolidated under each offering's `ignore/<YYYY-Season>/grades/`. The `*_FinalGrades_*.xlsx`
   exports carry the **letter grade in column P** (and the numeric in column O); the plain
   `*_Grades_*.csv` exports carry only the number — convert those with the SSOT scale in
-  the ai-lms `grading` skill (`C:\GitHubi-lms\.claude\skills\gradingeferences\grading-scale.md`;
+  the ai-lms `grading` skill (`C:\GitHub\ai-lms\.claude\skills\grading\references\grading-scale.md`;
   `docs/grading-scale.md` here is a mirror) or its helper
   (e.g. `python C:/GitHub/ai-lms/.claude/skills/grading/scripts/final_grades/letter_grade.py 92` → `A-`). **Never guess a letter from a number** —
   read column P or apply the scale.
