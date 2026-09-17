@@ -47,9 +47,19 @@ never `git add` their contents.
 ### Within each subject directory
 
 - `README.md` — Subject hub: overview, course-code table, links to `projects/` and offering folders
-- `projects/<slug>/` — Shared curriculum: stage assignment docs, `_templates/`, `_tools/` (grading scripts), analysis/deliverables/models as applicable
+- `projects/<slug>/` — Shared curriculum: stage assignment docs, `_templates/`, `_tools/` (legacy per-course grading scanners, frozen 2026-09-16 — grading runs from ai-lms), analysis/deliverables/models as applicable
 - `<CODE[-POPULATION]>/README.md` — Per-offering syllabus (overview, objectives, grading, AI policy, campus policies)
 - `<CODE[-POPULATION]>/ignore/` — Gitignored student submissions and grading records for that offering
+
+## Grading
+
+**All grading runs from the sibling `ai-lms` repo's `grading` skill**
+(`C:\GitHub\ai-lms\.claude\skills\grading\`), reached with `/add-dir C:\GitHub\ai-lms` — stage
+sweeps, student comments, final-grade computation, and the letter scale. Grade records and rosters
+stay here, under the gitignored `ignore/` and `rosters/` trees. The per-course `_tools/` scanners
+are **frozen legacy as of 2026-09-16 and must not be extended**; a course that runs again gets a
+`references/courses/<course>.json` in ai-lms instead. Decision memo (in ai-lms):
+`docs/decisions/2026-09-16-grading-process-drift-and-permanent-fixes.md`.
 
 ## Project Workflow
 
@@ -136,7 +146,7 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Master Ratios Spreadsheet | `docs/spreadsheets/Corporate Finance Master Spreadsheets.xlsx` (supersedes the archived BUS-314 master, now local-only under `_archive/`) |
 | Appendix Presentations | `docs/presentations/` |
 | **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
-| Grading Scale (SSOT) | `docs/grading-scale.md` (numeric→letter; helper `scripts/grading/letter_grade.py`) |
+| Grading Scale (SSOT) | `C:\GitHub\ai-lms\.claude\skills\grading\references\grading-scale.md` (helper `scripts/final_grades/letter_grade.py` there); `docs/grading-scale.md` here is a pointer stub |
 | Kumu tutorial site | <https://adamwstauffer.github.io/ai-lms/> (source: sibling `ai-lms` repo, `website/`) |
 
 ## Financial Model Assumptions (mandatory for valuation work)
