@@ -96,15 +96,19 @@ accidental commit of a `~$` temp file.
    initialize it with a README so it can be cloned.
    *Confirm:* the repository URL opens in a private browser window without a login prompt.
 
-4. **Clone it, then build the skeleton** to the structure in the portfolio repo standard. Creating
-   directories is mechanical work — use the starter prompt on that page and check the result rather
-   than typing it out.
-   *Confirm:* every directory holds at least one file, or Git will not track it.
+4. **Clone it, then hand the mechanics to an AI.** The [setup prompt](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html#build-with-llm)
+   on the portfolio repo standard builds the skeleton, drafts `AGENTS.md` tailored to you from your
+   resume, writes the one-line `CLAUDE.md`, starts `prompt-log.md` with its first entry, and adds
+   `.gitignore`. Paste it into Claude or ChatGPT with your resume, then **read every file before you
+   commit** — the check that matters is whether `AGENTS.md` names *your* data and *your* preferences
+   or could be anyone's.
+   *Confirm:* every directory holds at least one file, or Git will not track it; `AGENTS.md` says
+   something only you could have said.
 
-5. **Write the four root files.** Replace the generated `README.md` with three to six sentences on
-   who you are, followed by an engagement index. Add `RESUME.md`, `AGENTS.md` (start from the
-   baseline on the AI conventions page and edit until it describes you), and the one-line
-   `CLAUDE.md` pointing at it.
+5. **Write the bio yourself.** Replace the placeholder `README.md` with three to six sentences on
+   who you are, followed by an engagement index. The bio lives in `README.md` — the file GitHub
+   renders first — not in a separate `BIO.md`. Edit `RESUME.md` and `AGENTS.md` until they sound
+   like you.
    *Confirm:* nothing in these files is placeholder text you would not want read.
 
 6. **Add `.gitignore`** before any workbook is committed, using the starter block in
@@ -124,8 +128,9 @@ accidental commit of a `~$` temp file.
 
 | Artifact | Draft order |
 |---|---|
-| Repository skeleton, `.gitignore`, the `AGENTS.md` starting point | AI-first, verified |
+| Repository skeleton, `.gitignore`, `AGENTS.md` tailored from your resume, `CLAUDE.md`, the first `prompt-log.md` entry | AI-first, verified — the setup prompt does all of it |
 | `README.md` bio, `RESUME.md` | AI-first, verified — then edited until it sounds like you |
+| `prompt-log.md` after day one | Kept by the assistant under the standing rule in `AGENTS.md`: one entry per session, never backfilled |
 
 **If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
 a means to the work rather than the work itself, AI may draft it and you verify.** The two working
@@ -143,8 +148,8 @@ anyone sees.
 - [ ] Repository is **public** — the URL opens in a private browser window without logging in
 - [ ] Named for you (`firstname-lastname`), not for a course
 - [ ] `README.md` holds a real three-to-six-sentence bio and the start of an engagement index
-- [ ] `AGENTS.md` written in your own words; `CLAUDE.md` is the one-line pointer
-- [ ] `RESUME.md` and `prompt-log.md` exist at the root — rough is acceptable
+- [ ] `AGENTS.md` tailored to you — names your own never-paste data and your own preferences; `CLAUDE.md` is the one-line pointer
+- [ ] `RESUME.md` at the root; `prompt-log.md` has its first entry and `AGENTS.md` carries the rule that keeps it
 - [ ] `.gitignore` filters Office and OS temp files
 - [ ] Every skeleton directory holds at least one file
 - [ ] `adamwstauffer` invited as a collaborator
