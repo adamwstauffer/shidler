@@ -54,7 +54,7 @@ never `git add` their contents.
 ## Grading
 
 **All grading runs from the sibling `ai-lms` repo's `grading` skill**
-(`C:\GitHubi-lms\.claude\skills\grading\`), reached with `/add-dir C:\GitHubi-lms` — stage
+(`C:\GitHub\ai-lms\.claude\skills\grading\`), reached with `/add-dir C:\GitHub\ai-lms` — stage
 sweeps, student comments, final-grade computation, and the letter scale. Grade records and rosters
 stay here, under the gitignored `ignore/` and `rosters/` trees. The per-course `_tools/` scanners
 are **frozen legacy as of 2026-09-16 and must not be extended**; a course that runs again gets a
@@ -146,7 +146,7 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Master Ratios Spreadsheet | `docs/spreadsheets/Corporate Finance Master Spreadsheets.xlsx` (supersedes the archived BUS-314 master, now local-only under `_archive/`) |
 | Appendix Presentations | `docs/presentations/` |
 | **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
-| Grading Scale (SSOT) | `C:\GitHubi-lms\.claude\skills\gradingeferences\grading-scale.md` (helper `scripts/final_grades/letter_grade.py` there); `docs/grading-scale.md` here is a pointer stub |
+| Grading Scale (SSOT) | `C:\GitHub\ai-lms\.claude\skills\grading\references\grading-scale.md` (helper `scripts/final_grades/letter_grade.py` there); `docs/grading-scale.md` here is a pointer stub |
 | Kumu tutorial site | <https://adamwstauffer.github.io/ai-lms/> (source: sibling `ai-lms` repo, `website/`) |
 
 ## Financial Model Assumptions (mandatory for valuation work)

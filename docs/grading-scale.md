@@ -1,7 +1,7 @@
 # Grading Scale (SSOT)
 
 **The single source of truth moved to the sibling `ai-lms` repo on 2026-09-16**, with the rest of
-the grading toolchain: `C:\GitHubi-lms\.claude\skills\gradingeferences\grading-scale.md`
+the grading toolchain: `C:\GitHub\ai-lms\.claude\skills\grading\references\grading-scale.md`
 (helper: `python C:/GitHub/ai-lms/.claude/skills/grading/scripts/final_grades/letter_grade.py 92`
 → `A-`). This file is a **mirror — edit the ai-lms copy**, then refresh the table here.
 
