@@ -14,7 +14,7 @@
 ---
 
 ## 1. Content and Relevance (20%)  
-- Does the paper clearly identify and explain the global challenge?  
+- Does the paper clearly identify and explain the challenge (global or local — a well-defined Hawaiʻi problem is fully acceptable)?  
 - Is the challenge linked appropriately to class concepts?  
 
 **Comments:**  

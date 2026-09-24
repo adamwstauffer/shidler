@@ -215,7 +215,8 @@ Introduced week 9, due **11-Dec**. Worth **30% of the course grade**; peer evalu
 
 The paper is the course's method at full scale on a question of your own choosing: a governing
 thought, evidence you fetched yourself, and an honest separation of what you observed from what you
-inferred. Rubric, page limit and grading split: the Kumu research-paper page, the single source
+inferred. The question can be global or local: a well-defined problem important to Hawaiʻi is
+fully acceptable, provided the subject is well thought out. Rubric, page limit and grading split: the Kumu research-paper page, the single source
 (https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric). Topic sign-off is not required if you
 are comfortable with your subject; if you want a read on it, commit your brief to
 `docs/briefs/research-brief.md`; there is no need to send a link. GitHub use is preferred, not
