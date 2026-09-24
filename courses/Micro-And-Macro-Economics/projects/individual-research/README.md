@@ -8,7 +8,7 @@
 ---
 
 ## 🎯 Objective  
-To integrate and apply concepts from class in analyzing a global challenge of your choice, while demonstrating professional use of **AI tools** and **GitHub workflows** for research, analysis, and reproducibility.  
+To integrate and apply concepts from class in analyzing a global or local challenge of your choice, while demonstrating professional use of **AI tools** and **GitHub workflows** for research, analysis, and reproducibility.  
 
 ---
 
@@ -16,7 +16,7 @@ To integrate and apply concepts from class in analyzing a global challenge of yo
 
 ### 1. Topic Selection  
 Topic sign-off is not required if you are comfortable with your subject. If you want a read on it, commit your brief and push (see Feedback below).  
-Choose a global challenge relevant to one or more chapters covered in class. Examples include:  
+Choose a global or local challenge relevant to one or more chapters covered in class. The paper does not have to address a *global* problem: a well-defined challenge important to Hawaiʻi is fully acceptable, provided the subject is well thought out. Examples include:  
 - Poverty, inflation, unemployment  
 - Climate change and environmental policy  
 - Global trade dynamics or supply chain fragility  
@@ -26,7 +26,7 @@ Choose a global challenge relevant to one or more chapters covered in class. Exa
 
 ### 2. Content Requirements  
 Your paper should:  
-- Clearly **identify and explain** the global challenge.  
+- Clearly **identify and explain** the challenge — global or local.  
 - Link the challenge to relevant **micro and/or macroeconomic concepts**.  
 - Provide **economic analysis** of current and future implications.  
 - Propose **economic policies or strategies** to address or mitigate the challenge.  
