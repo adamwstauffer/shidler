@@ -110,13 +110,13 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 | ----- | ----- |
 | Attendance & Participation | 10% |
 | Case 1 — Perfect Competition: Decision Analysis | 30% |
-| Individual Project — Geopolitical Research Paper | 30% |
+| Individual Research Paper | 30% |
 | Team presentation | 30% |
 | **Total** | **100%** |
 
 * **Attendance & Participation (10%):** Essential for maximizing learning outcomes. Each case opens with an in-class working session — showing up and committing is participating. **In this design, participation also means committing to a prediction before the answer is known.** Being wrong costs nothing; not answering costs the session.
 * **Case-Study Project (30%):** One Excel + AI engagement. **The 30% is earned as 20 points across four stages** — 2 (repo) · 1 (brief) · 8 (build) · 9 (analysis). See below.
-* **Individual Project — Geopolitical Research Paper (30%):** Peer evaluation accounts for **half of that 30%**.
+* **Individual Research Paper (30%):** Peer evaluation accounts for **half of that 30%**.
 * **Team presentation (30%):** Peer evaluation accounts for **half of that 30%**.
 
 ---
@@ -210,7 +210,7 @@ instructor as readily as to you.
 
 ---
 
-## Individual Project — Geopolitical Research Paper (30%)
+## Individual Research Paper (30%)
 Introduced week 9, due **11-Dec**. Worth **30% of the course grade**; peer evaluation accounts for half of it.
 
 The paper is the course's method at full scale on a question of your own choosing: a governing
