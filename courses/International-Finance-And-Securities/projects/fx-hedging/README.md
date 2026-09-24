@@ -5,6 +5,27 @@ prior four-stage version is archived at `_archive/fin321/stage-docs-v1/`, and th
 offering README's weight table matches these stages. Design rationale and options analysis:
 `ai-lms/docs/plans/2026-07-09-fin321-fx-hedging-restructure-memo.md`.
 
+## Micro/Macro parity (2026-09-24)
+
+Adam's ruling: BUS 620 Micro & Macro Economics is the guidepost for this project's conventions.
+Three things changed to match it:
+
+- **Stage 0 belongs to the course, not the project.** [`stage0-repo-setup.md`](stage0-repo-setup.md)
+  now prescribes the course-independent portfolio repo standard (`capabilities/`, `docs/briefs/`,
+  `docs/decisions/`, `data/`, `analysis/figures/`, `AGENTS.md`, `CLAUDE.md`, `prompt-log.md`),
+  taught on [github-stage0.html](https://adamwstauffer.github.io/ai-lms/github-stage0.html). The
+  old project-shaped skeleton (`docs/specs/`, `docs/plans/`, `docs/templates/`, `models/templates/`)
+  is superseded; the two folders the project commits into, `docs/specs/` and `models/builds/`,
+  are added at Stage 1.
+- **Every brief carries `stage-brief` frontmatter** — the `deliverables` block is the path the
+  course site's stage pages and `gates.js` mirror, as in BUS 620.
+- **The reference skeleton** in [`../../sample/`](../../sample/) now matches the standard, with the
+  Stage 1 project folders added.
+
+Not changed (pending Adam): stages 2–3 still commit to `docs/specs/` and `models/builds/` rather
+than the standard's `capabilities/fx-hedging/{spec.md,model.xlsx}`; the legacy `_tools/` graders
+still check the old Stage 0 skeleton.
+
 ## What changed vs. v1 (Build → Document → Analyze)
 
 The v2 arc is **Design → Build → Validate**, aligned with the proven BUS 629 performance-ratios
@@ -30,7 +51,7 @@ truth for graders is [`_tools/_weights.py`](_tools/_weights.py).
 
 | Stage | Deliverable | Weight | Suggested week (6-wk term) |
 | ----- | ----------- | -----: | ---- |
-| 0 | Portfolio repository (canonical skeleton) | 8% | 2 (paired with stage 2) |
+| 0 | Portfolio repository (course-level; the portfolio repo standard) | 8% | 2 (paired with stage 2) |
 | 1 | Executive memo | 17% | 1 |
 | 2 | Model specification | 21% | 2 |
 | 3 | AI-assisted build + audit note | 17% | 3 |
@@ -68,7 +89,7 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 
 | File | Stage |
 | ---- | ----- |
-| `stage0-repo-setup.md` | 0 — Portfolio repository |
+| `stage0-repo-setup.md` | 0 — Portfolio repository (course-level; companion page `github-stage0.html`) |
 | `stage1-executive-memo.md` | 1 — Executive memo |
 | `stage2-model-spec.md` | 2 — Model specification |
 | `stage3-ai-build-audit.md` | 3 — AI-assisted build + audit |

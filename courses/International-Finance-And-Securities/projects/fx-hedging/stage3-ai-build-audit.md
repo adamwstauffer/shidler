@@ -1,3 +1,19 @@
+---
+template: stage-brief
+project: fx-hedging
+stage: 3
+title: "AI-Assisted Build + Audit"
+capability: fx-hedging
+deliverables:
+  - path: "models/builds/YYYY-MM-DD-{lastname}-{scenario-slug}-model.xlsx"
+    format: xlsx
+  - path: "analysis/YYYY-MM-DD-{lastname}-build-audit.md"
+    format: markdown
+prerequisites: [2]
+weight: "17% of project"
+# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
+---
+
 # Stage 3 – AI-Assisted Build + Audit (17% of project)
 
 ## Goal

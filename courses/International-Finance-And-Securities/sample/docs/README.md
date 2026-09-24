@@ -1,3 +1,4 @@
 # Documentation
 
-Store project documentation here. Use the subdirectories to separate decision records, specifications, plans, and reusable templates.
+`briefs/` holds the question, before the work; `decisions/` holds the answer, after it. `specs/` is
+the FX hedging project's folder for its model specification (added at Stage 1).

@@ -67,7 +67,7 @@ This course includes a multi-stage project on FX risk management, worth **20% of
 
 **AI Integration:** Students may use AI for scenario building, payoff tables, drafting memos, and critique. All use must be logged in the Prompt Log.
 
-**GitHub Integration:** Students will maintain a GitHub repo with templates, deliverables, and version control. Workflows will mirror professional consulting and finance practices.
+**GitHub Integration:** Students maintain one public portfolio repository, stood up in Stage 0 to the course-independent [portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html) (walkthrough: [Stage 0 on Kumu](https://adamwstauffer.github.io/ai-lms/github-stage0.html)); the project adds its own folders at Stage 1. Workflows mirror professional consulting and finance practices.
 
 ---
 
@@ -100,8 +100,9 @@ Requirements:
 
 ```
 FIN-321/
-├── ignore/     gitignored: student submissions, grading records (2026-Spring/)
-└── README.md   this file
+├── ignore/       gitignored: student submissions, grading records
+├── summer-2026/  Summer 2026 offering: phase handouts + LMS .docx exports (historical — Phase 0 there describes the pre-2026-09-24 skeleton)
+└── README.md     this file
 ```
 
 Shared curriculum (stage docs, grading tools, templates) lives in [`../projects/fx-hedging/`](../projects/fx-hedging/) — see that directory's README for its full contents.
