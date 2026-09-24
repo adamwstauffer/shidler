@@ -1,3 +1,17 @@
+---
+template: stage-brief
+project: fx-hedging
+stage: 2
+title: "Model Specification"
+capability: fx-hedging
+deliverables:
+  - path: "docs/specs/YYYY-MM-DD-{lastname}-{scenario-slug}-spec.md"
+    format: markdown
+prerequisites: [1]
+weight: "21% of project"
+# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
+---
+
 # Stage 2 – Model Specification (21% of project)
 
 ## Goal
