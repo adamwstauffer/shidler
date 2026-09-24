@@ -115,12 +115,12 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 | ----- | ----- |
 | Attendance & Participation | 10% |
 | Case 1 — Perfect Competition: Decision Analysis | 35% |
-| Individual Project — Geopolitical Research Paper | 55% |
+| Individual Research Paper | 55% |
 | **Total** | **100%** |
 
 * **Attendance & Participation (10%):** Essential for maximizing learning outcomes. Each case opens with an in-class working session — showing up and committing is participating. **Participation also means committing to a prediction before the answer is known.** Being wrong costs nothing; not answering costs the session. Between sessions it is read from **commit activity** — a repo that lights up only on due dates reads as non-attendance.
 * **Case-Study Project (35%):** One Excel + AI engagement. **The 35% is earned as 20 points across four stages** — 2 (repo) · 1 (brief) · 8 (build) · 9 (analysis). See below.
-* **Individual Project — Geopolitical Research Paper (55%):** Peer evaluation accounts for **half of that 55%**.
+* **Individual Research Paper (55%):** Peer evaluation accounts for **half of that 55%**.
 
 ---
 
@@ -201,7 +201,7 @@ instructor as readily as to you.
 
 ---
 
-## Individual Project — Geopolitical Research Paper (55%)
+## Individual Research Paper (55%)
 Introduced Session 7 (19-Sep), **due Friday 9-Oct by midnight**; peer reviews of two assigned papers due
 Monday 12-Oct. Worth **55% of the course grade**; peer evaluation accounts for half of it.
 
@@ -212,7 +212,8 @@ the shape of the course**, and it is the same shape the on-campus section runs.
 
 The paper is the course's method at full scale on a question of your own choosing: a governing
 thought, evidence you fetched yourself, and an honest separation of what you observed from what you
-inferred. Rubric, page limit and grading split: the Kumu research-paper page, the single source
+inferred. The question can be global or local: a well-defined problem important to Hawaiʻi is
+fully acceptable, provided the subject is well thought out. Rubric, page limit and grading split: the Kumu research-paper page, the single source
 (https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric). Topic sign-off is not required if you
 are comfortable with your subject; if you want a read on it, commit your brief to
 `docs/briefs/research-brief.md`; there is no need to send a link. GitHub use is preferred, not
