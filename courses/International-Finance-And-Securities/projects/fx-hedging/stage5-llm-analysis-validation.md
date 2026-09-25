@@ -1,3 +1,19 @@
+---
+template: stage-brief
+project: fx-hedging
+stage: 5
+title: "LLM Analysis & Validation"
+capability: fx-hedging
+deliverables:
+  - path: "analysis/YYYY-MM-DD-{lastname}-{scenario-slug}-validation.md"
+    format: markdown
+  - path: "docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-recommendation.md"
+    format: markdown
+prerequisites: [4]
+weight: "25% of project"
+# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
+---
+
 # Stage 5 – LLM Analysis & Validation (25% of project — capstone)
 
 ## Goal

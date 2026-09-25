@@ -1,4 +1,26 @@
+---
+template: stage-brief
+project: fx-hedging
+stage: 3
+title: "AI-Assisted Build + Audit"
+capability: fx-hedging
+deliverables:
+  - path: "capabilities/fx-hedging/model.xlsx"
+    format: xlsx
+  - path: "analysis/YYYY-MM-DD-{lastname}-build-audit.md"
+    format: markdown
+prerequisites: [2]
+weight: "17% of project"
+# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
+---
+
 # Stage 3 – AI-Assisted Build + Audit (17% of project)
+
+> **Paths moved (2026-09-24, Adam).** Stages 2–4 used to commit to `docs/specs/` and
+> `models/builds/` under dated, name-stamped filenames. Following BUS 620 Micro & Macro, the spec
+> and the workbook now live together in the capability folder: `capabilities/fx-hedging/spec.md`,
+> `model.xlsx`, and its `README.md`. Summer 2026 repositories keep the old paths and are read
+> against the Summer 2026 handouts in `../../FIN-321/summer-2026/`; the old text is in git history.
 
 ## Goal
 
@@ -61,7 +83,7 @@ will be auditing the same workbook.
 
 ## Deliverables
 
-- Workbook: `models/builds/YYYY-MM-DD-{lastname}-{scenario-slug}-model.xlsx`
+- Workbook: `capabilities/fx-hedging/model.xlsx` — next to `spec.md`, the spec it was built from
 - Audit note: `analysis/YYYY-MM-DD-{lastname}-build-audit.md` (≥3 findings)
 - Updated `prompt-log.md`. Commit incrementally — generation, then each audit fix.
 
