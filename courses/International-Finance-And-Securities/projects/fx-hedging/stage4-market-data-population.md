@@ -1,3 +1,19 @@
+---
+template: stage-brief
+project: fx-hedging
+stage: 4
+title: "Market Data + Population"
+capability: fx-hedging
+deliverables:
+  - path: "data/YYYY-MM-DD-{lastname}-market-data.md"
+    format: markdown
+  - path: "capabilities/fx-hedging/model.xlsx"
+    format: xlsx
+prerequisites: [3]
+weight: "12% of project"
+# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
+---
+
 # Stage 4 – Market Data + Population (12% of project)
 
 ## Goal

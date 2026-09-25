@@ -1,4 +1,26 @@
+---
+template: stage-brief
+project: fx-hedging
+stage: 2
+title: "Model Specification"
+capability: fx-hedging
+deliverables:
+  - path: "capabilities/fx-hedging/spec.md"
+    format: markdown
+  - path: "capabilities/fx-hedging/README.md"
+    format: markdown
+prerequisites: [1]
+weight: "21% of project"
+# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
+---
+
 # Stage 2 – Model Specification (21% of project)
+
+> **Paths moved (2026-09-24, Adam).** Stages 2–4 used to commit to `docs/specs/` and
+> `models/builds/` under dated, name-stamped filenames. Following BUS 620 Micro & Macro, the spec
+> and the workbook now live together in the capability folder: `capabilities/fx-hedging/spec.md`,
+> `model.xlsx`, and its `README.md`. Summer 2026 repositories keep the old paths and are read
+> against the Summer 2026 handouts in `../../FIN-321/summer-2026/`; the old text is in git history.
 
 ## Goal
 
@@ -85,7 +107,8 @@ how Stage 4 will source the real one.
 
 ## Deliverable
 
-- File: `docs/specs/YYYY-MM-DD-{lastname}-{scenario-slug}-spec.md`
+- File: `capabilities/fx-hedging/spec.md` — the spec lives beside the workbook it specifies, as in BUS 620
+- Plus `capabilities/fx-hedging/README.md` updated: what the capability is, and a row for this engagement
 - Plus updated `prompt-log.md`. Committed and pushed.
 
 ## Evaluation

@@ -19,7 +19,7 @@ credit.** Numeric scores are returned privately; they do not appear in your publ
 
 | Phase | Deliverable | Instructions | Points (% × 20) | Due (11:59 PM HST) |
 |:-----:|-------------|--------------|:---------------:|--------------------|
-| [0](phase0-handout.md) | Portfolio repository (repo setup) | [stage 0](https://adamwstauffer.github.io/ai-lms/fx-hedging-stage0.html) | **1.6** (8%) | **Fri Jul 24, 2026** |
+| [0](phase0-handout.md) | Portfolio repository (repo setup) | [stage 0](https://adamwstauffer.github.io/ai-lms/github-stage0.html) | **1.6** (8%) | **Fri Jul 24, 2026** |
 | [1](phase1-handout.md) | Executive memo | [stage 1](https://adamwstauffer.github.io/ai-lms/fx-hedging-stage1.html) | **3.4** (17%) | **Fri Jul 24, 2026** |
 | [2](phase2-handout.md) | Model specification | [stage 2](https://adamwstauffer.github.io/ai-lms/fx-hedging-stage2.html) | **4.2** (21%) | **Fri Jul 31, 2026** |
 | [3](phase3-handout.md) | AI-assisted build + audit | [stage 3](https://adamwstauffer.github.io/ai-lms/fx-hedging-stage3.html) | **3.4** (17%) | **Fri Jul 31, 2026** |
