@@ -50,10 +50,11 @@ firstname-lastname/
     └── figures/         charts the findings refer to
 ```
 
-**FX hedging project folders.** The FX hedging project adds two folders to this skeleton at
-Stage 1 — `docs/specs/` for the model specification and `models/builds/` for the workbook — and
-names its graded files `YYYY-MM-DD-{lastname}-{scenario-slug}-{kind}.{ext}`. Both are in this
-sample so the tree matches what a finished FIN 321 repository holds.
+**FX hedging project files.** The FX hedging project adds no folders to this skeleton: its
+specification and workbook live in the capability folder as `capabilities/fx-hedging/spec.md` and
+`model.xlsx` (2026-09-24, Adam — Micro/Macro parity; the `docs/specs/` and `models/builds/` folders
+Summer 2026 used are retired). Its other graded files keep the
+`YYYY-MM-DD-{lastname}-{scenario-slug}-{kind}.{ext}` names.
 
 Three distinctions carry the whole structure:
 

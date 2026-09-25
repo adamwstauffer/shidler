@@ -13,10 +13,12 @@ you can answer and the kind of model you can build to answer it.)*
 
 | Engagement | Memo | Spec | Model | Analysis |
 |---|---|---|---|---|
-| *(engagement name)* | [`docs/decisions/`](../../docs/decisions/) | [`docs/specs/`](../../docs/specs/) | [`models/builds/`](../../models/builds/) | [`analysis/`](../../analysis/) |
+| *(engagement name)* | [`docs/decisions/`](../../docs/decisions/) | [`spec.md`](spec.md) | [`model.xlsx`](model.xlsx) | [`analysis/`](../../analysis/) |
 
 ## Files here
 
-The FX hedging project currently commits its spec to `docs/specs/` and its workbook to
-`models/builds/` (the two project folders added at Stage 1). This folder is where the capability
-is described and indexed.
+- `README.md` — this file: what the capability is, and where it was exercised.
+- `spec.md` — the Stage 2 model specification, written before any Excel exists.
+- `model.xlsx` — the workbook built from it at Stage 3 and populated with live data at Stage 4.
+
+*(2026-09-24, Adam: these replace the `docs/specs/` and `models/builds/` folders Summer 2026 used.)*

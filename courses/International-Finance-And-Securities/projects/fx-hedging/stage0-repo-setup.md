@@ -33,10 +33,11 @@ estimated_time: "40-50 min"
 > **What moved (2026-09-24).** This brief used to prescribe a project-shaped skeleton —
 > `docs/specs/`, `docs/plans/`, `docs/templates/`, `models/templates/`, `models/builds/`, and a
 > separate `BIO.md`. That skeleton is **superseded** by the course-independent portfolio repo
-> standard below. The two folders this project actually commits into, `docs/specs/` and
-> `models/builds/`, are now added at **Stage 1** (see
-> [`stage1-executive-memo.md`](stage1-executive-memo.md) § Set up this project's folders), the
-> way the course site has taught it since 2026-08-20. The earlier text is in this file's git
+> standard below. The two folders this project used to commit into, `docs/specs/` and
+> `models/builds/`, were moved to Stage 1 (course site 2026-08-20) and then retired on
+> **2026-09-24 (Adam)**: the spec and the workbook now live in `capabilities/fx-hedging/`, which
+> this skeleton already has (see [`stage1-executive-memo.md`](stage1-executive-memo.md) § Where
+> this project's files go). The earlier text is in this file's git
 > history. The frozen legacy grader `_tools/grade_stage0.py` still checks the old skeleton — do not
 > use it against this brief.
 
@@ -195,13 +196,13 @@ biography.
 | The repository is private | Settings → General → Change visibility → Public, then test the URL in a private window |
 | The repository is named after the course | Rename it now, while nothing links to it |
 | Empty directories disappear on push | Git tracks files, not folders; put a one-line `README.md` in each |
-| Building `docs/specs/` and `models/` now | Not yet — those are this project's folders, added at Stage 1 |
+| Building `docs/specs/` and `models/` | Not needed — the spec and workbook go in `capabilities/fx-hedging/` (2026-09-24) |
 | `.gitignore` added after the first workbook commit | The junk is already in the history. Add it now anyway |
 
 ## 10. How this leads to Stage 1
 
-Stage 1 adds this project's two folders (`docs/specs/`, `models/builds/`) and commits the
-exposure memo to `docs/decisions/`. From here on, "submit" means "commit and push" — version
+Stage 1 commits the exposure memo to `docs/decisions/`; from Stage 2 the spec and workbook go in
+`capabilities/fx-hedging/`. From here on, "submit" means "commit and push" — version
 control is a professional skill you practice by default, not a submission mechanism.
 
 ## 11. References
