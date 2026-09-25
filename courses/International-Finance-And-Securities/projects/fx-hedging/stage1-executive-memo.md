@@ -45,19 +45,19 @@ how much your company ultimately receives in USD.
 
 **Tone:** executive-friendly and clear. The CFO has 90 seconds.
 
-## Set up this project's folders
+## Where this project's files go
 
-Stage 0 stood up your portfolio repo to the course-independent standard. This project adds two
-folders to that skeleton, and every stage from here commits into one of them. Build them now, each
-with a one-line `README.md` inside — Git does not track an empty folder.
+Stage 0 stood up your portfolio repo to the course-independent standard, and this project adds no
+folders to it. Every stage from here commits into a folder you already have — the spec and the
+workbook into the capability folder, `capabilities/fx-hedging/`, the way BUS 620 keeps
+`capabilities/marginal-analysis/`.
 
 ```
 firstname-lastname/
+  capabilities/
+    fx-hedging/        README.md, spec.md (Stage 2), model.xlsx (Stages 3–4)
   docs/
     decisions/         the framing memo, and the final recommendation
-    specs/             add this — the model specification
-  models/              add this whole branch
-    builds/            the workbook you generate, then audit
   data/                market data, with source and timestamp
   analysis/            the build audit, and the validation work
 ```
@@ -65,19 +65,21 @@ firstname-lastname/
 | Stage | Deliverable | Where it goes |
 |---|---|---|
 | 1 | Hedge-framing memo | `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md` |
-| 2 | Model specification | `docs/specs/YYYY-MM-DD-{lastname}-{scenario-slug}-spec.md` |
-| 3 | Built workbook + build audit | `models/builds/YYYY-MM-DD-{lastname}-{scenario-slug}-model.xlsx` · `analysis/YYYY-MM-DD-{lastname}-build-audit.md` |
+| 2 | Model specification | `capabilities/fx-hedging/spec.md` · `capabilities/fx-hedging/README.md` |
+| 3 | Built workbook + build audit | `capabilities/fx-hedging/model.xlsx` · `analysis/YYYY-MM-DD-{lastname}-build-audit.md` |
 | 4 | Market-data memo | `data/YYYY-MM-DD-{lastname}-market-data.md` |
 | 5 | Validation + recommendation | `analysis/YYYY-MM-DD-{lastname}-{scenario-slug}-validation.md` · `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-recommendation.md` |
 
 This section moved here from Stage 0 (course site 2026-08-20; this brief 2026-09-24), because
-Stage 0 is now the course-level workspace and these folders belong to this project.
+Stage 0 is now the course-level workspace. **Superseded 2026-09-24 (Adam):** it used to add two
+project folders, `docs/specs/` and `models/builds/`; the spec and workbook now go in
+`capabilities/fx-hedging/` instead. Summer 2026 repositories keep the old folders.
 
 ## Deliverable
 
 - File: `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md`
 - One page, from the decision-memo template, YAML frontmatter intact.
-- Committed and pushed, with the two project folders above in place.
+- Committed and pushed.
 
 ## Evaluation
 

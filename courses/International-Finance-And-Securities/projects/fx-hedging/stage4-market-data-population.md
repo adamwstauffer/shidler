@@ -7,7 +7,7 @@ capability: fx-hedging
 deliverables:
   - path: "data/YYYY-MM-DD-{lastname}-market-data.md"
     format: markdown
-  - path: "models/builds/YYYY-MM-DD-{lastname}-{scenario-slug}-model.xlsx"
+  - path: "capabilities/fx-hedging/model.xlsx"
     format: xlsx
 prerequisites: [3]
 weight: "12% of project"

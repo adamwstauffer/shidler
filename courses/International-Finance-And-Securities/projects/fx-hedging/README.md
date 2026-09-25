@@ -14,17 +14,21 @@ Three things changed to match it:
   now prescribes the course-independent portfolio repo standard (`capabilities/`, `docs/briefs/`,
   `docs/decisions/`, `data/`, `analysis/figures/`, `AGENTS.md`, `CLAUDE.md`, `prompt-log.md`),
   taught on [github-stage0.html](https://adamwstauffer.github.io/ai-lms/github-stage0.html). The
-  old project-shaped skeleton (`docs/specs/`, `docs/plans/`, `docs/templates/`, `models/templates/`)
-  is superseded; the two folders the project commits into, `docs/specs/` and `models/builds/`,
-  are added at Stage 1.
+  old project-shaped skeleton (`docs/specs/`, `docs/plans/`, `docs/templates/`, `models/templates/`,
+  `models/builds/`) is superseded.
 - **Every brief carries `stage-brief` frontmatter** — the `deliverables` block is the path the
   course site's stage pages and `gates.js` mirror, as in BUS 620.
 - **The reference skeleton** in [`../../sample/`](../../sample/) now matches the standard, with the
-  Stage 1 project folders added.
+  project's files in `capabilities/fx-hedging/`.
 
-Not changed (pending Adam): stages 2–3 still commit to `docs/specs/` and `models/builds/` rather
-than the standard's `capabilities/fx-hedging/{spec.md,model.xlsx}`; the legacy `_tools/` graders
-still check the old Stage 0 skeleton.
+- **Stages 2–4 commit into the capability folder (2026-09-24, Adam).** The spec is
+  `capabilities/fx-hedging/spec.md` and the workbook `capabilities/fx-hedging/model.xlsx`, beside the
+  capability's `README.md` — as BUS 620 does with `capabilities/marginal-analysis/`. The old
+  `docs/specs/` and `models/builds/` paths are superseded; Summer 2026 repositories keep them and are
+  read against [`../../FIN-321/summer-2026/`](../../FIN-321/summer-2026/).
+
+Not changed: the legacy `_tools/` graders are frozen and still check the old paths — grading runs
+from the ai-lms `grading` skill.
 
 ## What changed vs. v1 (Build → Document → Analyze)
 
