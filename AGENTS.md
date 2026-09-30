@@ -135,7 +135,6 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Reusable Templates | `docs/templates/` |
 | Strategic Decisions | `docs/decisions/` |
 | Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` (historical; superseded by `docs/decisions/2026-07-08-generic-course-directory-naming.md`) |
-| Master Ratios Spreadsheet | `docs/spreadsheets/Corporate Finance Master Spreadsheets.xlsx` (supersedes the archived BUS-314 master, now local-only under `_archive/`) |
 | Appendix Presentations | `docs/presentations/` |
 | **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
 | Grading Scale | `docs/grading-scale.md` |
