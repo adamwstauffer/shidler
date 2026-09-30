@@ -119,7 +119,6 @@ Requirements:
 
 ```
 BUS-313/
-├── _tools/                        calculate_semester_grade.py — D2L GradesExport semester-grade calculator
 ├── ignore/                         gitignored: team rosters, slide decks, submissions
 └── README.md                       this file
 ```

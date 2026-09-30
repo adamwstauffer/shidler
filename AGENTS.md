@@ -17,7 +17,7 @@ Adapted from [Andrej Karpathy's coding guidelines](https://github.com/multica-ai
 
 Unified portfolio and course materials hub for Shidler College of Business (University of Hawaiʻi at Mānoa) courses taught by Adam W. Stauffer. Contains syllabi, assignment frameworks, project templates, branded materials, and professional portfolio documents — all managed via Git/Markdown.
 
-Student-facing tutorials live on the companion **Kumu site**, <https://adamwstauffer.github.io/ai-lms/> (published from the sibling `ai-lms` repo). This repo's stage briefs and the site's stage pages are kept in sync — a change to one usually implies a change to the other.
+Student-facing tutorials live on the companion **Kumu site**, <https://adamwstauffer.github.io/ai-lms/>. This repo's stage briefs and the site's stage pages are kept in sync — a change to one usually implies a change to the other.
 
 ## Repository Structure
 
@@ -28,7 +28,6 @@ Student-facing tutorials live on the companion **Kumu site**, <https://adamwstau
   - `decisions/` — Strategic decision memos, flat (`YYYY-MM-DD-<slug>.md`; course-specific ones are `YYYY-MM-DD-<course-code>-<slug>.md`, e.g. `2026-05-07-bus629-stage2-restructure.md`)
   - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`
 - **`BIO.md`** — Single source of truth for instructor biography; course READMEs link here
-- **`scripts/`** — Repo-level tooling scripts; spreadsheet cleanup pipelines live in `scripts/spreadsheets/`
 
 ## Local-only trees — PII and history (hard rules)
 
@@ -47,19 +46,14 @@ never `git add` their contents.
 ### Within each subject directory
 
 - `README.md` — Subject hub: overview, course-code table, links to `projects/` and offering folders
-- `projects/<slug>/` — Shared curriculum: stage assignment docs, `_templates/`, `_tools/` (legacy per-course grading scanners, frozen 2026-09-16 — grading runs from ai-lms), analysis/deliverables/models as applicable
+- `projects/<slug>/` — Shared curriculum: stage assignment docs, `_templates/`, analysis/deliverables/models as applicable
 - `<CODE[-POPULATION]>/README.md` — Per-offering syllabus (overview, objectives, grading, AI policy, campus policies)
 - `<CODE[-POPULATION]>/ignore/` — Gitignored student submissions and grading records for that offering
 
 ## Grading
 
-**All grading runs from the sibling `ai-lms` repo's `grading` skill**
-(`C:\GitHub\ai-lms\.claude\skills\grading\`), reached with `/add-dir C:\GitHub\ai-lms` — stage
-sweeps, student comments, final-grade computation, and the letter scale. Grade records and rosters
-stay here, under the gitignored `ignore/` and `rosters/` trees. The per-course `_tools/` scanners
-are **frozen legacy as of 2026-09-16 and must not be extended**; a course that runs again gets a
-`references/courses/<course>.json` in ai-lms instead. Decision memo (in ai-lms):
-`docs/decisions/2026-09-16-grading-process-drift-and-permanent-fixes.md`.
+Grading tooling is kept outside this public repo. Grade records and rosters stay local, under the
+gitignored `ignore/` and `rosters/` trees — never committed.
 
 ## Project Workflow
 
@@ -82,15 +76,14 @@ BUS 620 `stage1a/1b/1c` scheme was renamed to `stage1/stage2/stage3`). Templates
 live in [`docs/templates/`](docs/templates/).
 
 Student portfolio repos are organized by capability: the top-level `capabilities/` directory
-(renamed from `skills/` 2026-08-06 to avoid colliding with `.claude/skills/`) holds one folder per
+(renamed from `skills/` 2026-08-06 to avoid colliding with Claude Code's `.claude/skills/`) holds one folder per
 capability (`capabilities/<capability>/{README.md,spec.md,model.xlsx}`).
 
 ## Release Workflow
 
 **Never push `main` directly.** Work lands on a feature branch, goes to `main` via pull request,
-and Adam's merge is the release. This is a deploy airlock, not code review: the sibling `ai-lms`
-repo auto-publishes `website/**` to the public Kumu site on every push to `main`, and this repo's
-briefs are what students read. The PR is the moment to see exactly what is about to go live.
+and Adam's merge is the release. This is a deploy airlock, not code review: this repo's briefs are
+what students read, and the Kumu site's stage pages mirror them. The PR is the moment to see exactly what is about to go live.
 
 Branch naming: `launch/<term>`, `feat/<slug>`, `fix/<slug>`, `docs/<slug>`.
 
@@ -142,12 +135,10 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Reusable Templates | `docs/templates/` |
 | Strategic Decisions | `docs/decisions/` |
 | Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` (historical; superseded by `docs/decisions/2026-07-08-generic-course-directory-naming.md`) |
-| Accounting Ratios Skill | `.claude/skills/accounting-ratios/SKILL.md` |
-| Master Ratios Spreadsheet | `docs/spreadsheets/Corporate Finance Master Spreadsheets.xlsx` (supersedes the archived BUS-314 master, now local-only under `_archive/`) |
 | Appendix Presentations | `docs/presentations/` |
 | **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
-| Grading Scale (SSOT) | `C:\GitHub\ai-lms\.claude\skills\grading\references\grading-scale.md` (helper `scripts/final_grades/letter_grade.py` there); `docs/grading-scale.md` here is a pointer stub |
-| Kumu tutorial site | <https://adamwstauffer.github.io/ai-lms/> (source: sibling `ai-lms` repo, `website/`) |
+| Grading Scale | `docs/grading-scale.md` |
+| Kumu tutorial site | <https://adamwstauffer.github.io/ai-lms/> |
 
 ## Financial Model Assumptions (mandatory for valuation work)
 
@@ -165,20 +156,8 @@ This applies to the `financial-analysis:*`, `investment-banking:*`, `equity-rese
 
 When building or editing any `.xlsx` workbook, **always use formulas instead of hardcoded values** for calculated cells. Only raw source data (e.g., a company's reported revenue typed from a filing) may be entered as a literal number. Every intermediate calculation, subtotal, ratio, and output cell must be a formula referencing its inputs. This applies to all spreadsheet-producing skills (`xlsx`, `financial-analysis:*`, `investment-banking:*`, `equity-research:*`, `pitch-agent:*`, `gl-reconciler:*`, `market-researcher:*`).
 
-## Skills Available
+## Agent tooling
 
-This repo has custom Claude Code skills in `.claude/skills/`: `brand-guidelines`, `accounting-ratios`, `docx`, `internal-comms`, `pdf`, `pptx`, `recommendation-letters`, `skill-creator`, `xlsx`, plus the workflow skills paired to the slash commands below (`breakpoint`, `grill-me`, `claude-md-audit`, `memory-hygiene`, `design-critique`). Use the appropriate skill when creating or editing Office documents, applying UH branding, helping with the Performance Ratios project, writing internal communications, or drafting recommendation/reference letters. **`recommendation-letters` carries a hard rule that applies everywhere: never invent facts (grades, GPAs, experience, objectives, motivations) — leave a generic placeholder or ask; never write a specific unverified value, not even as a placeholder.**
-
-## Slash Commands
-
-Repo-tailored workflow commands live in `.claude/commands/` (index + rationale in `.claude/commands/README.md` and `docs/decisions/2026-07-12-claude-workflow-commands-cherry-pick.md`):
-
-- **`/breakpoint`** — emit a session pickup prompt before a `/compact` or context break (branch/PR/grading state → `docs/breakpoints/`, gitignored).
-- **`/suggest-optimal`** — one-shot verify-then-pushback review of a converged proposal; returns the single optimal call. *Fable-pinned, Opus fallback.*
-- **`/grill-me`** — sequential one-question convergence before a memo/restructure/rubric, with a mandatory Auto-Pushback Pass and a Repo Convergence Check (enforces "no speculative restructuring"). *Fable-pinned.*
-- **`/decision-memo`** — author a `docs/decisions/` memo to house standard (grep-prior-first, pause for ratification). *Fable-pinned.*
-- **`/claude-md-audit`** — periodic drift scan of the agent-instructions file + the memory store.
-- **`/memory-hygiene`** — validate + organize the Claude auto-memory store.
-- **`/design-critique`** — brand-anchored critique of UH Mānoa-branded materials against `docs/_branding/design.json`.
-
-**Model routing (optional):** the three judgment-dense commands are pinned to Fable via `model:` frontmatter; the rest run on the session model. Remove the pins if undesired.
+Adam's personal Claude Code configuration (`.claude/`) is local-only and gitignored in this repo;
+nothing in it is needed to take a course. Office-document work uses the standard Claude `docx` /
+`xlsx` / `pptx` / `pdf` skills from your own Claude Code install.

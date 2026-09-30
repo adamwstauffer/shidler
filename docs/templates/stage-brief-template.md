@@ -186,8 +186,7 @@ section names every party, because a citation that will not name its parties is 
 one noun consistently ("the seed company"); alternating between "the firm," "the company," and "the
 producer" reads as evasion where one noun reads as convention. A live company name goes stale on a
 slower clock than a week number but in the same way — brands are retired, deals are litigated, and
-the footnote gets longer every year. Rule and rationale:
-`ai-lms/docs/decisions/2026-08-03-case-scenario-anonymization.md`.
+the footnote gets longer every year.
 
 ### Register
 

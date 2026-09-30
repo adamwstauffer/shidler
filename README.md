@@ -52,8 +52,6 @@ shidler/
 │   ├── ai-usage-guidelines.md
 │   ├── writing-style-guide.md
 │   └── reproducibility-playbook.md
-│
-└── scripts/                        # Utility scripts
 ```
 
 ---
@@ -138,8 +136,6 @@ should follow:
 
 - **`AGENTS.md`** — The canonical agent-instructions file, read by Claude Code, Codex, and other tools
 - **`CLAUDE.md`** — A one-line pointer to `AGENTS.md` (kept for tools that look for it by name)
-- **`.claude/skills/`** — Custom skills that extend Claude's capabilities: `brand-guidelines`, `accounting-ratios`, `docx`, `xlsx`, `pptx`, `pdf`, `internal-comms`, `skill-creator`
-- Skills activate via `/commands` (e.g., `/pptx`, `/brand-guidelines`) and require no separate installation — clone the repo and they're ready
 
 See **`docs/presentations/Claude_Appendix.pptx`** for a complete walkthrough.
 

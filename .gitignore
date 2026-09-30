@@ -99,3 +99,20 @@ docs/breakpoints/*
 
 # Claude Code agent worktrees — harness state (a full nested checkout), never committed
 .claude/worktrees/
+
+# Instructor tooling — local-only since 2026-09-29 (Adam's personal Claude Code config, grading
+# scanners, repo scripts). Root .claude/ only: students' sample repos keep their .claude/skills/.
+/.claude/
+**/_tools/
+/scripts/
+
+# Solved / fully computed workbooks — local-only since 2026-09-29 (instructor material).
+# Specific paths only: blank student templates (e.g. models/templates/*) stay tracked.
+/courses/Micro-And-Macro-Economics/projects/*/*-key.xlsx
+/courses/Micro-And-Macro-Economics/projects/perfect-competition-marginal-costs/Supply_Mariganl Cost_Optimize Profit v5.xlsx
+/courses/Micro-And-Macro-Economics/projects/imperfect-competition-marginal-revenue/Monoplostic Supply_Marginal Revenue_Optimize Profit v9.xlsx
+/courses/Micro-And-Macro-Economics/projects/imperfect-competition-marginal-revenue/Monsanto Case Study worksheet in class.xlsx
+/courses/Micro-And-Macro-Economics/projects/imperfect-competition-marginal-revenue/monsanto-in-class-worksheet.xlsx
+/courses/Micro-And-Macro-Economics/projects/accounting-profit-economic-profit-economic-rent/Supply_Invisible Hand_Ride Sharing template.xlsx
+/docs/spreadsheets/Corporate Finance Master Spreadsheets.xlsx
+/docs/spreadsheets/International Finance Spreadsheets.xlsx

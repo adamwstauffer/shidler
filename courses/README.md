@@ -17,7 +17,7 @@ Every subject directory shares the same shape:
 ```
 <Subject-Name>/
 ├── README.md          subject hub — this level of detail
-├── projects/           shared curriculum: stage docs, analysis, deliverables, models, _templates/, _tools/
+├── projects/           shared curriculum: stage docs, analysis, deliverables, models, _templates/
 └── <CODE[-POPULATION]>/  one per offering: syllabus, roster, ignore/ (student data)
 ```
 
@@ -32,7 +32,7 @@ courses/
 │   ├── projects/performance-ratios/        shared curriculum (6-stage)
 │   └── README.md
 ├── International-Economics-And-Trade/     BUS 313
-│   ├── BUS-313/                            offering: syllabus, _tools/
+│   ├── BUS-313/                            offering: syllabus
 │   ├── projects/github-portfolio-extra-credit/
 │   └── README.md
 ├── International-Finance-And-Securities/  FIN 321

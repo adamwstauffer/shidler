@@ -1,7 +1,6 @@
 # Breakpoints — session pickup prompts
 
-This folder holds **session pickup prompts** written by `/breakpoint` (see
-`.claude/skills/breakpoint/SKILL.md`). Each file is a structured "resume from here" block
+This folder holds **session pickup prompts** written by `/breakpoint`. Each file is a structured "resume from here" block
 capturing branch/PR state, in-flight decision memos, active grading passes, and the next
 action — so work survives a `/compact` or a new session.
 

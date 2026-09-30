@@ -2,8 +2,7 @@
 
 **Status: live (promoted 2026-07-10).** This is the current FIN-321 fx-hedging curriculum. The
 prior four-stage version is archived at `_archive/fin321/stage-docs-v1/`, and the FIN-321
-offering README's weight table matches these stages. Design rationale and options analysis:
-`ai-lms/docs/plans/2026-07-09-fin321-fx-hedging-restructure-memo.md`.
+offering README's weight table matches these stages.
 
 ## Micro/Macro parity (2026-09-24)
 
@@ -27,9 +26,6 @@ Three things changed to match it:
   `docs/specs/` and `models/builds/` paths are superseded; Summer 2026 repositories keep them and are
   read against [`../../FIN-321/summer-2026/`](../../FIN-321/summer-2026/).
 
-Not changed: the legacy `_tools/` graders are frozen and still check the old paths — grading runs
-from the ai-lms `grading` skill.
-
 ## What changed vs. v1 (Build → Document → Analyze)
 
 The v2 arc is **Design → Build → Validate**, aligned with the proven BUS 629 performance-ratios
@@ -50,8 +46,8 @@ design (2), audit (3), populate + cross-check (4), hand-verification (5).
 Every weight is a **percentage** — nothing is a hardcoded point total. Stage weights are % of
 the project; each stage's rubric criteria (in the stage doc) are % of that stage. The project's
 own share of the semester course grade is variable and set in the offering README / gradebook,
-so changing it never requires touching these weights. **No extra credit.** The single source of
-truth for graders is [`_tools/_weights.py`](_tools/_weights.py).
+so changing it never requires touching these weights. **No extra credit.** The weight table below is
+the single source of truth.
 
 | Stage | Deliverable | Weight | Suggested week (6-wk term) |
 | ----- | ----------- | -----: | ---- |
@@ -101,11 +97,8 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 | `stage5-llm-analysis-validation.md` | 5 — LLM analysis & validation |
 
 Shared project files: `scenarios.md`, `_templates/template-decision-memo.md`,
-`_templates/template-spec.md`. Grading scripts (`_tools/`) are built for v2:
-`grade_stage0`–`grade_stage5` plus the `sweep_stage` / `build_roster` / `grade_one` drivers,
-scoring on a %-of-stage basis from `_weights.py`. The headline check is the Stage 3
-formula-presence audit (`_xlsx.py`) — every calculated cell must be a formula referencing named
-ranges; a hardcoded constant scores zero for that element.
+`_templates/template-spec.md`. Grading checks every calculated
+cell for a formula referencing named ranges; a hardcoded constant scores zero for that element.
 
 ## Career framing (carried from v1, applies to the whole arc)
 

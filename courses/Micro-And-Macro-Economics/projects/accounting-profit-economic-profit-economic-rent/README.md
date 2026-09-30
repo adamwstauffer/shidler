@@ -1,8 +1,8 @@
 # BUS 620 Project: Accounting Profit, Economic Profit & Economic Rent — Ride-Share Driver Economics
 
-> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Accounting Profit, Economic Profit, Economic Rent.docx`; the original docx and `Supply_Invisible Hand_Ride Sharing template.xlsx` are preserved unchanged. `rideshare-driver-economics-key.xlsx` is the instructor key. All real-world claims validated 2026-07-07; sources at bottom.
+> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Accounting Profit, Economic Profit, Economic Rent.docx`; the original docx and `Supply_Invisible Hand_Ride Sharing template.xlsx` are preserved unchanged, held privately with the instructor key, outside this repo. All real-world claims validated 2026-07-07; sources at bottom.
 >
-> **No student template.** Stage 1 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` — a provided workbook and "your spec is the template" cannot both be true. Decision: `ai-lms/docs/decisions/2026-08-03-spec-driven-artifact-builds.md`.
+> **No student template.** Stage 1 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` — a provided workbook and "your spec is the template" cannot both be true.
 
 ## The pitch
 
@@ -55,7 +55,7 @@ One division reproduces both observed prices within ~10%. The rent story: app en
 
 Split across stages: [stage1](stage1-model-build.md) (brief, spec, build, audit, 8) · [stage2](stage2-analysis.md) (analysis + memo + log, 12).
 
-Student-facing web pages: [`case-economic-profit.html`](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by `ai-lms/website/assets/js/gates.js`; change one, change all three.
+Student-facing web pages: [`case-economic-profit.html`](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by the Kumu site's gate checks; change one, change all three.
 
 **AI-use boundary (course standard, unchanged):** AI may explain the profit concepts, quiz you, and critique reasoning — not write your brief, analysis, memo, or reflection, and not hand you the verdicts before you've hypothesized. The workbook was never on the prohibited list, which is why Stage 1's AI-built workbook is a sequencing change rather than a boundary change.
 

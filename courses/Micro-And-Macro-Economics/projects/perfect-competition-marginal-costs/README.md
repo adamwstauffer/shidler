@@ -2,9 +2,9 @@
 
 *Scenario: a 1.5-acre market garden. Retitled 2026-08-02 concept-first (was "The Farm Profit Optimizer") — the scenario identity now lives inside the case, not in its name.*
 
-> **Status:** released 2026-08-03. Formalizes `BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx`; that original and `Supply_Mariganl Cost_Optimize Profit v5.xlsx` are preserved unchanged. `farm-profit-optimizer-key.xlsx` is the instructor key.
+> **Status:** released 2026-08-03. Formalizes `BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx`; that original and `Supply_Mariganl Cost_Optimize Profit v5.xlsx` are preserved unchanged, held privately with the instructor key, outside this repo.
 >
-> **No student template.** Stage 2 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` on 2026-08-03 — a provided workbook and "your spec is the template" cannot both be true. The [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) is the independent reference implementation students cross-check against. Decision: `ai-lms/docs/decisions/2026-08-03-spec-driven-artifact-builds.md`.
+> **No student template.** Stage 2 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` on 2026-08-03 — a provided workbook and "your spec is the template" cannot both be true. The [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) is the independent reference implementation students cross-check against.
 
 ## The pitch
 
@@ -44,7 +44,7 @@ A 1.5-acre market garden — 64 beds, one farmer, up to four temporary workers �
 ## Deliverables (AI + GitHub workflow — the portfolio-repo standard)
 
 Every artifact lands in the student's **personal public portfolio repo**, structured by capability and
-engagement rather than by course — see `ai-lms/docs/decisions/2026-08-02-website-simplification-and-portfolio-repo-standard.md` § 6.
+engagement rather than by course.
 Capability slug for this case: **`marginal-analysis`**. Engagement slug: **`perfect-competition`**.
 
 | # | Artifact (path in the student repo) | What it must contain | Pts |
@@ -67,10 +67,9 @@ audit, 8) · [stage3](stage3-analysis.md) (analysis + memo + log, 9). **Case tot
 > falsifiable hypothesis are different kinds of work with different AI boundaries, and a graded gate
 > between them is what makes the repository finished *before* the brief is written rather than
 > alongside it. The commit-order rule — brief before any modeling — stays on Stage 1, where the
-> thing it orders lives. Rationale: `ai-lms/docs/decisions/2026-08-03-case-flow-and-chrome-review.md`
-> § B1. Cases 2 and 3 keep two stages; only Case 1 stands up the repository.
+> thing it orders lives. Cases 2 and 3 keep two stages; only Case 1 stands up the repository.
 
-Student-facing web pages for this case: [`case-perfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html) and its three stage pages. **Sync rule:** these paths, the stage pages, and `ai-lms/website/assets/js/gates.js` share one path table — change one, change all three.
+Student-facing web pages for this case: [`case-perfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-perfect-competition.html) and its three stage pages. **Sync rule:** these paths, the stage pages, and the Kumu site's gate checks share one path table — change one, change all three.
 
 **AI-use boundary (course standard, unchanged):** AI may explain concepts, critique your reasoning, and help debug formulas. It may not write your brief, analysis, memo, or reflection. Log the sessions that mattered. The workbook was never on the prohibited list, which is why Stage 2's AI-built workbook is a sequencing change rather than a boundary change.
 
@@ -82,7 +81,7 @@ Student-facing web pages for this case: [`case-perfect-competition.html`](https:
 - **The MC dip** (tomatoes, q≈6): MC falls from $7,661 to $4,906 when perm hours exhaust and marginal labor switches to the cheaper temp wage, then diminishing returns push it back up through the price line. Expect confusion; it is the best five minutes of the debrief.
 - **Solver:** GRG Nonlinear, integer decisions, constraints as listed on the workbook README sheet. Nonconvexity is mild; from a 0/0/0 start GRG finds the optimum, but have students try 20/0/0 as a start to see path-dependence.
 
-## Bugs fixed vs `…Optimize Profit v5.xlsx` (for Adam)
+## Bugs fixed vs `…Optimize Profit v5.xlsx`
 
 1. **Mesclun MIX row pulled carrot labor** (`G20` referenced `labor_carrots`) — copy-paste bug; mesclun labor costs were wrong whenever carrots ≠ mesclun.
 2. **Per-crop decision tables were coupled to the MIX** via `q_beds` (`D24/q_beds*…`) — the "standalone" MC schedules changed when the mix cells changed, and divided by zero at an empty mix.
@@ -90,8 +89,8 @@ Student-facing web pages for this case: [`case-perfect-competition.html`](https:
 4. **Wages hardcoded** as `=50000/…` and `=25000/…` inside formulas — now separate tan salary input cells.
 5. **Named-range typos** (`fert_carrotrs`, `labour_hrs` vs `labor_hrs`, "Tomotoes", "Mesculun") — cleaned; consistent `price_* / laborwk_* / fert_* / dim_* / q_*` scheme.
 6. **Missing docs** — the docx's "Assumptions & Constraints" heading was empty and wages appeared nowhere; the workbook had a blank Notes sheet. Both replaced (this README; in-workbook README sheet with Solver steps, conventions, color key).
-7. **Added:** AVC column (shutdown analysis), feasibility flags, instructor key with check figures, MC-vs-price charts rebuilt from decoupled tables.
+7. **Added:** AVC column (shutdown analysis), feasibility flags, check figures (instructor key, held privately), MC-vs-price charts rebuilt from decoupled tables.
 
 ## Real-world crossover
 
-This model is a teaching-sized version of a genuine farm decision: bed-level crop mix under labor constraints. The same engine (crop economics + labor function + constraint solver) is a candidate feature for the farm-management app (`C:\GitHub\farm-management-assistant-v2`) — see the crossover note in the ai-lms strategy repo.
+This model is a teaching-sized version of a genuine farm decision: bed-level crop mix under labor constraints.
