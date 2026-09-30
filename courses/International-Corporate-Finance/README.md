@@ -22,7 +22,6 @@ International-Corporate-Finance/
 │   └── README.md                            syllabus: course code, campus locations, textbook
 ├── projects/
 │   └── performance-ratios/                  shared curriculum — see its own README for full contents
-│       ├── _tools/                          grading scripts (grade_stage0–5.py, sweep_stage.py, roster builders)
 │       ├── analysis/                        self-audit and validation reports
 │       ├── data/                            source financial data and provenance
 │       ├── deliverables/                    final, presentation-ready outputs

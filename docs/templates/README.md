@@ -45,7 +45,7 @@ In practice:
 
 ### Assignment & Project Templates
 
-- **[`stage-brief-template.md`](./stage-brief-template.md)** — **The stage brief.** Every stage brief in every course uses its frontmatter block and its ten sections, in order. Carries the enumerated ban list (course codes, weeks, dates, weights, LMS names, delivery mode) that keeps a brief semester-invariant, and a register table mapping conversational phrasing to its instructional replacement. Authored 2026-08-02; see `ai-lms/docs/decisions/2026-08-02-stage-brief-template-and-content-ownership.md`
+- **[`stage-brief-template.md`](./stage-brief-template.md)** — **The stage brief.** Every stage brief in every course uses its frontmatter block and its ten sections, in order. Carries the enumerated ban list (course codes, weeks, dates, weights, LMS names, delivery mode) that keeps a brief semester-invariant, and a register table mapping conversational phrasing to its instructional replacement. Authored 2026-08-02
 - **[`memo-template.md`](./memo-template.md)** — Executive memo (Stage 1 / Stage 2 deliverables)
 - **[`spec-template.md`](./spec-template.md)** — Technical specification (Stage 4 deliverables; originally authored for ratios analysis, adaptable to other model-driven projects)
 - **[`case-brief-template.md`](./case-brief-template.md)** — Case analysis brief (BUS-313, BUS-620)
@@ -96,7 +96,7 @@ estimated_time: "60-80 min"
 ---
 ```
 
-The `deliverables` block is the **canonical declaration** of the artifact paths. Downstream consumers — the Kumu stage page and the gate predicates in `ai-lms/website/assets/js/gates.js` — hold literal mirrors of it, each citing the brief it mirrors, and the match is verified at PR rather than resolved at runtime. Changing a path here means changing those mirrors in the same pull request.
+The `deliverables` block is the **canonical declaration** of the artifact paths. Downstream consumers — the Kumu stage page and the Kumu site's gate checks — hold literal mirrors of it, each citing the brief it mirrors, and the match is verified at PR rather than resolved at runtime. Changing a path here means changing those mirrors in the same pull request.
 
 ---
 

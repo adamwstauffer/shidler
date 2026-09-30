@@ -38,8 +38,6 @@ University of Hawaiʻi at Mānoa and Shidler College of Business brand guideline
 
 **Usage:** Apply these standards to all course materials, presentations, and institutional documents.
 
-**Reference:** See `.claude/skills/brand-guidelines/SKILL.md` for detailed implementation guidance.
-
 ---
 
 ### Style Guides & Guidelines
@@ -64,7 +62,6 @@ Guidelines for ensuring reproducibility in course materials and student projects
 | Professional Templates | `templates/bio-and-resume/` |
 | Brand Guidelines | `_branding/` |
 | Design System | `_branding/design.json` |
-| UH Brand Guide | `.claude/skills/brand-guidelines/SKILL.md` |
 
 ---
 

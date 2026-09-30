@@ -38,8 +38,7 @@ estimated_time: "40-50 min"
 > **2026-09-24 (Adam)**: the spec and the workbook now live in `capabilities/fx-hedging/`, which
 > this skeleton already has (see [`stage1-executive-memo.md`](stage1-executive-memo.md) § Where
 > this project's files go). The earlier text is in this file's git
-> history. The frozen legacy grader `_tools/grade_stage0.py` still checks the old skeleton — do not
-> use it against this brief.
+> history.
 
 ---
 

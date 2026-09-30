@@ -17,7 +17,6 @@ Shared curriculum for the accounting/performance-ratios project — company sele
 
 ```
 performance-ratios/
-├── _tools/                        grading scripts (instructor-facing)
 │   ├── build_roster.py             builds ignore/roster.md + .csv from graded STAGEN_GRADES.md files
 │   ├── build_team_roster_vn.py     generates the BUS-629 VEMBA team roster workbook
 │   ├── grade_one.py                grade a single student across stages

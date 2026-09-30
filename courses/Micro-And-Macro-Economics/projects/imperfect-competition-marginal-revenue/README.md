@@ -1,14 +1,14 @@
 # BUS 620 Project: Imperfect Competition & Marginal Revenue — The GMO Seed Market
 
-> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx`; the originals (`…v9.xlsx`, in-class worksheet) are preserved unchanged. `monsanto-seed-market-key.xlsx` is the instructor key. All narrative claims below were externally validated 2026-07-07; sources at bottom.
+> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx`; the originals (`…v9.xlsx`, in-class worksheet) are preserved unchanged. The instructor key is held privately, outside this repo. All narrative claims below were externally validated 2026-07-07; sources at bottom.
 >
-> **No student template.** Stage 1 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` — a provided workbook and "your spec is the template" cannot both be true. Decision: `ai-lms/docs/decisions/2026-08-03-spec-driven-artifact-builds.md`.
+> **No student template.** Stage 1 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` — a provided workbook and "your spec is the template" cannot both be true.
 
 ## The pitch
 
 One company, two market structures. Selling **commodity (non-GMO) corn seed**, the seed company is a price taker at $120/bag — produce until **P = MC**, earn a modest profit that entry will erode. Selling **patented herbicide-tolerant GMO seed**, the same firm faces the whole market's downward-sloping demand — one more bag sold lowers the price on *every* bag, marginal revenue falls twice as fast as demand, and the rule becomes **MR = MC**. Same crop, same $130M of fixed costs — and an ~83× difference in profit. Students build both models, locate both optima, and put a dollar figure on what monopoly costs society.
 
-> **Naming convention (2026-08-03).** The protagonist is unnamed — **"the seed company"** — on every student-facing surface and in this README's narrative. The market stays named, quantified, and cited, and every real party survives in **Validated facts & sources** at the bottom. The identity is one click away and openly signposted; the case is anonymized, not concealed. Rule and rationale: `ai-lms/docs/decisions/2026-08-03-case-scenario-anonymization.md`.
+> **Naming convention (2026-08-03).** The protagonist is unnamed — **"the seed company"** — on every student-facing surface and in this README's narrative. The market stays named, quantified, and cited, and every real party survives in **Validated facts & sources** at the bottom. The identity is one click away and openly signposted; the case is anonymized, not concealed. Rule and rationale:.
 
 ## Learning goals
 
@@ -53,7 +53,7 @@ Both markets share: **fixed costs $130M**, cost structure **TVC = a·Q + b·Q² 
 
 Split across stages: [stage1](stage1-model-build.md) (brief, spec, build, audit, 8) · [stage2](stage2-analysis.md) (analysis + memo + log, 12).
 
-Student-facing web pages: [`case-imperfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by `ai-lms/website/assets/js/gates.js`; change one, change all three.
+Student-facing web pages: [`case-imperfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by the Kumu site's gate checks; change one, change all three.
 
 **AI-use boundary (course standard, unchanged):** AI may explain MR/MC mechanics, critique reasoning, and debug formulas — not write your brief, analysis, memo, or reflection, and not hand you the optima before you've hypothesized. The workbook was never on the prohibited list, which is why Stage 1's AI-built workbook is a sequencing change rather than a boundary change.
 
@@ -76,7 +76,7 @@ Student-facing web pages: [`case-imperfect-competition.html`](https://adamwstauf
 1. **TC = FC + MC·Q** in both v9 "Optimal" blocks and the in-class worksheet — with linear MC, variable cost is the *area under* MC (= aQ + bQ²), which v9's own decision tables computed correctly two rows down. Effect: GMO profit understated by ~$1.08B ($7.71B vs $8.79B) and non-GMO profit forced to exactly −$130M (AC ≡ MC ⇒ profit ≡ −FC — an artifact, not economics).
 2. **In-class worksheet's non-GMO VC** = `corn_P*corn_Output_optimal` (= revenue!) — profit identically −FC.
 3. **MC "curves" were regressions of tables** (SLOPE over tabulated ΔTC/ΔQ) with the intercept anchored to a blank cell — parameters now defined directly.
-4. **Missing pieces added:** MR twice-as-steep derivation as an explicit checked step, markup + Lerner, competitive benchmark + DWL, real-world anchor rows, README sheet, instructor key with check figures.
+4. **Missing pieces added:** MR twice-as-steep derivation as an explicit checked step, markup + Lerner, competitive benchmark + DWL, real-world anchor rows, README sheet, check figures (instructor key, held privately).
 5. **Typos:** "Monoplostic" (filename), inconsistent labels — new files named cleanly.
 
 ## Validated facts & sources (accessed 2026-07-07)
