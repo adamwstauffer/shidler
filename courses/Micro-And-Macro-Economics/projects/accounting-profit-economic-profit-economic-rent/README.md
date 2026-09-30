@@ -1,6 +1,6 @@
 # BUS 620 Project: Accounting Profit, Economic Profit & Economic Rent — Ride-Share Driver Economics
 
-> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Accounting Profit, Economic Profit, Economic Rent.docx`; the original docx and `Supply_Invisible Hand_Ride Sharing template.xlsx` are preserved unchanged. The instructor key is held privately, outside this repo. All real-world claims validated 2026-07-07; sources at bottom.
+> **Status:** briefs converted to the stage-brief template and spec-driven 2026-08-03. Formalizes `BUS 620 Case Study_ Accounting Profit, Economic Profit, Economic Rent.docx`; the original docx and `Supply_Invisible Hand_Ride Sharing template.xlsx` are preserved unchanged, held privately with the instructor key, outside this repo. All real-world claims validated 2026-07-07; sources at bottom.
 >
 > **No student template.** Stage 1 is spec-driven: the student writes the specification, an AI builds the workbook from it, and the student audits the result. The former student template was retired to the subject's gitignored `ignore/retired/` — a provided workbook and "your spec is the template" cannot both be true.
 
