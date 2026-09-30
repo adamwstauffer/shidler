@@ -99,3 +99,9 @@ docs/breakpoints/*
 
 # Claude Code agent worktrees — harness state (a full nested checkout), never committed
 .claude/worktrees/
+
+# Instructor tooling — local-only since 2026-09-29 (Adam's personal Claude Code config, grading
+# scanners, repo scripts). Root .claude/ only: students' sample repos keep their .claude/skills/.
+/.claude/
+**/_tools/
+/scripts/

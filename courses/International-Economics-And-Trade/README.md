@@ -16,8 +16,7 @@ Trade and international finance theory applied to real-world case studies across
 
 ```
 International-Economics-And-Trade/
-├── BUS-313/                        offering: syllabus, _tools/, ignore/ (gitignored)
-│   ├── _tools/                      calculate_semester_grade.py
+├── BUS-313/                        offering: syllabus, ignore/ (gitignored)
 │   └── README.md
 ├── projects/
 │   └── github-portfolio-extra-credit/

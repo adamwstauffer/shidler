@@ -20,18 +20,15 @@ projects/
 ├── accounting-profit-economic-profit-economic-rent/    Ride-Share Driver Economics
 │   ├── BUS 620 Case Study_ Accounting Profit, Economic Profit, Economic Rent.docx   original (unchanged)
 │   ├── README.md
-│   ├── rideshare-driver-economics-key.xlsx               instructor
 │   └── Supply_Invisible Hand_Ride Sharing template.xlsx   original (unchanged)
 ├── imperfect-competition-marginal-revenue/               The GMO Seed Market
 │   ├── BUS 620 Case Study_ Imperfect Competition & Marginal Revenue.docx   original (unchanged)
 │   ├── Monoplostic Supply_Marginal Revenue_Optimize Profit v9.xlsx          original (unchanged)
 │   ├── Monsanto Case Study worksheet in class.xlsx                          original (unchanged)
 │   ├── monsanto-in-class-worksheet.xlsx                    in-class worksheet, corrected rebuild
-│   ├── monsanto-seed-market-key.xlsx                       instructor
 │   └── README.md
 ├── perfect-competition-marginal-costs/                   Decision Analysis (1.5-acre market garden)
 │   ├── BUS 620 Case Study_ Perfect Competition & Marginal Costs.docx   original (unchanged)
-│   ├── farm-profit-optimizer-key.xlsx                       instructor
 │   ├── README.md
 │   └── Supply_Mariganl Cost_Optimize Profit v5.xlsx          original (unchanged)
 ├── individual-research/                                  individual research paper + peer-review rubric
