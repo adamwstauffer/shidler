@@ -27,7 +27,7 @@ Student-facing tutorials live on the companion **Kumu site**, <https://adamwstau
   - `templates/` — Reusable assignment templates (memo, spec, case brief, risk memo, prompt log)
   - `decisions/` — Strategic decision memos, flat (`YYYY-MM-DD-<slug>.md`; course-specific ones are `YYYY-MM-DD-<course-code>-<slug>.md`, e.g. `2026-05-07-bus629-stage2-restructure.md`)
   - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`
-- **`BIO.md`** — Single source of truth for instructor biography; course READMEs link here
+- **`BIO.md`** — Short instructor bio; course READMEs link here. The full bio, resume and CV live on <https://adamwstauffer.github.io/> (`RESUME.md` and `CV.md` here are pointers)
 
 ## Local-only trees — PII and history (hard rules)
 
