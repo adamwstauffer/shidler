@@ -39,9 +39,9 @@ Kumu: [the doer–reviewer dilemma](https://adamwstauffer.github.io/ai-lms/#doer
 
 ```
 shidler/
-├── BIO.md                          # Instructor biography (single source of truth)
-├── CV.md                           # Curriculum vitae
-├── RESUME.md                       # One-page resume
+├── BIO.md                          # Short instructor bio; full bio, resume and CV on adamwstauffer.github.io
+├── CV.md                           # Pointer to the CV on adamwstauffer.github.io
+├── RESUME.md                       # Pointer to the resume on adamwstauffer.github.io
 ├── AGENTS.md                       # AI agent instructions for this repo (canonical)
 ├── CLAUDE.md                       # One-line pointer to AGENTS.md
 │
@@ -281,7 +281,5 @@ A portfolio with three thoughtful, well-executed extensions beats one with twent
 
 **Adam W. Stauffer** is a Faculty Lecturer in finance and economics at the Shidler College of Business, University of Hawaiʻi at Mānoa, and teaches sustainable agriculture entrepreneurship at Windward Community College. Before teaching, he was a trader and market-maker in U.S.-listed ETFs at Barclays Capital and Lehman Brothers, was founder and Chief Investment Officer of Springline Capital in the British Virgin Islands, and founded Greenshoot.org, a disaster-recovery platform built after Hurricane Irma. He builds his courses around AI: students frame, specify, build with AI, audit and decide, in the open on GitHub. He holds an MBA in Finance from Wharton and a BA in Biology from Trinity College, and was a CFA charterholder from 2004 to 2011.
 
-- [Bio](BIO.md): the short version
-- [Resume](RESUME.md): one page
-- [CV](CV.md): the full record
+- [Bio](https://adamwstauffer.github.io/bio.html) · [Resume](https://adamwstauffer.github.io/resume.html) ([PDF](https://adamwstauffer.github.io/resume.pdf)) · [CV](https://adamwstauffer.github.io/cv.html), all on [adamwstauffer.github.io](https://adamwstauffer.github.io/)
 - [LinkedIn](https://linkedin.com/in/adamwstauffer) · [GitHub](https://github.com/adamwstauffer)
