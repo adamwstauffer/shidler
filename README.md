@@ -274,3 +274,14 @@ A portfolio with three thoughtful, well-executed extensions beats one with twent
 | Decision Memos | `docs/decisions/` |
 | AI Usage Guidelines | `docs/ai-usage-guidelines.md` |
 | Writing Style Guide | `docs/writing-style-guide.md` |
+
+---
+
+## About Me
+
+**Adam W. Stauffer** is a Faculty Lecturer in finance and economics at the Shidler College of Business, University of Hawaiʻi at Mānoa, and teaches sustainable agriculture entrepreneurship at Windward Community College. Before teaching, he traded and made markets in U.S.-listed ETFs at Lehman Brothers and Barclays Capital, was founder and Chief Investment Officer of Springline Capital in the British Virgin Islands, and founded Greenshoot.org, a disaster-recovery platform built after Hurricane Irma. He holds an MBA in Finance from Wharton and a BA in Biology from Trinity College, and was a CFA charterholder from 2004 to 2011.
+
+- [Bio](BIO.md): the short version
+- [Resume](RESUME.md): one page
+- [CV](CV.md): the full record
+- [LinkedIn](https://linkedin.com/in/adamwstauffer) · [GitHub](https://github.com/adamwstauffer)
