@@ -3,6 +3,17 @@
 
 **LinkedIn:** [linkedin.com/in/adamwstauffer](https://linkedin.com/in/adamwstauffer) • **GitHub:** [@adamwstauffer](https://github.com/adamwstauffer)
 
+## APPLIED AI WORK & PROJECTS
+
+**Kumu: AI-first course tutorial site**
+- Designed and built the companion tutorial site for all my courses: stage-by-stage case projects across four subjects, with checklists, self-quizzes, hands-on labs and an AI tutor.
+
+**AI-native course design**
+- Rebuilt every course project around Frame → Specify → Build with AI → Validate → Decide, for undergraduate, MBA and executive MBA students in Honolulu, Vietnam and online. AI use is expected and disclosed; students keep prompt logs and AGENTS.md portfolio repositories on GitHub.
+
+**Agentic workflows with Claude Code**
+- Built custom skills and subagents for staged lecture-deck development (storyline, evidence pack, citation matrix) and primary-source fact-checking under a strict no-fabrication policy.
+
 ## EDUCATION
 **The Wharton School, University of Pennsylvania**, Philadelphia, PA
 - Master of Business Administration • Major: Finance
@@ -14,7 +25,7 @@
 
 **Shidler College of Business, University of Hawai'i at Mānoa**
 - Faculty Lecturer, Finance & Economics, Honolulu, HI
-  - Teach graduate and undergraduate courses in Micro- & Macroeconomics for Managers, Economic & Financial Environment of Global Business, Corporate Finance, and International Business Finance.
+  - Teach graduate and undergraduate courses in Micro- & Macroeconomics for Managers, Economic & Financial Environment of Global Business, Corporate Finance, and International Business Finance, including in the Vietnam Executive MBA and the Distance Learning EMBA.
 
 **Windward Community College, University of Hawai'i**
 - Lecturer, Sustainable Agriculture Entrepreneurship, Kāneʻohe, HI
@@ -66,7 +77,7 @@
 ## CERTIFICATIONS & ADDITIONAL SKILLS
 
 - **CFA Charterholder** (2004 – 2011)
-- **Technical:** Python, JavaScript, SQL, Visual Basic, Excel Modelling, OpenAI, Anthropic
+- **AI & Technical:** Claude Code (skills, subagents, MCP), Anthropic and OpenAI APIs, Git/GitHub, GitHub Actions, Python, JavaScript, SQL, Visual Basic, Excel Modeling
 - **FINRA Licenses:** Series 7, 55, 63
 
 ## COMMUNITY & INTERESTS
