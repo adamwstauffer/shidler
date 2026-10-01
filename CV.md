@@ -12,7 +12,7 @@
 - Rebuilt every course project around the same five steps: Frame → Specify → Build with AI → Validate → Decide.
 - Designed around the doer–reviewer dilemma: AI now drafts the first pass that trained junior analysts, so students do enough of the work to know what right looks like, then practice the reviewer's job on work AI produced.
 - AI use is expected and disclosed; students keep prompt logs and portfolio repositories on GitHub that follow the AGENTS.md agent-instructions convention.
-- Taught to undergraduate, MBA and executive MBA students in Honolulu, in Vietnam and online.
+- Taught to undergraduate, MBA and executive MBA students in Honolulu, Vietnam and online.
 
 **Agentic workflows with Claude Code**
 - Built custom skills, slash commands and subagents for staged lecture-deck development: grounding in existing course material, storyline and action-title testing, then an evidence pack with a slide-by-slide citation matrix.
