@@ -2,6 +2,27 @@
 **adamstau@hawaii.edu**
 **LinkedIn:** [linkedin.com/in/adamwstauffer](https://linkedin.com/in/adamwstauffer) • **GitHub:** [@adamwstauffer](https://github.com/adamwstauffer)
 
+## APPLIED AI WORK & PROJECTS
+
+**Kumu: AI-first course tutorial site** · [adamwstauffer.github.io/ai-lms](https://adamwstauffer.github.io/ai-lms/)
+- Designed and built the companion tutorial site for all my courses, organized by subject rather than course code.
+- Stage-by-stage case projects across four subjects (international corporate finance, international finance and securities, international economics and trade, micro- and macroeconomics), with checklists, self-quizzes, hands-on labs, a student-onboarding guide to GitHub and AI, and an AI tutor.
+
+**AI-native course design**
+- Rebuilt every course project around the same five steps: Frame → Specify → Build with AI → Validate → Decide.
+- Designed around the doer–reviewer dilemma: AI now drafts the first pass that trained junior analysts, so students do enough of the work to know what right looks like, then practice the reviewer's job on work AI produced.
+- AI use is expected and disclosed; students keep prompt logs and portfolio repositories on GitHub that follow the AGENTS.md agent-instructions convention.
+- Taught to undergraduate, MBA and executive MBA students in Honolulu, Vietnam and online.
+
+**Agentic workflows with Claude Code**
+- Built custom skills, slash commands and subagents for staged lecture-deck development: grounding in existing course material, storyline and action-title testing, then an evidence pack with a slide-by-slide citation matrix.
+- Built a primary-source fact-checking and provenance workflow under a strict no-fabrication policy: no citation enters a deck unfetched.
+- Built machine-readable design standards for decks and workbooks, with automated conformance checks.
+
+**Teaching materials on AI**
+- GitHub & AI appendix deck: GitHub accounts, the add-commit-push workflow, using ChatGPT and Claude on projects, prompt patterns.
+- Claude appendix deck: Claude on web and desktop, Projects, artifacts, Claude Code installation and workflow, skills and slash commands.
+
 ## EDUCATION
 
 **The Wharton School, University of Pennsylvania**, Philadelphia, PA
@@ -56,6 +77,8 @@
     - BUS 313: Economic & Financial Environment of Global Business
     - BUS 314: Corporate Finance
     - FIN 321: International Business Finance
+    - BUS 629: International Corporate Finance (Vietnam Executive MBA, Ho Chi Minh City and Hanoi)
+    - BUS 620: Micro- & Macroeconomics (Distance Learning EMBA)
   - Incorporate real-world applications and case studies into lessons, emphasizing financial decision-making and international market dynamics.
   - Create engaging course materials, assessments, and projects to develop student financial and economic analysis proficiency.
   - Foster inclusive learning environments, promoting collaboration and critical thinking among students from diverse backgrounds.
@@ -202,7 +225,9 @@
 
 ## SKILLS
 
-**Programming:** Python, JavaScript, PHP, SQL, Visual Basic, CSS, HTML
+**AI:** Claude Code (skills, subagents, slash commands, MCP), Anthropic and OpenAI APIs, agent-instructions files (AGENTS.md / CLAUDE.md)
+
+**Programming:** Python, JavaScript, PHP, SQL, Visual Basic, CSS, HTML, Git/GitHub, GitHub Actions
 
 **Financial Software:** Bloomberg Terminal, Advent Software (Trade Order Management, Portfolio Accounting, Partnership Accounting)
 
