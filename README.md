@@ -9,7 +9,7 @@ Everything lives in one Git-tracked repo so students, collaborators, and reviewe
 ## 📘 Start here: the Kumu tutorial site
 
 **<https://adamwstauffer.github.io/ai-lms/>** — the companion tutorial site for these courses.
-This repo holds the *source materials* (syllabi, stage briefs, templates, grading tools); **Kumu is
+This repo holds the *source materials* (syllabi, stage briefs, templates); **Kumu is
 where you actually work through a project**: stage-by-stage tutorials with checklists and
 self-quizzes, hands-on labs, and an AI tutor. Organized by subject, no course codes:
 
@@ -23,6 +23,15 @@ self-quizzes, hands-on labs, and an AI tutor. Organized by subject, no course co
 
 Each offering's `README.md` under `courses/` signposts its own Kumu pages, point values, and due
 dates — the course README is the schedule, Kumu is the instruction.
+
+---
+
+## Why the projects work this way: doers → reviewers
+
+Entry-level analysts used to learn judgment by building models that seniors reviewed. AI now drafts
+that first pass, so the work that trained reviewers is the work AI does first. Every project here
+makes you do both jobs: you frame and specify, AI builds, you audit and decide. Full argument on
+Kumu: [the doer–reviewer dilemma](https://adamwstauffer.github.io/ai-lms/#doer-reviewer).
 
 ---
 
@@ -54,6 +63,8 @@ shidler/
 │   └── reproducibility-playbook.md
 ```
 
+Answer keys, grading scripts and `.claude/` tooling are deliberately kept out of this public repo.
+
 ---
 
 ## Active Courses
@@ -62,9 +73,9 @@ shidler/
 |------|-------|-------|-------------|
 | BUS 313 | International Economics and Trade | Undergrad | Trade/geopolitics case studies |
 | BUS 314 | International Corporate Finance | Undergrad (archived) | Performance ratios — superseded by BUS 629's project design |
-| FIN 321 | International Finance and Securities | Upper undergrad | FX hedging (5-stage) |
+| FIN 321 | International Finance and Securities | Upper undergrad | FX hedging (6-stage) |
 | BUS 620 | Micro- and Macro-Economics | MBA | Team cases + individual research |
-| BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | In setup |
+| BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | Team cases + individual research |
 | BUS 122B | Intro Entrepreneurship / Sustainable Ag | Community college | Business plan + pitch |
 | BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (6-stage, spec-driven) |
 
@@ -115,21 +126,24 @@ Lightweight memos capturing strategic decisions about repo structure, course des
 
 ## Project Workflow
 
-Most projects follow a staged pedagogical pattern:
+Every project runs the same five steps — **Frame → Specify → Build with AI → Validate → Decide** —
+under project-specific stage names:
 
-1. **Memo** — Executive summary and problem framing
-2. **Specification** — Technical planning, methodology, pseudocode
-3. **Excel Build** — Quantitative/financial model
-4. **Prompt Engineering** — AI integration and prompt documentation
-5. **Final Recommendations** — Synthesis and actionable insights
+| Project | Stages |
+|---|---|
+| FX hedging | 0 Repo setup · 1 Executive memo · 2 Model spec · 3 AI build + audit · 4 Market data · 5 LLM analysis validation |
+| Performance ratios | 0 Repo setup · 1 Ratios template · 2 Company selection memo · 3 Populated financials · 4 LLM-drafted spec · 5 LLM analysis + executive evaluation |
+| Econ cases | 0 Portfolio repo · 1 Engagement brief · 2 Model build · 3 Analysis |
 
-The archived BUS-314 project used a 4-stage variant (build-first, prompt merged into final); the current Performance Ratios project (BUS 629) uses a 6-stage variant (Stage 0–5). See each subject's `projects/` folder for exact stage docs.
+Deliverables, paths and rubrics are in each project's stage briefs and on Kumu.
 
 ---
 
 ## AI Tools & Claude Code
 
-AI use is **optional, not required** for student projects. When used, meaningful interactions should be logged in a prompt log.
+AI is **expected** and must be **disclosed**; log meaningful interactions in a prompt log. Disclosed AI
+work is never penalized. The grade follows the journey, not the destination: the framing, spec,
+audit and decision are yours, and they carry the weight.
 
 This repo includes AI agent configuration — and models the same convention your portfolio repo
 should follow:
@@ -146,7 +160,7 @@ See **`docs/presentations/Claude_Appendix.pptx`** for a complete walkthrough.
 1. **Navigate to your course**: Look up your course code in [`courses/README.md`](courses/README.md), then open your offering's subfolder (e.g., `courses/International-Corporate-Finance/BUS-629-VEMBA/`)
 2. **Read the syllabus**: Each offering has a `README.md` with objectives, grading, and policies
 3. **Work on deliverables**: Follow the staged assignment files in the subject's `projects/` folder, alongside the matching stage tutorials on [Kumu](https://adamwstauffer.github.io/ai-lms/)
-4. **Commit your work**: `git add . && git commit -m "Stage 1 memo" && git push`
+4. **Submit your work**: on github.com, open your repo → *Add file* → *Upload files* → commit. (Optional, with git locally: `git add <file> && git commit -m "Stage 1 memo" && git push`.)
 
 For a visual walkthrough, see **`docs/presentations/GitHub_AI_Appendix.pptx`**.
 
