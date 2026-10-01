@@ -4,7 +4,7 @@
 
 ## APPLIED AI WORK & PROJECTS
 
-**Kumu: AI-first course tutorial site**
+**Kumu: AI-first course tutorial site** · [adamwstauffer.github.io/ai-lms](https://adamwstauffer.github.io/ai-lms/)
 - Designed and built the companion tutorial site for all my courses, organized by subject rather than course code.
 - Stage-by-stage case projects across four subjects (international corporate finance, international finance and securities, international economics and trade, micro- and macroeconomics), with checklists, self-quizzes, hands-on labs, a student-onboarding guide to GitHub and AI, and an AI tutor.
 

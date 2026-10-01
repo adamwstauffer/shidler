@@ -5,7 +5,7 @@
 
 ## APPLIED AI WORK & PROJECTS
 
-**Kumu: AI-first course tutorial site**
+**Kumu: AI-first course tutorial site** · [adamwstauffer.github.io/ai-lms](https://adamwstauffer.github.io/ai-lms/)
 - Designed and built the companion tutorial site for all my courses: stage-by-stage case projects across four subjects, with checklists, self-quizzes, hands-on labs and an AI tutor.
 
 **AI-native course design**
