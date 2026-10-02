@@ -161,7 +161,7 @@ Refresh your repo on GitHub — you should see all the directories.
 
 ## Step 4 — Draft `RESUME.md` and `BIO.md` with an LLM
 
-This is where AI does the heavy lifting. You'll use ChatGPT or Claude to draft your bio and resume from existing source material (LinkedIn, an old resume, a CV) into Markdown format.
+Write your own first draft of the bio, then use ChatGPT or Claude to review it and draft your resume from existing source material (LinkedIn, an old resume, a CV) into Markdown format.
 
 ### 4a. Pick your LLM
 
@@ -180,11 +180,11 @@ The course repo contains polished templates — read them first to understand th
 - **Resume template** (Penn-style): [`../../docs/templates/portfolio/resume-template.md`](../../../../docs/templates/portfolio/resume-template.md)
 - **Portfolio README** (workflow guide): [`../../docs/templates/portfolio/README.md`](../../../../docs/templates/portfolio/README.md)
 
-Copy the bio template's full text. In your LLM, paste the template and add a prompt like:
+Read the bio template, then write your own 200–400 word draft against its structure. Once you have a draft, paste it into your LLM along with the template and add a prompt like:
 
-> Here is a bio template. Help me draft a 150–200 word professional bio for my GitHub profile README. Background: [paste from your LinkedIn or describe yourself]. Use the structure of the template. The audience is senior managers, graduate program admissions, and professional collaborators. Make it specific and quantified, not generic.
+> Here is a bio template and a draft bio I wrote. Review the draft against the template's structure and suggest specific improvements — don't rewrite it from scratch. The audience is senior managers, graduate program admissions, and professional collaborators. Make it specific and quantified, not generic.
 
-Iterate. The bio template's prompt library has 30+ angles — try 2 or 3 and pick the strongest output.
+Iterate. The bio template's prompt library has 30+ angles for revision — try 2 or 3 and pick the strongest output.
 
 Repeat for the resume against the resume template.
 
@@ -234,7 +234,7 @@ Submit the URL of your public GitHub repo via Lamaku. The repo must contain:
 |-----------|---|-------------------------------|
 | Repo public + accessible | 15% | URL works without login; correctly named |
 | Directory skeleton + READMEs | 20% | All required dirs present; every dir has a meaningful README |
-| Bio quality | 25% | 150–200 words; structured; iteratively revised with LLM |
+| Bio quality | 25% | 200–400 words; structured; iteratively revised with LLM |
 | Resume quality | 25% | Penn-style format; quantified achievements; concise |
 | Commit hygiene | 15% | At least 2 commits; descriptive messages; clean history |
 

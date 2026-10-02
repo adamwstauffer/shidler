@@ -105,7 +105,7 @@ accidental commit of a `~$` temp file.
    *Confirm:* every directory holds at least one file, or Git will not track it; `AGENTS.md` says
    something only you could have said.
 
-5. **Write the bio yourself.** Replace the placeholder `README.md` with three to six sentences on
+5. **Write the bio yourself.** Replace the placeholder `README.md` with a 200–400 word bio on
    who you are, followed by an engagement index. The bio lives in `README.md` — the file GitHub
    renders first — not in a separate `BIO.md`. Edit `RESUME.md` and `AGENTS.md` until they sound
    like you.
