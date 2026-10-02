@@ -5,7 +5,7 @@ stage: 4
 title: "Market Data + Population"
 capability: fx-hedging
 deliverables:
-  - path: "data/YYYY-MM-DD-{lastname}-market-data.md"
+  - path: "data/YYYY-MM-DD-{scenario}-market-data-memo.md"
     format: markdown
   - path: "capabilities/fx-hedging/model.xlsx"
     format: xlsx
@@ -58,7 +58,7 @@ the decimals.
 
 ## Then
 
-1. **Write the market-data memo** — `data/YYYY-MM-DD-{lastname}-market-data.md`: a table of
+1. **Write the market-data memo** — `data/YYYY-MM-DD-{scenario}-market-data-memo.md`: a table of
    every input with value, source, retrieval timestamp, and any proxy/computation used
    (CIP-implied forward, rate choice). This is a provenance document — an auditor should be
    able to re-pull every number.
@@ -75,10 +75,11 @@ the decimals.
 
 ## Deliverables
 
-- Market-data memo: `data/YYYY-MM-DD-{lastname}-market-data.md`
+- Market-data memo: `data/YYYY-MM-DD-{scenario}-market-data-memo.md`
 - Re-committed workbook (same file, new commit — commit message notes the population + any
   structural fixes)
 - Updated `prompt-log.md` if AI assisted the data hunt.
+- Already submitted under the older name (`data/YYYY-MM-DD-{lastname}-market-data.md`)? It still counts, exactly as if it carried the new name — nothing to rename.
 
 ## Evaluation
 

@@ -53,8 +53,11 @@ firstname-lastname/
 **FX hedging project files.** The FX hedging project adds no folders to this skeleton: its
 specification and workbook live in the capability folder as `capabilities/fx-hedging/spec.md` and
 `model.xlsx` (2026-09-24, Adam — Micro/Macro parity; the `docs/specs/` and `models/builds/` folders
-Summer 2026 used are retired). Its other graded files keep the
-`YYYY-MM-DD-{lastname}-{scenario-slug}-{kind}.{ext}` names.
+Summer 2026 used are retired). Its other graded files are dated
+`YYYY-MM-DD-{scenario}-{slug}-{type}.md` — the executive brief in `docs/briefs/`, the decision
+memo in `docs/decisions/`, the build audit and validation in `analysis/`, the market-data memo in
+`data/`; no last name, since the repository is already named for you. Older
+`YYYY-MM-DD-{lastname}-…` names already submitted still count.
 
 Three distinctions carry the whole structure:
 
@@ -79,7 +82,10 @@ even briefly.
 
 - Repository named for the person — `firstname-lastname`, or `firstname-lastname-portfolio` if
   taken. Never for a course, a semester, or a week.
-- Files named for the engagement: `perfect-competition-brief.md` still makes sense to a stranger
+- Files named for the engagement: `YYYY-MM-DD-perfect-competition-brief.md` still makes sense to a stranger
   in three years; `week1.md` does not.
 - Slugs lowercase and hyphen-separated, three to six words. No spaces, no underscores.
-- Dated documents lead with the ISO date — `YYYY-MM-DD-slug.md` — so a listing sorts itself.
+- Dated documents lead with the ISO date and end with their type — `YYYY-MM-DD-{slug}-{type}.md`,
+  `{type}` one of `brief` · `spec` · `memo` · `analysis` · `log` — so a listing sorts itself and
+  says what each file is. No last name: the repository is already named for you. Files submitted
+  under an older name still count.

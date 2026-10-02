@@ -1,15 +1,15 @@
-# Stage 4: LLM-Drafted Technical Specification
+# Stage 4: Technical Specification
 
 **Weight:** 20% of project score
 **Format:** Deliverable-only — no in-class presentation
-**Deliverable:** Technical specification (`.md`) drafted with an LLM, plus a prompt log entry and evidence of human-in-the-loop (HIL) iteration
+**Deliverable:** Technical specification (`.md`) you draft first and refine with an LLM, plus a prompt log entry and evidence of human-in-the-loop (HIL) iteration
 
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template (the model architecture) + Stage 3 populated workbook (the data values) + project instructions.
-> **Output (this stage):** A technical specification at `docs/specs/YYYY-MM-DD-{lastname}-{company-slug}-spec.md`, plus visible evidence of at least one HIL iteration (in your prompt log, or as a standalone iteration file in `analysis/validation/`).
+> **Output (this stage):** A technical specification at `docs/specs/YYYY-MM-DD-{company-slug}-spec.md`, plus visible evidence of at least one HIL iteration (in your prompt log, or as a standalone iteration file in `analysis/validation/`).
 > **Used by:** Stage 5 (you feed *only* this spec to an LLM to produce the full analysis — the spec must stand alone).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{lastname}-{company-slug}-spec.md`). Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 5, the spec must also live in `docs/specs/` in your GitHub repo — the Stage 5 polish rubric assumes the full project history is in the repo.
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-spec.md`). Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 5, the spec must also live in `docs/specs/` in your GitHub repo — the Stage 5 polish rubric assumes the full project history is in the repo.
 
 > **Heads up — instructor write access.** If you haven't yet granted the instructor Write access on your repo, do it now (Stage 2 submission checklist item). Stage 5 grades 5% on how you incorporated the instructor's PR feedback on your Stage 2 memo — that 5% is unearnable without write access.
 
@@ -19,18 +19,18 @@
 
 ## Overview
 
-Use an LLM (Claude or another capable model) to draft a formal technical specification that fully defines both the Excel ratio model and the analytical work to be done on your selected company. The spec must be precise enough that an LLM with no prior context — given only the spec as input — can produce a correct, comprehensive ratio analysis with strategic recommendations.
+Draft a formal technical specification yourself — then have an LLM (Claude or another capable model) review it and refine it together — that fully defines both the Excel ratio model and the analytical work to be done on your selected company. The spec must be precise enough that an LLM with no prior context — given only the spec as input — can produce a correct, comprehensive ratio analysis with strategic recommendations.
 
-You are not writing the spec from a blank page. You are using an LLM to **draft** it, conditioned on the project instructions and your Stage 1 template. Your job is to direct the drafting, evaluate the output, and ship a spec that *you* would sign your name to.
+You write the first draft. Then an LLM, conditioned on the project instructions, your Stage 1 template and your draft, **reviews** it, and the two of you iterate. Your job is to own the draft, evaluate the review, and ship a spec that *you* would sign your name to.
 
 **This is the central artifact of the project.**
 
-## Why spec-driven design + LLM drafting
+## Why spec-driven design + human-first drafting
 
 Two pedagogical moves stack here:
 
 1. **Spec-driven design.** The ability to specify analytical work precisely is more valuable than the ability to execute it. Execution scales (via teams, tools, AI); specification requires domain expertise that cannot be delegated.
-2. **LLM as drafter, you as editor.** The future of finance work is not "write everything from scratch" or "let AI write everything." It's specify the work, evaluate the output, and take responsibility for the final product.
+2. **You draft first, the LLM reviews, then you iterate together.** The future of finance work is not "write everything from scratch" or "let AI write everything." It's specify the work yourself, have AI review it, iterate on it together, and take responsibility for the final product.
 
 A spec that produces wrong output at Stage 5 reveals a gap in your spec — and that feedback loop is where the deepest learning happens.
 
@@ -40,8 +40,11 @@ A spec that produces wrong output at Stage 5 reveals a gap in your spec — and 
 
 A technical specification (`.md`, 3–5 pages) saved to `docs/specs/` in your repository, plus a corresponding prompt log entry.
 
-**Spec filename:** `YYYY-MM-DD-{lastname}-{company-slug}-spec.md`
-Example: `2026-06-18-nguyen-vinamilk-spec.md`
+**Spec filename:** `YYYY-MM-DD-{company-slug}-spec.md`
+
+No last name: the repository is already named for you. A spec already submitted under the older name (`YYYY-MM-DD-{lastname}-{company-slug}-spec.md`) still counts — nothing to rename.
+
+Example: `2026-06-18-vinamilk-spec.md`
 
 **Spec template — available three ways:**
 
@@ -51,11 +54,24 @@ Example: `2026-06-18-nguyen-vinamilk-spec.md`
 
 Copy, rename per the convention above, fill in the sections, keep the YAML frontmatter intact.
 
-**Prompt log:** Add a row to your `deliverables/prompt-log.md` for each meaningful prompt session used to draft the spec. Use [`../../docs/templates/prompt-log-template.md`](../../../../docs/templates/prompt-log-template.md) if you don't already have one.
+**Prompt log:** Add a row to your `prompt-log.md` (repository root) for each meaningful prompt session used to review and iterate on the spec. Use [`../../docs/templates/prompt-log-template.md`](../../../../docs/templates/prompt-log-template.md) if you don't already have one.
 
 ---
 
-## Two LLM workflows — pick one
+## Step 1 — Write your first draft (no LLM yet)
+
+Copy the spec template to `docs/specs/YYYY-MM-DD-{company-slug}-spec.md` and draft every section yourself — Part A items 1–7 and Part B items 8–11 (see [Required spec components](#required-spec-components) below). Your first draft must contain:
+
+- **Scope** — company, fiscal period, reporting standard, currency, objective, audience
+- **Data Inputs with numbers** — every input stated numerically from your Stage 3 workbook
+- **Named-range notation throughout** (`BAL_*`, `INC_*`, `CASH_*`, `RATIO_*`), including the year-suffix convention
+- **Every ratio** with its formula, unit and a one-line interpretation guide, plus the validation rules
+- **Part B** — what to interpret, the benchmarks, the Du Pont instructions, the recommendation standard and the output format
+- **The template's YAML frontmatter, intact**
+
+Sparse sections are fine in a first draft — the review will find them. **Commit the draft before you open the LLM**; that commit is your evidence that the first draft is yours.
+
+## Steps 2–3 — LLM review, then iterate together (two workflows — pick one)
 
 > **Never used a command line?** Choose **Workflow A**. It works in any browser, requires no install, and lets you focus on the spec instead of the tooling. Workflow B is faster once you're set up but adds an install/troubleshooting step. For Claude Code setup as a follow-on (optional), see [`docs/guides/claude-code-install-for-non-technical-users.md`](../../../../docs/guides/claude-code-install-for-non-technical-users.md).
 
@@ -68,27 +84,38 @@ Best if you don't yet have a CLI workflow. Works in any browser. **No install re
    - **This Stage 4 brief** — easiest is to paste the raw URL: `https://raw.githubusercontent.com/adamwstauffer/shidler/main/courses/International-Corporate-Finance/projects/performance-ratios/stage4-technical-specification.md`
    - **Spec template (raw URL)** — `https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md`
    - **Your Stage 1 template** (`.xlsx`) — upload via the paperclip icon
-   - **Your Stage 3 populated workbook** (`.xlsx`) — upload via the paperclip icon; this gives the LLM real numbers to populate the Data Inputs section
-3. Prompt:
+   - **Your Stage 3 populated workbook** (`.xlsx`) — upload via the paperclip icon; this lets the LLM check your Data Inputs against the real numbers
+   - **Your first-draft spec** — upload the `.md` or paste it into the prompt
+3. Review prompt:
 
    ```
-   Read the Stage 4 brief and spec template at the URLs above. Then, using the
-   spec template's structure, draft a technical specification for [COMPANY]
-   accounting ratios analysis.
+   Read the Stage 4 brief and spec template at the URLs above. Here is my
+   draft technical specification for [COMPANY] accounting ratios analysis.
 
-   Requirements:
-   - Populate every section (Part A items 1–7, Part B items 8–11)
-   - Use named-range notation (BAL_*, INC_*, CASH_*, RATIO_*) throughout
-   - Where data values appear in my uploaded Stage 3 workbook, include them
-     numerically in the Data Inputs table
-   - Keep the YAML frontmatter from the template intact
+   Review it against the brief and the template:
+   - Is every section present (Part A items 1–7, Part B items 8–11)?
+   - Is named-range notation (BAL_*, INC_*, CASH_*, RATIO_*) used consistently,
+     with year suffixes?
+   - Do the Data Inputs match my uploaded Stage 3 workbook? List every mismatch.
+   - Is the YAML frontmatter intact?
+   - Most important: if you were given ONLY this spec, where would you have to
+     guess? List each ambiguity and the wrong answer it could lead to.
 
-   Before drafting, list the three or four assumptions you'll need from me
-   (e.g., reporting standard, fiscal year, intended audience for the analysis).
+   Quote the line for each problem and say why it matters. Don't rewrite the
+   spec and don't write missing sections for me.
    ```
 
-4. Iterate. Ask the LLM to expand sparse sections, tighten verbose ones, and verify formulas tie to your template's named ranges.
-5. Copy the final output into `docs/specs/YYYY-MM-DD-{lastname}-{company-slug}-spec.md` in your repo.
+4. Iteration prompt — work through the review together; you decide:
+
+   ```
+   Let's go through your review one point at a time. For each, I'll tell you
+   whether I agree. Where I agree, help me think through the fix — ask me
+   questions or show me options, but I'll write the spec language. Where I
+   disagree, I'll explain why, and you tell me if my reasoning holds. When
+   I've revised a section, re-check just that section.
+   ```
+
+5. Revise the spec in your repo yourself, commit each meaningful round, and log the review and the iteration in your prompt log.
 
 > **Why give the LLM URLs instead of just uploading files?** Two reasons. (1) The raw URL points at the *current* version of the template — if the instructor updates the template mid-semester, your LLM session reads the latest version automatically. (2) URLs are easier to share with classmates and easier to reproduce later. Files in a chat session evaporate; URLs do not.
 
@@ -98,20 +125,23 @@ Best if you already cloned your repo locally and want the LLM to read repo files
 
 1. Install [Claude Code](https://claude.ai/code) and `cd` into your portfolio repo.
 2. Launch `claude`.
-3. Prompt:
+3. Review prompt:
    ```
    Read these files:
    - https://raw.githubusercontent.com/adamwstauffer/shidler/main/courses/International-Corporate-Finance/projects/performance-ratios/stage4-technical-specification.md
    - https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md
    - models/templates/performance-ratios-template.xlsx (in this repo)
    - models/builds/<your Stage 3 file>.xlsx (in this repo)
+   - docs/specs/<YYYY-MM-DD>-<company-slug>-spec.md (my draft)
 
-   Draft a technical specification for {company} accounting ratios analysis,
-   following the spec-template structure. Save it to
-   docs/specs/<YYYY-MM-DD>-<lastname>-<company-slug>-spec.md.
+   Review my draft spec against the brief and the template: missing sections,
+   inconsistent named-range notation, Data Inputs that don't match my Stage 3
+   workbook, and every place an executor given ONLY this spec would have to
+   guess. Quote the line for each problem and say why it matters.
+   Don't edit the spec file — report only.
    ```
-4. Iterate inside Claude Code, asking it to refine specific sections.
-5. Commit and push when done.
+4. Iteration prompt — the same one-point-at-a-time prompt as Workflow A, step 4. You write the spec language; ask Claude Code to re-check a section after you revise it, not to rewrite it.
+5. Commit each meaningful round and push when done.
 
 ---
 
@@ -153,15 +183,15 @@ If it can't, the spec has gaps. Identifying those gaps is the learning.
 
 ## Human-in-the-loop (HIL) review requirement
 
-A single-shot LLM dump with no visible iteration is below standard for this stage. You must submit **evidence of at least one HIL review pass** — a round of work in which you identified a gap in the LLM's draft and revised either the prompt or the spec to address it.
+A spec with no visible first draft, review or iteration is below standard for this stage. You must submit **evidence of at least one HIL review pass** — a round of work in which the LLM's review of *your* draft surfaced a gap, you judged it, and you revised the spec (or pushed back with a reason).
 
 Acceptable evidence (pick one — all three count equally; presented easiest-first):
 
-1. **Before/after note** *(easiest — recommended for most students).* A 150–250 word commentary inside your prompt log describing the most consequential gap you found in the LLM's first draft, why your spec caused it, and what you changed. **Best for:** every student. No new file needed; you write it into your existing prompt log.
-2. **Round-2 prompt** *(natural if you iterate as you go).* A second prompt-log entry (or a clearly-labeled second block within the same entry) showing how you re-prompted the LLM after reviewing round-1 output. Must include the specific gap you identified in round 1. **Best for:** students who naturally re-prompt the LLM rather than hand-edit its output.
-3. **Annotated diff** *(most thorough).* A short before/after comparison file at `analysis/validation/YYYY-MM-DD-{lastname}-{company-slug}-stage4-iteration.md` showing excerpts of one or more spec sections side-by-side, with a one-line note per change explaining what gap each revision addressed. **Best for:** students comfortable with side-by-side comparison tables, or whose spec saw substantial rework.
+1. **Before/after note** *(easiest — recommended for most students).* A 150–250 word commentary inside your prompt log describing the most consequential gap the review found in your first draft, whether you agreed, and what you changed. **Best for:** every student. No new file needed; you write it into your existing prompt log.
+2. **Round-2 review** *(natural if you iterate as you go).* A second prompt-log entry (or a clearly-labeled second block within the same entry) showing the re-check you asked for after revising your draft in response to round 1. Must name the specific gap round 1 surfaced. **Best for:** students who iterate section by section.
+3. **Annotated diff** *(most thorough).* A short before/after comparison file at `docs/decisions/YYYY-MM-DD-{company-slug}-spec-iteration-memo.md` showing excerpts of one or more spec sections side-by-side, with a one-line note per change explaining what gap each revision addressed. **Best for:** students comfortable with side-by-side comparison tables, or whose spec saw substantial rework.
 
-A useful HIL pass is **specific.** "I asked it to expand the section" does not earn this credit. "I noticed Part A.4 listed `BAL_assets_total` without the year suffix, so the Stage 5 LLM would not know which year to pull — I added the year-suffix convention to the Named Range Conventions section and re-ran" does.
+A useful HIL pass is **specific.** "I asked it to improve the section" does not earn this credit. "The review flagged that my Part A.4 listed `BAL_assets_total` without the year suffix, so the Stage 5 LLM would not know which year to pull — I added the year-suffix convention to the Named Range Conventions section and asked for a re-check" does.
 
 **Natural place to catch weird Stage 3 ratios.** If a ratio looked odd when you populated Stage 3, the HIL iteration is the right place to surface it. A strange ratio is often a spec gap the Stage 5 LLM will inherit. Walking the LLM through the weird ratio in your HIL pass — and revising your spec so the issue is addressed — is high-value HIL work.
 
@@ -169,7 +199,7 @@ This requirement is part of the "Spec craft + prompt log quality" rubric criteri
 
 ---
 
-> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline — sharpening the spec, iterating against the LLM output for completeness, expanding the prompt log — can move your score up. The full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
+> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline — sharpening the spec, another review-and-revise round for completeness, expanding the prompt log — can move your score up. The full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
 
 ---
 
@@ -180,7 +210,7 @@ This requirement is part of the "Spec craft + prompt log quality" rubric criteri
 | Model spec — Data & Structure (Part A, items 1–5) | 25% | Every input value present numerically; architecture fully defined |
 | Model spec — Ratios & Validation (Part A, items 6–7) | 25% | All 25+ ratios specified with correct formulas in named-range notation |
 | Analysis spec (Part B, items 8–11) | 25% | Clear interpretive guidance; meaningful benchmarks; actionable recommendation criteria |
-| Spec craft + prompt log quality | 25% | Unambiguous spec language; **at least one visible HIL iteration** (before/after note, round-2 prompt, or annotated diff) in which the student identified a gap in the LLM's draft and revised either the prompt or the spec. A prompt log of a single one-shot dump does not earn this credit. |
+| Spec craft + prompt log quality | 25% | Unambiguous spec language in the student's own first draft; a review sought against the brief and template; **at least one visible HIL iteration** (before/after note, round-2 review, or annotated diff) showing how the student judged the review and revised the spec. A spec with no first draft of the student's own, or a prompt log of a single one-shot generation, does not earn this credit. |
 
 ---
 
@@ -188,8 +218,8 @@ This requirement is part of the "Spec craft + prompt log quality" rubric criteri
 
 - **Spec the model, not just the analysis.** The most common failure mode is jumping to Part B before Part A is airtight. The LLM at Stage 5 needs both.
 - **Cite numerically.** "Total assets" is not a spec. "`BAL_assets_total_2025` = 394,328 USD millions" is.
-- **Iterate the prompt, not just the output.** If the LLM keeps producing weak Part A sections, your prompt is the problem — fix the prompt and re-run, rather than hand-editing the output.
-- **Log meaningfully.** "Asked Claude to write the spec" is not a useful log entry. "Iterated three times on the Du Pont section because the first two drafts confused decomposition with attribution" is.
+- **Sharpen the review prompt, not just the spec.** If the review keeps coming back generic, your prompt is the problem — point it at the specific test (could an executor given only this spec compute ROA for the right year?) and re-run.
+- **Log meaningfully.** "Asked Claude to check the spec" is not a useful log entry. "Revised the Du Pont section three times because the review showed my first two drafts confused decomposition with attribution" is.
 
 ---
 

@@ -74,7 +74,7 @@ Through the AI + GitHub project, students gain practical, workplace-ready skills
 
 ### Project: Accounting Ratios Analysis
 
-A 6-stage spec-driven design project. Students stand up their own public GitHub portfolio repo, populate the provided ratios template with financials for a company of their choice (non-U.S. and ASEAN-listed firms encouraged), and use an LLM to draft technical specifications and produce the final analysis — which they then critically evaluate.
+A 6-stage spec-driven design project. Students stand up their own public GitHub portfolio repo, populate the provided ratios template with financials for a company of their choice (non-U.S. and ASEAN-listed firms encouraged), write their own technical specification and have an LLM review it before the two iterate, then have an LLM execute the spec to produce the final analysis — which they critically evaluate.
 
 | Stage | Deliverable | Weight | Format |
 |-------|-------------|-------:|--------|
@@ -82,7 +82,7 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 | 1 | Provided ratios Excel template uploaded to your repo | 20% | `.xlsx` |
 | 2 | Company selection memo | 10% | `.md` |
 | 3 | Populated financials spreadsheet for selected company | 20% | `.xlsx` |
-| 4 | LLM-drafted technical specification | 20% | `.md` |
+| 4 | Technical specification (your draft, LLM-reviewed, iterated) | 20% | `.md` |
 | 5 | Full analysis + LLM evaluation + repo polish | 25% | Repo URL |
 
 **Format:** All stages are **deliverable-only** — no in-class presentations this semester. Total project weight: 100%.
@@ -120,9 +120,9 @@ Stage 2 — Write a memo selecting your company → docs/decisions/
               ↓   (instructor reviews via pull request; you grant Write access)
 Stage 3 — Populate the template with that company's financials → models/builds/
               ↓
-Stage 4 — Use an LLM to draft a technical spec of the analysis → docs/specs/
+Stage 4 — Draft a technical spec yourself; an LLM reviews it; iterate → docs/specs/
               ↓   (one human-in-the-loop iteration recorded → in prompt log or analysis/validation/)
-Stage 5 — Feed your spec to an LLM; verify, evaluate, and write the final analysis → deliverables/
+Stage 5 — Feed your spec to an LLM; verify, evaluate, and write the final analysis → analysis/
           Polish the whole repo; submit the repo URL on Lamaku.
 ```
 
@@ -130,30 +130,36 @@ The repo at Stage 5 is your portfolio — the URL is shareable on LinkedIn and i
 
 ### Project filename convention
 
-Every project artifact uses the same naming pattern across all stages:
+Every dated project document uses the same pattern across all stages:
 
 ```
-YYYY-MM-DD-{lastname}-{company-slug}-{kind}.{ext}
+YYYY-MM-DD-{company-slug}-{slug}-{type}.{ext}
 ```
 
 - **`YYYY-MM-DD`** — date you created the file (always lowercase, hyphen-separated, e.g., `2026-05-21`)
-- **`{lastname}`** — your family name, all lowercase, no spaces (e.g., `nguyen`, `tran`, `pham`)
 - **`{company-slug}`** — the company you're analyzing, all lowercase, hyphens for spaces (e.g., `vinamilk`, `fpt-corp`, `vingroup`)
-- **`{kind}`** — what stage / what artifact (e.g., `selection`, `financials`, `spec`, `final-analysis`)
+- **`{type}`** — what kind of document: `brief`, `spec`, `memo`, `analysis`, or `log` (workbooks keep `financials.xlsx`)
 - **`{ext}`** — `md` for memos and analyses, `xlsx` for spreadsheets
+- **No last name** — the repository is already named for you.
 
-Examples for a student named Nguyen analyzing Vinamilk:
+Examples for a student analyzing Vinamilk:
 
 | Stage | File |
 |---|---|
-| 2 | `docs/decisions/2026-05-21-nguyen-vinamilk-selection.md` |
-| 3 | `models/builds/2026-06-04-nguyen-vinamilk-financials.xlsx` |
-| 4 | `docs/specs/2026-06-18-nguyen-vinamilk-spec.md` |
-| 4 (HIL note) | `analysis/validation/2026-06-19-nguyen-vinamilk-stage4-iteration.md` |
-| 5 (raw LLM) | `deliverables/2026-07-02-nguyen-vinamilk-llm-raw.md` |
-| 5 (verification) | `analysis/validation/2026-07-03-nguyen-vinamilk-stage5-verification.md` |
-| 5 (final analysis) | `deliverables/2026-07-03-nguyen-vinamilk-final-analysis.md` |
-| 5 (retrospective) | `deliverables/2026-07-03-nguyen-vinamilk-spec-retrospective.md` |
+| 2 | `docs/decisions/2026-05-21-vinamilk-selection-memo.md` |
+| 3 | `models/builds/2026-06-04-vinamilk-financials.xlsx` |
+| 4 | `docs/specs/2026-06-18-vinamilk-spec.md` |
+| 4 (HIL note) | `docs/decisions/2026-06-19-vinamilk-spec-iteration-memo.md` |
+| 5 (raw LLM) | `analysis/2026-07-02-vinamilk-llm-raw-log.md` |
+| 5 (verification) | `analysis/2026-07-03-vinamilk-verification-analysis.md` |
+| 5 (final analysis) | `analysis/2026-07-03-vinamilk-analysis.md` |
+| 5 (retrospective) | `analysis/2026-07-03-vinamilk-spec-retrospective-analysis.md` |
+
+The prompt log is `prompt-log.md` at the repository root, and nothing new goes in `deliverables/`.
+Files already submitted under the older
+`YYYY-MM-DD-{lastname}-{company-slug}-{kind}` names (e.g.
+`deliverables/2026-07-03-nguyen-vinamilk-final-analysis.md`, `prompt-log.md` (repository root)) still count — nothing to rename, nothing
+deducted.
 
 **Why lowercase?** GitHub on Linux servers treats `Nguyen-` and `nguyen-` as different files. Sticking to lowercase prevents broken links later.
 
@@ -172,12 +178,12 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 | **Named range** | A label assigned to a cell or group of cells in Excel (e.g., `BAL_assets_total_2025`) so formulas can refer to the label instead of the cell address. The ratios template uses named ranges so the formulas survive when you copy the workbook. |
 | **Named-range notation** | The way we write formulas in the spec — using the named-range label instead of a cell address (e.g., `INC_net_income_2025 / BAL_assets_total_2025` rather than `B12 / D14`). |
 | **Spec / specification** | The Stage 4 document that defines exactly what the analysis must do — precise enough that an LLM with no other context can execute it. |
-| **LLM** | Large Language Model — Claude, ChatGPT, Gemini, etc. The AI that drafts your Stage 4 spec and produces the Stage 5 first-draft analysis. |
-| **HIL (human-in-the-loop)** | A workflow where you review an LLM's output, identify what's wrong, and revise either the prompt or the spec to improve the next run. Required at Stage 4. |
+| **LLM** | Large Language Model — Claude, ChatGPT, Gemini, etc. The AI that reviews your Stage 4 spec draft and produces the Stage 5 first-draft analysis from your finished spec. |
+| **HIL (human-in-the-loop)** | A workflow where you write the first draft, an LLM reviews it, and you judge each point of the review and revise the spec yourself. Required at Stage 4. |
 | **Diff** | A side-by-side comparison showing what changed between two versions of a file (the "before" and the "after"). Used in PRs and HIL iteration notes. |
 | **Annotated diff** | A diff with one-line notes added next to each change explaining *why* you made it. |
 | **10-K** | The U.S. SEC's annual report form for public companies. We use "10-K" loosely to mean "audited annual report" — for Vietnamese companies, the equivalent is the annual report filed under VAS (Vietnamese Accounting Standards) or IFRS. |
-| **Prompt log** | A `deliverables/prompt-log.md` file in your repo where you record meaningful AI sessions (what you asked, what you kept, what you changed). |
+| **Prompt log** | A `prompt-log.md` (repository root) file in your repo where you record meaningful AI sessions (what you asked, what you kept, what you changed). |
 | **Lamaku** | The University of Hawai'i at Mānoa's course management system, where you submit final URLs and access course resources. |
 
 ### Repository Structure
@@ -197,7 +203,7 @@ courses/International-Corporate-Finance/projects/performance-ratios/
 ├── data/                      # Source financial data and provenance
 ├── analysis/
 │   └── validation/            # Self-audit and validation reports (Stage 3)
-└── deliverables/              # Final, presentation-ready outputs (Stage 5)
+└── prompt-log.md              # Every AI session that mattered (repo root)
 ```
 
 ---

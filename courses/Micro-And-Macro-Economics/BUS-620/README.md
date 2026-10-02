@@ -178,9 +178,9 @@ sets up the repository you use all term. **Every due date is in the course sched
 | Stage | Deliverable |
 | ----- | ----- |
 | **.0** — Repo *(Case 1 only)* | Repo skeleton, `AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`, collaborator `adamwstauffer` |
-| **.1** — Brief | `docs/briefs/<case-slug>-brief.md` |
+| **.1** — Brief | `docs/briefs/YYYY-MM-DD-<case-slug>-brief.md` |
 | **.2** — Build | `capabilities/<capability>/spec.md` + `capabilities/<capability>/model.xlsx` + capability `README.md` |
-| **.3** — Report | `analysis/<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/<case-slug>-memo.md` + prompt-log update |
+| **.3** — Report | `analysis/YYYY-MM-DD-<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/YYYY-MM-DD-<case-slug>-memo.md` + prompt-log update |
 
 **Case 4 — the Global Financial Crisis (in class, ungraded).** Not a graded engagement and nothing
 to submit. It is the same method applied to a crisis that has already resolved. **Your predictions
@@ -219,7 +219,7 @@ inferred. The question can be global or local: a well-defined problem important 
 fully acceptable, provided the subject is well thought out. Rubric, page limit and grading split: the Kumu research-paper page, the single source
 (https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric). Topic sign-off is not required if you
 are comfortable with your subject; if you want a read on it, commit your brief to
-`docs/briefs/research-brief.md`; there is no need to send a link. GitHub use is preferred, not
+`docs/briefs/YYYY-MM-DD-research-brief.md` (one already at `docs/briefs/research-brief.md` still counts); there is no need to send a link. GitHub use is preferred, not
 required: the PDF you upload to Lamaku is the graded copy, and the repo is the evidence trail.
 
 If you want my read on your topic or on a draft, use GitHub: commit the brief or the draft, then

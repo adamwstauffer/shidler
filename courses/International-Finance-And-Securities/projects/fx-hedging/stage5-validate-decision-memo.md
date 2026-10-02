@@ -2,19 +2,19 @@
 template: stage-brief
 project: fx-hedging
 stage: 5
-title: "LLM Analysis & Validation"
+title: "Validate & Decision Memo"
 capability: fx-hedging
 deliverables:
-  - path: "analysis/YYYY-MM-DD-{lastname}-{scenario-slug}-validation.md"
+  - path: "analysis/YYYY-MM-DD-{scenario}-validation-analysis.md"
     format: markdown
-  - path: "docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-recommendation.md"
+  - path: "docs/decisions/YYYY-MM-DD-{scenario}-hedge-decision-memo.md"
     format: markdown
 prerequisites: [4]
 weight: "25% of project"
 # ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
 ---
 
-# Stage 5 – LLM Analysis & Validation (25% of project — capstone)
+# Stage 5 – Validate & Decision Memo (25% of project — capstone)
 
 ## Goal
 
@@ -46,7 +46,7 @@ is a production test of your documents. Log the prompt.
    Show the numbers at each step. This table is the single strongest evidence in the project
    that you understand the model.
 
-## Part 3 — Executive recommendation memo
+## Part 3 — Decision memo
 
 2–4 pages, to the CFO, insight over computation:
 
@@ -76,11 +76,12 @@ of the five options is in the Stage 4 brief.)
 ## Deliverables
 
 - Validation doc (Parts 1–2 + retrospective):
-  `analysis/YYYY-MM-DD-{lastname}-{scenario-slug}-validation.md` — include the raw LLM output
+  `analysis/YYYY-MM-DD-{scenario}-validation-analysis.md` — include the raw LLM output
   as an appendix or linked file.
-- Recommendation memo (Part 3):
-  `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-recommendation.md`
+- Decision memo (Part 3):
+  `docs/decisions/YYYY-MM-DD-{scenario}-hedge-decision-memo.md`
 - Polished repo + final `prompt-log.md`.
+- Already submitted under the older names (`…-{lastname}-{scenario-slug}-validation.md`, `…-{lastname}-{scenario-slug}-hedge-recommendation.md`)? They still count, exactly as if they carried the new names — nothing to rename.
 
 ## Evaluation
 

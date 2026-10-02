@@ -5,7 +5,7 @@ stage: 1
 title: "Brief, Spec, Build, Audit"
 capability: economic-profit
 deliverables:
-  - path: docs/briefs/economic-profit-brief.md
+  - path: docs/briefs/YYYY-MM-DD-economic-profit-brief.md
     format: markdown
     ai_boundary: human-first
   - path: capabilities/economic-profit/spec.md
@@ -53,10 +53,12 @@ Read before starting:
 
 | Artifact | Path | Format |
 |---|---|---|
-| The engagement brief, with a hypothesis committed before any modeling | `docs/briefs/economic-profit-brief.md` | markdown |
+| The engagement brief, with a hypothesis committed before any modeling | `docs/briefs/YYYY-MM-DD-economic-profit-brief.md` | markdown |
 | The specification, written before the workbook exists, with audit findings appended | `capabilities/economic-profit/spec.md` | markdown |
 | The workbook that satisfies it | `capabilities/economic-profit/model.xlsx` | xlsx |
 | What the capability is, and where it was exercised | `capabilities/economic-profit/README.md` | markdown |
+
+Already committed the brief without the date (`docs/briefs/economic-profit-brief.md`, the pre-2026-10-02 name)? It still counts, exactly as if it carried the new name — nothing to rename.
 
 ## 4. Background
 
@@ -112,7 +114,7 @@ answer you are graded on.
 
 ### Brief
 
-1. **Write `docs/briefs/economic-profit-brief.md` first.** The four-person setup in your own words,
+1. **Write `docs/briefs/YYYY-MM-DD-economic-profit-brief.md` first.** The four-person setup in your own words,
    and a hypothesis: *"I expect X to have the highest economic profit because Y."* Name the person and
    the mechanism.
    *Confirm:* committed before any spec or model work. The commit timestamp is what makes it a
@@ -164,7 +166,7 @@ answer you are graded on.
 
 | Artifact | Draft order |
 |---|---|
-| `docs/briefs/economic-profit-brief.md` | Human-first |
+| `docs/briefs/YYYY-MM-DD-economic-profit-brief.md` | Human-first |
 | `capabilities/economic-profit/spec.md` | Human-first |
 | `capabilities/economic-profit/model.xlsx` | AI-first, verified |
 | `capabilities/economic-profit/README.md` | Human-first |
@@ -181,7 +183,7 @@ defeats the stage.
 
 ## 7. Verification
 
-- [ ] `docs/briefs/economic-profit-brief.md` committed **before** any spec or model work
+- [ ] `docs/briefs/YYYY-MM-DD-economic-profit-brief.md` committed **before** any spec or model work
 - [ ] The brief names a person and a mechanism, not a hedge
 - [ ] `spec.md` committed before the workbook
 - [ ] Opportunity cost specified as the alternative's **net** earnings, never gross

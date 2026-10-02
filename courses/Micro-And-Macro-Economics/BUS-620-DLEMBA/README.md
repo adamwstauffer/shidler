@@ -176,9 +176,9 @@ be graded against an answer key and this one can.
 | Stage | Deliverable |
 | ----- | ----- |
 | **.0** — Repo *(Case 1 only)* | Repo skeleton, `AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`, collaborator `adamwstauffer` |
-| **.1** — Brief | `docs/briefs/<case-slug>-brief.md` |
+| **.1** — Brief | `docs/briefs/YYYY-MM-DD-<case-slug>-brief.md` |
 | **.2** — Build | `capabilities/<capability>/spec.md` + `capabilities/<capability>/model.xlsx` + capability `README.md` |
-| **.3** — Report | `analysis/<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/<case-slug>-memo.md` + prompt-log update |
+| **.3** — Report | `analysis/YYYY-MM-DD-<case-slug>-analysis.md` + `analysis/figures/` + `docs/decisions/YYYY-MM-DD-<case-slug>-memo.md` + prompt-log update |
 
 **Cases 2 and 3 are optional — ungraded and self-paced.** They are not on the schedule above, they carry no launch or due dates, and there is nothing to submit. Both engagements stay published in full on the course site for anyone who wants to go further after Case 1: **[Imperfect Competition — Pricing Power Analysis](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html)** (seed-market scenario): monopoly, MR = MC, the Lerner index, deadweight loss · **[Economic Profit & Rent — Earnings Analysis](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html)** (ride-share scenario): accounting versus economic profit, and the medallion capitalized as rent divided by required return. Same stage briefs, same check figures, at your own pace.
 
@@ -216,7 +216,7 @@ inferred. The question can be global or local: a well-defined problem important 
 fully acceptable, provided the subject is well thought out. Rubric, page limit and grading split: the Kumu research-paper page, the single source
 (https://adamwstauffer.github.io/ai-lms/research-paper.html#rubric). Topic sign-off is not required if you
 are comfortable with your subject; if you want a read on it, commit your brief to
-`docs/briefs/research-brief.md`; there is no need to send a link. GitHub use is preferred, not
+`docs/briefs/YYYY-MM-DD-research-brief.md` (one already at `docs/briefs/research-brief.md` still counts); there is no need to send a link. GitHub use is preferred, not
 required: the PDF you upload to Lamaku is the graded copy, and the repo is the evidence trail.
 
 If you want my read on your topic or on a draft, use GitHub: commit the brief or the draft, then

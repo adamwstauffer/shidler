@@ -31,7 +31,7 @@ performance-ratios/
 ├── deliverables/                   final, presentation-ready outputs (Stage 5)
 ├── demo-portfolio-repo/            worked example of a finished student portfolio repo
 │   ├── analysis/ data/ deliverables/ docs/ models/   mirrors the structure below
-│   ├── BIO.md, README.md, README_v2.md, RESUME.md
+│   ├── README.md, README_v2.md, RESUME.md
 ├── docs/
 │   ├── decisions/                  project-design decisions (incl. the original project-design memo)
 │   ├── plans/                      project plans and timelines

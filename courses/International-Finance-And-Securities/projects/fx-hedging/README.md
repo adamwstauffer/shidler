@@ -52,11 +52,11 @@ the single source of truth.
 | Stage | Deliverable | Weight | Suggested week (6-wk term) |
 | ----- | ----------- | -----: | ---- |
 | 0 | Portfolio repository (course-level; the portfolio repo standard) | 8% | 2 (paired with stage 2) |
-| 1 | Executive memo | 17% | 1 |
+| 1 | Executive brief | 17% | 1 |
 | 2 | Model specification | 21% | 2 |
 | 3 | AI-assisted build + audit note | 17% | 3 |
 | 4 | Market data + population | 12% | 4 |
-| 5 | LLM analysis & validation (capstone) | 25% | 5–6 |
+| 5 | Validate & decision memo (capstone) | 25% | 5–6 |
 | **Total** | | **100%** | |
 
 Weeks are indicative for a 6-week summer term; the offering README sets actual dates. In a
@@ -73,14 +73,19 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 
 ## Conventions (shared with BUS 629)
 
-- **Filenames:** `YYYY-MM-DD-{lastname}-{scenario-slug}-{kind}.{ext}`
-  (scenario slugs: `solar-importer`, `pharma-exporter`, `tech-services`, `aerospace`).
+- **Filenames:** dated documents are `YYYY-MM-DD-{scenario}-{slug}-{type}.md`, `{type}` one of
+  `brief` · `spec` · `memo` · `analysis` · `log` — no last name (the repository is already named for
+  you). Briefs go in `docs/briefs/`, decision memos in `docs/decisions/`, analyses in `analysis/`,
+  the market-data memo beside the data in `data/` (scenario slugs: `solar-importer`,
+  `pharma-exporter`, `tech-services`, `aerospace`). The spec and workbook keep their fixed paths
+  in `capabilities/fx-hedging/`. Files already submitted under the older
+  `YYYY-MM-DD-{lastname}-…` names still count — never renamed, never deducted (2026-10-02).
 - **Named-range contract:** `FC_AMT`, `S0_in`, `F0_in`, `R_USD`, `R_FC`, `K_PUT`, `K_CALL`,
   `PREM_PUT`, `PREM_CALL`, `T_DAYS` — the shared vocabulary of spec, workbook, grader, and
   LLM prompts.
 - **Color convention:** Yellow = inputs · Blue = assumptions · Green = formulas · Gray = outputs.
 - **Prompt log:** a running `prompt-log.md` at the repo root, updated at every stage that uses
-  an AI tool. LLM-as-drafter, student-as-editor.
+  an AI tool. Student drafts first, AI reviews, then the two iterate together.
 - **Template policy:** the instructor workbook is **withheld** during the build and used as the
   grading key. (Open question for Adam — release it after stage 3 as a diff-against-yours
   exercise? See memo §6.)
@@ -90,11 +95,11 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 | File | Stage |
 | ---- | ----- |
 | `stage0-repo-setup.md` | 0 — Portfolio repository (course-level; companion page `github-stage0.html`) |
-| `stage1-executive-memo.md` | 1 — Executive memo |
+| `stage1-executive-brief.md` | 1 — Executive brief |
 | `stage2-model-spec.md` | 2 — Model specification |
 | `stage3-ai-build-audit.md` | 3 — AI-assisted build + audit |
 | `stage4-market-data-population.md` | 4 — Market data + population |
-| `stage5-llm-analysis-validation.md` | 5 — LLM analysis & validation |
+| `stage5-validate-decision-memo.md` | 5 — Validate & decision memo |
 
 Shared project files: `scenarios.md`, `_templates/template-decision-memo.md`,
 `_templates/template-spec.md`. Grading checks every calculated

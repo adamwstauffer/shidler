@@ -1,5 +1,7 @@
 # `deliverables/`
 
+> **Retired 2026-10-02 — nothing new goes here.** Files go in the folder for their type: memos in `docs/decisions/`, analyses and the raw LLM run log in `analysis/`, the prompt log as `prompt-log.md` at the repository root. Files already submitted here still count.
+
 Final, presentation-ready outputs (Stage 5). This is the polished layer — what you'd hand to a manager, professor, audit partner, or client.
 
 ## What belongs here

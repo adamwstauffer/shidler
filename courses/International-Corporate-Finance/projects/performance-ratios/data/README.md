@@ -10,15 +10,16 @@ Source financial data, statements, and provenance documentation. In professional
 
 ## Naming convention
 
-Organize by student, then by source:
+Your repository is already yours, so no per-student folder and no last name:
 
 ```
 data/
-└── [lastname]/
-    ├── sources.md              # Data provenance log
-    ├── [ticker]-10K-2025.pdf   # Source documents
-    └── [ticker]-market-data.md # Market/analyst assumptions
+├── sources.md                               # Data provenance log
+├── [ticker]-10K-2025.pdf                    # Source documents
+└── YYYY-MM-DD-{company-slug}-market-data-memo.md  # Market/analyst assumptions
 ```
+
+Files already submitted under an older name (with your last name, or a `stageN` prefix) still count — nothing to rename.
 
 ## Data provenance
 

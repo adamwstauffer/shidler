@@ -156,7 +156,7 @@ of these skills on a graded deliverable.
 
 ### After you run a plugin
 
-If you used a plugin on a graded deliverable, log it in your `deliverables/prompt-log.md`:
+If you used a plugin on a graded deliverable, log it in your `prompt-log.md` (repository root):
 
 | Date | Tool | Skill invoked | What you asked it to do | What you kept | What you changed or rejected |
 |---|---|---|---|---|---|
@@ -202,7 +202,7 @@ Do not try to teach me everything in one prompt.
 
 This is the part that turns the exercise into a portfolio artifact:
 
-- Add a `docs/decisions/YYYY-MM-DD-{lastname}-ai-tooling-experiment.md` memo (use the repo memo template) capturing:
+- Add a `docs/decisions/YYYY-MM-DD-{company-slug}-ai-tooling-memo.md` memo (use the repo memo template) capturing:
   - What you tried (Path A, B, or C).
   - One concrete thing it changed about how you approach your finance work.
   - One thing the tool got wrong that your finance training caught.

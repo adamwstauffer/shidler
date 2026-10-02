@@ -4,18 +4,16 @@ Blank financial model frameworks — structured, formatted, and ready to receive
 
 ## What belongs here
 
-- **Stage 1 ratio templates** — your blank accounting ratios workbook built from scratch
+- **Stage 1 ratio template** — the provided blank accounting-ratios workbook
 - The template should be fully structured: tabs, headers, named ranges, color coding, formulas — but all data cells empty
 
 ## Naming convention
 
 ```
-[lastname]-stage1-ratio-template.xlsx
+performance-ratios-template.xlsx
 ```
 
-**Examples:**
-- `nguyen-stage1-ratio-template.xlsx`
-- `tran-stage1-ratio-template.xlsx`
+A fixed, undated path — keep the provided file's name. Files already submitted under an older name (with your last name, or a `stageN` prefix) still count — nothing to rename.
 
 ## Best practices
 

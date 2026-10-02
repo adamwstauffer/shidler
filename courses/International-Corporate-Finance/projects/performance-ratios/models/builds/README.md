@@ -9,12 +9,14 @@ Populated, working financial models with live data. These are your Stage 1 templ
 ## Naming convention
 
 ```
-[lastname]-stage3-[ticker]-ratios.xlsx
+YYYY-MM-DD-{company-slug}-financials.xlsx
 ```
 
 **Examples:**
-- `nguyen-stage3-VNM-ratios.xlsx`
-- `tran-stage3-AAPL-ratios.xlsx`
+- `2026-06-04-vinamilk-financials.xlsx`
+- `2026-06-04-apple-financials.xlsx`
+
+Files already submitted under an older name (with your last name, or a `stageN` prefix) still count — nothing to rename.
 
 ## Requirements
 

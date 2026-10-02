@@ -5,13 +5,13 @@ stage: 3
 title: "Analysis + Prompt Log"
 capability: marginal-analysis
 deliverables:
-  - path: analysis/perfect-competition-analysis.md
+  - path: analysis/YYYY-MM-DD-perfect-competition-analysis.md
     format: markdown
     ai_boundary: human-first
   - path: analysis/figures/
     format: images
     ai_boundary: not-permitted
-  - path: docs/decisions/perfect-competition-memo.md
+  - path: docs/decisions/YYYY-MM-DD-perfect-competition-memo.md
     format: markdown
     ai_boundary: human-first
   - path: prompt-log.md
@@ -39,7 +39,7 @@ committed.
 
 ## 2. Prerequisites
 
-- Stage 1: `docs/briefs/perfect-competition-brief.md` — the hypothesis you are now testing.
+- Stage 1: `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md` — the hypothesis you are now testing.
 - Stage 2: `capabilities/marginal-analysis/model.xlsx` — the evidence source. Every number you cite comes
   from it.
 
@@ -51,10 +51,12 @@ Read before starting:
 
 | Artifact | Path | Format |
 |---|---|---|
-| The evidence — what the model shows and why, for someone checking your work | `analysis/perfect-competition-analysis.md` | markdown |
+| The evidence — what the model shows and why, for someone checking your work | `analysis/YYYY-MM-DD-perfect-competition-analysis.md` | markdown |
 | At least two figures the analysis refers to | `analysis/figures/` | images |
-| The answer — what the farmer should do, for the farmer | `docs/decisions/perfect-competition-memo.md` | markdown |
+| The answer — what the farmer should do, for the farmer | `docs/decisions/YYYY-MM-DD-perfect-competition-memo.md` | markdown |
 | The curated record of AI sessions, plus the reflection | `prompt-log.md` | markdown |
+
+Already committed the analysis or memo without the date (`analysis/perfect-competition-analysis.md`, `docs/decisions/perfect-competition-memo.md`, the pre-2026-10-02 names)? They still count, exactly as if they carried the new names — nothing to rename.
 
 **Briefs ask; memos answer.** You wrote the question in Stage 1; this is where you close it. The
 analysis is the file a reviewer audits; the memo is the file a decision-maker reads.
@@ -91,7 +93,7 @@ rule — and if your schedules disagree with anything on this page, the disagree
 
 ## 5. Procedure
 
-1. **Write the analysis** at `analysis/perfect-competition-analysis.md`. One to two pages, covering
+1. **Write the analysis** at `analysis/YYYY-MM-DD-perfect-competition-analysis.md`. One to two pages, covering
    all four questions above from your own workbook's numbers.
    *Confirm:* each claim points at a cell or a figure in your model, not at a textbook generalization.
 
@@ -105,7 +107,7 @@ rule — and if your schedules disagree with anything on this page, the disagree
    *Confirm:* the paragraph names a specific difference. Being wrong in the brief and precise about
    why here is full-credit work.
 
-4. **Write the memo** at `docs/decisions/perfect-competition-memo.md`. Half a page, addressed to
+4. **Write the memo** at `docs/decisions/YYYY-MM-DD-perfect-competition-memo.md`. Half a page, addressed to
    whoever signs off on the plan — a partner, a lender, or you next February — with no jargon they
    did not ask for. Three things belong in it:
    - **The plan.** Plant 10 / 20 / 30, and one sentence of reasoning a non-economist would accept.
@@ -139,8 +141,8 @@ rule — and if your schedules disagree with anything on this page, the disagree
 
 | Artifact | Draft order |
 |---|---|
-| `analysis/perfect-competition-analysis.md` | Human-first |
-| `docs/decisions/perfect-competition-memo.md` | Human-first |
+| `analysis/YYYY-MM-DD-perfect-competition-analysis.md` | Human-first |
+| `docs/decisions/YYYY-MM-DD-perfect-competition-memo.md` | Human-first |
 | `prompt-log.md` and the reflection | Human-first |
 | Figures | Exported from your own workbook — not generated |
 

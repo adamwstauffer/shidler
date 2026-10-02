@@ -5,13 +5,13 @@ stage: 2
 title: "Analysis, Memo, Prompt Log"
 capability: pricing-power
 deliverables:
-  - path: analysis/imperfect-competition-analysis.md
+  - path: analysis/YYYY-MM-DD-imperfect-competition-analysis.md
     format: markdown
     ai_boundary: human-first
   - path: analysis/figures/
     format: images
     ai_boundary: not-permitted
-  - path: docs/decisions/imperfect-competition-memo.md
+  - path: docs/decisions/YYYY-MM-DD-imperfect-competition-memo.md
     format: markdown
     ai_boundary: human-first
   - path: prompt-log.md
@@ -39,7 +39,7 @@ whether that price is worth paying. The memo turns the position into advice some
 
 ## 2. Prerequisites
 
-- Stage 1: `docs/briefs/imperfect-competition-brief.md` — the hypothesis you are now testing.
+- Stage 1: `docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md` — the hypothesis you are now testing.
 - Stage 1: `capabilities/pricing-power/model.xlsx` — the evidence source. Every number you cite comes from it.
 
 Read before starting:
@@ -50,10 +50,12 @@ Read before starting:
 
 | Artifact | Path | Format |
 |---|---|---|
-| The evidence — what the model shows and why, for someone checking your work | `analysis/imperfect-competition-analysis.md` | markdown |
+| The evidence — what the model shows and why, for someone checking your work | `analysis/YYYY-MM-DD-imperfect-competition-analysis.md` | markdown |
 | At least two figures the analysis refers to | `analysis/figures/` | images |
-| The answer — what a decision-maker should do about it | `docs/decisions/imperfect-competition-memo.md` | markdown |
+| The answer — what a decision-maker should do about it | `docs/decisions/YYYY-MM-DD-imperfect-competition-memo.md` | markdown |
 | The curated record of AI sessions, plus the reflection | `prompt-log.md` | markdown |
+
+Already committed the analysis or memo without the date (`analysis/imperfect-competition-analysis.md`, `docs/decisions/imperfect-competition-memo.md`, the pre-2026-10-02 names)? They still count, exactly as if they carried the new names — nothing to rename.
 
 **Briefs ask; specs define; memos answer.**
 
@@ -89,7 +91,7 @@ negotiated merger divestiture in U.S. history. Either side is defensible. A fenc
 
 ## 5. Procedure
 
-1. **Write the analysis** at `analysis/imperfect-competition-analysis.md`, covering all five
+1. **Write the analysis** at `analysis/YYYY-MM-DD-imperfect-competition-analysis.md`, covering all five
    questions above from your own model's numbers, in whatever structure reads best.
    *Confirm:* each claim points at a cell or a figure in your model rather than at the case README.
 
@@ -102,7 +104,7 @@ negotiated merger divestiture in U.S. history. Either side is defensible. A fenc
    *Confirm:* the hypothesis text matches what was committed. A prediction that missed by ten times,
    with a sharp account of why, beats a lucky guess with no account.
 
-4. **Write the memo** at `docs/decisions/imperfect-competition-memo.md`. Half a page, addressed to
+4. **Write the memo** at `docs/decisions/YYYY-MM-DD-imperfect-competition-memo.md`. Half a page, addressed to
    someone who has to act — a regulator weighing the patent, or an executive deciding what the
    pricing power is worth defending. The recommendation, the reasoning that drives it, the judgment
    call where the evidence ran out, and what would change your answer.
@@ -128,8 +130,8 @@ negotiated merger divestiture in U.S. history. Either side is defensible. A fenc
 
 | Artifact | Draft order |
 |---|---|
-| `analysis/imperfect-competition-analysis.md` | Human-first |
-| `docs/decisions/imperfect-competition-memo.md` | Human-first |
+| `analysis/YYYY-MM-DD-imperfect-competition-analysis.md` | Human-first |
+| `docs/decisions/YYYY-MM-DD-imperfect-competition-memo.md` | Human-first |
 | `prompt-log.md` and the reflection | Human-first |
 | Figures | Exported from your own workbook — not generated |
 

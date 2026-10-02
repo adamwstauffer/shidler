@@ -12,10 +12,10 @@
 
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template (you already have a copy in your repo).
-> **Output (this stage):** A memo at `docs/decisions/YYYY-MM-DD-{lastname}-{company-slug}-selection.md` selecting the company you'll analyze for the rest of the semester.
+> **Output (this stage):** A memo at `docs/decisions/YYYY-MM-DD-{company-slug}-selection-memo.md` selecting the company you'll analyze for the rest of the semester.
 > **Used by:** Stage 3 (you populate the template with this company's financials) and Stage 5 (graded on how you incorporated the instructor's tracked feedback on this memo).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall with Git setup or pushing your work, you may upload this memo directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{lastname}-{company-slug}-selection.md`). Using the Lamaku fallback does **not** reduce your Stage 2 grade. By Stage 5, the memo must also live in your repo at `docs/decisions/` — your Stage 5 polish rubric assumes the full project history is in the repo. **The Lamaku fallback does not waive the collaborator requirement above — add `adamwstauffer` either way.**
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall with Git setup or pushing your work, you may upload this memo directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-selection-memo.md`). Using the Lamaku fallback does **not** reduce your Stage 2 grade. By Stage 5, the memo must also live in your repo at `docs/decisions/` — your Stage 5 polish rubric assumes the full project history is in the repo. **The Lamaku fallback does not waive the collaborator requirement above — add `adamwstauffer` either way.**
 
 > **Unfamiliar terms?** "PR" (pull request — the mechanism GitHub uses to deliver tracked feedback documents), "YAML frontmatter," "10-K," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
 
@@ -33,8 +33,11 @@ With the Stage 1 template in hand, you know exactly what data points the model n
 
 A 400–600 word Markdown memo (`.md`) saved to `docs/decisions/` in your repository.
 
-**Filename:** `YYYY-MM-DD-{lastname}-{company-slug}-selection.md` — all **lowercase**, hyphen-separated.
-Example: `2026-05-21-nguyen-vinamilk-selection.md`
+**Filename:** `YYYY-MM-DD-{company-slug}-selection-memo.md` — all **lowercase**, hyphen-separated.
+
+No last name: the repository is already named for you. A memo already submitted under the older name (`YYYY-MM-DD-{lastname}-{company-slug}-selection.md`) still counts — nothing to rename.
+
+Example: `2026-05-21-vinamilk-selection-memo.md`
 
 **Template:** the repo memo template, available three ways:
 
@@ -98,53 +101,75 @@ Especially firms listed on Vietnamese or ASEAN exchanges. If financial statement
 
 ---
 
-## Pro tip — use an LLM to help draft the memo
+## Pro tip — draft first, then use an LLM to review and iterate
 
-You are not expected to start from a blank page. The memo template is structured precisely so an LLM can fill it in if you give it the right context. **Use the LLM as a drafter; you are the editor.**
+Draft the memo yourself in the template first — your company, your reasons, your hypotheses. Then give an LLM the right context and ask it to review your draft; after the review, iterate on it together. **You draft first, the LLM reviews, then you collaborate — and you make every call.**
 
-### Option 1 — Give the LLM the template's public URL (recommended)
+### Step 1 — Write your first draft (no LLM yet)
 
-The memo template lives in a public GitHub repo. Most LLMs can read public URLs directly.
+Copy the template, rename it per the convention above, and fill in all six required sections in your own words. Your first draft must contain:
 
-In Claude.ai, ChatGPT, or another capable model, paste:
+- **Your company and why** — the selection and one sentence on why, leading the Executive Summary
+- **Eligibility, checked** — publicly traded, non-financial, 2+ years of statements you have actually located
+- **2–3 hypotheses in "I expect X because Y" form** — each with a direction and a reason
+- **The ratio categories that matter for this industry, and why**
+- **Your data plan** — the specific sources (SEC EDGAR, HOSE portal, the company's IR page), currency and accounting standard
+
+Rough is fine. Commit it before you open the LLM — that commit is your evidence of the first draft.
+
+### Step 2 — Ask an LLM to review it (not rewrite it)
+
+The memo template lives in a public GitHub repo, and most LLMs can read public URLs directly. In Claude.ai, ChatGPT, or another capable model, paste your draft below this prompt:
 
 ```
-I'm drafting a Stage 2 company selection memo for my finance course. The memo
+I'm writing a Stage 2 company selection memo for my finance course. The memo
 template is at:
 
 https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/memo-template.md
 
-Please read the template, then draft a memo for the company [YOUR COMPANY,
-e.g., Vinamilk (VNM, HOSE)] that fills in every section. Use the YAML
-frontmatter exactly as shown. Length: 400–600 words. Audience: a managing
-director — concise, evidence-tight.
+Here is my draft. Review it against the template and these requirements:
+all six sections present; YAML frontmatter intact; 400–600 words; hypotheses
+in "I expect X because Y" form with a direction and a reason; specific data
+sources; written for a managing director — concise, evidence-tight.
 
-Before you draft, ask me three to five clarifying questions about the company
-(industry, why I chose it, what hypotheses I have, what data sources I'll use).
+For each problem you find, quote the line, say what is wrong and why it
+matters. Ask me questions where my reasoning is thin. Don't rewrite the memo
+and don't write new sections for me.
+
+[PASTE YOUR DRAFT HERE]
 ```
 
-### Option 2 — Upload the template as a file
+**No URL access?** Download the template from [`https://github.com/adamwstauffer/shidler/blob/main/docs/templates/memo-template.md`](https://github.com/adamwstauffer/shidler/blob/main/docs/templates/memo-template.md) (click the **Raw** button, then save the page as `memo-template.md`), upload it via the paperclip icon, and say "I have uploaded the memo template" instead of giving the URL.
 
-Download the template from [`https://github.com/adamwstauffer/shidler/blob/main/docs/templates/memo-template.md`](https://github.com/adamwstauffer/shidler/blob/main/docs/templates/memo-template.md) (click the **Raw** button, then save the page as `memo-template.md`).
+### Step 3 — Iterate together; you decide
 
-Open Claude.ai (or ChatGPT). Upload the file via the paperclip icon. Then prompt the same way as Option 1, but say "I have uploaded the memo template" instead of giving a URL.
+Work through the review one point at a time:
 
-### What the LLM should produce vs. what you must do
+```
+Let's go through your review one point at a time. For each, I'll tell you
+whether I agree. Where I agree, help me think through how to fix it — ask me
+questions or show me options, but I'll write the change. Where I disagree,
+I'll explain why, and you tell me if my reasoning holds.
+```
 
-| LLM does well | You must do |
+Revise the memo yourself and commit each meaningful round. Reject review points you disagree with — a reasoned "no" is judgment, not a gap.
+
+### What the LLM can help with vs. what stays yours
+
+| The LLM can help by | What stays yours |
 |---|---|
-| Filling out all six required sections with on-template structure | Choose the company — that's your judgment, not the LLM's |
-| Suggesting falsifiable hypotheses in "I expect X because Y" form | Verify that the company actually meets eligibility (publicly traded, non-financial, 2+ years of data) |
-| Identifying likely data sources (SEC EDGAR, HOSE portal, IR pages) | Confirm those sources actually have the data you need before submitting |
-| Drafting in concise senior-analyst voice | Edit for accuracy — the LLM does not know your company as well as you should |
+| Checking your draft against the six required sections and the template structure | Choosing the company — that's your judgment, not the LLM's |
+| Testing whether your hypotheses are falsifiable and directional | Verifying the company meets eligibility (publicly traded, non-financial, 2+ years of data) |
+| Questioning whether your data sources will actually carry the numbers you need | Confirming those sources actually have the data before submitting |
+| Flagging wordiness against a concise senior-analyst register | Every sentence in the memo — the LLM does not know your company as well as you should |
 
-**Log the prompt.** Anything more than a 2-line nudge belongs in your `deliverables/prompt-log.md`. Stage 4 will grade your prompt log; start the habit at Stage 2.
+**Log the prompts.** The review and iteration sessions belong in your `prompt-log.md` (repository root). Stage 4 will grade your prompt log; start the habit at Stage 2.
 
 ---
 
 ## Connecting GitHub to an AI tool (optional, but powerful)
 
-Most AI tools can now read directly from your GitHub repo. This lets you ask the LLM to read your Stage 1 template, draft against it, or QC your memo without copy-pasting files. Brief setup notes per tool:
+Most AI tools can now read directly from your GitHub repo. This lets you ask the LLM to read your Stage 1 template or review your memo draft without copy-pasting files. Brief setup notes per tool:
 
 | Tool | How to connect to your repo |
 |---|---|
@@ -154,7 +179,7 @@ Most AI tools can now read directly from your GitHub repo. This lets you ask the
 | **GitHub Copilot Chat** | Built into VS Code, GitHub.dev, and the GitHub web UI. Asks about your repo without setup once you're signed in. Free for students with the GitHub Student Developer Pack. |
 | **Codex (OpenAI)** | Connect through ChatGPT Pro ($200/mo); not required for this course. |
 
-For Stage 2, the simplest path is to **paste the raw template URL into Claude.ai or ChatGPT** (see Pro Tip above). You can ignore the table until you're ready for richer workflows.
+For Stage 2, the simplest path is to **paste the raw template URL and your draft into Claude.ai or ChatGPT** (see Pro Tip above). You can ignore the table until you're ready for richer workflows.
 
 ---
 
@@ -192,4 +217,4 @@ For Stage 2, the simplest path is to **paste the raw template URL into Claude.ai
 - **Hypotheses must be falsifiable and directional.** "I expect X because Y" is a hypothesis. "I'll see what the ratios show" is not.
 - **Cite specific data sources.** "SEC EDGAR" is good. "The internet" is not.
 - **Use the memo template's frontmatter.** It encodes the fields the rubric expects — leave it intact when you customize.
-- **Expect feedback and plan for it.** The instructor will leave tracked review suggestions directly on your work — the way a manager or auditor marks up a draft. Stage 5 grades how you incorporated that feedback — track it from the start (a `docs/decisions/{date}-stage2-feedback-response.md` follow-up memo is a clean way to do this).
+- **Expect feedback and plan for it.** The instructor will leave tracked review suggestions directly on your work — the way a manager or auditor marks up a draft. Stage 5 grades how you incorporated that feedback — track it from the start (a `docs/decisions/YYYY-MM-DD-{company-slug}-feedback-response-memo.md` follow-up memo is a clean way to do this).

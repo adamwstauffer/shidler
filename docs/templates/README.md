@@ -87,7 +87,7 @@ stage: 1                                      # INTEGER, numbered per case from 
 title: "Repo + Brief"
 capability: marginal-analysis                 # the skills/<capability>/ folder; omit if none
 deliverables:                                 # the canonical path declaration
-  - path: docs/briefs/perfect-competition-brief.md
+  - path: docs/briefs/YYYY-MM-DD-perfect-competition-brief.md
     format: markdown
     ai_boundary: human-first                  # per artifact: human-first | ai-first-verified | not-permitted
 prerequisites: [1, 2]                         # prior stages whose deliverables must exist; [] for the first
@@ -109,8 +109,9 @@ A single naming convention applies across the repo. When in doubt, follow these:
 | Decision memo / project memo | `YYYY-MM-DD-{slug}.md` | `2026-04-03-bus629-accounting-ratios-project-design.md` |
 | Technical spec | `YYYY-MM-DD-{slug}.md` | `2026-05-15-aapl-ratios-spec.md` |
 | Stage assignment file | `stageN-{slug}.md` | `stage4-technical-specification.md` |
+| Student dated document | `YYYY-MM-DD-{slug}-{type}.md` — `{type}` one of `brief` · `spec` · `memo` · `analysis` · `log`; no last name (the repo is named for the student); older names already submitted still count | `2026-05-21-vinamilk-selection-memo.md` |
 | Student spreadsheet deliverable | `YYYY-MM-DD-{company-slug}-financials.xlsx` | `2026-05-12-toyota-financials.xlsx` |
-| Prompt log | `prompt-log.md` (one per project, in `deliverables/`) | `deliverables/prompt-log.md` |
+| Prompt log | `prompt-log.md` (one per repository, at the root; an older `prompt-log.md` (repository root) still counts) | `prompt-log.md` |
 
 **Slug rules:** lowercase, hyphen-separated, no spaces or underscores. Keep slugs short but descriptive (3–6 words).
 

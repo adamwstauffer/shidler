@@ -12,9 +12,11 @@ Project plans, timelines, and status tracking. In professional settings, plans c
 ## Naming convention
 
 ```
-[lastname]-[description].md
+YYYY-MM-DD-{slug}-{type}.md
 ```
 
 **Examples:**
-- `nguyen-project-timeline.md`
-- `tran-stage3-workplan.md`
+- `2026-05-10-project-timeline-log.md`
+- `2026-06-01-model-build-workplan-memo.md`
+
+Files already submitted under an older name (with your last name, or a `stageN` prefix) still count — nothing to rename.

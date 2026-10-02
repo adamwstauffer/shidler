@@ -36,7 +36,7 @@ estimated_time: "40-50 min"
 > standard below. The two folders this project used to commit into, `docs/specs/` and
 > `models/builds/`, were moved to Stage 1 (course site 2026-08-20) and then retired on
 > **2026-09-24 (Adam)**: the spec and the workbook now live in `capabilities/fx-hedging/`, which
-> this skeleton already has (see [`stage1-executive-memo.md`](stage1-executive-memo.md) § Where
+> this skeleton already has (see [`stage1-executive-brief.md`](stage1-executive-brief.md) § Where
 > this project's files go). The earlier text is in this file's git
 > history.
 
@@ -48,7 +48,7 @@ This stage produces the workspace, and nothing else. One public repository, name
 the structure that every stage of this project — and every project after it — lands in. No finance
 happens here; the point is that from Stage 1 on, the work is about currency risk rather than Git.
 
-It is a stage of its own because it has to be finished before the memo is committed, and because it
+It is a stage of its own because it has to be finished before the executive brief is committed, and because it
 is the one artifact in this course that outlives the course. A repository stood up properly in week
 one is a portfolio by the end of the term; one thrown together on the way to a deadline is a folder
 of homework.

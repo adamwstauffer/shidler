@@ -51,7 +51,6 @@ You should also create the following directory skeleton in your repo (if you hav
 your-repo/
 ├── README.md            # Bio (from Stage 0)
 ├── RESUME.md            # Resume (from Stage 0)
-├── BIO.md               # Optional (from Stage 0)
 ├── docs/
 │   ├── decisions/       # Memos and decision documents (Stage 2)
 │   │   └── README.md
@@ -64,7 +63,7 @@ your-repo/
 ├── data/                # Source financial data (Stage 3)
 ├── analysis/
 │   └── validation/      # Self-audit reports
-└── deliverables/        # Final outputs (Stage 5)
+└── prompt-log.md        # AI session log (repo root)
 ```
 
 Each directory should have a short `README.md` explaining what belongs there. The course repo (`courses/International-Corporate-Finance/projects/performance-ratios/`) is a living example — copy and adapt its READMEs.

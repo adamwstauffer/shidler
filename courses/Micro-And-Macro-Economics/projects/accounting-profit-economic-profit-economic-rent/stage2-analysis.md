@@ -5,13 +5,13 @@ stage: 2
 title: "Analysis, Memo, Prompt Log"
 capability: economic-profit
 deliverables:
-  - path: analysis/economic-profit-analysis.md
+  - path: analysis/YYYY-MM-DD-economic-profit-analysis.md
     format: markdown
     ai_boundary: human-first
   - path: analysis/figures/
     format: images
     ai_boundary: not-permitted
-  - path: docs/decisions/economic-profit-memo.md
+  - path: docs/decisions/YYYY-MM-DD-economic-profit-memo.md
     format: markdown
     ai_boundary: human-first
   - path: prompt-log.md
@@ -38,7 +38,7 @@ Then it recommends something to somebody who has to act.
 
 ## 2. Prerequisites
 
-- Stage 1: `docs/briefs/economic-profit-brief.md` — the hypothesis you are now testing.
+- Stage 1: `docs/briefs/YYYY-MM-DD-economic-profit-brief.md` — the hypothesis you are now testing.
 - Stage 1: `capabilities/economic-profit/model.xlsx` — the evidence source, including your documented
   sensitivity run.
 
@@ -50,10 +50,12 @@ Read before starting:
 
 | Artifact | Path | Format |
 |---|---|---|
-| The evidence — what the model shows and why, for someone checking your work | `analysis/economic-profit-analysis.md` | markdown |
+| The evidence — what the model shows and why, for someone checking your work | `analysis/YYYY-MM-DD-economic-profit-analysis.md` | markdown |
 | At least two figures the analysis refers to | `analysis/figures/` | images |
-| The answer — what a decision-maker should do about it | `docs/decisions/economic-profit-memo.md` | markdown |
+| The answer — what a decision-maker should do about it | `docs/decisions/YYYY-MM-DD-economic-profit-memo.md` | markdown |
 | The curated record of AI sessions, plus the reflection | `prompt-log.md` | markdown |
+
+Already committed the analysis or memo without the date (`analysis/economic-profit-analysis.md`, `docs/decisions/economic-profit-memo.md`, the pre-2026-10-02 names)? They still count, exactly as if they carried the new names — nothing to rename.
 
 **Briefs ask; specs define; memos answer.**
 
@@ -91,7 +93,7 @@ miniature. Same moat → rent → entry logic, a different legal wrapper.
 
 ## 5. Procedure
 
-1. **Write the analysis** at `analysis/economic-profit-analysis.md`, covering the five things above
+1. **Write the analysis** at `analysis/YYYY-MM-DD-economic-profit-analysis.md`, covering the five things above
    from your own model's numbers.
    *Confirm:* each claim points at a cell or a figure in your model rather than at the case README.
 
@@ -109,7 +111,7 @@ miniature. Same moat → rent → entry logic, a different legal wrapper.
    *Confirm:* the figures render on the github.com page, and each carries analytical weight — a
    screenshot of the raw sheet is not a figure.
 
-5. **Write the memo** at `docs/decisions/economic-profit-memo.md`. Half a page to somebody who has to
+5. **Write the memo** at `docs/decisions/YYYY-MM-DD-economic-profit-memo.md`. Half a page to somebody who has to
    act — a regulator deciding whether to cap app vehicles, a lender deciding what a medallion is worth
    as collateral, or a driver deciding whether to lease one. Recommendation, the reasoning that drives
    it, the judgment call where the evidence ran out, and what would change your answer.
@@ -130,8 +132,8 @@ miniature. Same moat → rent → entry logic, a different legal wrapper.
 
 | Artifact | Draft order |
 |---|---|
-| `analysis/economic-profit-analysis.md` | Human-first |
-| `docs/decisions/economic-profit-memo.md` | Human-first |
+| `analysis/YYYY-MM-DD-economic-profit-analysis.md` | Human-first |
+| `docs/decisions/YYYY-MM-DD-economic-profit-memo.md` | Human-first |
 | `prompt-log.md` and the reflection | Human-first |
 | Figures | Exported from your own workbook — not generated |
 

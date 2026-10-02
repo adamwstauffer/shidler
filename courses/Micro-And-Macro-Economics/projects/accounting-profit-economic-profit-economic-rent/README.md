@@ -45,10 +45,10 @@ One division reproduces both observed prices within ~10%. The rent story: app en
 
 | # | Artifact | Contents | Pts |
 |---|---|---|---|
-| 1 | `docs/briefs/economic-profit-brief.md` | The four-person setup in your own words + hypothesis: "I expect X to have the highest economic profit because Y" — committed before any spec or model work | — |
+| 1 | `docs/briefs/YYYY-MM-DD-economic-profit-brief.md` | The four-person setup in your own words + hypothesis: "I expect X to have the highest economic profit because Y" — committed before any spec or model work | — |
 | 2 | `capabilities/economic-profit/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs including days-per-month, the net-to-net and scale-matching rules stated explicitly, both capitalization inputs per era, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec, plus the documented 30 → 22 sensitivity run | 8 |
-| 3 | `analysis/economic-profit-analysis.md` + `analysis/figures/` | The verdicts explained by mechanism; the medallion story told with the capitalization math; supply/demand: which curve shifted (supply, right — massively), what happened to price, quantity, and *whose* surplus | 6 |
-| 3b | `docs/decisions/economic-profit-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
+| 3 | `analysis/YYYY-MM-DD-economic-profit-analysis.md` + `analysis/figures/` | The verdicts explained by mechanism; the medallion story told with the capitalization math; supply/demand: which curve shifted (supply, right — massively), what happened to price, quantity, and *whose* surplus | 6 |
+| 3b | `docs/decisions/YYYY-MM-DD-economic-profit-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
 | 4 | `prompt-log.md` (repo root) + reflection | AI sessions logged across both stages; reflection covers an AI error you caught | 3 |
 
 > Stage 1 carries 8 pts (spec 3 · validation rules 1 · workbook contract 2 · audit note 1 · brief-before-build and commit hygiene 1); Stage 2 carries 12 (hypothesis + setup 3 · verdicts 2 · medallion math 2 · supply/demand + cross-case 2 · prompt log 3). Case total 20, unchanged.
