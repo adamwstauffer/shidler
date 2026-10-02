@@ -6,10 +6,10 @@
 
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template (the model architecture) + Stage 3 populated workbook (the data values) + project instructions.
-> **Output (this stage):** A technical specification at `docs/specs/YYYY-MM-DD-{lastname}-{company-slug}-spec.md`, plus visible evidence of at least one HIL iteration (in your prompt log, or as a standalone iteration file in `analysis/validation/`).
+> **Output (this stage):** A technical specification at `docs/specs/YYYY-MM-DD-{company-slug}-spec.md`, plus visible evidence of at least one HIL iteration (in your prompt log, or as a standalone iteration file in `analysis/validation/`).
 > **Used by:** Stage 5 (you feed *only* this spec to an LLM to produce the full analysis — the spec must stand alone).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{lastname}-{company-slug}-spec.md`). Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 5, the spec must also live in `docs/specs/` in your GitHub repo — the Stage 5 polish rubric assumes the full project history is in the repo.
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-spec.md`). Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 5, the spec must also live in `docs/specs/` in your GitHub repo — the Stage 5 polish rubric assumes the full project history is in the repo.
 
 > **Heads up — instructor write access.** If you haven't yet granted the instructor Write access on your repo, do it now (Stage 2 submission checklist item). Stage 5 grades 5% on how you incorporated the instructor's PR feedback on your Stage 2 memo — that 5% is unearnable without write access.
 
@@ -40,8 +40,11 @@ A spec that produces wrong output at Stage 5 reveals a gap in your spec — and 
 
 A technical specification (`.md`, 3–5 pages) saved to `docs/specs/` in your repository, plus a corresponding prompt log entry.
 
-**Spec filename:** `YYYY-MM-DD-{lastname}-{company-slug}-spec.md`
-Example: `2026-06-18-nguyen-vinamilk-spec.md`
+**Spec filename:** `YYYY-MM-DD-{company-slug}-spec.md`
+
+No last name: the repository is already named for you. A spec already submitted under the older name (`YYYY-MM-DD-{lastname}-{company-slug}-spec.md`) still counts — nothing to rename.
+
+Example: `2026-06-18-vinamilk-spec.md`
 
 **Spec template — available three ways:**
 
@@ -57,7 +60,7 @@ Copy, rename per the convention above, fill in the sections, keep the YAML front
 
 ## Step 1 — Write your first draft (no LLM yet)
 
-Copy the spec template to `docs/specs/YYYY-MM-DD-{lastname}-{company-slug}-spec.md` and draft every section yourself — Part A items 1–7 and Part B items 8–11 (see [Required spec components](#required-spec-components) below). Your first draft must contain:
+Copy the spec template to `docs/specs/YYYY-MM-DD-{company-slug}-spec.md` and draft every section yourself — Part A items 1–7 and Part B items 8–11 (see [Required spec components](#required-spec-components) below). Your first draft must contain:
 
 - **Scope** — company, fiscal period, reporting standard, currency, objective, audience
 - **Data Inputs with numbers** — every input stated numerically from your Stage 3 workbook
@@ -129,7 +132,7 @@ Best if you already cloned your repo locally and want the LLM to read repo files
    - https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md
    - models/templates/performance-ratios-template.xlsx (in this repo)
    - models/builds/<your Stage 3 file>.xlsx (in this repo)
-   - docs/specs/<YYYY-MM-DD>-<lastname>-<company-slug>-spec.md (my draft)
+   - docs/specs/<YYYY-MM-DD>-<company-slug>-spec.md (my draft)
 
    Review my draft spec against the brief and the template: missing sections,
    inconsistent named-range notation, Data Inputs that don't match my Stage 3
@@ -186,7 +189,7 @@ Acceptable evidence (pick one — all three count equally; presented easiest-fir
 
 1. **Before/after note** *(easiest — recommended for most students).* A 150–250 word commentary inside your prompt log describing the most consequential gap the review found in your first draft, whether you agreed, and what you changed. **Best for:** every student. No new file needed; you write it into your existing prompt log.
 2. **Round-2 review** *(natural if you iterate as you go).* A second prompt-log entry (or a clearly-labeled second block within the same entry) showing the re-check you asked for after revising your draft in response to round 1. Must name the specific gap round 1 surfaced. **Best for:** students who iterate section by section.
-3. **Annotated diff** *(most thorough).* A short before/after comparison file at `analysis/validation/YYYY-MM-DD-{lastname}-{company-slug}-stage4-iteration.md` showing excerpts of one or more spec sections side-by-side, with a one-line note per change explaining what gap each revision addressed. **Best for:** students comfortable with side-by-side comparison tables, or whose spec saw substantial rework.
+3. **Annotated diff** *(most thorough).* A short before/after comparison file at `analysis/validation/YYYY-MM-DD-{company-slug}-spec-iteration-log.md` showing excerpts of one or more spec sections side-by-side, with a one-line note per change explaining what gap each revision addressed. **Best for:** students comfortable with side-by-side comparison tables, or whose spec saw substantial rework.
 
 A useful HIL pass is **specific.** "I asked it to improve the section" does not earn this credit. "The review flagged that my Part A.4 listed `BAL_assets_total` without the year suffix, so the Stage 5 LLM would not know which year to pull — I added the year-suffix convention to the Named Range Conventions section and asked for a re-check" does.
 

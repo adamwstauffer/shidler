@@ -5,7 +5,6 @@
 ## Quick links
 
 - [`RESUME.md`](RESUME.md) — Penn-style resume
-- [`BIO.md`](BIO.md) — optional longer-form bio
 - [`docs/`](docs/) — written deliverables (memos, specs, plans)
 - [`models/`](models/) — Excel templates and populated builds
 - [`data/`](data/) — source financial data with provenance notes

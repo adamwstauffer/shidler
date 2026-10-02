@@ -12,12 +12,13 @@ Technical specifications that define analytical work precisely enough for any co
 ## Naming convention
 
 ```
-[lastname]-stage4-spec.md
+YYYY-MM-DD-{company-slug}-spec.md
 ```
 
 **Examples:**
-- `nguyen-stage4-spec.md`
-- `tran-stage4-vinamilk-spec.md`
+- `2026-06-18-vinamilk-spec.md`
+
+Files already submitted under an older name (with your last name, or a `stageN` prefix) still count — nothing to rename.
 
 ## Template
 

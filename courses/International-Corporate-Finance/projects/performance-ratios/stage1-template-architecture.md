@@ -51,7 +51,6 @@ You should also create the following directory skeleton in your repo (if you hav
 your-repo/
 ├── README.md            # Bio (from Stage 0)
 ├── RESUME.md            # Resume (from Stage 0)
-├── BIO.md               # Optional (from Stage 0)
 ├── docs/
 │   ├── decisions/       # Memos and decision documents (Stage 2)
 │   │   └── README.md

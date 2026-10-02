@@ -122,7 +122,7 @@ Stage 3 — Populate the template with that company's financials → models/buil
               ↓
 Stage 4 — Draft a technical spec yourself; an LLM reviews it; iterate → docs/specs/
               ↓   (one human-in-the-loop iteration recorded → in prompt log or analysis/validation/)
-Stage 5 — Feed your spec to an LLM; verify, evaluate, and write the final analysis → deliverables/
+Stage 5 — Feed your spec to an LLM; verify, evaluate, and write the final analysis → analysis/
           Polish the whole repo; submit the repo URL on Lamaku.
 ```
 
@@ -130,30 +130,34 @@ The repo at Stage 5 is your portfolio — the URL is shareable on LinkedIn and i
 
 ### Project filename convention
 
-Every project artifact uses the same naming pattern across all stages:
+Every dated project document uses the same pattern across all stages:
 
 ```
-YYYY-MM-DD-{lastname}-{company-slug}-{kind}.{ext}
+YYYY-MM-DD-{company-slug}-{slug}-{type}.{ext}
 ```
 
 - **`YYYY-MM-DD`** — date you created the file (always lowercase, hyphen-separated, e.g., `2026-05-21`)
-- **`{lastname}`** — your family name, all lowercase, no spaces (e.g., `nguyen`, `tran`, `pham`)
 - **`{company-slug}`** — the company you're analyzing, all lowercase, hyphens for spaces (e.g., `vinamilk`, `fpt-corp`, `vingroup`)
-- **`{kind}`** — what stage / what artifact (e.g., `selection`, `financials`, `spec`, `final-analysis`)
+- **`{type}`** — what kind of document: `brief`, `spec`, `memo`, `analysis`, or `log` (workbooks keep `financials.xlsx`)
 - **`{ext}`** — `md` for memos and analyses, `xlsx` for spreadsheets
+- **No last name** — the repository is already named for you.
 
-Examples for a student named Nguyen analyzing Vinamilk:
+Examples for a student analyzing Vinamilk:
 
 | Stage | File |
 |---|---|
-| 2 | `docs/decisions/2026-05-21-nguyen-vinamilk-selection.md` |
-| 3 | `models/builds/2026-06-04-nguyen-vinamilk-financials.xlsx` |
-| 4 | `docs/specs/2026-06-18-nguyen-vinamilk-spec.md` |
-| 4 (HIL note) | `analysis/validation/2026-06-19-nguyen-vinamilk-stage4-iteration.md` |
-| 5 (raw LLM) | `deliverables/2026-07-02-nguyen-vinamilk-llm-raw.md` |
-| 5 (verification) | `analysis/validation/2026-07-03-nguyen-vinamilk-stage5-verification.md` |
-| 5 (final analysis) | `deliverables/2026-07-03-nguyen-vinamilk-final-analysis.md` |
-| 5 (retrospective) | `deliverables/2026-07-03-nguyen-vinamilk-spec-retrospective.md` |
+| 2 | `docs/decisions/2026-05-21-vinamilk-selection-memo.md` |
+| 3 | `models/builds/2026-06-04-vinamilk-financials.xlsx` |
+| 4 | `docs/specs/2026-06-18-vinamilk-spec.md` |
+| 4 (HIL note) | `analysis/validation/2026-06-19-vinamilk-spec-iteration-log.md` |
+| 5 (raw LLM) | `analysis/2026-07-02-vinamilk-llm-raw-log.md` |
+| 5 (verification) | `analysis/validation/2026-07-03-vinamilk-ratio-verification-analysis.md` |
+| 5 (final analysis) | `analysis/2026-07-03-vinamilk-analysis.md` |
+| 5 (retrospective) | `analysis/2026-07-03-vinamilk-spec-retrospective-analysis.md` |
+
+Files already submitted under the older `YYYY-MM-DD-{lastname}-{company-slug}-{kind}` names (e.g.
+`deliverables/2026-07-03-nguyen-vinamilk-final-analysis.md`) still count — nothing to rename, nothing
+deducted.
 
 **Why lowercase?** GitHub on Linux servers treats `Nguyen-` and `nguyen-` as different files. Sticking to lowercase prevents broken links later.
 

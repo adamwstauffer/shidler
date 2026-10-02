@@ -29,7 +29,7 @@ The deck walks through these on one summary slide. This document is the detailed
 | **1** | Create a GitHub account | 5 min |
 | **2** | Install GitHub Desktop (no command line required) | 10 min |
 | **3** | Create your repo and directory skeleton with stub READMEs | 15 min |
-| **4** | Draft `RESUME.md` and `BIO.md` with an LLM, commit to your repo | 30–45 min |
+| **4** | Write your bio (in `README.md`) and `RESUME.md` yourself, have an LLM review them, revise, commit | 30–45 min |
 | **5** | Save your changes back to GitHub (Add → Commit → Push) | 2 min per save |
 
 ---
@@ -89,7 +89,6 @@ In your newly cloned folder, create this structure. You can do it in your file e
 firstname-lastname/
 ├── README.md                  # ← Bio (Step 4) — first thing visitors see
 ├── RESUME.md                  # ← Resume (Step 4)
-├── BIO.md                     # ← Optional longer-form bio (Step 4)
 ├── docs/                      # All written deliverables and reference docs
 │   ├── README.md              # Explains what lives in docs/
 │   ├── decisions/             # Memos and decision documents (Stage 2)
@@ -159,9 +158,9 @@ Refresh your repo on GitHub — you should see all the directories.
 
 ---
 
-## Step 4 — Draft `RESUME.md` and `BIO.md` with an LLM
+## Step 4 — Write your bio and `RESUME.md`, then iterate with an LLM
 
-Write your own first draft of the bio, then use ChatGPT or Claude to review it and draft your resume from existing source material (LinkedIn, an old resume, a CV) into Markdown format.
+The bio is yours: 200–400 words, written by you, and it lives in your `README.md` — never in a separate `BIO.md`. The sequence is human first. You write the first draft; an LLM (ChatGPT or Claude) reviews it; you revise, and the two of you iterate. The resume follows the same sequence: you draft `RESUME.md` from your own source material (LinkedIn, an old resume, a CV), the LLM reviews it, you revise.
 
 ### 4a. Pick your LLM
 
@@ -184,16 +183,15 @@ Read the bio template, then write your own 200–400 word draft against its stru
 
 > Here is a bio template and a draft bio I wrote. Review the draft against the template's structure and suggest specific improvements — don't rewrite it from scratch. The audience is senior managers, graduate program admissions, and professional collaborators. Make it specific and quantified, not generic.
 
-Iterate. The bio template's prompt library has 30+ angles for revision — try 2 or 3 and pick the strongest output.
+Then revise it yourself and iterate. The bio template's prompt library has 30+ review angles — try 2 or 3, and keep the changes you agree with in your own words.
 
-Repeat for the resume against the resume template.
+Repeat for the resume: write your `RESUME.md` draft against the resume template first, then ask the LLM to review it, then revise.
 
 ### 4c. Save the files into your repo
 
-1. In your `firstname-lastname/` folder, replace the auto-generated `README.md` with your bio.
-2. Create `RESUME.md` and paste your resume.
-3. (Optional) Create `BIO.md` with a longer-form bio if you want to keep the resume separate from the README narrative.
-4. In GitHub Desktop: write a summary like `Add bio and resume`, **Commit to main**, then **Push origin**.
+1. In your `firstname-lastname/` folder, replace the auto-generated `README.md` with your bio (200–400 words; no separate `BIO.md`).
+2. Create `RESUME.md` with your revised resume.
+3. In GitHub Desktop: write a summary like `Add bio and resume`, **Commit to main**, then **Push origin**.
 
 ---
 
@@ -218,7 +216,6 @@ Submit the URL of your public GitHub repo via Lamaku. The repo must contain:
 - [ ] Public visibility (anyone can view without logging in)
 - [ ] `README.md` with your bio
 - [ ] `RESUME.md` with your resume
-- [ ] `BIO.md` (optional but recommended)
 - [ ] Directory skeleton from Step 3 with a `README.md` in every directory
 - [ ] At least 2 meaningful commits with descriptive messages
 
@@ -234,7 +231,7 @@ Submit the URL of your public GitHub repo via Lamaku. The repo must contain:
 |-----------|---|-------------------------------|
 | Repo public + accessible | 15% | URL works without login; correctly named |
 | Directory skeleton + READMEs | 20% | All required dirs present; every dir has a meaningful README |
-| Bio quality | 25% | 200–400 words; structured; iteratively revised with LLM |
+| Bio quality | 25% | 200–400 words in `README.md`; structured; judged on your own draft and on how you revised it after the LLM's review |
 | Resume quality | 25% | Penn-style format; quantified achievements; concise |
 | Commit hygiene | 15% | At least 2 commits; descriptive messages; clean history |
 
@@ -243,7 +240,7 @@ Submit the URL of your public GitHub repo via Lamaku. The repo must contain:
 ## Tips
 
 - **Don't aim for perfection on day one.** Your bio and resume will evolve all semester. Stage 0 is about getting the repo live with a usable skeleton.
-- **Use the bio template's prompt library.** It includes 30+ LLM prompts for iterative revision — pick 2–3 angles and run them before settling on the version you commit.
+- **Draft first, then use the bio template's prompt library.** It includes 30+ LLM review prompts — once your own draft exists, pick 2–3 angles, then revise before settling on the version you commit.
 - **Keep it public.** A public repo is the entire point — managers, collaborators, and reviewers need to be able to find it.
 - **The course repo is your reference.** When you're not sure what a directory should look like, study how this course repo is organized.
 - **Don't commit secrets.** No API keys, no passwords, no personally sensitive financial data. The provided `.gitignore` template handles common cases — see the deck's appendix for more.

@@ -12,10 +12,10 @@
 
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template (you already have a copy in your repo).
-> **Output (this stage):** A memo at `docs/decisions/YYYY-MM-DD-{lastname}-{company-slug}-selection.md` selecting the company you'll analyze for the rest of the semester.
+> **Output (this stage):** A memo at `docs/decisions/YYYY-MM-DD-{company-slug}-selection-memo.md` selecting the company you'll analyze for the rest of the semester.
 > **Used by:** Stage 3 (you populate the template with this company's financials) and Stage 5 (graded on how you incorporated the instructor's tracked feedback on this memo).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall with Git setup or pushing your work, you may upload this memo directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{lastname}-{company-slug}-selection.md`). Using the Lamaku fallback does **not** reduce your Stage 2 grade. By Stage 5, the memo must also live in your repo at `docs/decisions/` — your Stage 5 polish rubric assumes the full project history is in the repo. **The Lamaku fallback does not waive the collaborator requirement above — add `adamwstauffer` either way.**
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall with Git setup or pushing your work, you may upload this memo directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-selection-memo.md`). Using the Lamaku fallback does **not** reduce your Stage 2 grade. By Stage 5, the memo must also live in your repo at `docs/decisions/` — your Stage 5 polish rubric assumes the full project history is in the repo. **The Lamaku fallback does not waive the collaborator requirement above — add `adamwstauffer` either way.**
 
 > **Unfamiliar terms?** "PR" (pull request — the mechanism GitHub uses to deliver tracked feedback documents), "YAML frontmatter," "10-K," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
 
@@ -33,8 +33,11 @@ With the Stage 1 template in hand, you know exactly what data points the model n
 
 A 400–600 word Markdown memo (`.md`) saved to `docs/decisions/` in your repository.
 
-**Filename:** `YYYY-MM-DD-{lastname}-{company-slug}-selection.md` — all **lowercase**, hyphen-separated.
-Example: `2026-05-21-nguyen-vinamilk-selection.md`
+**Filename:** `YYYY-MM-DD-{company-slug}-selection-memo.md` — all **lowercase**, hyphen-separated.
+
+No last name: the repository is already named for you. A memo already submitted under the older name (`YYYY-MM-DD-{lastname}-{company-slug}-selection.md`) still counts — nothing to rename.
+
+Example: `2026-05-21-vinamilk-selection-memo.md`
 
 **Template:** the repo memo template, available three ways:
 

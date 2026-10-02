@@ -6,10 +6,10 @@
 
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template + Stage 2 company selection memo (you now know which company).
-> **Output (this stage):** A populated workbook at `models/builds/YYYY-MM-DD-{lastname}-{company-slug}-financials.xlsx` with Income Statement, Balance Sheet, and Cash Flow for the selected company.
+> **Output (this stage):** A populated workbook at `models/builds/YYYY-MM-DD-{company-slug}-financials.xlsx` with Income Statement, Balance Sheet, and Cash Flow for the selected company.
 > **Used by:** Stage 4 (the data values populate the spec's "Data Inputs" section) and Stage 5 (the LLM analysis runs against these numbers; you'll manually verify ≥5 ratios from them).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall pushing the workbook to your repo (file size, auth issues, etc.), you may upload it directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{lastname}-{company-slug}-financials.xlsx`). Using the Lamaku fallback does **not** reduce your Stage 3 grade. By Stage 5, the workbook must also live in your GitHub repo (`models/builds/`) — the Stage 5 polish rubric assumes the full project history is in the repo.
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall pushing the workbook to your repo (file size, auth issues, etc.), you may upload it directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-financials.xlsx`). Using the Lamaku fallback does **not** reduce your Stage 3 grade. By Stage 5, the workbook must also live in your GitHub repo (`models/builds/`) — the Stage 5 polish rubric assumes the full project history is in the repo.
 
 > **Heads up — instructor write access.** If you haven't yet granted the instructor Write access on your repo (Stage 2 submission checklist item), do it now. Stage 5 grades how you incorporated the instructor's PR feedback on your Stage 2 memo, and PRs can't happen without write access.
 
@@ -33,8 +33,11 @@ Splitting "get the data in" from "interpret what it says" produces two cleaner s
 
 A populated workbook saved to `models/builds/` in your repository.
 
-**Filename:** `YYYY-MM-DD-{lastname}-{company-slug}-financials.xlsx` — all **lowercase**, hyphen-separated.
-Example: `2026-06-04-nguyen-vinamilk-financials.xlsx`
+**Filename:** `YYYY-MM-DD-{company-slug}-financials.xlsx` — all **lowercase**, hyphen-separated.
+
+No last name: the repository is already named for you. A workbook already submitted under the older name (`YYYY-MM-DD-{lastname}-{company-slug}-financials.xlsx`) still counts — nothing to rename.
+
+Example: `2026-06-04-vinamilk-financials.xlsx`
 
 ---
 
@@ -69,7 +72,7 @@ This is a self-check, not a deliverable — your Stage 3 grade is on the workboo
 
 Just commit the populated workbook to your repo. Stage 3 is graded by inspection of the file in `models/builds/`.
 
-- [ ] `models/builds/YYYY-MM-DD-{lastname}-{company-slug}-financials.xlsx`
+- [ ] `models/builds/YYYY-MM-DD-{company-slug}-financials.xlsx`
 - [ ] Cover & Instructions tab updated with source URL, reporting standard, currency, fiscal year end
 - [ ] Commit message describes what was populated (e.g., "Populate Vinamilk FY2024 + FY2023 financials")
 
