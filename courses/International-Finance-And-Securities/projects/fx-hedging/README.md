@@ -80,7 +80,7 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
   LLM prompts.
 - **Color convention:** Yellow = inputs · Blue = assumptions · Green = formulas · Gray = outputs.
 - **Prompt log:** a running `prompt-log.md` at the repo root, updated at every stage that uses
-  an AI tool. LLM-as-drafter, student-as-editor.
+  an AI tool. Student drafts first, AI reviews, then the two iterate together.
 - **Template policy:** the instructor workbook is **withheld** during the build and used as the
   grading key. (Open question for Adam — release it after stage 3 as a diff-against-yours
   exercise? See memo §6.)

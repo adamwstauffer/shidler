@@ -98,9 +98,9 @@ Especially firms listed on Vietnamese or ASEAN exchanges. If financial statement
 
 ---
 
-## Pro tip — use an LLM to help draft the memo
+## Pro tip — draft first, then use an LLM to review and iterate
 
-You are not expected to start from a blank page. The memo template is structured precisely so an LLM can fill it in if you give it the right context. **Use the LLM as a drafter; you are the editor.**
+Draft the memo yourself in the template first — your company, your reasons, your hypotheses. Then give an LLM the right context and ask it to review your draft; after the review, iterate on it together. **You draft first, the LLM reviews, then you collaborate.**
 
 ### Option 1 — Give the LLM the template's public URL (recommended)
 

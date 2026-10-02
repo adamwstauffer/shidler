@@ -1,8 +1,8 @@
-# Stage 4: LLM-Drafted Technical Specification
+# Stage 4: Technical Specification
 
 **Weight:** 20% of project score
 **Format:** Deliverable-only — no in-class presentation
-**Deliverable:** Technical specification (`.md`) drafted with an LLM, plus a prompt log entry and evidence of human-in-the-loop (HIL) iteration
+**Deliverable:** Technical specification (`.md`) you draft first and refine with an LLM, plus a prompt log entry and evidence of human-in-the-loop (HIL) iteration
 
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template (the model architecture) + Stage 3 populated workbook (the data values) + project instructions.
@@ -19,18 +19,18 @@
 
 ## Overview
 
-Use an LLM (Claude or another capable model) to draft a formal technical specification that fully defines both the Excel ratio model and the analytical work to be done on your selected company. The spec must be precise enough that an LLM with no prior context — given only the spec as input — can produce a correct, comprehensive ratio analysis with strategic recommendations.
+Draft a formal technical specification yourself, then review and refine it with an LLM (Claude or another capable model), that fully defines both the Excel ratio model and the analytical work to be done on your selected company. The spec must be precise enough that an LLM with no prior context — given only the spec as input — can produce a correct, comprehensive ratio analysis with strategic recommendations.
 
-You are not writing the spec from a blank page. You are using an LLM to **draft** it, conditioned on the project instructions and your Stage 1 template. Your job is to direct the drafting, evaluate the output, and ship a spec that *you* would sign your name to.
+You write the first draft. Then an LLM, conditioned on the project instructions, your Stage 1 template and your draft, **reviews** it, and the two of you iterate. Your job is to own the draft, evaluate the review, and ship a spec that *you* would sign your name to.
 
 **This is the central artifact of the project.**
 
-## Why spec-driven design + LLM drafting
+## Why spec-driven design + human-first drafting
 
 Two pedagogical moves stack here:
 
 1. **Spec-driven design.** The ability to specify analytical work precisely is more valuable than the ability to execute it. Execution scales (via teams, tools, AI); specification requires domain expertise that cannot be delegated.
-2. **LLM as drafter, you as editor.** The future of finance work is not "write everything from scratch" or "let AI write everything." It's specify the work, evaluate the output, and take responsibility for the final product.
+2. **You draft first, the LLM reviews, then you iterate together.** The future of finance work is not "write everything from scratch" or "let AI write everything." It's specify the work yourself, have AI review it, iterate on it together, and take responsibility for the final product.
 
 A spec that produces wrong output at Stage 5 reveals a gap in your spec — and that feedback loop is where the deepest learning happens.
 
@@ -51,7 +51,7 @@ Example: `2026-06-18-nguyen-vinamilk-spec.md`
 
 Copy, rename per the convention above, fill in the sections, keep the YAML frontmatter intact.
 
-**Prompt log:** Add a row to your `deliverables/prompt-log.md` for each meaningful prompt session used to draft the spec. Use [`../../docs/templates/prompt-log-template.md`](../../../../docs/templates/prompt-log-template.md) if you don't already have one.
+**Prompt log:** Add a row to your `deliverables/prompt-log.md` for each meaningful prompt session used to review and iterate on the spec. Use [`../../docs/templates/prompt-log-template.md`](../../../../docs/templates/prompt-log-template.md) if you don't already have one.
 
 ---
 

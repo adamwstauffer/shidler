@@ -26,7 +26,7 @@ weight: "21% of project"
 
 Using `_templates/template-spec.md`, write a **2–3 page technical specification** for your FX
 hedging workbook — **before any Excel exists**. The spec must be precise enough that an AI (or a
-colleague who has never seen your memo) could build the complete workbook from this document
+colleague who has never seen your brief) could build the complete workbook from this document
 alone. In Stage 3, that is literally what happens.
 
 This is the design stage. Professionals spec models before building them; the discipline of
@@ -100,9 +100,10 @@ how Stage 4 will source the real one.
 - **Write for an AI reader.** Ambiguity here becomes a wrong workbook in Stage 3 — the AI will
   guess, and guess wrong. Every variable: name, value, unit. "A reasonable interest rate" is
   not acceptable.
-- **LLM as drafter, you as editor.** Have an AI draft the spec from your memo + scenario, then
-  correct it. Log prompts in `prompt-log.md` and show **at least one specific iteration** — a
-  gap you identified in the draft and how you fixed it (before/after note or annotated diff).
+- **You draft, AI reviews, then you iterate together.** Write the first draft of the spec
+  yourself from your brief + scenario, have an AI review it for gaps, then work the fixes through
+  with it. Log prompts in `prompt-log.md` and show **at least one specific iteration** — a gap
+  found in your draft and how you fixed it (before/after note or annotated diff).
 - Keep formulas conceptual (named-range notation), professional tone, 2–3 pages, no filler.
 
 ## Deliverable
