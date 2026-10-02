@@ -40,7 +40,7 @@ yourname-portfolio/
 
 1. Create a public GitHub repo (`yourname-portfolio` or `bio-and-resume`).
 2. The default `README.md` is your **bio** — the first thing a visitor sees.
-3. Use [`bio-template.md`](./bio-template.md) as the structural starting point. It includes a 150–200 word format and a prompt library for iterative revision with an LLM.
+3. Use [`bio-template.md`](./bio-template.md) as the structural starting point. It includes a 200–400 word format and a prompt library for iterative revision with an LLM.
 4. Aim for at least **two iterations** before submitting — this is where the writing skill develops.
 
 ### Part 2 — Add your resume

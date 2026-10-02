@@ -11,11 +11,11 @@
 
 ---
 
-<!-- PLACEHOLDER — replace with three to six sentences on who you are, what you have done,
-     and what you are working toward. Write it in your own voice; an LLM may draft it, but
-     ship nothing you would not want read aloud. -->
+<!-- PLACEHOLDER — replace with a 200–400 word bio on who you are, what you have done,
+     and what you are working toward. Write your own draft in your own voice; an LLM may
+     review it, but ship nothing you would not want read aloud. -->
 
-*Three to six sentences on who you are and what you are working toward go here.*
+*A 200–400 word bio on who you are and what you are working toward goes here.*
 
 ## Engagements
 
