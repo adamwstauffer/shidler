@@ -53,8 +53,11 @@ firstname-lastname/
 **FX hedging project files.** The FX hedging project adds no folders to this skeleton: its
 specification and workbook live in the capability folder as `capabilities/fx-hedging/spec.md` and
 `model.xlsx` (2026-09-24, Adam — Micro/Macro parity; the `docs/specs/` and `models/builds/` folders
-Summer 2026 used are retired). Its other graded files keep the
-`YYYY-MM-DD-{lastname}-{scenario-slug}-{kind}.{ext}` names.
+Summer 2026 used are retired). Its other graded files are dated
+`YYYY-MM-DD-{scenario-slug}-{slug}-{type}.md` — the executive brief in `docs/briefs/`, the decision
+memo in `docs/decisions/`, the build audit and validation in `analysis/`, the market-data memo in
+`data/`; no last name, since the repository is already named for you. Older
+`YYYY-MM-DD-{lastname}-…` names already submitted still count.
 
 Three distinctions carry the whole structure:
 

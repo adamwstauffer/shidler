@@ -5,7 +5,7 @@ stage: 1
 title: "Executive Brief"
 capability: fx-hedging
 deliverables:
-  - path: "docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md"
+  - path: "docs/briefs/YYYY-MM-DD-{scenario-slug}-hedge-brief.md"
     format: markdown
 prerequisites: [0]
 weight: "17% of project"
@@ -68,18 +68,19 @@ firstname-lastname/
   capabilities/
     fx-hedging/        README.md, spec.md (Stage 2), model.xlsx (Stages 3–4)
   docs/
-    decisions/         the executive brief, and the decision memo
+    briefs/            the executive brief (Stage 1)
+    decisions/         the decision memo (Stage 5)
   data/                market data, with source and timestamp
   analysis/            the build audit, and the validation work
 ```
 
 | Stage | Deliverable | Where it goes |
 |---|---|---|
-| 1 | Executive brief (hedge framing) | `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md` |
+| 1 | Executive brief (hedge framing) | `docs/briefs/YYYY-MM-DD-{scenario-slug}-hedge-brief.md` |
 | 2 | Model specification | `capabilities/fx-hedging/spec.md` · `capabilities/fx-hedging/README.md` |
-| 3 | Built workbook + build audit | `capabilities/fx-hedging/model.xlsx` · `analysis/YYYY-MM-DD-{lastname}-build-audit.md` |
-| 4 | Market-data memo | `data/YYYY-MM-DD-{lastname}-market-data.md` |
-| 5 | Validation + decision memo | `analysis/YYYY-MM-DD-{lastname}-{scenario-slug}-validation.md` · `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-recommendation.md` |
+| 3 | Built workbook + build audit | `capabilities/fx-hedging/model.xlsx` · `analysis/YYYY-MM-DD-{scenario-slug}-build-audit-analysis.md` |
+| 4 | Market-data memo | `data/YYYY-MM-DD-{scenario-slug}-market-data-memo.md` |
+| 5 | Validation + decision memo | `analysis/YYYY-MM-DD-{scenario-slug}-validation-analysis.md` · `docs/decisions/YYYY-MM-DD-{scenario-slug}-hedge-decision-memo.md` |
 
 This section moved here from Stage 0 (course site 2026-08-20; this brief 2026-09-24), because
 Stage 0 is now the course-level workspace. **Superseded 2026-09-24 (Adam):** it used to add two
@@ -88,9 +89,10 @@ project folders, `docs/specs/` and `models/builds/`; the spec and workbook now g
 
 ## Deliverable
 
-- File: `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md`
+- File: `docs/briefs/YYYY-MM-DD-{scenario-slug}-hedge-brief.md`
 - One page, from the decision-memo template, YAML frontmatter intact.
 - Committed and pushed.
+- Already submitted under the older name (`docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md`)? It still counts, exactly as if it carried the new name — nothing to move or rename.
 
 ## Evaluation
 

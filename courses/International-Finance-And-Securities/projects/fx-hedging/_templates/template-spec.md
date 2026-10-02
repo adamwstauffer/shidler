@@ -59,7 +59,7 @@ Briefly restate the exposure, timing, and objective in professional terms (3–5
 <details>
 <summary><span style="color:#024731; font-weight:600;">Example phrasing (Receivable)</span></summary>
 
-> [Company] expects a [FC amount] receivable denominated in [EUR/GBP/JPY] settling in [T] days. A [depreciation/appreciation] in [currency pair] over that horizon would reduce realized USD proceeds and compress [gross margin / earnings / cash-flow coverage]. This specification documents the analytical framework used to quantify and compare four strategies — **no hedge**, **forward hedge**, **money-market hedge**, and **option (put) hedge** — and to produce the sensitivity evidence that supports the Stage 4 hedging recommendation.
+> [Company] expects a [FC amount] receivable denominated in [EUR/GBP/JPY] settling in [T] days. A [depreciation/appreciation] in [currency pair] over that horizon would reduce realized USD proceeds and compress [gross margin / earnings / cash-flow coverage]. This specification documents the analytical framework used to quantify and compare four strategies — **no hedge**, **forward hedge**, **money-market hedge**, and **option (put) hedge** — and to produce the sensitivity evidence that supports the Stage 5 decision memo.
 </details>
 
 **Include:**
@@ -74,7 +74,7 @@ Briefly restate the exposure, timing, and objective in professional terms (3–5
 
 All inputs should be exposed as workbook **named ranges** so Calculation Flow (§4) reads the same whether implemented in Excel, Python, or an AI prompt. Dates, sources, and access timestamps are recorded in the Notes tab. Market inputs (spot, forward, rates, premia) are the only cells an analyst should adjust for scenario work.
 
-> <span style="color:#024731;">**Naming-convention decoder.**</span> The Stage 3 assignment prescribes a **standardized set of names** (left column below). The existing Stauffer template uses **legacy names** (right column) — these should be retired in the production build in favor of the standardized names. Where both are in use, define the legacy name as an alias pointing to the same cell.
+> <span style="color:#024731;">**Naming-convention decoder.**</span> The Stage 2 assignment prescribes a **standardized set of names** (left column below). The existing Stauffer template uses **legacy names** (right column) — these should be retired in the production build in favor of the standardized names. Where both are in use, define the legacy name as an alias pointing to the same cell.
 
 ### 2.1 Core Inputs
 
@@ -194,7 +194,7 @@ For a payable of `FC_AMT` to be settled in FC at maturity, the model mirrors Ste
 | Hedge-profit columns | `USD_k − USD_NO_HEDGE` for each strategy per row | Sub-table | Isolates hedge value-add |
 | Winner / best-hedge labels | `ARGMAX` / `ARGMIN` labels per row | Two label columns | Quick-read decision cue |
 | Sensitivity chart | Line chart of USD outcome vs. `S_T` for all four strategies | Embedded chart | Visual comparison |
-| Executive summary (Stage 4) | 1–2 paragraph narrative with explicit recommendation | Separate memo | Downstream deliverable |
+| Executive summary (Stage 5 decision memo) | 1–2 paragraph narrative with explicit recommendation | Separate memo | Downstream deliverable |
 
 ### 5.1 Computed Base-Case Values
 
@@ -265,7 +265,7 @@ Record candidly what the model gets right and where it needs work. If you are wr
 - Accounting treatment (ASC 815 / IFRS 9 hedge accounting designation)
 - Multi-currency or multi-horizon portfolio effects
 
-**Next steps — Stage 4 will:** (a) translate the sensitivity evidence into a structured CFO recommendation memo, (b) formalize the AI prompt using §4 as the instruction block and §6.2 as the improvement brief, and (c) implement at least one of the §6.2 improvements (default priority: standardized named ranges + chart).
+**Next steps — later stages will:** (a) translate the sensitivity evidence into the Stage 5 decision memo to the CFO, (b) formalize the AI prompt using §4 as the instruction block and §6.2 as the improvement brief, and (c) implement at least one of the §6.2 improvements (default priority: standardized named ranges + chart).
 
 ---
 
@@ -274,7 +274,7 @@ Record candidly what the model gets right and where it needs work. If you are wr
 > <span style="color:#024731; font-weight:600;">The spec should read like a handoff document, not a lab notebook.</span>
 
 - **Communicate like a professional:** clear, structured, no filler.
-- **Think one stage ahead:** the spec feeds directly into the Stage 4 AI prompt and recommendation memo.
+- **Think one stage ahead:** the spec feeds directly into the Stage 3 AI build prompt and the Stage 5 decision memo.
 - **Be internally consistent:** variables, labels, and steps must align with the actual workbook.
 - **Be reproducible:** another treasury analyst — or an AI — should be able to rebuild the model from this spec alone.
 - **Be reflective:** §6 should show honest assessment of the model's strengths and gaps, not self-congratulation.
@@ -282,9 +282,9 @@ Record candidly what the model gets right and where it needs work. If you are wr
 
 ---
 
-## 10. How This Sets Up Stage 4
+## 10. How This Sets Up Stages 3–5
 
-| What's Written in Stage 3 | What It Enables in Stage 4 |
+| What's Written in Stage 2 | What It Enables in Stages 3–5 |
 |---------------------------|----------------------------|
 | Standardized named ranges with precise definitions | AI uses standardized variable names; no improvisation |
 | Step-by-step calculation flow | AI generates correct, auditable hedge formulas |
@@ -305,7 +305,7 @@ Record candidly what the model gets right and where it needs work. If you are wr
 
 ## Appendix B — Brand & Formatting Standards
 
-All FIN-321 deliverables — this spec, the companion workbook, the Stage 4 memo, and any derivative chart or slide — must conform to the **University of Hawaiʻi at Mānoa Brand Style Guide** as codified in [`docs/_branding/design.json`](../../../../../docs/_branding/design.json) (v1.0.0). The tokens below are a reader-friendly extract; the JSON file is the source of truth.
+All FIN-321 deliverables — this spec, the companion workbook, the Stage 5 decision memo, and any derivative chart or slide — must conform to the **University of Hawaiʻi at Mānoa Brand Style Guide** as codified in [`docs/_branding/design.json`](../../../../../docs/_branding/design.json) (v1.0.0). The tokens below are a reader-friendly extract; the JSON file is the source of truth.
 
 ### B.1 Color Palette
 
@@ -403,8 +403,8 @@ Derived directly from `design.json → accessibility`:
 
 ### B.6 File & Deliverable Conventions
 
-- **Spec file name:** `stage3-spec-LASTNAME.md` (Stage 3 assignment requirement).
-- **Workbook file name:** keep the Stauffer template's convention — `FIN 321 - Chapter 8 Transaction Hedging_[YEAR]_LASTNAME.xlsx`.
+- **Spec file name:** `capabilities/fx-hedging/spec.md` (fixed path, Stage 2; no last name — the repository is named for you).
+- **Workbook file name:** `capabilities/fx-hedging/model.xlsx` (fixed path, Stages 3–4).
 - **PDF export of the spec:** embed fonts; render at Letter size; margins ≥ 0.75 inch; body 11–12 pt.
 - **All files** must carry the UH Mānoa banner block (see top of this template) and the brand footer (below).
 
