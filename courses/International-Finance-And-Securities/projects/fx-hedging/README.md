@@ -73,7 +73,7 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 
 ## Conventions (shared with BUS 629)
 
-- **Filenames:** dated documents are `YYYY-MM-DD-{scenario-slug}-{slug}-{type}.md`, `{type}` one of
+- **Filenames:** dated documents are `YYYY-MM-DD-{scenario}-{slug}-{type}.md`, `{type}` one of
   `brief` · `spec` · `memo` · `analysis` · `log` — no last name (the repository is already named for
   you). Briefs go in `docs/briefs/`, decision memos in `docs/decisions/`, analyses in `analysis/`,
   the market-data memo beside the data in `data/` (scenario slugs: `solar-importer`,

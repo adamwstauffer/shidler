@@ -35,16 +35,16 @@ The repo polish component recognizes a separate truth: a portfolio artifact a ma
 
 ## Deliverables (all in your repo)
 
-All filenames are **lowercase**, hyphen-separated, dated `YYYY-MM-DD`, and follow `YYYY-MM-DD-{company-slug}-{slug}-{type}` — no last name (the repository is already named for you), `{type}` one of `brief` · `spec` · `memo` · `analysis` · `log`. Files already submitted under the older `YYYY-MM-DD-{lastname}-…` names (including `deliverables/…-final-analysis.md`) still count — nothing to rename, nothing deducted.
+All filenames are **lowercase**, hyphen-separated, dated `YYYY-MM-DD`, and named as the table gives them. The final analysis follows the 2026-10-02 convention — `analysis/YYYY-MM-DD-{company-slug}-analysis.md`, no last name (the repository is already named for you); one already submitted as `deliverables/YYYY-MM-DD-{lastname}-{company-slug}-final-analysis.md` still counts, nothing to rename and nothing deducted. The other Stage 5 files keep their current names for now.
 
 | # | File | Location | Purpose |
 |--:|------|----------|---------|
-| 1 | Raw LLM output | `analysis/YYYY-MM-DD-{company-slug}-llm-raw-log.md` | Unedited LLM response from feeding the spec |
-| 2 | **Manual ratio verification table** | `analysis/validation/YYYY-MM-DD-{company-slug}-ratio-verification-analysis.md` | Recompute ≥5 ratios by hand from Stage 3 financials and compare to the LLM's values |
+| 1 | Raw LLM output | `deliverables/YYYY-MM-DD-{lastname}-{company-slug}-llm-raw.md` | Unedited LLM response from feeding the spec |
+| 2 | **Manual ratio verification table** | `analysis/validation/YYYY-MM-DD-{lastname}-{company-slug}-stage5-verification.md` | Recompute ≥5 ratios by hand from Stage 3 financials and compare to the LLM's values |
 | 3 | Evaluated final analysis | `analysis/YYYY-MM-DD-{company-slug}-analysis.md` | Your edited, annotated, corrected version of the LLM output |
-| 4 | **Spec retrospective** | `analysis/YYYY-MM-DD-{company-slug}-spec-retrospective-analysis.md` | Structured self-evaluation of your Stage 4 spec, using the repo template |
+| 4 | **Spec retrospective** | `deliverables/YYYY-MM-DD-{lastname}-{company-slug}-spec-retrospective.md` | Structured self-evaluation of your Stage 4 spec, using the repo template |
 | 5 | Updated prompt log | `deliverables/prompt-log.md` | Logs the Stage 5 LLM session(s) |
-| 6 | (Optional) Stage 2 feedback response | `docs/decisions/YYYY-MM-DD-{company-slug}-feedback-response-memo.md` | If the instructor's Stage 2 feedback resulted in scope or framing changes, document them here. Otherwise, show feedback incorporation in commits to the original Stage 2 memo. |
+| 6 | (Optional) Stage 2 feedback response | `docs/decisions/YYYY-MM-DD-{lastname}-stage2-feedback-response.md` | If the instructor's Stage 2 feedback resulted in scope or framing changes, document them here. Otherwise, show feedback incorporation in commits to the original Stage 2 memo. |
 
 **Suggested production order:** 1 → 2 → 3 → 4 → 5, then the repo polish pass (plus #6 if you're shipping a standalone feedback-response memo). Producing the raw LLM output first and the verification table second forces you to confront discrepancies *before* you start writing the final analysis — which is the discipline this stage is teaching.
 
@@ -76,7 +76,7 @@ Verifying the LLM's numbers against your own arithmetic is the cleanest way to c
 
 The verification table compares **manual vs. LLM**. The template's auto-computed values are a useful sanity check on both, but they're not the column being graded.
 
-Create `analysis/validation/YYYY-MM-DD-{company-slug}-ratio-verification-analysis.md` with at least five rows. Pick ratios from across categories (don't recompute five liquidity ratios — show coverage). Strong work picks ratios the LLM is most likely to get wrong (anything involving averages, start-of-year values, or unit conversions).
+Create `analysis/validation/YYYY-MM-DD-{lastname}-{company-slug}-stage5-verification.md` with at least five rows. Pick ratios from across categories (don't recompute five liquidity ratios — show coverage). Strong work picks ratios the LLM is most likely to get wrong (anything involving averages, start-of-year values, or unit conversions).
 
 | Ratio | Formula (named-range notation) | Manual value (show arithmetic) | LLM's value | Match? | One-line note |
 |---|---|---|---|---|---|
@@ -92,7 +92,7 @@ Discrepancies are not failures — they are the most informative rows in the tab
 
 ## Spec retrospective — use the template
 
-The structured retrospective lives at [`../../docs/templates/spec-retrospective-template.md`](../../../../docs/templates/spec-retrospective-template.md). Copy it, rename per the convention `YYYY-MM-DD-{company-slug}-spec-retrospective-analysis.md`, and place it in `analysis/`.
+The structured retrospective lives at [`../../docs/templates/spec-retrospective-template.md`](../../../../docs/templates/spec-retrospective-template.md). Copy it, rename per the convention `YYYY-MM-DD-{lastname}-{company-slug}-spec-retrospective.md`, and place it in `deliverables/`.
 
 The template requires:
 
@@ -128,7 +128,7 @@ The spec retrospective lives in its own file (per the template) rather than as a
 
 The instructor reviewed your Stage 2 memo and returned PR-style suggestions on your repo. Stage 5 grades how you incorporated that feedback. Two acceptable forms (either counts):
 
-- **Revised memo committed alongside your final analysis** — your `docs/decisions/YYYY-MM-DD-{company-slug}-selection-memo.md` shows commits that respond to the instructor's PR comments, OR you ship a follow-up memo at `docs/decisions/YYYY-MM-DD-{company-slug}-feedback-response-memo.md` describing what changed.
+- **Revised memo committed alongside your final analysis** — your `docs/decisions/YYYY-MM-DD-{company-slug}-selection-memo.md` shows commits that respond to the instructor's PR comments, OR you ship a follow-up memo at `docs/decisions/YYYY-MM-DD-{lastname}-stage2-feedback-response.md` describing what changed.
 - **Commits demonstrably responding to feedback** — commit messages reference specific PR comments (e.g., "Tighten hypothesis 2 per instructor PR comment #3"), or the diffs show the requested changes were made.
 
 If you received feedback and ignored it without comment, this rubric line scores zero. If you received feedback and disagreed with it, that is fine — but the disagreement must be visible (a comment on the PR, or a note in a follow-up memo explaining why you kept the original approach). Silence reads as oversight, not judgment.
@@ -157,7 +157,7 @@ firstname-lastname/                         (your portfolio repo root)
 │   ├── decisions/
 │   │   ├── README.md
 │   │   ├── 2026-05-21-{company}-selection-memo.md             # Stage 2 memo
-│   │   └── 2026-07-03-{company}-feedback-response-memo.md     # (optional) Stage 5 follow-up
+│   │   └── 2026-07-03-{lastname}-stage2-feedback-response.md  # (optional) Stage 5 follow-up
 │   └── specs/
 │       ├── README.md
 │       └── 2026-06-18-{company}-spec.md                       # Stage 4 spec
@@ -171,17 +171,17 @@ firstname-lastname/                         (your portfolio repo root)
 │
 ├── analysis/
 │   ├── README.md
-│   ├── 2026-07-02-{company}-llm-raw-log.md                    # Stage 5 raw LLM output
 │   ├── 2026-07-03-{company}-analysis.md                       # Stage 5 final analysis
-│   ├── 2026-07-03-{company}-spec-retrospective-analysis.md    # Stage 5 retrospective
 │   └── validation/
 │       ├── README.md
-│       ├── 2026-06-19-{company}-spec-iteration-log.md         # (optional) Stage 4 HIL note
-│       └── 2026-07-03-{company}-ratio-verification-analysis.md  # Stage 5 verification table
+│       ├── 2026-06-19-{lastname}-{company}-stage4-iteration.md   # (optional) Stage 4 HIL note
+│       └── 2026-07-03-{lastname}-{company}-stage5-verification.md  # Stage 5 verification table
 │
 └── deliverables/
     ├── README.md
-    └── prompt-log.md                                          # All AI sessions logged
+    ├── prompt-log.md                                          # All AI sessions logged
+    ├── 2026-07-02-{lastname}-{company}-llm-raw.md             # Stage 5 raw LLM output
+    └── 2026-07-03-{lastname}-{company}-spec-retrospective.md  # Stage 5 retrospective
 ```
 
 ### Checklist
@@ -314,4 +314,4 @@ The lightest-weight experiment: install `financial-analysis:audit-xls` and run i
 
 That single experiment is worth more than reading another article on "AI in finance." You will see the gap between what general-purpose LLMs do well and what purpose-built finance tooling does — and you'll be ahead of every peer who only used ChatGPT.
 
-**This is portfolio-shaping work, not coursework.** Adding a `docs/decisions/YYYY-MM-DD-ai-tooling-experiment-memo.md` memo (100–300 words: what you tried, what it did well, what it got wrong, whether you'd use it on a real engagement) is a stronger LinkedIn-pitchable artifact than another polish pass on the rubric checklist.
+**This is portfolio-shaping work, not coursework.** Adding a `docs/decisions/YYYY-MM-DD-{lastname}-ai-tooling-experiment.md` memo (100–300 words: what you tried, what it did well, what it got wrong, whether you'd use it on a real engagement) is a stronger LinkedIn-pitchable artifact than another polish pass on the rubric checklist.

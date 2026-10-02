@@ -4,15 +4,24 @@ Final, presentation-ready outputs. In investment banking, this is the distinctio
 
 ## What belongs here
 
-- **`prompt-log.md`** — the running log of every AI session that mattered
+- **Stage 5 raw LLM output** — the unedited response from executing your Stage 4 spec
+- **Stage 5 evaluated final analysis** — your edited, annotated, and corrected version
 - **Any other final outputs** — polished summaries, presentation materials
 
-The Stage 5 analyses now live in `analysis/` (2026-10-02 naming convention): the raw LLM output as
-`analysis/YYYY-MM-DD-{company-slug}-llm-raw-log.md`, the evaluated final analysis as
-`analysis/YYYY-MM-DD-{company-slug}-analysis.md`, the retrospective as
-`analysis/YYYY-MM-DD-{company-slug}-spec-retrospective-analysis.md`. Files already submitted here
-under an older name (e.g. `…-{lastname}-{company-slug}-final-analysis.md`) still count — nothing to
-move or rename.
+## Naming convention
+
+```
+[lastname]-stage5-[ticker]-llm-raw.md         # Unedited LLM response
+[lastname]-stage5-[ticker]-final-analysis.md   # Evaluated final version
+```
+
+**Examples:**
+- `nguyen-stage5-VNM-llm-raw.md`
+- `nguyen-stage5-VNM-final-analysis.md`
+
+**Since 2026-10-02** the evaluated final analysis goes in `analysis/` as
+`analysis/YYYY-MM-DD-{company-slug}-analysis.md` (no last name). One already submitted here under
+the older name still counts — nothing to move or rename.
 
 ## What does NOT belong here
 

@@ -7,7 +7,7 @@ capability: fx-hedging
 deliverables:
   - path: "capabilities/fx-hedging/model.xlsx"
     format: xlsx
-  - path: "analysis/YYYY-MM-DD-{scenario-slug}-build-audit-analysis.md"
+  - path: "analysis/YYYY-MM-DD-{scenario}-build-audit-analysis.md"
     format: markdown
 prerequisites: [2]
 weight: "17% of project"
@@ -84,7 +84,7 @@ will be auditing the same workbook.
 ## Deliverables
 
 - Workbook: `capabilities/fx-hedging/model.xlsx` — next to `spec.md`, the spec it was built from
-- Audit note: `analysis/YYYY-MM-DD-{scenario-slug}-build-audit-analysis.md` (≥3 findings)
+- Audit note: `analysis/YYYY-MM-DD-{scenario}-build-audit-analysis.md` (≥3 findings)
 - Updated `prompt-log.md`. Commit incrementally — generation, then each audit fix.
 - Already submitted under the older name (`analysis/YYYY-MM-DD-{lastname}-build-audit.md`)? It still counts, exactly as if it carried the new name — nothing to rename.
 

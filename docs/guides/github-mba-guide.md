@@ -336,7 +336,7 @@ Stage 5 grades "visible response" to PR feedback. After merging, write a one-lin
 
 **That single sentence is worth more than a thousand-word reflection.** It points the grader at the evidence and shows you read every comment. The rubric grades visibility, not effort.
 
-If your scope/framing changed substantially based on the feedback, you can also ship a `docs/decisions/YYYY-MM-DD-feedback-response-memo.md` memo describing the change — but the in-PR comments + commit-message references are usually enough.
+If your scope/framing changed substantially based on the feedback, you can also ship a `docs/decisions/YYYY-MM-DD-{lastname}-stage2-feedback-response.md` memo describing the change — but the in-PR comments + commit-message references are usually enough.
 
 ---
 

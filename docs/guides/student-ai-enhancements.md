@@ -202,7 +202,7 @@ Do not try to teach me everything in one prompt.
 
 This is the part that turns the exercise into a portfolio artifact:
 
-- Add a `docs/decisions/YYYY-MM-DD-ai-tooling-experiment-memo.md` memo (use the repo memo template) capturing:
+- Add a `docs/decisions/YYYY-MM-DD-{lastname}-ai-tooling-experiment.md` memo (use the repo memo template) capturing:
   - What you tried (Path A, B, or C).
   - One concrete thing it changed about how you approach your finance work.
   - One thing the tool got wrong that your finance training caught.

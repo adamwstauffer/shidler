@@ -130,7 +130,7 @@ The repo at Stage 5 is your portfolio — the URL is shareable on LinkedIn and i
 
 ### Project filename convention
 
-Every dated project document uses the same pattern across all stages:
+The Stage 2 memo, Stage 3 workbook, Stage 4 spec and Stage 5 final analysis share one pattern:
 
 ```
 YYYY-MM-DD-{company-slug}-{slug}-{type}.{ext}
@@ -142,20 +142,22 @@ YYYY-MM-DD-{company-slug}-{slug}-{type}.{ext}
 - **`{ext}`** — `md` for memos and analyses, `xlsx` for spreadsheets
 - **No last name** — the repository is already named for you.
 
-Examples for a student analyzing Vinamilk:
+Examples for a student (Nguyen) analyzing Vinamilk:
 
 | Stage | File |
 |---|---|
 | 2 | `docs/decisions/2026-05-21-vinamilk-selection-memo.md` |
 | 3 | `models/builds/2026-06-04-vinamilk-financials.xlsx` |
 | 4 | `docs/specs/2026-06-18-vinamilk-spec.md` |
-| 4 (HIL note) | `analysis/validation/2026-06-19-vinamilk-spec-iteration-log.md` |
-| 5 (raw LLM) | `analysis/2026-07-02-vinamilk-llm-raw-log.md` |
-| 5 (verification) | `analysis/validation/2026-07-03-vinamilk-ratio-verification-analysis.md` |
+| 4 (HIL note) | `analysis/validation/2026-06-19-nguyen-vinamilk-stage4-iteration.md` |
+| 5 (raw LLM) | `deliverables/2026-07-02-nguyen-vinamilk-llm-raw.md` |
+| 5 (verification) | `analysis/validation/2026-07-03-nguyen-vinamilk-stage5-verification.md` |
 | 5 (final analysis) | `analysis/2026-07-03-vinamilk-analysis.md` |
-| 5 (retrospective) | `analysis/2026-07-03-vinamilk-spec-retrospective-analysis.md` |
+| 5 (retrospective) | `deliverables/2026-07-03-nguyen-vinamilk-spec-retrospective.md` |
 
-Files already submitted under the older `YYYY-MM-DD-{lastname}-{company-slug}-{kind}` names (e.g.
+The Stage 4 iteration note and the raw LLM output, verification table and retrospective at Stage 5
+keep their earlier names for now. Files already submitted under the older
+`YYYY-MM-DD-{lastname}-{company-slug}-{kind}` names (e.g.
 `deliverables/2026-07-03-nguyen-vinamilk-final-analysis.md`) still count — nothing to rename, nothing
 deducted.
 

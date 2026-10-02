@@ -5,7 +5,7 @@ stage: 1
 title: "Engagement Brief"
 capability: marginal-analysis
 deliverables:
-  - path: docs/briefs/perfect-competition-brief.md
+  - path: docs/briefs/YYYY-MM-DD-perfect-competition-brief.md
     format: markdown
     ai_boundary: human-first
 prerequisites: [0]
@@ -15,7 +15,7 @@ estimated_time: "25-35 min"
 
 # Case 1 · Stage 1 — Engagement Brief
 
-**Deliverable:** `docs/briefs/perfect-competition-brief.md`
+**Deliverable:** `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md`
 **Submission:** committed and pushed to your public repository; graded by inspection
 **Estimated time:** 25–35 minutes
 
@@ -41,7 +41,9 @@ Read before starting:
 
 | Artifact | Path | Format |
 |---|---|---|
-| The engagement brief | `docs/briefs/perfect-competition-brief.md` | markdown |
+| The engagement brief | `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md` | markdown |
+
+Already committed the brief without the date (`docs/briefs/perfect-competition-brief.md`, the pre-2026-10-02 name)? It still counts, exactly as if it carried the new name — nothing to rename.
 
 ## 4. Background
 
@@ -66,7 +68,7 @@ result, which is what disqualifies it.
    These are the facts your brief restates. Do not invent numbers.
    *Confirm:* you can state what the farm is deciding without looking back at the page.
 
-2. **Write the brief** at `docs/briefs/perfect-competition-brief.md`, using the structure on the
+2. **Write the brief** at `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md`, using the structure on the
    deliverable-templates page. **Before opening the workbook or Solver**, write half a page to a page
    covering two things:
    - **The problem in your own words.** What the farm is deciding, what is fixed, what is chosen,
@@ -93,7 +95,7 @@ result, which is what disqualifies it.
 
 | Artifact | Draft order |
 |---|---|
-| `docs/briefs/perfect-competition-brief.md` | Human-first |
+| `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md` | Human-first |
 
 **If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
 a means to the work rather than the work itself, AI may draft it and you verify.** The two working
@@ -107,7 +109,7 @@ it*.
 
 ## 7. Verification
 
-- [ ] `docs/briefs/perfect-competition-brief.md` restates the problem in your voice
+- [ ] `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md` restates the problem in your voice
 - [ ] The hypothesis names a specific mix **and** the mechanism behind it
 - [ ] Some model outcome would show the hypothesis wrong
 - [ ] The brief was committed **before** any modeling work started

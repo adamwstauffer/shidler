@@ -15,7 +15,6 @@ YYYY-MM-DD-{company-slug}-validation-analysis.md
 
 **Examples:**
 - `2026-06-05-vinamilk-validation-analysis.md`
-- `2026-07-03-vinamilk-ratio-verification-analysis.md` (Stage 5 verification table)
 
 Files already submitted under an older name (with your last name, or a `stageN` prefix) still count — nothing to rename.
 

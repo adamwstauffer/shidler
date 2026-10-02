@@ -39,7 +39,7 @@ There is no starter workbook to fill in. Your spec is the template.
 
 ## 2. Prerequisites
 
-- Stage 1 complete: the repository exists, and `docs/briefs/perfect-competition-brief.md` is
+- Stage 1 complete: the repository exists, and `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md` is
   committed with your hypothesis in it.
 
 Read before starting:

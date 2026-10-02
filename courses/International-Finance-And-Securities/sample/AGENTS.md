@@ -24,7 +24,8 @@ Canonical file: `AGENTS.md`. `CLAUDE.md` points here.
 - The directory matters most. A file in the wrong folder may not be found at all. If you are
   not certain which folder a file belongs in, ask me before you write it — do not choose for me.
 - Graded files use the exact filename the stage brief gives — lowercase, hyphens, no spaces.
-  Some courses date-stamp (`YYYY-MM-DD-lastname-slug.md`); the stage page says so when they do.
+  Dated documents are `YYYY-MM-DD-{slug}-{type}.md`, `{type}` one of brief · spec · memo ·
+  analysis · log — never my last name (the repository is already named for me).
 - Slugs name the engagement, never the week, the course, or the assignment number.
 - Never invent a path or a filename. I will give you the exact one.
 

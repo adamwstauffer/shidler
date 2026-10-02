@@ -87,7 +87,7 @@ stage: 1                                      # INTEGER, numbered per case from 
 title: "Repo + Brief"
 capability: marginal-analysis                 # the skills/<capability>/ folder; omit if none
 deliverables:                                 # the canonical path declaration
-  - path: docs/briefs/perfect-competition-brief.md
+  - path: docs/briefs/YYYY-MM-DD-perfect-competition-brief.md
     format: markdown
     ai_boundary: human-first                  # per artifact: human-first | ai-first-verified | not-permitted
 prerequisites: [1, 2]                         # prior stages whose deliverables must exist; [] for the first

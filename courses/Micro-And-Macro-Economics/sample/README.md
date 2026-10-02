@@ -73,7 +73,10 @@ even briefly.
 
 - Repository named for the person — `firstname-lastname`, or `firstname-lastname-portfolio` if
   taken. Never for a course, a semester, or a week.
-- Files named for the engagement: `perfect-competition-brief.md` still makes sense to a stranger
+- Files named for the engagement: `YYYY-MM-DD-perfect-competition-brief.md` still makes sense to a stranger
   in three years; `week1.md` does not.
 - Slugs lowercase and hyphen-separated, three to six words. No spaces, no underscores.
-- Dated documents lead with the ISO date — `YYYY-MM-DD-slug.md` — so a listing sorts itself.
+- Dated documents lead with the ISO date and end with their type — `YYYY-MM-DD-{slug}-{type}.md`,
+  `{type}` one of `brief` · `spec` · `memo` · `analysis` · `log` — so a listing sorts itself and
+  says what each file is. No last name: the repository is already named for you. Files submitted
+  under an older name still count.

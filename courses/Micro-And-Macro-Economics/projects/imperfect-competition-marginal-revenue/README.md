@@ -43,10 +43,10 @@ Both markets share: **fixed costs $130M**, cost structure **TVC = a·Q + b·Q² 
 
 | # | Artifact | Contents | Pts |
 |---|---|---|---|
-| 1 | `docs/briefs/imperfect-competition-brief.md` | The two-market setup in your own words + hypothesis: "I expect the GMO price and profit to be X because Y" — committed before any spec or model work | — |
+| 1 | `docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md` | The two-market setup in your own words + hypothesis: "I expect the GMO price and profit to be X because Y" — committed before any spec or model work | — |
 | 2 | `capabilities/pricing-power/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs, both markets' calculation logic in named-range notation, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec | 8 |
-| 3 | `analysis/imperfect-competition-analysis.md` + `analysis/figures/` | Perfect vs imperfect compared: why MR < P, why P\* comes off demand, markup/Lerner, the DWL number and what it means, and a defended position on the patent tradeoff | 6 |
-| 3b | `docs/decisions/imperfect-competition-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
+| 3 | `analysis/YYYY-MM-DD-imperfect-competition-analysis.md` + `analysis/figures/` | Perfect vs imperfect compared: why MR < P, why P\* comes off demand, markup/Lerner, the DWL number and what it means, and a defended position on the patent tradeoff | 6 |
+| 3b | `docs/decisions/YYYY-MM-DD-imperfect-competition-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
 | 4 | `prompt-log.md` (repo root) + reflection | AI sessions logged across both stages; reflection covers an AI error you caught | 3 |
 
 > Stage 1 carries 8 pts (spec 3 · validation rules 1 · workbook contract 2 · audit note 1 · brief-before-build and commit hygiene 1); Stage 2 carries 12 (hypothesis + setup 3 · mechanics 3 · DWL and patent tradeoff 3 · prompt log 3). Case total 20, unchanged.

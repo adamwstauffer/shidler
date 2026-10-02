@@ -5,9 +5,9 @@ stage: 5
 title: "Validate & Decision Memo"
 capability: fx-hedging
 deliverables:
-  - path: "analysis/YYYY-MM-DD-{scenario-slug}-validation-analysis.md"
+  - path: "analysis/YYYY-MM-DD-{scenario}-validation-analysis.md"
     format: markdown
-  - path: "docs/decisions/YYYY-MM-DD-{scenario-slug}-hedge-decision-memo.md"
+  - path: "docs/decisions/YYYY-MM-DD-{scenario}-hedge-decision-memo.md"
     format: markdown
 prerequisites: [4]
 weight: "25% of project"
@@ -76,10 +76,10 @@ of the five options is in the Stage 4 brief.)
 ## Deliverables
 
 - Validation doc (Parts 1–2 + retrospective):
-  `analysis/YYYY-MM-DD-{scenario-slug}-validation-analysis.md` — include the raw LLM output
+  `analysis/YYYY-MM-DD-{scenario}-validation-analysis.md` — include the raw LLM output
   as an appendix or linked file.
 - Decision memo (Part 3):
-  `docs/decisions/YYYY-MM-DD-{scenario-slug}-hedge-decision-memo.md`
+  `docs/decisions/YYYY-MM-DD-{scenario}-hedge-decision-memo.md`
 - Polished repo + final `prompt-log.md`.
 - Already submitted under the older names (`…-{lastname}-{scenario-slug}-validation.md`, `…-{lastname}-{scenario-slug}-hedge-recommendation.md`)? They still count, exactly as if they carried the new names — nothing to rename.
 

@@ -5,7 +5,7 @@ stage: 1
 title: "Brief, Spec, Build, Audit"
 capability: pricing-power
 deliverables:
-  - path: docs/briefs/imperfect-competition-brief.md
+  - path: docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md
     format: markdown
     ai_boundary: human-first
   - path: capabilities/pricing-power/spec.md
@@ -52,10 +52,12 @@ Read before starting:
 
 | Artifact | Path | Format |
 |---|---|---|
-| The engagement brief, with a hypothesis committed before any modeling | `docs/briefs/imperfect-competition-brief.md` | markdown |
+| The engagement brief, with a hypothesis committed before any modeling | `docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md` | markdown |
 | The specification, written before the workbook exists, with audit findings appended | `capabilities/pricing-power/spec.md` | markdown |
 | The workbook that satisfies it | `capabilities/pricing-power/model.xlsx` | xlsx |
 | What the capability is, and where it was exercised | `capabilities/pricing-power/README.md` | markdown |
+
+Already committed the brief without the date (`docs/briefs/imperfect-competition-brief.md`, the pre-2026-10-02 name)? It still counts, exactly as if it carried the new name — nothing to rename.
 
 ## 4. Background
 
@@ -102,7 +104,7 @@ answer you are graded on.
 
 ### Brief
 
-1. **Write `docs/briefs/imperfect-competition-brief.md` first**, before anything else. The two-market
+1. **Write `docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md` first**, before anything else. The two-market
    setup in your own words, and a hypothesis: *"I expect the GMO price and profit to be X because
    Y."* Real numbers and a mechanism.
    *Confirm:* the brief is committed before any spec or model work. The commit timestamp is what
@@ -156,7 +158,7 @@ answer you are graded on.
 
 | Artifact | Draft order |
 |---|---|
-| `docs/briefs/imperfect-competition-brief.md` | Human-first |
+| `docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md` | Human-first |
 | `capabilities/pricing-power/spec.md` | Human-first |
 | `capabilities/pricing-power/model.xlsx` | AI-first, verified |
 | `capabilities/pricing-power/README.md` | Human-first |
@@ -173,7 +175,7 @@ column?" afterwards is exactly what it is for.
 
 ## 7. Verification
 
-- [ ] `docs/briefs/imperfect-competition-brief.md` committed **before** any spec or model work
+- [ ] `docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md` committed **before** any spec or model work
 - [ ] The brief states the two-market setup in your own words and a hypothesis with real numbers and a mechanism
 - [ ] `spec.md` committed before the workbook
 - [ ] Demand and marginal revenue defined as **separate** series, MR with twice the slope

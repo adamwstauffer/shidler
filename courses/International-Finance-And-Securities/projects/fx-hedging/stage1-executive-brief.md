@@ -5,7 +5,7 @@ stage: 1
 title: "Executive Brief"
 capability: fx-hedging
 deliverables:
-  - path: "docs/briefs/YYYY-MM-DD-{scenario-slug}-hedge-brief.md"
+  - path: "docs/briefs/YYYY-MM-DD-{scenario}-hedge-brief.md"
     format: markdown
 prerequisites: [0]
 weight: "17% of project"
@@ -78,11 +78,11 @@ firstname-lastname/
 
 | Stage | Deliverable | Where it goes |
 |---|---|---|
-| 1 | Executive brief (hedge framing) | `docs/briefs/YYYY-MM-DD-{scenario-slug}-hedge-brief.md` |
+| 1 | Executive brief (hedge framing) | `docs/briefs/YYYY-MM-DD-{scenario}-hedge-brief.md` |
 | 2 | Model specification | `capabilities/fx-hedging/spec.md` · `capabilities/fx-hedging/README.md` |
-| 3 | Built workbook + build audit | `capabilities/fx-hedging/model.xlsx` · `analysis/YYYY-MM-DD-{scenario-slug}-build-audit-analysis.md` |
-| 4 | Market-data memo | `data/YYYY-MM-DD-{scenario-slug}-market-data-memo.md` |
-| 5 | Validation + decision memo | `analysis/YYYY-MM-DD-{scenario-slug}-validation-analysis.md` · `docs/decisions/YYYY-MM-DD-{scenario-slug}-hedge-decision-memo.md` |
+| 3 | Built workbook + build audit | `capabilities/fx-hedging/model.xlsx` · `analysis/YYYY-MM-DD-{scenario}-build-audit-analysis.md` |
+| 4 | Market-data memo | `data/YYYY-MM-DD-{scenario}-market-data-memo.md` |
+| 5 | Validation + decision memo | `analysis/YYYY-MM-DD-{scenario}-validation-analysis.md` · `docs/decisions/YYYY-MM-DD-{scenario}-hedge-decision-memo.md` |
 
 This section moved here from Stage 0 (course site 2026-08-20; this brief 2026-09-24), because
 Stage 0 is now the course-level workspace. **Superseded 2026-09-24 (Adam):** it used to add two
@@ -91,7 +91,7 @@ project folders, `docs/specs/` and `models/builds/`; the spec and workbook now g
 
 ## Deliverable
 
-- File: `docs/briefs/YYYY-MM-DD-{scenario-slug}-hedge-brief.md`
+- File: `docs/briefs/YYYY-MM-DD-{scenario}-hedge-brief.md`
 - 400–600 words, from the decision-memo template, YAML frontmatter intact.
 - Committed and pushed.
 - Already submitted under the older name (`docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md`)? It still counts, exactly as if it carried the new name — nothing to move or rename.

@@ -3,7 +3,7 @@ template: spec-retrospective
 purpose: "Structured self-evaluation of a Stage 4 technical specification after seeing how an LLM executed it at Stage 5 — surfaces spec gaps with evidence, not impressions"
 audience: student
 fields_required: [date, author, company, spec_file, stage5_output, section_verdicts, top_gaps, revisions, effectiveness_rating, forward_link, process_feedback]
-naming_convention: "YYYY-MM-DD-{company-slug}-spec-retrospective-analysis.md (lives in analysis/; older {lastname} names already submitted still count)"
+naming_convention: "YYYY-MM-DD-{lastname}-{company-slug}-spec-retrospective.md (lives in deliverables/)"
 courses: [BUS-629, FIN-321, BUS-314]
 ---
 

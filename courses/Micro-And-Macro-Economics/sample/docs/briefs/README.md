@@ -3,7 +3,7 @@
 Written **before** any modeling. A brief states the problem in your own words and commits you to
 a prediction you can be shown wrong about.
 
-**Naming:** `<engagement>-brief.md` — for example, `perfect-competition-brief.md`. Name it for
+**Naming:** `YYYY-MM-DD-<engagement>-brief.md` — for example, `YYYY-MM-DD-perfect-competition-brief.md`. Name it for
 the engagement, never for the week or the assignment number.
 
 Every brief opens with YAML frontmatter (`type`, `engagement`, `author`, `date`) so a reader —
