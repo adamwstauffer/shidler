@@ -1,0 +1,26 @@
+# Secrets — never in history, not even once
+.env
+.env.*
+*.key
+credentials*.json
+secrets*
+
+# Personal data about other people (classmates, clients, customers)
+private/
+*-roster*.xlsx
+
+# Excel / Office lock + temp files
+~$*
+*.tmp
+
+# Scratch work and exports
+scratch/
+*.bak
+
+# Local AI tool state (keep the shared skills, ignore local settings)
+.claude/settings.local.json
+
+# OS noise
+.DS_Store
+Thumbs.db
+Desktop.ini
