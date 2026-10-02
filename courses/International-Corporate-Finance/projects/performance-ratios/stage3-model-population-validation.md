@@ -107,7 +107,7 @@ Data entry is not the part of this stage that builds the skill. Use an LLM to ha
 
 | Task | What to ask the LLM |
 |---|---|
-| **Cover & Instructions tab draft** | Upload your populated template. Prompt: *"Read the Cover & Instructions tab. Fill in the company-context fields (source URL, reporting standard, currency, FYE) based on the company name and the financial-statement tabs. Return the cell values I should type into each labeled field. Do not modify formulas."* |
+| **Cover & Instructions tab check** | Fill in the company-context fields yourself (source URL, reporting standard, currency, FYE) from the filing, then upload your populated template. Prompt: *"Read the Cover & Instructions tab. Check the company-context fields I filled in against the financial-statement tabs and flag anything inconsistent or missing. Don't fill in or change any cells — tell me what to look at."* |
 | **Formula sanity check** | Prompt: *"Read my populated template. Spot-check three computed ratios against the underlying named ranges. For each, show me the formula, the input values, and the expected result. Flag any rows where the input cells look wrong (sign errors, missing prior-year data, typos)."* |
 | **Workbook formatting cleanup** | Prompt: *"My workbook has inconsistent formatting (some currency cells show no symbol, some percentages are formatted as decimals). Without changing any values, suggest exact Excel format strings I should apply to each named-range category (`BAL_*`, `INC_*`, `CASH_*`, `RATIO_*`) for consistency."* |
 

@@ -74,7 +74,7 @@ Through the AI + GitHub project, students gain practical, workplace-ready skills
 
 ### Project: Accounting Ratios Analysis
 
-A 6-stage spec-driven design project. Students stand up their own public GitHub portfolio repo, populate the provided ratios template with financials for a company of their choice (non-U.S. and ASEAN-listed firms encouraged), and use an LLM to draft technical specifications and produce the final analysis — which they then critically evaluate.
+A 6-stage spec-driven design project. Students stand up their own public GitHub portfolio repo, populate the provided ratios template with financials for a company of their choice (non-U.S. and ASEAN-listed firms encouraged), write their own technical specification and have an LLM review it before the two iterate, then have an LLM execute the spec to produce the final analysis — which they critically evaluate.
 
 | Stage | Deliverable | Weight | Format |
 |-------|-------------|-------:|--------|
@@ -82,7 +82,7 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 | 1 | Provided ratios Excel template uploaded to your repo | 20% | `.xlsx` |
 | 2 | Company selection memo | 10% | `.md` |
 | 3 | Populated financials spreadsheet for selected company | 20% | `.xlsx` |
-| 4 | LLM-drafted technical specification | 20% | `.md` |
+| 4 | Technical specification (your draft, LLM-reviewed, iterated) | 20% | `.md` |
 | 5 | Full analysis + LLM evaluation + repo polish | 25% | Repo URL |
 
 **Format:** All stages are **deliverable-only** — no in-class presentations this semester. Total project weight: 100%.
@@ -120,7 +120,7 @@ Stage 2 — Write a memo selecting your company → docs/decisions/
               ↓   (instructor reviews via pull request; you grant Write access)
 Stage 3 — Populate the template with that company's financials → models/builds/
               ↓
-Stage 4 — Use an LLM to draft a technical spec of the analysis → docs/specs/
+Stage 4 — Draft a technical spec yourself; an LLM reviews it; iterate → docs/specs/
               ↓   (one human-in-the-loop iteration recorded → in prompt log or analysis/validation/)
 Stage 5 — Feed your spec to an LLM; verify, evaluate, and write the final analysis → deliverables/
           Polish the whole repo; submit the repo URL on Lamaku.
@@ -172,8 +172,8 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 | **Named range** | A label assigned to a cell or group of cells in Excel (e.g., `BAL_assets_total_2025`) so formulas can refer to the label instead of the cell address. The ratios template uses named ranges so the formulas survive when you copy the workbook. |
 | **Named-range notation** | The way we write formulas in the spec — using the named-range label instead of a cell address (e.g., `INC_net_income_2025 / BAL_assets_total_2025` rather than `B12 / D14`). |
 | **Spec / specification** | The Stage 4 document that defines exactly what the analysis must do — precise enough that an LLM with no other context can execute it. |
-| **LLM** | Large Language Model — Claude, ChatGPT, Gemini, etc. The AI that drafts your Stage 4 spec and produces the Stage 5 first-draft analysis. |
-| **HIL (human-in-the-loop)** | A workflow where you review an LLM's output, identify what's wrong, and revise either the prompt or the spec to improve the next run. Required at Stage 4. |
+| **LLM** | Large Language Model — Claude, ChatGPT, Gemini, etc. The AI that reviews your Stage 4 spec draft and produces the Stage 5 first-draft analysis from your finished spec. |
+| **HIL (human-in-the-loop)** | A workflow where you write the first draft, an LLM reviews it, and you judge each point of the review and revise the spec yourself. Required at Stage 4. |
 | **Diff** | A side-by-side comparison showing what changed between two versions of a file (the "before" and the "after"). Used in PRs and HIL iteration notes. |
 | **Annotated diff** | A diff with one-line notes added next to each change explaining *why* you made it. |
 | **10-K** | The U.S. SEC's annual report form for public companies. We use "10-K" loosely to mean "audited annual report" — for Vietnamese companies, the equivalent is the annual report filed under VAS (Vietnamese Accounting Standards) or IFRS. |
