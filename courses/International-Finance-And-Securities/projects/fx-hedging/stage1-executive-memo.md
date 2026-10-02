@@ -2,7 +2,7 @@
 template: stage-brief
 project: fx-hedging
 stage: 1
-title: "Executive Memo"
+title: "Executive Brief"
 capability: fx-hedging
 deliverables:
   - path: "docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md"
@@ -12,16 +12,16 @@ weight: "17% of project"
 # ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
 ---
 
-# Stage 1 – Executive Memo (17% of project)
+# Stage 1 – Executive Brief (17% of project)
 
-> The memo content matches the prior four-stage version (archived at
+> The brief's content matches the prior four-stage version (where it was the memo) (archived at
 > `../../../../_archive/fin321/stage-docs-v1/stage1-memo-assignment.md`); this stage is typically
 > already in flight when the term opens. This version adds the rubric table (grading transparency)
 > and the canonical save location/filename.
 
 ## Goal
 
-Using `_templates/template-decision-memo.md`, write a **300–400 word memo to your CFO**
+Using `_templates/template-decision-memo.md`, write a **300–400 word executive brief to your CFO**
 explaining your firm's **FX receivable exposure** and why hedging is worth considering.
 
 ## Instructions
@@ -40,8 +40,8 @@ how much your company ultimately receives in USD.
      flow — before building.
    - *AI-Assisted Build (Stage 3):* generate the workbook from your spec and audit the output.
    - *Market Data (Stage 4):* load live market data and confirm the model holds up.
-   - *Validation & Recommendation (Stage 5):* validate against an independent LLM run and
-     deliver the hedge recommendation.
+   - *Validate & Decision Memo (Stage 5):* validate against an independent LLM run and
+     deliver the hedge recommendation in a decision memo.
 
 **Tone:** executive-friendly and clear. The CFO has 90 seconds.
 
@@ -57,18 +57,18 @@ firstname-lastname/
   capabilities/
     fx-hedging/        README.md, spec.md (Stage 2), model.xlsx (Stages 3–4)
   docs/
-    decisions/         the framing memo, and the final recommendation
+    decisions/         the executive brief, and the decision memo
   data/                market data, with source and timestamp
   analysis/            the build audit, and the validation work
 ```
 
 | Stage | Deliverable | Where it goes |
 |---|---|---|
-| 1 | Hedge-framing memo | `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md` |
+| 1 | Executive brief (hedge framing) | `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md` |
 | 2 | Model specification | `capabilities/fx-hedging/spec.md` · `capabilities/fx-hedging/README.md` |
 | 3 | Built workbook + build audit | `capabilities/fx-hedging/model.xlsx` · `analysis/YYYY-MM-DD-{lastname}-build-audit.md` |
 | 4 | Market-data memo | `data/YYYY-MM-DD-{lastname}-market-data.md` |
-| 5 | Validation + recommendation | `analysis/YYYY-MM-DD-{lastname}-{scenario-slug}-validation.md` · `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-recommendation.md` |
+| 5 | Validation + decision memo | `analysis/YYYY-MM-DD-{lastname}-{scenario-slug}-validation.md` · `docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-recommendation.md` |
 
 This section moved here from Stage 0 (course site 2026-08-20; this brief 2026-09-24), because
 Stage 0 is now the course-level workspace. **Superseded 2026-09-24 (Adam):** it used to add two
@@ -94,7 +94,7 @@ project folders, `docs/specs/` and `models/builds/`; the spec and workbook now g
 
 ## How this leads to Stage 2
 
-Every variable you name in this memo — the receivable amount, the timing, the rates that matter —
-becomes a **named input** in your Stage 2 specification. If the memo is vague about the exposure,
-the spec will be vague about the model. Write the memo like the model depends on it, because it
+Every variable you name in this brief — the receivable amount, the timing, the rates that matter —
+becomes a **named input** in your Stage 2 specification. If the brief is vague about the exposure,
+the spec will be vague about the model. Write the brief like the model depends on it, because it
 does.

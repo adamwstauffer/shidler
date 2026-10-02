@@ -54,11 +54,11 @@ This course includes a multi-stage project on FX risk management, worth **20% of
 | Stage | Deliverable | Weight |
 |-------|------------|-------:|
 | 0 | Portfolio repository (repo setup) | 8% |
-| 1 | Executive memo | 17% |
+| 1 | Executive brief | 17% |
 | 2 | Model specification | 21% |
 | 3 | AI-assisted build + audit | 17% |
 | 4 | Market data + population | 12% |
-| 5 | LLM analysis & validation (capstone) | 25% |
+| 5 | Validate & decision memo (capstone) | 25% |
 | **Total** | | **100%** |
 
 **Scope:** Map a multinational firm's currency exposures, compute forward rates (via interest parity), and compare hedging strategies (forwards, options, collars).

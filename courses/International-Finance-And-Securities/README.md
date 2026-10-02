@@ -11,7 +11,7 @@ Practical application of forward contracts, options, and hedging strategies in m
 ## Shared Curriculum
 
 - [`sample/`](sample/) — reference skeleton of the [portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html), the structure [Stage 0](https://adamwstauffer.github.io/ai-lms/github-stage0.html) asks students to stand up under their own account, with the FX hedging project's spec and workbook in `capabilities/fx-hedging/`
-- [`projects/fx-hedging/`](projects/fx-hedging/) — the FX risk management project (six-stage, Design → Build → Validate: portfolio repo through LLM analysis & validation).
+- [`projects/fx-hedging/`](projects/fx-hedging/) — the FX risk management project (six-stage, Design → Build → Validate: portfolio repo through validation and the decision memo).
 
 ## Directory Contents
 

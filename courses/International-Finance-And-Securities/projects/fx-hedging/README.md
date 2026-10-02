@@ -52,11 +52,11 @@ the single source of truth.
 | Stage | Deliverable | Weight | Suggested week (6-wk term) |
 | ----- | ----------- | -----: | ---- |
 | 0 | Portfolio repository (course-level; the portfolio repo standard) | 8% | 2 (paired with stage 2) |
-| 1 | Executive memo | 17% | 1 |
+| 1 | Executive brief | 17% | 1 |
 | 2 | Model specification | 21% | 2 |
 | 3 | AI-assisted build + audit note | 17% | 3 |
 | 4 | Market data + population | 12% | 4 |
-| 5 | LLM analysis & validation (capstone) | 25% | 5–6 |
+| 5 | Validate & decision memo (capstone) | 25% | 5–6 |
 | **Total** | | **100%** | |
 
 Weeks are indicative for a 6-week summer term; the offering README sets actual dates. In a
@@ -90,11 +90,11 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 | File | Stage |
 | ---- | ----- |
 | `stage0-repo-setup.md` | 0 — Portfolio repository (course-level; companion page `github-stage0.html`) |
-| `stage1-executive-memo.md` | 1 — Executive memo |
+| `stage1-executive-memo.md` | 1 — Executive brief |
 | `stage2-model-spec.md` | 2 — Model specification |
 | `stage3-ai-build-audit.md` | 3 — AI-assisted build + audit |
 | `stage4-market-data-population.md` | 4 — Market data + population |
-| `stage5-llm-analysis-validation.md` | 5 — LLM analysis & validation |
+| `stage5-llm-analysis-validation.md` | 5 — Validate & decision memo |
 
 Shared project files: `scenarios.md`, `_templates/template-decision-memo.md`,
 `_templates/template-spec.md`. Grading checks every calculated

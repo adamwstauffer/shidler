@@ -131,7 +131,7 @@ under project-specific stage names:
 
 | Project | Stages |
 |---|---|
-| FX hedging | 0 Repo setup · 1 Executive memo · 2 Model spec · 3 AI build + audit · 4 Market data · 5 LLM analysis validation |
+| FX hedging | 0 Repo setup · 1 Executive brief · 2 Model spec · 3 AI build + audit · 4 Market data · 5 Validate & decision memo |
 | Performance ratios | 0 Repo setup · 1 Ratios template · 2 Company selection memo · 3 Populated financials · 4 LLM-drafted spec · 5 LLM analysis + executive evaluation |
 | Econ cases | 0 Portfolio repo · 1 Engagement brief · 2 Model build · 3 Analysis |
 

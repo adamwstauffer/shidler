@@ -37,7 +37,7 @@ project lives.
 
 ## Scenario
 
-You are the treasury analyst who wrote the Stage 1 memo. The CFO said "yes, build it." Before
+You are the treasury analyst who wrote the Stage 1 executive brief. The CFO said "yes, build it." Before
 you (or your AI) open Excel, Treasury wants a design document it can review — because a model
 built without a spec is a model nobody else can audit.
 
