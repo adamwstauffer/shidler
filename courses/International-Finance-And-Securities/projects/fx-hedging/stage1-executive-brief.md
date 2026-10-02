@@ -21,7 +21,7 @@ weight: "17% of project"
 
 ## Goal
 
-Using `_templates/template-decision-memo.md`, write a **300–400 word executive brief to your CFO**
+Using `_templates/template-decision-memo.md`, write a **400–600 word executive brief to your CFO**
 explaining your firm's **FX receivable exposure** and why hedging is worth considering.
 
 ## Instructions
@@ -54,7 +54,9 @@ frontmatter (`type: brief`, a one-line `hypothesis`):
   will show, not a recommendation (that waits for Stage 5).
 - **How I would know I was wrong** — the observation that would falsify the hypothesis.
 
-It stays at the path below, in `docs/decisions/`, not `docs/briefs/`.
+It goes in `docs/briefs/`, at the path below — briefs ask, memos answer, and the decision memo in
+`docs/decisions/` comes at Stage 5. (Before 2026-10-02 the brief lived in `docs/decisions/`; one
+already committed there still counts.)
 
 ## Where this project's files go
 
@@ -90,7 +92,7 @@ project folders, `docs/specs/` and `models/builds/`; the spec and workbook now g
 ## Deliverable
 
 - File: `docs/briefs/YYYY-MM-DD-{scenario-slug}-hedge-brief.md`
-- One page, from the decision-memo template, YAML frontmatter intact.
+- 400–600 words, from the decision-memo template, YAML frontmatter intact.
 - Committed and pushed.
 - Already submitted under the older name (`docs/decisions/YYYY-MM-DD-{lastname}-{scenario-slug}-hedge-framing.md`)? It still counts, exactly as if it carried the new name — nothing to move or rename.
 
@@ -101,7 +103,7 @@ project folders, `docs/specs/` and `models/builds/`; the spec and workbook now g
 | Exposure framing | Currency, amount, timing, and business consequence stated precisely | 25% |
 | Hedge families & trade-offs | All three families, with honest pros/cons, not boilerplate | 25% |
 | Next steps | Correctly frames the Stage 2–5 arc as a plan the CFO can approve | 25% |
-| Professionalism | Executive tone, template used, correct location and filename, committed | 25% |
+| Professionalism | Executive tone, 400–600 words, template used, correct location and filename, committed | 25% |
 
 ---
 
