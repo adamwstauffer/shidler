@@ -138,7 +138,7 @@ accidental commit of a `~$` temp file.
    `.gitignore`. **Read every file before you commit.**
    *Confirm:* every directory holds at least one file; `AGENTS.md` says something only you could have said.
 
-5. **Write the bio yourself.** Replace the placeholder `README.md` with three to six sentences on who
+5. **Write the bio yourself.** Replace the placeholder `README.md` with a 200–400 word bio on who
    you are, followed by an engagement index. The bio lives in `README.md`, not in a separate `BIO.md`.
    *Confirm:* nothing in these files is placeholder text you would not want read.
 

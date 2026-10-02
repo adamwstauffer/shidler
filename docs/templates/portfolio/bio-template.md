@@ -1,6 +1,6 @@
 ---
 template: portfolio-bio
-purpose: "Bio assignment for student GitHub portfolios — includes a 150–200 word structure and a library of LLM revision prompts"
+purpose: "Bio assignment for student GitHub portfolios — includes a 200–400 word structure and a library of LLM revision prompts"
 audience: student
 fields_required: [introduction, focus_areas, achievements, goals]
 naming_convention: "README.md (lives at the root of the student's portfolio repo)"
@@ -29,7 +29,7 @@ This exercise will teach you how to effectively communicate your strengths while
 
 ### 1. Draft Your Bio
 
-Write a **150–200 word bio** using the following structure:
+Write a **200–400 word bio** using the following structure:
 
 * **Introduction**: Your name, role (e.g., “aspiring agriculture entrepreneur”), and key background details.
 * **Focus Areas**: Your primary interests or areas of expertise (e.g., accounting, private equity, etc).
