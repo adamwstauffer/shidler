@@ -91,7 +91,7 @@ That paragraph is sufficient. It does three jobs:
 - **Shows coverage** (every comment is addressed, including the rejection)
 - **Demonstrates judgment** (you took some, modified one, rejected one — with reasoning)
 
-If the feedback resulted in a meaningful scope or framing change, you can also write a `docs/decisions/YYYY-MM-DD-{lastname}-stage2-feedback-response.md` memo with more detail. **Not required** — the in-PR comments plus the paragraph above are enough for full credit.
+If the feedback resulted in a meaningful scope or framing change, you can also write a `docs/decisions/YYYY-MM-DD-{company-slug}-feedback-response-memo.md` memo with more detail. **Not required** — the in-PR comments plus the paragraph above are enough for full credit.
 
 ---
 

@@ -2,26 +2,21 @@
 
 Final, presentation-ready outputs. In investment banking, this is the distinction between "working files" and "client-ready" — only polished, reviewed work lands here. Everything in this directory should be something you'd confidently hand to a senior executive.
 
-## What belongs here
+## Retired 2026-10-02 — nothing new goes here
 
-- **Stage 5 raw LLM output** — the unedited response from executing your Stage 4 spec
-- **Stage 5 evaluated final analysis** — your edited, annotated, and corrected version
-- **Any other final outputs** — polished summaries, presentation materials
+Every file now goes in the folder for its type, named `YYYY-MM-DD-{company-slug}-{slug}-{type}.md`
+with no last name (the repository is already named for you):
 
-## Naming convention
+| File | Where it goes now |
+|---|---|
+| Raw LLM output | `analysis/YYYY-MM-DD-{company-slug}-llm-raw-log.md` |
+| Evaluated final analysis | `analysis/YYYY-MM-DD-{company-slug}-analysis.md` |
+| Spec retrospective | `analysis/YYYY-MM-DD-{company-slug}-spec-retrospective-analysis.md` |
+| Prompt log | `prompt-log.md` at the repository root |
 
-```
-[lastname]-stage5-[ticker]-llm-raw.md         # Unedited LLM response
-[lastname]-stage5-[ticker]-final-analysis.md   # Evaluated final version
-```
-
-**Examples:**
-- `nguyen-stage5-VNM-llm-raw.md`
-- `nguyen-stage5-VNM-final-analysis.md`
-
-**Since 2026-10-02** the evaluated final analysis goes in `analysis/` as
-`analysis/YYYY-MM-DD-{company-slug}-analysis.md` (no last name). One already submitted here under
-the older name still counts — nothing to move or rename.
+Files already submitted here under the older names (`[lastname]-stage5-[ticker]-…`,
+`YYYY-MM-DD-{lastname}-{company-slug}-final-analysis.md`, `prompt-log.md`) still count — nothing to
+move or rename, nothing deducted.
 
 ## What does NOT belong here
 

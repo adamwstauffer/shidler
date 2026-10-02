@@ -130,7 +130,7 @@ The repo at Stage 5 is your portfolio — the URL is shareable on LinkedIn and i
 
 ### Project filename convention
 
-The Stage 2 memo, Stage 3 workbook, Stage 4 spec and Stage 5 final analysis share one pattern:
+Every dated project document uses the same pattern across all stages:
 
 ```
 YYYY-MM-DD-{company-slug}-{slug}-{type}.{ext}
@@ -142,23 +142,23 @@ YYYY-MM-DD-{company-slug}-{slug}-{type}.{ext}
 - **`{ext}`** — `md` for memos and analyses, `xlsx` for spreadsheets
 - **No last name** — the repository is already named for you.
 
-Examples for a student (Nguyen) analyzing Vinamilk:
+Examples for a student analyzing Vinamilk:
 
 | Stage | File |
 |---|---|
 | 2 | `docs/decisions/2026-05-21-vinamilk-selection-memo.md` |
 | 3 | `models/builds/2026-06-04-vinamilk-financials.xlsx` |
 | 4 | `docs/specs/2026-06-18-vinamilk-spec.md` |
-| 4 (HIL note) | `analysis/validation/2026-06-19-nguyen-vinamilk-stage4-iteration.md` |
-| 5 (raw LLM) | `deliverables/2026-07-02-nguyen-vinamilk-llm-raw.md` |
-| 5 (verification) | `analysis/validation/2026-07-03-nguyen-vinamilk-stage5-verification.md` |
+| 4 (HIL note) | `docs/decisions/2026-06-19-vinamilk-spec-iteration-memo.md` |
+| 5 (raw LLM) | `analysis/2026-07-02-vinamilk-llm-raw-log.md` |
+| 5 (verification) | `analysis/2026-07-03-vinamilk-verification-analysis.md` |
 | 5 (final analysis) | `analysis/2026-07-03-vinamilk-analysis.md` |
-| 5 (retrospective) | `deliverables/2026-07-03-nguyen-vinamilk-spec-retrospective.md` |
+| 5 (retrospective) | `analysis/2026-07-03-vinamilk-spec-retrospective-analysis.md` |
 
-The Stage 4 iteration note and the raw LLM output, verification table and retrospective at Stage 5
-keep their earlier names for now. Files already submitted under the older
+The prompt log is `prompt-log.md` at the repository root, and nothing new goes in `deliverables/`.
+Files already submitted under the older
 `YYYY-MM-DD-{lastname}-{company-slug}-{kind}` names (e.g.
-`deliverables/2026-07-03-nguyen-vinamilk-final-analysis.md`) still count — nothing to rename, nothing
+`deliverables/2026-07-03-nguyen-vinamilk-final-analysis.md`, `prompt-log.md` (repository root)) still count — nothing to rename, nothing
 deducted.
 
 **Why lowercase?** GitHub on Linux servers treats `Nguyen-` and `nguyen-` as different files. Sticking to lowercase prevents broken links later.
@@ -183,7 +183,7 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 | **Diff** | A side-by-side comparison showing what changed between two versions of a file (the "before" and the "after"). Used in PRs and HIL iteration notes. |
 | **Annotated diff** | A diff with one-line notes added next to each change explaining *why* you made it. |
 | **10-K** | The U.S. SEC's annual report form for public companies. We use "10-K" loosely to mean "audited annual report" — for Vietnamese companies, the equivalent is the annual report filed under VAS (Vietnamese Accounting Standards) or IFRS. |
-| **Prompt log** | A `deliverables/prompt-log.md` file in your repo where you record meaningful AI sessions (what you asked, what you kept, what you changed). |
+| **Prompt log** | A `prompt-log.md` (repository root) file in your repo where you record meaningful AI sessions (what you asked, what you kept, what you changed). |
 | **Lamaku** | The University of Hawai'i at Mānoa's course management system, where you submit final URLs and access course resources. |
 
 ### Repository Structure
@@ -203,7 +203,7 @@ courses/International-Corporate-Finance/projects/performance-ratios/
 ├── data/                      # Source financial data and provenance
 ├── analysis/
 │   └── validation/            # Self-audit and validation reports (Stage 3)
-└── deliverables/              # Final, presentation-ready outputs (Stage 5)
+└── prompt-log.md              # Every AI session that mattered (repo root)
 ```
 
 ---

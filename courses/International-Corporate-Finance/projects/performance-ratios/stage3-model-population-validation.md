@@ -116,6 +116,6 @@ Data entry is not the part of this stage that builds the skill. Use an LLM to ha
 
 **What the LLM should NOT do at Stage 3:** Populate the actual financial statement values for you. That data must come from the source 10-K / annual report — that's the discipline this stage is teaching. Use the LLM for housekeeping, not for the numbers themselves.
 
-**Log the prompts.** Add a row to `deliverables/prompt-log.md` for each meaningful session. Stage 4 grades the prompt log; building the habit at Stage 3 is free practice.
+**Log the prompts.** Add a row to `prompt-log.md` (repository root) for each meaningful session. Stage 4 grades the prompt log; building the habit at Stage 3 is free practice.
 
 If you want richer LLM-with-Excel workflows, Claude.ai and ChatGPT both accept `.xlsx` uploads via the paperclip icon and can read the actual cell contents — not just describe them.

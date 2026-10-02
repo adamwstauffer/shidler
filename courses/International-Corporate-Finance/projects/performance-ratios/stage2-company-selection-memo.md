@@ -163,7 +163,7 @@ Revise the memo yourself and commit each meaningful round. Reject review points 
 | Questioning whether your data sources will actually carry the numbers you need | Confirming those sources actually have the data before submitting |
 | Flagging wordiness against a concise senior-analyst register | Every sentence in the memo — the LLM does not know your company as well as you should |
 
-**Log the prompts.** The review and iteration sessions belong in your `deliverables/prompt-log.md`. Stage 4 will grade your prompt log; start the habit at Stage 2.
+**Log the prompts.** The review and iteration sessions belong in your `prompt-log.md` (repository root). Stage 4 will grade your prompt log; start the habit at Stage 2.
 
 ---
 
@@ -217,4 +217,4 @@ For Stage 2, the simplest path is to **paste the raw template URL and your draft
 - **Hypotheses must be falsifiable and directional.** "I expect X because Y" is a hypothesis. "I'll see what the ratios show" is not.
 - **Cite specific data sources.** "SEC EDGAR" is good. "The internet" is not.
 - **Use the memo template's frontmatter.** It encodes the fields the rubric expects — leave it intact when you customize.
-- **Expect feedback and plan for it.** The instructor will leave tracked review suggestions directly on your work — the way a manager or auditor marks up a draft. Stage 5 grades how you incorporated that feedback — track it from the start (a `docs/decisions/{date}-stage2-feedback-response.md` follow-up memo is a clean way to do this).
+- **Expect feedback and plan for it.** The instructor will leave tracked review suggestions directly on your work — the way a manager or auditor marks up a draft. Stage 5 grades how you incorporated that feedback — track it from the start (a `docs/decisions/YYYY-MM-DD-{company-slug}-feedback-response-memo.md` follow-up memo is a clean way to do this).

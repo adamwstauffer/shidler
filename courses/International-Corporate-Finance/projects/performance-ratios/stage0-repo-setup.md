@@ -111,7 +111,7 @@ firstname-lastname/
 │   ├── README.md
 │   └── validation/            # Stage 3 validation reports
 │       └── README.md
-└── deliverables/              # Final, presentation-ready outputs (Stage 5)
+└── prompt-log.md              # Every AI session that mattered (repo root)
     └── README.md
 ```
 

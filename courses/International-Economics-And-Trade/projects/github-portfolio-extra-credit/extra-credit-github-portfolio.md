@@ -12,7 +12,7 @@ Stand up a **public GitHub repository** — a professional portfolio you own —
 
 GitHub is where a growing share of employers, collaborators, and graduate programs look you up. A clean public repo with a bio and resume is one of the highest-leverage, lowest-effort career artifacts you can build — and doing it in Markdown gives you a version-controlled, always-current copy you can share with a single link.
 
-You may use an AI tool (ChatGPT, Claude, Gemini, Copilot) to draft the bio and resume — in fact, it's the fastest way. If you do, add one line at the bottom of the file naming the tool and what you used it for.
+Write the bio and resume yourself first, then use an AI tool (ChatGPT, Claude, Gemini, Copilot) to review your draft, and revise. If you do, add one line at the bottom of the file naming the tool and what you used it for.
 
 This is **extra credit and entirely optional.** There is no penalty for skipping it.
 
@@ -23,7 +23,7 @@ This is **extra credit and entirely optional.** There is no penalty for skipping
 | # | Deliverable | Points | What "done" looks like |
 |---|-------------|--------|------------------------|
 | 1 | **Public repo** | 1 | A GitHub repository set to **Public** — the URL opens for anyone, no login required |
-| 2 | **`BIO.md`** | 1 | A 150–200 word professional bio, in Markdown, committed to the repo |
+| 2 | **Bio in `README.md`** | 1 | A 200–400 word professional bio you wrote, revised after review, in the repo's `README.md` |
 | 3 | **`RESUME.md`** | 1 | A one-page resume, in Markdown, committed to the repo |
 
 You earn each point independently — a public repo with only a bio is worth 2 of 3.
@@ -45,26 +45,28 @@ Your repo is now live. Everything after this happens inside it.
 
 ---
 
-## Step 2 — Add `BIO.md` (~20 min)
+## Step 2 — Write your bio in `README.md` (~30 min)
 
-Your bio is a 150–200 word professional summary — who you are, what you're building toward, and what you bring. Write it for an audience of hiring managers, senior reviewers, and graduate-program admissions.
+Your bio is a 200–400 word professional summary — who you are, what you're building toward, and what you bring. Write it for an audience of hiring managers, senior reviewers, and graduate-program admissions.
 
-**Fastest path — draft it with AI:**
+**You draft first, then AI reviews, then you iterate:**
 
-1. Open **[Claude](https://claude.ai)** or **[ChatGPT](https://chatgpt.com)** (free tiers are fine).
-2. Paste in a prompt like:
+1. **Write your own first draft** — 200–400 words, in your own voice. Start from your LinkedIn, an old resume, or a few sentences about your major, year, and interests.
+2. Open **[Claude](https://claude.ai)** or **[ChatGPT](https://chatgpt.com)** (free tiers are fine) and paste your draft with a prompt like:
 
-   > Help me write a 150–200 word professional bio in Markdown for my GitHub profile. Background: [paste your LinkedIn, an old resume, or a few sentences about your major, year, and interests]. Audience: managers and graduate-program reviewers. Make it specific and concrete, not generic. Use active voice.
+   > Here is a draft professional bio I wrote for my GitHub profile. Review it and suggest specific improvements — don't rewrite it from scratch. Audience: managers and graduate-program reviewers. Point out anything generic or vague.
 
-3. Run it 2–3 times or try different angles, then pick the strongest draft and **edit it in your own words.** The first AI draft is rarely the best one.
+3. **Revise it yourself**, keeping the suggestions you agree with, and repeat once or twice. The bio is graded as yours: your draft and how you revised it.
 
 Want a structured starting point? The course repo includes a [bio template with 30+ revision prompts](../../../../docs/templates/portfolio/bio-template.md).
 
 **Save it to your repo (in the browser — no software to install):**
 
-1. In your repo, click **Add file → Create new file.**
-2. Name the file **`BIO.md`**.
-3. Paste your bio, scroll down, and click **Commit changes.**
+1. In your repo, open **`README.md`** (created with the repo) and click the **pencil icon** to edit it.
+2. Replace its contents with your bio — it is the first thing visitors see. No separate `BIO.md`.
+3. Scroll down and click **Commit changes.**
+
+_Already submitted a `BIO.md`? It still counts — nothing to move._
 
 ---
 
@@ -72,7 +74,7 @@ Want a structured starting point? The course repo includes a [bio template with 
 
 Same idea, for a one-page resume in Markdown: contact line, a short summary, then Education, Experience, and Skills sections with **quantified, concise** bullet points.
 
-1. Draft it with AI the same way — paste your existing resume or work history and ask for a clean one-page Markdown version. A starter is here: [resume template](../../../../docs/templates/portfolio/resume-template.md).
+1. Same sequence — draft it yourself from your existing resume or work history, then ask an AI tool to review it, then revise. A starter is here: [resume template](../../../../docs/templates/portfolio/resume-template.md).
 2. In your repo: **Add file → Create new file**, name it **`RESUME.md`**, paste, and **Commit changes.**
 
 ---
@@ -102,7 +104,7 @@ Before you submit, open your repo URL in a **private/incognito browser window** 
 | Criterion | Points | Earned when |
 |-----------|--------|-------------|
 | Repository is public and the URL works | 1 | Anyone can open the link without logging in |
-| `BIO.md` present and complete | 1 | 150–200 word bio, in the repo, readable |
+| Bio in `README.md`, present and complete | 1 | 200–400 word bio you drafted and revised; an earlier `BIO.md` submission still counts |
 | `RESUME.md` present and complete | 1 | One-page Markdown resume, in the repo, readable |
 
 Partial credit is awarded per piece. A private repo earns 0 — reviewers must be able to see it.

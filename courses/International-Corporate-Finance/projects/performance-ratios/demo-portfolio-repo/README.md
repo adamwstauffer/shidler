@@ -9,7 +9,7 @@
 - [`models/`](models/) — Excel templates and populated builds
 - [`data/`](data/) — source financial data with provenance notes
 - [`analysis/`](analysis/) — self-audit and validation work
-- [`deliverables/`](deliverables/) — final, presentation-ready outputs
+- [`deliverables/`](deliverables/) — final, presentation-ready outputs (retired 2026-10-02; older files here still count)
 
 ## How this repo is organized
 
