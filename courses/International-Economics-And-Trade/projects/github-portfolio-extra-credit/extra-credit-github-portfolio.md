@@ -37,7 +37,7 @@ You do **not** need directory folders, a README in every folder, or a polished c
 1. Go to **[github.com](https://github.com)** and **Sign up** if you don't already have an account. Use your **`@hawaii.edu` email** — it makes you eligible for [free GitHub Education benefits](https://education.github.com) (GitHub Pro, Copilot, and more).
 2. Pick a **professional username.** Managers and reviewers see it — treat it like a second business card. Good: `firstname-lastname`, `flastname`. Avoid gamer tags or joke names.
 3. Once logged in, click the **+** in the top-right corner → **New repository**.
-4. **Repository name:** `bus313-portfolio` (or any professional name you like — hyphens are conventional).
+4. **Repository name:** `firstname-lastname` (or any professional name you like — hyphens are conventional).
 5. **Visibility: Public.** This is required — the point is that anyone can find your work without an account.
 6. Check **Add a README file**, then click **Create repository.**
 
@@ -63,10 +63,8 @@ Want a structured starting point? The course repo includes a [bio template with 
 **Save it to your repo (in the browser — no software to install):**
 
 1. In your repo, open **`README.md`** (created with the repo) and click the **pencil icon** to edit it.
-2. Replace its contents with your bio — it is the first thing visitors see. No separate `BIO.md`.
+2. Replace its contents with your bio — it is the first thing visitors see.
 3. Scroll down and click **Commit changes.**
-
-_Already submitted a `BIO.md`? It still counts — nothing to move._
 
 ---
 
@@ -93,7 +91,7 @@ If you didn't use AI, no disclosure is needed. AI use is encouraged, not require
 
 ## What to submit
 
-By the deadline on the course calendar, submit your **repository URL** (e.g., `https://github.com/your-username/bus313-portfolio`) via Lamaku, or email it with **BUS 313** in the subject line.
+By the deadline on the course calendar, submit your **repository URL** (e.g., `https://github.com/your-username/firstname-lastname`) via Lamaku, or email it with **BUS 313** in the subject line.
 
 Before you submit, open your repo URL in a **private/incognito browser window** to confirm it loads without logging in — that's the fastest way to catch a repo that's still set to Private.
 
@@ -104,7 +102,7 @@ Before you submit, open your repo URL in a **private/incognito browser window** 
 | Criterion | Points | Earned when |
 |-----------|--------|-------------|
 | Repository is public and the URL works | 1 | Anyone can open the link without logging in |
-| Bio in `README.md`, present and complete | 1 | 200–400 word bio you drafted and revised; an earlier `BIO.md` submission still counts |
+| Bio in `README.md`, present and complete | 1 | 200–400 word bio you drafted and revised |
 | `RESUME.md` present and complete | 1 | One-page Markdown resume, in the repo, readable |
 
 Partial credit is awarded per piece. A private repo earns 0 — reviewers must be able to see it.
