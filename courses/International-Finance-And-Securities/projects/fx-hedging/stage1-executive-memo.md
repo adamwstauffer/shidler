@@ -45,6 +45,17 @@ how much your company ultimately receives in USD.
 
 **Tone:** executive-friendly and clear. The CFO has 90 seconds.
 
+**This is the project's engagement brief** (Kumu's deliverable-templates page) — one document,
+not two. Alongside the four items above it carries the engagement brief's own sections and
+frontmatter (`type: brief`, a one-line `hypothesis`):
+
+- **What I am assuming** — the assumptions taken as given, and which you would test with more time.
+- **Hypothesis** — "I expect X because Y," in real quantities: a prediction about what the model
+  will show, not a recommendation (that waits for Stage 5).
+- **How I would know I was wrong** — the observation that would falsify the hypothesis.
+
+It stays at the path below, in `docs/decisions/`, not `docs/briefs/`.
+
 ## Where this project's files go
 
 Stage 0 stood up your portfolio repo to the course-independent standard, and this project adds no
