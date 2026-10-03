@@ -23,9 +23,8 @@ International-Corporate-Finance/
 │   └── performance-ratios/                  shared curriculum — see its own README for full contents
 │       ├── analysis/                        self-audit and validation reports
 │       ├── data/                            source financial data and provenance
-│       ├── deliverables/                    final, presentation-ready outputs
-│       ├── demo-portfolio-repo/             worked example of a finished student portfolio repo
-│       ├── docs/                            decisions/, plans/, specs/, templates/
+│       ├── capabilities/                    performance-ratios/ (README.md + the Stage 4 spec.md)
+│       ├── docs/                            decisions/, plans/, templates/
 │       ├── models/                          builds/ (populated models), templates/ (blank frameworks)
 │       └── stage0-repo-setup.md … stage5-llm-analysis-evaluation.md
 └── README.md                                you are here

@@ -1,5 +1,7 @@
 # Stage 1: Provided Ratios Template
 
+**Step-by-step on Kumu:** [Stage 1 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage1.html)
+
 **Weight:** 20% of project score
 **Format:** Upload-only — no presentation component
 **Deliverable:** `performance-ratios-template.xlsx` uploaded to your repo
@@ -14,7 +16,7 @@ You will not modify the template at this stage. The point of Stage 1 is to make 
 
 ## Why we provide the template
 
-In undergraduate sections (BUS-314), students design their own templates from scratch — that's a useful exercise for first-time modelers. At the EMBA level, the learning happens further down the pipeline: in *populating* a model under real reporting standards (Stage 3), in *specifying* analytical work precisely enough that an LLM can execute it (Stage 4), and in *evaluating* AI-generated analysis against your own judgment (Stage 5). Standardizing the template at Stage 1 protects the time we'll need for those higher-leverage activities.
+Some courses have students design their own templates from scratch, which is a useful exercise for first-time modelers. Here the learning happens further down the pipeline: in *populating* a model under real reporting standards (Stage 3), in *specifying* analytical work precisely enough that an LLM can execute it (Stage 4), and in *evaluating* AI-generated analysis against your own judgment (Stage 5). Standardizing the template at Stage 1 protects the time those later stages need.
 
 ---
 
@@ -26,12 +28,12 @@ In undergraduate sections (BUS-314), students design their own templates from sc
 
 | Tab | Contents |
 |-----|----------|
-| **Cover & Instructions** | Project overview, how to use the template, named-range key |
-| **Legend** | Color-coding key (yellow = inputs, blue = assumptions, green = formulas, gray = outputs) |
-| **Income Statement** | Skeleton with line items and named-range placeholders (`INC_*`) |
+| **Cover** | Project overview, how to use the template, and the color legend (yellow = data inputs, blue = assumptions, green = formulas, gray = ratio outputs) |
 | **Balance Sheet** | Skeleton with current and prior year columns (`BAL_*`, `startYear_*`) |
-| **Cash Flow** | Skeleton for operating, investing, financing activities (`CASH_*`) |
+| **Income Statement** | Skeleton with line items and named-range placeholders (`INC_*`) |
+| **Cash Flow Statement** | Skeleton for operating, investing, financing activities (`CASH_*`) |
 | **Ratios** | All six categories with formulas pre-filled in named-range notation (`RATIO_*`) — auto-populates once Stage 3 financials are entered |
+| **Notes** | Space for your source and method notes |
 
 The Ratios tab is **fully formulaic** — no hardcoded numbers. When you populate the financial statements at Stage 3, ratios compute automatically.
 
@@ -51,10 +53,10 @@ You should also create the following directory skeleton in your repo (if you hav
 your-repo/
 ├── README.md            # Bio (from Stage 0)
 ├── RESUME.md            # Resume (from Stage 0)
+├── capabilities/
+│   └── performance-ratios/  # README.md, and spec.md at Stage 4
 ├── docs/
 │   ├── decisions/       # Memos and decision documents (Stage 2)
-│   │   └── README.md
-│   ├── specs/           # Technical specifications (Stage 4)
 │   │   └── README.md
 │   └── plans/           # Optional project plans
 ├── models/

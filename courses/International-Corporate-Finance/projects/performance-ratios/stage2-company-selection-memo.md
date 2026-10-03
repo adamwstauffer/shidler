@@ -1,12 +1,14 @@
 # Stage 2: Company Selection Memo
 
+**Step-by-step on Kumu:** [Stage 2 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage2.html)
+
 **Weight:** 10% of project score
 **Format:** Deliverable-only — no in-class presentation
 **Deliverable:** Markdown memo (`.md`) committed to your portfolio repo
 
 > ## ⚠ Do this first — required for grading
 >
-> **Add `adamwstauffer` as a Write collaborator on your portfolio repo before you submit.** This is the single most important Stage 2 setup step. Without it I cannot leave tracked feedback on your work, and a **−5 point penalty applies to your Stage 2 raw score** (and every subsequent stage until it is fixed).
+> **Add `adamwstauffer` as a Write collaborator on your portfolio repo before you submit.** This is the single most important Stage 2 setup step. Without it I cannot leave tracked feedback on your work. **Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively.
 >
 > Steps: Repo → **Settings** → **Collaborators** → **Add people** → search `adamwstauffer` → choose **Write** → **Add to this repository**. 60 seconds. Full walkthrough is in [§ Grant instructor write access to your repo](#grant-instructor-write-access-to-your-repo-required) below.
 
@@ -35,7 +37,7 @@ A 400–600 word Markdown memo (`.md`) saved to `docs/decisions/` in your reposi
 
 **Filename:** `YYYY-MM-DD-{company-slug}-selection-memo.md` — all **lowercase**, hyphen-separated.
 
-No last name: the repository is already named for you. A memo already submitted under the older name (`YYYY-MM-DD-{lastname}-{company-slug}-selection.md`) still counts — nothing to rename.
+No last name: the repository is already named for you. A memo already submitted under an older name that included your last name still counts; nothing to rename. A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 
 Example: `2026-05-21-vinamilk-selection-memo.md`
 
@@ -73,7 +75,7 @@ You can verify by reloading the Collaborators page — `adamwstauffer` should ap
 
 **Why this is graded.** Stage 2 is the first stage with tracked feedback, and Stage 5 explicitly grades how you incorporated that feedback. If I cannot leave feedback on your work, Stage 5's incorporation rubric line is hard to satisfy and the project loses one of its core learning loops (revising work in response to a supervisor's review — a routine professional skill in every finance/accounting/audit/consulting setting).
 
-> **Never done this before?** A step-by-step walkthrough of GitHub account setup, your first commit (GitHub Desktop recommended), and the Collaborators panel lives in [`guides/github-mba-guide.md`](../../../../guides/github-mba-guide.md). Read Sections 4–7 if any of this is new to you.
+> **Never done this before?** A step-by-step walkthrough of GitHub account setup, your first commit (GitHub Desktop recommended), and the Collaborators panel lives in [Kumu onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html). Read it if any of this is new to you.
 
 ---
 
@@ -174,7 +176,7 @@ Most AI tools can now read directly from your GitHub repo. This lets you ask the
 | Tool | How to connect to your repo |
 |---|---|
 | **Claude (web / desktop)** | Use the "**Projects**" feature (Pro tier) — create a project, paste your public repo's raw URLs into the project knowledge, and every conversation in that project sees them. For a one-off chat: paste a raw URL into the prompt. |
-| **Claude Code (CLI)** | Run `claude` inside your repo folder — it reads every file in the directory automatically. See [`guides/claude-code-install-for-non-technical-users.md`](../../../../guides/claude-code-install-for-non-technical-users.md). |
+| **Claude Code (CLI)** | Run `claude` inside your repo folder — it reads every file in the directory automatically. See [Kumu AI lab](https://adamwstauffer.github.io/ai-lms/ailab.html). |
 | **ChatGPT (web)** | Use the "**Connectors**" or the GitHub plugin (Plus tier) to authorize a specific repo. Then ChatGPT can browse your files. For a one-off: paste a raw URL. |
 | **GitHub Copilot Chat** | Built into VS Code, GitHub.dev, and the GitHub web UI. Asks about your repo without setup once you're signed in. Free for students with the GitHub Student Developer Pack. |
 | **Codex (OpenAI)** | Connect through ChatGPT Pro ($200/mo); not required for this course. |
@@ -207,7 +209,7 @@ For Stage 2, the simplest path is to **paste the raw template URL and your draft
 | Data Source Identification | 25% |
 | Professionalism & Communication | 25% |
 
-**Collaborator-status penalty: −5 raw points** if `adamwstauffer` is not a Write collaborator on your repo by the submission deadline. The penalty carries forward into every subsequent stage until fixed — and once fixed before a stage's deadline, it lifts retroactively. Without Write access I cannot leave tracked feedback on your work, which means the Stage 5 *feedback-incorporation* rubric line has nothing to grade against.
+**Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively. Without Write access I cannot leave tracked feedback on your work, which means the Stage 5 *feedback-incorporation* rubric line has nothing to grade against.
 
 ---
 

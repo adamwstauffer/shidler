@@ -102,7 +102,8 @@ miniature. Same moat → rent → entry logic, a different legal wrapper.
    *Confirm:* the text matches what was committed. Wrong but well-reasoned scores as well as right.
 
 3. **Use the sensitivity run.** Your 30 → 22 days-per-month result is the gig-economy fragility point
-   in one number: every driver verdict goes deep negative one input away from the base case.
+   in one number. What happens to each driver's verdict one input away from the base case, and
+   what does that say about fragility?
    *Confirm:* the numbers in the analysis come from your run, not from the case notes.
 
 4. **Export at least two figures** into `analysis/figures/` and reference each in the text. Natural

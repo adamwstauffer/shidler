@@ -1,5 +1,9 @@
 # Stage 5: LLM Analysis, Executive Evaluation, and Repo Polish
 
+**Step-by-step on Kumu:** [Stage 5 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage5.html)
+
+**Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively.
+
 **Weight:** 25% of project score
 **Format:** Deliverable-only — no in-class presentation
 **Deliverable:** Polished GitHub repo URL submitted via Lamaku
@@ -9,7 +13,7 @@
 > **Output (this stage):** Six artifacts in your repo (raw LLM output, final analysis, manual verification table, spec retrospective, updated prompt log, and the polished repo itself), plus the public repo URL submitted on Lamaku.
 > **Used by:** You. The repo is your portfolio piece — share the URL on LinkedIn.
 
-> **About the GitHub-vs-Lamaku question.** Stage 5's deliverable **is** the GitHub repo URL — the repo itself is the artifact. Lamaku is only used to submit the URL pointer (and your presentation slides, if any). The Lamaku fallback available at earlier stages (memo, workbook, spec uploaded directly) does **not** apply at Stage 5: by this point, all prior-stage artifacts must be consolidated into your public GitHub repo. The polish rubric assumes the full project history lives in the repo. If you used Lamaku for any earlier stage, push those artifacts to the repo before the Stage 5 deadline.
+> **About the GitHub-vs-Lamaku question.** Stage 5's deliverable **is** the GitHub repo URL — the repo itself is the artifact. Lamaku is only used to submit the URL pointer. The Lamaku fallback available at earlier stages (memo, workbook, spec uploaded directly) does **not** apply at Stage 5: by this point, all prior-stage artifacts must be consolidated into your public GitHub repo. The polish rubric assumes the full project history lives in the repo. If you used Lamaku for any earlier stage, push those artifacts to the repo before the Stage 5 deadline.
 
 > **Unfamiliar terms?** "PR," "commit history," "named range," "spec," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
 
@@ -35,7 +39,7 @@ The repo polish component recognizes a separate truth: a portfolio artifact a ma
 
 ## Deliverables (all in your repo)
 
-All filenames are **lowercase**, hyphen-separated, dated `YYYY-MM-DD`, and named as the table gives them: `YYYY-MM-DD-{company-slug}-{slug}-{type}`, no last name (the repository is already named for you), `{type}` one of `memo` · `analysis` · `log`. Memos go in `docs/decisions/`, analyses and the raw run log in `analysis/`, the prompt log at the repository root. Nothing new goes in `deliverables/`. Files already submitted under the older names or paths (`deliverables/…-{lastname}-…-final-analysis.md`, `…-llm-raw.md`, `…-spec-retrospective.md`, `prompt-log.md` (repository root), `analysis/validation/…-stage5-verification.md`) still count — nothing to move or rename, nothing deducted.
+All filenames are **lowercase**, hyphen-separated, dated `YYYY-MM-DD`, and named as the table gives them: `YYYY-MM-DD-{company-slug}-{type}`, no last name (the repository is already named for you), `{type}` ending in `memo`, `analysis` or `log`. Memos go in `docs/decisions/`, analyses and the raw run log in `analysis/`, the prompt log at the repository root. Nothing new goes in `deliverables/`. Files committed before 2026-10-02 under older names or paths (in `deliverables/`, under names with your last name, or `analysis/validation/…-stage5-verification.md`) still count as they are; nothing to move or rename. A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 
 | # | File | Location | Purpose |
 |--:|------|----------|---------|
@@ -122,9 +126,9 @@ The spec retrospective lives in its own file (per the template) rather than as a
 
 ## Stage 2 feedback incorporation
 
-**Weight:** 5% of the deliverable rubric.
+**Weight:** 5% of the Stage 5 grade.
 
-> **Step-by-step guide:** The full rubric-shaped walkthrough — how to read a PR, the three response patterns (accept / modify / reject), and a worked example — lives at [`guides/responding-to-pr-feedback.md`](../../../../guides/responding-to-pr-feedback.md). Read it the week before Stage 5 is due, not the night before.
+> **Step-by-step guide:** The full rubric-shaped walkthrough — how to read a PR, the three response patterns (accept / modify / reject), and a worked example — lives at [Kumu onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html). Read it the week before Stage 5 is due, not the night before.
 
 The instructor reviewed your Stage 2 memo and returned PR-style suggestions on your repo. Stage 5 grades how you incorporated that feedback. Two acceptable forms (either counts):
 
@@ -154,14 +158,16 @@ firstname-lastname/                         (your portfolio repo root)
 │
 ├── docs/
 │   ├── README.md                           # Explains what's in docs/
-│   ├── decisions/
-│   │   ├── README.md
-│   │   ├── 2026-05-21-{company}-selection-memo.md             # Stage 2 memo
-│   │   ├── 2026-06-19-{company}-spec-iteration-memo.md        # (optional) Stage 4 HIL note
-│   │   └── 2026-07-03-{company}-feedback-response-memo.md     # (optional) Stage 5 follow-up
-│   └── specs/
+│   └── decisions/
 │       ├── README.md
-│       └── 2026-06-18-{company}-spec.md                       # Stage 4 spec
+│       ├── 2026-05-21-{company}-selection-memo.md             # Stage 2 memo
+│       ├── 2026-06-19-{company}-spec-iteration-memo.md        # (optional) Stage 4 HIL note
+│       └── 2026-07-03-{company}-feedback-response-memo.md     # (optional) Stage 5 follow-up
+│
+├── capabilities/
+│   └── performance-ratios/
+│       ├── README.md
+│       └── spec.md                                            # Stage 4 spec
 │
 ├── models/
 │   ├── README.md
@@ -186,13 +192,13 @@ firstname-lastname/                         (your portfolio repo root)
 
 Before submitting:
 
-- [ ] Top-level `README.md` updated with project status section listing all five stages and their commit hashes
+- [ ] Top-level `README.md` updated with project status section listing every stage (0 through 5) and its commit hash
 - [ ] Top-of-README "what you'll find here" block — one paragraph orienting a manager, reviewer, or peer who just clicked the repo link
 - [ ] **One-line repo description** set in the GitHub repo page header (the field at the top of the repo page, not in the README) — summarizes the project in one sentence
 - [ ] **`LICENSE` file** at repo root (MIT or Apache-2.0 recommended — pick one, both signal "this is a portfolio piece you may reference")
 - [ ] **`.gitignore`** excluding common scratch files (`.DS_Store`, `~$*.xlsx`, `*.tmp`, etc.) — keeps the repo clean
 - [ ] Every directory has a `README.md` explaining what's inside
-- [ ] All dated filenames follow `YYYY-MM-DD-{company}-{slug}-{type}.{ext}` (older `{lastname}` names already submitted still count)
+- [ ] All dated filenames follow `YYYY-MM-DD-{company-slug}-{type}.{ext}` (older names already submitted still count)
 - [ ] No orphan files, dead links, or `_temp/` directories
 - [ ] Commit history is clean (descriptive messages; no `wip` or `asdf` commits)
 - [ ] Repo is **public** and accessible without login
@@ -279,7 +285,7 @@ Be specific. Do not say "rename inconsistent files" — list the exact files.
 - **Diverge with evidence.** If your Stage 3 numbers and the LLM's interpretation disagree, you have to pick a side and defend it. Don't paper over the disagreement.
 - **Let the retrospective be honest.** "My spec was perfect" earns fewer points than "My Part B section 9 was vague — I told the LLM to 'recommend strategic actions' without specifying evidence standards, so it gave generic recommendations." Specificity is the rubric.
 - **Polish the repo last — but not last-night.** Don't let it become an evening-before scramble. Allocate a dedicated commit pass for READMEs, naming, license, and repo description.
-- **If you tried a Claude Skill or plugin** (see Stage 4 sidebar and [`guides/student-ai-enhancements.md`](../../../../guides/student-ai-enhancements.md)), include a one-line note in your final analysis or prompt log on what you learned. Ungraded; portfolio-shaped.
+- **If you tried a Claude Skill or plugin** (see Stage 4 sidebar and [Kumu AI lab](https://adamwstauffer.github.io/ai-lms/ailab.html)), include a one-line note in your final analysis or prompt log on what you learned. Ungraded; portfolio-shaped.
 
 ---
 
@@ -293,8 +299,8 @@ In an institutional setting — corporate FP&A, sell-side research, buy-side ana
 
 | Step you did in this assignment | Real-world workflow with Claude for Financial Services |
 |---|---|
-| **Manually source 10-K from EDGAR; populate the workbook by typing** | `financial-analysis:3-statement-model` reads SEC filings via the SEC connector and populates a 3-statement template automatically. Time: ~5 minutes per company. |
-| **Manually recompute five ratios by hand to verify the LLM** | `financial-analysis:audit-xls` audits the full workbook against the named-range convention, flags formula errors, and produces a verification report. Catches dozens of issues, not five. |
+| **Manually source 10-K from EDGAR; populate the workbook by typing** | `financial-analysis:3-statement-model` reads SEC filings via the SEC connector and populates a 3-statement template automatically. |
+| **Manually recompute five ratios by hand to verify the LLM** | `financial-analysis:audit-xls` audits the full workbook against the named-range convention, flags formula errors, and produces a verification report. |
 | **Compare your company in isolation, with no peer set** | `financial-analysis:comps-analysis` pulls a peer set from FactSet / S&P Capital IQ (live-data connectors), computes operating metrics and trading multiples, and benchmarks your company's ratios against the peer median and quartiles — the standard institutional view. |
 | **Write generic strategic recommendations** | `equity-research:initiate` or `equity-research:thesis` drafts an institutional-quality investment thesis with catalysts, risks, and a target-price range — anchored to the comps and a DCF rather than to a single-company read. |
 | **Hand-type the LLM evaluation section** | `financial-analysis:debug-model` and `pitch-agent:ib-check-deck` run a structural audit of the analysis itself — checking number consistency across sections, narrative-data alignment, and IB-standard language. |
@@ -302,14 +308,14 @@ In an institutional setting — corporate FP&A, sell-side research, buy-side ana
 
 ### What this means for you
 
-- **You will use this stack in your career.** Whether you move into a corporate-finance, equity-research, investment-banking, FP&A, consulting, or PE role — or whether you **roll these tools out to your own team or employees** as a manager or executive — AI-assisted financial analysis is becoming standard. For EMBA students already in senior positions, the leverage from understanding what's possible is in *how you direct your analysts and your AI vendor relationships*, not just in how you personally use the tools. Knowing what's possible matters more than memorizing any individual product.
+- **Where you may meet this stack.** In a corporate-finance, equity-research, banking, FP&A, consulting or PE role, or when you decide whether to roll these tools out to your own team, the question is how you direct your analysts and your AI vendors, not only how you use the tools yourself. Knowing what is possible matters more than memorizing any one product.
 - **The judgment skills this course teaches still matter — they matter *more*.** The plugins automate the *building*. The institutional value-add becomes the *judgment*: which peer set is the right one? Which ratio anomaly is a real signal vs. an accounting artifact? Which strategic recommendation does the buyer actually need? Those questions don't have a plugin.
 - **The Claude for Financial Services plugins assume enterprise data subscriptions you don't have as a student.** FactSet, S&P Global, Moody's, PitchBook — those live-data connectors require paid access. The plugins that work on local data (`audit-xls`, `ib-check-deck`, `competitive-analysis` against public filings, `3-statement-model` from SEC filings) you can try as a student.
 
 ### If you want to try one before you leave the course
 
-The lightest-weight experiment: install `financial-analysis:audit-xls` and run it against your Stage 3 workbook (the same workbook you've been working in all semester). Full walkthrough prompts are in [`guides/student-ai-enhancements.md`](../../../../guides/student-ai-enhancements.md). Plan ~30 minutes including the Claude Code install.
+The lightest-weight experiment: install `financial-analysis:audit-xls` and run it against your Stage 3 workbook (the same workbook you've been working in all semester). Full walkthrough prompts are in [Kumu AI lab](https://adamwstauffer.github.io/ai-lms/ailab.html). Plan ~30 minutes including the Claude Code install.
 
-That single experiment is worth more than reading another article on "AI in finance." You will see the gap between what general-purpose LLMs do well and what purpose-built finance tooling does — and you'll be ahead of every peer who only used ChatGPT.
+That one experiment shows you the gap between what a general-purpose LLM does well and what purpose-built finance tooling does.
 
-**This is portfolio-shaping work, not coursework.** Adding a `docs/decisions/YYYY-MM-DD-{company-slug}-ai-tooling-memo.md` memo (100–300 words: what you tried, what it did well, what it got wrong, whether you'd use it on a real engagement) is a stronger LinkedIn-pitchable artifact than another polish pass on the rubric checklist.
+**Optional.** Adding a `docs/decisions/YYYY-MM-DD-{company-slug}-ai-tooling-memo.md` memo (100–300 words: what you tried, what it did well, what it got wrong, whether you'd use it on a real engagement) records what you learned from it.

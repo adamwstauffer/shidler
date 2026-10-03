@@ -167,8 +167,8 @@ them with broken formulas fails inspection just as surely as one that misses the
 ### Audit
 
 7. **Run your validation rules against what came back**, and record the findings in a short section
-   at the end of `spec.md`. For each check: what you checked, what you found, what you did. At
-   minimum, run these five:
+   at the end of `spec.md`. For each check: what you checked, what you found, what you did. Run at least
+   three of these five (the rubric counts three):
    - **The `q = 1` hand check.** One bed of tomatoes should cost `1 × 2.5 × 36 × 1.10` hours. This
      one line catches a dropped exponent, the most common structural defect.
    - **An independent cross-check.** Take at least one intermediate value — a marginal cost at a

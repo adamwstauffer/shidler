@@ -28,7 +28,7 @@ Three things changed to match it:
 
 ## What changed vs. v1 (Build → Document → Analyze)
 
-The v2 arc is **Design → Build → Validate**, aligned with the proven BUS 629 performance-ratios
+The v2 arc is **Design → Build → Validate**, aligned with the BUS 629 performance-ratios
 flow. Three structural moves:
 
 1. **Spec before build.** Students design the workbook (named ranges, tabs, formula plan)
@@ -38,7 +38,7 @@ flow. Three structural moves:
 3. **Data after structure.** Live market data lands at stage 4 and doubles as a robustness test:
    a model that breaks when fresh prices are loaded had the wrong structure.
 
-Excel understanding is proven at four checkpoints no AI can do *for* the student:
+Excel understanding is checked at four checkpoints no AI can do *for* the student:
 design (2), audit (3), populate + cross-check (4), hand-verification (5).
 
 ## Stages & weights
@@ -51,12 +51,12 @@ the single source of truth.
 
 | Stage | Deliverable | Weight | Suggested week (6-wk term) |
 | ----- | ----------- | -----: | ---- |
-| 0 | Portfolio repository (course-level; the portfolio repo standard) | 8% | 2 (paired with stage 2) |
-| 1 | Executive brief | 17% | 1 |
-| 2 | Model specification | 21% | 2 |
-| 3 | AI-assisted build + audit note | 17% | 3 |
-| 4 | Market data + population | 12% | 4 |
-| 5 | Validate & decision memo (capstone) | 25% | 5–6 |
+| 0 | Portfolio Repository (course-level; the portfolio repo standard) | 8% | 2 (paired with stage 2) |
+| 1 | Executive Brief | 17% | 1 |
+| 2 | Model Specification | 21% | 2 |
+| 3 | AI-Assisted Build + Audit | 17% | 3 |
+| 4 | Market Data + Population | 12% | 4 |
+| 5 | Validate & Decision Memo (capstone) | 25% | 5–6 |
 | **Total** | | **100%** | |
 
 Weeks are indicative for a 6-week summer term; the offering README sets actual dates. In a
@@ -68,18 +68,19 @@ design — do not add dates to them.**
 Each stage's output is the next stage's named input:
 
 ```
-repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data populate (4) → LLM validation + recommendation (5)
+repo (0) → brief (1) → spec (2) → workbook + audit (3) → live-data populate (4) → LLM validation + recommendation (5)
 ```
 
 ## Conventions (shared with BUS 629)
 
-- **Filenames:** dated documents are `YYYY-MM-DD-{scenario}-{slug}-{type}.md`, `{type}` one of
-  `brief` · `spec` · `memo` · `analysis` · `log` — no last name (the repository is already named for
-  you). Briefs go in `docs/briefs/`, decision memos in `docs/decisions/`, analyses in `analysis/`,
-  the market-data memo beside the data in `data/` (scenario slugs: `solar-importer`,
-  `pharma-exporter`, `tech-services`, `aerospace`). The spec and workbook keep their fixed paths
-  in `capabilities/fx-hedging/`. Files already submitted under the older
-  `YYYY-MM-DD-{lastname}-…` names still count — never renamed, never deducted (2026-10-02).
+- **Filenames:** dated documents are `YYYY-MM-DD-{scenario}-{type}.md`, where `{scenario}` is your
+  scenario slug (`solar-exporter`, `pharma-exporter`, `tech-services`, `aerospace`) and `{type}` is
+  the one the stage brief names (`hedge-brief`, `build-audit-analysis`, `market-data-memo`,
+  `validation-analysis`, `hedge-decision-memo`). No last name: the repository is already named for
+  you. Briefs go in `docs/briefs/`, decision memos in `docs/decisions/`, analyses in `analysis/`,
+  the market-data memo beside the data in `data/`. The spec and workbook keep their fixed paths in
+  `capabilities/fx-hedging/`. Files committed before 2026-10-02 under an older name still count as
+  they are. A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 - **Named-range contract:** `FC_AMT`, `S0_in`, `F0_in`, `R_USD`, `R_FC`, `K_PUT`, `K_CALL`,
   `PREM_PUT`, `PREM_CALL`, `T_DAYS` — the shared vocabulary of spec, workbook, grader, and
   LLM prompts.
@@ -92,20 +93,18 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 
 | File | Stage |
 | ---- | ----- |
-| `stage0-repo-setup.md` | 0 — Portfolio repository (course-level; companion page `github-stage0.html`) |
-| `stage1-executive-brief.md` | 1 — Executive brief |
-| `stage2-model-spec.md` | 2 — Model specification |
-| `stage3-ai-build-audit.md` | 3 — AI-assisted build + audit |
-| `stage4-market-data-population.md` | 4 — Market data + population |
-| `stage5-validate-decision-memo.md` | 5 — Validate & decision memo |
+| `stage0-repo-setup.md` | 0 — Portfolio Repository (course-level; companion page `github-stage0.html`) |
+| `stage1-executive-brief.md` | 1 — Executive Brief |
+| `stage2-model-spec.md` | 2 — Model Specification |
+| `stage3-ai-build-audit.md` | 3 — AI-Assisted Build + Audit |
+| `stage4-market-data-population.md` | 4 — Market Data + Population |
+| `stage5-validate-decision-memo.md` | 5 — Validate & Decision Memo |
 
 Shared project files: `scenarios.md`, `_templates/template-decision-memo.md`,
 `_templates/template-spec.md`. Grading checks every calculated
 cell for a formula referencing named ranges; a hardcoded constant scores zero for that element.
 
-## Career framing (carried from v1, applies to the whole arc)
+## The arc in one line
 
-This project mirrors the analyst-to-automation workflow used in corporate treasury, IB, FP&A,
-audit, and AI-adjacent finance roles: exposure framing → model design → AI-assisted build →
-data operations → validation and executive recommendation, all version-controlled. The finished
-repo is a portfolio artifact for internships, jobs, and graduate programs.
+Exposure framing → model design → AI-assisted build → data operations → validation and executive
+recommendation, all version-controlled in your own repository.
