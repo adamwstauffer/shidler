@@ -4,6 +4,13 @@ Unified repository for course materials, project frameworks, branded assets, and
 
 Everything lives in one Git-tracked repo so students, collaborators, and reviewers can find syllabi, assignment specs, templates, and decision memos in a single place.
 
+## About Me
+
+**Adam W. Stauffer** is a Faculty Lecturer in finance and economics at the Shidler College of Business, University of Hawaiʻi at Mānoa, and teaches sustainable agriculture entrepreneurship at Windward Community College. Before teaching, he was a trader and market-maker in U.S.-listed ETFs at Barclays Capital and Lehman Brothers, was founder and Chief Investment Officer of Springline Capital in the British Virgin Islands, and founded Greenshoot.org, a disaster-recovery platform built after Hurricane Irma. He builds his courses around AI: students frame, specify, build with AI, audit and decide, in the open on GitHub. He holds an MBA in Finance from Wharton and a BA in Biology from Trinity College, and was a CFA charterholder from 2004 to 2011.
+
+- [Bio](https://adamwstauffer.github.io/bio.html) · [Resume](https://adamwstauffer.github.io/resume.html) ([PDF](https://adamwstauffer.github.io/resume.pdf)) · [CV](https://adamwstauffer.github.io/cv.html), all on [adamwstauffer.github.io](https://adamwstauffer.github.io/)
+- [LinkedIn](https://linkedin.com/in/adamwstauffer) · [GitHub](https://github.com/adamwstauffer)
+
 ---
 
 ## 📘 Start here: the Kumu tutorial site
@@ -30,8 +37,8 @@ dates — the course README is the schedule, Kumu is the instruction.
 
 Entry-level analysts used to learn judgment by building models that seniors reviewed. AI now drafts
 that first pass, so the work that trained reviewers is the work AI does first. Every project here
-makes you do both jobs: you frame and specify, AI builds, you audit and decide. Full argument on
-Kumu: [the doer–reviewer dilemma](https://adamwstauffer.github.io/ai-lms/#doer-reviewer).
+makes you do both jobs: you frame and specify, AI builds, you audit and decide. Full argument:
+[The doer–reviewer dilemma](https://adamwstauffer.github.io/writing/doer-reviewer-dilemma.html).
 
 ---
 
@@ -51,11 +58,13 @@ shidler/
 │   └── Windward-Community-College/
 │       └── BUS-122B-Intro-Entrepreneurship-Sustainable-Agriculture/
 │
+├── guides/                         # Student guides: GitHub, PR feedback, Claude Code, VAS/IFRS/GAAP ratios
+├── templates/                      # Reusable deliverable templates (memo, spec, brief, prompt log)
+│
 ├── docs/
 │   ├── _branding/                  # UH Manoa design system & templates
 │   ├── decisions/                  # Strategic decision memos
 │   ├── presentations/              # Course-agnostic appendix slide decks
-│   ├── templates/                  # Reusable deliverable templates
 │   ├── ai-usage-guidelines.md
 │   ├── writing-style-guide.md
 │   └── reproducibility-playbook.md
@@ -79,28 +88,6 @@ Answer keys, grading scripts and `.claude/` tooling are deliberately kept out of
 
 See [`courses/README.md`](courses/README.md) for the full code-to-directory map. Each subject directory contains a `projects/` folder with shared curriculum and one subfolder per offering with its syllabus, roster, and course-specific decision memos.
 
-### Vietnam EMBA Campus Locations
-
-BUS 629 is delivered in person at two locations as part of the Shidler Vietnam Executive MBA program:
-
-| City | Venue | Address |
-|------|-------|---------|
-| **Ho Chi Minh City** | Van Lang University, Building I, Level 2, Room I2.01 | 69/68 Đặng Thùy Trâm, Ward 13, Bình Thạnh District, HCMC |
-| **Hanoi** | FPT Headquarters | 10 Phạm Văn Bạch street, Cầu Giấy District, Hanoi |
-
----
-
-## Appendix Presentations
-
-Two course-agnostic slide decks live in `docs/presentations/`. Attach them to any course project:
-
-| File | What It Covers |
-|------|---------------|
-| **GitHub_AI_Appendix.pptx** | Creating a GitHub account, installing Git, the add-commit-push workflow, GitHub Desktop, using ChatGPT and Claude for projects, prompt patterns, and a cheat sheet |
-| **Claude_Appendix.pptx** | Claude on the web and desktop, file uploads, artifacts, Projects, Claude Code (CLI) installation and workflow, skills & /commands, and the UH design system |
-
----
-
 ## Documentation Hub (`docs/`)
 
 ### Branding (`docs/_branding/`)
@@ -122,21 +109,6 @@ Lightweight memos capturing strategic decisions about repo structure, course des
 
 ---
 
-## Project Workflow
-
-Every project runs the same five steps — **Frame → Specify → Build with AI → Validate → Decide** —
-under project-specific stage names:
-
-| Project | Stages |
-|---|---|
-| FX hedging | 0 Repo setup · 1 Executive brief · 2 Model spec · 3 AI build + audit · 4 Market data · 5 Validate & decision memo |
-| Performance ratios | 0 Repo setup · 1 Ratios template · 2 Company selection memo · 3 Populated financials · 4 LLM-drafted spec · 5 LLM analysis + executive evaluation |
-| Econ cases | 0 Portfolio repo · 1 Engagement brief · 2 Model build · 3 Analysis |
-
-Deliverables, paths and rubrics are in each project's stage briefs and on Kumu.
-
----
-
 ## AI Tools & Claude Code
 
 AI is **expected** and must be **disclosed**; log meaningful interactions in a prompt log. Disclosed AI
@@ -150,17 +122,6 @@ should follow:
 - **`CLAUDE.md`** — A one-line pointer to `AGENTS.md` (kept for tools that look for it by name)
 
 See **`docs/presentations/Claude_Appendix.pptx`** for a complete walkthrough.
-
----
-
-## Getting Started
-
-1. **Navigate to your course**: Look up your course code in [`courses/README.md`](courses/README.md), then open your offering's subfolder (e.g., `courses/International-Corporate-Finance/BUS-629-VEMBA/`)
-2. **Read the syllabus**: Each offering has a `README.md` with objectives, grading, and policies
-3. **Work on deliverables**: Follow the staged assignment files in the subject's `projects/` folder, alongside the matching stage tutorials on [Kumu](https://adamwstauffer.github.io/ai-lms/)
-4. **Submit your work**: on github.com, open your repo → *Add file* → *Upload files* → commit. (Optional, with git locally: `git add <file> && git commit -m "Stage 1 memo" && git push`.)
-
-For a visual walkthrough, see **`docs/presentations/GitHub_AI_Appendix.pptx`**.
 
 ---
 
@@ -248,18 +209,6 @@ Each row notes which course project most naturally leads into the extension.
 | **Policy impact case brief** | Trade/regulatory case applied to a specific firm or sector | BUS-313 / BUS-620 |
 | **Competitor teardown** | Structured analysis of a single competitor's strategy and financials | BUS-314 / BUS-629 |
 
-### How to add an extension to your portfolio
-
-1. **Copy the relevant repo-level template** as your starting point — `memo-template.md`, `spec-template.md`, or the `performance-ratios-template.xlsx` skeleton.
-2. **Adapt it** to the specific extension (e.g., add an LBO debt schedule tab, or restructure the memo for an IC audience).
-3. **Use it on a real example.** A blank template is worth less than a populated one. Pick a real company or scenario and run it end-to-end.
-4. **Commit it to your portfolio repo** with a clear README explaining what the template is for and when to use it.
-5. **Link it from your bio.** A manager, peer, or reviewer who lands on your repo should be able to find your extensions in two clicks.
-
-A portfolio with three thoughtful, well-executed extensions beats one with twenty half-finished templates. Pick deliberately, build well.
-
----
-
 ## Key Reference Paths
 
 | Resource | Path |
@@ -272,12 +221,3 @@ A portfolio with three thoughtful, well-executed extensions beats one with twent
 | Decision Memos | `docs/decisions/` |
 | AI Usage Guidelines | `docs/ai-usage-guidelines.md` |
 | Writing Style Guide | `docs/writing-style-guide.md` |
-
----
-
-## About Me
-
-**Adam W. Stauffer** is a Faculty Lecturer in finance and economics at the Shidler College of Business, University of Hawaiʻi at Mānoa, and teaches sustainable agriculture entrepreneurship at Windward Community College. Before teaching, he was a trader and market-maker in U.S.-listed ETFs at Barclays Capital and Lehman Brothers, was founder and Chief Investment Officer of Springline Capital in the British Virgin Islands, and founded Greenshoot.org, a disaster-recovery platform built after Hurricane Irma. He builds his courses around AI: students frame, specify, build with AI, audit and decide, in the open on GitHub. He holds an MBA in Finance from Wharton and a BA in Biology from Trinity College, and was a CFA charterholder from 2004 to 2011.
-
-- [Bio](https://adamwstauffer.github.io/bio.html) · [Resume](https://adamwstauffer.github.io/resume.html) ([PDF](https://adamwstauffer.github.io/resume.pdf)) · [CV](https://adamwstauffer.github.io/cv.html), all on [adamwstauffer.github.io](https://adamwstauffer.github.io/)
-- [LinkedIn](https://linkedin.com/in/adamwstauffer) · [GitHub](https://github.com/adamwstauffer)
