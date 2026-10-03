@@ -25,7 +25,6 @@ New here? Start with [Kumu's onboarding page](https://adamwstauffer.github.io/ai
 
 - [`courses/`](courses/README.md): each offering's schedule and the stage briefs for its projects.
 - [`templates/`](templates/README.md): files students copy into their own repos.
-- [`guides/`](guides/): how-to guides.
 - [`docs/`](docs/README.md): the writing style guide, AI-usage guidelines, grading scale, the one public decision, and the [CHANGELOG](CHANGELOG.md).
 - [Kumu](https://adamwstauffer.github.io/ai-lms/): the instruction, stage by stage.
 - [adamwstauffer.github.io](https://adamwstauffer.github.io/): Adam himself.

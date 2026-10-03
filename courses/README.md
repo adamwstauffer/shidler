@@ -21,7 +21,7 @@ Every subject directory shares the same shape:
 └── <CODE[-POPULATION]>/  one per offering: syllabus and schedule
 ```
 
-See [the 2026-07-08 decision memo](../docs/decisions/2026-07-08-generic-course-directory-naming.md) for the rationale behind this structure (it is the one decision memo kept in this repo; notable changes since are in [CHANGELOG.md](../CHANGELOG.md)). Deliverable templates are in [`templates/`](../templates/) and how-to guides in [`guides/`](../guides/), both at the repo root.
+See [the 2026-07-08 decision memo](../docs/decisions/2026-07-08-generic-course-directory-naming.md) for the rationale behind this structure (it is the one decision memo kept in this repo; notable changes since are in [CHANGELOG.md](../CHANGELOG.md)). Deliverable templates are in [`templates/`](../templates/) at the repo root; setup how-tos are on [Kumu onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html).
 
 ## Directory Contents
 

@@ -1,6 +1,6 @@
 # Documentation & Resources
 
-This directory holds course-wide documentation: the writing style guide, AI-usage guidelines, grading scale, financial-model assumptions, appendix slide decks, Adam's slide and color kit, and the one public decision memo. Deliverable templates and how-to guides live at the repo root, in [`templates/`](../templates/) and [`guides/`](../guides/).
+This directory holds course-wide documentation: the writing style guide, AI-usage guidelines, grading scale, financial-model assumptions, appendix slide decks, Adam's slide and color kit, and the one public decision memo. Deliverable templates live at the repo root, in [`templates/`](../templates/); setup how-tos are on [Kumu onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html).
 
 ## Contents
 
@@ -51,7 +51,7 @@ Course-independent appendix slide decks.
 | Changelog | `../CHANGELOG.md` |
 | Deliverable Templates | `../templates/` |
 | Portfolio Templates | `../templates/portfolio/` |
-| How-to Guides | `../guides/` |
+| How-to (setup) | [Kumu onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html) |
 | Grading Scale | `grading-scale.md` |
 | Brand Guidelines | `_branding/` |
 | Design System | `_branding/design.json` |

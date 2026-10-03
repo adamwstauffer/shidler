@@ -27,7 +27,7 @@ Student-facing tutorials live on the companion **Kumu site**, <https://adamwstau
   - `decisions/` — One public memo, `2026-07-08-generic-course-directory-naming.md`; other memos are kept privately, see `CHANGELOG.md`
   - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`, `grading-scale.md`, `financial-model-assumptions.md`
 - **`templates/`** (repo root) — Deliverable templates students copy (memo, spec, case brief, stage brief, prompt log, `portfolio/`, `spreadsheets/`)
-- **`guides/`** (repo root) — How-to guides for students
+- How-to setup (GitHub, AI tools) lives on Kumu onboarding: <https://adamwstauffer.github.io/ai-lms/onboarding.html>
 - **`CHANGELOG.md`** — Notable changes to how the repo is organized
 - The instructor bio, resume and CV live on the site, never in this repo: <https://adamwstauffer.github.io/bio.html>
 
@@ -132,7 +132,7 @@ Apply these values when creating course slides or documents.
 | Resource | Path |
 |----------|------|
 | Instructor Bio (SSOT) | <https://adamwstauffer.github.io/bio.html> |
-| How-to Guides | `guides/` |
+| How-to (setup) | <https://adamwstauffer.github.io/ai-lms/onboarding.html> |
 | Changelog | `CHANGELOG.md` |
 | Brand Design Tokens | `docs/_branding/design.json` |
 | Reusable Templates | `templates/` |
