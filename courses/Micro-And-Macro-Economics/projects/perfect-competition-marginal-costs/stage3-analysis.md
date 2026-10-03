@@ -70,9 +70,9 @@ cover.
 at bed 10 against a price of $8,800, with bed 11 costing $9,391.
 
 **Which constraints bind, and what they are worth.** Carrots and mesclun stop at their bed caps with
-MC still *below* price: the constraint ends production, not the economics. One more carrot bed would
-add roughly **$352** of profit, one more mesclun bed roughly **$246**. Some constraints never bind at
-all — 64 total beds and 4 temporary workers are both slack.
+MC still *below* price: the constraint ends production, not the economics. What are the shadow prices on the two
+binding constraints, and what do they say about which constraint to relax? Which constraints never
+bind at all, and how does your Solver report show it?
 
 **The tomato MC dip at about 6 beds.** Marginal cost falls before it rises. The farmer's own field
 hours at $34.72/hr run out, marginal labor switches to temporary labor at $17.36/hr, and then
@@ -159,7 +159,7 @@ textbook rather than *your workbook's* numbers.
 ## 7. Verification
 
 - [ ] P = MC evidence shown per crop, from your model's own numbers
-- [ ] Binding caps identified, with shadow-price reasoning (~$352 carrots, ~$246 mesclun)
+- [ ] Binding caps identified, with the shadow price on each read from your own Solver run
 - [ ] Slack constraints named — 64 beds and 4 temporary workers
 - [ ] The tomato MC dip explained by mechanism, not merely observed
 - [ ] The "grow at a loss?" paradox resolved with MC versus AVC
@@ -176,7 +176,7 @@ textbook rather than *your workbook's* numbers.
 
 | Criterion | Pts | What distinguishes strong work |
 |---|---|---|
-| P = MC evidence + binding constraints | 3 | Crossings shown from *your* model's numbers; carrot and mesclun caps identified as binding with ~$352 / ~$246 shadow-price reasoning; slack constraints named; the memo turns that into a recommendation the farmer could act on |
+| P = MC evidence + binding constraints | 3 | Crossings shown from *your* model's numbers; the binding caps identified, with shadow prices from your own Solver run and what they say about which constraint to relax; slack constraints named; the memo turns that into a recommendation the farmer could act on |
 | MC dip + at-a-loss resolution | 2 | Dip mechanism (permanent-to-temporary wage switch) explained, not just observed; MC-versus-AVC shutdown logic resolves the loss-making crops correctly |
 | Figures + hypothesis revisit | 1 | At least two figures referenced in text and rendering on GitHub; honest comparison against the Stage 1 hypothesis |
 | Prompt log + reflection | 3 | Sessions curated, not dumped; reflection of 300 words or fewer with concrete instances of AI being wrong and *how you verified* — or, if nothing was caught, the checks that cleared it |
@@ -190,7 +190,7 @@ rubric.
 
 | What goes wrong | The correction |
 |---|---|
-| The analysis cites the textbook instead of the workbook | "MC rises due to diminishing returns" is a lecture note. "Carrot MC hits $1,742 at bed 20, still $352 under price — the cap binds" is analysis |
+| The analysis cites the textbook instead of the workbook | "MC rises due to diminishing returns" is a lecture note. "Carrot MC at the cap, read from my workbook, is still under price, so the cap binds" is analysis |
 | Figures are decorative | Every figure earns its place by being referenced in the text. An unreferenced chart is worth nothing |
 | Figures do not render on GitHub | Relative paths are case-sensitive and must be repository-relative. Check the rendered page |
 | The MC dip is ignored | It is the one place this model surprises people. An analysis that skips it has skipped the most interesting result |

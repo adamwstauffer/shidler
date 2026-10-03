@@ -1,5 +1,9 @@
 # Stage 3: Populated Financials
 
+**Step-by-step on Kumu:** [Stage 3 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage3.html)
+
+**Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively.
+
 **Weight:** 20% of project score
 **Format:** Upload-only — no presentation component
 **Deliverable:** Populated `.xlsx` with company financials
@@ -35,7 +39,7 @@ A populated workbook saved to `models/builds/` in your repository.
 
 **Filename:** `YYYY-MM-DD-{company-slug}-financials.xlsx` — all **lowercase**, hyphen-separated.
 
-No last name: the repository is already named for you. A workbook already submitted under the older name (`YYYY-MM-DD-{lastname}-{company-slug}-financials.xlsx`) still counts — nothing to rename.
+No last name: the repository is already named for you. A workbook already submitted under an older name that included your last name still counts; nothing to rename. A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 
 Example: `2026-06-04-vinamilk-financials.xlsx`
 
@@ -58,7 +62,7 @@ Example: `2026-06-04-vinamilk-financials.xlsx`
 | Check | What to verify | If it fails |
 |-------|---------------|---|
 | **Balance Sheet balances** | Assets = Liabilities + Equity (both years) | A small discrepancy is usually a sign or rounding error in one line item. Larger gaps usually mean a missing line (intangibles, deferred tax, etc.). |
-| **No `#REF!` or `#DIV/0!` cells** | Every formula resolves to a number | A `#DIV/0!` on a ratio means a denominator cell is empty. A `#REF!` means a named range is missing — check the Legend tab. |
+| **No `#REF!` or `#DIV/0!` cells** | Every formula resolves to a number | A `#DIV/0!` on a ratio means a denominator cell is empty. A `#REF!` means a named range is missing — check Formulas → Name Manager. |
 | **Prior-year cells populated** | `startYear_*` named ranges have values, otherwise start-of-year ratios will fail | Most common Stage 3 mistake. Without prior-year totals, ROA, asset turnover, and inventory turnover all fail silently. |
 | **Sign sanity** | No negative values where impossible (e.g., negative inventory) | A negative number here usually means you entered the value from a different statement section (e.g., a contra account). |
 | **Source documentation** | Cover & Instructions tab notes the reporting standard, currency, fiscal year end, and source 10-K URL | If you used a non-US filing (VAS annual report, IFRS 20-F), note that here. |

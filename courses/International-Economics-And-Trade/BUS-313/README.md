@@ -12,7 +12,7 @@ This course develops students' understanding of the global economic and financia
 
 **Adam W. Stauffer** | [adamstau@hawaii.edu](mailto:adamstau@hawaii.edu)
 
-Please begin email subject lines with **BUS 313**. For more information about the instructor, see [BIO.md](../../../BIO.md).
+Please begin email subject lines with **BUS 313**. For more information about the instructor, see [his bio](https://adamwstauffer.github.io/bio.html).
 
 ---
 
@@ -43,7 +43,7 @@ The course begins with foundational supply and demand analysis in open economies
 |-----------|--------|
 | Attendance & Participation | 10% |
 | Weekly Homework (MH Connect) | 20% |
-| Group Project (Online Retailing) | 20% |
+| [Group Project (Online Retailing)](https://adamwstauffer.github.io/ai-lms/international-economics-and-trade.html) | 20% |
 | Midterm Exam | 25% |
 | Final Exam | 25% |
 | **Total** | **100%** |
@@ -63,24 +63,8 @@ Assigned weekly via MH Connect. Due Fridays by midnight.
 * Teams of 3–4 students
 * Two short presentations (5 minutes each) in the final weeks of class
 * Task: Select a product to sell online in the U.S., source from a non-U.S. supplier, and analyze unit economics, competitors, and demand
-* Grade breakdown: 12.5% presentation, 2.5% peer evaluation
-
-### AI + GitHub Course Project (Trade & Tariff Case Brief)
-
-This project applies course concepts to a real-world trade dispute or policy (tariffs, quotas, or trade agreements). Students will:
-
-* Apply Ricardian, Heckscher-Ohlin, and Specific-Factors models
-* Identify winners/losers across consumers, producers, and governments
-* Evaluate distributional and policy implications
-* Use AI for research, modeling, critique, and visualization
-* Use GitHub for reproducibility (templates, deliverables, prompt logs)
-
-Workflow:
-* README (Assignment Brief) – outlines problem and rubric
-* Prompts – AI queries (students adapt/expand but must log)
-* Spec – project plan (models, data, acceptance criteria)
-* Analysis & Deliverables – case brief, tables, figures
-* Prompt Log & Reflection – documentation of AI use
+* Grade breakdown: the presentations and the peer evaluation together make up the 20%
+* Step by step: [International Economics & Trade on Kumu](https://adamwstauffer.github.io/ai-lms/international-economics-and-trade.html)
 
 ### Examinations
 

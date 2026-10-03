@@ -1,4 +1,4 @@
-# Specs
+# Capability: performance ratios
 
 Technical specifications that define analytical work precisely enough for any competent executor — human or AI — to produce correct output without additional context.
 
@@ -9,16 +9,13 @@ Technical specifications that define analytical work precisely enough for any co
   - **Part B (Analysis Specification):** Interpretation requirements, benchmarks, strategic recommendation criteria, and output format
 - **Methodology documents** — formal descriptions of analytical approaches
 
-## Naming convention
+## Where the spec goes
 
 ```
-YYYY-MM-DD-{company-slug}-spec.md
+capabilities/performance-ratios/spec.md
 ```
 
-**Examples:**
-- `2026-06-18-vinamilk-spec.md`
-
-Files already submitted under an older name (with your last name, or a `stageN` prefix) still count — nothing to rename.
+One spec per project, beside this README. A spec already committed in `docs/specs/` or under an older name still counts; nothing to move or rename.
 
 ## Template
 

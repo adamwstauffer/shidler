@@ -16,7 +16,7 @@ A 1.5-acre market garden — 64 beds, one farmer, up to four temporary workers �
 2. **MC vs AVC vs ATC** — and the short-run shutdown logic: carrots and mesclun *alone* never cover fixed costs, yet growing them is still optimal. Why?
 3. **Diminishing returns** are why MC slopes up — here modeled as labor per bed growing with each bed planted.
 4. **Input prices bend the MC curve** — tomato MC *dips* at ~6 beds when the farmer's own field hours (an expensive $34.72/hr) run out and cheaper temp labor ($17.36/hr) takes over. MC is not guaranteed monotonic; students should be able to explain the dip, not just observe it.
-5. **Constrained optimization** — when a bed cap binds, MC < P at the cap and the constraint (not economics) stops production. Shadow-price intuition: one more carrot bed would be worth ~$352.
+5. **Constrained optimization** — when a bed cap binds, MC < P at the cap and the constraint (not economics) stops production.
 6. **Accounting vs economic cost** — the farmer's salary is paid regardless; charging her field hours to crops is an *opportunity-cost* choice. (Bridges to the Accounting vs Economic Profit case in this same unit.)
 
 ## The scenario — all assumptions in one place
@@ -73,13 +73,9 @@ Student-facing web pages for this case: [`case-perfect-competition.html`](https:
 
 **AI-use boundary (course standard, unchanged):** AI may explain concepts, critique your reasoning, and help debug formulas. It may not write your brief, analysis, memo, or reflection. Log the sessions that mattered. The workbook was never on the prohibited list, which is why Stage 2's AI-built workbook is a sequencing change rather than a boundary change.
 
-## Instructor notes & check figures
+## Expected results
 
-- **Optimum:** Tomatoes 10 / Carrots 20 / Mesclun 30 → 60 beds, **profit $42,762**. Labor 5,277 hrs = 720 perm + 4,557 temp (3.16 temp workers). Revenue $210,880, fertilizer $44,000, labor $104,118, fixed $20,000. (Brute-force verified over all integer mixes; Excel recalculation matches to the dollar.)
-- **Binding constraints:** carrot and mesclun bed caps (marginal profit at cap: carrot +$352/bed, mesclun +$246/bed — good shadow-price discussion). Tomatoes interior at P≈MC (MC $8,249 at bed 10 vs price $8,800; bed 11 would cost $9,391). Beds ≤ 64 and temps ≤ 4 are both slack.
-- **Standalone P~MC points** (MC Schedules sheet): tomatoes ~10 beds, carrots ~10, mesclun ~6. Carrots and mesclun standalone lose money at every q (fixed costs $20k dominate; best cases −$16,489 at 20 carrot beds, −$11,922 at 30 mesclun beds) — the shutdown discussion writes itself: P > AVC at the quantities the optimum plants, so operate; the *mix* is what turns a loss into $42,762. **Two traps, both verified in exact arithmetic 2026-09-08 — do not say "every crop" or "everywhere":** tomatoes *are* standalone-profitable from 7 to 13 beds (peak **+$6,173** at 10), and AVC *does* exceed price for mesclun at beds 13–14 ($2,716 / $2,703) and tomatoes at beds 16–20. Students who catch either are right; the learning goal and the Stage 3 deliverable are both correctly scoped to carrots and mesclun.
-- **The MC dip** (tomatoes, q≈6): MC falls from $7,661 to $4,906 when perm hours exhaust and marginal labor switches to the cheaper temp wage, then diminishing returns push it back up through the price line. Expect confusion; it is the best five minutes of the debrief.
-- **Solver:** GRG Nonlinear, integer decisions, constraints as listed on the workbook README sheet. Nonconvexity is mild; from a 0/0/0 start GRG finds the optimum, but have students try 20/0/0 as a start to see path-dependence.
+Expected results are discussed in class after Stage 3 is handed in.
 
 ## Bugs fixed vs `…Optimize Profit v5.xlsx`
 

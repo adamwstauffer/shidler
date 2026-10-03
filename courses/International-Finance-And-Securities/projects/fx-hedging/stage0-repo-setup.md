@@ -8,6 +8,9 @@ deliverables:
   - path: "(repository) firstname-lastname"
     format: repo
     ai_boundary: ai-first-verified
+  - path: "README.md (the bio)"
+    format: markdown
+    ai_boundary: human-first
 prerequisites: []
 weight: "8% of project"
 estimated_time: "40-50 min"
@@ -21,7 +24,7 @@ estimated_time: "40-50 min"
 
 > **Stage 0 belongs to the course, not to the FX hedging project** (reframed 2026-09-24, matching
 > the course site and BUS 620 Micro & Macro Economics, which is the guidepost for this course's
-> conventions). It is done once, before any project work, and every course here reads the same
+> conventions). It is done once, on the schedule in the [project README](README.md#stages--weights), and every course here reads the same
 > result. It comes in **two parts**: **part 1** — the GitHub account and the three verbs
 > (add → commit → push), on the
 > [onboarding page](https://adamwstauffer.github.io/ai-lms/onboarding.html#github-account);
@@ -35,7 +38,7 @@ estimated_time: "40-50 min"
 > separate `BIO.md`. That skeleton is **superseded** by the course-independent portfolio repo
 > standard below. The two folders this project used to commit into, `docs/specs/` and
 > `models/builds/`, were moved to Stage 1 (course site 2026-08-20) and then retired on
-> **2026-09-24 (Adam)**: the spec and the workbook now live in `capabilities/fx-hedging/`, which
+> **2026-09-24**: the spec and the workbook now live in `capabilities/fx-hedging/`, which
 > this skeleton already has (see [`stage1-executive-brief.md`](stage1-executive-brief.md) § Where
 > this project's files go). The earlier text is in this file's git
 > history.
@@ -48,7 +51,7 @@ This stage produces the workspace, and nothing else. One public repository, name
 the structure that every stage of this project — and every project after it — lands in. No finance
 happens here; the point is that from Stage 1 on, the work is about currency risk rather than Git.
 
-It is a stage of its own because it has to be finished before the executive brief is committed, and because it
+It is a stage of its own because it
 is the one artifact in this course that outlives the course. A repository stood up properly in week
 one is a portfolio by the end of the term; one thrown together on the way to a deadline is a folder
 of homework.
@@ -116,14 +119,13 @@ accidental commit of a `~$` temp file.
 
 ## 5. Procedure
 
-1. **Create the GitHub account** (part 1). Use your `@hawaii.edu` address — it qualifies for
-   [GitHub Education](https://education.github.com). **Already have a GitHub account? Use it** — do
-   not create a second one; add your `hawaii.edu` address under *Settings → Emails*.
+1. **Create the GitHub account** (part 1). Any email works for your GitHub account; for the free GitHub Education benefits, add your school address under Settings › Emails and apply, which is optional and never graded.
+   **Already have a GitHub account? Use it**; do not create a second one.
    *Confirm:* you can sign in, and the email is verified.
 
 2. **Install GitHub Desktop**, or use the command line if you already prefer it. The deliverable is
    identical either way.
-   *Confirm:* your Git config carries your real name and `.edu` address — both are stamped on every commit.
+   *Confirm:* your Git config carries your real name and an email you keep; both are stamped on every commit.
 
 3. **Create the repository.** Name it `firstname-lastname` (or `firstname-lastname-portfolio` if the
    plain name is taken), set visibility to **public**, and initialize it with a README. Resist a
@@ -138,8 +140,9 @@ accidental commit of a `~$` temp file.
    `.gitignore`. **Read every file before you commit.**
    *Confirm:* every directory holds at least one file; `AGENTS.md` says something only you could have said.
 
-5. **Write the bio yourself.** Replace the placeholder `README.md` with a 200–400 word bio on who
-   you are, followed by an engagement index. The bio lives in `README.md`, not in a separate `BIO.md`.
+5. **Write the bio yourself, first.** Replace the placeholder `README.md` with a 200–400 word bio on
+   who you are, followed by an engagement index. The bio lives in `README.md`, not in a separate
+   `BIO.md`. You write the first draft; AI may review it, never draft it.
    *Confirm:* nothing in these files is placeholder text you would not want read.
 
 6. **Add `.gitignore`** before any workbook is committed, using the starter block in
@@ -159,11 +162,11 @@ accidental commit of a `~$` temp file.
 | Artifact | Draft order |
 |---|---|
 | Repository skeleton, `.gitignore`, `AGENTS.md` tailored from your resume, `CLAUDE.md`, the first `prompt-log.md` entry | AI-first, verified — the setup prompt does all of it |
-| `README.md` bio, `RESUME.md` | AI-first, verified — then edited until it sounds like you |
+| `README.md` bio, `RESUME.md` | You draft first; AI may review, never draft |
 | `prompt-log.md` after day one | Kept under the standing rule in `AGENTS.md`: one entry per session, never backfilled |
 
-Everything here is a means to the work rather than the work itself, so AI may build all of it and
-you verify. Three things to check: no folder is named after a course or a term, every directory
+Everything here except the bio and resume is a means to the work rather than the work itself, so AI
+may build it and you verify. Three things to check: no folder is named after a course or a term, every directory
 contains something, and the placeholder files are actually placeholders rather than invented
 biography.
 
@@ -171,7 +174,7 @@ biography.
 
 - [ ] Repository is **public** — the URL opens in a private browser window without logging in
 - [ ] Named for you (`firstname-lastname`), not for a course
-- [ ] `README.md` holds a real bio and the start of an engagement index
+- [ ] `README.md` holds your own 200–400 word bio and the start of an engagement index
 - [ ] `AGENTS.md` tailored to you; `CLAUDE.md` is the one-line pointer
 - [ ] `RESUME.md` at the root; `prompt-log.md` has its first entry
 - [ ] `.gitignore` filters Office and OS temp files
@@ -185,7 +188,7 @@ biography.
 |---|---:|---|
 | Public & accessible | 25% | Repo is public, professionally named, URL submitted |
 | Skeleton & READMEs | 25% | The standard skeleton above; a stub `README.md` in every folder; `AGENTS.md`, `CLAUDE.md`, `prompt-log.md`, `.gitignore` present |
-| Bio & resume | 25% | Clear, professional, recruiter-ready; evidence of editing beyond raw LLM output |
+| Bio & resume | 25% | Clear and professional; your own first draft, revised after review |
 | Commit hygiene | 25% | ≥2 meaningful commits with descriptive messages |
 
 ## 9. Common failure modes

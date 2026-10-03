@@ -11,7 +11,6 @@ deliverables:
     format: xlsx
 prerequisites: [3]
 weight: "12% of project"
-# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
 ---
 
 # Stage 4 – Market Data + Population (12% of project)
@@ -79,7 +78,8 @@ the decimals.
 - Re-committed workbook (same file, new commit — commit message notes the population + any
   structural fixes)
 - Updated `prompt-log.md` if AI assisted the data hunt.
-- Already submitted under the older name (`data/YYYY-MM-DD-{lastname}-market-data.md`)? It still counts, exactly as if it carried the new name — nothing to rename.
+- Already committed before 2026-10-02 under an older name? It still counts as it is; nothing to move or rename.
+- A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 
 ## Evaluation
 

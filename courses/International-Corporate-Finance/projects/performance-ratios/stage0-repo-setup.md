@@ -1,5 +1,7 @@
 # Stage 0: Personal Portfolio Repository
 
+**Step-by-step on Kumu:** [Stage 0 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage0.html)
+
 **Weight:** 5% of project score
 **Format:** Upload-only — no presentation component
 **Deliverable:** Public GitHub repository URL submitted via Lamaku
@@ -10,9 +12,9 @@
 
 Create your own public GitHub repository — your **portfolio repo** — that will hold every artifact you produce in this course and serve as a discoverable record of your work for employers and collaborators.
 
-A polished public repo is one of the highest-leverage career artifacts you can build. Every subsequent stage adds to it.
+Every later stage adds to it.
 
-> **Never used GitHub before?** This Stage 0 doc is the on-ramp. If you want deeper coverage of any topic below (first commit using GitHub Desktop, the Collaborators panel, pushing larger files), the full reference is at [`guides/github-mba-guide.md`](../../../../guides/github-mba-guide.md). You don't need to read it cover-to-cover — treat it as the dictionary you keep open in another tab while you follow these five steps.
+> **Never used GitHub before?** This Stage 0 doc is the on-ramp. If you want deeper coverage of any topic below (first commit using GitHub Desktop, the Collaborators panel, pushing larger files), the full reference is at [Kumu onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html). You don't need to read it cover-to-cover — treat it as the dictionary you keep open in another tab while you follow these five steps.
 
 ## Why this is Stage 0
 
@@ -37,13 +39,13 @@ The deck walks through these on one summary slide. This document is the detailed
 ## Step 1 — Create a GitHub Account
 
 1. Go to **[github.com](https://github.com)** and click **Sign up**.
-2. **Use your `@hawaii.edu` email.** This makes you eligible for [GitHub Education](https://education.github.com) — free GitHub Pro (private repos, more storage), free Copilot access, and discounts on developer tools.
+2. **Use any email you keep.** Any email works for your GitHub account; for the free GitHub Education benefits, add your school address under Settings › Emails and apply, which is optional and never graded.
 3. **Choose a professional username.** Managers, peers, and reviewers will see this — it's effectively a second business card. Good: `firstname-lastname`, `flastname`, `firstinitiallastname`. Avoid gamer tags, joke names, or anything you wouldn't put on a resume.
 4. **Verify your email** (check your inbox for the confirmation link).
 5. Optional but recommended: upload a **profile photo** (headshot or avatar). It helps your instructor recognize you on the platform.
 6. **Share your GitHub username with the instructor** so we can find your repo.
 
-**Pro tip — GitHub Education benefits.** After you create your account, go to [education.github.com](https://education.github.com), click **Get benefits**, and submit your `.edu` email. Approval is usually instant.
+**Optional: GitHub Education benefits.** Add your school address under Settings › Emails, then go to [education.github.com](https://education.github.com) and click **Get benefits**. It is optional and never graded.
 
 ---
 
@@ -55,7 +57,7 @@ We use **GitHub Desktop** for this course. It's a free visual app from GitHub th
 2. **Windows:** run the installer, click through the prompts (it auto-installs Git in the background — you don't need to install Git separately).
 3. **Mac:** open the `.dmg`, drag GitHub Desktop into Applications, then launch it.
 4. The first time you open it, it asks you to **sign in to GitHub.com** with the account from Step 1. Sign in.
-5. It will ask you to confirm your **Git config** (name and email) — these get attached to every commit. Use your real name and your `@hawaii.edu` email.
+5. It will ask you to confirm your **Git config** (name and email) — these get attached to every commit. Use your real name and an email you keep.
 
 That's it. You're done with installation.
 

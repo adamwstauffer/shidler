@@ -76,11 +76,10 @@ just priced at $69.05.
 4.3 times marginal cost, roughly 77% of the price being margin over cost. Contrast the non-GMO row
 at 1.0× and 0.
 
-**What the deadweight loss means.** Roughly **$2.99B a year**, and not a transfer — surplus that
-simply vanishes. The monopoly withholds about 26M bags to hold price at $297, and the competitive
-benchmark price is about **$121.46**, almost exactly the $120 non-GMO price. Strip the patent and
-GMO seed is just seed. That near-coincidence is the case's best result and the one most students
-walk past.
+**What the deadweight loss means.** How large is the deadweight loss each year, and why is it
+surplus that vanishes rather than a transfer? How many bags does the monopoly withhold to hold the
+price at $297? How does your competitive benchmark price compare with the $120 non-GMO price, and
+what does that comparison say about the patent?
 
 **Whether the patent's innovation incentive justifies it.** A position, defended, engaging the
 discussion spine: complement lock-in, where the herbicide sells the seed and the seed sells the
@@ -152,7 +151,7 @@ your workbook writes about the textbook instead of your numbers.
 - [ ] The twice-as-steep rule explained mechanically, not asserted
 - [ ] P\*-off-demand explained well enough to fix someone who priced at $69.05
 - [ ] Markup 4.30× and Lerner 0.768 interpreted as market power, not recited
-- [ ] Deadweight loss framed as vanished surplus, with the ~$121.46 benchmark against the $120 non-GMO price
+- [ ] Deadweight loss framed as vanished surplus, with your competitive benchmark price set against the $120 non-GMO price
 - [ ] The patent paragraph takes and defends a position using the discussion spine
 - [ ] At least two figures in `analysis/figures/`, each referenced in the text
 - [ ] Figures render on the GitHub page
@@ -168,7 +167,7 @@ your workbook writes about the textbook instead of your numbers.
 |---|---|---|
 | Hypothesis + setup | 3 | Hypothesis committed before the model work and left unedited; setup in your own words; honest verdict on the miss |
 | Perfect versus imperfect mechanics | 3 | Twice-as-steep rule stated correctly; P\*-off-demand explained rather than asserted; markup and Lerner interpreted as market power |
-| Deadweight loss + the patent tradeoff | 3 | The ~$2.99B a year framed as vanished surplus; the ~$121 against $120 benchmark landed; the patent paragraph takes and defends a position using the spine |
+| Deadweight loss + the patent tradeoff | 3 | Your deadweight-loss figure framed as vanished surplus; your competitive benchmark compared with the $120 non-GMO price; the patent paragraph takes and defends a position using the spine |
 | Prompt log + reflection | 3 | Complete log across both stages; reflection of 300 words or fewer, specific, including a genuinely caught AI error or the checks that cleared it |
 
 The memo carries no separate points. It is read together with the analysis under the deadweight-loss

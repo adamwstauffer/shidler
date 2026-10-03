@@ -1,6 +1,6 @@
 <div style="border-top: 6px solid #024731; border-bottom: 1px solid #B2B2B2; padding: 12px 0; margin-bottom: 24px; font-family: 'Open Sans', Helvetica, Arial, sans-serif;">
   <div style="color: #024731; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.85rem;">University of Hawaiʻi at Mānoa · Shidler College of Business</div>
-  <div style="color: #000000; font-weight: 700; font-size: 1.25rem; margin-top: 4px;">FIN-321 International Finance &amp; Securities</div>
+  <div style="color: #000000; font-weight: 700; font-size: 1.25rem; margin-top: 4px;">FIN 321: International Finance and Securities</div>
   <div style="color: #525252; font-weight: 400; font-size: 0.95rem;">FX Transaction Hedging Project — Technical Specification</div>
 </div>
 
@@ -74,36 +74,34 @@ Briefly restate the exposure, timing, and objective in professional terms (3–5
 
 All inputs should be exposed as workbook **named ranges** so Calculation Flow (§4) reads the same whether implemented in Excel, Python, or an AI prompt. Dates, sources, and access timestamps are recorded in the Notes tab. Market inputs (spot, forward, rates, premia) are the only cells an analyst should adjust for scenario work.
 
-> <span style="color:#024731;">**Naming-convention decoder.**</span> The Stage 2 assignment prescribes a **standardized set of names** (left column below). The existing Stauffer template uses **legacy names** (right column) — these should be retired in the production build in favor of the standardized names. Where both are in use, define the legacy name as an alias pointing to the same cell.
-
 ### 2.1 Core Inputs
 
-| Standardized Name | Description | Unit | Legacy Name (template) | Example |
-|-------------------|-------------|------|------------------------|--------:|
-| `FC_AMT` | Foreign-currency notional (receivable or payable) | FC | `recievable` *(sic)* / `contract_notional_value_payable` | 10,000,000 GBP |
-| `S0_in` | Spot exchange rate at inception | USD per FC | `current_spot_price_payable` *(payable only)* | 1.4600 |
-| `F0_in` | Forward rate to settlement | USD per FC | `for_GBPUSD` / `forward_price_payable` | 1.4400 |
-| `R_USD` | USD interest rate to settlement | Annual % | `rate_us_1y_payable` | 6.00% |
-| `R_FC` | Foreign-currency interest rate to settlement | Annual % | `rate_uk_1y_payable` | 6.50% |
-| `T_DAYS` | Days to settlement | Days | *(implicit = 365)* | 365 |
-| `BASIS` | Day-count denominator (single-value simplification) | Days | *(implicit = 360)* | 360 (USD) / 365 (GBP, EUR) |
-| `BASIS_USD` *(optional, rigorous variant)* | USD-leg day-count denominator | Days | — | 360 |
-| `BASIS_FC` *(optional, rigorous variant)* | FC-leg day-count denominator | Days | — | 360 (EUR) / 365 (GBP) |
-| `K_PUT` | Put option strike (receivables) | USD per FC | `x_put` | 1.4600 |
-| `K_CALL` | Call option strike (payables) | USD per FC | `call_strike` | 1.8000 |
-| `PREM_PUT` | Put premium, USD per 1 FC | USD | `put_price` | 0.015 |
-| `PREM_CALL` | Call premium, USD per 1 FC | USD | `call_price` | 0.010 |
+| Standardized Name | Description | Unit | Example |
+|-------------------|-------------|------|--------:|
+| `FC_AMT` | Foreign-currency notional (receivable or payable) | FC | 10,000,000 GBP |
+| `S0_in` | Spot exchange rate at inception | USD per FC | 1.4600 |
+| `F0_in` | Forward rate to settlement | USD per FC | 1.4400 |
+| `R_USD` | USD interest rate to settlement | Annual % | 6.00% |
+| `R_FC` | Foreign-currency interest rate to settlement | Annual % | 6.50% |
+| `T_DAYS` | Days to settlement | Days | 365 |
+| `BASIS` | Day-count denominator (single-value simplification) | Days | 360 (USD, EUR) / 365 (GBP) |
+| `BASIS_USD` *(optional, rigorous variant)* | USD-leg day-count denominator | Days | 360 |
+| `BASIS_FC` *(optional, rigorous variant)* | FC-leg day-count denominator | Days | 360 (EUR) / 365 (GBP) |
+| `K_PUT` | Put option strike (receivables) | USD per FC | 1.4600 |
+| `K_CALL` | Call option strike (payables) | USD per FC | 1.8000 |
+| `PREM_PUT` | Put premium, USD per 1 FC | USD | 0.015 |
+| `PREM_CALL` | Call premium, USD per 1 FC | USD | 0.010 |
 
 ### 2.2 Derived / Intermediate Values
 
 | Name | Description | Source |
 |------|-------------|--------|
-| `FV_PREM_PUT` | Future value of put premium at settlement | `−PREM_PUT × FC_AMT × (1 + R_USD × T_DAYS/BASIS)` *(legacy: `fv_put_outlay`)* |
+| `FV_PREM_PUT` | Future value of put premium at settlement | `−PREM_PUT × FC_AMT × (1 + R_USD × T_DAYS/BASIS)` |
 | `FV_PREM_CALL` | Future value of call premium at settlement | `−PREM_CALL × FC_AMT × (1 + R_USD × T_DAYS/BASIS)` |
-| `S_T_grid` | Sensitivity spot grid at settlement | Built from `S0_in` ± 5% in 1% steps *(legacy: `gbpusd_1y_scenario`, `future_spot_price_payable`)* |
-| `USD_NO_HEDGE` | USD proceeds / outlay under no hedge | `S_T × FC_AMT` *(legacy: `hedge_no`)* |
+| `S_T_grid` | Sensitivity spot grid at settlement | Built from `S0_in` ± 5% in 1% steps |
+| `USD_NO_HEDGE` | USD proceeds / outlay under no hedge | `S_T × FC_AMT` |
 
-> <span style="color:#024731;">**Tip:**</span> Keep labels short and standardized — these names become Excel named ranges *and* the AI prompt parameters in Stage 4. Typos carried forward from the legacy template (e.g., `recievable`) should be corrected at the start of Stage 3.
+> <span style="color:#024731;">**Tip:**</span> Keep labels short and standardized — these names become Excel named ranges *and* the AI prompt parameters in Stage 3.
 
 ---
 
@@ -113,7 +111,7 @@ State every convention used. Clarity here is what makes the model reproducible.
 
 - **Quote convention:** All rates expressed as **USD per unit of foreign currency** (e.g., USD/GBP, USD/EUR). A higher quote means FC appreciation.
 - **Horizon:** Single-maturity model; `T_DAYS = 365` unless otherwise noted. Templates assume a 1-year tenor.
-- **Day-count basis:** The default 1-year tenor uses the textbook simplified-annual form `(1 + r)` for both USD and FC legs. The general form is `r × T_DAYS / BASIS`, with `BASIS = 360` for USD money-market quotes (ACT/360) and `BASIS = 365` for GBP / EUR money-market quotes (ACT/365). The template exposes a **single `BASIS`** named range (simplification). A rigorous build should split it into `BASIS_USD` and `BASIS_FC` so each leg applies its own convention — flagged in §6.2.
+- **Day-count basis:** The default 1-year tenor uses the textbook simplified-annual form `(1 + r)` for both USD and FC legs. The general form is `r × T_DAYS / BASIS`, with `BASIS = 360` for USD and EUR money-market quotes (ACT/360) and `BASIS = 365` for GBP money-market quotes (ACT/365). The template exposes a **single `BASIS`** named range (simplification). A rigorous build should split it into `BASIS_USD` and `BASIS_FC` so each leg applies its own convention. Record it in §6.2.
 - **Parity:** Money-market hedge is assumed to replicate the forward hedge under covered interest-rate parity; any gap is a test of parity, not a model error.
 - **Option premium:** Paid upfront in USD, quoted per 1 unit of FC (no contract multiplier). Premia are expressed as a **negative cash flow** at t₀ and carried forward at `R_USD` to put them on the same footing as the settlement-date USD proceeds.
 - **Counterparty / credit risk:** Excluded. All derivatives assumed frictionless and creditworthy.
@@ -173,7 +171,7 @@ For each `S_T` in `S_T_grid`:
 
 ### Step 6 — Summary metrics (scalar outputs)
 
-- `USD_FLOOR_PUT` = `MIN(USD_PUT)` across `S_T_grid` *(worst-case put outcome on the grid — legacy cell `F29`; payable tab uses `USD_CEILING_CALL = MAX(USD_CALL)` instead)*
+- `USD_FLOOR_PUT` = `MIN(USD_PUT)` across `S_T_grid` *(worst-case put outcome on the grid; payable tab uses `USD_CEILING_CALL = MAX(USD_CALL)` instead)*
 - `USD_BASE_k` = `USD_k` evaluated at `S_T = S0_in` for each strategy *(the "baseline" row feeds §5.1)*
 
 *`HEDGE_PROFIT_k` is per-row and lives inside the Step 5 grid, not here.*
@@ -198,7 +196,7 @@ For a payable of `FC_AMT` to be settled in FC at maturity, the model mirrors Ste
 
 ### 5.1 Computed Base-Case Values
 
-Record the base-case outcome at `S_T = S0_in` once the model is built. This block serves as a regression checkpoint for the refined Stage 4 version.
+Record the base-case outcome at `S_T = S0_in` once the model is built. This block serves as a regression checkpoint for the Stage 3 build and the Stage 4 repopulation.
 
 | Strategy | USD Proceeds (Receivable) | USD Outlay (Payable) | Hedge Profit vs. No Hedge |
 |----------|--------------------------:|---------------------:|--------------------------:|
@@ -215,24 +213,11 @@ Record candidly what the model gets right and where it needs work. If you are wr
 
 ### 6.1 What Worked
 
-- **Four-strategy comparison on one canvas.** No hedge, forward, money market, and option are all priced against the same `S_T` grid, which makes the trade-off inspection immediate.
-- **Winner / best-hedge labels per row.** Columns K and L in the template return the dominant strategy at each scenario — a good UX for a non-quant reader.
-- **Put payoff vectorized across the grid.** Option column applies `MAX(0, (K − S_T) × FC_AMT)` for every scenario, so the put payoff curve can be read directly.
-- **Baseline marker at `S_T = S0_in`.** The `<-- baseline` annotation anchors the scenario range in a recognizable reference point.
+- [What the model gets right, and the cell or check that shows it.]
 
 ### 6.2 What to Improve
 
-- **Named-range discipline is incomplete.** On the receivable tab, only a subset of inputs (`recievable`, `for_GBPUSD`, `x_put`, `put_price`, `fv_put_outlay`, `gbpusd_1y_scenario`, `hedge_no`) have names; spot, US rate, and UK rate are still referenced as `$F$7`, `$F$9`, `$F$10`. **Fix:** add `S0_in`, `R_USD`, `R_FC`, `T_DAYS` and replace every hard cell reference.
-- **Typo in a named range.** `recievable` should be `receivable` (or the standardized `FC_AMT`). Migrate and delete the old name.
-- **Inconsistent references inside the sensitivity grid.** On the receivable tab, `G33 = hedge_no + J33` uses implicit intersection, but `G34:G45 = $D34 + J34` uses direct relative references. **Fix:** use `$D33 + J33` in all rows so the formula is uniform and implicit-intersection-free.
-- **Named-range implicit intersection is fragile.** `gbpusd_1y_scenario` and `future_spot_price_payable` resolve to single cells only because Excel applies implicit intersection against the current row. Replace with explicit `$C33` references, or convert the grid to a dynamic-array `LET`/`BYROW` formulation.
-- **Strike-price defaulting is inconsistent.** Payable tab anchors `K_CALL = S0_in`; receivable tab leaves `K_PUT` blank. **Fix:** default both strikes to `S0_in` and expose an override.
-- **Sensitivity step size is hard-coded and unequal across tabs.** Receivable tab increments spot by 0.01 (small); payable tab by 0.05 (large). **Fix:** drive the grid off a single `STEP_FRAC` input (e.g., 1%) so `S_T_grid = S0_in × (1 + n × STEP_FRAC)` for `n = −5…+5`, giving a consistent ±5% range on both tabs.
-- **Option summary cell is a "floor," not a "baseline."** `F29 = MIN(G33:G45)` reports the worst-case put outcome. Add a second cell that reports the put outcome at `S_T = S0_in` so the strategy-summary block shows both a **baseline** and a **floor**.
-- **Day-count is implicit.** The `(1 + r)` formulation assumes 1-year simple interest. **Fix:** introduce `T_DAYS` and a `BASIS` toggle (360 vs. 365) so the model is reusable at non-annual tenors.
-- **No chart is included.** The sensitivity grid is tabular only. **Fix:** add a line chart (USD outcome vs. `S_T`, one series per strategy) on each tab.
-- **Money-market walk on the payable tab is longer than it needs to be** (five steps F21:F25, with a partial round-trip through FC). The textbook form is a two-step: (i) `USD_borrow = FC_AMT × S0 / DF_FC` today, (ii) `USD_MM = USD_borrow × DF_USD` at maturity. **Fix:** collapse to the two-step form and keep the longer walk as a commented audit trail only.
-- **Transaction-cost sensitivity absent.** Add a bid-ask / commission knob on the forward and a spread on the option premium; real treasury desks never see the mid.
+- [What to fix, and how. These notes become the improvement brief for the Stage 3 build.]
 
 ### 6.3 Auditability Checklist
 
@@ -300,116 +285,3 @@ Record candidly what the model gets right and where it needs work. If you are wr
 |---------|------|--------|--------|
 | 0.1 | [YYYY-MM-DD] | [name] | Initial draft |
 |  |  |  |  |
-
----
-
-## Appendix B — Brand & Formatting Standards
-
-All FIN-321 deliverables — this spec, the companion workbook, the Stage 5 decision memo, and any derivative chart or slide — must conform to the **University of Hawaiʻi at Mānoa Brand Style Guide** as codified in [`docs/_branding/design.json`](../../../../../docs/_branding/design.json) (v1.0.0). The tokens below are a reader-friendly extract; the JSON file is the source of truth.
-
-### B.1 Color Palette
-
-**Primary colors — logos, headings, accents. Do not substitute.**
-
-| Token | Hex | RGB | CMYK | Pantone | Usage |
-|-------|-----|-----|------|---------|-------|
-| <span style="display:inline-block; width:12px; height:12px; background:#024731; border:1px solid #000; vertical-align:middle;"></span> UH Green | `#024731` | 2, 71, 49 | 93, 24, 85, 68 | 3435 C | Logos, H1/H2, key UI accents, primary buttons |
-| <span style="display:inline-block; width:12px; height:12px; background:#000000; border:1px solid #B2B2B2; vertical-align:middle;"></span> Black | `#000000` | 0, 0, 0 | 0, 0, 0, 100 | Process Black | Body text, borders, maximum-contrast UI |
-
-**Secondary colors — borders, muted elements, backgrounds.**
-
-| Token | Hex | RGB | Pantone | Usage |
-|-------|-----|-----|---------|-------|
-| <span style="display:inline-block; width:12px; height:12px; background:#B2B2B2; border:1px solid #000; vertical-align:middle;"></span> Silver | `#B2B2B2` | 178, 178, 178 | Cool Gray 5 C | Subtle borders, rules, disabled states |
-| <span style="display:inline-block; width:12px; height:12px; background:#FFFFFF; border:1px solid #B2B2B2; vertical-align:middle;"></span> White | `#FFFFFF` | 255, 255, 255 | — | Page backgrounds, inverse text, cards |
-
-**Extended light-mode tokens (for tables, callouts, footnotes).**
-
-| Purpose | Token | Hex |
-|---------|-------|----:|
-| Secondary text / captions | Neutral-600 | `#525252` |
-| Tertiary text | Neutral-500 | `#737373` |
-| Hover / pressed state | UH Green 700 | `#013D26` |
-| Link text | Light-mode link | `#024731` |
-| Tint / callout fill | UH Green 50 | `#E6F2EF` |
-| Table border (subtle) | Neutral-200 | `#E5E5E5` |
-
-**Status colors (informational banners only — never for body text).**
-
-| State | Text | Background | Solid |
-|-------|-----:|-----------:|------:|
-| Success / Info | `#024731` | `rgba(2, 71, 49, 0.08–0.12)` | `#024731` |
-| Warning | `#737373` | `rgba(178, 178, 178, 0.20)` | `#B2B2B2` |
-| Error | `#B43232` | `rgba(180, 50, 50, 0.12)` | `#8B2727` |
-
-> <span style="color:#024731; font-weight:600;">Prohibited:</span> custom palettes, gradients, red body type, non-ADA contrast combinations, or layouts too dark for print legibility. If a color is not in this appendix or `design.json`, it is not brand.
-
-### B.2 Typography
-
-| Element | Web (screen) | Print | Fallback | Weight |
-|---------|--------------|-------|----------|-------:|
-| H1 / H2 | Open Sans Bold | Avenir Bold | Helvetica, Arial | 700 |
-| H3 / H4 | Open Sans Semibold | Avenir Bold | Helvetica, Arial | 600 |
-| Body | Open Sans Regular | Avenir Book | Helvetica, Arial | 400 |
-| Caption / footnote | Open Sans Regular | Avenir Book | Helvetica, Arial | 400 |
-| Monospace (formulas, named ranges, code) | `ui-monospace` | Consolas | monospace | 400 |
-
-**Sizing & setting rules:**
-
-- Body type minimum **10 pt**; use **11–12 pt** for any printed copy intended for faculty, committees, or older audiences.
-- **Leading** (line-height): 3–5 pt greater than type size on printed copy.
-- **Alignment:** flush left, ragged right for body copy. Never center or fully justify body text.
-- **Headlines:** Avenir Bold in ALL CAPS for emphasis, or sentence case for restrained look. Pick one and stay consistent within a deliverable.
-
-### B.3 Applying the Palette in the Workbook
-
-Excel is not a brand canvas, but it must still respect the palette. Use the color coding below — these apply to cell text/fill and match the `bus314` sibling skill's conventions.
-
-| Element | Color | Hex | Notes |
-|---------|-------|----:|-------|
-| Section headings & banners (Input / Sensitivity / Outputs) | UH Green | `#024731` | Bold, 12 pt |
-| Input cells (editable by analyst) | <span style="background:#FFFF00;">Yellow fill</span> | `#FFFF00` | Standard-industry input color; flagged as **Excel-only** — not a brand color |
-| Assumption cells (analyst scenario knobs) | <span style="color:#0000FF;">Blue text</span> | `#0000FF` | Standard-industry hardcode color |
-| Formula cells | Black text | `#000000` | All calculations |
-| Cross-tab links | <span style="color:#024731;">UH Green text</span> | `#024731` | Mirrors brand primary |
-| External links (e.g., Bloomberg pulls) | <span style="color:#B43232;">Dark red text</span> | `#B43232` | Used sparingly; never for commentary |
-| Table gridlines / separators | Silver | `#B2B2B2` | 0.5 pt |
-| Header row fill | UH Green | `#024731` | White text |
-
-**Workbook typography:** set the workbook default font to **Open Sans** (fall back to Arial where Open Sans is unavailable). Do not use Calibri.
-
-### B.4 Charts (Sensitivity Line Chart — §7)
-
-| Series | Line color | Style | Weight |
-|--------|-----------:|-------|-------:|
-| No hedge | `#000000` (Black) | Solid | 1.5 pt |
-| Forward hedge | `#024731` (UH Green) | Solid | 2.0 pt |
-| Money-market hedge | `#013D26` (UH Green 700) | Dashed | 1.5 pt |
-| Option hedge | `#525252` (Neutral-600) | Dotted | 2.0 pt |
-
-- **Gridlines:** Silver `#B2B2B2`, 0.5 pt, horizontal only.
-- **Axis labels & title:** Open Sans Semibold, black, 10 pt minimum.
-- **Legend:** top or right, Open Sans Regular, 10 pt.
-- **No 3-D effects, no drop shadows, no gradient fills.**
-
-### B.5 Accessibility & Prohibited Practices
-
-Derived directly from `design.json → accessibility`:
-
-- Every text / background combination must clear **ADA AA contrast** (4.5:1 for body, 3:1 for large text). Check UH Green on white (✓ 11.5:1) and UH Green on silver (✗ 2.1:1 — do not use).
-- **Never** use red type for body or primary content. Dark red `#B43232` is permitted only for error-state banners and external-link markers in the workbook.
-- **Never** layer body copy on dark backgrounds — dark-mode tokens are reserved for digital product UI, not print or PDF deliverables.
-- **Never** introduce custom palettes, gradients, or alternative brand marks. If a need arises, escalate via the UH Mānoa Branding and Marketing Office (`branding@hawaii.edu`, `(808) 956-3598`).
-
-### B.6 File & Deliverable Conventions
-
-- **Spec file name:** `capabilities/fx-hedging/spec.md` (fixed path, Stage 2; no last name — the repository is named for you).
-- **Workbook file name:** `capabilities/fx-hedging/model.xlsx` (fixed path, Stages 3–4).
-- **PDF export of the spec:** embed fonts; render at Letter size; margins ≥ 0.75 inch; body 11–12 pt.
-- **All files** must carry the UH Mānoa banner block (see top of this template) and the brand footer (below).
-
----
-
-<div style="border-top: 1px solid #B2B2B2; padding-top: 8px; margin-top: 24px; font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-size: 0.8rem; color: #525252;">
-  Prepared per UH Mānoa brand standards (<code>docs/_branding/design.json</code> v1.0.0). Primary green <span style="display:inline-block; width:10px; height:10px; background:#024731; border:1px solid #000;"></span> <code>#024731</code> · Black <span style="display:inline-block; width:10px; height:10px; background:#000000; border:1px solid #B2B2B2;"></span> <code>#000000</code> · Silver <span style="display:inline-block; width:10px; height:10px; background:#B2B2B2; border:1px solid #000;"></span> <code>#B2B2B2</code> · Body type Open Sans Regular, 11–12 pt for printed copies · ADA-compliant contrast · Flush-left, ragged-right alignment · No red body type · No custom palettes or gradients.
-</div>
