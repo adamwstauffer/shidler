@@ -40,8 +40,6 @@ Kumu: [the doer–reviewer dilemma](https://adamwstauffer.github.io/ai-lms/#doer
 ```
 shidler/
 ├── BIO.md                          # Short instructor bio; full bio, resume and CV on adamwstauffer.github.io
-├── CV.md                           # Pointer to the CV on adamwstauffer.github.io
-├── RESUME.md                       # Pointer to the resume on adamwstauffer.github.io
 ├── AGENTS.md                       # AI agent instructions for this repo (canonical)
 ├── CLAUDE.md                       # One-line pointer to AGENTS.md
 │
@@ -114,7 +112,7 @@ The UH M&#x0101;noa design system is stored as two complementary files:
 
 PowerPoint templates (`.potx`, `.pptx`) live in `docs/_branding/templates/`.
 
-### Templates (`docs/templates/`)
+### Templates (`templates/`)
 
 Reusable Markdown templates for common deliverables: executive memo, technical spec, case brief, risk memo, prompt log, and bio/resume formats.
 
@@ -270,7 +268,7 @@ A portfolio with three thoughtful, well-executed extensions beats one with twent
 | Brand Design Tokens | `docs/_branding/design.json` |
 | Visual Design Reference | `docs/_branding/design-system.html` |
 | Appendix Presentations | `docs/presentations/` |
-| Reusable Templates | `docs/templates/` |
+| Reusable Templates | `templates/` |
 | Decision Memos | `docs/decisions/` |
 | AI Usage Guidelines | `docs/ai-usage-guidelines.md` |
 | Writing Style Guide | `docs/writing-style-guide.md` |

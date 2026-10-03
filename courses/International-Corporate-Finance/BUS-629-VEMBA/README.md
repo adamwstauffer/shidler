@@ -91,11 +91,11 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 
 **Student guides** (read as needed — none are required cover-to-cover):
 
-- [`docs/guides/github-mba-guide.md`](../../../docs/guides/github-mba-guide.md) — GitHub fundamentals, first commit, instructor write access, PR mechanics. **Read Sections 4–7 before Stage 2.**
-- [`docs/guides/responding-to-pr-feedback.md`](../../../docs/guides/responding-to-pr-feedback.md) — Rubric-shaped checklist for the Stage 5 PR-feedback line (5% of project). **Read the week before Stage 5.**
-- [`docs/guides/vas-ifrs-gaap-ratio-quickref.md`](../../../docs/guides/vas-ifrs-gaap-ratio-quickref.md) — Cross-standard reference for ratio interpretation (lease accounting, LIFO, goodwill amortization, R&D capitalization). **Read during Stage 3 if your company reports under VAS or IFRS; revisit at Stage 5 when interpreting ratios.**
-- [`docs/guides/claude-code-install-for-non-technical-users.md`](../../../docs/guides/claude-code-install-for-non-technical-users.md) — Optional. Windows/Mac walkthrough if you want to try Claude Code in a terminal.
-- [`docs/guides/student-ai-enhancements.md`](../../../docs/guides/student-ai-enhancements.md) — Optional / ungraded. Above-and-beyond paths (author a Claude Skill, try a Claude-for-Financial-Services plugin).
+- [`guides/github-mba-guide.md`](../../../guides/github-mba-guide.md) — GitHub fundamentals, first commit, instructor write access, PR mechanics. **Read Sections 4–7 before Stage 2.**
+- [`guides/responding-to-pr-feedback.md`](../../../guides/responding-to-pr-feedback.md) — Rubric-shaped checklist for the Stage 5 PR-feedback line (5% of project). **Read the week before Stage 5.**
+- [`guides/vas-ifrs-gaap-ratio-quickref.md`](../../../guides/vas-ifrs-gaap-ratio-quickref.md) — Cross-standard reference for ratio interpretation (lease accounting, LIFO, goodwill amortization, R&D capitalization). **Read during Stage 3 if your company reports under VAS or IFRS; revisit at Stage 5 when interpreting ratios.**
+- [`guides/claude-code-install-for-non-technical-users.md`](../../../guides/claude-code-install-for-non-technical-users.md) — Optional. Windows/Mac walkthrough if you want to try Claude Code in a terminal.
+- [`guides/student-ai-enhancements.md`](../../../guides/student-ai-enhancements.md) — Optional / ungraded. Above-and-beyond paths (author a Claude Skill, try a Claude-for-Financial-Services plugin).
 
 **Stage assignments** (in [`../projects/performance-ratios/`](../projects/performance-ratios/)):
 [Stage 0](../projects/performance-ratios/stage0-repo-setup.md) |
@@ -312,10 +312,10 @@ Cheating and plagiarism will not be tolerated and will be handled under the UH S
 | Resource | Location |
 |----------|----------|
 | Project Design Memo | [`../projects/performance-ratios/docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md`](../projects/performance-ratios/docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md) |
-| Provided Excel Template (Stage 1) | [`../../../docs/templates/spreadsheets/performance-ratios-template.xlsx`](../../../docs/templates/spreadsheets/performance-ratios-template.xlsx) |
-| Memo Template | [`../../../docs/templates/memo-template.md`](../../../docs/templates/memo-template.md) |
-| Spec Template | [`../../../docs/templates/spec-template.md`](../../../docs/templates/spec-template.md) |
-| Templates README (frontmatter, naming) | [`../../../docs/templates/README.md`](../../../docs/templates/README.md) |
+| Provided Excel Template (Stage 1) | [`../../../templates/spreadsheets/performance-ratios-template.xlsx`](../../../templates/spreadsheets/performance-ratios-template.xlsx) |
+| Memo Template | [`../../../templates/memo-template.md`](../../../templates/memo-template.md) |
+| Spec Template | [`../../../templates/spec-template.md`](../../../templates/spec-template.md) |
+| Templates README (frontmatter, naming) | [`../../../templates/README.md`](../../../templates/README.md) |
 | Brand Guidelines | [`../../../docs/_branding/design.json`](../../../docs/_branding/design.json) |
 | Financial Model Assumptions (Student) | [`../../../docs/financial-model-assumptions-student.md`](../../../docs/financial-model-assumptions-student.md) |
 | Financial Model Assumptions (Full Spec) | [`../../../docs/financial-model-assumptions.md`](../../../docs/financial-model-assumptions.md) |

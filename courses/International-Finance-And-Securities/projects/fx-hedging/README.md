@@ -17,8 +17,8 @@ Three things changed to match it:
   `models/builds/`) is superseded.
 - **Every brief carries `stage-brief` frontmatter** — the `deliverables` block is the path the
   course site's stage pages and `gates.js` mirror, as in BUS 620.
-- **The reference skeleton** in [`../../sample/`](../../sample/) now matches the standard, with the
-  project's files in `capabilities/fx-hedging/`.
+- **The reference skeleton** is the repo-wide worked sample,
+  [`templates/portfolio/firstname-lastname/`](../../../../templates/portfolio/firstname-lastname/).
 
 - **Stages 2–4 commit into the capability folder (2026-09-24, Adam).** The spec is
   `capabilities/fx-hedging/spec.md` and the workbook `capabilities/fx-hedging/model.xlsx`, beside the

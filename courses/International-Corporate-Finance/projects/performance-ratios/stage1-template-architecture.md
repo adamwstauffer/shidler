@@ -20,7 +20,7 @@ In undergraduate sections (BUS-314), students design their own templates from sc
 
 ## The provided template
 
-**File:** [`../../docs/templates/spreadsheets/performance-ratios-template.xlsx`](../../../../docs/templates/spreadsheets/performance-ratios-template.xlsx)
+**File:** [`../../templates/spreadsheets/performance-ratios-template.xlsx`](../../../../templates/spreadsheets/performance-ratios-template.xlsx)
 
 **Tabs included:**
 
@@ -101,4 +101,4 @@ The repo must contain:
 
 - **Open the template before uploading.** Click through every tab. Read the Cover & Instructions tab. Skim the Ratios tab — note how every formula is in named-range notation. You'll need this familiarity at Stages 3 and 4.
 - **Don't modify the template at this stage.** If you spot something you'd want to change, write it down — it'll be useful for your Stage 4 spec.
-- **Use the templates README as your reference.** [`../../docs/templates/README.md`](../../../../docs/templates/README.md) documents the file naming convention (`YYYY-MM-DD-{slug}.md`) you'll use for memos and specs in later stages.
+- **Use the templates README as your reference.** [`../../templates/README.md`](../../../../templates/README.md) documents the file naming convention (`YYYY-MM-DD-{slug}.md`) you'll use for memos and specs in later stages.

@@ -27,7 +27,7 @@ Student-facing tutorials live on the companion **Kumu site**, <https://adamwstau
   - `templates/` — Reusable assignment templates (memo, spec, case brief, risk memo, prompt log)
   - `decisions/` — Strategic decision memos, flat (`YYYY-MM-DD-<slug>.md`; course-specific ones are `YYYY-MM-DD-<course-code>-<slug>.md`, e.g. `2026-05-07-bus629-stage2-restructure.md`)
   - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`
-- **`BIO.md`** — Short instructor bio; course READMEs link here. The full bio, resume and CV live on <https://adamwstauffer.github.io/> (`RESUME.md` and `CV.md` here are pointers)
+- **`BIO.md`** — Short instructor bio; course READMEs link here. The full bio, resume and CV live on <https://adamwstauffer.github.io/>
 
 ## Local-only trees — PII and history (hard rules)
 
@@ -73,7 +73,7 @@ Most projects follow a reusable pedagogical pattern. The default is five stages:
 Stage files are named `stage[N]-[description].md`, numbered **per case, from 1** — the containing
 folder already scopes the case, so the filename does not encode it again (decided 2026-08-02; the
 BUS 620 `stage1a/1b/1c` scheme was renamed to `stage1/stage2/stage3`). Templates for deliverables
-live in [`docs/templates/`](docs/templates/).
+live in [`templates/`](templates/).
 
 Student portfolio repos are organized by capability: the top-level `capabilities/` directory
 (renamed from `skills/` 2026-08-06 to avoid colliding with Claude Code's `.claude/skills/`) holds one folder per
@@ -132,7 +132,7 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 |----------|------|
 | Instructor Bio (SSOT) | `BIO.md` |
 | Brand Design Tokens | `docs/_branding/design.json` |
-| Reusable Templates | `docs/templates/` |
+| Reusable Templates | `templates/` |
 | Strategic Decisions | `docs/decisions/` |
 | Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` (historical; superseded by `docs/decisions/2026-07-08-generic-course-directory-naming.md`) |
 | Appendix Presentations | `docs/presentations/` |

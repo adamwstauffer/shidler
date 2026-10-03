@@ -36,7 +36,7 @@ don't start over — bring it up to the portfolio repo standard and add what's m
    `AGENTS.md` · `CLAUDE.md` (one-line pointer to `AGENTS.md`) · `prompt-log.md` · `.gitignore` ·
    `capabilities/` · `docs/` (`briefs/`, `decisions/`) · `data/` · `analysis/figures/`. The
    [setup prompt](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html#build-with-llm) builds
-   it; read every file before you commit. Reference copy: [`../../sample/`](../../sample/).
+   it; read every file before you commit. Reference copy: [`templates/portfolio/firstname-lastname/`](../../../../templates/portfolio/firstname-lastname/).
 5. **Write your bio and resume** — LLM as drafter, you as editor; log prompts in `prompt-log.md`.
 6. **Add `adamwstauffer` as a collaborator** — Settings → Collaborators → Add people.
 7. **Commit and push** — at least **2 meaningful commits** with descriptive messages

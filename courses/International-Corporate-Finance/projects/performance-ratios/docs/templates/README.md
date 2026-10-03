@@ -6,11 +6,11 @@ This directory exists in the BUS-629 course tree as a **structural example** —
 
 To avoid drift, BUS-629 does not maintain its own copies of the memo and spec templates. The single source of truth is at the repository root:
 
-- **Memo template:** [`../../../../../../docs/templates/memo-template.md`](../../../../../../docs/templates/memo-template.md)
-- **Spec template:** [`../../../../../../docs/templates/spec-template.md`](../../../../../../docs/templates/spec-template.md)
-- **Prompt log:** [`../../../../../../docs/templates/prompt-log-template.md`](../../../../../../docs/templates/prompt-log-template.md)
-- **Portfolio (bio + resume):** [`../../../../../../docs/templates/portfolio/`](../../../../../../docs/templates/portfolio/)
-- **Templates README** (frontmatter schema, naming conventions): [`../../../../../../docs/templates/README.md`](../../../../../../docs/templates/README.md)
+- **Memo template:** [`../../../../../../templates/memo-template.md`](../../../../../../templates/memo-template.md)
+- **Spec template:** [`../../../../../../templates/spec-template.md`](../../../../../../templates/spec-template.md)
+- **Prompt log:** [`../../../../../../templates/prompt-log-template.md`](../../../../../../templates/prompt-log-template.md)
+- **Portfolio (bio + resume):** [`../../../../../../templates/portfolio/`](../../../../../../templates/portfolio/)
+- **Templates README** (frontmatter schema, naming conventions): [`../../../../../../templates/README.md`](../../../../../../templates/README.md)
 
 When the underlying templates evolve, every course inherits the change automatically.
 
@@ -42,7 +42,7 @@ All memos and specs across this repo follow:
 YYYY-MM-DD-{slug}.md
 ```
 
-Lowercase slug, hyphen-separated, ISO date prefix so files sort chronologically. See the [repo-level templates README](../../../../../../docs/templates/README.md#file-naming-conventions) for the full table.
+Lowercase slug, hyphen-separated, ISO date prefix so files sort chronologically. See the [repo-level templates README](../../../../../../templates/README.md#file-naming-conventions) for the full table.
 
 ## YAML frontmatter
 

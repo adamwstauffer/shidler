@@ -77,8 +77,8 @@ Read before starting:
 | Exclusion rules | `.gitignore` | text |
 | The skeleton | `capabilities/`, `docs/briefs/`, `docs/decisions/`, `data/`, `analysis/figures/` — each with a one-line `README.md` | folders |
 
-The skeleton is the course-independent standard (reference copy, with this project's Stage 1
-folders already added: [`../../sample/`](../../sample/)):
+The skeleton is the course-independent standard (a worked reference copy:
+[`templates/portfolio/firstname-lastname/`](../../../../templates/portfolio/firstname-lastname/)):
 
 ```
 firstname-lastname/

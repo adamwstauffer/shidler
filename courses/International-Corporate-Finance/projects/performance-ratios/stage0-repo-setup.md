@@ -12,7 +12,7 @@ Create your own public GitHub repository — your **portfolio repo** — that wi
 
 A polished public repo is one of the highest-leverage career artifacts you can build. Every subsequent stage adds to it.
 
-> **Never used GitHub before?** This Stage 0 doc is the on-ramp. If you want deeper coverage of any topic below (first commit using GitHub Desktop, the Collaborators panel, pushing larger files), the full reference is at [`docs/guides/github-mba-guide.md`](../../../../docs/guides/github-mba-guide.md). You don't need to read it cover-to-cover — treat it as the dictionary you keep open in another tab while you follow these five steps.
+> **Never used GitHub before?** This Stage 0 doc is the on-ramp. If you want deeper coverage of any topic below (first commit using GitHub Desktop, the Collaborators panel, pushing larger files), the full reference is at [`guides/github-mba-guide.md`](../../../../guides/github-mba-guide.md). You don't need to read it cover-to-cover — treat it as the dictionary you keep open in another tab while you follow these five steps.
 
 ## Why this is Stage 0
 
@@ -175,9 +175,9 @@ Either works. Pick one.
 
 The course repo contains polished templates — read them first to understand the structure:
 
-- **Bio template** (with 30+ LLM revision prompts): [`../../docs/templates/portfolio/bio-template.md`](../../../../docs/templates/portfolio/bio-template.md)
-- **Resume template** (Penn-style): [`../../docs/templates/portfolio/resume-template.md`](../../../../docs/templates/portfolio/resume-template.md)
-- **Portfolio README** (workflow guide): [`../../docs/templates/portfolio/README.md`](../../../../docs/templates/portfolio/README.md)
+- **Bio template** (with 30+ LLM revision prompts): [`../../templates/portfolio/bio-template.md`](../../../../templates/portfolio/bio-template.md)
+- **Resume template** (Penn-style): [`../../templates/portfolio/resume-template.md`](../../../../templates/portfolio/resume-template.md)
+- **Portfolio README** (workflow guide): [`../../templates/portfolio/README.md`](../../../../templates/portfolio/README.md)
 
 Read the bio template, then write your own 200–400 word draft against its structure. Once you have a draft, paste it into your LLM along with the template and add a prompt like:
 

@@ -20,11 +20,11 @@ Lowercase slug, hyphen-separated, ISO date prefix so files sort chronologically.
 - `2026-05-15-nguyen-vinamilk-selection.md`
 - `2026-05-15-tran-fpt-selection.md`
 
-See the [repo-level templates README](../../../../../../docs/templates/README.md#file-naming-conventions) for the full naming convention table.
+See the [repo-level templates README](../../../../../../templates/README.md#file-naming-conventions) for the full naming convention table.
 
 ## Template
 
-Use the repo-level [`memo-template.md`](../../../../../../docs/templates/memo-template.md) as your starting point. Copy it into this directory, rename per the convention above, and fill in the sections.
+Use the repo-level [`memo-template.md`](../../../../../../templates/memo-template.md) as your starting point. Copy it into this directory, rename per the convention above, and fill in the sections.
 
 ## Existing files
 
