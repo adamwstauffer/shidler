@@ -116,8 +116,8 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 
 * **Attendance & Participation (10%):** Essential for maximizing learning outcomes. Each case opens with an in-class working session — showing up and committing is participating. **In this design, participation also means committing to a prediction before the answer is known.** Being wrong costs nothing; not answering costs the session.
 * **Case-Study Project (30%):** One Excel + AI engagement. **The 30% is earned as 20 points across four stages** — 2 (repo) · 1 (brief) · 8 (build) · 9 (analysis). See below.
-* **Individual Research Paper (30%):** Peer evaluation accounts for **half of that 30%**.
-* **Team presentation (30%):** Peer evaluation accounts for **half of that 30%**.
+* **Individual Research Paper (30%):** Peer evaluation accounts for **half of that 30%**, which is 15% of the course grade.
+* **Team presentation (30%):** Peer evaluation accounts for **half of that 30%**, which is 15% of the course grade. The team presentation runs in this in-person section only.
 
 ---
 
@@ -133,7 +133,7 @@ Adam holds an MBA in Finance from The Wharton School, University of Pennsylvania
 | **6** | 6-Oct | **Micro 10 · Economies of scale** + **Micro 11 · Oligopolies, monopolies and games** · *Act III — Power, and what it costs; the act closes*<br>**The cost of size, and where the ladder ends.** Why scale can leave one firm standing, and what a market looks like when only a few are left. Repeated games and tacit collusion.<br>**Reading:** Ch. 7 — Games and Strategic Behavior *(the monopoly chapter was assigned 29 September)* · **No textbook chapter for scale economies (Micro 10); the deck is the reading.** | | **[Case 1.2](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage2.html)** · 9-Oct |
 | **7** | 13-Oct | **Micro 12 · Externalities and Coase** + **Micro 13 · Information and judgment** · *Act IV — The failures*<br>**The failures.** Costs nobody was billed for — externalities, property rights, and who owns a sea lane; then what happens when information and judgment fail. Video (in-class): ***The Grab***<br>**Reading:** Ch. 8 — Behavioral Economics *(optional)* · Ch. 9 — Externalities and Rights · Ch. 10 — Making Policy Choices *(where the textbook files adverse selection; it files the market for lemons in the labor chapter, which comes 10 November)* | | |
 | **8** | 20-Oct | **Micro 14 · Why nations trade** + **Micro 15 · Tariffs, trade wars and economic warfare** · *Act V — Across the border*<br>**Across the border.** ① Comparative advantage, freight, and what it costs to move oil the long way. ② Tariffs, quotas, protection's political economy, and the arithmetic of sanctions. In-class exercise: Trade Wars — impact on national and global economies · Spotlight: WTO, World Order & Climate Change<br>**Reading:** Ch. 11 — International Trade *(the policy-choices chapter was assigned 13 October)* · **No textbook chapter for the sanctions arithmetic (Micro 15); the deck is the reading.** | | **[Case 1.3](https://adamwstauffer.github.io/ai-lms/case-perfect-competition-stage3.html)** · 23-Oct |
-| **9** | 27-Oct | **Macro 1 · FX in brief** *(short)* + **Macro 2 · Measuring the economy** · *Act I — The desk*<br>**The arc opens.** An exchange rate is a price; then how a shock shows up in GDP, unemployment and the inflation print. **Case 4 (ungraded):** sealed predictions collected in class — March 2009 unemployment, house prices off peak, whether a top-ten institution fails, and what would prove you wrong · **[Introduce: Individual Research Paper](https://adamwstauffer.github.io/ai-lms/team-case-study.html)** · **[Team Preso introduced](https://adamwstauffer.github.io/ai-lms/team-case-study.html)**, teams assigned<br>**Reading:** Ch. 12 — Macro: The Bird's-Eye View · Ch. 13 — Measuring Economic Activity *(Macro 1's own chapter is the exchange-rate chapter, assigned 1 December with Macro 9)* · **No textbook chapter for the FX market itself (Macro 1); the deck is the reading.** | | |
+| **9** | 27-Oct | **Macro 1 · FX in brief** *(short)* + **Macro 2 · Measuring the economy** · *Act I — The desk*<br>**The arc opens.** An exchange rate is a price; then how a shock shows up in GDP, unemployment and the inflation print. **Case 4 (ungraded):** sealed predictions collected in class — March 2009 unemployment, house prices off peak, whether a top-ten institution fails, and what would prove you wrong · **[Introduce: Individual Research Paper](https://adamwstauffer.github.io/ai-lms/research-paper.html)** · **[Team Preso introduced](https://adamwstauffer.github.io/ai-lms/team-case-study.html)**, teams assigned<br>**Reading:** Ch. 12 — Macro: The Bird's-Eye View · Ch. 13 — Measuring Economic Activity *(Macro 1's own chapter is the exchange-rate chapter, assigned 1 December with Macro 9)* · **No textbook chapter for the FX market itself (Macro 1); the deck is the reading.** | | |
 | **10** | 3-Nov | **HOLIDAY: Election Day (non-instructional day)** | | |
 | **11** | 10-Nov | **Macro 3 · Labor markets and unemployment** + **Macro 4 · Why economies grow** · *Act II — People and output*<br>**Work, and output.** Who loses a job to an energy shock; and whether the growth path ever comes back. [Citrini, *2028 Global Intelligence Crisis*](https://www.citriniresearch.com/p/2028gic) · Video: Principles for Dealing with the Changing World Order (Dalio)<br>**Reading:** Ch. 14 — Economic Growth · Ch. 15 — The Labor Market | | |
 | **12** | 17-Nov | **Macro 5 · Valuing equities and bonds** + **Macro 6 · Derivatives in brief** · *Act III — The instruments*<br>**The instruments.** What a share and a bond are worth, and the contracts that priced the crisis.<br>**Reading:** Ch. 16 — Saving and Capital Formation · Ch. 17 — Money and the Fed · **No textbook chapter for the derivative contracts (Macro 6); the deck is the reading.** | | |
@@ -188,7 +188,7 @@ are sealed in Session 9** — three numbers and one sentence, written from the d
 and they come due across Sessions 11 to 14 as the arc runs. **One live arc and one closed arc,
 running the same method** — the live one cannot be graded against an answer key and this one can.
 
-**Cases 2 and 3 are optional — ungraded and self-paced.** They are not on the schedule above, they carry no launch or due dates, and there is nothing to submit. Both engagements stay published in full on the course site for anyone who wants to go further after Case 1: **[Imperfect Competition — Pricing Power Analysis](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html)** (seed-market scenario): monopoly, MR = MC, the Lerner index, deadweight loss · **[Economic Profit & Rent — Earnings Analysis](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html)** (ride-share scenario): accounting versus economic profit, and the medallion capitalized as rent divided by required return. Same stage briefs, same check figures, at your own pace.
+**Cases 2 and 3 are optional, not graded this term, and available to try.** They are not on the schedule above, they carry no launch or due dates, and there is nothing to submit. Both engagements stay published in full on the course site for anyone who wants to go further after Case 1: **[Imperfect Competition — Pricing Power Analysis](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html)** (seed-market scenario): monopoly, MR = MC, the Lerner index, deadweight loss · **[Economic Profit & Rent — Earnings Analysis](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html)** (ride-share scenario): accounting versus economic profit, and the medallion capitalized as rent divided by required return. Same stage briefs, same check figures, at your own pace.
 
 ---
 
@@ -204,14 +204,14 @@ informative."* That is a fine beat.
 * **Chokepoint transit volumes, weekly** — [IMF PortWatch](https://portwatch.imf.org/)
 * **Country-level production and exports, monthly** — [JODI-Oil](https://www.jodidata.org/oil/database/data-downloads.aspx)
 
-Pulling, verifying, charting and committing these is the same workflow the graded cases use. **A
+Pulling, verifying, charting and committing these is the same workflow the graded case uses. **A
 figure quoted in class without its source is not evidence**, and that standard applies to the
 instructor as readily as to you.
 
 ---
 
 ## Individual Research Paper (30%)
-Introduced week 9, due **11-Dec**. Worth **30% of the course grade**; peer evaluation accounts for half of it.
+Introduced Session 9 (27-Oct), due **Friday 11-Dec**. Worth **30% of the course grade**; peer evaluation accounts for half of it.
 
 The paper is the course's method at full scale on a question of your own choosing: a governing
 thought, evidence you fetched yourself, and an honest separation of what you observed from what you
@@ -229,7 +229,7 @@ ask, so work locally until you want my input. Pushes by Friday 4-Dec get feedbac
 ---
 
 ## Team presentation (30%)
-Teams assigned week 10, presented week 16. Worth **30% of the course grade**; peer evaluation accounts for half of it.
+Teams assigned Session 9 (27-Oct), presented Session 15 (8-Dec), due **Friday 11-Dec**. Worth **30% of the course grade**; peer evaluation accounts for half of it.
 
 Team Choice — any global or geopolitical issue. **One point extra credit for a new topic or a
 significant variation on our previous case studies.**
