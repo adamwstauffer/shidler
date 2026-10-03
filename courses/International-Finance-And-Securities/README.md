@@ -22,7 +22,6 @@ International-Finance-And-Securities/
 ├── projects/
 │   └── fx-hedging/                 shared curriculum — see its own README for full contents
 │       ├── _templates/              template-decision-memo.md, template-spec.md
-│       ├── FX-Hedging-Project.pptx  project overview slide deck
 │       ├── README.md
 │       ├── scenarios.md
 │       └── stage0-repo-setup.md … stage5-validate-decision-memo.md

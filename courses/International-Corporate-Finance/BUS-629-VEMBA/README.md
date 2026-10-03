@@ -312,7 +312,6 @@ Cheating and plagiarism will not be tolerated and will be handled under the UH S
 | Resource | Location |
 |----------|----------|
 | Project Design Memo | [`../projects/performance-ratios/docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md`](../projects/performance-ratios/docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md) |
-| Project Presentation | [`../projects/performance-ratios/Performance-Ratios-Project.pptx`](../projects/performance-ratios/Performance-Ratios-Project.pptx) |
 | Provided Excel Template (Stage 1) | [`../../../docs/templates/spreadsheets/performance-ratios-template.xlsx`](../../../docs/templates/spreadsheets/performance-ratios-template.xlsx) |
 | Memo Template | [`../../../docs/templates/memo-template.md`](../../../docs/templates/memo-template.md) |
 | Spec Template | [`../../../docs/templates/spec-template.md`](../../../docs/templates/spec-template.md) |
