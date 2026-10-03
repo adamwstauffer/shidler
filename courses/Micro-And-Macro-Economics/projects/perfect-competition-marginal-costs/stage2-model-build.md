@@ -262,7 +262,7 @@ session is exactly what belongs in it.
 
 ## 10. References
 
-- [Case README](README.md) — assumptions, constraints, instructor notes
+- [Case README](README.md) — assumptions and constraints
 - [Deliverable templates](https://adamwstauffer.github.io/ai-lms/deliverable-templates.html) — the spec template
 - [AI Tools Lab](https://adamwstauffer.github.io/ai-lms/ailab.html) — handing a spec to chat, a CLI agent, or Claude for Excel
 - [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) — an independent implementation of this model, for cross-checking

@@ -43,17 +43,13 @@ One division reproduces both observed prices within ~10%. The rent story: app en
 
 ## Deliverables (4-artifact AI + GitHub workflow, same as the other BUS 620 cases)
 
-| # | Artifact | Contents | Pts |
-|---|---|---|---|
-| 1 | `docs/briefs/YYYY-MM-DD-economic-profit-brief.md` | The four-person setup in your own words + hypothesis: "I expect X to have the highest economic profit because Y" — committed before any spec or model work | — |
-| 2 | `capabilities/economic-profit/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs including days-per-month, the net-to-net and scale-matching rules stated explicitly, both capitalization inputs per era, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec, plus the documented 30 → 22 sensitivity run | 8 |
-| 3 | `analysis/YYYY-MM-DD-economic-profit-analysis.md` + `analysis/figures/` | The verdicts explained by mechanism; the medallion story told with the capitalization math; supply/demand: which curve shifted (supply, right — massively), what happened to price, quantity, and *whose* surplus | 6 |
-| 3b | `docs/decisions/YYYY-MM-DD-economic-profit-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
-| 4 | `prompt-log.md` (repo root) + reflection | AI sessions logged across both stages; reflection covers an AI error you caught | 3 |
+Optional this term and not graded; use the headings below as a self-check.
 
-> Stage 1 carries 8 pts (spec 3 · validation rules 1 · workbook contract 2 · audit note 1 · brief-before-build and commit hygiene 1); Stage 2 carries 12 (hypothesis + setup 3 · verdicts 2 · medallion math 2 · supply/demand + cross-case 2 · prompt log 3). Case total 20, unchanged.
-
-Split across stages: [stage1](stage1-model-build.md) (brief, spec, build, audit, 8) · [stage2](stage2-analysis.md) (analysis + memo + log, 12).
+- **1.** `docs/briefs/YYYY-MM-DD-economic-profit-brief.md`: The four-person setup in your own words + hypothesis: "I expect X to have the highest economic profit because Y" — committed before any spec or model work
+- **2.** `capabilities/economic-profit/spec.md` + `model.xlsx` + `README.md`: **Spec first**, before the workbook exists: named inputs including days-per-month, the net-to-net and scale-matching rules stated explicitly, both capitalization inputs per era, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec, plus the documented 30 → 22 sensitivity run
+- **3.** `analysis/YYYY-MM-DD-economic-profit-analysis.md` + `analysis/figures/`: The verdicts explained by mechanism; the medallion story told with the capitalization math; supply/demand: which curve shifted, what happened to price, quantity, and *whose* surplus
+- **3b.** `docs/decisions/YYYY-MM-DD-economic-profit-memo.md`: The recommendation to whoever has to act, read with the analysis
+- **4.** `prompt-log.md` (repo root) + reflection: AI sessions logged across both stages; reflection covers an AI error you caught
 
 Student-facing web pages: [`case-economic-profit.html`](https://adamwstauffer.github.io/ai-lms/case-economic-profit.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by the Kumu site's gate checks; change one, change all three.
 
@@ -61,24 +57,13 @@ Student-facing web pages: [`case-economic-profit.html`](https://adamwstauffer.gi
 
 ## Industry-analysis prompts (from the draft, kept & corrected)
 
-- Supply shifted **right** (ridesharing collapsed the entry barrier); demand also shifted right (convenience/price transparency) but the supply shock dominates: **price ↓, quantity ↑↑** — consumers won, incumbent rent-holders lost.
+- Which curve shifted when ridesharing arrived, which way, and what happened to price, quantity, and whose surplus?
 - Efficiency & the invisible hand: surge pricing as a price signal recruiting drivers exactly when demand spikes; drivers self-allocating to rush hours without anyone ordering them to.
 - Externalities & regulation: congestion (negative), possible car-ownership reduction (*reported*, UC Berkeley); London's 2017 license refusal as a regulation case.
 
-## Instructor notes
+## Expected results
 
-- **The draft's "141,615 licensed Yellow Cabs in NYC (2010)" is wrong** — NYC medallions numbered ~13,500 and were 13,587 from 2014–2018. Corrected everywhere; the big number likely conflated TLC-licensed *drivers/vehicles* across all classes.
-- Check figures (Excel key recalculates clean, matches hand math to the dollar): accounting $50,520 / $22,860 / $59,580 / $52,200; economic −$1,680 / −$3,240 / +$7,380 / +$1,680; medallion $1,028,571 / $300,000.
-- Sensitivity to run live in class: days/mo 30 → 22 (all verdicts flip deep negative for drivers); commission 25% → 30%; cab lease $3,000 → $1,500 (post-Uber world — watch the cab driver's economic profit and ask who the winner is *now*).
-- Cross-case links: the farmer's field time in the Perfect Competition case is the same opportunity-cost idea; the medallion's rent-behind-a-moat is the seed patent in miniature (all three cases now share the moat→rent→entry arc).
-
-## Bugs fixed vs the draft template (for Adam)
-
-1. **Implicit cost used the alternative's GROSS salary** ($57,600) — opportunity cost must be the alternative's *net* earnings ($52,200); apples to apples.
-2. **The part-time driver was charged a full-time opportunity cost** — halved to a part-time alternative ($26,100).
-3. **The "Economic Rent" section was an empty header** — now the entire Medallion & Rent sheet, arguably the best part of the case.
-4. **Stray references removed:** broken `commission_to_uber` (#REF!) and a leaked external named range (`q_tomato` pointing into the farm workbook).
-5. Stated the 30-days/month simplification explicitly and made it an input (the old sheet buried `*30` inside formulas).
+Expected results are discussed in class after Stage 2 is handed in.
 
 ## Validated facts & sources (accessed 2026-07-07)
 
