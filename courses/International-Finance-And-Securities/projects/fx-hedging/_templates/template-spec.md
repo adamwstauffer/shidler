@@ -1,6 +1,6 @@
 <div style="border-top: 6px solid #024731; border-bottom: 1px solid #B2B2B2; padding: 12px 0; margin-bottom: 24px; font-family: 'Open Sans', Helvetica, Arial, sans-serif;">
   <div style="color: #024731; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.85rem;">University of Hawaiʻi at Mānoa · Shidler College of Business</div>
-  <div style="color: #000000; font-weight: 700; font-size: 1.25rem; margin-top: 4px;">FIN-321 International Finance &amp; Securities</div>
+  <div style="color: #000000; font-weight: 700; font-size: 1.25rem; margin-top: 4px;">FIN 321: International Finance and Securities</div>
   <div style="color: #525252; font-weight: 400; font-size: 0.95rem;">FX Transaction Hedging Project — Technical Specification</div>
 </div>
 
@@ -84,7 +84,7 @@ All inputs should be exposed as workbook **named ranges** so Calculation Flow (�
 | `R_USD` | USD interest rate to settlement | Annual % | 6.00% |
 | `R_FC` | Foreign-currency interest rate to settlement | Annual % | 6.50% |
 | `T_DAYS` | Days to settlement | Days | 365 |
-| `BASIS` | Day-count denominator (single-value simplification) | Days | 360 (USD) / 365 (GBP, EUR) |
+| `BASIS` | Day-count denominator (single-value simplification) | Days | 360 (USD, EUR) / 365 (GBP) |
 | `BASIS_USD` *(optional, rigorous variant)* | USD-leg day-count denominator | Days | 360 |
 | `BASIS_FC` *(optional, rigorous variant)* | FC-leg day-count denominator | Days | 360 (EUR) / 365 (GBP) |
 | `K_PUT` | Put option strike (receivables) | USD per FC | 1.4600 |
@@ -101,7 +101,7 @@ All inputs should be exposed as workbook **named ranges** so Calculation Flow (�
 | `S_T_grid` | Sensitivity spot grid at settlement | Built from `S0_in` ± 5% in 1% steps |
 | `USD_NO_HEDGE` | USD proceeds / outlay under no hedge | `S_T × FC_AMT` |
 
-> <span style="color:#024731;">**Tip:**</span> Keep labels short and standardized — these names become Excel named ranges *and* the AI prompt parameters in Stage 4.
+> <span style="color:#024731;">**Tip:**</span> Keep labels short and standardized — these names become Excel named ranges *and* the AI prompt parameters in Stage 3.
 
 ---
 
@@ -111,7 +111,7 @@ State every convention used. Clarity here is what makes the model reproducible.
 
 - **Quote convention:** All rates expressed as **USD per unit of foreign currency** (e.g., USD/GBP, USD/EUR). A higher quote means FC appreciation.
 - **Horizon:** Single-maturity model; `T_DAYS = 365` unless otherwise noted. Templates assume a 1-year tenor.
-- **Day-count basis:** The default 1-year tenor uses the textbook simplified-annual form `(1 + r)` for both USD and FC legs. The general form is `r × T_DAYS / BASIS`, with `BASIS = 360` for USD money-market quotes (ACT/360) and `BASIS = 365` for GBP / EUR money-market quotes (ACT/365). The template exposes a **single `BASIS`** named range (simplification). A rigorous build should split it into `BASIS_USD` and `BASIS_FC` so each leg applies its own convention. Record it in §6.2.
+- **Day-count basis:** The default 1-year tenor uses the textbook simplified-annual form `(1 + r)` for both USD and FC legs. The general form is `r × T_DAYS / BASIS`, with `BASIS = 360` for USD and EUR money-market quotes (ACT/360) and `BASIS = 365` for GBP money-market quotes (ACT/365). The template exposes a **single `BASIS`** named range (simplification). A rigorous build should split it into `BASIS_USD` and `BASIS_FC` so each leg applies its own convention. Record it in §6.2.
 - **Parity:** Money-market hedge is assumed to replicate the forward hedge under covered interest-rate parity; any gap is a test of parity, not a model error.
 - **Option premium:** Paid upfront in USD, quoted per 1 unit of FC (no contract multiplier). Premia are expressed as a **negative cash flow** at t₀ and carried forward at `R_USD` to put them on the same footing as the settlement-date USD proceeds.
 - **Counterparty / credit risk:** Excluded. All derivatives assumed frictionless and creditworthy.
@@ -196,7 +196,7 @@ For a payable of `FC_AMT` to be settled in FC at maturity, the model mirrors Ste
 
 ### 5.1 Computed Base-Case Values
 
-Record the base-case outcome at `S_T = S0_in` once the model is built. This block serves as a regression checkpoint for the refined Stage 4 version.
+Record the base-case outcome at `S_T = S0_in` once the model is built. This block serves as a regression checkpoint for the Stage 3 build and the Stage 4 repopulation.
 
 | Strategy | USD Proceeds (Receivable) | USD Outlay (Payable) | Hedge Profit vs. No Hedge |
 |----------|--------------------------:|---------------------:|--------------------------:|

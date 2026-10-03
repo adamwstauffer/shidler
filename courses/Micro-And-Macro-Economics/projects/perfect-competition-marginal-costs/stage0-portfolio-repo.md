@@ -8,6 +8,9 @@ deliverables:
   - path: "(repository) firstname-lastname"
     format: repo
     ai_boundary: ai-first-verified
+  - path: "README.md (the bio)"
+    format: markdown
+    ai_boundary: human-first
 prerequisites: []
 points: 2
 estimated_time: "40-50 min"
@@ -80,16 +83,14 @@ accidental commit of a `~$` temp file.
 
 ## 5. Procedure
 
-1. **Create the GitHub account.** Use your `@hawaii.edu` address — it qualifies for
-   [GitHub Education](https://education.github.com). Choose a professional username; it appears
-   beside every piece of work you publish. **Already have a GitHub account? Use it** — do not create
-   a second one; add your `hawaii.edu` address under *Settings → Emails* and the education benefits
-   attach to the account you keep after graduation.
+1. **Create the GitHub account.** Any email works for your GitHub account; for the free GitHub Education benefits, add your school address under Settings › Emails and apply, which is optional and never graded.
+   Choose a professional username; it appears beside every piece of work you publish. **Already
+   have a GitHub account? Use it**; do not create a second one.
    *Confirm:* you can sign in, and the email is verified.
 
 2. **Install GitHub Desktop**, or use the command line if you already prefer it. The deliverable is
    identical either way.
-   *Confirm:* the app is signed in, and your Git config carries your real name and `.edu` address —
+   *Confirm:* the app is signed in, and your Git config carries your real name and an email you keep;
    both are stamped on every commit.
 
 3. **Create the repository.** Name it `firstname-lastname`, set visibility to **public**, and
@@ -105,9 +106,10 @@ accidental commit of a `~$` temp file.
    *Confirm:* every directory holds at least one file, or Git will not track it; `AGENTS.md` says
    something only you could have said.
 
-5. **Write the bio yourself.** Replace the placeholder `README.md` with a 200–400 word bio on
-   who you are, followed by an engagement index. The bio lives in `README.md` — the file GitHub
-   renders first — not in a separate `BIO.md`. Edit `RESUME.md` and `AGENTS.md` until they sound
+5. **Write the bio yourself, first.** Replace the placeholder `README.md` with a 200–400 word bio
+   on who you are, followed by an engagement index. The bio lives in `README.md`, the file GitHub
+   renders first, not in a separate `BIO.md`. You write the first draft; AI may review it, never
+   draft it. Edit `RESUME.md` and `AGENTS.md` until they sound
    like you.
    *Confirm:* nothing in these files is placeholder text you would not want read.
 
@@ -129,15 +131,15 @@ accidental commit of a `~$` temp file.
 | Artifact | Draft order |
 |---|---|
 | Repository skeleton, `.gitignore`, `AGENTS.md` tailored from your resume, `CLAUDE.md`, the first `prompt-log.md` entry | AI-first, verified — the setup prompt does all of it |
-| `README.md` bio, `RESUME.md` | AI-first, verified — then edited until it sounds like you |
+| `README.md` bio, `RESUME.md` | You draft first; AI may review, never draft |
 | `prompt-log.md` after day one | Kept by the assistant under the standing rule in `AGENTS.md`: one entry per session, never backfilled |
 
 **If the artifact is evidence of your judgment, you draft it first and AI reviews; if the artifact is
 a means to the work rather than the work itself, AI may draft it and you verify.** The two working
 loops are described in [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html).
 
-**For this stage specifically:** everything here is a means to the work rather than the work itself,
-so AI may build all of it and you verify. Three things to check in what it produces: no folder is
+**For this stage specifically:** everything here except the bio and resume is a means to the work
+rather than the work itself, so AI may build it and you verify. Three things to check in what it produces: no folder is
 named after a course or a term, every directory contains something, and the placeholder files are
 actually placeholders rather than invented biography. That last one is the failure that matters —
 committing generic AI-written filler as your bio is obvious to any reader, and it is the first thing
@@ -147,7 +149,7 @@ anyone sees.
 
 - [ ] Repository is **public** — the URL opens in a private browser window without logging in
 - [ ] Named for you (`firstname-lastname`), not for a course
-- [ ] `README.md` holds a real three-to-six-sentence bio and the start of an engagement index
+- [ ] `README.md` holds your own 200–400 word bio and the start of an engagement index
 - [ ] `AGENTS.md` tailored to you — names your own never-paste data and your own preferences; `CLAUDE.md` is the one-line pointer
 - [ ] `RESUME.md` at the root; `prompt-log.md` has its first entry and `AGENTS.md` carries the rule that keeps it
 - [ ] `.gitignore` filters Office and OS temp files
@@ -177,4 +179,4 @@ anyone sees.
 
 - [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html) · [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html)
 - [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics), including [`.gitignore`](https://adamwstauffer.github.io/ai-lms/onboarding.html#gitignore) and [how work is submitted, with the post-deadline revision policy](https://adamwstauffer.github.io/ai-lms/onboarding.html#submitting)
-- [`guides/github-mba-guide.md`](../../../../guides/github-mba-guide.md) — the long-form Git reference, for troubleshooting
+- [Kumu onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html) — the long-form Git reference, for troubleshooting

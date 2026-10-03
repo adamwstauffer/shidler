@@ -208,14 +208,14 @@ Every DCF must include three scenarios with Bear / Base / Bull labels:
 
 | Element | Font Color | Fill |
 |---|---|---|
-| Hardcoded input | Blue (`#0000FF`) | Light grey (`#F2F2F2`) |
+| Hardcoded input | Blue (`#0000FF`) | Light gray (`#F2F2F2`) |
 | Formula / calculation | Black (`#000000`) | White |
 | Sheet link / external reference | Green (`#008000`) | White |
 | Section header | White, bold | Dark blue (`#1F4E79`) |
 | Sub-header / column header | Black, bold | Light blue (`#D9E1F2`) |
 | Key output (price, EV, IRR) | Black, bold | Medium blue (`#BDD7EE`) |
 
-> **Resist the urge to add more colors.** Three blues, one grey, and white is the entire palette unless the user specifies otherwise. Course materials should also reference [`docs/_branding/design.json`](./_branding/design.json) for UH Mānoa institutional branding (UH Green `#024731` for headings on course materials).
+> **Resist the urge to add more colors.** Three blues, one gray, and white is the entire palette unless the user specifies otherwise. Course materials should also reference [`docs/_branding/design.json`](./_branding/design.json) for UH Mānoa institutional branding (UH Green `#024731` for headings on course materials).
 
 ### 5.2 Number Formats
 

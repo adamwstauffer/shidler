@@ -49,19 +49,19 @@ Optional:
 
 ## Course Outline
 
-Students will develop three key deliverables throughout the course:
+The course builds three deliverables:
 
 * **Business Plan** – Market analysis, operations, business model, marketing strategy, and legal considerations
 * **Basic Financial Statements** – Profit and loss statements, cash flow statements, and balance sheets
 * **Investor Pitch** – Presentation and storytelling for securing investment
 
-Each week, students will add components to these deliverables, culminating in a complete set by the end of the course. The progression moves from market research and sustainable farming practices through business model development, financial planning, and culminates in final presentations.
+Each week adds components to these deliverables, culminating in a complete set by the end of the course. The progression moves from market research and sustainable farming practices through business model development, financial planning, and culminates in final presentations.
 
 ---
 
 ## Instructor Background
 
-For more information about the instructor, see [BIO.md](../../BIO.md).
+For more information about the instructor, see [his bio](https://adamwstauffer.github.io/bio.html).
 
 Adam currently teaches Finance & Economics at Shidler Business School, University of Hawaiʻi at Mānoa and Windward Community College.
 
@@ -105,7 +105,7 @@ Two-year investigation into "forever chemicals" contaminating American farmland,
 | Investor Pitch Presentation | 25% |
 | **Total** | **100%** |
 
-Grades are rounded up to the nearest whole number to ensure that anyone on the cusp gets a higher grade. Additional upward adjustments are only made if you identify score errors for participation, assignments, projects, etc.
+Letter grades follow the shared [grading scale](../../../docs/grading-scale.md). Additional upward adjustments are only made if you identify score errors for participation, assignments, projects, etc.
 
 ### Assessment Methods
 

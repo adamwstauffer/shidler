@@ -89,7 +89,7 @@ On the Ratios tab, any ratio materially affected by a cross-standard difference 
 | **VAS (Vietnam)** | Significant gaps: no IFRS 16 (leases off-balance-sheet), no IFRS 9 (financial instruments at historical cost), no IFRS 15 (legacy revenue recognition). Depreciation schedules follow MoF circulars, not useful life estimates — depreciation may be zero for some asset classes. Fair value measurement is not systematic. |
 | **CAS (China)** | Substantially converged with IFRS but watch for: business combinations under common control (pooling method), conservative fair value application, and government grant presentation. Dual-listed firms (A-share + H-share) may have two different sets of financials. |
 | **Ind AS (India)** | Converged with IFRS with carve-outs on financial instruments and bargain purchases. RBI overlay on bank provisioning. XBRL taxonomy is India-specific. |
-| **JGAAP (Japan)** | Goodwill is amortized (max 20 years) — artificially depresses post-acquisition earnings vs. IFRS/US GAAP peers. All R&D is expensed. ~270 Japanese listed companies now use full IFRS voluntarily. |
+| **JGAAP (Japan)** | Goodwill is amortized (max 20 years) — artificially depresses post-acquisition earnings vs. IFRS/US GAAP peers. All R&D is expensed. Some Japanese listed companies use full IFRS voluntarily. |
 
 ---
 

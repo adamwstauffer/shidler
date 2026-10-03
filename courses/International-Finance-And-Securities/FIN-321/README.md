@@ -1,4 +1,4 @@
-# FIN 321: International Business Finance
+# FIN 321: International Finance and Securities
 
 **Shidler College of Business, University of Hawaiʻi at Mānoa**
 
@@ -27,7 +27,7 @@ The course progresses from fundamentals of exchange rate determination and forei
 
 **Adam W. Stauffer** | [adamstau@hawaii.edu](mailto:adamstau@hawaii.edu)
 
-Please begin email subject lines with **FIN 321**. For more information about the instructor, see [BIO.md](../../../BIO.md).
+Please begin email subject lines with **FIN 321**. For more information about the instructor, see [his bio](https://adamwstauffer.github.io/bio.html).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ BUS 314 with at least a C– grade.
 
 ## Skills Gained
 
-Through the AI + GitHub project, you will also develop practical, workplace-ready skills:
+The AI + GitHub project also practices these skills:
 
 * **AI Literacy & Prompt Engineering:** Design effective AI prompts for research, analysis, drafting, and critique, while evaluating limitations and biases
 * **Reproducible Research Practices:** Maintain transparent AI Prompt Logs, ensuring accountability and reproducibility in analysis
@@ -53,12 +53,12 @@ This course includes a multi-stage project on FX risk management, worth **20% of
 
 | Stage | Deliverable | Weight |
 |-------|------------|-------:|
-| 0 | Portfolio repository (repo setup) | 8% |
-| 1 | Executive brief | 17% |
-| 2 | Model specification | 21% |
-| 3 | AI-assisted build + audit | 17% |
-| 4 | Market data + population | 12% |
-| 5 | Validate & decision memo (capstone) | 25% |
+| 0 | Portfolio Repository | 8% |
+| 1 | Executive Brief | 17% |
+| 2 | Model Specification | 21% |
+| 3 | AI-Assisted Build + Audit | 17% |
+| 4 | Market Data + Population | 12% |
+| 5 | Validate & Decision Memo (capstone) | 25% |
 | **Total** | | **100%** |
 
 **Scope:** Map a multinational firm's currency exposures, compute forward rates (via interest parity), and compare hedging strategies (forwards, options, collars).
