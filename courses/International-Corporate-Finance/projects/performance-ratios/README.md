@@ -33,7 +33,7 @@ performance-ratios/
 │   ├── analysis/ data/ deliverables/ docs/ models/   mirrors the structure below
 │   ├── README.md, README_v2.md, RESUME.md
 ├── docs/
-│   ├── decisions/                  project-design decisions (incl. the original project-design memo)
+│   ├── decisions/                  project-design decisions (the design rationale is kept privately)
 │   ├── plans/                      project plans and timelines
 │   ├── specs/                      technical specifications (Stage 4 deliverables land here)
 │   └── templates/                  stub pointing at the canonical repo-level templates, plus gaap-conversion-quickref.md

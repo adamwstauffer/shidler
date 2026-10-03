@@ -74,4 +74,4 @@ production test of your documents. Log the prompt.
 ## Links
 
 - Full instructions (website): <https://adamwstauffer.github.io/ai-lms/fx-hedging-stage5.html>
-- Canonical stage doc: [`../../projects/fx-hedging/stage5-llm-analysis-validation.md`](../../projects/fx-hedging/stage5-llm-analysis-validation.md)
+- Canonical stage doc: [`../../projects/fx-hedging/stage5-validate-decision-memo.md`](../../projects/fx-hedging/stage5-validate-decision-memo.md)

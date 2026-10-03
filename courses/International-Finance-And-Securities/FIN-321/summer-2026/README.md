@@ -1,3 +1,5 @@
+> **Summer 2026 offering, completed.** Kept for reference; the current project briefs are in [`projects/fx-hedging/`](../../projects/fx-hedging/).
+
 # FIN 321 — FX Hedging Project · Summer 2026 (Section 701)
 
 Student-facing **assignment handouts** for the six-phase FX Hedging project. Each handout

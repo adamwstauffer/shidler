@@ -5,11 +5,11 @@ Professional bio and resume templates for student GitHub portfolios. These are t
 ## Why a GitHub portfolio?
 
 - **Version control:** Track changes as your bio and resume evolve.
-- **Portfolio showcase:** Employers can see your resume alongside your projects.
+- **Portfolio showcase:** Your resume sits alongside your projects.
 - **Public or private:** Share with a link or keep private until ready.
 - **Easy export:** Print or save to PDF anytime.
 
-A polished public repo (`yourname-portfolio` or similar) is a discoverable artifact managers, peers, and reviewers can find — much harder to do with a Word file on your laptop.
+A public repo named `firstname-lastname` (your own first and last name) puts your bio, resume, and project work behind one link.
 
 ---
 
@@ -19,18 +19,26 @@ A polished public repo (`yourname-portfolio` or similar) is a discoverable artif
 |------|---------|
 | [`bio-template.md`](./bio-template.md) | Bio assignment + iterative-revision prompt library |
 | [`resume-template.md`](./resume-template.md) | Resume skeleton (Penn-style format) |
+| [`firstname-lastname/`](./firstname-lastname/) | The one sample student repository, filled in with fictional work |
 
 ---
 
 ## Suggested student repo structure
 
 ```markdown
-yourname-portfolio/
+firstname-lastname/
 ├─ README.md            # Your bio (what visitors see first)
 ├─ RESUME.md            # Your resume in Markdown
-├─ work_samples/        # Project artifacts and writeups
-└─ _templates/          # Personal copies of templates you use
+├─ AGENTS.md            # Conventions for any AI agent working in the repo
+├─ CLAUDE.md            # One line pointing to AGENTS.md
+├─ prompt-log.md        # Your AI prompt log
+├─ capabilities/        # What you can do, one folder per capability
+├─ docs/                # Briefs and decision memos
+├─ data/                # Source data, with provenance in data/README.md
+└─ analysis/            # Findings and figures
 ```
+
+The [`firstname-lastname/`](./firstname-lastname/) sample shows each of these filled in.
 
 ---
 
@@ -38,9 +46,9 @@ yourname-portfolio/
 
 ### Part 1 — Create your bio
 
-1. Create a public GitHub repo (`yourname-portfolio` or `bio-and-resume`).
+1. Create a public GitHub repo named `firstname-lastname` (your own first and last name).
 2. The default `README.md` is your **bio** — the first thing a visitor sees.
-3. Use [`bio-template.md`](./bio-template.md) as the structural starting point. It includes a 200–400 word format and a prompt library for iterative revision with an LLM.
+3. Use [`bio-template.md`](./bio-template.md) as the structural starting point. It gives a 200–400 word structure. You write the draft yourself; AI may then review it for clarity and flag claims you cannot back.
 4. Aim for at least **two iterations** before submitting — this is where the writing skill develops.
 
 ### Part 2 — Add your resume
@@ -57,7 +65,7 @@ yourname-portfolio/
 2. Browser print → Save as PDF.
    - **Mac:** ⌘ + P → Destination → Save as PDF
    - **Windows:** Ctrl + P → Destination → Save as PDF
-3. Save as `Firstname_Lastname_Resume.pdf`.
+3. Save as `firstname-lastname-resume.pdf`.
 
 ---
 

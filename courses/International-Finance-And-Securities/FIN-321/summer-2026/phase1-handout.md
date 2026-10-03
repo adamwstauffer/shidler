@@ -47,5 +47,5 @@ much you ultimately receive in USD.
 ## Links
 
 - Full instructions (website): <https://adamwstauffer.github.io/ai-lms/fx-hedging-stage1.html>
-- Canonical stage doc: [`../../projects/fx-hedging/stage1-executive-memo.md`](../../projects/fx-hedging/stage1-executive-memo.md)
+- Canonical stage doc: [`../../projects/fx-hedging/stage1-executive-brief.md`](../../projects/fx-hedging/stage1-executive-brief.md)
 - Scenarios: [`../../projects/fx-hedging/scenarios.md`](../../projects/fx-hedging/scenarios.md)

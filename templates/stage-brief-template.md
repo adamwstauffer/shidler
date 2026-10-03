@@ -1,13 +1,10 @@
 ---
 template: stage-brief
-status: draft
 purpose: "Authoring template for every stage brief in every course — fixed section order, fixed frontmatter, semester-invariant content only"
 audience: instructor
 instantiated_audience: student
-destination: "C:/GitHub/shidler/templates/stage-brief-template.md"
 related:
-  - ../decisions/2026-08-02-stage-brief-template-and-content-ownership.md
-  - "C:/GitHub/shidler/templates/README.md"
+  - README.md
 ---
 
 # Stage brief template
@@ -29,7 +26,7 @@ links. No sentence may assume live instruction.
 
 ## Frontmatter
 
-Required on every instantiated brief. Extends the schema in `shidler/templates/README.md`.
+Required on every instantiated brief. Extends the schema in [`README.md`](README.md).
 
 ```yaml
 ---
@@ -37,12 +34,12 @@ template: stage-brief
 project: {project-slug}          # directory slug, e.g. perfect-competition-marginal-costs
 stage: {n}                       # INTEGER, numbered per case from 1 — matches the filename
 title: "{Stage title}"           # e.g. "Engagement Brief"
-capability: {capability-slug}    # the skills/<capability>/ folder this stage builds or uses; omit if none
+capability: {capability-slug}    # the capabilities/<capability>/ folder this stage builds or uses; omit if none
 deliverables:                    # THE path declaration — nothing else may introduce a path
   - path: docs/briefs/{engagement}-brief.md
     format: markdown
     ai_boundary: human-first     # per artifact, not per stage
-  - path: skills/{capability}/model.xlsx
+  - path: capabilities/{capability}/model.xlsx
     format: xlsx
     ai_boundary: ai-first-verified
 prerequisites: [{stage-id}, ...] # prior stages whose deliverables must exist; [] for the first
@@ -53,7 +50,7 @@ estimated_time: "{n}–{m} min"
 
 | Field | Why it exists |
 |---|---|
-| `stage` | Integer, numbered **per case from 1** — the containing folder already scopes the case, so the filename does not encode it twice (`2026-08-02-pr-release-process-and-stage-naming.md`). **Exception: a case that stands up the student's portfolio repository numbers that stage `0`**, because it produces the workspace rather than a step of the analysis, and only one case per course does it (2026-08-03). |
+| `stage` | Integer, numbered **per case from 1** — the containing folder already scopes the case, so the filename does not encode it twice. **Exception: a case that stands up the student's portfolio repository numbers that stage `0`**, because it produces the workspace rather than a step of the analysis, and only one case per course does it. |
 | `deliverables` | The canonical **declaration** of the artifact paths. Prose in the body may reference a path but never introduce one. |
 | `ai_boundary` | Sits on each deliverable, not on the stage — a repo skeleton and a falsifiable hypothesis produced in the same stage carry different boundaries. The § 6 stage-level line is derived from these values; the AI tutor consumes them per artifact. |
 | `prerequisites` | Makes the self-contained rule checkable, and names what progression gating keys on. |
@@ -198,7 +195,7 @@ not a transcript of the reasoning that produced it.
 | "Two things happen here, and both are deliberately small." | "This stage produces two artifacts." |
 | "`CLAUDE.md` is literally one line." | "`CLAUDE.md` contains a single line pointing to `AGENTS.md`." |
 | "…and once junk lands in commits, getting it out is painful." | "Files committed once remain in the repository history even after deletion; excluding them beforehand is the only clean option." |
-| "top-level `skills/` is *your* word, the one that goes on a resume" | "`skills/` names capabilities in your own terms, for human readers." |
+| "top-level `capabilities/` is *your* word, the one that goes on a resume" | "`capabilities/` names what you can do in your own terms, for human readers; `.claude/skills/` holds instructions for the AI agent." |
 
 No first-person plural, no rhetorical questions, no asides about the course's design intent.
 Second person for instructions is correct and expected.

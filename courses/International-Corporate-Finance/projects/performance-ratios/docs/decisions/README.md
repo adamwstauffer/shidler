@@ -28,6 +28,4 @@ Use the repo-level [`memo-template.md`](../../../../../../templates/memo-templat
 
 ## Existing files
 
-| File | Description |
-|------|-------------|
-| [`2026-04-03-bus629-accounting-ratios-project-design.md`](2026-04-03-bus629-accounting-ratios-project-design.md) | Project design decision memo (instructor) |
+None. The instructor's project design rationale (2026-04-03) is kept privately.

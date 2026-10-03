@@ -1,6 +1,6 @@
 ---
 template: portfolio-bio
-purpose: "Bio assignment for student GitHub portfolios — includes a 200–400 word structure and a library of LLM revision prompts"
+purpose: "Bio assignment for student GitHub portfolios: a 200–400 word structure the student drafts, plus review questions an AI may answer"
 audience: student
 fields_required: [introduction, focus_areas, achievements, goals]
 naming_convention: "README.md (lives at the root of the student's portfolio repo)"
@@ -13,7 +13,7 @@ courses: [BUS-629, BUS-122B]
 
 Your first task is to create a **professional bio** that highlights your background, interests, and goals.
 
-This exercise will teach you how to effectively communicate your strengths while introducing the concept of **iterative revisions** to improve your work.
+You write it yourself, then revise it at least twice.
 
 ---
 
@@ -38,16 +38,11 @@ Write a **200–400 word bio** using the following structure:
 
 ---
 
-### 2. Iterative Revisions Using ChatGPT (or another LLM)
+### 2. Review with AI, then revise it yourself
 
-Paste your draft into ChatGPT and ask for **specific feedback**.
-Examples:
+You write 200–400 words first. AI may review for clarity and flag claims you cannot back; it does not rewrite your bio. Paste your draft into Claude, ChatGPT, or another assistant, ask for feedback only, and make every change yourself. Note the review in your prompt log; disclosed AI use is never deducted.
 
-* “Make this more concise.”
-* “How can I make my bio more engaging?”
-* “Please rewrite this bio with a smoother flow.”
-
-Refine your bio through **at least 2 iterations** focusing on:
+Revise through **at least 2 iterations**, focusing on:
 
 * Clarity and structure
 * Grammar and spelling
@@ -55,58 +50,32 @@ Refine your bio through **at least 2 iterations** focusing on:
 
 ---
 
-### 3. Suggested Prompts for Revision
+### 3. Review questions to ask an AI
 
-#### General Improvement
+Each asks for feedback, not a new version. Make the changes yourself.
 
-* “Can you make this bio more concise without losing important details?”
-* “How can I make this bio sound more professional and engaging?”
-* “Please rewrite this bio with smoother transitions between ideas.”
-* “Can you improve the grammar and clarity of my bio?”
+#### Clarity
 
-#### Content Refinement
+* "Which sentences in my bio are unclear or wordy? Quote them; do not rewrite them."
+* "Where do I repeat myself?"
+* "List the grammar and spelling errors you see, with line references."
 
-* “Does my bio clearly highlight my strengths and achievements?”
-* “What additional information could make this bio more compelling?”
-* “Can you help me emphasize my goals in [career objectives]?”
-* “How can I make this bio appeal to potential mentors or collaborators?”
+#### Claims
 
-#### Tone and Style
+* "Which claims in my bio could a reader not verify from my resume or my repo? List them."
+* "Where do I state something vaguely that a specific example would make concrete?"
 
-* “Please rewrite this bio to sound more enthusiastic and inspiring.”
-* “Can you make the tone of this bio more formal/professional?”
-* “How can I make my bio sound confident but not boastful?”
-* “Can you make this bio more engaging for an audience interested?”
+#### Structure and audience
 
-#### Audience-Specific
-
-* “Rewrite my bio to appeal to an investor in [xyz].”
-* “How can I make this bio relevant to a leadership role in [xyz]?”
-* “Adjust this bio to resonate with a younger audience interested in [xyz].”
-
-#### Goal-Focused
-
-* “Please revise my bio to highlight my long-term vision.”
-* “Can you help me better explain how my background supports my goals?”
-* “Rewrite this bio to make my passion for [xyz] stand out.”
-
-#### Creative Enhancements
-
-* “Can you suggest a strong opening sentence for my bio?”
-* “How can I reword this section to make it more unique and memorable?”
-* “Add a line about how I plan to impact the [xyz] industry.”
-
-#### Final Polishing
-
-* “Please check if my bio is concise and free from redundancy.”
-* “Does this bio have a clear and compelling ending? If not, can you rewrite it?”
-* “Can you format this bio to look clean and professional?”
+* "Does my bio cover introduction, focus areas, achievements, and goals? Which is weakest?"
+* "Would a potential mentor or collaborator understand what I want to do next? What is missing?"
+* "Does the opening sentence say who I am? Does the ending say where I am going?"
 
 ---
 
 ### 4. Final Submission
 
-* Submit your **final bio** after at least **two iterations of revision**.
+* Submit your **final bio** in your repository `README.md` after at least **two rounds of your own revision**.
 * Your submission should be **well-structured, polished, and professional**.
 
 ---
