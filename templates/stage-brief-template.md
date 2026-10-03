@@ -6,7 +6,6 @@ audience: instructor
 instantiated_audience: student
 destination: "C:/GitHub/shidler/templates/stage-brief-template.md"
 related:
-  - ../decisions/2026-08-02-stage-brief-template-and-content-ownership.md
   - "C:/GitHub/shidler/templates/README.md"
 ---
 

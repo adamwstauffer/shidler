@@ -3,7 +3,6 @@ template: reference
 purpose: "Quick-reference checklist for students populating non-US-GAAP financials into the BUS-629 ratios workbook"
 audience: student
 courses: [BUS-629]
-related: [docs/decisions/2026-05-24-accounting-standards-conversion-framework.md]
 ---
 
 # Accounting Standards Quick-Reference
@@ -108,8 +107,6 @@ A weak submission ignores the standard entirely and treats VAS/IFRS/CAS line ite
 
 ## Further reading
 
-The full decision memo with detailed conversion mechanics, adjustment formulas, and a survey of global accounting frameworks is at:
+The instructor's full decision memo on accounting-standards conversion (2026-05-24) is kept privately.
 
-[`docs/decisions/2026-05-24-accounting-standards-conversion-framework.md`](../../../../../../docs/decisions/2026-05-24-accounting-standards-conversion-framework.md)
-
-You do not need to read the full memo to complete your Stage 3 deliverable — this quick-reference covers what you need.
+You do not need it to complete your Stage 3 deliverable — this quick-reference covers what you need.

@@ -5,14 +5,7 @@ This directory contains institutional documentation, reusable templates, brand g
 ## Contents
 
 ### [`decisions/`](./decisions/)
-Strategic and administrative decision memos being reviewed, discussed, and refined for organizational direction. These memos inform the development of plans, specifications, and course materials.
-
-**Examples:**
-- Repository hierarchy and structure documentation
-- Pedagogical approach decisions
-- Course redesign initiatives
-
-**Purpose:** Capture reasoning behind organizational and instructional decisions to maintain institutional memory and support future planning.
+The one public structural decision: subject-first course directories (2026-07-08). Other decision memos are kept privately; see [`CHANGELOG.md`](../CHANGELOG.md) for notable changes.
 
 ---
 

@@ -25,7 +25,7 @@ Student-facing tutorials live on the companion **Kumu site**, <https://adamwstau
 - **`docs/`** — Centralized documentation hub:
   - `_branding/` — UH Mānoa design tokens (`design.json`) and visual reference (`design-system.html`)
   - `templates/` — Reusable assignment templates (memo, spec, case brief, risk memo, prompt log)
-  - `decisions/` — Strategic decision memos, flat (`YYYY-MM-DD-<slug>.md`; course-specific ones are `YYYY-MM-DD-<course-code>-<slug>.md`, e.g. `2026-05-07-bus629-stage2-restructure.md`)
+  - `decisions/` — Strategic decision memos, flat (`YYYY-MM-DD-<slug>.md`; course-specific ones are `YYYY-MM-DD-<course-code>-<slug>.md`, now only `2026-07-08-generic-course-directory-naming.md`; other memos are kept privately, see `CHANGELOG.md`)
   - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`
 - **`BIO.md`** — Short instructor bio; course READMEs link here. The full bio, resume and CV live on <https://adamwstauffer.github.io/>
 
@@ -99,7 +99,7 @@ Branch naming: `launch/<term>`, `feat/<slug>`, `fix/<slug>`, `docs/<slug>`.
 | BUS 122B | Intro Entrepreneurship/Sustainable Ag | Community college | Business plan + pitch |
 | BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (6-stage, spec-driven) |
 
-Note: there is no separate "DCF" project — confirmed via repo-wide search, no such materials exist. The GAAP-conversion methodology (`docs/decisions/2026-05-24-accounting-standards-conversion-framework.md`) is implemented as one supporting artifact (`models/templates/gaap-bridge-template.xlsx`) inside the Performance Ratios project, not a standalone project.
+Note: there is no separate "DCF" project — confirmed via repo-wide search, no such materials exist. The GAAP-conversion methodology (the accounting-standards conversion framework decision of 2026-05-24, kept privately) is implemented as one supporting artifact (`models/templates/gaap-bridge-template.xlsx`) inside the Performance Ratios project, not a standalone project.
 
 ## UH Mānoa Brand System
 
@@ -134,7 +134,7 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 | Brand Design Tokens | `docs/_branding/design.json` |
 | Reusable Templates | `templates/` |
 | Strategic Decisions | `docs/decisions/` |
-| Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` (historical; superseded by `docs/decisions/2026-07-08-generic-course-directory-naming.md`) |
+| Repo Hierarchy Doc | `docs/decisions/2026-07-08-generic-course-directory-naming.md` (supersedes the 2026-02-15 repo hierarchy decision, kept privately) |
 | Appendix Presentations | `docs/presentations/` |
 | **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
 | Grading Scale | `docs/grading-scale.md` |
