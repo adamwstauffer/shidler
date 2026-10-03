@@ -15,9 +15,9 @@ One company, two market structures. Selling **commodity (non-GMO) corn seed**, t
 1. **MR < P for a price maker** — and exactly why (the twice-as-steep rule for linear demand).
 2. **MR = MC vs P = MC** — the optimum rule is the same logic ("expand while the next unit adds more than it costs"), the *revenue side* is what changes.
 3. **Read P\* off demand, never off MR** — the single most common student error, built into the worksheet as a checked step.
-4. **Variable cost is the area under MC**, not MC×Q — the old v9 workbook made exactly this error (see bug list).
-5. **Markup and the Lerner index** as measures of market power (here: 4.3× and 0.77).
-6. **Deadweight loss of monopoly** — the ~$3.0B/yr of surplus that simply vanishes, and why patents accept that loss on purpose (innovation incentive: the case's discussion spine).
+4. **Variable cost is the area under MC**, not MC×Q — a common modeling error worth testing for.
+5. **Markup and the Lerner index** as measures of market power.
+6. **Deadweight loss of monopoly** — the surplus that simply vanishes, and why patents accept that loss on purpose (innovation incentive: the case's discussion spine).
 
 ## The model (self-consistent parameterization)
 
@@ -32,26 +32,18 @@ Both markets share: **fixed costs $130M**, cost structure **TVC = a·Q + b·Q² 
 | **P\*** | $120 (given) | **$297.03** (off the demand curve) |
 | Revenue | $476.0M | $10.107B |
 | Total cost | $370.0M | $1.322B |
-| **Profit** | **$106.0M** | **$8.785B** (~83×) |
-| Markup P/MC | 1.0× | 4.30× (Lerner 0.768) |
-
-**Competitive benchmark for GMO** (if the patent vanished and price fell to MC): Q ≈ 60.23M bags at **P ≈ $121.46 — almost exactly the non-GMO price**. Monopoly withholds ~26M bags to hold price at $297; the lost trades are a **deadweight loss ≈ $2.99B/yr**. That near-coincidence ($121 ≈ $120) is the case's best "aha": strip the patent and GMO seed is just… seed.
 
 > **Note on the docx's stated curves.** The draft quotes MC = 0.000029·Q (non-GMO) and 0.00000196·Q (GMO). Those numbers were `SLOPE()` regressions over the old workbook's own tables — artifacts, not parameters. The rebuild defines TVC directly so every number is exact. Real-world calibration survives: Q\* ≈ 34.0M GMO bags vs the ~34.4M implied by 86M GMO acres ÷ 2.5 acres/bag.
 
 ## Deliverables (4-artifact AI + GitHub workflow, same as the other BUS 620 cases)
 
-| # | Artifact | Contents | Pts |
-|---|---|---|---|
-| 1 | `docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md` | The two-market setup in your own words + hypothesis: "I expect the GMO price and profit to be X because Y" — committed before any spec or model work | — |
-| 2 | `capabilities/pricing-power/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs, both markets' calculation logic in named-range notation, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec | 8 |
-| 3 | `analysis/YYYY-MM-DD-imperfect-competition-analysis.md` + `analysis/figures/` | Perfect vs imperfect compared: why MR < P, why P\* comes off demand, markup/Lerner, the DWL number and what it means, and a defended position on the patent tradeoff | 6 |
-| 3b | `docs/decisions/YYYY-MM-DD-imperfect-competition-memo.md` | The recommendation to whoever has to act. No separate points — read with the analysis | — |
-| 4 | `prompt-log.md` (repo root) + reflection | AI sessions logged across both stages; reflection covers an AI error you caught | 3 |
+Optional this term and not graded; use the headings below as a self-check.
 
-> Stage 1 carries 8 pts (spec 3 · validation rules 1 · workbook contract 2 · audit note 1 · brief-before-build and commit hygiene 1); Stage 2 carries 12 (hypothesis + setup 3 · mechanics 3 · DWL and patent tradeoff 3 · prompt log 3). Case total 20, unchanged.
-
-Split across stages: [stage1](stage1-model-build.md) (brief, spec, build, audit, 8) · [stage2](stage2-analysis.md) (analysis + memo + log, 12).
+- **1.** `docs/briefs/YYYY-MM-DD-imperfect-competition-brief.md`: The two-market setup in your own words + hypothesis: "I expect the GMO price and profit to be X because Y" — committed before any spec or model work
+- **2.** `capabilities/pricing-power/spec.md` + `model.xlsx` + `README.md`: **Spec first**, before the workbook exists: named inputs, both markets' calculation logic in named-range notation, and the check figures written in as acceptance criteria. Then an AI builds from the spec and the student audits — findings recorded in the spec
+- **3.** `analysis/YYYY-MM-DD-imperfect-competition-analysis.md` + `analysis/figures/`: Perfect vs imperfect compared: why MR < P, why P\* comes off demand, markup/Lerner, the DWL number and what it means, and a defended position on the patent tradeoff
+- **3b.** `docs/decisions/YYYY-MM-DD-imperfect-competition-memo.md`: The recommendation to whoever has to act, read with the analysis
+- **4.** `prompt-log.md` (repo root) + reflection: AI sessions logged across both stages; reflection covers an AI error you caught
 
 Student-facing web pages: [`case-imperfect-competition.html`](https://adamwstauffer.github.io/ai-lms/case-imperfect-competition.html) and its two stage pages. **Sync rule:** the deliverable paths declared in each brief's frontmatter are mirrored by those pages and by the Kumu site's gate checks; change one, change all three.
 
@@ -64,20 +56,9 @@ Student-facing web pages: [`case-imperfect-competition.html`](https://adamwstauf
 - Superweeds (glyphosate-resistant weeds from over-reliance) as a negative externality the private optimum ignores.
 - The 2018 acquisition: does merging the #1 seed company into a top agrochemical firm restore competition concerns the patent already raised? (DOJ answer: largest antitrust divestiture in U.S. history as the price of approval.)
 
-## Instructor notes & check figures
+## Expected results
 
-- **Non-GMO:** Q\* = (120−1)/0.00003 = 3,966,667; profit $106.0M. Discussion: this is *short-run* — the docx's "long-run profits" question answers itself: free entry competes it toward zero, which is exactly why the seed company needed the patent moat.
-- **GMO:** Q\* = 524/0.0000154 = 34,025,974; P\* $297.03; MR = MC = $69.05 ✓; profit $8.785B. Markup 4.30×, Lerner 0.768 (implied demand elasticity at optimum ≈ 1.3 — students who know the markup rule can back it out).
-- **DWL:** ½ × (297.03 − 69.05) × (60.23M − 34.03M) ≈ $2.99B/yr.
-- All figures brute-force/algebra verified and match the Excel key to the dollar (zero formula errors on recalculation).
-
-## Bugs fixed vs the old materials (for Adam)
-
-1. **TC = FC + MC·Q** in both v9 "Optimal" blocks and the in-class worksheet — with linear MC, variable cost is the *area under* MC (= aQ + bQ²), which v9's own decision tables computed correctly two rows down. Effect: GMO profit understated by ~$1.08B ($7.71B vs $8.79B) and non-GMO profit forced to exactly −$130M (AC ≡ MC ⇒ profit ≡ −FC — an artifact, not economics).
-2. **In-class worksheet's non-GMO VC** = `corn_P*corn_Output_optimal` (= revenue!) — profit identically −FC.
-3. **MC "curves" were regressions of tables** (SLOPE over tabulated ΔTC/ΔQ) with the intercept anchored to a blank cell — parameters now defined directly.
-4. **Missing pieces added:** MR twice-as-steep derivation as an explicit checked step, markup + Lerner, competitive benchmark + DWL, real-world anchor rows, README sheet, check figures (instructor key, held privately).
-5. **Typos:** "Monoplostic" (filename), inconsistent labels — new files named cleanly.
+Expected results are discussed in class after Stage 2 is handed in.
 
 ## Validated facts & sources (accessed 2026-07-07)
 

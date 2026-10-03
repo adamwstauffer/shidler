@@ -11,7 +11,6 @@ deliverables:
     format: markdown
 prerequisites: [4]
 weight: "25% of project"
-# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
 ---
 
 # Stage 5 – Validate & Decision Memo (25% of project — capstone)

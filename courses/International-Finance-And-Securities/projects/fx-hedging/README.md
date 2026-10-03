@@ -6,7 +6,7 @@ offering README's weight table matches these stages.
 
 ## Micro/Macro parity (2026-09-24)
 
-Adam's ruling: BUS 620 Micro & Macro Economics is the guidepost for this project's conventions.
+BUS 620 Micro & Macro Economics is the guidepost for this project's conventions.
 Three things changed to match it:
 
 - **Stage 0 belongs to the course, not the project.** [`stage0-repo-setup.md`](stage0-repo-setup.md)
@@ -20,7 +20,7 @@ Three things changed to match it:
 - **The reference skeleton** is the repo-wide worked sample,
   [`templates/portfolio/firstname-lastname/`](../../../../templates/portfolio/firstname-lastname/).
 
-- **Stages 2–4 commit into the capability folder (2026-09-24, Adam).** The spec is
+- **Stages 2–4 commit into the capability folder (2026-09-24).** The spec is
   `capabilities/fx-hedging/spec.md` and the workbook `capabilities/fx-hedging/model.xlsx`, beside the
   capability's `README.md` — as BUS 620 does with `capabilities/marginal-analysis/`. The old
   `docs/specs/` and `models/builds/` paths are superseded; Summer 2026 repositories keep them and are
@@ -86,9 +86,7 @@ repo (0) → memo (1) → spec (2) → workbook + audit (3) → live-data popula
 - **Color convention:** Yellow = inputs · Blue = assumptions · Green = formulas · Gray = outputs.
 - **Prompt log:** a running `prompt-log.md` at the repo root, updated at every stage that uses
   an AI tool. Student drafts first, AI reviews, then the two iterate together.
-- **Template policy:** the instructor workbook is **withheld** during the build and used as the
-  grading key. (Open question for Adam — release it after stage 3 as a diff-against-yours
-  exercise? See memo §6.)
+- **Template policy:** no workbook is provided; you build yours from your own Stage 2 specification.
 
 ## Stage files
 

@@ -10,8 +10,8 @@
 | **Setup guide** | <https://adamwstauffer.github.io/ai-lms/onboarding.html> |
 | **Submit** | Your **repository URL** via Lamaku |
 
-> **Updated 2026-09-24 — the skeleton below is now the Kumu course-independent standard.** Adam's
-> ruling: Stage 0 belongs to the course, not the project, and follows BUS 620 Micro & Macro
+> **Updated 2026-09-24 — the skeleton below is now the Kumu course-independent standard.**
+> Stage 0 belongs to the course, not the project, and follows BUS 620 Micro & Macro
 > Economics. As graded in Summer 2026 this phase asked for a project-shaped skeleton
 > (`BIO.md`, `docs/{decisions,specs,plans,templates}/`, `models/{templates,builds}/`); that is
 > superseded, and the original text is in this file's git history. The project's own folders

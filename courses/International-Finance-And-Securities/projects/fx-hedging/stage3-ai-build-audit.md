@@ -11,12 +11,11 @@ deliverables:
     format: markdown
 prerequisites: [2]
 weight: "17% of project"
-# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
 ---
 
 # Stage 3 – AI-Assisted Build + Audit (17% of project)
 
-> **Paths moved (2026-09-24, Adam).** Stages 2–4 used to commit to `docs/specs/` and
+> **Paths moved (2026-09-24).** Stages 2–4 used to commit to `docs/specs/` and
 > `models/builds/` under dated, name-stamped filenames. Following BUS 620 Micro & Macro, the spec
 > and the workbook now live together in the capability folder: `capabilities/fx-hedging/spec.md`,
 > `model.xlsx`, and its `README.md`. Summer 2026 repositories keep the old paths and are read
