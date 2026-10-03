@@ -1,42 +1,23 @@
 # Documentation & Resources
 
-This directory contains institutional documentation, reusable templates, brand guidelines, and decision memos for the Shidler College of Business repository.
+This directory holds course-wide documentation: the writing style guide, AI-usage guidelines, grading scale, financial-model assumptions, appendix slide decks, Adam's slide and color kit, and the one public decision memo. Deliverable templates and how-to guides live at the repo root, in [`templates/`](../templates/) and [`guides/`](../guides/).
 
 ## Contents
 
 ### [`decisions/`](./decisions/)
-Strategic and administrative decision memos being reviewed, discussed, and refined for organizational direction. These memos inform the development of plans, specifications, and course materials.
-
-**Examples:**
-- Repository hierarchy and structure documentation
-- Pedagogical approach decisions
-- Course redesign initiatives
-
-**Purpose:** Capture reasoning behind organizational and instructional decisions to maintain institutional memory and support future planning.
-
----
-
-### [`templates/`](../templates/)
-Reusable templates and templates for courses, projects, and professional materials.
-
-**Contents:**
-- **Assignment & Project Templates** – Memo, specification, and case brief templates used across courses
-- **portfolio/** – Professional portfolio templates (bio and resume formats)
-- **Example Prompts & Specs** – Completed examples for reference (e.g., interest rate parity analysis)
-
-**Usage:** Link to these templates in course materials and project assignments to maintain consistency across the repository.
+The one public structural decision: subject-first course directories (2026-07-08). Other decision memos are kept privately; see [`CHANGELOG.md`](../CHANGELOG.md) for notable changes.
 
 ---
 
 ### [`_branding/`](./_branding/)
-University of Hawaiʻi at Mānoa and Shidler College of Business brand guidelines, design tokens, and visual standards.
+Adam Stauffer's personal slide and color kit: design tokens, visual reference, and PowerPoint templates. Inspired by UH Mānoa's public brand guide; not an official UH or Shidler asset.
 
 **Contents:**
 - Brand colors, typography, and design system specifications
 - HTML design system reference guide
 - Design token configuration (`design.json`)
 
-**Usage:** Apply these standards to all course materials, presentations, and institutional documents.
+**Usage:** Apply these standards to course slides and documents.
 
 ---
 
@@ -51,18 +32,30 @@ Institutional writing standards for course materials and communications.
 #### [`reproducibility-playbook.md`](./reproducibility-playbook.md)
 Guidelines for ensuring reproducibility in course materials and student projects.
 
+#### [`grading-scale.md`](./grading-scale.md)
+The letter-grade scale.
+
+#### [`financial-model-assumptions-student.md`](./financial-model-assumptions-student.md) · [`financial-model-assumptions.md`](./financial-model-assumptions.md)
+Shared inputs for valuation models (student summary and full spec).
+
+#### [`presentations/`](./presentations/)
+Course-independent appendix slide decks.
+
 ---
 
 ## Quick Navigation
 
 | Resource | Path |
 |----------|------|
-| Decision Memos | `decisions/` |
-| Assignment Templates | `../templates/` |
-| Professional Templates | `../templates/portfolio/` |
+| Decision Memo (one) | `decisions/` |
+| Changelog | `../CHANGELOG.md` |
+| Deliverable Templates | `../templates/` |
+| Portfolio Templates | `../templates/portfolio/` |
+| How-to Guides | `../guides/` |
+| Grading Scale | `grading-scale.md` |
 | Brand Guidelines | `_branding/` |
 | Design System | `_branding/design.json` |
 
 ---
 
-**Last Updated:** February 18, 2026
+**Last Updated:** October 3, 2026

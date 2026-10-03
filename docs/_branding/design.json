@@ -70,8 +70,8 @@
     "primary": {
       "green": {
         "hex": "#024731",
-        "rgb": "2, 71, 49",
-        "cmyk": "93, 24, 85, 68",
+        "rgb": "0, 70, 49",
+        "cmyk": "100, 0, 81, 66",
         "pantone": "3435 C",
         "usage": "Primary brand green; logos, headings, key UI elements"
       },

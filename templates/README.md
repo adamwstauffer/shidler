@@ -106,7 +106,7 @@ A single naming convention applies across the repo. When in doubt, follow these:
 
 | Artifact | Convention | Example |
 |----------|------------|---------|
-| Decision memo / project memo | `YYYY-MM-DD-{slug}.md` | `2026-04-03-bus629-accounting-ratios-project-design.md` |
+| Decision memo / project memo | `YYYY-MM-DD-{slug}.md` | `2026-05-15-company-selection-memo.md` |
 | Technical spec | `YYYY-MM-DD-{slug}.md` | `2026-05-15-aapl-ratios-spec.md` |
 | Stage assignment file | `stageN-{slug}.md` | `stage4-technical-specification.md` |
 | Student dated document | `YYYY-MM-DD-{slug}-{type}.md` — `{type}` one of `brief` · `spec` · `memo` · `analysis` · `log`; no last name (the repo is named for the student); older names already submitted still count | `2026-05-21-vinamilk-selection-memo.md` |

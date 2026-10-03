@@ -23,11 +23,13 @@ Student-facing tutorials live on the companion **Kumu site**, <https://adamwstau
 
 - **`courses/`** — Subject-first directories (e.g., `courses/International-Corporate-Finance/`), not course-code-first. See `courses/README.md` for the Shidler-code-to-directory map. Each subject directory shares one shape: `projects/<slug>/` (shared curriculum) + one `<CODE[-POPULATION]>/` subfolder per offering (e.g., `BUS-629-VEMBA/`, `FIN-321/`). See `docs/decisions/2026-07-08-generic-course-directory-naming.md` for the full rationale.
 - **`docs/`** — Centralized documentation hub:
-  - `_branding/` — UH Mānoa design tokens (`design.json`) and visual reference (`design-system.html`)
-  - `templates/` — Reusable assignment templates (memo, spec, case brief, risk memo, prompt log)
-  - `decisions/` — Strategic decision memos, flat (`YYYY-MM-DD-<slug>.md`; course-specific ones are `YYYY-MM-DD-<course-code>-<slug>.md`, e.g. `2026-05-07-bus629-stage2-restructure.md`)
-  - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`
-- **`BIO.md`** — Short instructor bio; course READMEs link here. The full bio, resume and CV live on <https://adamwstauffer.github.io/>
+  - `_branding/` — Adam's personal slide and color kit: design tokens (`design.json`), visual reference (`design-system.html`), `.potx` templates. Not an official UH or Shidler asset.
+  - `decisions/` — One public memo, `2026-07-08-generic-course-directory-naming.md`; other memos are kept privately, see `CHANGELOG.md`
+  - `ai-usage-guidelines.md`, `writing-style-guide.md`, `reproducibility-playbook.md`, `grading-scale.md`, `financial-model-assumptions.md`
+- **`templates/`** (repo root) — Deliverable templates students copy (memo, spec, case brief, stage brief, prompt log, `portfolio/`, `spreadsheets/`)
+- **`guides/`** (repo root) — How-to guides for students
+- **`CHANGELOG.md`** — Notable changes to how the repo is organized
+- The instructor bio, resume and CV live on the site, never in this repo: <https://adamwstauffer.github.io/bio.html>
 
 ## Local-only trees — PII and history (hard rules)
 
@@ -36,7 +38,6 @@ appear on the public tree**, not even as placeholder READMEs:
 
 - **`/rosters/`** — rosters, attendance sheets, approved-access lists (incl. the Kumu-site access list `rosters/approved/kumu-approved.xlsx`). Student PII: names, emails, IDs. FERPA — never commit anything from this tree, never add whitelist exceptions.
 - **`/recommendations/`** — recommendation letters and the résumés, statements, and correspondence supporting them. One folder per student, `recommendations/<YYYY-MM>-<lastname>-<firstname>/`. Same rule: nothing here is ever committed.
-- **`/_archive/`** — deprecated/historical course materials (e.g. `_archive/bus314/`, the archived BUS-314 project). Untracked 2026-08-06 to declutter the public repo; pre-removal contents remain in public git history.
 - **`<CODE[-POPULATION]>/ignore/`** — per-offering student submissions and grading records.
 
 Each local tree carries its own untracked `README.md` describing its layout — read it before
@@ -70,7 +71,7 @@ Most projects follow a reusable pedagogical pattern. The default is five stages:
 
 **The current Performance Ratios project (BUS 629) uses a 6-stage variant** (Stage 0–5: repo setup, template architecture, company selection, model population/validation, technical specification, LLM analysis evaluation).
 
-Stage files are named `stage[N]-[description].md`, numbered **per case, from 1** — the containing
+Stage files are named `stage[N]-[description].md`, numbered **per case** (Stage 0 is repo setup where a project has one; content stages start at 1) — the containing
 folder already scopes the case, so the filename does not encode it again (decided 2026-08-02; the
 BUS 620 `stage1a/1b/1c` scheme was renamed to `stage1/stage2/stage3`). Templates for deliverables
 live in [`templates/`](templates/).
@@ -92,30 +93,30 @@ Branch naming: `launch/<term>`, `feat/<slug>`, `fix/<slug>`, `docs/<slug>`.
 | Code | Subject | Level | Key Project |
 |------|-------|-------|-------------|
 | BUS 313 | International Economics and Trade | Undergrad | Trade/geopolitics case studies |
-| BUS 314 | International Corporate Finance | Undergrad (archived) | Performance ratios — superseded; archived materials are local-only under `_archive/bus314/` |
-| FIN 321 | International Finance and Securities | Upper undergrad | FX hedging (5-stage) |
+| BUS 314 | International Corporate Finance | Undergrad (archived) | Performance ratios — superseded by BUS 629's project; not on the public tree |
+| FIN 321 | International Finance and Securities | Upper undergrad | FX hedging (6-stage, Stage 0–5) |
 | BUS 620 | Micro- and Macro-Economics | MBA | Team cases + individual research |
-| BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | In setup |
+| BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | Cases + individual research (no team case) |
 | BUS 122B | Intro Entrepreneurship/Sustainable Ag | Community college | Business plan + pitch |
 | BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (6-stage, spec-driven) |
 
-Note: there is no separate "DCF" project — confirmed via repo-wide search, no such materials exist. The GAAP-conversion methodology (`docs/decisions/2026-05-24-accounting-standards-conversion-framework.md`) is implemented as one supporting artifact (`models/templates/gaap-bridge-template.xlsx`) inside the Performance Ratios project, not a standalone project.
+Note: there is no separate "DCF" project — confirmed via repo-wide search, no such materials exist. The GAAP-conversion methodology (the accounting-standards conversion framework decision of 2026-05-24, kept privately) is implemented as one supporting artifact (`courses/International-Corporate-Finance/projects/performance-ratios/models/templates/gaap-bridge-template.xlsx`) inside the Performance Ratios project, not a standalone project.
 
-## UH Mānoa Brand System
+## Slide and Color Kit
 
-Full design tokens live in `docs/_branding/design.json`. Key values:
+Adam's personal kit, inspired by UH Mānoa's public brand guide; not an official UH or Shidler asset. Full design tokens live in `docs/_branding/design.json`. Key values:
 
 - **Primary:** UH Green `#024731` — logos, headings, accents
 - **Secondary:** Black `#000000` — body text, borders
 - **Typography:** Open Sans (Bold headings, Regular body); Avenir for print
 - **Accessibility:** ADA-compliant contrast ratios required; minimum 10pt body text
 
-The `brand-guidelines` skill applies these standards automatically. Use it when creating any UH-branded materials.
+Apply these values when creating course slides or documents.
 
 ## Writing and AI Conventions
 
 - **Writing style:** Lead with 100–150 word executive summary; active voice; trim jargon; cite figures/tables in-text
-- **AI use is optional, not required** for student projects
+- **AI use is expected and disclosed;** disclosed AI is never deducted
 - **AI logging:** Meaningful prompts/outputs go in `deliverables/prompt-log.md`; AI-assisted sections marked in memos
 - **Reproducibility:** Record dataset links + access dates; keep raw vs. clean data separate; tag releases for milestones
 
@@ -124,17 +125,18 @@ The `brand-guidelines` skill applies these standards automatically. Use it when 
 - Subject directories: `courses/[Descriptive-Subject-Name]` with PascalCase hyphens (no course code in the name)
 - Offering subfolders: `courses/<Subject>/[CODE[-POPULATION]]/` (e.g., `BUS-629-VEMBA/`, `FIN-321/`)
 - `_`-prefixed directories (`_templates/`, `_branding/`) denote system/organizational content
-- Excel named ranges for the Performance Ratios project: `BAL_`, `INC_`, `CASH_`, `RATIO_` prefixes (see `accounting-ratios` skill for full spec)
+- Excel named ranges for the Performance Ratios project: `BAL_`, `INC_`, `CASH_`, `RATIO_` prefixes (see the Performance Ratios project README)
 
 ## Key Reference Paths
 
 | Resource | Path |
 |----------|------|
-| Instructor Bio (SSOT) | `BIO.md` |
+| Instructor Bio (SSOT) | <https://adamwstauffer.github.io/bio.html> |
+| How-to Guides | `guides/` |
+| Changelog | `CHANGELOG.md` |
 | Brand Design Tokens | `docs/_branding/design.json` |
 | Reusable Templates | `templates/` |
-| Strategic Decisions | `docs/decisions/` |
-| Repo Hierarchy Doc | `docs/decisions/2026-02-15-repo-hierarchy.md` (historical; superseded by `docs/decisions/2026-07-08-generic-course-directory-naming.md`) |
+| Repo Hierarchy Doc | `docs/decisions/2026-07-08-generic-course-directory-naming.md` (the one public decision memo) |
 | Appendix Presentations | `docs/presentations/` |
 | **Financial Model Assumptions (SSOT)** | **`docs/financial-model-assumptions.md`** |
 | Grading Scale | `docs/grading-scale.md` |
