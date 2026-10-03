@@ -116,7 +116,7 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 [Stage 4](../projects/performance-ratios/stage4-technical-specification.md) |
 [Stage 5](../projects/performance-ratios/stage5-llm-analysis-evaluation.md)
 
-See [project design memo](../projects/performance-ratios/docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md) for full rationale and pedagogical design.
+The project design rationale (decision of 2026-04-03) is kept privately.
 
 ### Project flow at a glance
 
@@ -322,7 +322,6 @@ Cheating and plagiarism will not be tolerated and will be handled under the UH S
 
 | Resource | Location |
 |----------|----------|
-| Project Design Memo | [`../projects/performance-ratios/docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md`](../projects/performance-ratios/docs/decisions/2026-04-03-bus629-accounting-ratios-project-design.md) |
 | Provided Excel Template (Stage 1) | [`../../../templates/spreadsheets/performance-ratios-template.xlsx`](../../../templates/spreadsheets/performance-ratios-template.xlsx) |
 | Memo Template | [`../../../templates/memo-template.md`](../../../templates/memo-template.md) |
 | Spec Template | [`../../../templates/spec-template.md`](../../../templates/spec-template.md) |
@@ -337,7 +336,6 @@ Cheating and plagiarism will not be tolerated and will be handled under the UH S
 
 ```
 BUS-629-VEMBA/
-├── BUS-629 Danh sách Nhóm.xlsx   cohort roster
 ├── ignore/                        gitignored: student submissions, grading records
 └── README.md                      this file
 ```

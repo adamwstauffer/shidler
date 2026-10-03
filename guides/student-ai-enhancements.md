@@ -4,7 +4,6 @@ audience: students (all Shidler courses with portfolio repos)
 status: optional / ungraded
 last_updated: 2026-05-13
 related:
-  - ../decisions/2026-05-10-claude-plugins-student-rollout.md
   - claude-code-plugins.md
 ---
 
@@ -83,7 +82,7 @@ For portfolio purposes, putting it in the repo is the move.
 
 Why it matters: the `claude-for-financial-services` marketplace bundles 12+ plugins covering DCF, LBO, comps, M&A pitch decks, equity research initiation, GL reconciliation, and more. Installing one is a 5-minute exercise. Running a skill against your own Stage 3 workbook or Stage 4 spec is a 30-minute exercise that will teach you more about prompt engineering than reading an article ever will.
 
-The instructor's full rationale for plugin use, including the constructive-vs-generative distinction (which uses are encouraged, which need disclosure), is in [`docs/decisions/2026-05-10-claude-plugins-student-rollout.md`](../docs/decisions/2026-05-10-claude-plugins-student-rollout.md). Read that first if you plan to use a plugin on a graded deliverable.
+AI use is expected and disclosed; disclosed AI is never deducted. If you use a plugin on a graded deliverable, say so in your prompt log.
 
 The install mechanics (marketplace registration vs. project enablement, the SSH-vs-HTTPS gotcha) are in [`guides/claude-code-plugins.md`](claude-code-plugins.md).
 
