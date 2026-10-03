@@ -1,6 +1,6 @@
 # Templates & Examples
 
-Reusable templates for course materials, assignments, and professional portfolio materials. These provide consistent structure across all student work — the same way investment banks and consulting firms maintain firm-wide templates for models, memos, and pitch materials.
+Reusable templates for course materials, assignments, and professional portfolio materials. They give all student work the same structure.
 
 ## What is a "spec"?
 
@@ -37,7 +37,7 @@ In practice:
 
 **In policy/consulting:** Specs provide consistent evaluation frameworks (e.g., for assessing monetary policy). Prompts generate scenario narratives and what-if analyses.
 
-**Together they enforce clarity, consistency, and reproducibility — exactly what employers expect.**
+**Together they make the work clear, consistent, and reproducible.**
 
 ---
 
@@ -50,10 +50,13 @@ In practice:
 - **[`spec-template.md`](./spec-template.md)** — Technical specification (Stage 4 deliverables; originally authored for ratios analysis, adaptable to other model-driven projects)
 - **[`case-brief-template.md`](./case-brief-template.md)** — Case analysis brief (BUS-313, BUS-620)
 - **[`prompt-log-template.md`](./prompt-log-template.md)** — Running log of AI prompts and outputs
+- **[`spec-retrospective-template.md`](./spec-retrospective-template.md)** — Retrospective on a spec after an AI build: what the spec got right and what it missed
+- **[`spreadsheets/performance-ratios-template.xlsx`](./spreadsheets/performance-ratios-template.xlsx)** — Ratios workbook template for the Performance Ratios project
 
 ### Professional Portfolio
 
 - **[`portfolio/`](./portfolio/)** — Bio and resume templates for student GitHub portfolios
+- **[`portfolio/firstname-lastname/`](./portfolio/firstname-lastname/)** — The one sample student repository: how a finished `firstname-lastname` repo is laid out
 
 ---
 
@@ -85,7 +88,7 @@ template: stage-brief
 project: perfect-competition-marginal-costs   # directory slug
 stage: 1                                      # INTEGER, numbered per case from 1
 title: "Repo + Brief"
-capability: marginal-analysis                 # the skills/<capability>/ folder; omit if none
+capability: marginal-analysis                 # the capabilities/<capability>/ folder; omit if none
 deliverables:                                 # the canonical path declaration
   - path: docs/briefs/YYYY-MM-DD-perfect-competition-brief.md
     format: markdown
@@ -111,7 +114,7 @@ A single naming convention applies across the repo. When in doubt, follow these:
 | Stage assignment file | `stageN-{slug}.md` | `stage4-technical-specification.md` |
 | Student dated document | `YYYY-MM-DD-{slug}-{type}.md` — `{type}` one of `brief` · `spec` · `memo` · `analysis` · `log`; no last name (the repo is named for the student); older names already submitted still count | `2026-05-21-vinamilk-selection-memo.md` |
 | Student spreadsheet deliverable | `YYYY-MM-DD-{company-slug}-financials.xlsx` | `2026-05-12-toyota-financials.xlsx` |
-| Prompt log | `prompt-log.md` (one per repository, at the root; an older `prompt-log.md` (repository root) still counts) | `prompt-log.md` |
+| Prompt log | `prompt-log.md` (one per repository, at the root; an older `deliverables/prompt-log.md` still counts) | `prompt-log.md` |
 
 **Slug rules:** lowercase, hyphen-separated, no spaces or underscores. Keep slugs short but descriptive (3–6 words).
 
@@ -137,13 +140,6 @@ A single naming convention applies across the repo. When in doubt, follow these:
 | Draft a professional bio | [`portfolio/bio-template.md`](./portfolio/bio-template.md) |
 | Update your resume | [`portfolio/resume-template.md`](./portfolio/resume-template.md) |
 | Log AI prompts | [`prompt-log-template.md`](./prompt-log-template.md) |
+| Look back on a spec | [`spec-retrospective-template.md`](./spec-retrospective-template.md) |
+| See a finished student repo | [`portfolio/firstname-lastname/`](./portfolio/firstname-lastname/) |
 
----
-
-## Archived Templates
-
-The following are preserved in `_archive/templates/` for historical reference:
-
-- `prompt-example-interest-rate-parity.md` — pre-current-spec example
-- `risk-memo-template.md` — superseded by the unified `memo-template.md`
-- `spec-example-interest-rate-parity.md` — pre-current-spec example
