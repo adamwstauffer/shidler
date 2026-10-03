@@ -1,6 +1,8 @@
 # Team Case Study Presentation
 **Micro- and Macro-Economic Foundations for Managers**
 
+This brief is for the in-person section only; the distance (DLEMBA) section has no team presentation.
+
 > Offering-specific facts — term, dates, and the grade split — live in the offering README
 > (`../../BUS-620/README.md`), not here. Student-facing page:
 > [`team-case-study.html`](https://adamwstauffer.github.io/ai-lms/team-case-study.html).
@@ -10,7 +12,7 @@
 ## Objective
 
 Analyze a geopolitical challenge as a team and present the analysis to an audience that has to be
-persuaded. The economics from the three individual cases does the work; what is new is that the
+persuaded. The economics from the individual case work does the job; what is new is that the
 deliverable is a **presentation**, and that four people have to produce it together without
 overwriting each other.
 
@@ -51,7 +53,7 @@ account, with **every team member plus `adamwstauffer` added as collaborators**.
 
 It uses the same hierarchy as your personal portfolio repo: the question in `docs/briefs/`, the
 capability work in `capabilities/`, evidence in `analysis/`, the recommendation carried by the deck.
-Nothing new to learn about structure — that is the point of having used it three times.
+Nothing new to learn about structure — that is the point of having already used it in Case 1.
 
 Each member links the team repository from their **personal repository's engagement index**, so a
 reader following your individual portfolio finds the team work.
@@ -82,7 +84,7 @@ A final references slide follows the ten, in a consistent citation style.
 
 ## 4. The deck — spec-driven, like every other build
 
-The three individual cases established the pattern: specify before you build, hand the specification
+Case 1 established the pattern: specify before you build, hand the specification
 to an AI tool, audit what comes back. A deck is no different, and it has two halves of specification.
 
 **The content spec** is the ten-slide map above — what each slide argues.
