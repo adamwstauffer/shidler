@@ -20,6 +20,17 @@ Please begin email subject lines with **BUS 629**. Before sending an email, chec
 
 ---
 
+## Campus Locations
+
+BUS 629 is delivered in person at two locations as part of the Shidler Vietnam Executive MBA program:
+
+| City | Venue | Address |
+|------|-------|---------|
+| **Ho Chi Minh City** | Van Lang University, Building I, Level 2, Room I2.01 | 69/68 Đặng Thùy Trâm, Ward 13, Bình Thạnh District, HCMC |
+| **Hanoi** | FPT Headquarters | 10 Phạm Văn Bạch street, Cầu Giấy District, Hanoi |
+
+---
+
 ## Textbook
 
 Brealey, Myers, and Marcus, *Fundamentals of Corporate Finance*, 11th ed., McGraw-Hill
