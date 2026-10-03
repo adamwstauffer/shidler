@@ -123,8 +123,3 @@ BUS-313/
 └── README.md                       this file
 ```
 
-The optional GitHub portfolio extra-credit assignment lives in [`../projects/github-portfolio-extra-credit/`](../projects/github-portfolio-extra-credit/).
-
-**Extra-credit due date (this offering):** Tuesday, 2026-07-07, 11:59 PM HST. Relocated here
-2026-08-03 under the standing rule that calendars live only in offering-level artifacts; the project
-doc now points at this README.

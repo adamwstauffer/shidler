@@ -4,10 +4,10 @@ status: draft
 purpose: "Authoring template for every stage brief in every course — fixed section order, fixed frontmatter, semester-invariant content only"
 audience: instructor
 instantiated_audience: student
-destination: "C:/GitHub/shidler/docs/templates/stage-brief-template.md"
+destination: "C:/GitHub/shidler/templates/stage-brief-template.md"
 related:
   - ../decisions/2026-08-02-stage-brief-template-and-content-ownership.md
-  - "C:/GitHub/shidler/docs/templates/README.md"
+  - "C:/GitHub/shidler/templates/README.md"
 ---
 
 # Stage brief template
@@ -29,7 +29,7 @@ links. No sentence may assume live instruction.
 
 ## Frontmatter
 
-Required on every instantiated brief. Extends the schema in `shidler/docs/templates/README.md`.
+Required on every instantiated brief. Extends the schema in `shidler/templates/README.md`.
 
 ```yaml
 ---

@@ -16,12 +16,12 @@ Strategic and administrative decision memos being reviewed, discussed, and refin
 
 ---
 
-### [`templates/`](./templates/)
+### [`templates/`](../templates/)
 Reusable templates and templates for courses, projects, and professional materials.
 
 **Contents:**
 - **Assignment & Project Templates** – Memo, specification, and case brief templates used across courses
-- **bio-and-resume/** – Professional portfolio templates (bio and resume formats)
+- **portfolio/** – Professional portfolio templates (bio and resume formats)
 - **Example Prompts & Specs** – Completed examples for reference (e.g., interest rate parity analysis)
 
 **Usage:** Link to these templates in course materials and project assignments to maintain consistency across the repository.
@@ -58,8 +58,8 @@ Guidelines for ensuring reproducibility in course materials and student projects
 | Resource | Path |
 |----------|------|
 | Decision Memos | `decisions/` |
-| Assignment Templates | `templates/` |
-| Professional Templates | `templates/bio-and-resume/` |
+| Assignment Templates | `../templates/` |
+| Professional Templates | `../templates/portfolio/` |
 | Brand Guidelines | `_branding/` |
 | Design System | `_branding/design.json` |
 

@@ -177,4 +177,4 @@ anyone sees.
 
 - [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html) · [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html)
 - [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics), including [`.gitignore`](https://adamwstauffer.github.io/ai-lms/onboarding.html#gitignore) and [how work is submitted, with the post-deadline revision policy](https://adamwstauffer.github.io/ai-lms/onboarding.html#submitting)
-- [`docs/guides/github-mba-guide.md`](../../../../../docs/guides/github-mba-guide.md) — the long-form Git reference, for troubleshooting
+- [`guides/github-mba-guide.md`](../../../../guides/github-mba-guide.md) — the long-form Git reference, for troubleshooting

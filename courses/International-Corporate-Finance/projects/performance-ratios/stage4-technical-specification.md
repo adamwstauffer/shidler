@@ -48,13 +48,13 @@ Example: `2026-06-18-vinamilk-spec.md`
 
 **Spec template — available three ways:**
 
-- In this repo: [`docs/templates/spec-template.md`](../../../../docs/templates/spec-template.md)
-- Public GitHub link: [`https://github.com/adamwstauffer/shidler/blob/main/docs/templates/spec-template.md`](https://github.com/adamwstauffer/shidler/blob/main/docs/templates/spec-template.md)
-- Raw URL (for direct LLM upload — paste this URL into Claude.ai or ChatGPT and ask it to read): [`https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md`](https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md)
+- In this repo: [`templates/spec-template.md`](../../../../templates/spec-template.md)
+- Public GitHub link: [`https://github.com/adamwstauffer/shidler/blob/main/templates/spec-template.md`](https://github.com/adamwstauffer/shidler/blob/main/templates/spec-template.md)
+- Raw URL (for direct LLM upload — paste this URL into Claude.ai or ChatGPT and ask it to read): [`https://raw.githubusercontent.com/adamwstauffer/shidler/main/templates/spec-template.md`](https://raw.githubusercontent.com/adamwstauffer/shidler/main/templates/spec-template.md)
 
 Copy, rename per the convention above, fill in the sections, keep the YAML frontmatter intact.
 
-**Prompt log:** Add a row to your `prompt-log.md` (repository root) for each meaningful prompt session used to review and iterate on the spec. Use [`../../docs/templates/prompt-log-template.md`](../../../../docs/templates/prompt-log-template.md) if you don't already have one.
+**Prompt log:** Add a row to your `prompt-log.md` (repository root) for each meaningful prompt session used to review and iterate on the spec. Use [`../../templates/prompt-log-template.md`](../../../../templates/prompt-log-template.md) if you don't already have one.
 
 ---
 
@@ -73,7 +73,7 @@ Sparse sections are fine in a first draft — the review will find them. **Commi
 
 ## Steps 2–3 — LLM review, then iterate together (two workflows — pick one)
 
-> **Never used a command line?** Choose **Workflow A**. It works in any browser, requires no install, and lets you focus on the spec instead of the tooling. Workflow B is faster once you're set up but adds an install/troubleshooting step. For Claude Code setup as a follow-on (optional), see [`docs/guides/claude-code-install-for-non-technical-users.md`](../../../../docs/guides/claude-code-install-for-non-technical-users.md).
+> **Never used a command line?** Choose **Workflow A**. It works in any browser, requires no install, and lets you focus on the spec instead of the tooling. Workflow B is faster once you're set up but adds an install/troubleshooting step. For Claude Code setup as a follow-on (optional), see [`guides/claude-code-install-for-non-technical-users.md`](../../../../guides/claude-code-install-for-non-technical-users.md).
 
 ### Workflow A — Claude desktop / ChatGPT (file uploads + URLs)
 
@@ -82,7 +82,7 @@ Best if you don't yet have a CLI workflow. Works in any browser. **No install re
 1. Open [Claude](https://claude.ai) (or ChatGPT, or another capable model).
 2. Give the LLM these inputs (combine file uploads and URLs — whichever is easier per item):
    - **This Stage 4 brief** — easiest is to paste the raw URL: `https://raw.githubusercontent.com/adamwstauffer/shidler/main/courses/International-Corporate-Finance/projects/performance-ratios/stage4-technical-specification.md`
-   - **Spec template (raw URL)** — `https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md`
+   - **Spec template (raw URL)** — `https://raw.githubusercontent.com/adamwstauffer/shidler/main/templates/spec-template.md`
    - **Your Stage 1 template** (`.xlsx`) — upload via the paperclip icon
    - **Your Stage 3 populated workbook** (`.xlsx`) — upload via the paperclip icon; this lets the LLM check your Data Inputs against the real numbers
    - **Your first-draft spec** — upload the `.md` or paste it into the prompt
@@ -129,7 +129,7 @@ Best if you already cloned your repo locally and want the LLM to read repo files
    ```
    Read these files:
    - https://raw.githubusercontent.com/adamwstauffer/shidler/main/courses/International-Corporate-Finance/projects/performance-ratios/stage4-technical-specification.md
-   - https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/spec-template.md
+   - https://raw.githubusercontent.com/adamwstauffer/shidler/main/templates/spec-template.md
    - models/templates/performance-ratios-template.xlsx (in this repo)
    - models/builds/<your Stage 3 file>.xlsx (in this repo)
    - docs/specs/<YYYY-MM-DD>-<company-slug>-spec.md (my draft)
@@ -232,4 +232,4 @@ Two above-and-beyond extensions for students with time and a Claude Pro account:
 - **Author a Claude Skill** that reshapes your spec into the `SKILL.md` format Anthropic uses for production prompts.
 - **Try one Claude-for-Financial-Services plugin** (e.g., `audit-xls`, `ib-check-deck`) against your Stage 3 workbook or this Stage 4 spec.
 
-Full walkthrough prompts, the constructive-vs-generative-use policy, and a setup guide live in [`docs/guides/student-ai-enhancements.md`](../../../../docs/guides/student-ai-enhancements.md).
+Full walkthrough prompts, the constructive-vs-generative-use policy, and a setup guide live in [`guides/student-ai-enhancements.md`](../../../../guides/student-ai-enhancements.md).

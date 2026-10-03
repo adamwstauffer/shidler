@@ -33,7 +33,6 @@ courses/
 │   └── README.md
 ├── International-Economics-And-Trade/     BUS 313
 │   ├── BUS-313/                            offering: syllabus
-│   ├── projects/github-portfolio-extra-credit/
 │   └── README.md
 ├── International-Finance-And-Securities/  FIN 321
 │   ├── FIN-321/                            offering: syllabus

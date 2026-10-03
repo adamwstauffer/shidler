@@ -41,9 +41,9 @@ Example: `2026-05-21-vinamilk-selection-memo.md`
 
 **Template:** the repo memo template, available three ways:
 
-- In this repo: [`docs/templates/memo-template.md`](../../../../docs/templates/memo-template.md)
-- Public GitHub link (for sharing with AI tools): [`https://github.com/adamwstauffer/shidler/blob/main/docs/templates/memo-template.md`](https://github.com/adamwstauffer/shidler/blob/main/docs/templates/memo-template.md)
-- Raw URL (for direct LLM upload): [`https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/memo-template.md`](https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/memo-template.md)
+- In this repo: [`templates/memo-template.md`](../../../../templates/memo-template.md)
+- Public GitHub link (for sharing with AI tools): [`https://github.com/adamwstauffer/shidler/blob/main/templates/memo-template.md`](https://github.com/adamwstauffer/shidler/blob/main/templates/memo-template.md)
+- Raw URL (for direct LLM upload): [`https://raw.githubusercontent.com/adamwstauffer/shidler/main/templates/memo-template.md`](https://raw.githubusercontent.com/adamwstauffer/shidler/main/templates/memo-template.md)
 
 Copy, rename per the convention above, fill in the sections, keep the YAML frontmatter intact.
 
@@ -73,7 +73,7 @@ You can verify by reloading the Collaborators page — `adamwstauffer` should ap
 
 **Why this is graded.** Stage 2 is the first stage with tracked feedback, and Stage 5 explicitly grades how you incorporated that feedback. If I cannot leave feedback on your work, Stage 5's incorporation rubric line is hard to satisfy and the project loses one of its core learning loops (revising work in response to a supervisor's review — a routine professional skill in every finance/accounting/audit/consulting setting).
 
-> **Never done this before?** A step-by-step walkthrough of GitHub account setup, your first commit (GitHub Desktop recommended), and the Collaborators panel lives in [`docs/guides/github-mba-guide.md`](../../../../docs/guides/github-mba-guide.md). Read Sections 4–7 if any of this is new to you.
+> **Never done this before?** A step-by-step walkthrough of GitHub account setup, your first commit (GitHub Desktop recommended), and the Collaborators panel lives in [`guides/github-mba-guide.md`](../../../../guides/github-mba-guide.md). Read Sections 4–7 if any of this is new to you.
 
 ---
 
@@ -125,7 +125,7 @@ The memo template lives in a public GitHub repo, and most LLMs can read public U
 I'm writing a Stage 2 company selection memo for my finance course. The memo
 template is at:
 
-https://raw.githubusercontent.com/adamwstauffer/shidler/main/docs/templates/memo-template.md
+https://raw.githubusercontent.com/adamwstauffer/shidler/main/templates/memo-template.md
 
 Here is my draft. Review it against the template and these requirements:
 all six sections present; YAML frontmatter intact; 400–600 words; hypotheses
@@ -139,7 +139,7 @@ and don't write new sections for me.
 [PASTE YOUR DRAFT HERE]
 ```
 
-**No URL access?** Download the template from [`https://github.com/adamwstauffer/shidler/blob/main/docs/templates/memo-template.md`](https://github.com/adamwstauffer/shidler/blob/main/docs/templates/memo-template.md) (click the **Raw** button, then save the page as `memo-template.md`), upload it via the paperclip icon, and say "I have uploaded the memo template" instead of giving the URL.
+**No URL access?** Download the template from [`https://github.com/adamwstauffer/shidler/blob/main/templates/memo-template.md`](https://github.com/adamwstauffer/shidler/blob/main/templates/memo-template.md) (click the **Raw** button, then save the page as `memo-template.md`), upload it via the paperclip icon, and say "I have uploaded the memo template" instead of giving the URL.
 
 ### Step 3 — Iterate together; you decide
 
@@ -174,7 +174,7 @@ Most AI tools can now read directly from your GitHub repo. This lets you ask the
 | Tool | How to connect to your repo |
 |---|---|
 | **Claude (web / desktop)** | Use the "**Projects**" feature (Pro tier) — create a project, paste your public repo's raw URLs into the project knowledge, and every conversation in that project sees them. For a one-off chat: paste a raw URL into the prompt. |
-| **Claude Code (CLI)** | Run `claude` inside your repo folder — it reads every file in the directory automatically. See [`docs/guides/claude-code-install-for-non-technical-users.md`](../../../../docs/guides/claude-code-install-for-non-technical-users.md). |
+| **Claude Code (CLI)** | Run `claude` inside your repo folder — it reads every file in the directory automatically. See [`guides/claude-code-install-for-non-technical-users.md`](../../../../guides/claude-code-install-for-non-technical-users.md). |
 | **ChatGPT (web)** | Use the "**Connectors**" or the GitHub plugin (Plus tier) to authorize a specific repo. Then ChatGPT can browse your files. For a one-off: paste a raw URL. |
 | **GitHub Copilot Chat** | Built into VS Code, GitHub.dev, and the GitHub web UI. Asks about your repo without setup once you're signed in. Free for students with the GitHub Student Developer Pack. |
 | **Codex (OpenAI)** | Connect through ChatGPT Pro ($200/mo); not required for this course. |

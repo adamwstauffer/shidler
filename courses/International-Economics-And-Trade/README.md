@@ -10,7 +10,7 @@ Trade and international finance theory applied to real-world case studies across
 
 ## Shared Curriculum
 
-[`projects/github-portfolio-extra-credit/`](projects/github-portfolio-extra-credit/) — optional GitHub portfolio extra-credit assignment. The core team case-study project is described directly in the BUS-313 syllabus rather than as separate staged files.
+The core team case-study project is described directly in the BUS-313 syllabus rather than as separate staged files.
 
 ## Directory Contents
 
@@ -18,10 +18,5 @@ Trade and international finance theory applied to real-world case studies across
 International-Economics-And-Trade/
 ├── BUS-313/                        offering: syllabus, ignore/ (gitignored)
 │   └── README.md
-├── projects/
-│   └── github-portfolio-extra-credit/
-│       ├── BUS313_Extra_Credit_GitHub_Portfolio.pptx
-│       ├── extra-credit-github-portfolio.md
-│       └── README.md
 └── README.md                       you are here
 ```

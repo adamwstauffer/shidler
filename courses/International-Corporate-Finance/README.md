@@ -28,7 +28,6 @@ International-Corporate-Finance/
 │       ├── demo-portfolio-repo/             worked example of a finished student portfolio repo
 │       ├── docs/                            decisions/, plans/, specs/, templates/
 │       ├── models/                          builds/ (populated models), templates/ (blank frameworks)
-│       ├── Performance-Ratios-Project.pptx  project overview slide deck
 │       └── stage0-repo-setup.md … stage5-llm-analysis-evaluation.md
 └── README.md                                you are here
 ```

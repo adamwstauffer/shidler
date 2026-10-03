@@ -40,7 +40,6 @@ performance-ratios/
 ├── models/
 │   ├── builds/                     populated, working models (Stage 3)
 │   └── templates/                  blank model frameworks, incl. gaap-bridge-template.xlsx
-├── Performance-Ratios-Project.pptx  project overview slide deck
 └── stage0-repo-setup.md … stage5-llm-analysis-evaluation.md
 ```
 

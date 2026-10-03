@@ -92,7 +92,7 @@ Discrepancies are not failures — they are the most informative rows in the tab
 
 ## Spec retrospective — use the template
 
-The structured retrospective lives at [`../../docs/templates/spec-retrospective-template.md`](../../../../docs/templates/spec-retrospective-template.md). Copy it, rename per the convention `YYYY-MM-DD-{company-slug}-spec-retrospective-analysis.md`, and place it in `analysis/`.
+The structured retrospective lives at [`../../templates/spec-retrospective-template.md`](../../../../templates/spec-retrospective-template.md). Copy it, rename per the convention `YYYY-MM-DD-{company-slug}-spec-retrospective-analysis.md`, and place it in `analysis/`.
 
 The template requires:
 
@@ -124,7 +124,7 @@ The spec retrospective lives in its own file (per the template) rather than as a
 
 **Weight:** 5% of the deliverable rubric.
 
-> **Step-by-step guide:** The full rubric-shaped walkthrough — how to read a PR, the three response patterns (accept / modify / reject), and a worked example — lives at [`docs/guides/responding-to-pr-feedback.md`](../../../../docs/guides/responding-to-pr-feedback.md). Read it the week before Stage 5 is due, not the night before.
+> **Step-by-step guide:** The full rubric-shaped walkthrough — how to read a PR, the three response patterns (accept / modify / reject), and a worked example — lives at [`guides/responding-to-pr-feedback.md`](../../../../guides/responding-to-pr-feedback.md). Read it the week before Stage 5 is due, not the night before.
 
 The instructor reviewed your Stage 2 memo and returned PR-style suggestions on your repo. Stage 5 grades how you incorporated that feedback. Two acceptable forms (either counts):
 
@@ -279,7 +279,7 @@ Be specific. Do not say "rename inconsistent files" — list the exact files.
 - **Diverge with evidence.** If your Stage 3 numbers and the LLM's interpretation disagree, you have to pick a side and defend it. Don't paper over the disagreement.
 - **Let the retrospective be honest.** "My spec was perfect" earns fewer points than "My Part B section 9 was vague — I told the LLM to 'recommend strategic actions' without specifying evidence standards, so it gave generic recommendations." Specificity is the rubric.
 - **Polish the repo last — but not last-night.** Don't let it become an evening-before scramble. Allocate a dedicated commit pass for READMEs, naming, license, and repo description.
-- **If you tried a Claude Skill or plugin** (see Stage 4 sidebar and [`docs/guides/student-ai-enhancements.md`](../../../../docs/guides/student-ai-enhancements.md)), include a one-line note in your final analysis or prompt log on what you learned. Ungraded; portfolio-shaped.
+- **If you tried a Claude Skill or plugin** (see Stage 4 sidebar and [`guides/student-ai-enhancements.md`](../../../../guides/student-ai-enhancements.md)), include a one-line note in your final analysis or prompt log on what you learned. Ungraded; portfolio-shaped.
 
 ---
 
@@ -308,7 +308,7 @@ In an institutional setting — corporate FP&A, sell-side research, buy-side ana
 
 ### If you want to try one before you leave the course
 
-The lightest-weight experiment: install `financial-analysis:audit-xls` and run it against your Stage 3 workbook (the same workbook you've been working in all semester). Full walkthrough prompts are in [`docs/guides/student-ai-enhancements.md`](../../../../docs/guides/student-ai-enhancements.md). Plan ~30 minutes including the Claude Code install.
+The lightest-weight experiment: install `financial-analysis:audit-xls` and run it against your Stage 3 workbook (the same workbook you've been working in all semester). Full walkthrough prompts are in [`guides/student-ai-enhancements.md`](../../../../guides/student-ai-enhancements.md). Plan ~30 minutes including the Claude Code install.
 
 That single experiment is worth more than reading another article on "AI in finance." You will see the gap between what general-purpose LLMs do well and what purpose-built finance tooling does — and you'll be ahead of every peer who only used ChatGPT.
 

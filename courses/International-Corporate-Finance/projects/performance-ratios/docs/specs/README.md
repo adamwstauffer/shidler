@@ -22,7 +22,7 @@ Files already submitted under an older name (with your last name, or a `stageN` 
 
 ## Template
 
-Use [`../../../../../../docs/templates/spec-template.md`](../../../../../../docs/templates/spec-template.md) as your starting point.
+Use [`../../../../../../templates/spec-template.md`](../../../../../../templates/spec-template.md) as your starting point.
 
 ## Quality test
 
