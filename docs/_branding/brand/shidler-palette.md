@@ -2,8 +2,8 @@
 
 ## Design Philosophy
 
-The palette is derived from **University of Hawaiʻi at Mānoa's official
-brand colors** (forest green + white) and extended with investment-banking
+The palette is inspired by **University of Hawaiʻi at Mānoa's public
+brand colors** (green + white) and extended with investment-banking
 conservative tones: charcoal backgrounds, muted gold accents, and slate
 neutrals. Colors are intentionally subdued — no primaries, no neons.
 
@@ -13,7 +13,7 @@ neutrals. Colors are intentionally subdued — no primaries, no neons.
 
 | Role | Name | Hex | Usage |
 |---|---|---|---|
-| **UH Green** | Forest Green | `#1B5E40` | Header bands, badges, accent strips — both variants |
+| **UH Green** | Mānoa Green | `#024731` | Header bands, badges, accent strips — both variants (per manoa.hawaii.edu/brand) |
 | **Muted Gold** (dark) | Antique Gold | `#B39B5E` | Accent text, divider lines on dark backgrounds |
 | **Muted Gold** (light) | Deep Gold | `#8A6F3A` | Accent text, divider lines on light backgrounds |
 
@@ -34,7 +34,7 @@ neutrals. Colors are intentionally subdued — no primaries, no neons.
 | Emphasis (bold inline) | `#B39B5E` | Antique gold — draws eye without shocking |
 | Footer bar bg | `#152018` | Near-black with green undertone |
 | Footer text | `#7A7568` | Muted gray — legal/confidentiality note level |
-| Left accent strip | `#1B5E40` → transparent | Fade-to-transparent green gradient |
+| Left accent strip | `#024731` → transparent | Fade-to-transparent green gradient |
 | Bottom rule | `#B39B5E` at 60% opacity | Subtle gold hairline |
 
 ### Dark Theme Roles (OOXML `<a:clrScheme>`)
@@ -45,7 +45,7 @@ neutrals. Colors are intentionally subdued — no primaries, no neons.
 | `lt1` | `1C1F26` | Primary background |
 | `dk2` | `B0AAA0` | Secondary text |
 | `lt2` | `2D3340` | Secondary background / card bg |
-| `accent1` | `1B5E40` | UH Green |
+| `accent1` | `024731` | UH Green |
 | `accent2` | `B39B5E` | Antique Gold |
 | `accent3` | `4A6274` | Slate Blue |
 | `accent4` | `7A7568` | Warm Gray |
@@ -58,16 +58,16 @@ neutrals. Colors are intentionally subdued — no primaries, no neons.
 
 | Role | Hex | Notes |
 |---|---|---|
-| Slide background | `#F0F2F5` | Soft blue-grey — cooler than warm white |
+| Slide background | `#F0F2F5` | Soft blue-gray — cooler than warm white |
 | Title text | `#1C2733` | Near-black with blue undertone |
 | Body text | `#2D3A47` | Dark slate |
 | Sub-point / meta text | `#374151` | Mid slate — still clearly readable |
 | Emphasis (bold inline) | `#8A6F3A` | Deep gold — higher contrast than `#B39B5E` on light bg |
 | Subtitle / section desc | `#2D6A4F` | Dark green — readable on light bg |
-| Footer bar bg | `#CBD5E1` | Light blue-grey rule |
+| Footer bar bg | `#CBD5E1` | Light blue-gray rule |
 | Footer text | `#4A5568` | Dark slate — legible on light bar |
-| Column divider | `#1B5E40` | Solid UH green for visibility |
-| Divider rules | `#1B5E40` | Green replaces gold on light backgrounds |
+| Column divider | `#024731` | Solid UH green for visibility |
+| Divider rules | `#024731` | Green replaces gold on light backgrounds |
 
 ---
 
@@ -90,7 +90,7 @@ neutrals. Colors are intentionally subdued — no primaries, no neons.
 When creating charts, use accent colors in this order so series are
 visually distinct and consistent across all decks:
 
-1. `#1B5E40` — UH Green (primary series)
+1. `#024731` — UH Green (primary series)
 2. `#B39B5E` — Antique Gold (secondary series)
 3. `#4A6274` — Slate Blue (tertiary series)
 4. `#3D7A6E` — Muted Teal (quaternary series)
@@ -98,14 +98,14 @@ visually distinct and consistent across all decks:
 6. `#7A7568` — Warm Gray (sixth / reference series)
 
 > For single-series charts (most common in finance courses), always use
-> `#1B5E40`. For two-series comparisons, use Green + Gold.
+> `#024731`. For two-series comparisons, use Green + Gold.
 
 ---
 
 ## Do / Don't
 
 **Do**
-- Use UH Green (`#1B5E40`) for the header band on every slide
+- Use UH Green (`#024731`) for the header band on every slide
 - Use gold sparingly — emphasis text, dividers, and chart accents only
 - Keep body text in the designated grays; do not introduce new text colors
 

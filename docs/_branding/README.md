@@ -1,8 +1,8 @@
-# UH Shidler Finance & Economics — Presentation Branding
+# Slide and color kit
 
-This directory contains the official slide deck templates and brand
-guidelines for Finance and Economics courses at the University of
-Hawaiʻi at Mānoa, Shidler College of Business.
+Adam Stauffer's personal slide and color kit for his courses.
+Inspired by UH Mānoa's public brand guide; not an official UH or Shidler asset.
+Mānoa Green #024731 per manoa.hawaii.edu/brand; everything else is his.
 
 The design system is calibrated for **academic course delivery** with an
 **investment-banking-conservative aesthetic**: authoritative typography,
@@ -63,17 +63,16 @@ Both templates include five reusable layouts:
 ```
 docs/_branding/
 ├── README.md                          ← You are here
-├── design.json                        ← UH Mānoa design tokens (SSOT for web/UI branding)
+├── design.json                        ← Design tokens (web/UI)
 ├── design-system.html                 ← Interactive design gallery (open in browser)
+├── shidler-finance-light.potx         ← Copy of the light template
 ├── templates/
 │   ├── shidler-finance-dark.potx      ← Dark charcoal template
-│   ├── shidler-finance-light.potx     ← Light blue-grey template
-│   └── shidler-finance-reference.pptx ← Both variants side by side (10 slides)
-├── brand/
-│   ├── shidler-palette.md             ← Full color specification
-│   └── shidler-typography.md          ← Font pairing and sizing guide
-└── assets/
-    └── (place any logo .png files here)
+│   ├── shidler-finance-light.potx     ← Light blue-gray template
+│   └── shidler-finance-light.pptx     ← Light variant as a deck
+└── brand/
+    ├── shidler-palette.md             ← Full color specification
+    └── shidler-typography.md          ← Font pairing and sizing guide
 ```
 
 ---
@@ -92,5 +91,4 @@ docs/_branding/
 
 ## Contact
 
-Maintained by the Shidler College of Business, Department of Finance.
 Questions → open a GitHub Issue in this repository.
