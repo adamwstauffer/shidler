@@ -21,7 +21,7 @@ Every financial model must state the **accounting standard** under which the sub
 
 - **Tier 2 (disclosure-plus-footnote)** is the default for undergraduate work and BUS-629 Stage 3.
 - **Tier 3 (quantitative bridge)** is expected for BUS-629 Stages 4–5 and any transaction-grade model.
-- See [`docs/decisions/2026-05-24-accounting-standards-conversion-framework.md`](decisions/2026-05-24-accounting-standards-conversion-framework.md) for the full conversion hierarchy, adjustment mechanics, and framework survey.
+- The full conversion hierarchy, adjustment mechanics, and framework survey are in the accounting-standards conversion framework decision (2026-05-24), kept privately.
 
 > **Cell comments:** Every hardcoded cell affected by a cross-standard adjustment should cite the GAAP Bridge tab row and the source footnote from the annual report.
 

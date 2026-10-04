@@ -18,7 +18,6 @@ Corporate finance fundamentals — financing and investment decisions, securitie
 ```
 International-Corporate-Finance/
 ├── BUS-629-VEMBA/                          offering: syllabus, roster, ignore/ (gitignored)
-│   ├── BUS-629 Danh sách Nhóm.xlsx          cohort roster
 │   └── README.md                            syllabus: course code, campus locations, textbook
 ├── projects/
 │   └── performance-ratios/                  shared curriculum — see its own README for full contents

@@ -105,7 +105,7 @@ Reusable Markdown templates for common deliverables: executive memo, technical s
 
 ### Decision Memos (`docs/decisions/`)
 
-Lightweight memos capturing strategic decisions about repo structure, course design, and project architecture.
+The one public structural decision (subject-first course directories, 2026-07-08). Other decision memos are kept privately; see `CHANGELOG.md`.
 
 ---
 
