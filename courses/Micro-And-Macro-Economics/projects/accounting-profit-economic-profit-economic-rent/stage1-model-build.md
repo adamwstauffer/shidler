@@ -78,8 +78,7 @@ audit has to run.
 
 **Opportunity cost is the alternative's *net* earnings, not its gross.** The office job pays $57,600
 gross and $52,200 after its own costs. Charging the driver $57,600 compares gross to net and
-overstates every implicit cost in the model. The previous version of this course's template shipped
-with exactly that error.
+overstates every implicit cost in the model.
 
 **Opportunity cost has to match scale.** A part-time driver forgoes a *part-time* alternative —
 $26,100, not $52,200. Specify "the traditional job's earnings" without qualification and a model will

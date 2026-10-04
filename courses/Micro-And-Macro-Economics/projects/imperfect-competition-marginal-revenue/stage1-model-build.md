@@ -76,8 +76,7 @@ audit has to be able to catch:
 
 **Variable cost is the area under marginal cost**, `aQ + bQ²` — not MC × Q. Specifying it as MC × Q
 forces the non-GMO profit to exactly −$130M, because average cost then equals marginal cost and
-profit collapses to minus fixed costs. That is an artifact, not economics, and the previous version
-of this course's workbook shipped with exactly that bug.
+profit collapses to minus fixed costs. That is an artifact, not economics.
 
 **Price comes off the demand curve, never off marginal revenue.** MR = MC picks the *quantity*;
 demand tells you the *price* buyers will pay for that quantity. A specification that is vague about

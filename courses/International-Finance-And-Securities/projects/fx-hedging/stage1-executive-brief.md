@@ -9,7 +9,6 @@ deliverables:
     format: markdown
 prerequisites: [0]
 weight: "17% of project"
-# ai_boundary per deliverable: pending instructor ruling (2026-09-24 Micro/Macro parity pass)
 ---
 
 # Stage 1 – Executive Brief (17% of project)
@@ -85,7 +84,7 @@ firstname-lastname/
 | 5 | Validation + decision memo | `analysis/YYYY-MM-DD-{scenario}-validation-analysis.md` · `docs/decisions/YYYY-MM-DD-{scenario}-hedge-decision-memo.md` |
 
 This section moved here from Stage 0 (course site 2026-08-20; this brief 2026-09-24), because
-Stage 0 is now the course-level workspace. **Superseded 2026-09-24 (Adam):** it used to add two
+Stage 0 is now the course-level workspace. **Superseded 2026-09-24:** it used to add two
 project folders, `docs/specs/` and `models/builds/`; the spec and workbook now go in
 `capabilities/fx-hedging/` instead. Summer 2026 repositories keep the old folders.
 
