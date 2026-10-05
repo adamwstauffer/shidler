@@ -20,7 +20,7 @@ I'm an MBA student. This repo is my professional portfolio: each engagement star
 ## Excel rules
 
 - Every calculated cell is a formula. Only raw inputs may be typed values.
-- Inputs are blue text on their own sheet; formulas are black.
+- Inputs are black text on a tan fill on their own sheet; formulas are blue text on light gray. Blue always means calculated, never "type here."
 - Recalculate and confirm zero `#REF!` / `#DIV/0!` / `#VALUE!` before saying a model is done.
 
 ## Writing rules

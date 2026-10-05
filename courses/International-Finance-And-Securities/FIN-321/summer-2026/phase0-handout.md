@@ -27,7 +27,7 @@ don't start over — bring it up to the portfolio repo standard and add what's m
 
 ## What to do
 
-1. **GitHub account** — use your `hawaii.edu` email (unlocks GitHub Education benefits).
+1. **GitHub account.** Any email works for your GitHub account; for the free GitHub Education benefits, add your school address under Settings › Emails and apply, which is optional and never graded.
 2. **Install GitHub Desktop** — no command line required for this course.
 3. **Create the repository** — public, named professionally after *you*, not a course:
    `firstname-lastname` (or `firstname-lastname-portfolio` if taken).
