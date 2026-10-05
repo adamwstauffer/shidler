@@ -72,9 +72,9 @@ MR = P = $120.
 you the *price* buyers will pay for that quantity — $297.03. Explain it as if to a classmate who
 just priced at $69.05.
 
-**What markup and the Lerner index measure.** 4.30× and 0.768 as gauges of market power: price at
-4.3 times marginal cost, roughly 77% of the price being margin over cost. Contrast the non-GMO row
-at 1.0× and 0.
+**What markup and the Lerner index measure.** Your workbook computes both. What do they say about
+market power: how far above marginal cost is the price, and how much of each dollar of price is
+margin? How do they compare with the non-GMO row, and why?
 
 **What the deadweight loss means.** How large is the deadweight loss each year, and why is it
 surplus that vanishes rather than a transfer? How many bags does the monopoly withhold to hold the
@@ -150,7 +150,7 @@ your workbook writes about the textbook instead of your numbers.
 - [ ] Setup paragraph in your own words: why the firm is a price taker in one market and a price maker in the other, and what the patent has to do with it
 - [ ] The twice-as-steep rule explained mechanically, not asserted
 - [ ] P\*-off-demand explained well enough to fix someone who priced at $69.05
-- [ ] Markup 4.30× and Lerner 0.768 interpreted as market power, not recited
+- [ ] Markup and Lerner index interpreted as market power, not recited
 - [ ] Deadweight loss framed as vanished surplus, with your competitive benchmark price set against the $120 non-GMO price
 - [ ] The patent paragraph takes and defends a position using the discussion spine
 - [ ] At least two figures in `analysis/figures/`, each referenced in the text

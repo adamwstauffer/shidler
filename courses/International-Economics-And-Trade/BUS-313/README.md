@@ -48,7 +48,7 @@ The course begins with foundational supply and demand analysis in open economies
 | Final Exam | 25% |
 | **Total** | **100%** |
 
-Grades are rounded up to the nearest whole number. Adjustments are only made for documented scoring errors.
+Letter grades follow the shared [grading scale](../../../docs/grading-scale.md). Adjustments are only made for documented scoring errors.
 
 ### Attendance & Participation
 
