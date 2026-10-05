@@ -1,6 +1,6 @@
 # BUS 629: International Corporate Finance
 
-**Vietnam Executive MBA Program** | Shidler College of Business, University of Hawai'i at Manoa
+**Vietnam Executive MBA Program** | Shidler College of Business, University of Hawaiʻi at Mānoa
 
 **Course tutorials:** [International Corporate Finance on Kumu](https://adamwstauffer.github.io/ai-lms/international-corporate-finance.html) — the stage-by-stage tutorials, labs, and reference pages this course's projects assume. Kumu is organized by subject and carries no course codes; this README is the signpost from the code to the material.
 
@@ -14,7 +14,7 @@ This course develops students' understanding of corporate finance. It introduces
 
 **Adam W. Stauffer** | [adamstau@hawaii.edu](mailto:adamstau@hawaii.edu)
 
-Please begin email subject lines with **BUS 629**. Before sending an email, check to see if your question is answered in this syllabus. For more information about the instructor, see [BIO.md](../../../BIO.md).
+Please begin email subject lines with **BUS 629**. Before sending an email, check to see if your question is answered in this syllabus. For more information about the instructor, see [his bio](https://adamwstauffer.github.io/bio.html).
 
 **Office Hours:** Please email to schedule appointments.
 
@@ -71,7 +71,7 @@ The course progresses through foundational concepts of corporate finance, starti
 
 ## AI + GitHub Course Project
 
-Through the AI + GitHub project, students gain practical, workplace-ready skills:
+The AI + GitHub project practices these skills:
 
 | Skill | Description |
 |-------|-------------|
@@ -89,12 +89,12 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 
 | Stage | Deliverable | Weight | Format |
 |-------|-------------|-------:|--------|
-| 0 | Personal GitHub repo with README, RESUME, BIO | 5% | Repo URL |
-| 1 | Provided ratios Excel template uploaded to your repo | 20% | `.xlsx` |
-| 2 | Company selection memo | 10% | `.md` |
-| 3 | Populated financials spreadsheet for selected company | 20% | `.xlsx` |
-| 4 | Technical specification (your draft, LLM-reviewed, iterated) | 20% | `.md` |
-| 5 | Full analysis + LLM evaluation + repo polish | 25% | Repo URL |
+| 0 | Personal Portfolio Repository (bio in `README.md`, plus `RESUME.md`) | 5% | Repo URL |
+| 1 | Provided Ratios Template | 20% | `.xlsx` |
+| 2 | Company Selection Memo | 10% | `.md` |
+| 3 | Populated Financials | 20% | `.xlsx` |
+| 4 | Technical Specification (your draft, LLM-reviewed, iterated) | 20% | `.md` |
+| 5 | LLM Analysis, Executive Evaluation, and Repo Polish | 25% | Repo URL |
 
 **Format:** All stages are **deliverable-only** — no in-class presentations this semester. Total project weight: 100%.
 
@@ -102,11 +102,8 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 
 **Student guides** (read as needed — none are required cover-to-cover):
 
-- [`guides/github-mba-guide.md`](../../../guides/github-mba-guide.md) — GitHub fundamentals, first commit, instructor write access, PR mechanics. **Read Sections 4–7 before Stage 2.**
-- [`guides/responding-to-pr-feedback.md`](../../../guides/responding-to-pr-feedback.md) — Rubric-shaped checklist for the Stage 5 PR-feedback line (5% of project). **Read the week before Stage 5.**
-- [`guides/vas-ifrs-gaap-ratio-quickref.md`](../../../guides/vas-ifrs-gaap-ratio-quickref.md) — Cross-standard reference for ratio interpretation (lease accounting, LIFO, goodwill amortization, R&D capitalization). **Read during Stage 3 if your company reports under VAS or IFRS; revisit at Stage 5 when interpreting ratios.**
-- [`guides/claude-code-install-for-non-technical-users.md`](../../../guides/claude-code-install-for-non-technical-users.md) — Optional. Windows/Mac walkthrough if you want to try Claude Code in a terminal.
-- [`guides/student-ai-enhancements.md`](../../../guides/student-ai-enhancements.md) — Optional / ungraded. Above-and-beyond paths (author a Claude Skill, try a Claude-for-Financial-Services plugin).
+- [Kumu onboarding](https://adamwstauffer.github.io/ai-lms/onboarding.html): GitHub fundamentals, your first commit, instructor write access and pull requests.
+- [`gaap-conversion-quickref.md`](../projects/performance-ratios/docs/templates/gaap-conversion-quickref.md): cross-standard reference for ratio interpretation, for Stage 3 if your company reports under VAS or IFRS.
 
 **Stage assignments** (in [`../projects/performance-ratios/`](../projects/performance-ratios/)):
 [Stage 0](../projects/performance-ratios/stage0-repo-setup.md) |
@@ -116,24 +113,23 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 [Stage 4](../projects/performance-ratios/stage4-technical-specification.md) |
 [Stage 5](../projects/performance-ratios/stage5-llm-analysis-evaluation.md)
 
-The project design rationale (decision of 2026-04-03) is kept privately.
 
 ### Project flow at a glance
 
 Each stage produces a named artifact that the next stage consumes. The chain looks like this:
 
 ```
-Stage 0 — Set up your portfolio repo (Stage 0 README)
+Stage 0 — Personal Portfolio Repository: set up your portfolio repo
               ↓
-Stage 1 — Upload the ratios Excel template to your repo
+Stage 1 — Provided Ratios Template → models/templates/
               ↓
-Stage 2 — Write a memo selecting your company → docs/decisions/
+Stage 2 — Company Selection Memo → docs/decisions/
               ↓   (instructor reviews via pull request; you grant Write access)
-Stage 3 — Populate the template with that company's financials → models/builds/
+Stage 3 — Populated Financials → models/builds/
               ↓
-Stage 4 — Draft a technical spec yourself; an LLM reviews it; iterate → docs/specs/
-              ↓   (one human-in-the-loop iteration recorded → in prompt log or analysis/validation/)
-Stage 5 — Feed your spec to an LLM; verify, evaluate, and write the final analysis → analysis/
+Stage 4 — Technical Specification: you draft, an LLM reviews, you iterate → capabilities/performance-ratios/spec.md
+              ↓   (one human-in-the-loop iteration recorded → in prompt log or docs/decisions/)
+Stage 5 — LLM Analysis, Executive Evaluation, and Repo Polish → analysis/
           Polish the whole repo; submit the repo URL on Lamaku.
 ```
 
@@ -159,18 +155,15 @@ Examples for a student analyzing Vinamilk:
 |---|---|
 | 2 | `docs/decisions/2026-05-21-vinamilk-selection-memo.md` |
 | 3 | `models/builds/2026-06-04-vinamilk-financials.xlsx` |
-| 4 | `docs/specs/2026-06-18-vinamilk-spec.md` |
+| 4 | `capabilities/performance-ratios/spec.md` |
 | 4 (HIL note) | `docs/decisions/2026-06-19-vinamilk-spec-iteration-memo.md` |
 | 5 (raw LLM) | `analysis/2026-07-02-vinamilk-llm-raw-log.md` |
 | 5 (verification) | `analysis/2026-07-03-vinamilk-verification-analysis.md` |
 | 5 (final analysis) | `analysis/2026-07-03-vinamilk-analysis.md` |
 | 5 (retrospective) | `analysis/2026-07-03-vinamilk-spec-retrospective-analysis.md` |
 
-The prompt log is `prompt-log.md` at the repository root, and nothing new goes in `deliverables/`.
-Files already submitted under the older
-`YYYY-MM-DD-{lastname}-{company-slug}-{kind}` names (e.g.
-`deliverables/2026-07-03-nguyen-vinamilk-final-analysis.md`, `prompt-log.md` (repository root)) still count — nothing to rename, nothing
-deducted.
+The prompt log is `prompt-log.md` at the repository root. Files committed before 2026-10-02 under an
+older name or in an older folder still count as they are. A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 
 **Why lowercase?** GitHub on Linux servers treats `Nguyen-` and `nguyen-` as different files. Sticking to lowercase prevents broken links later.
 
@@ -181,7 +174,7 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 | Term | Plain-English meaning |
 |---|---|
 | **Repository (repo)** | A folder of files tracked by Git and hosted on GitHub. Your portfolio repo holds everything you produce in this project. |
-| **Commit** | A saved snapshot of your repo at a moment in time, with a short message describing what changed. You will commit dozens of times across the semester. |
+| **Commit** | A saved snapshot of your repo at a moment in time, with a short message describing what changed. You commit many times across the semester. |
 | **Commit history** | The chronological list of all commits in your repo. Reviewers (the instructor, managers, audit reviewers) can see it. |
 | **Commit hash** | The unique ID (e.g., `ec8fa60`) of one commit. Used to point at a specific saved state. |
 | **Pull request (PR)** | A proposed change to your repo, opened by you or a collaborator (the instructor). You read the suggested edits, comment on them, and either merge or reject. The instructor uses PRs to give you feedback on your memo, spec, and final analysis. |
@@ -195,7 +188,7 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 | **Annotated diff** | A diff with one-line notes added next to each change explaining *why* you made it. |
 | **10-K** | The U.S. SEC's annual report form for public companies. We use "10-K" loosely to mean "audited annual report" — for Vietnamese companies, the equivalent is the annual report filed under VAS (Vietnamese Accounting Standards) or IFRS. |
 | **Prompt log** | A `prompt-log.md` (repository root) file in your repo where you record meaningful AI sessions (what you asked, what you kept, what you changed). |
-| **Lamaku** | The University of Hawai'i at Mānoa's course management system, where you submit final URLs and access course resources. |
+| **Lamaku** | The University of Hawaiʻi at Mānoa's course management system, where you submit final URLs and access course resources. |
 
 ### Repository Structure
 
@@ -203,9 +196,10 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 
 ```
 courses/International-Corporate-Finance/projects/performance-ratios/
+├── capabilities/
+│   └── performance-ratios/    # README.md + spec.md (Stage 4)
 ├── docs/
 │   ├── decisions/             # Executive memos and decision documents
-│   ├── specs/                 # Technical specifications
 │   ├── plans/                 # Project plans and timelines
 │   └── templates/             # Stub README pointing at canonical repo-level templates
 ├── models/
@@ -288,7 +282,7 @@ Students are encouraged to explore AI tools to enhance learning and professional
 
 # Course Compliance with Campus Policies
 
-Students must follow all rules and policies of the University of Hawai'i at Manoa and the Shidler College of Business.
+Students must follow all rules and policies of the University of Hawaiʻi at Mānoa and the Shidler College of Business.
 
 ## Students with Disabilities
 

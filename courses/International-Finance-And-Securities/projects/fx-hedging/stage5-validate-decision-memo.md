@@ -80,7 +80,8 @@ of the five options is in the Stage 4 brief.)
 - Decision memo (Part 3):
   `docs/decisions/YYYY-MM-DD-{scenario}-hedge-decision-memo.md`
 - Polished repo + final `prompt-log.md`.
-- Already submitted under the older names (`…-{lastname}-{scenario-slug}-validation.md`, `…-{lastname}-{scenario-slug}-hedge-recommendation.md`)? They still count, exactly as if they carried the new names — nothing to rename.
+- Already committed before 2026-10-02 under an older name? It still counts as it is; nothing to move or rename.
+- A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 
 ## Evaluation
 

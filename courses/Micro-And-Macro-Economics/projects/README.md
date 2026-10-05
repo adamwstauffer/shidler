@@ -9,10 +9,9 @@ each offering README gives. **Cases 2 and 3 are optional, not graded this term, 
 try.** Course weights and the term calendar live in the offering READMEs (`../BUS-620/README.md`,
 `../BUS-620-DLEMBA/README.md`).
 
-Each folder holds the case README (scenario, check figures, instructor notes), the `stageN-*.md`
-briefs students work from, and the original case docx (the original workbooks and the instructor
-answer key are held privately). Case 1's stage briefs are reviewed and released; Cases 2-3 case
-materials and stage briefs remain **draft, pending instructor review** before use with students.
+Each folder holds the case README (scenario and check figures), the `stageN-*.md` briefs students
+work from, and the original case docx (the original workbooks are held privately). Case 1's stage
+briefs are reviewed and released; Cases 2-3 case materials and stage briefs remain drafts.
 
 The three cases were promoted out of `in-progress/` on 2026-08-21. The two research projects
 (`individual-research/`, `team-research/`) sit alongside them here; the team presentation runs in

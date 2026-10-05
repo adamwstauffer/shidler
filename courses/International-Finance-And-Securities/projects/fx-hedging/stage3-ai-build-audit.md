@@ -85,7 +85,8 @@ will be auditing the same workbook.
 - Workbook: `capabilities/fx-hedging/model.xlsx` — next to `spec.md`, the spec it was built from
 - Audit note: `analysis/YYYY-MM-DD-{scenario}-build-audit-analysis.md` (≥3 findings)
 - Updated `prompt-log.md`. Commit incrementally — generation, then each audit fix.
-- Already submitted under the older name (`analysis/YYYY-MM-DD-{lastname}-build-audit.md`)? It still counts, exactly as if it carried the new name — nothing to rename.
+- Already committed before 2026-10-02 under an older name? It still counts as it is; nothing to move or rename.
+- A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 
 ## Evaluation
 

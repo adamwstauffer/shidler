@@ -19,9 +19,9 @@ Here’s how to approach it:
 
 ---
 
-### 📁 Scenario 1 – U.S. Solar Equipment Exporter
+### 📁 Scenario 1 – U.S. Solar Equipment Exporter (`solar-exporter`)
 
-* **Receivable:** $4,500,000 receivable in 1 year
+* **Receivable:** €4,500,000 receivable in 1 year
 * **Spot:** EURUSD quote
 * **Forward:** 1.0875 (maturity: 1 year from today)
 * **USD Interest Rate:** [n.nn%]
@@ -32,9 +32,9 @@ Here’s how to approach it:
 
 ---
 
-### 📁 Scenario 2 – U.S. Pharmaceutical Exporter
+### 📁 Scenario 2 – U.S. Pharmaceutical Exporter (`pharma-exporter`)
 
-* **Receivable:** $8,000,000 receivable in 1 year
+* **Receivable:** €8,000,000 receivable in 1 year
 * **Spot:** EURUSD quote
 * **Forward:** 1.0890 (maturity: 1 year from today)
 * **USD Interest Rate:** [n.nn%]
@@ -45,9 +45,9 @@ Here’s how to approach it:
 
 ---
 
-### 📁 Scenario 3 – U.S. Tech Services Firm
+### 📁 Scenario 3 – U.S. Tech Services Firm (`tech-services`)
 
-* **Receivable:** $12,500,000 receivable in 1 year
+* **Receivable:** €12,500,000 receivable in 1 year
 * **Spot:** EURUSD quote
 * **Forward:** 1.0910 (maturity: 1 year from today)
 * **USD Interest Rate:** [n.nn%]
@@ -58,9 +58,9 @@ Here’s how to approach it:
 
 ---
 
-### 📁 Scenario 4 – U.S. Aerospace Manufacturer
+### 📁 Scenario 4 – U.S. Aerospace Manufacturer (`aerospace`)
 
-* **Receivable:** $20,000,000 receivable in 1 year
+* **Receivable:** €20,000,000 receivable in 1 year
 * **Spot:** EURUSD quote
 * **Forward:** 1.0935 (maturity: 1 year from today)
 * **USD Interest Rate:** [n.nn%]

@@ -1,17 +1,21 @@
 # Stage 4: Technical Specification
 
+**Step-by-step on Kumu:** [Stage 4 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage4.html)
+
+**Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively.
+
 **Weight:** 20% of project score
 **Format:** Deliverable-only — no in-class presentation
 **Deliverable:** Technical specification (`.md`) you draft first and refine with an LLM, plus a prompt log entry and evidence of human-in-the-loop (HIL) iteration
 
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template (the model architecture) + Stage 3 populated workbook (the data values) + project instructions.
-> **Output (this stage):** A technical specification at `docs/specs/YYYY-MM-DD-{company-slug}-spec.md`, plus visible evidence of at least one HIL iteration (in your prompt log, or as a standalone iteration file in `analysis/validation/`).
+> **Output (this stage):** A technical specification at `capabilities/performance-ratios/spec.md`, plus visible evidence of at least one HIL iteration (in your prompt log, or as `docs/decisions/YYYY-MM-DD-{company-slug}-spec-iteration-memo.md`).
 > **Used by:** Stage 5 (you feed *only* this spec to an LLM to produce the full analysis — the spec must stand alone).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-spec.md`). Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 5, the spec must also live in `docs/specs/` in your GitHub repo — the Stage 5 polish rubric assumes the full project history is in the repo.
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Name the upload `{company-slug}-spec.md`. Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 5, the spec must also live in `capabilities/performance-ratios/` in your GitHub repo — the Stage 5 polish rubric assumes the full project history is in the repo.
 
-> **Heads up — instructor write access.** If you haven't yet granted the instructor Write access on your repo, do it now (Stage 2 submission checklist item). Stage 5 grades 5% on how you incorporated the instructor's PR feedback on your Stage 2 memo — that 5% is unearnable without write access.
+> **Heads up — instructor write access.** If you haven't yet granted the instructor Write access on your repo, do it now (Stage 2 submission checklist item). How you incorporated the instructor's PR feedback on your Stage 2 memo is 5% of the Stage 5 grade, and it is unearnable without write access.
 
 > **Unfamiliar terms?** "HIL," "spec," "diff," "named-range notation," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
 
@@ -38,11 +42,11 @@ A spec that produces wrong output at Stage 5 reveals a gap in your spec — and 
 
 ## Deliverable
 
-A technical specification (`.md`, 3–5 pages) saved to `docs/specs/` in your repository, plus a corresponding prompt log entry.
+A technical specification (`.md`, 3–5 pages) saved to `capabilities/performance-ratios/` in your repository, plus a corresponding prompt log entry.
 
 **Spec filename:** `YYYY-MM-DD-{company-slug}-spec.md`
 
-No last name: the repository is already named for you. A spec already submitted under the older name (`YYYY-MM-DD-{lastname}-{company-slug}-spec.md`) still counts — nothing to rename.
+No last name: the repository is already named for you. A spec already committed under an older name or in `docs/specs/` still counts; nothing to move or rename. A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
 
 Example: `2026-06-18-vinamilk-spec.md`
 
@@ -60,7 +64,7 @@ Copy, rename per the convention above, fill in the sections, keep the YAML front
 
 ## Step 1 — Write your first draft (no LLM yet)
 
-Copy the spec template to `docs/specs/YYYY-MM-DD-{company-slug}-spec.md` and draft every section yourself — Part A items 1–7 and Part B items 8–11 (see [Required spec components](#required-spec-components) below). Your first draft must contain:
+Copy the spec template to `capabilities/performance-ratios/spec.md` and draft every section yourself — Part A items 1–7 and Part B items 8–11 (see [Required spec components](#required-spec-components) below). Your first draft must contain:
 
 - **Scope** — company, fiscal period, reporting standard, currency, objective, audience
 - **Data Inputs with numbers** — every input stated numerically from your Stage 3 workbook
@@ -73,7 +77,7 @@ Sparse sections are fine in a first draft — the review will find them. **Commi
 
 ## Steps 2–3 — LLM review, then iterate together (two workflows — pick one)
 
-> **Never used a command line?** Choose **Workflow A**. It works in any browser, requires no install, and lets you focus on the spec instead of the tooling. Workflow B is faster once you're set up but adds an install/troubleshooting step. For Claude Code setup as a follow-on (optional), see [`guides/claude-code-install-for-non-technical-users.md`](../../../../guides/claude-code-install-for-non-technical-users.md).
+> **Never used a command line?** Choose **Workflow A**. It works in any browser, requires no install, and lets you focus on the spec instead of the tooling. Workflow B is faster once you're set up but adds an install/troubleshooting step. For Claude Code setup as a follow-on (optional), see [Kumu AI lab](https://adamwstauffer.github.io/ai-lms/ailab.html).
 
 ### Workflow A — Claude desktop / ChatGPT (file uploads + URLs)
 
@@ -132,7 +136,7 @@ Best if you already cloned your repo locally and want the LLM to read repo files
    - https://raw.githubusercontent.com/adamwstauffer/shidler/main/templates/spec-template.md
    - models/templates/performance-ratios-template.xlsx (in this repo)
    - models/builds/<your Stage 3 file>.xlsx (in this repo)
-   - docs/specs/<YYYY-MM-DD>-<company-slug>-spec.md (my draft)
+   - capabilities/performance-ratios/spec.md (my draft)
 
    Review my draft spec against the brief and the template: missing sections,
    inconsistent named-range notation, Data Inputs that don't match my Stage 3
@@ -217,7 +221,7 @@ This requirement is part of the "Spec craft + prompt log quality" rubric criteri
 ## Tips
 
 - **Spec the model, not just the analysis.** The most common failure mode is jumping to Part B before Part A is airtight. The LLM at Stage 5 needs both.
-- **Cite numerically.** "Total assets" is not a spec. "`BAL_assets_total_2025` = 394,328 USD millions" is.
+- **Cite numerically.** "Total assets" is not a spec. "`BAL_assets_total_2025` = the figure from your Stage 3 workbook, in USD millions" is.
 - **Sharpen the review prompt, not just the spec.** If the review keeps coming back generic, your prompt is the problem — point it at the specific test (could an executor given only this spec compute ROA for the right year?) and re-run.
 - **Log meaningfully.** "Asked Claude to check the spec" is not a useful log entry. "Revised the Du Pont section three times because the review showed my first two drafts confused decomposition with attribution" is.
 
@@ -232,4 +236,4 @@ Two above-and-beyond extensions for students with time and a Claude Pro account:
 - **Author a Claude Skill** that reshapes your spec into the `SKILL.md` format Anthropic uses for production prompts.
 - **Try one Claude-for-Financial-Services plugin** (e.g., `audit-xls`, `ib-check-deck`) against your Stage 3 workbook or this Stage 4 spec.
 
-Full walkthrough prompts, the constructive-vs-generative-use policy, and a setup guide live in [`guides/student-ai-enhancements.md`](../../../../guides/student-ai-enhancements.md).
+Full walkthrough prompts, the constructive-vs-generative-use policy, and a setup guide live in [Kumu AI lab](https://adamwstauffer.github.io/ai-lms/ailab.html).
