@@ -71,6 +71,50 @@ This course includes a multi-stage project on FX risk management, worth **20% of
 
 ---
 
+## Course Schedule — Fall 2026 (subject to change)
+
+Wednesday + Friday, 12:00 – 1:15 PM — **BUSAD C102**. Instruction runs August 24 – December 10, 2026; finals week is December 14–18.
+
+| Week | Date | Topic & Reading | Homework Due (Fri by midnight) | Project Stage Due (Fri by midnight) |
+| :---: | :---: | ----- | ----- | ----- |
+| **1** | 26-Aug | Intros<br>FX Hedging Project overview (Stages 0-5)<br>AI in the Workplace Sidebar #1: Github & READMEs |  |  |
+|  | 28-Aug | Case Study Video: Forex Trading |  |  |
+| **2** | 2-Sep | Ch. 1 Globalization and the Multinational Firm |  |  |
+|  | 4-Sep | Ch. 2 International Monetary System |  |  |
+| **3** | 9-Sep | Ch. 3 Balance of Payments | **Ch. 1, 2, 3** |  |
+|  | 11-Sep | Ch. 5 Foreign Exchange Markets |  |  |
+| **4** | 16-Sep | Ch. 6 Parity Relationships |  |  |
+|  | 18-Sep | Ch. 7 Options and Futures |  |  |
+| **5** | 23-Sep | Ch. 8 Transaction Exposure Hedging |  |  |
+|  | 25-Sep | Transaction Exposure Hedging continued | **Ch. 5, 6, 7, 8** |  |
+| **6** | 30-Sep | Ch. 9 Economic Exposure Hedging |  |  |
+|  | 2-Oct | Economic Exposure Hedging continued | **Ch. 9** |  |
+| **7** | 7-Oct | TBD |  |  |
+|  | 9-Oct | Ch. 11 International Banking and Money Market | **Ch. 11** | **Stage 0 — Portfolio Repository** |
+| **8** | 14-Oct | Practice Exam (OPTIONAL)<br>Opens at class time; closes Thursday at midnight |  |  |
+|  | 16-Oct | **Midterm (Ch 1 -3, 5-9, 11) on MH Connect** |  |  |
+| **9** | 21-Oct | Case Study: <br>2008 Global Financial Crisis |  |  |
+|  | 23-Oct | Ch. 12 Bond Markets |  | **Stage 1 — Executive Brief** |
+| **10** | 28-Oct | Ch. 12 Bond Markets continued |  |  |
+|  | 30-Oct | Ch. 13 International Equity Markets | **Ch. 12, 13** | **Stage 2 — Model Specification** |
+| **11** | 4-Nov | Ch. 14 Interest Rate and Currency Swaps |  |  |
+|  | 6-Nov | Ch. 15 International Portfolio Investments | **Ch. 14, 15** |  |
+| **12** | 11-Nov | **HOLIDAY: Veterans Day (non-instructional day)** |  |  |
+|  | 13-Nov | Ch. 16 Foreign Direct Investment and Acquisitions |  | **Stage 3 — AI-Assisted Build + Audit** |
+| **13** | 18-Nov | Ch. 17 International Capital Structure and the Cost of Capital | **Ch. 16, 17** |  |
+|  | 20-Nov | Stage 5 open lab: independent LLM run, comparison table & hand-verification Q&A |  | **Stage 4 — Market Data + Population** |
+| **14** | 25-Nov | **Capstone presentations: hedge recommendation to the CFO** |  |  |
+|  | 27-Nov | **Non-Instructional day** |  | **Stage 5 — Validate & Decision Memo (capstone)** |
+| **15** | 2-Dec | Practice Exam (OPTIONAL)<br>Opens at class time; closes Sunday at midnight |  |  |
+|  | 4-Dec | **Final exam on MH Connect<br>- Released at class time with 24-hour window to complete** |  |  |
+| **16** | 9-Dec | Portfolio showcase & wrap-up<br>- Repo polish check (README, prompt log, deliverables)<br>- Buffer / makeup |  |  |
+|  | 11–12 Dec | **Study Period** |  |  |
+| **17** | 14–18 Dec | **Final Examination Period** |  |  |
+
+Homework (MH Connect) and project stages are due **Friday at midnight** in the week shown. Stage 0 comes first: Stages 1–5 build on the portfolio repository. Revised 2026-10-07: Stage 1 and Stage 2 moved to 23-Oct and 30-Oct, after Stage 0 (9-Oct).
+
+---
+
 ## AI Use Policy
 
 Students are encouraged to explore AI tools to enhance learning and professional decision-making. Acceptable uses include:
