@@ -74,7 +74,7 @@ repo (0) → brief (1) → spec (2) → workbook + audit (3) → live-data popul
 ## Conventions (shared with BUS 629)
 
 - **Filenames:** dated documents are `YYYY-MM-DD-{scenario}-{type}.md`, where `{scenario}` is your
-  scenario slug (`solar-exporter`, `pharma-exporter`, `tech-services`, `aerospace`) and `{type}` is
+  scenario slug (one per student, listed in `scenarios.md`, e.g. `beef-processor`) and `{type}` is
   the one the stage brief names (`hedge-brief`, `build-audit-analysis`, `market-data-memo`,
   `validation-analysis`, `hedge-decision-memo`). No last name: the repository is already named for
   you. Briefs go in `docs/briefs/`, decision memos in `docs/decisions/`, analyses in `analysis/`,
