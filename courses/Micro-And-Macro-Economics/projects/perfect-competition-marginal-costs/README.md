@@ -28,18 +28,20 @@ A 1.5-acre market garden — 64 beds, one farmer, up to four temporary workers �
 | Season | 36 weeks |
 | Fixed costs | $20,000 / season |
 | Beds | 64 total (16 beds/plot × 4 plots on 1.5 acres) |
-| Permanent labor | The farmer: $50,000/season salary, 40 hr/wk, **50% of time in the field** → 720 field hrs/season at an implied $34.72/hr |
-| Temporary labor | Up to 4 workers (fractional OK): $25,000/season each, 100% field → 1,440 hrs each at $17.36/hr |
+| Permanent labor | The farmer: $50,000/season salary, 40 hr/wk, **50% of time in the field** → 1,440 paid hrs/season (= 40 × 36), of which 720 are field hrs (= 1,440 × 50%), at an implied $34.72/hr (= $50,000 ÷ 1,440 paid hrs) |
+| Temporary labor | Up to 4 workers (fractional OK): $25,000/season each, 100% field → 1,440 hrs each (= 40 × 36) at $17.36/hr (= $25,000 ÷ 1,440) |
 
 | Crop | Max beds | Price $/bed | Labor hrs/wk/bed | Fertilizer $/bed | Diminishing returns %/bed |
 |---|---|---|---|---|---|
 | Tomatoes | 20 | 8,800 | 2.50 | 880 | 10.00% |
-| Carrots | 20 | 2,094 | 0.833 (= tomato ÷ 3) | 440 | 2.50% |
-| Mesclun | 30 | 2,700 | 1.25 (= tomato ÷ 2) | 880 | 1.25% |
+| Carrots | 20 | 2,094 | 0.833 (= 2.5 ÷ 3, tomato ÷ 3) | 440 | 2.50% |
+| Mesclun | 30 | 2,700 | 1.25 (= 2.5 ÷ 2, tomato ÷ 2) | 880 | 1.25% |
+
+Values shown rounded are derived. Your spec names the derivation (the quantities and the formula), not the rounded display, and your workbook computes it.
 
 **Labor function (the heart of the model):** hours for `q` beds of a crop = `q × hrs/wk/bed × 36 weeks × (1 + dim%)^q`. The exponential term is the diminishing-returns engine — each extra bed makes *every* bed a little more labor-hungry (pest pressure, harvest bottlenecks, walking time).
 
-**Costing conventions:** the farmer's 720 field hours are used first and charged at her implied wage; temporary hours cover the remainder. In the farm P&L, labor cost is allocated to crops at the blended farm-wide rate (total labor $ ÷ total hours) — the perm/temp split is a farm-level fact, not a per-crop one.
+**Costing conventions:** the farmer's 720 field hours are used first and charged at her implied wage; temporary hours cover the remainder. In the farm P&L, labor cost is allocated to crops at the blended farm-wide rate (total labor $ ÷ total hours) — the perm/temp split is a farm-level fact, not a per-crop one. The published checks assume this **hours-consumed** convention: a bed is charged the hours it uses, the farmer's 720 field hours first, then temporary hours. Charging whole-worker seasons as cash (paying for a fourth worker whether or not every hour is used) is a different question; it belongs in the Stage 3 memo, not the Stage 2 build.
 
 ## Deliverables (AI + GitHub workflow — the portfolio-repo standard)
 
@@ -47,23 +49,24 @@ Every artifact lands in the student's **personal public portfolio repo**, struct
 engagement rather than by course.
 Capability slug for this case: **`marginal-analysis`**. Engagement slug: **`perfect-competition`**.
 
-| # | Artifact (path in the student repo) | What it must contain | Pts |
-|---|---|---|---|
-| 0 | The portfolio repository itself — skeleton, four root files, `.gitignore`, instructor invited | The workspace every engagement lands in, built to the portfolio-repo standard and named for the student rather than the course | 2 |
-| 1 | `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md` | The farm problem in your own words + a hypothesis: "I expect the optimal mix to be X because Y" — *before* touching Solver | 1 |
-| 2 | `capabilities/marginal-analysis/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs with units and sources, calculation logic in named-range notation, and the published check figures written in as acceptance criteria. Then an AI builds from the spec, and the student audits the result — findings recorded in the spec | 8 |
-| 3 | `analysis/YYYY-MM-DD-perfect-competition-analysis.md` + `analysis/figures/` | The optimal mix and *why*: P=MC evidence per crop, which constraints bind, the tomato MC dip explained, the carrot/mesclun "grow at a loss?" resolution (MC vs AVC, contribution over variable cost) | 6 |
-| 3b | `docs/decisions/YYYY-MM-DD-perfect-competition-memo.md` | The recommendation to the farmer: the plan, which cap to relax first and what it's worth, what would change the answer. No separate points — read with the analysis | — |
-| 4 | `prompt-log.md` (repo root) + reflection | Meaningful AI sessions logged; ≤300-word reflection on where AI helped, where it was wrong, and how you verified | 3 |
+| # | Artifact (path in the student repo) | What it must contain |
+|---|---|---|
+| 0 | The portfolio repository itself — skeleton, four root files, `.gitignore`, instructor invited | The workspace every engagement lands in, built to the portfolio-repo standard and named for the student rather than the course |
+| 1 | `docs/briefs/YYYY-MM-DD-perfect-competition-brief.md` | The farm problem in your own words + a hypothesis: "I expect the optimal mix to be X because Y" — *before* touching Solver |
+| 2 | `capabilities/marginal-analysis/spec.md` + `model.xlsx` + `README.md` | **Spec first**, before the workbook exists: named inputs with units and sources, calculation logic in named-range notation, and the published check figures written in as acceptance criteria. Then an AI builds from the spec, and the student audits the result — findings recorded in the spec |
+| 3 | `analysis/YYYY-MM-DD-perfect-competition-analysis.md` + `analysis/figures/` | The optimal mix and *why*: P=MC evidence per crop, which constraints bind, the tomato MC dip explained, the carrot/mesclun "grow at a loss?" resolution (MC vs AVC, contribution over variable cost) |
+| 3b | `docs/decisions/YYYY-MM-DD-perfect-competition-memo.md` | The recommendation to the farmer: the plan, which cap to relax first and what it's worth, what would change the answer. No separate score — read with the analysis |
+| 4 | `prompt-log.md` (repo root) + reflection | Meaningful AI sessions logged; ≤300-word reflection on where AI helped, where it was wrong, and how you verified |
 
-Split across stages: [stage0](stage0-portfolio-repo.md) (the repository, 2) ·
-[stage1](stage1-engagement-brief.md) (the brief, 1) · [stage2](stage2-model-build.md) (spec, build,
-audit, 8) · [stage3](stage3-analysis.md) (analysis + memo + log, 9). **Case total 20, unchanged.**
+Split across stages: [stage0](stage0-portfolio-repo.md) (the repository) ·
+[stage1](stage1-engagement-brief.md) (the brief) · [stage2](stage2-model-build.md) (spec, build,
+audit) · [stage3](stage3-analysis.md) (analysis + memo + log). Stage weights live on each offering's
+Lamaku course page, not here (ruled 2026-10-15).
 
 > **Stage 0 split (2026-08-03).** The former `stage1-repo-and-brief.md` carried three separately
-> priced criteria: two about the repository and one about the brief. They are now two stages along
-> the seam that was already there — **every criterion keeps its exact point value, and no criterion
-> text was rewritten**. This is a regroup, not a repricing. Standing up the workspace and forming a
+> weighted criteria: two about the repository and one about the brief. They are now two stages along
+> the seam that was already there — **every criterion keeps its relative weight, and no criterion
+> text was rewritten**. This is a regroup, not a reweighting. Standing up the workspace and forming a
 > falsifiable hypothesis are different kinds of work with different AI boundaries, and a graded gate
 > between them is what makes the repository finished *before* the brief is written rather than
 > alongside it. The commit-order rule — brief before any modeling — stays on Stage 1, where the

@@ -87,16 +87,16 @@ The AI + GitHub project practices these skills:
 
 A 6-stage spec-driven design project. Students stand up their own public GitHub portfolio repo, populate the provided ratios template with financials for a company of their choice (non-U.S. and ASEAN-listed firms encouraged), write their own technical specification and have an LLM review it before the two iterate, then have an LLM execute the spec to produce the final analysis — which they critically evaluate.
 
-| Stage | Deliverable | Weight | Format |
-|-------|-------------|-------:|--------|
-| 0 | Personal Portfolio Repository (bio in `README.md`, plus `RESUME.md`) | 5% | Repo URL |
-| 1 | Provided Ratios Template | 20% | `.xlsx` |
-| 2 | Company Selection Memo | 10% | `.md` |
-| 3 | Populated Financials | 20% | `.xlsx` |
-| 4 | Technical Specification (your draft, LLM-reviewed, iterated) | 20% | `.md` |
-| 5 | LLM Analysis, Executive Evaluation, and Repo Polish | 25% | Repo URL |
+| Stage | Deliverable | Format |
+|-------|-------------|--------|
+| 0 | Personal Portfolio Repository (bio in `README.md`, plus `RESUME.md`) | Repo URL |
+| 1 | Provided Ratios Template | `.xlsx` |
+| 2 | Company Selection Memo | `.md` |
+| 3 | Populated Financials | `.xlsx` |
+| 4 | Technical Specification (your draft, LLM-reviewed, iterated) | `.md` |
+| 5 | LLM Analysis, Executive Evaluation, and Repo Polish | Repo URL |
 
-**Format:** All stages are **deliverable-only** — no in-class presentations this semester. Total project weight: 100%.
+**Format:** All stages are **deliverable-only** — no in-class presentations this semester.
 
 **Submission paths.** GitHub is the required submission channel — your Stage 5 deliverable is the public repo URL itself. Stages 2, 3, and 4 carry a **Lamaku-upload fallback** for students who hit hard blockers with Git setup; see the top of each stage doc for details. The fallback is a safety valve, not an alternate track — by Stage 5, all prior-stage artifacts must be consolidated into your GitHub repo.
 

@@ -9,7 +9,6 @@ deliverables:
     format: markdown
     ai_boundary: human-first
 prerequisites: [0]
-points: 1
 estimated_time: "25-35 min"
 ---
 
@@ -115,11 +114,16 @@ it*.
 - [ ] The brief was committed **before** any modeling work started
 - [ ] Any AI critique session is logged in `prompt-log.md`
 
-## 8. Rubric (1 pt)
+## 8. Rubric
 
-| Criterion | Pts | What distinguishes strong work |
+One criterion — brief quality, a genuine hypothesis — read in four parts.
+
+| Criterion | % of stage | What distinguishes strong work |
 |---|---|---|
-| Brief quality — genuine hypothesis | 1 | Problem restated accurately in your own voice; hypothesis names a specific mix with economic reasoning, written before any Solver work |
+| Problem restated in your own voice | 30 | What the farm decides, what is fixed, what is chosen, and what limits the choice, stated accurately without paraphrasing the case README sentence by sentence |
+| Hypothesis names a specific mix | 25 | Real quantities of tomatoes, carrots, and mesclun, not "a balanced mix" |
+| Economic mechanism | 25 | The reasoning names what decides the mix — prices per bed, labor intensity, diminishing returns, the caps — rather than a general principle |
+| Falsifiability and process | 20 | Some model outcome would show the hypothesis wrong; the brief is committed before any Solver work; any AI critique is logged and the words are yours |
 
 ## 9. Common failure modes
 

@@ -12,7 +12,6 @@ deliverables:
     format: markdown
     ai_boundary: human-first
 prerequisites: []
-points: 2
 estimated_time: "40-50 min"
 ---
 
@@ -94,7 +93,9 @@ accidental commit of a `~$` temp file.
    both are stamped on every commit.
 
 3. **Create the repository.** Name it `firstname-lastname`, set visibility to **public**, and
-   initialize it with a README so it can be cloned.
+   initialize it with a README so it can be cloned. Anything confidential goes in `.gitignore` and is
+   summarized in your work, or stays out of the repository entirely and is emailed instead. Nothing is
+   deducted for material sent privately.
    *Confirm:* the repository URL opens in a private browser window without a login prompt.
 
 4. **Clone it, then hand the mechanics to an AI.** The [setup prompt](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html#build-with-llm)
@@ -118,9 +119,10 @@ accidental commit of a `~$` temp file.
    *Confirm:* `~$`-prefixed files never appear in your Changes panel.
 
 7. **Add your instructor as a collaborator** — repository **Settings → Collaborators → Add people**,
-   then `adamwstauffer`. Collaborator access is what allows a review branch or a pull request against
-   your work instead of an emailed paragraph.
-   *Confirm:* the invitation shows as pending. You do not need to wait for it.
+   then `adamwstauffer` — with the **w** — and pick that account from the list. Collaborator access
+   is what allows a review branch or a pull request against your work instead of an emailed paragraph.
+   *Confirm:* the invitation shows as pending. A pending invitation is the finished state — you do not
+   need to wait for it to be accepted, and nothing in the course waits on it.
 
 8. **Commit and push.** At least two commits, each with a message saying what changed —
    `Add portfolio skeleton and gitignore` rather than `update`.
@@ -157,12 +159,12 @@ anyone sees.
 - [ ] `adamwstauffer` invited as a collaborator
 - [ ] At least two commits, each with a message that says what changed
 
-## 8. Rubric (2 pts)
+## 8. Rubric
 
-| Criterion | Pts | What distinguishes strong work |
+| Criterion | % of stage | What distinguishes strong work |
 |---|---|---|
-| Repo live and public, professionally named | 1 | URL works without login; `firstname-lastname` naming; the bio in `README.md` is not placeholder text |
-| Skeleton, `.gitignore`, and commit hygiene | 1 | `docs/briefs/` in place and the root files present (`AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`); junk files filtered; at least two descriptive commits |
+| Repo live and public, professionally named | 50 | URL works without login; `firstname-lastname` naming; the bio in `README.md` is not placeholder text |
+| Skeleton, `.gitignore`, and commit hygiene | 50 | `docs/briefs/` in place and the root files present (`AGENTS.md`, `CLAUDE.md`, `RESUME.md`, `prompt-log.md`); junk files filtered; at least two descriptive commits |
 
 ## 9. Common failure modes
 

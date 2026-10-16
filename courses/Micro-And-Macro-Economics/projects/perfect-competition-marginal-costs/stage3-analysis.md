@@ -18,7 +18,6 @@ deliverables:
     format: markdown
     ai_boundary: human-first
 prerequisites: [1, 2]
-points: 9
 estimated_time: "3-4 hrs"
 ---
 
@@ -172,14 +171,14 @@ textbook rather than *your workbook's* numbers.
 - [ ] `capabilities/marginal-analysis/README.md` "exercised in:" line updated
 - [ ] At least two descriptive commits for this stage
 
-## 8. Rubric (9 pts)
+## 8. Rubric
 
-| Criterion | Pts | What distinguishes strong work |
+| Criterion | % of stage | What distinguishes strong work |
 |---|---|---|
-| P = MC evidence + binding constraints | 3 | Crossings shown from *your* model's numbers; the binding caps identified, with shadow prices from your own Solver run and what they say about which constraint to relax; slack constraints named; the memo turns that into a recommendation the farmer could act on |
-| MC dip + at-a-loss resolution | 2 | Dip mechanism (permanent-to-temporary wage switch) explained, not just observed; MC-versus-AVC shutdown logic resolves the loss-making crops correctly |
-| Figures + hypothesis revisit | 1 | At least two figures referenced in text and rendering on GitHub; honest comparison against the Stage 1 hypothesis |
-| Prompt log + reflection | 3 | Sessions curated, not dumped; reflection of 300 words or fewer with concrete instances of AI being wrong and *how you verified* — or, if nothing was caught, the checks that cleared it |
+| P = MC evidence + binding constraints | 33.5 | Crossings shown from *your* model's numbers; the binding caps identified, with shadow prices from your own Solver run and what they say about which constraint to relax; slack constraints named; the memo turns that into a recommendation the farmer could act on |
+| MC dip + at-a-loss resolution | 22 | Dip mechanism (permanent-to-temporary wage switch) explained, not just observed; MC-versus-AVC shutdown logic resolves the loss-making crops correctly |
+| Figures + hypothesis revisit | 11 | At least two figures referenced in text and rendering on GitHub; honest comparison against the Stage 1 hypothesis |
+| Prompt log + reflection | 33.5 | Sessions curated, not dumped; reflection of 300 words or fewer with concrete instances of AI being wrong and *how you verified* — or, if nothing was caught, the checks that cleared it |
 
 The memo carries no separate points. It is read together with the analysis under the P = MC evidence
 and binding-constraints criterion, which already asks what a farmer should conclude from a binding
@@ -205,3 +204,40 @@ rubric.
 - [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html) · [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html)
 - [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics), including [how work is submitted, with the post-deadline revision policy](https://adamwstauffer.github.io/ai-lms/onboarding.html#submitting)
 - [Case README](README.md) — assumptions and check figures
+
+## Addendum — 2026-10-15
+
+Clarifications added after the first cohort's reviews. Nothing above changes; where this addendum and the text above differ, the addendum applies.
+
+### A. Figures appear inline and render on github.com
+
+Every figure appears *in* the analysis, where the text refers to it — not listed as paths at the end. The image link is relative to the analysis file, so in `analysis/YYYY-MM-DD-perfect-competition-analysis.md` it reads:
+
+```markdown
+![Tomato marginal cost against price](figures/tomato-mc.png)
+```
+
+No leading slash, no `analysis/` prefix, and the file name spelled exactly as it is in the folder, capitals included — paths are case-sensitive. Open the analysis on github.com afterwards; a broken image means the path or the capitals are off. In Claude Code or Codex:
+
+> In my analysis file, replace every figure path listed as text with an inline Markdown image at the point where the text first refers to it, using paths relative to the analysis file. Check that each image file exists with that exact name. Show me the diff.
+
+### B. The prompt log and the reflection
+
+**An entry.** `prompt-log.md` at the root of your repository is a curated record of the AI sessions that mattered. One short entry per session, written at the time, in the first person: the date, the tool, what you asked, what came back, and what you kept, changed or rejected and why. It is not a transcript, and it is never reconstructed afterward. To close a session, paste:
+
+> Add a dated entry to `prompt-log.md` for this session: what I asked, what you produced, and what I changed or rejected and why. Write it in the first person, keep it under 120 words, and do not describe anything I did not actually do.
+
+**The reflection.** Never invent an AI error. If AI was wrong, give the original claim, your check, and the correction. If you caught nothing, document the checks that cleared it: the one-bed hand check against the labor function, the cross-check against the Farm Profit Lab, the two Solver starting points. "It seemed right" is not verification; a named check that came back clean is.
+
+### C. Paths for this stage
+
+From the root of your repository:
+
+| File | Path |
+|---|---|
+| Analysis | `analysis/YYYY-MM-DD-perfect-competition-analysis.md` |
+| Figures | `analysis/figures/` |
+| Memo | `docs/decisions/YYYY-MM-DD-perfect-competition-memo.md` |
+| Prompt log and reflection | `prompt-log.md` — the same file as Stage 0, a new dated section |
+
+`YYYY-MM-DD` is the date you create the file. Files already committed under earlier names count as they stand — nothing to rename. Never copy a `<placeholder>` from a template into a path; the names above are the names.
