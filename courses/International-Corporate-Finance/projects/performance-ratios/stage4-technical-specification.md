@@ -4,7 +4,6 @@
 
 **Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively.
 
-**Weight:** 20% of project score
 **Format:** Deliverable-only — no in-class presentation
 **Deliverable:** Technical specification (`.md`) you draft first and refine with an LLM, plus a prompt log entry and evidence of human-in-the-loop (HIL) iteration
 
@@ -207,7 +206,7 @@ This requirement is part of the "Spec craft + prompt log quality" rubric criteri
 
 ---
 
-## Rubric (Stage 4 = 20% of project)
+## Rubric (% of Stage 4 score)
 
 | Criterion | % of Stage 4 | What distinguishes strong work |
 |-----------|-------------:|--------------------------------|
