@@ -2,7 +2,6 @@
 
 **Step-by-step on Kumu:** [Stage 0 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage0.html)
 
-**Weight:** 5% of project score
 **Format:** Upload-only — no presentation component
 **Deliverable:** Public GitHub repository URL submitted via Lamaku
 

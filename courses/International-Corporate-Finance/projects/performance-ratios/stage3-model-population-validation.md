@@ -1,19 +1,32 @@
+---
+template: stage-brief
+project: performance-ratios
+stage: 3
+title: "Populated Financials"
+capability: performance-ratios
+deliverables:
+  - path: "models/builds/YYYY-MM-DD-{company-slug}-financials.xlsx"
+    format: xlsx
+  - path: "analysis/validation/YYYY-MM-DD-{company-slug}-identity-checks-log.md"
+    format: markdown
+prerequisites: [1, 2]
+---
+
 # Stage 3: Populated Financials
 
 **Step-by-step on Kumu:** [Stage 3 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage3.html)
 
 **Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively.
 
-**Weight:** 20% of project score
 **Format:** Upload-only — no presentation component
 **Deliverable:** Populated `.xlsx` with company financials
 
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template + Stage 2 company selection memo (you now know which company).
 > **Output (this stage):** A populated workbook at `models/builds/YYYY-MM-DD-{company-slug}-financials.xlsx` with Income Statement, Balance Sheet, and Cash Flow for the selected company.
-> **Used by:** Stage 4 (the data values populate the spec's "Data Inputs" section) and Stage 5 (the LLM analysis runs against these numbers; you'll manually verify ≥5 ratios from them).
+> **Used by:** Stage 4 (the data values populate the spec's "Data Inputs" section), Stage 5 (the LLM analysis runs against these numbers; you'll manually verify ≥5 ratios from them), and Stages 6–8 (the DCF reads every historical input from this workbook by name).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall pushing the workbook to your repo (file size, auth issues, etc.), you may upload it directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-financials.xlsx`). Using the Lamaku fallback does **not** reduce your Stage 3 grade. By Stage 5, the workbook must also live in your GitHub repo (`models/builds/`) — the Stage 5 polish rubric assumes the full project history is in the repo.
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall pushing the workbook to your repo (file size, auth issues, etc.), you may upload it directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-financials.xlsx`). Using the Lamaku fallback does **not** reduce your Stage 3 grade. By Stage 8, the workbook must also live in your GitHub repo (`models/builds/`) — the Stage 8 repo-polish rubric assumes the full project history is in the repo.
 
 > **Heads up — instructor write access.** If you haven't yet granted the instructor Write access on your repo (Stage 2 submission checklist item), do it now. Stage 5 grades how you incorporated the instructor's PR feedback on your Stage 2 memo, and PRs can't happen without write access.
 
@@ -54,6 +67,8 @@ Example: `2026-06-04-vinamilk-financials.xlsx`
 - Market/analyst assumptions sourced and entered (share price as of fiscal year-end, shares outstanding, cost of capital, tax rate)
 - For non-U.S. companies: reporting currency and any IFRS / VAS adjustments noted in the Cover & Instructions tab
 - Ratios tab auto-populates — do not modify formulas, only verify they compute
+- Notes tab **Units** row filled in with the currency and scale of every statement tab (for example "VND billion"); the statement tabs' subtitles defer to it
+- **Non-controlling interest.** If the filing reports non-controlling interest (also called minority interest), enter it inside shareholders' equity: the template has no separate line and folds it into equity, so the balance sheet still balances. Record the amount, both years, with its page reference, on the Notes tab. The Stage 6 DCF needs that figure for its equity bridge, and the workbook cannot supply it any other way
 
 ---
 
@@ -68,16 +83,36 @@ Example: `2026-06-04-vinamilk-financials.xlsx`
 | **Source documentation** | Cover & Instructions tab notes the reporting standard, currency, fiscal year end, and source 10-K URL | If you used a non-US filing (VAS annual report, IFRS 20-F), note that here. |
 | **Ratios tab is not blank** | Open the Ratios tab and confirm all rows show numbers (or `#DIV/0!` which the prior row catches) | If the entire tab is empty, you either skipped a financial-statement tab or you typed values into the wrong cells (the formulas reference *named ranges*, not cell addresses). |
 
-This is a self-check, not a deliverable — your Stage 3 grade is on the workbook itself. The deeper validation work happens at Stage 5 when the spec-driven analysis is produced and evaluated.
+### Run the `performance-ratios` skill's identity checks
+
+The skill you installed at Stage 1 lists the identities any model built on this workbook must satisfy (its Section 4). Four of them apply to the workbook alone: **1** balance sheet balances, **2** Du Pont ties, **4** operating income reconciles, **5** cash from operations rebuilds. The others apply to the DCF you build in Stage 7.
+
+Open Claude Code or Codex in your repo folder and prompt:
+
+```
+Use the performance-ratios skill in .claude/skills/performance-ratios/ to run
+identity checks 1, 2, 4 and 5 on models/builds/<your-file>.xlsx. First list
+every defined name the skill expects and flag any that is missing or empty.
+Report each check as pass or fail with the two numbers compared. Do not change
+any cells.
+```
+
+No AI tool installed? Upload the workbook and the skill's `SKILL.md` to Claude.ai or ChatGPT and use the same prompt.
+
+Save the report, unedited, as `analysis/validation/YYYY-MM-DD-{company-slug}-identity-checks-log.md`. Under each failure add one line: what caused it and what you changed. A failure almost always means a value went into the wrong cell or under the wrong sign — fix the entry, never a formula. Check 5 can differ from the cash from operations your company filed (the template's indirect method starts from net income; many filers start from profit before tax): that is not a failure to fix, it is a difference to explain in one sentence.
+
+The self-check table above is not a deliverable; the identity-check log is. The deeper validation work happens at Stage 5, when the spec-driven analysis is produced and evaluated, and at Stage 7, when the DCF built on this workbook is audited.
 
 ---
 
 ## What to submit
 
-Just commit the populated workbook to your repo. Stage 3 is graded by inspection of the file in `models/builds/`.
+Commit the populated workbook and the identity-check log to your repo. Stage 3 is graded by inspection of the file in `models/builds/` and the log in `analysis/validation/`.
 
 - [ ] `models/builds/YYYY-MM-DD-{company-slug}-financials.xlsx`
 - [ ] Cover & Instructions tab updated with source URL, reporting standard, currency, fiscal year end
+- [ ] Notes tab Units row filled in; non-controlling interest recorded on the Notes tab if the filing reports it
+- [ ] `analysis/validation/YYYY-MM-DD-{company-slug}-identity-checks-log.md` — the skill's report, each failure explained
 - [ ] Commit message describes what was populated (e.g., "Populate Vinamilk FY2024 + FY2023 financials")
 
 ---
@@ -93,14 +128,14 @@ Just commit the populated workbook to your repo. Stage 3 is graded by inspection
 | Data accuracy (ties to source 10-K) | 40% | Spot-checks from Cover tab match audited financials line-for-line |
 | Completeness (both years populated) | 25% | All `INC_*`, `BAL_*`, `CASH_*`, `startYear_*` cells filled |
 | Source documentation | 20% | Cover tab cites source, standard, currency, FYE; non-US adjustments noted |
-| Auto-computed ratios resolve cleanly | 15% | No `#REF!`, `#DIV/0!`, or `#NAME?` errors anywhere on Ratios tab |
+| Ratios resolve and identities pass | 15% | No `#REF!`, `#DIV/0!`, or `#NAME?` errors anywhere on Ratios tab; identity-check log committed, every failure fixed or explained |
 
 ---
 
 ## Tips
 
 - **Tie out, don't transcribe.** Open the source 10-K and the template side-by-side. Cross-check totals (e.g., Total Assets, Total Revenue) before trusting line-item entries.
-- **Currency and units matter.** Companies report in millions, billions, thousands, or units depending on the country. The Cover tab has a unit field — fill it in and stay consistent across tabs.
+- **Currency and units matter.** Companies report in millions, billions, thousands, or units depending on the country. The Notes tab has a Units row — fill it in and stay consistent across tabs; the statement tabs' subtitles defer to it.
 - **Don't interpret yet.** If a ratio looks weird, write it in your notes and bring it up in Stage 4's HIL iteration pass (a strange Stage 3 ratio is often a *spec gap* the LLM will inherit at Stage 5 — exactly the kind of thing the HIL iteration is meant to catch). Don't try to "fix" the data to make ratios behave.
 - **Commit incrementally.** Don't populate the entire workbook and commit once. Commit after each statement (one for IS, one for BS, one for CF). Your Stage 4 spec retrospective will benefit from a clean history.
 

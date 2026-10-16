@@ -85,20 +85,23 @@ The AI + GitHub project practices these skills:
 
 ### Project: Accounting Ratios Analysis
 
-A 6-stage spec-driven design project. Students stand up their own public GitHub portfolio repo, populate the provided ratios template with financials for a company of their choice (non-U.S. and ASEAN-listed firms encouraged), write their own technical specification and have an LLM review it before the two iterate, then have an LLM execute the spec to produce the final analysis — which they critically evaluate.
+A 9-stage spec-driven design project (Stages 0–8). Students stand up their own public GitHub portfolio repo, populate the provided ratios template with financials for a listed company of their choice (non-U.S. and ASEAN-listed firms encouraged), write their own technical specification and have an LLM review it before the two iterate, then have an LLM execute the spec to produce the ratio analysis — which they critically evaluate. The valuation arc follows: they adapt a published professional DCF skill to their own workbook, run it in a fresh agent session, audit what it builds, and write a valuation memo setting their value per share against the market price.
 
 | Stage | Deliverable | Format |
 |-------|-------------|--------|
 | 0 | Personal Portfolio Repository (bio in `README.md`, plus `RESUME.md`) | Repo URL |
-| 1 | Provided Ratios Template | `.xlsx` |
+| 1 | Provided Ratios Template (plus the `performance-ratios` skill) | `.xlsx`, `SKILL.md` |
 | 2 | Company Selection Memo | `.md` |
-| 3 | Populated Financials | `.xlsx` |
+| 3 | Populated Financials (plus identity-check log) | `.xlsx`, `.md` |
 | 4 | Technical Specification (your draft, LLM-reviewed, iterated) | `.md` |
-| 5 | LLM Analysis, Executive Evaluation, and Repo Polish | Repo URL |
+| 5 | LLM Ratio Analysis & Executive Evaluation | `.md` |
+| 6 | Modify the DCF Skill (baseline + edits, annotated diff) | `SKILL.md`, `.md` |
+| 7 | Run & Audit the DCF | `.xlsx`, `.md` |
+| 8 | Valuation Memo & Repo Polish | `.md`, Repo URL |
 
 **Format:** All stages are **deliverable-only** — no in-class presentations this semester.
 
-**Submission paths.** GitHub is the required submission channel — your Stage 5 deliverable is the public repo URL itself. Stages 2, 3, and 4 carry a **Lamaku-upload fallback** for students who hit hard blockers with Git setup; see the top of each stage doc for details. The fallback is a safety valve, not an alternate track — by Stage 5, all prior-stage artifacts must be consolidated into your GitHub repo.
+**Submission paths.** GitHub is the required submission channel — your Stage 8 deliverable is the public repo URL itself. Stages 2, 3, and 4 carry a **Lamaku-upload fallback** for students who hit hard blockers with Git setup; see the top of each stage doc for details. The fallback is a safety valve, not an alternate track — from Stage 5 on there is no fallback, and all prior-stage artifacts must be consolidated into your GitHub repo.
 
 **Student guides** (read as needed — none are required cover-to-cover):
 
@@ -111,7 +114,10 @@ A 6-stage spec-driven design project. Students stand up their own public GitHub 
 [Stage 2](../projects/performance-ratios/stage2-company-selection-memo.md) |
 [Stage 3](../projects/performance-ratios/stage3-model-population-validation.md) |
 [Stage 4](../projects/performance-ratios/stage4-technical-specification.md) |
-[Stage 5](../projects/performance-ratios/stage5-llm-analysis-evaluation.md)
+[Stage 5](../projects/performance-ratios/stage5-llm-analysis-evaluation.md) |
+[Stage 6](../projects/performance-ratios/stage6-dcf-skill-modification.md) |
+[Stage 7](../projects/performance-ratios/stage7-dcf-run-audit.md) |
+[Stage 8](../projects/performance-ratios/stage8-valuation-memo-repo-polish.md)
 
 
 ### Project flow at a glance
@@ -121,7 +127,7 @@ Each stage produces a named artifact that the next stage consumes. The chain loo
 ```
 Stage 0 — Personal Portfolio Repository: set up your portfolio repo
               ↓
-Stage 1 — Provided Ratios Template → models/templates/
+Stage 1 — Provided Ratios Template → models/templates/ (+ performance-ratios skill → .claude/skills/)
               ↓
 Stage 2 — Company Selection Memo → docs/decisions/
               ↓   (instructor reviews via pull request; you grant Write access)
@@ -129,11 +135,17 @@ Stage 3 — Populated Financials → models/builds/
               ↓
 Stage 4 — Technical Specification: you draft, an LLM reviews, you iterate → capabilities/performance-ratios/spec.md
               ↓   (one human-in-the-loop iteration recorded → in prompt log or docs/decisions/)
-Stage 5 — LLM Analysis, Executive Evaluation, and Repo Polish → analysis/
+Stage 5 — LLM Ratio Analysis & Executive Evaluation → analysis/
+              ↓
+Stage 6 — Modify the DCF Skill: copy, commit the baseline, edit, annotate the diff → .claude/skills/dcf-model/, capabilities/valuation/spec.md
+              ↓
+Stage 7 — Run & Audit the DCF: fresh session, audit-xls, manual verification → capabilities/valuation/model.xlsx, analysis/
+              ↓
+Stage 8 — Valuation Memo & Repo Polish → docs/decisions/
           Polish the whole repo; submit the repo URL on Lamaku.
 ```
 
-The repo at Stage 5 is your portfolio — the URL is shareable on LinkedIn and is the artifact the rubric grades.
+The repo at Stage 8 is your portfolio — the URL is shareable on LinkedIn and is the artifact the rubric grades.
 
 ### Project filename convention
 
@@ -161,6 +173,13 @@ Examples for a student analyzing Vinamilk:
 | 5 (verification) | `analysis/2026-07-03-vinamilk-verification-analysis.md` |
 | 5 (final analysis) | `analysis/2026-07-03-vinamilk-analysis.md` |
 | 5 (retrospective) | `analysis/2026-07-03-vinamilk-spec-retrospective-analysis.md` |
+| 6 (annotated diff) | `analysis/YYYY-MM-DD-vinamilk-dcf-skill-diff-analysis.md` |
+| 6 (run brief) | `capabilities/valuation/spec.md` |
+| 7 (DCF model) | `capabilities/valuation/model.xlsx` |
+| 7 (session log) | `analysis/YYYY-MM-DD-vinamilk-dcf-raw-log.md` |
+| 7 (audit) | `analysis/YYYY-MM-DD-vinamilk-dcf-audit-analysis.md` |
+| 7 (verification) | `analysis/YYYY-MM-DD-vinamilk-dcf-verification-analysis.md` |
+| 8 (valuation memo) | `docs/decisions/YYYY-MM-DD-vinamilk-valuation-memo.md` |
 
 The prompt log is `prompt-log.md` at the repository root. Files committed before 2026-10-02 under an
 older name or in an older folder still count as they are. A misplaced or misnamed file never blocks you and is still graded; it may cost a point under professionalism, and moving it to the path the brief names fixes that.
@@ -179,10 +198,12 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 | **Commit hash** | The unique ID (e.g., `ec8fa60`) of one commit. Used to point at a specific saved state. |
 | **Pull request (PR)** | A proposed change to your repo, opened by you or a collaborator (the instructor). You read the suggested edits, comment on them, and either merge or reject. The instructor uses PRs to give you feedback on your memo, spec, and final analysis. |
 | **YAML frontmatter** | The block of metadata at the top of a Markdown file, between two `---` lines. Looks like `title:`, `date:`, `author:`. The repo's templates use frontmatter to encode required fields — leave it intact when you customize a template. |
-| **Named range** | A label assigned to a cell or group of cells in Excel (e.g., `BAL_assets_total_2025`) so formulas can refer to the label instead of the cell address. The ratios template uses named ranges so the formulas survive when you copy the workbook. |
-| **Named-range notation** | The way we write formulas in the spec — using the named-range label instead of a cell address (e.g., `INC_net_income_2025 / BAL_assets_total_2025` rather than `B12 / D14`). |
+| **Named range** | A label assigned to a cell or group of cells in Excel (e.g., `BAL_assets_total_curr`) so formulas can refer to the label instead of the cell address. The ratios template uses named ranges so the formulas survive when you copy the workbook. |
+| **Named-range notation** | The way we write formulas in the spec — using the named-range label instead of a cell address (e.g., `INC_net / BAL_assets_total_curr` rather than `B12 / D14`). |
 | **Spec / specification** | The Stage 4 document that defines exactly what the analysis must do — precise enough that an LLM with no other context can execute it. |
 | **LLM** | Large Language Model — Claude, ChatGPT, Gemini, etc. The AI that reviews your Stage 4 spec draft and produces the Stage 5 first-draft analysis from your finished spec. |
+| **Skill** | A folder of instructions (`SKILL.md`) an AI agent such as Claude Code or Codex loads on demand. Your repo carries three: `performance-ratios` (Stage 1), and `dcf-model` and `audit-xls` (Stage 6). |
+| **DCF (discounted cash flow)** | A valuation that discounts the cash a company is expected to free in future years back to today, at the rate its capital costs. Stages 6–8. |
 | **HIL (human-in-the-loop)** | A workflow where you write the first draft, an LLM reviews it, and you judge each point of the review and revise the spec yourself. Required at Stage 4. |
 | **Diff** | A side-by-side comparison showing what changed between two versions of a file (the "before" and the "after"). Used in PRs and HIL iteration notes. |
 | **Annotated diff** | A diff with one-line notes added next to each change explaining *why* you made it. |
@@ -197,7 +218,8 @@ Terms used across the stage assignments. Skim once now; refer back as needed.
 ```
 courses/International-Corporate-Finance/projects/performance-ratios/
 ├── capabilities/
-│   └── performance-ratios/    # README.md + spec.md (Stage 4)
+│   ├── performance-ratios/    # README.md + spec.md (Stage 4)
+│   └── valuation/             # README.md + spec.md (Stage 6), model.xlsx (Stage 7)
 ├── docs/
 │   ├── decisions/             # Executive memos and decision documents
 │   ├── plans/                 # Project plans and timelines

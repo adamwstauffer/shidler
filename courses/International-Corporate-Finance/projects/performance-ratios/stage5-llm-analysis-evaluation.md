@@ -1,19 +1,38 @@
-# Stage 5: LLM Analysis, Executive Evaluation, and Repo Polish
+---
+template: stage-brief
+project: performance-ratios
+stage: 5
+title: "LLM Ratio Analysis & Executive Evaluation"
+capability: performance-ratios
+deliverables:
+  - path: "analysis/YYYY-MM-DD-{company-slug}-llm-raw-log.md"
+    format: markdown
+  - path: "analysis/YYYY-MM-DD-{company-slug}-verification-analysis.md"
+    format: markdown
+  - path: "analysis/YYYY-MM-DD-{company-slug}-analysis.md"
+    format: markdown
+  - path: "analysis/YYYY-MM-DD-{company-slug}-spec-retrospective-analysis.md"
+    format: markdown
+  - path: "prompt-log.md"
+    format: markdown
+prerequisites: [2, 3, 4]
+---
+
+# Stage 5: LLM Ratio Analysis & Executive Evaluation
 
 **Step-by-step on Kumu:** [Stage 5 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage5.html)
 
 **Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively.
 
-**Weight:** 25% of project score
 **Format:** Deliverable-only — no in-class presentation
-**Deliverable:** Polished GitHub repo URL submitted via Lamaku
+**Deliverable:** Five artifacts committed to your portfolio repo (table below)
 
 > **Where this fits in the project.**
 > **Input:** Stage 4 spec (executed by an LLM with no other context) + Stage 3 financials (for manual verification) + the instructor's PR feedback on your Stage 2 memo (for feedback incorporation).
-> **Output (this stage):** Six artifacts in your repo (raw LLM output, final analysis, manual verification table, spec retrospective, updated prompt log, and the polished repo itself), plus the public repo URL submitted on Lamaku.
-> **Used by:** You. The repo is your portfolio piece — share the URL on LinkedIn.
+> **Output (this stage):** Five artifacts in your repo (raw LLM output, final analysis, manual verification table, spec retrospective, updated prompt log).
+> **Used by:** Stage 7 (the manual verification table returns, in the same shape, to audit your DCF) and Stage 8 (the valuation memo builds on this analysis, and the repo polish pass covers every file you commit here).
 
-> **About the GitHub-vs-Lamaku question.** Stage 5's deliverable **is** the GitHub repo URL — the repo itself is the artifact. Lamaku is only used to submit the URL pointer. The Lamaku fallback available at earlier stages (memo, workbook, spec uploaded directly) does **not** apply at Stage 5: by this point, all prior-stage artifacts must be consolidated into your public GitHub repo. The polish rubric assumes the full project history lives in the repo. If you used Lamaku for any earlier stage, push those artifacts to the repo before the Stage 5 deadline.
+> **GitHub only from here on.** The Lamaku fallback available at Stages 2–4 does **not** apply at Stage 5 or after: the artifacts are committed to your repo. If you used Lamaku for any earlier stage, push those artifacts to the repo now — Stages 6–8 read them there, and the Stage 8 repo polish assumes the full project history lives in the repo.
 
 > **Unfamiliar terms?** "PR," "commit history," "named range," "spec," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
 
@@ -21,19 +40,16 @@
 
 ## Overview
 
-The capstone. Three things happen at this stage:
+The ratio analysis closes here. Two things happen at this stage:
 
 1. **Execute your Stage 4 spec with an LLM** to produce the full ratio analysis you deferred from Stage 3.
 2. **Verify, evaluate, correct, and annotate** the AI-generated output — including a manual recomputation of at least five ratios — and write a structured spec retrospective on what you'd change.
-3. **Polish your repository** so it stands as a professional artifact you'd link from your LinkedIn.
 
-Stage 5's deliverable is the repo URL itself — its final state *is* the work product.
+The repo polish pass now closes the whole project, in Stage 8, after the valuation arc (Stages 6–8) has added its files.
 
-## Why this is the capstone
+## Why this stage matters
 
 The future of finance work is not "do the analysis" or "make the AI do the analysis." It's **specify the work, evaluate the output, and take responsibility for the final product**. This stage tests judgment — and closes the spec-driven design feedback loop. Where the LLM output diverges from your Stage 3 numbers or your domain knowledge, either the spec had a gap or one of your earlier stages had an error. Either way, you learn.
-
-The repo polish component recognizes a separate truth: a portfolio artifact a manager, audit reviewer, or future collaborator can find is worth more than a perfect analysis stuck in a personal Dropbox.
 
 ---
 
@@ -50,7 +66,7 @@ All filenames are **lowercase**, hyphen-separated, dated `YYYY-MM-DD`, and named
 | 5 | Updated prompt log | `prompt-log.md` (repository root) | Logs the Stage 5 LLM session(s) |
 | 6 | (Optional) Stage 2 feedback response | `docs/decisions/YYYY-MM-DD-{company-slug}-feedback-response-memo.md` | If the instructor's Stage 2 feedback resulted in scope or framing changes, document them here. Otherwise, show feedback incorporation in commits to the original Stage 2 memo. |
 
-**Suggested production order:** 1 → 2 → 3 → 4 → 5, then the repo polish pass (plus #6 if you're shipping a standalone feedback-response memo). Producing the raw LLM output first and the verification table second forces you to confront discrepancies *before* you start writing the final analysis — which is the discipline this stage is teaching.
+**Suggested production order:** 1 → 2 → 3 → 4 → 5 (plus #6 if you're shipping a standalone feedback-response memo). Producing the raw LLM output first and the verification table second forces you to confront discrepancies *before* you start writing the final analysis — which is the discipline this stage is teaching.
 
 ---
 
@@ -84,11 +100,13 @@ Create `analysis/YYYY-MM-DD-{company-slug}-verification-analysis.md` with at lea
 
 | Ratio | Formula (named-range notation) | Manual value (show arithmetic) | LLM's value | Match? | One-line note |
 |---|---|---|---|---|---|
-| ROA | `INC_net_income_2025` / ((`BAL_assets_total_2025` + `BAL_assets_total_2024`) / 2) | 12,500 / ((100,000 + 96,000) / 2) = 12.76% | 12.76% | ✓ | LLM used correct averaging convention |
-| Current Ratio | `BAL_current_assets_2025` / `BAL_current_liabilities_2025` | 45,000 / 30,000 = 1.50 | 1.50 | ✓ | — |
-| Days Sales Outstanding | (`BAL_receivables_2025` / `INC_revenue_2025`) × 365 | (8,000 / 80,000) × 365 = 36.5 days | 36.0 days | ✗ | LLM used 360-day convention without disclosing |
-| Inventory Turnover | `INC_cogs_2025` / ((`BAL_inventory_2025` + `BAL_inventory_2024`) / 2) | 60,000 / ((15,000 + 13,000) / 2) = 4.29× | 4.62× | ✗ | LLM used end-of-year inventory only, not the two-year average |
-| Debt-to-Equity | `BAL_debt_total_2025` / `BAL_equity_total_2025` | 35,000 / 50,000 = 0.70 | 0.70 | ✓ | — |
+| ROA (average assets) | `currentYear_after_tax_operating_income` / ((`BAL_assets_total_curr` + `BAL_assets_total_prior`) / 2) | 12,500 / ((100,000 + 96,000) / 2) = 12.76% | 12.76% | ✓ | LLM used the averaging convention of the template's ROA [avg] row |
+| Current Ratio | `BAL_assets_current_curr` / `BAL_liabilities_current_curr` | 45,000 / 30,000 = 1.50 | 1.50 | ✓ | — |
+| Average collection period | `BAL_receivables_prior` / (`INC_sales` / 365) | 8,000 / (80,000 / 365) = 36.5 days | 36.0 days | ✗ | LLM used a 360-day year without disclosing it |
+| Inventory Turnover | `INC_cost_goods_sold` / `BAL_inventories_prior` | 60,000 / 13,000 = 4.62× | 4.00× | ✗ | LLM used year-end inventory (`BAL_inventories_curr`, 15,000), not the start-of-year balance the template uses |
+| Long-term debt-to-equity | `BAL_debt_long_term_curr` / `BAL_equity_shareholders_curr` | 35,000 / 50,000 = 0.70 | 0.70 | ✓ | — |
+
+The figures above are illustrative, not from any company. The names are the template's own: see the Ratios tab, and Formulas → Name Manager, for the full list. Balance-sheet names end in `_curr` (current year-end) or `_prior` (prior year-end); income-statement and cash-flow names carry no year suffix because they hold the current year only.
 
 Discrepancies are not failures — they are the most informative rows in the table. A discrepancy with a one-line note explaining its cause earns full credit; a missing or unflagged discrepancy does not.
 
@@ -107,7 +125,7 @@ The template requires:
 5. **Forward link** — one sentence on what changes in how you approach the next spec.
 6. **Retrospective process feedback** (≤150 words) — a structural suggestion for the template itself, graded for thoughtfulness.
 
-Vague rows ("Part A.4 was OK") do not earn the verdict. Specificity ("Part A.4 listed `BAL_assets_total` without year suffix; LLM pulled FY2024 instead of FY2025 in the ROA computation") does.
+Vague rows ("Part A.4 was OK") do not earn the verdict. Specificity ("Part A.4 listed `BAL_assets_total` without its `_curr` / `_prior` suffix; the LLM pulled the prior year-end instead of the current one in the ROA computation") does.
 
 ---
 
@@ -141,140 +159,21 @@ This is not a hard gate; it is a rubric line. A strong project that genuinely ha
 
 ---
 
-## Repo polish checklist
-
-By Stage 5, your repo should look like a professional portfolio artifact. **Budget 2–3 hours** for this pass — most of the time is per-directory READMEs and the commit-history cleanup, not the README itself. Don't leave this for the night before.
-
-### Target directory hierarchy
-
-Use this as your reference. A polished Stage 5 repo should look like this (filenames will reflect your own company):
-
-```
-firstname-lastname/                         (your portfolio repo root)
-├── README.md                               # Project overview, status, "what you'll find here"
-├── RESUME.md                               # Your resume (from Stage 0)
-├── LICENSE                                 # MIT or Apache-2.0
-├── .gitignore                              # Excludes .DS_Store, ~$*.xlsx, *.tmp, etc.
-│
-├── docs/
-│   ├── README.md                           # Explains what's in docs/
-│   └── decisions/
-│       ├── README.md
-│       ├── 2026-05-21-{company}-selection-memo.md             # Stage 2 memo
-│       ├── 2026-06-19-{company}-spec-iteration-memo.md        # (optional) Stage 4 HIL note
-│       └── 2026-07-03-{company}-feedback-response-memo.md     # (optional) Stage 5 follow-up
-│
-├── capabilities/
-│   └── performance-ratios/
-│       ├── README.md
-│       └── spec.md                                            # Stage 4 spec
-│
-├── models/
-│   ├── README.md
-│   ├── templates/
-│   │   └── performance-ratios-template.xlsx                   # Stage 1 (unmodified)
-│   └── builds/
-│       └── 2026-06-04-{company}-financials.xlsx               # Stage 3
-│
-├── analysis/
-│   ├── README.md
-│   ├── 2026-07-02-{company}-llm-raw-log.md                    # Stage 5 raw LLM output
-│   ├── 2026-07-03-{company}-verification-analysis.md          # Stage 5 verification table
-│   ├── 2026-07-03-{company}-analysis.md                       # Stage 5 final analysis
-│   ├── 2026-07-03-{company}-spec-retrospective-analysis.md    # Stage 5 retrospective
-│   └── validation/
-│       └── README.md                                          # Stage 3 self-audit notes
-│
-└── prompt-log.md                                              # All AI sessions logged (repo root)
-```
-
-### Checklist
-
-Before submitting:
-
-- [ ] Top-level `README.md` updated with project status section listing every stage (0 through 5) and its commit hash
-- [ ] Top-of-README "what you'll find here" block — one paragraph orienting a manager, reviewer, or peer who just clicked the repo link
-- [ ] **One-line repo description** set in the GitHub repo page header (the field at the top of the repo page, not in the README) — summarizes the project in one sentence
-- [ ] **`LICENSE` file** at repo root (MIT or Apache-2.0 recommended — pick one, both signal "this is a portfolio piece you may reference")
-- [ ] **`.gitignore`** excluding common scratch files (`.DS_Store`, `~$*.xlsx`, `*.tmp`, etc.) — keeps the repo clean
-- [ ] Every directory has a `README.md` explaining what's inside
-- [ ] All dated filenames follow `YYYY-MM-DD-{company-slug}-{type}.{ext}` (older names already submitted still count)
-- [ ] No orphan files, dead links, or `_temp/` directories
-- [ ] Commit history is clean (descriptive messages; no `wip` or `asdf` commits)
-- [ ] Repo is **public** and accessible without login
-
-### Pro tip — use an LLM to reorganize and clean up your repo
-
-The polish pass is exactly the kind of routine reorganization an LLM is good at. Two approaches depending on which AI tool you're using:
-
-**Option 1 — Claude Code (in your terminal):**
-
-```
-cd ~/path/to/your/firstname-lastname
-claude
-```
-
-Then prompt:
-
-```
-Read every file in this repo. Compare the current structure against the Stage 5
-target hierarchy in:
-https://raw.githubusercontent.com/adamwstauffer/shidler/main/courses/International-Corporate-Finance/projects/performance-ratios/stage5-llm-analysis-evaluation.md
-
-Identify:
-1. Misnamed files (not following YYYY-MM-DD-{company}-{slug}-{type} convention; older names with my last name are fine to leave)
-2. Files in the wrong directory
-3. Missing per-directory READMEs (every folder should have one)
-4. Orphan or temp files that should be deleted
-
-For each issue, propose the exact git mv command or git rm command to fix it.
-Do NOT run any commands yourself. Print the list of commands so I can review
-each one before executing.
-
-After that list, draft per-directory README.md files for any directory missing one.
-Use 4–6 sentences each: what's in the directory, naming conventions used, how it
-relates to the project stages.
-```
-
-**Option 2 — Claude.ai or ChatGPT (web, no install):**
-
-Compress your repo to a `.zip`, upload it to the LLM, and paste:
-
-```
-I have uploaded my portfolio repo as a zip. The Stage 5 target structure is
-documented at:
-https://raw.githubusercontent.com/adamwstauffer/shidler/main/courses/International-Corporate-Finance/projects/performance-ratios/stage5-llm-analysis-evaluation.md
-
-Audit my repo against that target. Produce:
-1. A table of every file currently in the repo, with columns: current path |
-   correct path | action needed (rename / move / delete / keep)
-2. Draft per-directory README.md text for every directory that needs one
-3. A list of any missing artifacts (e.g., LICENSE, .gitignore) with suggested
-   minimal content I can copy in
-
-Be specific. Do not say "rename inconsistent files" — list the exact files.
-```
-
-**What the LLM should NOT do at Stage 5:** Generate the actual analysis content for you, or rewrite your final analysis to "improve" it. The polish pass is about file organization and presentation, not about the analytical substance — that substance is what the rubric is grading.
-
-**Log the prompt** in `prompt-log.md` (repository root). The repo-cleanup conversation is just as logged-worthy as the analytical ones.
+> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline — expanding the verification table, tightening the final-analysis edits, completing the spec retrospective — can move your score up. The full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
 
 ---
 
-> **Post-deadline revision sweep.** After this stage's due date, I'll re-run the rubric against your repo state. Improvements you commit before the deadline — expanding the verification table, tightening the final-analysis edits, completing the spec retrospective, finishing the repo polish — can move your score up. The full rubric applies, no cap on the bump. You don't need to email or open an issue; just revise the files in your repo. One sweep per stage; the score locks once the sweep runs.
-
----
-
-## Rubric (Stage 5 = 25% of project)
+## Rubric (% of Stage 5 score)
 
 | Criterion | % of Stage 5 | What distinguishes strong work |
 |-----------|-------------:|--------------------------------|
-| Analytical correctness (ratios, Du Pont, interpretation) | 25% | Numbers tie to source; interpretations are defensible; LLM errors caught and corrected |
-| Manual verification artifact | 10% | ≥5 ratios recomputed by hand from Stage 3 financials; discrepancies with the LLM's values flagged and explained |
+| Analytical correctness (ratios, Du Pont, interpretation) | 30% | Numbers tie to source; interpretations are defensible; LLM errors caught and corrected |
+| Manual verification artifact | 15% | ≥5 ratios recomputed by hand from Stage 3 financials; discrepancies with the LLM's values flagged and explained |
 | LLM evaluation + spec retrospective (template-backed) | 25% | Specific, actionable critique of both the AI output and your own spec; retrospective uses the template structure with evidence-tied verdicts |
-| Strategic recommendations + executive voice | 20% | Each rec backed by ratio evidence; recommendations are actionable; voice is yours, not the LLM's |
+| Strategic recommendations + executive voice | 25% | Each rec backed by ratio evidence; recommendations are actionable; voice is yours, not the LLM's |
 | Stage 2 feedback incorporation | 5% | Visible response to the instructor's PR comments — revised memo, follow-up memo, or commit history that references the feedback |
-| Repo polish (structure, READMEs, naming, commits, license, description) | 15% | Repo presents as a professional artifact; no rough edges; expanded polish checklist satisfied |
+
+Repo polish is graded at Stage 8.
 
 ---
 
@@ -284,7 +183,6 @@ Be specific. Do not say "rename inconsistent files" — list the exact files.
 - **Verify before you interpret.** The manual verification table is your discipline check — don't skip it and don't dash it off. The most impressive rows are the ones where you caught the LLM in a unit error or an averaging shortcut.
 - **Diverge with evidence.** If your Stage 3 numbers and the LLM's interpretation disagree, you have to pick a side and defend it. Don't paper over the disagreement.
 - **Let the retrospective be honest.** "My spec was perfect" earns fewer points than "My Part B section 9 was vague — I told the LLM to 'recommend strategic actions' without specifying evidence standards, so it gave generic recommendations." Specificity is the rubric.
-- **Polish the repo last — but not last-night.** Don't let it become an evening-before scramble. Allocate a dedicated commit pass for READMEs, naming, license, and repo description.
 - **If you tried a Claude Skill or plugin** (see Stage 4 sidebar and [Kumu AI lab](https://adamwstauffer.github.io/ai-lms/ailab.html)), include a one-line note in your final analysis or prompt log on what you learned. Ungraded; portfolio-shaped.
 
 ---
@@ -304,7 +202,7 @@ In an institutional setting — corporate FP&A, sell-side research, buy-side ana
 | **Compare your company in isolation, with no peer set** | `financial-analysis:comps-analysis` pulls a peer set from FactSet / S&P Capital IQ (live-data connectors), computes operating metrics and trading multiples, and benchmarks your company's ratios against the peer median and quartiles — the standard institutional view. |
 | **Write generic strategic recommendations** | `equity-research:initiate` or `equity-research:thesis` drafts an institutional-quality investment thesis with catalysts, risks, and a target-price range — anchored to the comps and a DCF rather than to a single-company read. |
 | **Hand-type the LLM evaluation section** | `financial-analysis:debug-model` and `pitch-agent:ib-check-deck` run a structural audit of the analysis itself — checking number consistency across sections, narrative-data alignment, and IB-standard language. |
-| **Repo polish by hand** | `pitch-agent:pitch-deck` and `financial-analysis:competitive-analysis` produce a branded deck of the same analysis automatically; the repo becomes the working file, the deck becomes the client-facing deliverable. |
+| **Present the analysis by hand** | `pitch-agent:pitch-deck` and `financial-analysis:competitive-analysis` produce a branded deck of the same analysis automatically; the repo becomes the working file, the deck becomes the client-facing deliverable. |
 
 ### What this means for you
 
@@ -316,6 +214,6 @@ In an institutional setting — corporate FP&A, sell-side research, buy-side ana
 
 The lightest-weight experiment: install `financial-analysis:audit-xls` and run it against your Stage 3 workbook (the same workbook you've been working in all semester). Full walkthrough prompts are in [Kumu AI lab](https://adamwstauffer.github.io/ai-lms/ailab.html). Plan ~30 minutes including the Claude Code install.
 
-That one experiment shows you the gap between what a general-purpose LLM does well and what purpose-built finance tooling does.
+That one experiment shows you the gap between what a general-purpose LLM does well and what purpose-built finance tooling does. It is also a head start: Stage 7 runs `audit-xls` on the DCF you build in Stage 6.
 
 **Optional.** Adding a `docs/decisions/YYYY-MM-DD-{company-slug}-ai-tooling-memo.md` memo (100–300 words: what you tried, what it did well, what it got wrong, whether you'd use it on a real engagement) records what you learned from it.

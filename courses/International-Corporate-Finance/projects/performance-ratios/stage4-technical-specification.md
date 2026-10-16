@@ -4,7 +4,6 @@
 
 **Collaborator penalty:** from Stage 2 on, a stage loses 5 raw points if `adamwstauffer` is not a Write collaborator on your repository at its deadline; fixing it before a stage's deadline lifts the penalty retroactively.
 
-**Weight:** 20% of project score
 **Format:** Deliverable-only — no in-class presentation
 **Deliverable:** Technical specification (`.md`) you draft first and refine with an LLM, plus a prompt log entry and evidence of human-in-the-loop (HIL) iteration
 
@@ -13,7 +12,7 @@
 > **Output (this stage):** A technical specification at `capabilities/performance-ratios/spec.md`, plus visible evidence of at least one HIL iteration (in your prompt log, or as `docs/decisions/YYYY-MM-DD-{company-slug}-spec-iteration-memo.md`).
 > **Used by:** Stage 5 (you feed *only* this spec to an LLM to produce the full analysis — the spec must stand alone).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Name the upload `{company-slug}-spec.md`. Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 5, the spec must also live in `capabilities/performance-ratios/` in your GitHub repo — the Stage 5 polish rubric assumes the full project history is in the repo.
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you cannot push the spec to your repo, you may upload the `.md` file (and your prompt-log entry, as a separate file if needed) directly to Lamaku as a fallback. Name the upload `{company-slug}-spec.md`. Using the Lamaku fallback does **not** reduce your Stage 4 grade. By Stage 8, the spec must also live in `capabilities/performance-ratios/` in your GitHub repo — the Stage 8 repo-polish rubric assumes the full project history is in the repo.
 
 > **Heads up — instructor write access.** If you haven't yet granted the instructor Write access on your repo, do it now (Stage 2 submission checklist item). How you incorporated the instructor's PR feedback on your Stage 2 memo is 5% of the Stage 5 grade, and it is unearnable without write access.
 
@@ -207,7 +206,7 @@ This requirement is part of the "Spec craft + prompt log quality" rubric criteri
 
 ---
 
-## Rubric (Stage 4 = 20% of project)
+## Rubric (% of Stage 4 score)
 
 | Criterion | % of Stage 4 | What distinguishes strong work |
 |-----------|-------------:|--------------------------------|
