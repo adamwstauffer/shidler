@@ -15,7 +15,6 @@ deliverables:
     format: markdown
     ai_boundary: human-first
 prerequisites: [1]
-points: 8
 estimated_time: "3-4 hrs"
 ---
 
@@ -237,14 +236,14 @@ session is exactly what belongs in it.
 - [ ] `README.md` in the capability folder, with an "exercised in:" line
 - [ ] At least two descriptive commits for this stage
 
-## 8. Rubric (8 pts)
+## 8. Rubric
 
-| Criterion | Pts | What distinguishes strong work |
+| Criterion | % of stage | What distinguishes strong work |
 |---|---|---|
-| Spec completeness — inputs, structure, calculation flow | 3 | Every input named with units and source; the labor function, the permanent-then-temporary costing convention, and the blended-rate allocation all stated in named-range notation, unambiguously enough to build from without knowing the case |
-| Spec validation rules | 2 | Check figures stated as acceptance criteria *before* the build, alongside the `q = 1` hand check and the structural rules (formulas not values, no error cells) |
-| Workbook satisfies the contract | 2 | Formulas referencing named inputs rather than pasted values; Solver reproduces 10/20/30 at $42,762; constraint checks green; no error cells |
-| Audit note | 1 | At least three concrete checks run, each named with what it would have caught, and any defects found documented with the fix |
+| Spec completeness — inputs, structure, calculation flow | 37.5 | Every input named with units and source; the labor function, the permanent-then-temporary costing convention, and the blended-rate allocation all stated in named-range notation, unambiguously enough to build from without knowing the case |
+| Spec validation rules | 25 | Check figures stated as acceptance criteria *before* the build, alongside the `q = 1` hand check and the structural rules (formulas not values, no error cells) |
+| Workbook satisfies the contract | 25 | Formulas referencing named inputs rather than pasted values; Solver reproduces 10/20/30 at $42,762; constraint checks green; no error cells |
+| Audit note | 12.5 | At least three concrete checks run, each named with what it would have caught, and any defects found documented with the fix |
 
 ## 9. Common failure modes
 
@@ -268,3 +267,44 @@ session is exactly what belongs in it.
 - [Farm Profit Lab](https://adamwstauffer.github.io/ai-lms/farmlab.html) — an independent implementation of this model, for cross-checking
 - [Portfolio repo standard](https://adamwstauffer.github.io/ai-lms/portfolio-repo.html) · [AI conventions](https://adamwstauffer.github.io/ai-lms/ai-conventions.html)
 - [Git mechanics](https://adamwstauffer.github.io/ai-lms/onboarding.html#git-mechanics), including [how work is submitted, with the post-deadline revision policy](https://adamwstauffer.github.io/ai-lms/onboarding.html#submitting)
+
+## Addendum — 2026-10-15
+
+Clarifications added after the first cohort's reviews. Nothing above changes; where this addendum and the text above differ, the addendum applies.
+
+### A. Solver results have to survive the commit
+
+GitHub stores the workbook; it never runs it. Solver's answer stays in the file only if Excel saves it, and saves it last.
+
+1. In desktop Excel, run Solver from each starting point and choose **Keep Solver Solution** (not *Restore Original Values*) after each run.
+2. In the Solver dialog, use **Load/Save → Save** to store the model in a spare range of the sheet, so the file carries the setup.
+3. Save the workbook as `model.xlsx`. On github.com, open the `capabilities/marginal-analysis` folder, choose **Add file → Upload files**, drop in the saved file, and commit to `main`.
+4. Download the file back from github.com and open it: the decision cells should hold the solved values, and the numbers should all be there.
+
+A scripted edit after the Excel save — an assistant touching the file — can wipe the calculated values. If an assistant edits the workbook, open it in Excel and save it once more before you commit. Before committing, in Claude Code or Codex:
+
+> Open `capabilities/marginal-analysis/model.xlsx` read-only and tell me how many formula cells have no saved value, and whether a Solver model is stored in the sheet. Do not edit or re-save the workbook.
+
+### B. Every acceptance rule states its tolerance
+
+A check that demands exact equality fails on a fraction of a cent. In `capabilities/marginal-analysis/spec.md`, state each acceptance rule with the margin it accepts — "profit within $5 of the check figure", "hand check within 0.01 hours" — and build each check cell as `ABS(model − target) <= tolerance`. Then break one on purpose: change an input, watch the check turn red, change it back. A check that has never failed has not been shown to work.
+
+> Read `capabilities/marginal-analysis/spec.md` and list every validation rule that does not state a tolerance. Propose a tolerance for each and the matching `ABS(model − target) <= tolerance` check. Change nothing until I confirm.
+
+### C. Enter derivations, not rounded display values
+
+Where the [case README](README.md) scenario table shows a derived value — an hourly rate, an hours-per-bed figure — the table now shows its derivation beside it. Enter that derivation as a formula from the underlying givens, name the input, and write the derivation into the spec. A rounded value typed in is the usual reason a profit comes out a few dollars off the check figure.
+
+> List every input in `capabilities/marginal-analysis/spec.md` and `capabilities/marginal-analysis/model.xlsx` typed as a rounded decimal where the case gives the quantities it is derived from. For each, show the derivation. Change the spec first; do not edit the workbook until I confirm.
+
+### D. Paths for this stage
+
+From the root of your repository:
+
+| File | Path |
+|---|---|
+| Specification, with the audit findings | `capabilities/marginal-analysis/spec.md` |
+| Workbook | `capabilities/marginal-analysis/model.xlsx` |
+| Capability README | `capabilities/marginal-analysis/README.md` |
+
+Files already committed under earlier names count as they stand — nothing to rename. Never copy a `<placeholder>` from a template into a path; the names above are the names. To move a misnamed file on github.com, open it, click the **pencil**, and edit the name box at the top (a `/` moves it into a folder), then commit. Optional: `git mv old/path new/path`, then commit and push.
