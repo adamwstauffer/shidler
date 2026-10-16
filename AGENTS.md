@@ -69,7 +69,7 @@ Most projects follow a reusable pedagogical pattern. The default is five stages:
 **The archived BUS-314 project used a 4-stage variant** (build-first, prompt merged into final):
 1. Memo → 2. Excel Build → 3. Spec (post-build) → 4. Final Analysis + Prompt
 
-**The current Performance Ratios project (BUS 629) uses a 6-stage variant** (Stage 0–5: repo setup, template architecture, company selection, model population/validation, technical specification, LLM analysis evaluation).
+**The current Performance Ratios project (BUS 629) uses a 9-stage variant** (Stage 0–8: repo setup, template architecture, company selection, model population/validation, technical specification, LLM ratio analysis evaluation, then the valuation arc: DCF skill modification, DCF run and audit, valuation memo and repo polish).
 
 Stage files are named `stage[N]-[description].md`, numbered **per case** (Stage 0 is repo setup where a project has one; content stages start at 1) — the containing
 folder already scopes the case, so the filename does not encode it again (decided 2026-08-02; the
@@ -98,7 +98,7 @@ Branch naming: `launch/<term>`, `feat/<slug>`, `fix/<slug>`, `docs/<slug>`.
 | BUS 620 | Micro- and Macro-Economics | MBA | Team cases + individual research |
 | BUS 620 DLEMBA | Micro- and Macro-Economics | Distance EMBA | Cases + individual research (no team case) |
 | BUS 122B | Intro Entrepreneurship/Sustainable Ag | Community college | Business plan + pitch |
-| BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (6-stage, spec-driven) |
+| BUS 629 | International Corporate Finance | Vietnam EMBA | Performance ratios (9-stage, spec-driven + DCF valuation) |
 
 Note: there is no separate "DCF" project — confirmed via repo-wide search, no such materials exist. The GAAP-conversion methodology (the accounting-standards conversion framework decision of 2026-05-24, kept privately) is implemented as one supporting artifact (`courses/International-Corporate-Finance/projects/performance-ratios/models/templates/gaap-bridge-template.xlsx`) inside the Performance Ratios project, not a standalone project.
 

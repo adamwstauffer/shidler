@@ -7,3 +7,4 @@ sandbox — try things here. When a skill proves itself across engagements, it c
 | Skill | What it does |
 |-------|--------------|
 | [formula-check](formula-check/SKILL.md) | Audits a workbook for hardcoded values in calculated cells |
+| [performance-ratios](performance-ratios/SKILL.md) | The workbook's named-range contract: what each name means, derived valuation inputs, identities a model built on it must satisfy |
