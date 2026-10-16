@@ -11,7 +11,7 @@ Corporate finance fundamentals — financing and investment decisions, securitie
 
 ## Shared Curriculum
 
-[`projects/performance-ratios/`](projects/performance-ratios/) — the current project design (spec-driven, 6-stage: repo setup through LLM analysis evaluation). This is what BUS 629 teaches today; if an undergraduate offering resumes, it would use this same shared project rather than reviving the archived BUS-314 design.
+[`projects/performance-ratios/`](projects/performance-ratios/) — the current project design (spec-driven, 9-stage: repo setup through LLM ratio analysis evaluation, then a DCF valuation arc ending in a valuation memo and repo polish). This is what BUS 629 teaches today; if an undergraduate offering resumes, it would use this same shared project rather than reviving the archived BUS-314 design.
 
 ## Directory Contents
 
@@ -26,7 +26,7 @@ International-Corporate-Finance/
 │       ├── capabilities/                    performance-ratios/ (README.md + the Stage 4 spec.md)
 │       ├── docs/                            decisions/, plans/, templates/
 │       ├── models/                          builds/ (populated models), templates/ (blank frameworks)
-│       └── stage0-repo-setup.md … stage5-llm-analysis-evaluation.md
+│       └── stage0-repo-setup.md … stage8-valuation-memo-repo-polish.md
 └── README.md                                you are here
 ```
 

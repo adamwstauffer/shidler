@@ -13,9 +13,10 @@ derived from them, and what has to hold true for a downstream model to be truste
 
 1. List every defined name and the cell it points to. Any name below that is missing, points to an
    empty cell or returns an error is a stop: report it, do not guess a value.
-2. Read the Cover for the **currency and scale** of the statements (for example "VND million",
-   "EUR thousand"). Every amount on the statement tabs carries that unit. The statement tabs'
-   subtitles may still say `$millions` from the template — the Cover wins; fix the subtitle.
+2. Read the **currency and scale** of the statements from the Notes tab's Units row (for example
+   "VND million", "EUR thousand"). Every amount on the statement tabs carries that unit; the tabs'
+   subtitles defer to it. An older copy of the template whose subtitles still say `$millions` is
+   overruled by the Units row.
 3. Read the four analyst assumptions on the Ratios tab and where each came from.
 
 ## 2. Naming convention
@@ -24,7 +25,7 @@ derived from them, and what has to hold true for a downstream model to be truste
 |---|---|---|
 | `BAL_<item>_curr`, `BAL_<item>_prior` | Balance-sheet line, current or prior year-end | `BAL_debt_long_term_curr`, `BAL_equity_shareholders_prior` |
 | `INC_<item>` | Income-statement line, current year only | `INC_sales`, `INC_ebit`, `INC_interest_expense` |
-| `CASH_<item>` | Cash-flow subtotal, current year only | `CASH_operating`, `CASH_investments` |
+| `CASH_<item>` | Cash-flow subtotal, current year only | `CASH_operating`, `CASH_investments`, `CASH_capex`, `CASH_working_capital_change` |
 | no prefix | Analyst assumption | `share_price`, `shares_outstanding`, `cost_capital`, `tax_rate` |
 | `startYear_<item>` | Alias of a prior-year balance | `startYear_equity` ≡ `BAL_equity_shareholders_prior` |
 | `currentYear_<item>` | Current-year balance or derived figure | `currentYear_after_tax_operating_income` |
@@ -52,8 +53,8 @@ formula on the Ratios tab (or on the model's own sheet) — never type the numbe
 | NOPAT (operating profit after tax) | `INC_ebit × (1 − tax_rate)` | Unlevered: no interest, no other income. |
 | After-tax operating income (as named) | `currentYear_after_tax_operating_income` = `INC_net + (1 − tax_rate) × INC_interest_expense` | This **includes after-tax other income** (interest earned on cash, investment gains). Fine for return ratios; overstates the operating cash flow a DCF should discount. |
 | Average capital | `avg_total_capitalization` | Long-term debt + equity, averaged. Return on capital uses `startYear_total_capitalization` or this — say which. |
-| Capital expenditure | the Cash Flow Statement's capital-expenditures line | **Not named in the template.** Add `CASH_capex` before using it. Recorded as a negative (cash out). |
-| Change in working capital | the Cash Flow Statement's total-change-in-working-capital line | **Not named.** Add `CASH_working_capital_change`. Positive = cash released. |
+| Capital expenditure | `CASH_capex` (the Cash Flow Statement's capital-expenditures line) | Named in the template. Recorded as a negative (cash out). A workbook built from an older copy of the template may lack the name: add it, pointing at that line, before using it. |
+| Change in working capital | `CASH_working_capital_change` (the total-change-in-working-capital line) | Named in the template (older copies: add it). Positive = cash released. |
 | Free cash flow (base year) | NOPAT + `INC_depreciation` + `CASH_capex` + `CASH_working_capital_change` | Signs as recorded on the cash-flow tab: capex already negative, a working-capital build already negative. |
 | Effective tax rate | `INC_taxes / INC_taxable_income` | Compare with `tax_rate`; a large gap needs a sentence, not a silent pick. |
 
@@ -77,8 +78,8 @@ Check each one and report it as pass / fail with the two numbers compared. A fai
    `(1 − tax_rate) × INC_other_income + (tax_rate × INC_taxable_income − INC_taxes)`. The second
    term is zero when reported tax equals `tax_rate × INC_taxable_income`. If it does not
    reconcile, a name is pointing at the wrong line.
-5. **Cash from operations rebuilds**: `CASH_operating` = `INC_net + INC_depreciation` + total
-   change in working capital. If it differs from the cash-flow statement the company filed, say
+5. **Cash from operations rebuilds**: `CASH_operating` = `INC_net + INC_depreciation` +
+   `CASH_working_capital_change`. If it differs from the cash-flow statement the company filed, say
    by how much and why (the template's indirect method starts from net income; many filers start
    from profit before tax).
 6. **Cost of capital is bracketed**: a weighted average cost of capital lies between the
