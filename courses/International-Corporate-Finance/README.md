@@ -13,7 +13,7 @@ Corporate finance fundamentals — financing and investment decisions, securitie
 
 ## Shared Curriculum
 
-[Performance-ratios case on Kumu](https://adamwstauffer.github.io/ai-lms/international-corporate-finance.html) — the current project design (spec-driven, 6-stage: repo setup through LLM analysis evaluation). This is what BUS 629 teaches today; if an undergraduate offering resumes, it uses this same case rather than reviving the retired BUS-314 design.
+[Performance-ratios case on Kumu](https://adamwstauffer.github.io/ai-lms/international-corporate-finance.html) — the current project design (spec-driven, 9-stage: repo setup through LLM ratio analysis evaluation, then a DCF valuation arc ending in a valuation memo and repo polish). This is what BUS 629 teaches today; if an undergraduate offering resumes, it uses this same case rather than reviving the retired BUS-314 design.
 
 ## Directory Contents
 

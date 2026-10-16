@@ -2,7 +2,7 @@
 
 **Shidler College of Business, University of Hawaiʻi at Mānoa** | Undergraduate
 
-**Course tutorials:** [International Corporate Finance on Kumu](https://adamwstauffer.github.io/ai-lms/international-corporate-finance.html) — the performance-ratios case, stage by stage (Stage 0 repo setup through Stage 5 LLM analysis evaluation), plus the labs and reference pages it assumes. Kumu is organized by subject and carries no course codes; this README is the signpost from the code to the material.
+**Course tutorials:** [International Corporate Finance on Kumu](https://adamwstauffer.github.io/ai-lms/international-corporate-finance.html) — the performance-ratios case, stage by stage, plus the labs and reference pages it assumes. Kumu is organized by subject and carries no course codes; this README is the signpost from the code to the material.
 
 ## Status
 

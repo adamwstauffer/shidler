@@ -1,8 +1,19 @@
+---
+template: stage-brief
+project: performance-ratios
+stage: 2
+title: "Company Selection Memo"
+capability: performance-ratios
+deliverables:
+  - path: "docs/decisions/YYYY-MM-DD-{company-slug}-selection-memo.md"
+    format: markdown
+prerequisites: [1]
+---
+
 # Stage 2: Company Selection Memo
 
 **Step-by-step on Kumu:** [Stage 2 walkthrough](https://adamwstauffer.github.io/ai-lms/performance-ratios-stage2.html)
 
-**Weight:** 10% of project score
 **Format:** Deliverable-only — no in-class presentation
 **Deliverable:** Markdown memo (`.md`) committed to your portfolio repo
 
@@ -15,9 +26,9 @@
 > **Where this fits in the project.**
 > **Input:** Stage 1 ratios template (you already have a copy in your repo).
 > **Output (this stage):** A memo at `docs/decisions/YYYY-MM-DD-{company-slug}-selection-memo.md` selecting the company you'll analyze for the rest of the semester.
-> **Used by:** Stage 3 (you populate the template with this company's financials) and Stage 5 (graded on how you incorporated the instructor's tracked feedback on this memo).
+> **Used by:** Stage 3 (you populate the template with this company's financials), Stage 5 (graded on how you incorporated the instructor's tracked feedback on this memo), and Stages 6–8 (you value this company with a DCF and set your value per share against its market price).
 
-> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall with Git setup or pushing your work, you may upload this memo directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-selection-memo.md`). Using the Lamaku fallback does **not** reduce your Stage 2 grade. By Stage 5, the memo must also live in your repo at `docs/decisions/` — your Stage 5 polish rubric assumes the full project history is in the repo. **The Lamaku fallback does not waive the collaborator requirement above — add `adamwstauffer` either way.**
+> **Submission alternative — Lamaku upload.** GitHub is the required submission path. If you hit a hard wall with Git setup or pushing your work, you may upload this memo directly to Lamaku as a fallback. Use the same filename convention (`YYYY-MM-DD-{company-slug}-selection-memo.md`). Using the Lamaku fallback does **not** reduce your Stage 2 grade. By Stage 8, the memo must also live in your repo at `docs/decisions/` — the Stage 8 repo-polish rubric assumes the full project history is in the repo. **The Lamaku fallback does not waive the collaborator requirement above — add `adamwstauffer` either way.**
 
 > **Unfamiliar terms?** "PR" (pull request — the mechanism GitHub uses to deliver tracked feedback documents), "YAML frontmatter," "10-K," and other recurring terms are defined in the [Project glossary in the BUS-629 README](README.md#project-glossary).
 
@@ -82,19 +93,20 @@ You can verify by reloading the Collaborators page — `adamwstauffer` should ap
 ## Company eligibility
 
 - Publicly traded on a major exchange (NYSE, NASDAQ, HOSE, HNX, SGX, SET, IDX, PSE, Bursa Malaysia, or other recognized exchange)
+- **An observable share price.** You value the company in Stages 6–8 and set your value per share against its market price, so the shares must trade and you must be able to cite a dated closing price (the exchange, the company's investor-relations page, or a market-data site). An unlisted subsidiary, a delisted firm, or a stock suspended from trading does not qualify.
 - Annual report or 10-K equivalent available with sufficient detail for ratio computation
 - Non-financial company (banks, insurance, and REITs have materially different ratio structures)
 - Minimum 2 years of comparable data (current year + prior year)
 
 ### Non-U.S. companies are encouraged
 
-Especially firms listed on Vietnamese or ASEAN exchanges. If financial statements are in a language other than English, the ratio analysis and all deliverables must still be written in English. Note any IFRS vs. U.S. GAAP differences that affect ratio interpretation.
+Especially firms listed on Vietnamese or ASEAN exchanges. **Non-USD reporters are welcome**: every stage, the valuation included, works in the company's own reporting currency — nothing is converted to dollars, and the market price is taken in the currency the shares trade in. If financial statements are in a language other than English, the ratio analysis and all deliverables must still be written in English. Note any IFRS vs. U.S. GAAP differences that affect ratio interpretation.
 
 ---
 
 ## Required sections
 
-1. **Company Overview** — Name, ticker, exchange, industry, brief business description, market cap, reporting currency.
+1. **Company Overview** — Name, ticker, exchange, industry, brief business description, market cap, reporting currency, and a recent share price with its date and source.
 2. **Selection Rationale** — Why this company? Relevance to your industry, employer, career goals, or analytical interest. What makes it a compelling ratio analysis subject? (e.g., recent M&A, industry disruption, capital structure shift, cross-border operations).
 3. **Data Availability & Sources** — Confirm access to 10-K / annual report / audited financials. Identify specific data sources (SEC EDGAR, company IR page, HOSE disclosure portal, Yahoo Finance, etc.). Note fiscal year end and reporting standards (U.S. GAAP, IFRS, VAS).
 4. **Preliminary Observations** — 2–3 initial hypotheses about what the ratio analysis might reveal. Each hypothesis must state a **direction** and a **reason** in the form **"I expect X because Y"** (e.g., "I expect rising leverage ratios from FY2023 → FY2024 because Vinamilk financed its Indochina expansion with USD debt issued in early 2024"). Open-ended framings ("we'll see what the ratios show") do not earn full credit.
@@ -112,7 +124,7 @@ Draft the memo yourself in the template first — your company, your reasons, yo
 Copy the template, rename it per the convention above, and fill in all six required sections in your own words. Your first draft must contain:
 
 - **Your company and why** — the selection and one sentence on why, leading the Executive Summary
-- **Eligibility, checked** — publicly traded, non-financial, 2+ years of statements you have actually located
+- **Eligibility, checked** — publicly traded with a share price you can cite, non-financial, 2+ years of statements you have actually located
 - **2–3 hypotheses in "I expect X because Y" form** — each with a direction and a reason
 - **The ratio categories that matter for this industry, and why**
 - **Your data plan** — the specific sources (SEC EDGAR, HOSE portal, the company's IR page), currency and accounting standard
@@ -200,7 +212,7 @@ For Stage 2, the simplest path is to **paste the raw template URL and your draft
 
 ---
 
-## Rubric (Stage 2 = 10% of project)
+## Rubric (% of Stage 2 score)
 
 | Criterion | % of Stage 2 |
 |-----------|-------------:|
