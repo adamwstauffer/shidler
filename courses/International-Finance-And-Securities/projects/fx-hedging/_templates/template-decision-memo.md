@@ -1,7 +1,7 @@
 ---
 type: brief                # "brief" for the Stage 1 executive brief; "memo" for the Stage 5 decision memo
 title: ""
-scenario: ""               # your scenario slug, e.g. solar-exporter
+scenario: ""               # your scenario slug, e.g. beef-processor
 date: YYYY-MM-DD
 hypothesis: ""             # Stage 1 only: "I expect X because Y"
 llm_used: ""               # the LLM you used, or "None"
