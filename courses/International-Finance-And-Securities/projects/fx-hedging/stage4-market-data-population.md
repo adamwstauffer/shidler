@@ -32,8 +32,8 @@ results will not match anyone else's, and they aren't supposed to.
 | Input | Source guidance |
 | ----- | --------------- |
 | `S0_in` — EURUSD spot | Any reputable quote source (e.g., Yahoo Finance, Bloomberg, ECB reference rate). Record source + timestamp. |
-| `R_USD`, `R_FC` — 1-year interest rates | A 1-year government yield or deposit/reference rate per currency. **Document which rate you chose and why** — the choice matters more than the decimals. |
-| `F0_in` — 1-year forward | Use a live forward quote if you can find one; otherwise **compute the CIP-implied forward** from your spot and rates — `F0 = S0 × (1 + R_USD×T/360) / (1 + R_FC×T/360)` — and say so. Compare to your scenario's indicative forward and comment on the gap. |
+| `R_USD`, `R_FC` — interest rates to settlement | A government yield or deposit/reference rate per currency, at or near your scenario's tenor (`T_DAYS`). **Document which rate you chose and why** — the choice matters more than the decimals. |
+| `F0_in` — forward to settlement | Use a live forward quote if you can find one; otherwise **compute the CIP-implied forward** from your spot and rates — `F0 = S0 × (1 + R_USD×T/360) / (1 + R_FC×T/360)` — and say so. Compare to your scenario's indicative forward and comment on the gap. |
 | `K_PUT`, `K_CALL` — strikes | Set at or near your live spot, per the scenario convention. |
 | `PREM_PUT`, `PREM_CALL` — premiums | Keep the scenario-given premiums (retail-accessible option quotes are unreliable); note this explicitly as an assumption. |
 | `FC_AMT`, `T_DAYS` | From your scenario. |
