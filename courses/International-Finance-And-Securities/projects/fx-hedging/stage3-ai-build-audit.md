@@ -50,7 +50,8 @@ The finished workbook must have, verifiable by inspection (and by the grading sc
    put and call with premium cost in USD and proceeds as a function of `S_T`.
 6. **Sensitivity table + chart** — ±5% in 1% steps, formula-driven (no hand-typed rows).
 7. **Validation checks live in the workbook** — the parity check and any other check figures
-   from your spec §7, computed, visible, and passing.
+   from your spec §7, computed and visible. A check that fails is reported in your audit note,
+   never forced to pass.
 
 ## Tool guidance
 

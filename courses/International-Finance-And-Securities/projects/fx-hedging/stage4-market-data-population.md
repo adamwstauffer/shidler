@@ -65,8 +65,9 @@ the decimals.
    else should need to change. If a formula breaks or an output stops making sense, the
    structure was wrong: fix it and record what you fixed (this is not a penalty — finding it
    *is* the exercise).
-3. **Re-run the checks** — parity check passes with live data; sensitivity table and chart
-   recalculate around the new spot.
+3. **Re-run the checks** — sensitivity table and chart recalculate around the new spot. Report
+   what the parity check shows and never change an input to make it pass: record any gap in the
+   memo, with its size, so Stage 5 can deal with what it means.
 4. **Cross-check against the FX Hedging Lab** on the course website: enter your live inputs into
    the lab and compare its forward / money-market / option outputs to your workbook. If they
    disagree, one of them is wrong — find out which before submitting, and record the resolution

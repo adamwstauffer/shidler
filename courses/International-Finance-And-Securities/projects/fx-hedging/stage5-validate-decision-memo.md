@@ -54,6 +54,9 @@ is a production test of your documents. Log the prompt.
 - **C. Sensitivity interpretation** — behavior under EUR depreciation/appreciation; certainty
   vs. flexibility vs. cost.
 - **D. Recommendation** — one strategy (or combination), supported by *your live-data* numbers.
+  Say whether your scenario's indicative forward, any live quote you found, and your CIP-implied
+  forward agree. If they do not, give the gap as a rate and in USD on your receivable, say what
+  you think explains it, and say whether it changes your recommendation.
 - **E. Executive justification** — cash-flow stability, budget certainty, liquidity, optionality,
   premium cost; accounting implications optional.
 
@@ -89,7 +92,7 @@ of the five options is in the Stage 4 brief.)
 | --------- | ----------- | -----: |
 | LLM execution & comparison | Clean two-document run; complete comparison table; discrepancies diagnosed, not just listed | 25% |
 | Hand verification | ≥3 outcomes recomputed with arithmetic shown; reconciled to the workbook | 25% |
-| Recommendation & executive voice | Data-supported, decision-ready, CFO-appropriate | 25% |
+| Recommendation & executive voice | Data-supported, decision-ready, CFO-appropriate; any parity break surfaced, sized and explained | 25% |
 | Spec retrospective | Specific, honest, ties LLM failures to spec gaps | 17% |
 | Repo polish | Checklist complete; repo is genuinely portfolio-ready | 8% |
 
