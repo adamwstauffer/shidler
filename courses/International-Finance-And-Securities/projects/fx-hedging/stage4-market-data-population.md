@@ -33,7 +33,7 @@ results will not match anyone else's, and they aren't supposed to.
 | ----- | --------------- |
 | `S0_in` — EURUSD spot | Any reputable quote source (e.g., Yahoo Finance, Bloomberg, ECB reference rate). Record source + timestamp. |
 | `R_USD`, `R_FC` — interest rates to settlement | A government yield or deposit/reference rate per currency, at or near your scenario's tenor (`T_DAYS`). **Document which rate you chose and why** — the choice matters more than the decimals. |
-| `F0_in` — forward to settlement | Use a live forward quote if you can find one; otherwise **compute the CIP-implied forward** from your spot and rates — `F0 = S0 × (1 + R_USD×T/360) / (1 + R_FC×T/360)` — and say so. Compare to your scenario's indicative forward and comment on the gap. |
+| `F0_in` — forward to settlement | Keep the bank's quote: your scenario's forward, or a requote you asked the bank (your instructor) for. Then **compute the CIP-implied forward** from your live spot and rates — `F0 = S0 × (1 + R_USD×T/360) / (1 + R_FC×T/360)` — and compare it with the quote, as a rate and in USD on your receivable. Never replace the quote with your own rate; if the gap convinces you the quote is wrong, ask for a requote. |
 | `K_PUT`, `K_CALL` — strikes | Set at or near your live spot, per the scenario convention. |
 | `PREM_PUT`, `PREM_CALL` — premiums | Keep the scenario-given premiums (retail-accessible option quotes are unreliable); note this explicitly as an assumption. |
 | `FC_AMT`, `T_DAYS` | From your scenario. |
