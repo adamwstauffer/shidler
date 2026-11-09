@@ -43,7 +43,10 @@ built without a spec is a model nobody else can audit.
 Use your assigned scenario's parameters (`scenarios.md`) as **placeholder inputs**, clearly
 flagged as *"indicative — replaced with live market data at Stage 4."* Where the scenario says
 you set the value (strikes at/near spot, interest rates), state the placeholder you chose and
-how Stage 4 will source the real one.
+how Stage 4 will source the real one. Spot and interest rates come from the market, with a source
+and a date: never pick them to make another figure come out. The forward is the bank's quote, not
+a placeholder: it stays your `F0_in`, and if you think it is wrong you ask the bank (your
+instructor) for a requote rather than substituting your own.
 
 ---
 

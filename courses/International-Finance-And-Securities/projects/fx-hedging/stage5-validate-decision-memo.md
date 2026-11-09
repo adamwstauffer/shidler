@@ -54,8 +54,8 @@ is a production test of your documents. Log the prompt.
 - **C. Sensitivity interpretation** — behavior under EUR depreciation/appreciation; certainty
   vs. flexibility vs. cost.
 - **D. Recommendation** — one strategy (or combination), supported by *your live-data* numbers.
-  Say whether your scenario's indicative forward, any live quote you found, and your CIP-implied
-  forward agree. If they do not, give the gap as a rate and in USD on your receivable, say what
+  Say whether the bank's forward quote (or your requote) and your CIP-implied forward
+  agree. If they do not, give the gap as a rate and in USD on your receivable, say what
   you think explains it, and say whether it changes your recommendation.
 - **E. Executive justification** — cash-flow stability, budget certainty, liquidity, optionality,
   premium cost; accounting implications optional.

@@ -15,13 +15,15 @@ the firm, the amount and the settlement date are yours alone.
 - **Spot** and both **interest rates** (`S0_in`, `R_USD`, `R_FC`) are yours to find: until Stage 4,
   use the market close on the day you begin Stage 2, and record the date and source. At Stage 4 you
   replace them with live data.
-- **Forward (indicative)** is a placeholder for `F0_in` until Stage 4, when you replace it with a
-  live forward or the CIP-implied forward, and comment on the gap.
+- **Forward (indicative)** is the bank's quote to your firm, and it is your `F0_in` at every stage.
+  If you think it is mispriced, ask the bank (your instructor, by email) for a requote and use the
+  requote; never replace the quote with a rate of your own. At Stage 4 you compute the CIP-implied
+  forward from your live spot and rates as a check, and report how it compares.
 - **Option premiums** are given and are kept at Stage 4: retail option quotes are unreliable. The
   strikes (`K_PUT`, `K_CALL`) are set at or near your spot.
 
-The indicative forwards and the premiums were set on 2026-10-18 for teaching. They are
-placeholders, not market quotes.
+The forwards and the premiums were quoted on 2026-10-18. They stand unless you ask the bank for a
+requote.
 
 ---
 ### Scenario 1: `wafer-inspection`
