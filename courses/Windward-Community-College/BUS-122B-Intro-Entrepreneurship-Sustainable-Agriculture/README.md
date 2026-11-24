@@ -105,7 +105,7 @@ A lecture is posted every **Thursday**.
 | 10 | Mar 25 | **Financial statements:** P&L, cash flow and balance sheet that agree |
 | 11 | Apr 1 | **Legal, regulatory and risk:** registering, permits, certification, taxes |
 | 12 | Apr 8 | **Finalizing the business plan:** assemble and defend |
-| 13 | Apr 15 | **Funding your farm:** grants, loans, private and community capital |
+| 13 | Apr 15 | **Funding your sustainable agriculture business:** grants, loans, private and community capital |
 | 14 | Apr 22 | **The investor pitch:** story, numbers, the ask |
 | 15 | Apr 29 | **Pitch feedback and course wrap:** written feedback on your draft pitch arrives on Lamaku |
 | 16 | — | *No lecture (instruction ends Wed May 5)* |
