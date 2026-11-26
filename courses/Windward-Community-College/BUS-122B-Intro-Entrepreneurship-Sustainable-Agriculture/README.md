@@ -26,7 +26,7 @@ This course takes you from an idea to a fundable small business in sustainable a
 3. **An Investor Pitch**: a short deck and a recorded presentation
 4. **The start of a website**: the pages and the facts a customer, a search engine or an AI assistant would need to find you
 
-You can build your own venture: a farm, a value-added food product, or a service that supports local agriculture. If you don't have one, you can develop the course's worked example, a half-acre market garden. Each week adds one piece, and the pieces fit together into the final plan.
+You can build your own venture: a farm, a value-added food product, or a service that supports local agriculture. Every student builds their own venture. If you don't have an idea yet, the first two stages help you find one. The course's worked example, a half-acre market garden, shows what each piece looks like when it is done. Each week adds one piece, and the pieces fit together into the final plan.
 
 **Why this course starts with food security.** Hawaiʻi imports most of what it eats, through a supply chain with very little slack. The opening week asks why that makes local, sustainable food production a business opportunity and not only a cause. The rest of the course is about building a business that can seize it.
 
@@ -105,7 +105,7 @@ A lecture is posted every **Thursday**.
 | 10 | Mar 25 | **Financial statements:** P&L, cash flow and balance sheet that agree |
 | 11 | Apr 1 | **Legal, regulatory and risk:** registering, permits, certification, taxes |
 | 12 | Apr 8 | **Finalizing the business plan:** assemble and defend |
-| 13 | Apr 15 | **Funding your farm:** grants, loans, private and community capital |
+| 13 | Apr 15 | **Funding your sustainable agriculture business:** grants, loans, private and community capital |
 | 14 | Apr 22 | **The investor pitch:** story, numbers, the ask |
 | 15 | Apr 29 | **Pitch feedback and course wrap:** written feedback on your draft pitch arrives on Lamaku |
 | 16 | — | *No lecture (instruction ends Wed May 5)* |
